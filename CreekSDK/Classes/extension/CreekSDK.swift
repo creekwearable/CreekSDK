@@ -1,0 +1,1211 @@
+//
+//  CreekSDK.swift
+//  CreekSDK
+//
+//  Created by bean on 2023/6/7.
+//
+
+import Foundation
+import Flutter
+import FlutterPluginRegistrant
+import SwiftProtobuf
+
+public typealias activitysClosure = (_ model:BaseModel<[ActivityModel]>) -> ()
+public typealias heartRatesClosure = (_ model:BaseModel<[HeartRateModel]>) -> ()
+public typealias stresssClosure = (_ model:BaseModel<[StressModel]>) -> ()
+public typealias noisesClosure = (_ model:BaseModel<[NoiseModel]>) -> ()
+public typealias oxygensClosure = (_ model:BaseModel<[OxygenModel]>) -> ()
+public typealias sleepsClosure = (_ model:BaseModel<[SleepModel]>) -> ()
+public typealias sportsClosure = (_ model:BaseModel<[SportModel]>) -> ()
+public typealias hrvsClosure = (_ model:BaseModel<[HrvModel]>) -> ()
+public typealias sportClosure = (_ model:BaseModel<SportModel>) -> ()
+public typealias devicesBack = (_ model:[ScanDeviceModel]) -> ()
+public typealias deviceBack = (_ model:ScanDeviceModel) -> ()
+public typealias ephemerisData = (_ model:Data) -> ()
+public typealias progressBase = (_ progress:Int) -> ()
+public typealias baseClosure = (_ model:BaseModel<BaseDataModel>) -> ()
+public typealias successBase = () -> ()
+public typealias failureBase = () -> ()
+public typealias endScanBase = () -> ()
+public typealias failureArgument = (_ code:Int,_ message:String) -> ()
+public typealias firmwareBase = (_ model:protocol_device_info) -> ()
+public typealias timeBase = (_ model:protocol_device_time_inquire_reply) -> ()
+public typealias languageBase = (_ model:protocol_language_inquire_reply) -> ()
+public typealias userBase = (_ model:protocol_user_info_operate) -> ()
+public typealias alarmBase = (_ model:protocol_alarm_inquire_reply) -> ()
+public typealias disturbBase = (_ model:protocol_disturb_inquire_reply) -> ()
+public typealias screenBase = (_ model:protocol_screen_brightness_inquire_reply) -> ()
+public typealias monitorBase = (_ model:protocol_health_monitor_inquire_reply) -> ()
+public typealias sleepMonitorBase = (_ model:protocol_sleep_monitor_inquire_reply) -> ()
+public typealias waterBase = (_ model:protocol_drink_water_inquire_reply) -> ()
+public typealias findPhoneWatchBase = (_ model:protocol_find_phone_watch_inquire_reply) -> ()
+public typealias voiceBase = (_ model:protocol_voice_assistant_inquire_reply) -> ()
+public typealias worldTimeBase = (_ model:protocol_world_time_inquire_reply) -> ()
+public typealias standingBase = (_ model:protocol_standing_remind_inquire_reply) -> ()
+public typealias messageTypeBase = (_ model:protocol_message_notify_func_support_reply) -> ()
+public typealias messageAppBase = (_ model:protocol_message_notify_data_inquire_reply) -> ()
+public typealias messageOnOffBase = (_ model:protocol_message_notify_switch_inquire_reply) -> ()
+public typealias callBase = (_ model:protocol_call_switch_inquire_reply) -> ()
+public typealias contactsBase = (_ model:protocol_frequent_contacts_inquire_reply) -> ()
+public typealias sosContactsBase = (_ model:protocol_emergency_contacts_inquire_reply) -> ()
+public typealias cardBase = (_ model:protocol_quick_card_inquire_reply) -> ()
+public typealias sportTypeBase = (_ model:protocol_exercise_func_support_reply) -> ()
+public typealias sportSortBase = (_ model:protocol_exercise_sport_mode_sort_inquire_reply) -> ()
+public typealias sportSubBase = (_ model:protocol_exercise_sporting_param_sort_inquire_reply) -> ()
+public typealias sportIdentificationBase = (_ model:protocol_exercise_intelligent_recognition_inquire_reply) -> ()
+public typealias watchDialBase = (_ model:protocol_watch_dial_plate_inquire_reply) -> ()
+public typealias hotKeyBase = (_ model:protocol_button_crown_inquire_reply) -> ()
+public typealias menstrualBase = (_ model:protocol_menstruation_inquire_reply) -> ()
+public typealias focusBase = (_ model:protocol_focus_mode_inquire_reply) -> ()
+public typealias tableBase = (_ model:protocol_function_table) -> ()
+public typealias bluetoothStatusBase = (_ model:protocol_connect_status_inquire_reply) -> ()
+public typealias rawQueryDBClosure = (_ jsonString:String) -> ()
+public typealias SNFirmwareBase = (_ sn:String) -> ()
+
+
+
+@objc open class CreekSDK: NSObject{
+    
+    var connectStatus: connectionStatus = connectionStatus.none
+    public static let instance = CreekSDK()
+    var requestId:Int = 0
+    var methodChannel : FlutterMethodChannel?
+    var flutterEngine : FlutterEngine?
+    var _noticeUpdateListen:((_ model:NoticeUpdateModel) -> ())?         //固件通知更新
+    var _eventReportListen:((_ model:EventReportModel) -> ())?           //固件上报通知
+    var _exceptionListen:((_ model:String) -> ())?                       //蓝牙原生日志
+    var _listenDeviceState:((_ status:connectionStatus,_ deviceName:String)->())?   //监听设备
+    var _inTransitionDevice:((_ connectState:Bool)->())?
+    var _queryConnectedDevice:((_ deviceId:String) ->())?
+    var _connect:((_ connectState:Bool)->())?
+    var SNFirmwareDic:[String:SNFirmwareBase] = [:]
+    var endScanDic:[String:endScanBase] = [:]
+    var deviceBackDic:[String:deviceBack] = [:]
+    var devicesBackDic:[String:devicesBack] = [:]
+    var progressDic:[String:progressBase] = [:] //同步进度
+    var successDic:[String:successBase] = [:]
+    var failureDic:[String:failureBase] = [:]
+    var failureArgumentDic:[String:failureArgument] = [:]
+    var baseClosureDic:[String:baseClosure] = [:]
+    var firmwareDic:[String:firmwareBase] = [:]
+    var timeDic:[String:timeBase] = [:]
+    var languageDic:[String:languageBase] = [:]           //语言
+    var userDic:[String:userBase] = [:]       //用户信息偏好设置
+    var alarmDic:[String:alarmBase] = [:]      //获取闹钟
+    var disturbDic:[String:disturbBase] = [:]      //获取勿扰
+    var screenDic:[String:screenBase] = [:]      //屏幕获取
+    var monitorDic:[String:monitorBase] = [:]      //健康监测
+    var sleepMonitorDic:[String:sleepMonitorBase] = [:]     //睡眠监测
+    var waterDic:[String:waterBase] = [:]      //喝水提醒获取
+    var findPhoneWatchDic:[String:findPhoneWatchBase] = [:]      //寻找手表
+    var voiceDic:[String:voiceBase] = [:]      //语音助手
+    var worldTimeDic:[String:worldTimeBase] = [:]      //世界时钟
+    var standingDic:[String:standingBase] = [:]      //世界时钟
+    var messageTypeDic:[String:messageTypeBase] = [:]      //获取设备支持的消息类型
+    var messageAppDic:[String:messageAppBase] = [:]      //app消息提醒查询
+    var messageOnOffDic:[String:messageOnOffBase] = [:]      //app消息提醒查询
+    var callDic:[String:callBase] = [:]                     //app消息提醒查询
+    var contactsDic:[String:contactsBase] = [:]     //常用联系人
+    var sosContactsDic:[String:sosContactsBase] = [:]      //紧急联系人
+    var cardDic:[String:cardBase] = [:]                 //快捷卡片
+    var sportTypeDic:[String:sportTypeBase] = [:]       //设备支持运动类型
+    var sportSortDic:[String:sportSortBase] = [:]      //运动排列顺序查询
+    var sportSubDic:[String:sportSubBase] = [:]       //运动排列顺序查询
+    var sportIdentificationDic:[String:sportIdentificationBase] = [:]      //运动自识别
+    var watchDialDic:[String:watchDialBase] = [:]       //表盘
+    var hotKeyDic:[String:hotKeyBase] = [:]            //快捷键
+    var menstrualDic:[String:menstrualBase] = [:]           //女性健康
+    var focusDic:[String:focusBase] = [:]                //专注模式
+    var tableDic:[String:tableBase] = [:]                           //功能表
+    var bluetoothStatusDic:[String:bluetoothStatusBase] = [:]
+    var rawQueryDBClosureDic:[String:rawQueryDBClosure] = [:]
+    var activitysClosureDic:[String:activitysClosure] = [:]
+    var heartRatesClosureDic:[String:heartRatesClosure] = [:]
+    var stresssClosureDic:[String:stresssClosure] = [:]
+    var noisesClosureDic:[String:noisesClosure] = [:]
+    var oxygensClosureDic:[String:oxygensClosure] = [:]
+    var sleepsClosureDic:[String:sleepsClosure] = [:]
+    var sportsClosureDic:[String:sportsClosure] = [:]
+    var sportClosureDic:[String:sportClosure] = [:]
+    var hrvsClosureDic:[String:hrvsClosure] = [:]
+    var ephemerisClosureDic:[String:ephemerisData] = [:]
+    var logPathClosure:((_ path:String) -> ())?
+    
+    public override init() {
+        
+        super.init()
+    }
+    
+    public func setupInit(){
+        flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
+        flutterEngine?.run(withEntrypoint: nil)
+        GeneratedPluginRegistrant.register(with: flutterEngine!)
+        methodChannel = FlutterMethodChannel(name: "com.watchic.app/sdk",
+                                             binaryMessenger: flutterEngine!.binaryMessenger)
+        methodChannel?.setMethodCallHandler(handle(_:result:))
+    }
+    
+    public func setup(withflutterEngine engine: FlutterEngine) {
+        flutterEngine = engine
+        methodChannel = FlutterMethodChannel(name: "com.watchic.app/sdk", binaryMessenger: flutterEngine!.binaryMessenger)
+        methodChannel?.setMethodCallHandler(handle(_:result:))
+        
+    }
+    
+    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult)  {
+        print("ios\(call.method)")
+        if(call.method.contains("scanBase")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel([ScanDeviceModel].self, dic){
+                        if let back = devicesBackDic[call.method]{
+                            back(model)
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+        }else if(call.method.contains("endScan")){
+            if let back = endScanDic[call.method]{
+                back()
+                endScanDic.removeValue(forKey: call.method)
+            }
+        }else if(call.method.contains("scanConnect")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(ScanDeviceModel.self, dic){
+                        if let back = deviceBackDic[call.method]{
+                            back(model)
+                            deviceBackDic.removeValue(forKey: call.method)
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+        }else if(call.method == "connect"){
+            if let response = call.arguments as? Bool{
+                if let connect = _connect{
+                    connect(response)
+                }
+            }
+        }else if(call.method == "inTransitionDevice"){
+            if let response = call.arguments as? Bool{
+                if let connect = _inTransitionDevice{
+                    connect(response)
+                }
+            }
+            
+        }else if(call.method.contains("getFirmware")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_device_info(serializedData: response.data,partial: true)
+                    if let back = firmwareDic[call.method]{
+                        back(model)
+                        firmwareDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }else if(call.method == "progress"){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let adic = dic as? NSDictionary{
+                        let message = adic["message"] as? Int
+                        let key = adic["key"] as? String
+                        
+                        if let response = key{
+                            if let back =  progressDic[response]{
+                                back(message ?? 0)
+                            }
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+        }else if(call.method == "success"){
+            if let response = call.arguments as? String{
+                if let back =  successDic[response]{
+                    back()
+                    successDic.removeValue(forKey: response)
+                }
+            }
+        }
+        else if(call.method == "failure"){
+            if let response = call.arguments as? String{
+                if let back =  failureDic[response]{
+                    back()
+                    failureDic.removeValue(forKey: response)
+                }
+            }
+        }
+        else if(call.method == "failureArgument"){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let adic = dic as? NSDictionary{
+                        let code = adic["code"] as? Int
+                        let message = adic["message"] as? String
+                        let key = adic["key"] as? String
+                        
+                        if let response = key{
+                            if let back =  failureArgumentDic[response]{
+                                back(code ?? 0,message ?? "")
+                                failureArgumentDic.removeValue(forKey: response)
+                            }
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+        }
+        else if(call.method == "listenDeviceState"){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let adic = dic as? NSDictionary{
+                        let state = adic["status"] as? Int
+                        let deviceName = adic["deviceName"] as? String
+                        let cStatus = getConnectionStatus(state ?? 0)
+                        if(cStatus != .sync || cStatus != .syncComplete){
+                            self.connectStatus = cStatus
+                        }
+                        if let listenDeviceState = _listenDeviceState{
+                            listenDeviceState(cStatus, deviceName ?? "")
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+        }
+        else if(call.method.contains("bluetoothStatus")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_connect_status_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = bluetoothStatusDic[call.method]{
+                        back(model)
+                        bluetoothStatusDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getTime")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_device_time_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = timeDic[call.method]{
+                        back(model)
+                        timeDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getLanguage")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_language_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = languageDic[call.method]{
+                        back(model)
+                        languageDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getUserInfo")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_user_info_operate(serializedData: response.data,partial: true)
+                    if let user = userDic[call.method]{
+                        user(model)
+                        userDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getAlarm")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_alarm_inquire_reply(serializedData: response.data,partial: true)
+                    if let alarm = alarmDic[call.method]{
+                        alarm(model)
+                        alarmDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getDisturb")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_disturb_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = disturbDic[call.method]{
+                        back(model)
+                        disturbDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getScreen")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_screen_brightness_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = screenDic[call.method]{
+                        back(model)
+                        screenDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getMonitor")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_health_monitor_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = monitorDic[call.method]{
+                        back(model)
+                        monitorDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getSleepMonitor")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_sleep_monitor_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = sleepMonitorDic[call.method]{
+                        back(model)
+                        sleepMonitorDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getWater")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_drink_water_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = waterDic[call.method]{
+                        back(model)
+                        waterDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getFindPhoneWatch")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_find_phone_watch_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = findPhoneWatchDic[call.method]{
+                        back(model)
+                        findPhoneWatchDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+        }
+        else if(call.method.contains("getVoice")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_voice_assistant_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = voiceDic[call.method]{
+                        back(model)
+                        voiceDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+        }
+        else if(call.method.contains("getWorldTime")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_world_time_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = worldTimeDic[call.method]{
+                        back(model)
+                        worldTimeDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+        }
+        else if(call.method.contains("getStanding")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_standing_remind_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = standingDic[call.method]{
+                        back(model)
+                        standingDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getMessageType")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_message_notify_func_support_reply(serializedData: response.data,partial: true)
+                    if let back = messageTypeDic[call.method]{
+                        back(model)
+                        messageTypeDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+        }
+        else if(call.method.contains("getMessageApp")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_message_notify_data_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = messageAppDic[call.method]{
+                        back(model)
+                        messageAppDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+            
+        }
+        else if(call.method.contains("getMessageOnOff")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_message_notify_switch_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = messageOnOffDic[call.method]{
+                        back(model)
+                        messageOnOffDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getCall")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_call_switch_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = self.callDic[call.method]{
+                        back(model)
+                        callDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getContacts")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_frequent_contacts_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = contactsDic[call.method]{
+                        back(model)
+                        contactsDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getCard")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_quick_card_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = cardDic[call.method]{
+                        back(model)
+                        cardDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getSportIdentification")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_exercise_intelligent_recognition_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = sportIdentificationDic[call.method]{
+                        back(model)
+                        sportIdentificationDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+        }
+        else if(call.method.contains("getSportSub")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_exercise_sporting_param_sort_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = sportSubDic[call.method]{
+                        back(model)
+                        sportSubDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+            
+            
+        }
+        else if(call.method.contains("getSportSort")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_exercise_sport_mode_sort_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = sportSortDic[call.method]{
+                        back(model)
+                        sportSortDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getSportType")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_exercise_func_support_reply(serializedData: response.data,partial: true)
+                    if let back = sportTypeDic[call.method]{
+                        back(model)
+                        sportTypeDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getWatchDial")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_watch_dial_plate_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = watchDialDic[call.method]{
+                        back(model)
+                        watchDialDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getActivityNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[ActivityModel]>.self, dic){
+                        
+                        if let back = activitysClosureDic[call.method]{
+                            back(model);
+                            activitysClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getSleepNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[SleepModel]>.self, dic){
+                        if let back = sleepsClosureDic[call.method]{
+                            back(model);
+                            sleepsClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getHeartRateNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[HeartRateModel]>.self, dic){
+                        if let back = heartRatesClosureDic[call.method]{
+                            back(model);
+                            heartRatesClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getStressNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[StressModel]>.self, dic){
+                        if let back = stresssClosureDic[call.method]{
+                            back(model);
+                            stresssClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getNoiseNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[NoiseModel]>.self, dic){
+                        if let back = noisesClosureDic[call.method]{
+                            back(model);
+                            noisesClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getSpoNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[OxygenModel]>.self, dic){
+                        if let back = oxygensClosureDic[call.method]{
+                            back(model);
+                            oxygensClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getSportRecord")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[SportModel]>.self, dic){
+                        if let back = sportsClosureDic[call.method]{
+                            back(model);
+                            sportsClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getSportDetails")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<SportModel>.self, dic){
+                        if let back = sportClosureDic[call.method]{
+                            back(model);
+                            sportClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+            
+        }
+        else if(call.method.contains("getSportTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[SportModel]>.self, dic){
+                        if let back = sportsClosureDic[call.method]{
+                            back(model);
+                            sportsClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+            
+        }
+        else if(call.method.contains("delSportRecord")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<BaseDataModel>.self, dic){
+                        if let back = baseClosureDic[call.method]{
+                            back(model);
+                            baseClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getHrvNewTimeData")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[HrvModel]>.self, dic){
+                        if let back = hrvsClosureDic[call.method]{
+                            back(model);
+                            hrvsClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getBindDevice")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel([ScanDeviceModel].self, dic){
+                        if let back = devicesBackDic[call.method]{
+                            back(model)
+                            devicesBackDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+        }
+        else if(call.method.contains("getHotKey")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_button_crown_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = hotKeyDic[call.method]{
+                        back(model)
+                        hotKeyDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getMenstrual")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_menstruation_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = menstrualDic[call.method]{
+                        back(model)
+                        menstrualDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getTable")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_function_table(serializedData: response.data,partial: true)
+                    if let back = tableDic[call.method]{
+                        back(model)
+                        tableDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+            
+        }
+        else if(call.method.contains("getSOSContacts")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_emergency_contacts_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = sosContactsDic[call.method]{
+                        back(model)
+                        sosContactsDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getFocus")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_focus_mode_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = focusDic[call.method]{
+                        back(model)
+                        focusDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method == "noticeUpdate"){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(NoticeUpdateModel.self, dic){
+                        if let back = _noticeUpdateListen{
+                            back(model)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method == "eventReport"){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(EventReportModel.self, dic){
+                        if let back = _eventReportListen{
+                            back(model)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method == "exceptionListen"){
+            if let response = call.arguments as? String{
+                if let back = _exceptionListen{
+                    back(response)
+                }
+            }
+            
+        }
+        else if(call.method.contains("getSportUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[SportModel]>.self, dic){
+                        if let back = sportsClosureDic[call.method]{
+                            back(model);
+                            sportsClosureDic.removeValue(forKey: call.method)
+                            
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getActivityUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[ActivityModel]>.self, dic){
+                        if let back = activitysClosureDic[call.method]{
+                            back(model);
+                            activitysClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getHeartRateUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[HeartRateModel]>.self, dic){
+                        if let back = heartRatesClosureDic[call.method]{
+                            back(model);
+                            heartRatesClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getHrvUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[HrvModel]>.self, dic){
+                        if let back = hrvsClosureDic[call.method]{
+                            back(model);
+                            hrvsClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getNoiseUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[NoiseModel]>.self, dic){
+                        if let back = noisesClosureDic[call.method]{
+                            back(model);
+                            noisesClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getStressUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[StressModel]>.self, dic){
+                        if let back = stresssClosureDic[call.method]{
+                            back(model);
+                            stresssClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getSleepUploadDays")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[SleepModel]>.self, dic){
+                        if let back = sleepsClosureDic[call.method]{
+                            back(model);
+                            sleepsClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("getSpoUploadStatus")){
+            if let response = call.arguments as? String{
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                    if let model = ParseJson.jsonToModel(BaseModel<[OxygenModel]>.self, dic){
+                        if let back = oxygensClosureDic[call.method]{
+                            back(model);
+                            oxygensClosureDic.removeValue(forKey: call.method)
+                        }
+                    }
+                    
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+                
+            }
+            
+        }
+        else if(call.method.contains("rawQueryDB")){
+            if let response = call.arguments as? String{
+                if let back = rawQueryDBClosureDic[call.method]{
+                    back(response)
+                    rawQueryDBClosureDic.removeValue(forKey: call.method)
+                }
+            }
+            
+        }else if(call.method.contains("encodeOnlineFile") || call.method.contains("encodeOfflineFile") || call.method.contains("encodePhoneFile")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                if let back = ephemerisClosureDic[call.method]{
+                    back(response.data);
+                    ephemerisClosureDic.removeValue(forKey: call.method)
+                    
+                }
+            }
+        } else if(call.method == "logPath"){
+            if let response = call.arguments as? String{
+                if let back = logPathClosure{
+                    back(response)
+                }
+            }
+        }else if(call.method.contains("getSNFirmware")){
+            if let response = call.arguments as? String{
+                if let back = SNFirmwareDic[call.method]{
+                    back(response);
+                    SNFirmwareDic.removeValue(forKey: call.method)
+                }
+            }
+        }
+    }
+    
+}
+
+extension CreekSDK{
+    
+    //MARK:ConnectionStatus
+    func getConnectionStatus(_ state:Int) -> connectionStatus {
+        var status:connectionStatus = .none
+        switch state{
+        case 0:
+            status = .none
+            break;
+        case 1:
+            status = .connect
+            break;
+        case 2:
+            status = .connecting
+            break;
+        case 3:
+            status = .sync
+            break;
+        case 4:
+            status = .syncComplete
+            break;
+        case 5:
+            status = .unconnected
+            break;
+        case 6:
+            status = .inTransition
+            break;
+        default:
+            break
+        }
+        return status;
+    }
+}
+
+
+
+
+

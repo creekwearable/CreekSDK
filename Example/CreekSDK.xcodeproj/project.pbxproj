@@ -1,0 +1,768 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		079A21592B29A24B00F5D013 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 079A21552B29A24A00F5D013 /* .gitkeep */; };
+		079A21612B29A71B00F5D013 /* CreekSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A215D2B29A71A00F5D013 /* CreekSDK.swift */; };
+		079A21622B29A71B00F5D013 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A215E2B29A71A00F5D013 /* Log.swift */; };
+		079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A215F2B29A71A00F5D013 /* CreekSDKExtension.swift */; };
+		079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21602B29A71A00F5D013 /* CreekEnum.swift */; };
+		079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21662B29A72A00F5D013 /* NoiseModel.swift */; };
+		079A21772B29A72A00F5D013 /* ParseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21672B29A72A00F5D013 /* ParseJson.swift */; };
+		079A21782B29A72A00F5D013 /* StressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21682B29A72A00F5D013 /* StressModel.swift */; };
+		079A21792B29A72A00F5D013 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21692B29A72A00F5D013 /* PhoneModel.swift */; };
+		079A217A2B29A72A00F5D013 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A216A2B29A72A00F5D013 /* DeviceModel.swift */; };
+		079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A216B2B29A72A00F5D013 /* EventReportModel.swift */; };
+		079A217C2B29A72A00F5D013 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A216C2B29A72A00F5D013 /* SportModel.swift */; };
+		079A217D2B29A72A00F5D013 /* SleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A216D2B29A72A00F5D013 /* SleepModel.swift */; };
+		079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A216E2B29A72A00F5D013 /* NoticeUpdateModel.swift */; };
+		079A217F2B29A72A00F5D013 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A216F2B29A72A00F5D013 /* BaseModel.swift */; };
+		079A21802B29A72A00F5D013 /* OxygenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21702B29A72A00F5D013 /* OxygenModel.swift */; };
+		079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21712B29A72A00F5D013 /* DeviceInfo.swift */; };
+		079A21822B29A72A00F5D013 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21722B29A72A00F5D013 /* ActivityModel.swift */; };
+		079A21832B29A72A00F5D013 /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21732B29A72A00F5D013 /* HeartRateModel.swift */; };
+		079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21742B29A72A00F5D013 /* HrvModel.swift */; };
+		079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21752B29A72A00F5D013 /* EphemerisModel.swift */; };
+		079A21AE2B29A74300F5D013 /* userinfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21872B29A74300F5D013 /* userinfo.pb.swift */; };
+		079A21AF2B29A74300F5D013 /* menstrual.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21882B29A74300F5D013 /* menstrual.pb.swift */; };
+		079A21B02B29A74300F5D013 /* focus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21892B29A74300F5D013 /* focus.pb.swift */; };
+		079A21B12B29A74300F5D013 /* gesture.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218A2B29A74300F5D013 /* gesture.pb.swift */; };
+		079A21B22B29A74300F5D013 /* weather.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218B2B29A74300F5D013 /* weather.pb.swift */; };
+		079A21B32B29A74300F5D013 /* standing.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218C2B29A74300F5D013 /* standing.pb.swift */; };
+		079A21B42B29A74300F5D013 /* findphone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218D2B29A74300F5D013 /* findphone.pb.swift */; };
+		079A21B52B29A74300F5D013 /* binding.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218E2B29A74300F5D013 /* binding.pb.swift */; };
+		079A21B62B29A74300F5D013 /* deviceinfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218F2B29A74300F5D013 /* deviceinfo.pb.swift */; };
+		079A21B72B29A74300F5D013 /* enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21902B29A74300F5D013 /* enums.pb.swift */; };
+		079A21B82B29A74300F5D013 /* sensor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21912B29A74300F5D013 /* sensor.pb.swift */; };
+		079A21B92B29A74300F5D013 /* watchdial.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21922B29A74300F5D013 /* watchdial.pb.swift */; };
+		079A21BA2B29A74300F5D013 /* card.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21932B29A74300F5D013 /* card.pb.swift */; };
+		079A21BB2B29A74300F5D013 /* alarm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21942B29A74300F5D013 /* alarm.pb.swift */; };
+		079A21BC2B29A74300F5D013 /* system.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21952B29A74300F5D013 /* system.pb.swift */; };
+		079A21BD2B29A74300F5D013 /* update.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21962B29A74300F5D013 /* update.pb.swift */; };
+		079A21BE2B29A74300F5D013 /* mtu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21972B29A74300F5D013 /* mtu.pb.swift */; };
+		079A21BF2B29A74300F5D013 /* time.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21982B29A74300F5D013 /* time.pb.swift */; };
+		079A21C02B29A74300F5D013 /* disturb.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21992B29A74300F5D013 /* disturb.pb.swift */; };
+		079A21C12B29A74300F5D013 /* log.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219A2B29A74300F5D013 /* log.pb.swift */; };
+		079A21C22B29A74300F5D013 /* sleepMonitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219B2B29A74300F5D013 /* sleepMonitor.pb.swift */; };
+		079A21C32B29A74300F5D013 /* contacts.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219C2B29A74300F5D013 /* contacts.pb.swift */; };
+		079A21C42B29A74300F5D013 /* voice.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219D2B29A74300F5D013 /* voice.pb.swift */; };
+		079A21C52B29A74300F5D013 /* healthhead.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219E2B29A74300F5D013 /* healthhead.pb.swift */; };
+		079A21C62B29A74300F5D013 /* hotKey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219F2B29A74300F5D013 /* hotKey.pb.swift */; };
+		079A21C72B29A74300F5D013 /* wordtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A02B29A74300F5D013 /* wordtime.pb.swift */; };
+		079A21C82B29A74300F5D013 /* music.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A12B29A74300F5D013 /* music.pb.swift */; };
+		079A21C92B29A74300F5D013 /* sport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A22B29A74300F5D013 /* sport.pb.swift */; };
+		079A21CA2B29A74300F5D013 /* screen.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A32B29A74300F5D013 /* screen.pb.swift */; };
+		079A21CB2B29A74300F5D013 /* contactssos.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A42B29A74300F5D013 /* contactssos.pb.swift */; };
+		079A21CC2B29A74300F5D013 /* waterMonitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A52B29A74300F5D013 /* waterMonitor.pb.swift */; };
+		079A21CD2B29A74300F5D013 /* language.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A62B29A74300F5D013 /* language.pb.swift */; };
+		079A21CE2B29A74300F5D013 /* table.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A72B29A74300F5D013 /* table.pb.swift */; };
+		079A21CF2B29A74300F5D013 /* monitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A82B29A74300F5D013 /* monitor.pb.swift */; };
+		079A21D02B29A74300F5D013 /* event.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A92B29A74300F5D013 /* event.pb.swift */; };
+		079A21D12B29A74300F5D013 /* schedule.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AA2B29A74300F5D013 /* schedule.pb.swift */; };
+		079A21D22B29A74300F5D013 /* message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AB2B29A74300F5D013 /* message.pb.swift */; };
+		079A21D32B29A74300F5D013 /* call.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AC2B29A74300F5D013 /* call.pb.swift */; };
+		079A21D42B29A74300F5D013 /* health.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AD2B29A74300F5D013 /* health.pb.swift */; };
+		079A21D62B29A7E600F5D013 /* CreekInterFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21D52B29A7E600F5D013 /* CreekInterFace.swift */; };
+		079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21D92B29B0B700F5D013 /* GlobalDefine.swift */; };
+		079A21DD2B29B0B700F5D013 /* PonyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DA2B29B0B700F5D013 /* PonyAlert.swift */; };
+		079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */; };
+		079A21E12B29B0FA00F5D013 /* ScanDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */; };
+		079A21E22B29B0FA00F5D013 /* CommandReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */; };
+		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
+		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
+		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		079A21552B29A24A00F5D013 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		079A215D2B29A71A00F5D013 /* CreekSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreekSDK.swift; sourceTree = "<group>"; };
+		079A215E2B29A71A00F5D013 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		079A215F2B29A71A00F5D013 /* CreekSDKExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreekSDKExtension.swift; sourceTree = "<group>"; };
+		079A21602B29A71A00F5D013 /* CreekEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreekEnum.swift; sourceTree = "<group>"; };
+		079A21662B29A72A00F5D013 /* NoiseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseModel.swift; sourceTree = "<group>"; };
+		079A21672B29A72A00F5D013 /* ParseJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseJson.swift; sourceTree = "<group>"; };
+		079A21682B29A72A00F5D013 /* StressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StressModel.swift; sourceTree = "<group>"; };
+		079A21692B29A72A00F5D013 /* PhoneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
+		079A216A2B29A72A00F5D013 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		079A216B2B29A72A00F5D013 /* EventReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventReportModel.swift; sourceTree = "<group>"; };
+		079A216C2B29A72A00F5D013 /* SportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
+		079A216D2B29A72A00F5D013 /* SleepModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepModel.swift; sourceTree = "<group>"; };
+		079A216E2B29A72A00F5D013 /* NoticeUpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeUpdateModel.swift; sourceTree = "<group>"; };
+		079A216F2B29A72A00F5D013 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		079A21702B29A72A00F5D013 /* OxygenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxygenModel.swift; sourceTree = "<group>"; };
+		079A21712B29A72A00F5D013 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		079A21722B29A72A00F5D013 /* ActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		079A21732B29A72A00F5D013 /* HeartRateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateModel.swift; sourceTree = "<group>"; };
+		079A21742B29A72A00F5D013 /* HrvModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HrvModel.swift; sourceTree = "<group>"; };
+		079A21752B29A72A00F5D013 /* EphemerisModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EphemerisModel.swift; sourceTree = "<group>"; };
+		079A21872B29A74300F5D013 /* userinfo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userinfo.pb.swift; sourceTree = "<group>"; };
+		079A21882B29A74300F5D013 /* menstrual.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menstrual.pb.swift; sourceTree = "<group>"; };
+		079A21892B29A74300F5D013 /* focus.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = focus.pb.swift; sourceTree = "<group>"; };
+		079A218A2B29A74300F5D013 /* gesture.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gesture.pb.swift; sourceTree = "<group>"; };
+		079A218B2B29A74300F5D013 /* weather.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weather.pb.swift; sourceTree = "<group>"; };
+		079A218C2B29A74300F5D013 /* standing.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = standing.pb.swift; sourceTree = "<group>"; };
+		079A218D2B29A74300F5D013 /* findphone.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = findphone.pb.swift; sourceTree = "<group>"; };
+		079A218E2B29A74300F5D013 /* binding.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = binding.pb.swift; sourceTree = "<group>"; };
+		079A218F2B29A74300F5D013 /* deviceinfo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deviceinfo.pb.swift; sourceTree = "<group>"; };
+		079A21902B29A74300F5D013 /* enums.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enums.pb.swift; sourceTree = "<group>"; };
+		079A21912B29A74300F5D013 /* sensor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sensor.pb.swift; sourceTree = "<group>"; };
+		079A21922B29A74300F5D013 /* watchdial.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = watchdial.pb.swift; sourceTree = "<group>"; };
+		079A21932B29A74300F5D013 /* card.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = card.pb.swift; sourceTree = "<group>"; };
+		079A21942B29A74300F5D013 /* alarm.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alarm.pb.swift; sourceTree = "<group>"; };
+		079A21952B29A74300F5D013 /* system.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = system.pb.swift; sourceTree = "<group>"; };
+		079A21962B29A74300F5D013 /* update.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = update.pb.swift; sourceTree = "<group>"; };
+		079A21972B29A74300F5D013 /* mtu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mtu.pb.swift; sourceTree = "<group>"; };
+		079A21982B29A74300F5D013 /* time.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = time.pb.swift; sourceTree = "<group>"; };
+		079A21992B29A74300F5D013 /* disturb.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = disturb.pb.swift; sourceTree = "<group>"; };
+		079A219A2B29A74300F5D013 /* log.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = log.pb.swift; sourceTree = "<group>"; };
+		079A219B2B29A74300F5D013 /* sleepMonitor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sleepMonitor.pb.swift; sourceTree = "<group>"; };
+		079A219C2B29A74300F5D013 /* contacts.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contacts.pb.swift; sourceTree = "<group>"; };
+		079A219D2B29A74300F5D013 /* voice.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = voice.pb.swift; sourceTree = "<group>"; };
+		079A219E2B29A74300F5D013 /* healthhead.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healthhead.pb.swift; sourceTree = "<group>"; };
+		079A219F2B29A74300F5D013 /* hotKey.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hotKey.pb.swift; sourceTree = "<group>"; };
+		079A21A02B29A74300F5D013 /* wordtime.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordtime.pb.swift; sourceTree = "<group>"; };
+		079A21A12B29A74300F5D013 /* music.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = music.pb.swift; sourceTree = "<group>"; };
+		079A21A22B29A74300F5D013 /* sport.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sport.pb.swift; sourceTree = "<group>"; };
+		079A21A32B29A74300F5D013 /* screen.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = screen.pb.swift; sourceTree = "<group>"; };
+		079A21A42B29A74300F5D013 /* contactssos.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactssos.pb.swift; sourceTree = "<group>"; };
+		079A21A52B29A74300F5D013 /* waterMonitor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waterMonitor.pb.swift; sourceTree = "<group>"; };
+		079A21A62B29A74300F5D013 /* language.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = language.pb.swift; sourceTree = "<group>"; };
+		079A21A72B29A74300F5D013 /* table.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = table.pb.swift; sourceTree = "<group>"; };
+		079A21A82B29A74300F5D013 /* monitor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = monitor.pb.swift; sourceTree = "<group>"; };
+		079A21A92B29A74300F5D013 /* event.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = event.pb.swift; sourceTree = "<group>"; };
+		079A21AA2B29A74300F5D013 /* schedule.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = schedule.pb.swift; sourceTree = "<group>"; };
+		079A21AB2B29A74300F5D013 /* message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.pb.swift; sourceTree = "<group>"; };
+		079A21AC2B29A74300F5D013 /* call.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = call.pb.swift; sourceTree = "<group>"; };
+		079A21AD2B29A74300F5D013 /* health.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = health.pb.swift; sourceTree = "<group>"; };
+		079A21D52B29A7E600F5D013 /* CreekInterFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreekInterFace.swift; sourceTree = "<group>"; };
+		079A21D92B29B0B700F5D013 /* GlobalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefine.swift; sourceTree = "<group>"; };
+		079A21DA2B29B0B700F5D013 /* PonyAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonyAlert.swift; sourceTree = "<group>"; };
+		079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonyBaseViewController.swift; sourceTree = "<group>"; };
+		079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
+		079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandReplyViewController.swift; sourceTree = "<group>"; };
+		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreekSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* CreekSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreekSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		69F2B4B0C8838C152A7AC3B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7010E1C78F779EB1911230E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9C9DF34213BA917D34C3310F /* CreekSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CreekSDK.podspec; path = ../CreekSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607FACCD1AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		079A21532B29A24A00F5D013 /* CreekSDK */ = {
+			isa = PBXGroup;
+			children = (
+				079A21542B29A24A00F5D013 /* Classes */,
+				079A21572B29A24A00F5D013 /* Assets */,
+			);
+			name = CreekSDK;
+			path = ../CreekSDK;
+			sourceTree = "<group>";
+		};
+		079A21542B29A24A00F5D013 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				079A21862B29A74300F5D013 /* proto */,
+				079A21652B29A72A00F5D013 /* model */,
+				079A215C2B29A71A00F5D013 /* extension */,
+				079A21552B29A24A00F5D013 /* .gitkeep */,
+				079A21D52B29A7E600F5D013 /* CreekInterFace.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		079A21572B29A24A00F5D013 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		079A215C2B29A71A00F5D013 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				079A215D2B29A71A00F5D013 /* CreekSDK.swift */,
+				079A215E2B29A71A00F5D013 /* Log.swift */,
+				079A215F2B29A71A00F5D013 /* CreekSDKExtension.swift */,
+				079A21602B29A71A00F5D013 /* CreekEnum.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		079A21652B29A72A00F5D013 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				079A21662B29A72A00F5D013 /* NoiseModel.swift */,
+				079A21672B29A72A00F5D013 /* ParseJson.swift */,
+				079A21682B29A72A00F5D013 /* StressModel.swift */,
+				079A21692B29A72A00F5D013 /* PhoneModel.swift */,
+				079A216A2B29A72A00F5D013 /* DeviceModel.swift */,
+				079A216B2B29A72A00F5D013 /* EventReportModel.swift */,
+				079A216C2B29A72A00F5D013 /* SportModel.swift */,
+				079A216D2B29A72A00F5D013 /* SleepModel.swift */,
+				079A216E2B29A72A00F5D013 /* NoticeUpdateModel.swift */,
+				079A216F2B29A72A00F5D013 /* BaseModel.swift */,
+				079A21702B29A72A00F5D013 /* OxygenModel.swift */,
+				079A21712B29A72A00F5D013 /* DeviceInfo.swift */,
+				079A21722B29A72A00F5D013 /* ActivityModel.swift */,
+				079A21732B29A72A00F5D013 /* HeartRateModel.swift */,
+				079A21742B29A72A00F5D013 /* HrvModel.swift */,
+				079A21752B29A72A00F5D013 /* EphemerisModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		079A21862B29A74300F5D013 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				079A21872B29A74300F5D013 /* userinfo.pb.swift */,
+				079A21882B29A74300F5D013 /* menstrual.pb.swift */,
+				079A21892B29A74300F5D013 /* focus.pb.swift */,
+				079A218A2B29A74300F5D013 /* gesture.pb.swift */,
+				079A218B2B29A74300F5D013 /* weather.pb.swift */,
+				079A218C2B29A74300F5D013 /* standing.pb.swift */,
+				079A218D2B29A74300F5D013 /* findphone.pb.swift */,
+				079A218E2B29A74300F5D013 /* binding.pb.swift */,
+				079A218F2B29A74300F5D013 /* deviceinfo.pb.swift */,
+				079A21902B29A74300F5D013 /* enums.pb.swift */,
+				079A21912B29A74300F5D013 /* sensor.pb.swift */,
+				079A21922B29A74300F5D013 /* watchdial.pb.swift */,
+				079A21932B29A74300F5D013 /* card.pb.swift */,
+				079A21942B29A74300F5D013 /* alarm.pb.swift */,
+				079A21952B29A74300F5D013 /* system.pb.swift */,
+				079A21962B29A74300F5D013 /* update.pb.swift */,
+				079A21972B29A74300F5D013 /* mtu.pb.swift */,
+				079A21982B29A74300F5D013 /* time.pb.swift */,
+				079A21992B29A74300F5D013 /* disturb.pb.swift */,
+				079A219A2B29A74300F5D013 /* log.pb.swift */,
+				079A219B2B29A74300F5D013 /* sleepMonitor.pb.swift */,
+				079A219C2B29A74300F5D013 /* contacts.pb.swift */,
+				079A219D2B29A74300F5D013 /* voice.pb.swift */,
+				079A219E2B29A74300F5D013 /* healthhead.pb.swift */,
+				079A219F2B29A74300F5D013 /* hotKey.pb.swift */,
+				079A21A02B29A74300F5D013 /* wordtime.pb.swift */,
+				079A21A12B29A74300F5D013 /* music.pb.swift */,
+				079A21A22B29A74300F5D013 /* sport.pb.swift */,
+				079A21A32B29A74300F5D013 /* screen.pb.swift */,
+				079A21A42B29A74300F5D013 /* contactssos.pb.swift */,
+				079A21A52B29A74300F5D013 /* waterMonitor.pb.swift */,
+				079A21A62B29A74300F5D013 /* language.pb.swift */,
+				079A21A72B29A74300F5D013 /* table.pb.swift */,
+				079A21A82B29A74300F5D013 /* monitor.pb.swift */,
+				079A21A92B29A74300F5D013 /* event.pb.swift */,
+				079A21AA2B29A74300F5D013 /* schedule.pb.swift */,
+				079A21AB2B29A74300F5D013 /* message.pb.swift */,
+				079A21AC2B29A74300F5D013 /* call.pb.swift */,
+				079A21AD2B29A74300F5D013 /* health.pb.swift */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		079A21D82B29B0B700F5D013 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				079A21D92B29B0B700F5D013 /* GlobalDefine.swift */,
+				079A21DA2B29B0B700F5D013 /* PonyAlert.swift */,
+				079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		24B76D1985946C4EDE6E2559 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */,
+				0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		365C4CCB7E443197404BB863 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		607FACC71AFB9204008FA782 = {
+			isa = PBXGroup;
+			children = (
+				079A21532B29A24A00F5D013 /* CreekSDK */,
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD21AFB9204008FA782 /* Example for CreekSDK */,
+				607FACD11AFB9204008FA782 /* Products */,
+				24B76D1985946C4EDE6E2559 /* Pods */,
+				365C4CCB7E443197404BB863 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		607FACD11AFB9204008FA782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD01AFB9204008FA782 /* CreekSDK_Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607FACD21AFB9204008FA782 /* Example for CreekSDK */ = {
+			isa = PBXGroup;
+			children = (
+				079A21D82B29B0B700F5D013 /* base */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */,
+				079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD31AFB9204008FA782 /* Supporting Files */,
+			);
+			name = "Example for CreekSDK";
+			path = CreekSDK;
+			sourceTree = "<group>";
+		};
+		607FACD31AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				9C9DF34213BA917D34C3310F /* CreekSDK.podspec */,
+				69F2B4B0C8838C152A7AC3B7 /* README.md */,
+				7010E1C78F779EB1911230E1 /* LICENSE */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607FACCF1AFB9204008FA782 /* CreekSDK_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CreekSDK_Example" */;
+			buildPhases = (
+				135A539ADC7F83C3B6844BF7 /* [CP] Check Pods Manifest.lock */,
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				D32F8ACD2FF038A8410EA577 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CreekSDK_Example;
+			productName = CreekSDK;
+			productReference = 607FACD01AFB9204008FA782 /* CreekSDK_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607FACC81AFB9204008FA782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = CocoaPods;
+				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = T65EE75V48;
+						LastSwiftMigration = 0900;
+					};
+				};
+			};
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CreekSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 607FACC71AFB9204008FA782;
+			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607FACCF1AFB9204008FA782 /* CreekSDK_Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607FACCE1AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				079A21592B29A24B00F5D013 /* .gitkeep in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		135A539ADC7F83C3B6844BF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CreekSDK_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D32F8ACD2FF038A8410EA577 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-frameworks.sh",
+				"${PODS_ROOT}/../../Creek/sbc.framework",
+				"${PODS_ROOT}/../../Creek/App.framework",
+				"${PODS_ROOT}/../../Creek/creek_blue_manage.framework",
+				"${PODS_ROOT}/../../Creek/flutter_blue_plus.framework",
+				"${PODS_ROOT}/../../Creek/Flutter.framework",
+				"${PODS_ROOT}/../../Creek/sqflite.framework",
+				"${PODS_ROOT}/../../Creek/Protobuf.framework",
+				"${PODS_ROOT}/../../Creek/shared_preferences_foundation.framework",
+				"${PODS_ROOT}/../../Creek/FMDB.framework",
+				"${PODS_ROOT}/../../Creek/path_provider_foundation.framework",
+				"${BUILT_PRODUCTS_DIR}/CreekSDK/CreekSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sbc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/App.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_blue_manage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_blue_plus.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqflite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/shared_preferences_foundation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/path_provider_foundation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CreekSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607FACCC1AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				079A21822B29A72A00F5D013 /* ActivityModel.swift in Sources */,
+				079A21D02B29A74300F5D013 /* event.pb.swift in Sources */,
+				079A21782B29A72A00F5D013 /* StressModel.swift in Sources */,
+				079A21BC2B29A74300F5D013 /* system.pb.swift in Sources */,
+				079A21B22B29A74300F5D013 /* weather.pb.swift in Sources */,
+				079A21BE2B29A74300F5D013 /* mtu.pb.swift in Sources */,
+				079A21CD2B29A74300F5D013 /* language.pb.swift in Sources */,
+				079A21D42B29A74300F5D013 /* health.pb.swift in Sources */,
+				079A21DD2B29B0B700F5D013 /* PonyAlert.swift in Sources */,
+				079A21CA2B29A74300F5D013 /* screen.pb.swift in Sources */,
+				079A21612B29A71B00F5D013 /* CreekSDK.swift in Sources */,
+				079A21772B29A72A00F5D013 /* ParseJson.swift in Sources */,
+				079A21CC2B29A74300F5D013 /* waterMonitor.pb.swift in Sources */,
+				079A217C2B29A72A00F5D013 /* SportModel.swift in Sources */,
+				079A21C32B29A74300F5D013 /* contacts.pb.swift in Sources */,
+				079A21B12B29A74300F5D013 /* gesture.pb.swift in Sources */,
+				079A21B42B29A74300F5D013 /* findphone.pb.swift in Sources */,
+				079A21792B29A72A00F5D013 /* PhoneModel.swift in Sources */,
+				079A21D32B29A74300F5D013 /* call.pb.swift in Sources */,
+				079A21B92B29A74300F5D013 /* watchdial.pb.swift in Sources */,
+				079A21B62B29A74300F5D013 /* deviceinfo.pb.swift in Sources */,
+				079A21BD2B29A74300F5D013 /* update.pb.swift in Sources */,
+				079A21AE2B29A74300F5D013 /* userinfo.pb.swift in Sources */,
+				079A21E12B29B0FA00F5D013 /* ScanDeviceViewController.swift in Sources */,
+				079A21C02B29A74300F5D013 /* disturb.pb.swift in Sources */,
+				079A217A2B29A72A00F5D013 /* DeviceModel.swift in Sources */,
+				079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */,
+				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
+				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
+				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
+				079A21B82B29A74300F5D013 /* sensor.pb.swift in Sources */,
+				079A21BB2B29A74300F5D013 /* alarm.pb.swift in Sources */,
+				079A21C72B29A74300F5D013 /* wordtime.pb.swift in Sources */,
+				079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */,
+				079A21802B29A72A00F5D013 /* OxygenModel.swift in Sources */,
+				079A21622B29A71B00F5D013 /* Log.swift in Sources */,
+				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				079A21832B29A72A00F5D013 /* HeartRateModel.swift in Sources */,
+				079A21CF2B29A74300F5D013 /* monitor.pb.swift in Sources */,
+				079A21E22B29B0FA00F5D013 /* CommandReplyViewController.swift in Sources */,
+				079A21B72B29A74300F5D013 /* enums.pb.swift in Sources */,
+				079A21C62B29A74300F5D013 /* hotKey.pb.swift in Sources */,
+				079A21D62B29A7E600F5D013 /* CreekInterFace.swift in Sources */,
+				079A21AF2B29A74300F5D013 /* menstrual.pb.swift in Sources */,
+				079A217F2B29A72A00F5D013 /* BaseModel.swift in Sources */,
+				079A21C82B29A74300F5D013 /* music.pb.swift in Sources */,
+				079A217D2B29A72A00F5D013 /* SleepModel.swift in Sources */,
+				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				079A21CB2B29A74300F5D013 /* contactssos.pb.swift in Sources */,
+				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
+				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
+				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,
+				079A21BF2B29A74300F5D013 /* time.pb.swift in Sources */,
+				079A21C92B29A74300F5D013 /* sport.pb.swift in Sources */,
+				079A21D22B29A74300F5D013 /* message.pb.swift in Sources */,
+				079A21B32B29A74300F5D013 /* standing.pb.swift in Sources */,
+				079A21C12B29A74300F5D013 /* log.pb.swift in Sources */,
+				079A21D12B29A74300F5D013 /* schedule.pb.swift in Sources */,
+				079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */,
+				079A21CE2B29A74300F5D013 /* table.pb.swift in Sources */,
+				079A21B02B29A74300F5D013 /* focus.pb.swift in Sources */,
+				079A21C22B29A74300F5D013 /* sleepMonitor.pb.swift in Sources */,
+				079A21C52B29A74300F5D013 /* healthhead.pb.swift in Sources */,
+				079A21C42B29A74300F5D013 /* voice.pb.swift in Sources */,
+				079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */,
+				079A21BA2B29A74300F5D013 /* card.pb.swift in Sources */,
+				079A21B52B29A74300F5D013 /* binding.pb.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDA1AFB9204008FA782 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDF1AFB9204008FA782 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		607FACED1AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		607FACEE1AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607FACF01AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = CreekSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dome.app.CreekSDKDemo1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		607FACF11AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = CreekSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dome.app.CreekSDKDemo1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CreekSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACED1AFB9204008FA782 /* Debug */,
+				607FACEE1AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CreekSDK_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF01AFB9204008FA782 /* Debug */,
+				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+}

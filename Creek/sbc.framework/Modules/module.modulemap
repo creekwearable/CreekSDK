@@ -1,0 +1,6 @@
+framework module sbc {
+  umbrella header "sbc-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,39 @@
+PODS:
+  - CreekSDK (0.1.0):
+    - SwiftProtobuf (~> 1.25.2)
+  - IQKeyboardManagerSwift (6.5.15)
+  - MBProgressHUD (1.2.0)
+  - SnapKit (5.6.0)
+  - SwiftProtobuf (1.25.2)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - CreekSDK (from `../`)
+  - IQKeyboardManagerSwift
+  - MBProgressHUD
+  - SnapKit
+  - Toast-Swift
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManagerSwift
+    - MBProgressHUD
+    - SnapKit
+    - SwiftProtobuf
+    - Toast-Swift
+
+EXTERNAL SOURCES:
+  CreekSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CreekSDK: 733486c0aea40f126711cd7299d10cfb6d194c9a
+  IQKeyboardManagerSwift: 79fab21f451441935788dc5d80ded21c32685904
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftProtobuf: 407a385e97fd206c4fbe880cc84123989167e0d1
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 5a8539c37f8c2e9768010c784daab9112b57c10f
+
+COCOAPODS: 1.12.1

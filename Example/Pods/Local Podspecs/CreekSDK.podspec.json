@@ -1,0 +1,41 @@
+{
+  "name": "CreekSDK",
+  "version": "0.1.0",
+  "summary": "A short description of CreekSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/bean/CreekSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bean": "huy_1714@126.com"
+  },
+  "source": {
+    "git": "https://github.com/bean/CreekSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "CreekSDK/Classes/**/*",
+  "vendored_frameworks": [
+    "Creek/sbc.framework",
+    "Creek/App.framework",
+    "Creek/creek_blue_manage.framework",
+    "Creek/flutter_blue_plus.framework",
+    "Creek/Flutter.framework",
+    "Creek/sqflite.framework",
+    "Creek/permission_handler_apple.framework",
+    "Creek/Protobuf.framework",
+    "Creek/shared_preferences_foundation.framework",
+    "Creek/FMDB.framework",
+    "Creek/FlutterPluginRegistrant.framework",
+    "Creek/path_provider_foundation.framework"
+  ],
+  "dependencies": {
+    "SwiftProtobuf": [
+      "~> 1.25.2"
+    ]
+  }
+}
