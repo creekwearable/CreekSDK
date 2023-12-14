@@ -36,6 +36,6 @@ CreekSDK is available under the MIT license. See the LICENSE file for more info.
 
 <img src="https://creekwearable.github.io/static/image/6.png">
 
-##SDK Usage document
+## SDK Usage document
 Chinese document version：<https://xiaochey.feishu.cn/docx/L7Zyd5ZYwoH90FxNcCycfM3Kn7T?from=from_copylink>
 
