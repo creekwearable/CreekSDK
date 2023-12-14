@@ -1,9 +1,9 @@
 {
   "name": "CreekSDK",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/bean/CreekSDK",
+  "homepage": "https://github.com/creekwearable/CreekSDK",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,12 +12,15 @@
     "bean": "huy_1714@126.com"
   },
   "source": {
-    "git": "https://github.com/bean/CreekSDK.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/creekwearable/CreekSDK.git",
+    "tag": "0.1.1"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "12.0"
   },
+  "swift_versions": [
+    "5.0"
+  ],
   "source_files": "CreekSDK/Classes/**/*",
   "vendored_frameworks": [
     "Creek/sbc.framework",
@@ -33,9 +36,13 @@
     "Creek/FlutterPluginRegistrant.framework",
     "Creek/path_provider_foundation.framework"
   ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
   "dependencies": {
     "SwiftProtobuf": [
       "~> 1.25.2"
     ]
-  }
+  },
+  "swift_version": "5.0"
 }

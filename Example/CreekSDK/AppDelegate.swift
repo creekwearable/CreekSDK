@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window?.makeKeyAndVisible()
         CreekInterFace.instance.setupInit()
         CreekInterFace.instance.initSDK()
-        CreekInterFace.instance.authorization(type: 0);
-        CreekInterFace.instance.autoConnect(type: 1);
         return true
     }
     

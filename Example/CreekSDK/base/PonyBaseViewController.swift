@@ -41,11 +41,11 @@ class CreekBaseViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     func setLeftBack() {
-        let back = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        let back = UIBarButtonItem(title: "back", style: .plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = back
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_nav_back")
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_nav_back")
-        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_nav_back")
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_nav_back")
+//        self.navigationController?.navigationBar.tintColor = .white
     }
 
     @objc func backClick(){

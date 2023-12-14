@@ -21,9 +21,9 @@ class ScanDeviceViewController: CreekBaseViewController,UITableViewDelegate,UITa
             cell?.titleLab.text = a.device?.name
             cell?.addressLab.text = a.macAddress ?? a.device?.id
             
-            if let b = connectDeviceID{
-                cell?.connectBtn.setTitle(b == a.device?.id ? "disconnect" : "connect", for: .normal)
-                cell?.connectBtn.backgroundColor = b == a.device?.id ? .red : .black
+            if  (connectDeviceID != nil)  && CreekInterFace.instance.connectStatus == .connect {
+                cell?.connectBtn.setTitle(connectDeviceID == a.device?.id ? "disconnect" : "connect", for: .normal)
+                cell?.connectBtn.backgroundColor = connectDeviceID == a.device?.id ? .red : .black
             }
             cell?.connect = {
                 self.view.showRemark(msg: "connect.....")
@@ -33,14 +33,20 @@ class ScanDeviceViewController: CreekBaseViewController,UITableViewDelegate,UITa
                     CreekAlert.alertMsg(exception: isBool ? "connect" : "disconnect")
                     if isBool{
                         self.connectDeviceID = a.device?.id
+                        CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
+                            print("Success")
+                        } failure: {
+                            print("Failure")
+                        }
+
                     }
-                    dispatch_main_sync_safe {
-                        tableView.reloadData()
-                    }
+                    tableView.reloadData()
                 }
             }
             cell?.disconnect = {
                 CreekInterFace.instance.disconnect {
+                    self.connectDeviceID = nil
+                    tableView.reloadData()
                     
                 } failure: { code, message in
                     
@@ -70,6 +76,7 @@ class ScanDeviceViewController: CreekBaseViewController,UITableViewDelegate,UITa
     var devides:[ScanDeviceModel]?
     var connectDeviceID:String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Device"
@@ -78,21 +85,25 @@ class ScanDeviceViewController: CreekBaseViewController,UITableViewDelegate,UITa
             $0.top.equalTo(SAFEAREAINSETS.top)
             $0.left.right.bottom.equalTo(self.view)
         }
-       
         scan()
     }
+    
+    
     func scan(){
-        print("开始扫描")
-        
-       
-        CreekInterFace.instance.scan(timeOut: 15) { data in
-            self.devides = data
-            self.tableView.reloadData()
-        } endScan: {
-            print("结束扫描")
+        CreekInterFace.instance.getBindDevice { model in
+            print("开始扫描")
+            CreekInterFace.instance.scan(timeOut: 15) { data in
+                let filteredArray = data.filter { element in
+                    return !model.contains { e in
+                        return e.device?.id == element.device?.id
+                    }
+                }
+                self.devides = filteredArray
+                self.tableView.reloadData()
+            } endScan: {
+                print("结束扫描")
+            }
         }
-        
-        CreekInterFace.instance.stopScan()
     }
     
 
