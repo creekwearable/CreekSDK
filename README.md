@@ -38,4 +38,5 @@ CreekSDK is available under the MIT license. See the LICENSE file for more info.
 
 ## SDK Usage document
 Chinese document version：<https://xiaochey.feishu.cn/docx/L7Zyd5ZYwoH90FxNcCycfM3Kn7T?from=from_copylink>
+English document version：<https://xiaochey.feishu.cn/docx/W95CduAStoi7nNxQQVxcl19Fnrh>
 
