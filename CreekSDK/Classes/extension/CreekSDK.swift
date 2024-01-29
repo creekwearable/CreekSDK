@@ -71,10 +71,10 @@ public typealias SNFirmwareBase = (_ sn:String) -> ()
     var requestId:Int = 0
     var methodChannel : FlutterMethodChannel?
     var flutterEngine : FlutterEngine?
-    var _noticeUpdateListen:((_ model:NoticeUpdateModel) -> ())?         //固件通知更新
-    var _eventReportListen:((_ model:EventReportModel) -> ())?           //固件上报通知
-    var _exceptionListen:((_ model:String) -> ())?                       //蓝牙原生日志
-    var _listenDeviceState:((_ status:connectionStatus,_ deviceName:String)->())?   //监听设备
+    var _noticeUpdateListen:((_ model:NoticeUpdateModel) -> ())?         //Firmware update notification
+    var _eventReportListen:((_ model:EventReportModel) -> ())?           //Firmware reporting notification
+    var _exceptionListen:((_ model:String) -> ())?                       //Bluetooth native logs
+    var _listenDeviceState:((_ status:connectionStatus,_ deviceName:String)->())?   //Monitoring device
     var _inTransitionDevice:((_ connectState:Bool)->())?
     var _queryConnectedDevice:((_ deviceId:String) ->())?
     var _connect:((_ connectState:Bool)->())?
@@ -82,20 +82,20 @@ public typealias SNFirmwareBase = (_ sn:String) -> ()
     var endScanDic:[String:endScanBase] = [:]
     var deviceBackDic:[String:deviceBack] = [:]
     var devicesBackDic:[String:devicesBack] = [:]
-    var progressDic:[String:progressBase] = [:] //同步进度
+    var progressDic:[String:progressBase] = [:] //Sync progress
     var successDic:[String:successBase] = [:]
     var failureDic:[String:failureBase] = [:]
     var failureArgumentDic:[String:failureArgument] = [:]
     var baseClosureDic:[String:baseClosure] = [:]
     var firmwareDic:[String:firmwareBase] = [:]
     var timeDic:[String:timeBase] = [:]
-    var languageDic:[String:languageBase] = [:]           //语言
-    var userDic:[String:userBase] = [:]       //用户信息偏好设置
-    var alarmDic:[String:alarmBase] = [:]      //获取闹钟
-    var disturbDic:[String:disturbBase] = [:]      //获取勿扰
-    var screenDic:[String:screenBase] = [:]      //屏幕获取
-    var monitorDic:[String:monitorBase] = [:]      //健康监测
-    var sleepMonitorDic:[String:sleepMonitorBase] = [:]     //睡眠监测
+    var languageDic:[String:languageBase] = [:]           //Language
+    var userDic:[String:userBase] = [:]       //User information preferences/settings
+    var alarmDic:[String:alarmBase] = [:]      //Retrieve alarm
+    var disturbDic:[String:disturbBase] = [:]      //Retrieve Do Not Disturb
+    var screenDic:[String:screenBase] = [:]      //Screen capture
+    var monitorDic:[String:monitorBase] = [:]      //Health monitoring
+    var sleepMonitorDic:[String:sleepMonitorBase] = [:]     //Sleep monitoring
     var waterDic:[String:waterBase] = [:]      //喝水提醒获取
     var findPhoneWatchDic:[String:findPhoneWatchBase] = [:]      //寻找手表
     var voiceDic:[String:voiceBase] = [:]      //语音助手

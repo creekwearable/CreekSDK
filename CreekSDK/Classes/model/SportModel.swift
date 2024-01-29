@@ -137,6 +137,12 @@ public class SportModel: Codable {
     
     ///Whether running power is supported
     public var avgPowerSupport: Int?
+    
+    ///Cycle movement duration s
+    public var travelingTime: Int?
+    
+    ///Whether to support cycling movement duration
+    public var travelingTimeSupport: Int?
 }
 
 public class SportDataModel: Codable {
