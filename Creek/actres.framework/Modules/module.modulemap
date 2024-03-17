@@ -1,0 +1,11 @@
+framework module actres {
+  umbrella header "actres-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module actres.Swift {
+  header "actres-Swift.h"
+  requires objc
+}

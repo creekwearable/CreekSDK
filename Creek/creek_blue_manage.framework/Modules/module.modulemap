@@ -1,0 +1,11 @@
+framework module creek_blue_manage {
+  umbrella header "creek_blue_manage-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module creek_blue_manage.Swift {
+  header "creek_blue_manage-Swift.h"
+  requires objc
+}

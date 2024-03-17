@@ -1,0 +1,444 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "actres"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "actres"
+      },
+      {
+        "kind": "Import",
+        "name": "ActResSdk",
+        "printedName": "ActResSdk",
+        "declKind": "Import",
+        "moduleName": "actres"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ActresPlugin",
+        "printedName": "ActresPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@actres@objc(cs)ActresPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s6actres12ActresPluginC8register4withySo07FlutterC9Registrar_p_tFZ",
+            "moduleName": "actres",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@actres@objc(cs)ActresPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s6actres12ActresPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "actres",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ActresPlugin",
+                "printedName": "actres.ActresPlugin",
+                "usr": "c:@M@actres@objc(cs)ActresPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@actres@objc(cs)ActresPlugin(im)init",
+            "mangledName": "$s6actres12ActresPluginCACycfc",
+            "moduleName": "actres",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@actres@objc(cs)ActresPlugin",
+        "mangledName": "$s6actres12ActresPluginC",
+        "moduleName": "actres",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 216,
+      "length": 10,
+      "value": "\"acts_res\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 488,
+      "length": 20,
+      "value": "\"getPlatformVersion\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 523,
+      "length": 6,
+      "value": "\"iOS \""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 573,
+      "length": 13,
+      "value": "\"encodeImage\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 686,
+      "length": 11,
+      "value": "\"imagePath\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 748,
+      "length": 11,
+      "value": "\"imageType\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1016,
+      "length": 12,
+      "value": "\"OutputPath\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1060,
+      "length": 9,
+      "value": "\"PicPath\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1100,
+      "length": 14,
+      "value": "\"JPEGMinWidth\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1118,
+      "length": 3,
+      "value": "160"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1139,
+      "length": 15,
+      "value": "\"JPEGMinHeight\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1158,
+      "length": 3,
+      "value": "160"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1179,
+      "length": 19,
+      "value": "\"JPEGMinSplitWidth\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1202,
+      "length": 3,
+      "value": "466"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1223,
+      "length": 20,
+      "value": "\"JPEGMinSplitHeight\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1247,
+      "length": 3,
+      "value": "466"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1268,
+      "length": 13,
+      "value": "\"JPEGQuality\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1285,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1305,
+      "length": 11,
+      "value": "\"IsRawJPEG\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1320,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1339,
+      "length": 11,
+      "value": "\"PicFormat\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1354,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1373,
+      "length": 12,
+      "value": "\"IsCompress\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1389,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1408,
+      "length": 16,
+      "value": "\"IsBestQuarlity\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1428,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1447,
+      "length": 12,
+      "value": "\"TitleWidth\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1463,
+      "length": 2,
+      "value": "32"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1483,
+      "length": 13,
+      "value": "\"TitleHeight\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1500,
+      "length": 2,
+      "value": "32"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1594,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1623,
+      "length": 23,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_dial_sdk\/actres\/ios\/Classes\/ActresPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1641,
+      "length": 1,
+      "value": "\".lz4\""
+    }
+  ]
+}
