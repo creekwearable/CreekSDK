@@ -1,39 +1,47 @@
 PODS:
-  - CreekSDK (0.1.1):
+  - CreekSDK (0.1.2):
     - SwiftProtobuf (~> 1.25.2)
+  - ESTabBarController-swift (2.8.0)
   - IQKeyboardManagerSwift (6.5.15)
   - MBProgressHUD (1.2.0)
   - SnapKit (5.6.0)
   - SwiftProtobuf (1.25.2)
   - Toast-Swift (5.0.1)
+  - ZIPFoundation (0.9.16)
 
 DEPENDENCIES:
   - CreekSDK (from `../`)
+  - ESTabBarController-swift
   - IQKeyboardManagerSwift
   - MBProgressHUD
   - SnapKit
   - Toast-Swift
+  - ZIPFoundation
 
 SPEC REPOS:
   trunk:
+    - ESTabBarController-swift
     - IQKeyboardManagerSwift
     - MBProgressHUD
     - SnapKit
     - SwiftProtobuf
     - Toast-Swift
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   CreekSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: b75e28334d7b653db74836d31a07fe0825de48d7
+  CreekSDK: e98d31255c2e0bee8d6ffde81d1fec561c8953f6
+  ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   IQKeyboardManagerSwift: 79fab21f451441935788dc5d80ded21c32685904
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftProtobuf: 407a385e97fd206c4fbe880cc84123989167e0d1
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  ZIPFoundation: d170fa8e270b2a32bef9dcdcabff5b8f1a5deced
 
-PODFILE CHECKSUM: 5a8539c37f8c2e9768010c784daab9112b57c10f
+PODFILE CHECKSUM: 535f1eaaffbcc42c0a5aaac0ccad84b46dd4cd06
 
 COCOAPODS: 1.12.1

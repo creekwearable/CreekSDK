@@ -7,6 +7,7 @@
 
 import UIKit
 import CreekSDK
+import ZIPFoundation
 
 class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,8 +33,10 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
             } syncFailure: {
                 print("syncFailure")
             }
+            
             break
         case "Upload":
+        
             if let path =  Bundle.main.path(forResource: "res", ofType: "ota"){
                 do {
                     let fileData:Data = try Data(contentsOf: URL(fileURLWithPath: path))
@@ -110,6 +113,7 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
+    
     lazy var textField:UITextField = {
         let tab = UITextField(frame: CGRect.zero)
         tab.backgroundColor = .red
@@ -167,7 +171,8 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         tableView.snp.makeConstraints {
 //            $0.top.equalTo(SAFEAREAINSETS.top)
             $0.top.equalTo(textField.snp.bottom)
-            $0.left.right.bottom.equalTo(self.view)
+            $0.left.right.equalTo(self.view)
+            $0.bottom.equalTo(self.view).offset(-SAFEAREAINSETS.bottom)
         }
         
         CreekInterFace.instance.listenDeviceState { status, deviceName in
@@ -186,6 +191,21 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
             }
            
         }
+        deviceView.connect = {
+            CreekInterFace.instance.inTransitionDevice(id: self.deviceModel!.device?.id ?? "") { isBool in
+                
+            }
+        }
+        deviceView.disconnect = {
+           
+            CreekInterFace.instance.autoConnect(type: 0)
+            CreekInterFace.instance.disconnect {
+                
+            } failure: { code, message in
+                
+            }
+
+        }
         
     }
     
@@ -202,6 +222,11 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
                 }
             }
         }
+    }
+    
+    func isDirectoryExists(at url: URL) -> Bool {
+        var isDirectory: ObjCBool = false
+        return FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory) && isDirectory.boolValue
     }
     
     

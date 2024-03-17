@@ -238,3 +238,9 @@ public enum SyncServerType : Int{
     case hrv
 }
 
+public enum PlatformType : Int{
+    case JX_3085C_PLATFORM
+    case JX_3085L_PLATFORM
+    case JX_3085E_PLATFORM
+}
+

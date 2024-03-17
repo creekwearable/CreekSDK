@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let controller = ViewController()
+//        let controller = ViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UINavigationController(rootViewController: controller)
+        window!.rootViewController = ExampleProvider.systemStyle()
         window?.makeKeyAndVisible()
         CreekInterFace.instance.setupInit()
         CreekInterFace.instance.initSDK()

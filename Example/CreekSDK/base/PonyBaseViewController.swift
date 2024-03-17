@@ -68,3 +68,24 @@ extension UIViewController {
         return base
     }
 }
+
+
+enum ExampleProvider {
+    static func systemStyle() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.backgroundColor = .gray
+        let v1 = UINavigationController(rootViewController: ViewController())
+        let v2 = UINavigationController(rootViewController: DialViewController())
+
+        
+        v1.tabBarItem = UITabBarItem.init(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
+        v2.tabBarItem = UITabBarItem.init(title: "Dial", image: UIImage(named: "find"), selectedImage: UIImage(named: "find_1"))
+
+
+        tabBarController.tabBar.shadowImage = nil
+        
+        tabBarController.viewControllers = [v1, v2]
+        
+        return tabBarController
+    }
+}

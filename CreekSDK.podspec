@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.1'
+    s.version          = '0.1.2'
     s.summary          = 'A short description of CreekSDK.'
     
     # This description is used to generate tags and improve search results.
@@ -44,6 +44,10 @@ Pod::Spec.new do |s|
     'Creek/shared_preferences_foundation.framework',
     'Creek/FMDB.framework',
     'Creek/FlutterPluginRegistrant.framework',
+    'Creek/actres.framework',
+    'Creek/image_clipper.framework',
+    'Creek/lz4.framework',
+    'Creek/ActResSdk.framework',
     'Creek/path_provider_foundation.framework']
     s.pod_target_xcconfig = {'VALID_ARCHS' => 'x86_64 armv7 arm64'}
     

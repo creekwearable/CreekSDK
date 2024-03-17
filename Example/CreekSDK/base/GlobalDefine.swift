@@ -24,7 +24,7 @@ public let SAFEAREAINSETS : UIEdgeInsets = {
         if IS_IPHONE6_PLUS || IS_IPHONE5 || IS_IPHONE6{
             i = UIEdgeInsets.init(top: 20, left:0 , bottom: 0, right: 0);
         }else{
-            i = (window?.safeAreaInsets)!;
+            i = (window?.safeAreaInsets) ?? UIEdgeInsets.init(top: 0, left:0 , bottom: 0, right: 0);
         }
     }else {
         i = UIEdgeInsets.init(top: 20, left:0 , bottom: 0, right: 0);

@@ -1268,7 +1268,6 @@ extension CreekSDK{
         }
     }
     
-    
     public func encodeOfflineFile(_ ephemerisModel :EphemerisModel,model:@escaping ephemerisData,failure:@escaping failureArgument){
         requestId+=1
         ephemerisClosureDic["encodeOfflineFile\(requestId)"] = model
@@ -1277,7 +1276,6 @@ extension CreekSDK{
         if let data = json, let str = String(data: data, encoding: .utf8) {
             methodChannel?.invokeMethod("encodeOfflineFile\(requestId)", arguments: str)
         }
-        
     }
     
     public func encodePhoneFile(_ phoneModel :[PhoneModel],model:@escaping ephemerisData,failure:@escaping failureArgument){
@@ -1288,21 +1286,63 @@ extension CreekSDK{
         if let data = json, let str = String(data: data, encoding: .utf8) {
             methodChannel?.invokeMethod("encodePhoneFile\(requestId)", arguments: str)
         }
-        
     }
-    ///获取app日志
+    
+    ///Get app log
     public func getLogPath(path: @escaping ((_ path:String) -> ())){
         logPathClosure = path
         methodChannel?.invokeMethod("getLogPath", arguments:"")
     }
-    ///实时获取固件日志
+    ///Get firmware logs in real time
     public func getFirmwareLogPath(path: @escaping ((_ path:String) -> ())){
         logPathClosure = path
         methodChannel?.invokeMethod("firmwareLogPath", arguments:"")
     }
-    ///检测日志文件，只保存7天的数据
+    ///Check the log file and save only 7 days of data
     public func checkLogFile(){
         methodChannel?.invokeMethod("checkLogFile", arguments:"")
+    }
+    
+    ///Analytical dial
+    public func parseDial(_ path:String,_ width:Int,_ height:Int, _ radius:Int, _ platformType:Platform ,model:@escaping parseDialBase) {
+        requestId+=1
+        parseDialClosureDic["parseDial\(requestId)"] = model
+        methodChannel?.invokeMethod("parseDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+    }
+    
+    ///Get the watch face generated image
+    public func getPreviewImage(model:@escaping previewImageBase) {
+        requestId+=1
+        previewImageClosureDic["getPreviewImage\(requestId)"] = model
+        methodChannel?.invokeMethod("getPreviewImage\(requestId)", arguments: "")
+    }
+    
+    ///Set color
+    public func setCurrentColor(selectIndex:Int,model:@escaping parseDialBase) {
+        requestId+=1
+        parseDialClosureDic["setCurrentColor\(requestId)"] = model
+        methodChannel?.invokeMethod("setCurrentColor\(requestId)", arguments: selectIndex)
+    }
+    
+    ///set background
+    public func setCurrentBackgroundImagePath(selectIndex:Int,model:@escaping parseDialBase) {
+        requestId+=1
+        parseDialClosureDic["setCurrentBackgroundImagePath\(requestId)"] = model
+        methodChannel?.invokeMethod("setCurrentBackgroundImagePath\(requestId)", arguments: selectIndex)
+    }
+    
+    ///Set function
+    public func setCurrentFunction(selectIndex:[Int],model:@escaping parseDialBase) {
+        requestId+=1
+        parseDialClosureDic["setCurrentFunction\(requestId)"] = model
+        methodChannel?.invokeMethod("setCurrentFunction\(requestId)", arguments: selectIndex)
+    }
+    
+    ///Generate watch face
+    public func encodeDial(model:@escaping dialDataBase) {
+        requestId+=1
+        dialDataClosureDic["encodeDial\(requestId)"] = model
+        methodChannel?.invokeMethod("encodeDial\(requestId)", arguments: "")
     }
     
     
