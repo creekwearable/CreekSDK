@@ -1,0 +1,439 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "image_clipper"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "image_clipper"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ImageClipper",
+        "printedName": "ImageClipper",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "clipImage",
+            "printedName": "clipImage(path:cornerRadius:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13image_clipper12ImageClipperC04clipC04path12cornerRadiusSSSgSS_14CoreFoundation7CGFloatVtFZ",
+            "mangledName": "$s13image_clipper12ImageClipperC04clipC04path12cornerRadiusSSSgSS_12CoreGraphics7CGFloatVtFZ",
+            "moduleName": "image_clipper",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "scaleImage",
+            "printedName": "scaleImage(data:targetWidth:targetHeight:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterStandardTypedData?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterStandardTypedData",
+                    "printedName": "Flutter.FlutterStandardTypedData",
+                    "usr": "c:objc(cs)FlutterStandardTypedData"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterStandardTypedData",
+                "printedName": "Flutter.FlutterStandardTypedData",
+                "usr": "c:objc(cs)FlutterStandardTypedData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13image_clipper12ImageClipperC05scaleC04data11targetWidth0G6HeightSo24FlutterStandardTypedDataCSgAI_S2itFZ",
+            "mangledName": "$s13image_clipper12ImageClipperC05scaleC04data11targetWidth0G6HeightSo24FlutterStandardTypedDataCSgAI_S2itFZ",
+            "moduleName": "image_clipper",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13image_clipper12ImageClipperC",
+        "mangledName": "$s13image_clipper12ImageClipperC",
+        "moduleName": "image_clipper",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ImageClipperPlugin",
+        "printedName": "ImageClipperPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@image_clipper@objc(cs)ImageClipperPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s13image_clipper18ImageClipperPluginC8register4withySo07FlutterE9Registrar_p_tFZ",
+            "moduleName": "image_clipper",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@image_clipper@objc(cs)ImageClipperPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s13image_clipper18ImageClipperPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "image_clipper",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImageClipperPlugin",
+                "printedName": "image_clipper.ImageClipperPlugin",
+                "usr": "c:@M@image_clipper@objc(cs)ImageClipperPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@image_clipper@objc(cs)ImageClipperPlugin(im)init",
+            "mangledName": "$s13image_clipper18ImageClipperPluginCACycfc",
+            "moduleName": "image_clipper",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@image_clipper@objc(cs)ImageClipperPlugin",
+        "mangledName": "$s13image_clipper18ImageClipperPluginC",
+        "moduleName": "image_clipper",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 267,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1267,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1842,
+      "length": 15,
+      "value": "\"image_clipper\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2129,
+      "length": 11,
+      "value": "\"clipImage\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2240,
+      "length": 6,
+      "value": "\"path\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2302,
+      "length": 14,
+      "value": "\"cornerRadius\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2379,
+      "length": 19,
+      "value": "\"INVALID_ARGUMENTS\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2409,
+      "length": 19,
+      "value": "\"Invalid arguments\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2678,
+      "length": 12,
+      "value": "\"CLIP_ERROR\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2701,
+      "length": 22,
+      "value": "\"Failed to clip image\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2787,
+      "length": 12,
+      "value": "\"scaleImage\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2899,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2978,
+      "length": 13,
+      "value": "\"targetWidth\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3044,
+      "length": 14,
+      "value": "\"targetHeight\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3136,
+      "length": 19,
+      "value": "\"INVALID_ARGUMENTS\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3166,
+      "length": 19,
+      "value": "\"Invalid arguments\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3460,
+      "length": 13,
+      "value": "\"SCALE_ERROR\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/git\/creekdial-67334d0e0735e6bcdfa2c223162c8cf5328cf119\/image_clipper\/ios\/Classes\/ImageClipperPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3484,
+      "length": 23,
+      "value": "\"Failed to scale image\""
+    }
+  ]
+}

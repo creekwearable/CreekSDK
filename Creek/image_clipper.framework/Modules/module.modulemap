@@ -1,0 +1,11 @@
+framework module image_clipper {
+  umbrella header "image_clipper-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module image_clipper.Swift {
+  header "image_clipper-Swift.h"
+  requires objc
+}
