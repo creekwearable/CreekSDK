@@ -59,6 +59,8 @@ public typealias menstrualBase = (_ model:protocol_menstruation_inquire_reply) -
 public typealias focusBase = (_ model:protocol_focus_mode_inquire_reply) -> ()
 public typealias tableBase = (_ model:protocol_function_table) -> ()
 public typealias bluetoothStatusBase = (_ model:protocol_connect_status_inquire_reply) -> ()
+public typealias appListBase = (_ model:protocol_app_list_inquire_reply) -> ()
+public typealias eventTrackingBase = (_ model:protocol_event_tracking_inquire_reply) -> ()
 public typealias rawQueryDBClosure = (_ jsonString:String) -> ()
 public typealias SNFirmwareBase = (_ sn:String) -> ()
 public typealias parseDialBase = (_ model:DialParseModel) -> ()
@@ -99,27 +101,29 @@ public typealias dialDataBase = (_ model:Data) -> ()
     var screenDic:[String:screenBase] = [:]      //Screen capture
     var monitorDic:[String:monitorBase] = [:]      //Health monitoring
     var sleepMonitorDic:[String:sleepMonitorBase] = [:]     //Sleep monitoring
-    var waterDic:[String:waterBase] = [:]      //喝水提醒获取
-    var findPhoneWatchDic:[String:findPhoneWatchBase] = [:]      //寻找手表
-    var voiceDic:[String:voiceBase] = [:]      //语音助手
-    var worldTimeDic:[String:worldTimeBase] = [:]      //世界时钟
-    var standingDic:[String:standingBase] = [:]      //世界时钟
-    var messageTypeDic:[String:messageTypeBase] = [:]      //获取设备支持的消息类型
-    var messageAppDic:[String:messageAppBase] = [:]      //app消息提醒查询
-    var messageOnOffDic:[String:messageOnOffBase] = [:]      //app消息提醒查询
-    var callDic:[String:callBase] = [:]                     //app消息提醒查询
-    var contactsDic:[String:contactsBase] = [:]     //常用联系人
-    var sosContactsDic:[String:sosContactsBase] = [:]      //紧急联系人
-    var cardDic:[String:cardBase] = [:]                 //快捷卡片
-    var sportTypeDic:[String:sportTypeBase] = [:]       //设备支持运动类型
-    var sportSortDic:[String:sportSortBase] = [:]      //运动排列顺序查询
-    var sportSubDic:[String:sportSubBase] = [:]       //运动排列顺序查询
-    var sportIdentificationDic:[String:sportIdentificationBase] = [:]      //运动自识别
-    var watchDialDic:[String:watchDialBase] = [:]       //表盘
-    var hotKeyDic:[String:hotKeyBase] = [:]            //快捷键
-    var menstrualDic:[String:menstrualBase] = [:]           //女性健康
-    var focusDic:[String:focusBase] = [:]                //专注模式
-    var tableDic:[String:tableBase] = [:]                           //功能表
+    var waterDic:[String:waterBase] = [:]      //Drink water reminder
+    var findPhoneWatchDic:[String:findPhoneWatchBase] = [:]      //looking for watch
+    var voiceDic:[String:voiceBase] = [:]
+    var worldTimeDic:[String:worldTimeBase] = [:]      //world clock
+    var standingDic:[String:standingBase] = [:]      //Stand reminder
+    var messageTypeDic:[String:messageTypeBase] = [:]      //Get the message types supported by the device
+    var messageAppDic:[String:messageAppBase] = [:]      //app message reminder
+    var messageOnOffDic:[String:messageOnOffBase] = [:]
+    var callDic:[String:callBase] = [:]                     //incoming call
+    var contactsDic:[String:contactsBase] = [:]     //Frequent contacts
+    var sosContactsDic:[String:sosContactsBase] = [:]      //emergency contact
+    var cardDic:[String:cardBase] = [:]                 //Quick card
+    var sportTypeDic:[String:sportTypeBase] = [:]       //Device supports sports types
+    var sportSortDic:[String:sportSortBase] = [:]      //
+    var sportSubDic:[String:sportSubBase] = [:]       //
+    var sportIdentificationDic:[String:sportIdentificationBase] = [:]      //Motion self-recognition
+    var watchDialDic:[String:watchDialBase] = [:]       //dial
+    var hotKeyDic:[String:hotKeyBase] = [:]            //shortcut key
+    var menstrualDic:[String:menstrualBase] = [:]           //women's health
+    var focusDic:[String:focusBase] = [:]                //focus mode
+    var tableDic:[String:tableBase] = [:]                           //Menu
+    var appListDic:[String:appListBase] = [:]                           //app list
+    var eventTrackingDic:[String:eventTrackingBase] = [:]
     var bluetoothStatusDic:[String:bluetoothStatusBase] = [:]
     var rawQueryDBClosureDic:[String:rawQueryDBClosure] = [:]
     var activitysClosureDic:[String:activitysClosure] = [:]
@@ -956,6 +960,35 @@ public typealias dialDataBase = (_ model:Data) -> ()
             }
             
         }
+        else if(call.method.contains("getAppList")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_app_list_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = appListDic[call.method]{
+                        back(model)
+                        appListDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        else if(call.method.contains("getEventTracking")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                    let model = try protocol_event_tracking_inquire_reply(serializedData: response.data,partial: true)
+                    if let back = eventTrackingDic[call.method]{
+                        back(model)
+                        eventTrackingDic.removeValue(forKey: call.method)
+                    }
+                }catch{
+                    print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        
         else if(call.method == "noticeUpdate"){
             if let response = call.arguments as? String{
                 do{

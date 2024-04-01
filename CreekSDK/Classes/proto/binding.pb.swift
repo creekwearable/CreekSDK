@@ -16,49 +16,49 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_bind_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///binding method
-    public var bindMethod: bind_method = .bindEncrypted
-    
-    ///bind flag bit
-    public var bindFlag: bind_flag = .request
-    
-    ///bind phone model
-    public var bindPhone: bind_phone_type = .android
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///binding method
+  public var bindMethod: bind_method = .bindEncrypted
+
+  ///bind flag bit
+  public var bindFlag: bind_flag = .request
+
+  ///bind phone model
+  public var bindPhone: bind_phone_type = .android
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_bind_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///binding method
-    public var bindMethod: bind_method = .bindEncrypted
-    
-    ///bind flag bit
-    public var bindFlag: bind_flag = .request
-    
-    ///authorization code
-    public var competentData: Data = Data()
-    
-    ///pairing code
-    public var pairingCode: Data = Data()
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///binding method
+  public var bindMethod: bind_method = .bindEncrypted
+
+  ///bind flag bit
+  public var bindFlag: bind_flag = .request
+
+  ///authorization code
+  public var competentData: Data = Data()
+
+  ///pairing code
+  public var pairingCode: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -69,95 +69,95 @@ extension protocol_bind_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_bind_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_bind_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "bind_method"),
-        2: .standard(proto: "bind_flag"),
-        3: .standard(proto: "bind_phone"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.bindMethod) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.bindFlag) }()
-            case 3: try { try decoder.decodeSingularEnumField(value: &self.bindPhone) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_bind_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "bind_method"),
+    2: .standard(proto: "bind_flag"),
+    3: .standard(proto: "bind_phone"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.bindMethod) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.bindFlag) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.bindPhone) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.bindMethod != .bindEncrypted {
-            try visitor.visitSingularEnumField(value: self.bindMethod, fieldNumber: 1)
-        }
-        if self.bindFlag != .request {
-            try visitor.visitSingularEnumField(value: self.bindFlag, fieldNumber: 2)
-        }
-        if self.bindPhone != .android {
-            try visitor.visitSingularEnumField(value: self.bindPhone, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.bindMethod != .bindEncrypted {
+      try visitor.visitSingularEnumField(value: self.bindMethod, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_bind_operate, rhs: protocol_bind_operate) -> Bool {
-        if lhs.bindMethod != rhs.bindMethod {return false}
-        if lhs.bindFlag != rhs.bindFlag {return false}
-        if lhs.bindPhone != rhs.bindPhone {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.bindFlag != .request {
+      try visitor.visitSingularEnumField(value: self.bindFlag, fieldNumber: 2)
     }
+    if self.bindPhone != .android {
+      try visitor.visitSingularEnumField(value: self.bindPhone, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_bind_operate, rhs: protocol_bind_operate) -> Bool {
+    if lhs.bindMethod != rhs.bindMethod {return false}
+    if lhs.bindFlag != rhs.bindFlag {return false}
+    if lhs.bindPhone != rhs.bindPhone {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_bind_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_bind_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "bind_method"),
-        2: .standard(proto: "bind_flag"),
-        3: .standard(proto: "competent_data"),
-        4: .standard(proto: "pairing_code"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.bindMethod) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.bindFlag) }()
-            case 3: try { try decoder.decodeSingularBytesField(value: &self.competentData) }()
-            case 4: try { try decoder.decodeSingularBytesField(value: &self.pairingCode) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_bind_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "bind_method"),
+    2: .standard(proto: "bind_flag"),
+    3: .standard(proto: "competent_data"),
+    4: .standard(proto: "pairing_code"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.bindMethod) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.bindFlag) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.competentData) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.pairingCode) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.bindMethod != .bindEncrypted {
-            try visitor.visitSingularEnumField(value: self.bindMethod, fieldNumber: 1)
-        }
-        if self.bindFlag != .request {
-            try visitor.visitSingularEnumField(value: self.bindFlag, fieldNumber: 2)
-        }
-        if !self.competentData.isEmpty {
-            try visitor.visitSingularBytesField(value: self.competentData, fieldNumber: 3)
-        }
-        if !self.pairingCode.isEmpty {
-            try visitor.visitSingularBytesField(value: self.pairingCode, fieldNumber: 4)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.bindMethod != .bindEncrypted {
+      try visitor.visitSingularEnumField(value: self.bindMethod, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_bind_reply, rhs: protocol_bind_reply) -> Bool {
-        if lhs.bindMethod != rhs.bindMethod {return false}
-        if lhs.bindFlag != rhs.bindFlag {return false}
-        if lhs.competentData != rhs.competentData {return false}
-        if lhs.pairingCode != rhs.pairingCode {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.bindFlag != .request {
+      try visitor.visitSingularEnumField(value: self.bindFlag, fieldNumber: 2)
     }
+    if !self.competentData.isEmpty {
+      try visitor.visitSingularBytesField(value: self.competentData, fieldNumber: 3)
+    }
+    if !self.pairingCode.isEmpty {
+      try visitor.visitSingularBytesField(value: self.pairingCode, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_bind_reply, rhs: protocol_bind_reply) -> Bool {
+    if lhs.bindMethod != rhs.bindMethod {return false}
+    if lhs.bindFlag != rhs.bindFlag {return false}
+    if lhs.competentData != rhs.competentData {return false}
+    if lhs.pairingCode != rhs.pairingCode {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

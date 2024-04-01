@@ -238,6 +238,8 @@ class CommandReplyViewController: CreekBaseViewController {
             break
         case "Get Screen Brightness":
             CreekInterFace.instance.getScreen{ model in
+
+            
                 self.view.hideRemark()
                 let json = try? model.jsonString()
                 if let str = json{
@@ -252,15 +254,37 @@ class CommandReplyViewController: CreekBaseViewController {
             break
             
         case "Set Screen Brightness":
-            var model =  protocol_screen_brightness_operate()
-            model.nightAutoAdjust.startHour = 20
-            CreekInterFace.instance.setScreen(model: model) {
-                self.view.hideRemark()
-                self.textView.text = "success"
+            CreekInterFace.instance.getScreen{ model in
+                var operate =  protocol_screen_brightness_operate()
+                let screenTable = model.fromTable()
+                if  screenTable.steady{
+                   var aod = protocol_screen_aod_time_setting()
+                   aod.mode = .intelligentMode
+                   aod.startHour = 8
+                   aod.startMinute = 0
+                   aod.endHour = 10
+                   aod.endMinute = 0
+                   operate.aodTimeSetting = aod
+                }else{
+                    operate.aodSwitchFlag = true
+                }
+                operate.level = 100
+                operate.showInterval = 5
+                operate.levelFlag = true
+                
+                CreekInterFace.instance.setScreen(model: operate) {
+                    self.view.hideRemark()
+                    self.textView.text = "success"
+                } failure: { code, message in
+                    self.view.hideRemark()
+                    self.textView.text = message
+                }
             } failure: { code, message in
                 self.view.hideRemark()
                 self.textView.text = message
             }
+            
+   
             break
             
         case "Get Health Monitoring":
@@ -910,6 +934,198 @@ class CommandReplyViewController: CreekBaseViewController {
             })
             
             break
+        case "Get card":
+            CreekInterFace.instance.getCard { model in
+                self.view.hideRemark()
+                let json = try? model.jsonString()
+                if let str = json{
+                    dispatch_main_sync_safe {
+                        self.textView.text = str
+                    }
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+            break
+        case "Set card":
+            CreekInterFace.instance.getCard { model in
+                var operate =  protocol_quick_card_operate()
+                var cardType:[quick_card_type] = []
+                model.cardType.forEach { type in
+                    
+                    if type == .cardTypeDial {
+                        if  model.cardTypeDialSupport.isDelete ==  false{
+                            ///Removal is not supported and must be added
+                            cardType.append(type)
+                        }
+                        
+                    }else{
+                        ///All other changes can be removed
+                        if type == .cardTypeActivity{
+                            ///Remove
+                        }else{
+                           /// Add
+                            cardType.append(type)
+                        }
+                    }
+                
+                }
+                operate.cardType =  cardType
+                CreekInterFace.instance.setCard(model: operate) {
+                    self.view.hideRemark()
+                    self.textView.text = "success"
+                } failure: { code, message in
+                    self.view.hideRemark()
+                    self.textView.text = message
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+        case "getStand":
+            CreekInterFace.instance.getStanding { model in
+                self.view.hideRemark()
+                let json = try? model.jsonString()
+                if let str = json{
+                    dispatch_main_sync_safe {
+                        self.textView.text = str
+                    }
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+            break
+        case "setStand":
+             var  operate =  protocol_standing_remind_operate()
+             var standing =  protocol_standing_remind_set()
+            ///Just set the switch  other attributes do not need to be set
+            standing.switchFlag = true
+            operate.standingRemind = standing
+            CreekInterFace.instance.setStanding(model: operate) {
+                self.view.hideRemark()
+                self.textView.text = "success"
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+        case "getWater":
+           
+            CreekInterFace.instance.getWater { model in
+                self.view.hideRemark()
+                let json = try? model.jsonString()
+                if let str = json{
+                    dispatch_main_sync_safe {
+                        self.textView.text = str
+                    }
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+            break
+        case "setWater":
+             var  operate =  protocol_drink_water_operate()
+            ///Only these 5 attributes need to be set, other attribute settings are invalid
+            operate.switchFlag = true
+            operate.startHour = 8
+            operate.startMinute = 0
+            operate.endHour = 18
+            operate.endMinute = 0
+            CreekInterFace.instance.setWater(model: operate) {
+                self.view.hideRemark()
+                self.textView.text = "success"
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+        case "getFocus":
+           
+           
+            CreekInterFace.instance.getFocusSleep { model in
+                self.view.hideRemark()
+                let json = try? model.jsonString()
+                if let str = json{
+                    dispatch_main_sync_safe {
+                        self.textView.text = str
+                    }
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+            break
+        case "setFocus":
+             var  operate =  protocol_focus_mode_operate()
+             var mode = protocol_focus_sleep_mode()
+            mode.switchFlag = true
+            mode.startHour = 22
+            mode.endHour = 8
+            mode.startMinute = 0
+            mode.endMinute = 0
+            operate.sleepMode = mode
+            CreekInterFace.instance.setFocusSleep(model: operate) {
+                self.view.hideRemark()
+                self.textView.text = "success"
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+
+            break
+        case "getAppList":
+            CreekInterFace.instance.getAppList { model in
+                self.view.hideRemark()
+                let json = try? model.jsonString()
+                if let str = json{
+                    dispatch_main_sync_safe {
+                        self.textView.text = str
+                    }
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            break
+        case "setAppList":
+            CreekInterFace.instance.getAppList { model in
+                var operate = protocol_app_list_operate()
+                operate.list = model.list
+                CreekInterFace.instance.setAppList(model: operate) {
+                    self.view.hideRemark()
+                    self.textView.text = "success"
+                } failure: { code, message in
+                    self.view.hideRemark()
+                    self.textView.text = message
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            
+            break
+        case "functionTable":
+            CreekInterFace.instance.getTable{ model in
+                self.view.hideRemark()
+                let json = try? model.jsonString()
+                if let str = json{
+                    dispatch_main_sync_safe {
+                        self.textView.text = str
+                    }
+                }
+            } failure: { code, message in
+                self.view.hideRemark()
+                self.textView.text = message
+            }
+            break
+            
         default:
             break
             

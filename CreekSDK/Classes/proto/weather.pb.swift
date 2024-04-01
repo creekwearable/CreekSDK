@@ -15,291 +15,291 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate  struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_weather_future_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes weather type
-    public var weatherType: weather_type = .tornado
-    
-    ///1bytes maximum temperature
-    public var maxTemp: Int32 = 0
-    
-    ///1bytes minimum temperature
-    public var minTemp: Int32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes weather type
+  public var weatherType: weather_type = .tornado
+
+  ///1bytes maximum temperature
+  public var maxTemp: Int32 = 0
+
+  ///1bytes minimum temperature
+  public var minTemp: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_weather_hour_weather_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes weather type
-    public var weatherType: weather_type = .tornado
-    
-    ///1bytes temperature
-    public var temperature: Int32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes weather type
+  public var weatherType: weather_type = .tornado
+
+  ///1bytes temperature
+  public var temperature: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 ///Sunrise and sunset time item
 public struct protocol_weather_sunrise_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes sunrise
-    public var sunriseHour: UInt32 = 0
-    
-    public var sunriseMin: UInt32 = 0
-    
-    ///1bytes sunset
-    public var sunsetHour: UInt32 = 0
-    
-    public var sunsetMin: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes sunrise
+  public var sunriseHour: UInt32 = 0
+
+  public var sunriseMin: UInt32 = 0
+
+  ///1bytes sunset
+  public var sunsetHour: UInt32 = 0
+
+  public var sunsetMin: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 ///Moonrise and moonset time item
 public struct protocol_weather_moon_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes moonrise
-    public var moonriseHour: UInt32 = 0
-    
-    public var moonriseMin: UInt32 = 0
-    
-    ///1bytes moonset
-    public var moonsetHour: UInt32 = 0
-    
-    public var moonsetMin: UInt32 = 0
-    
-    ///Moon phase
-    public var phase: moon_phase = .newMoon
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes moonrise
+  public var moonriseHour: UInt32 = 0
+
+  public var moonriseMin: UInt32 = 0
+
+  ///1bytes moonset
+  public var moonsetHour: UInt32 = 0
+
+  public var moonsetMin: UInt32 = 0
+
+  ///Moon phase
+  public var phase: moon_phase = .newMoon
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_weather_detail_data_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///The latest synchronization month
-    public var month: UInt32 {
-        get {return _storage._month}
-        set {_uniqueStorage()._month = newValue}
-    }
-    
-    public var day: UInt32 {
-        get {return _storage._day}
-        set {_uniqueStorage()._day = newValue}
-    }
-    
-    ///hour
-    public var hour: UInt32 {
-        get {return _storage._hour}
-        set {_uniqueStorage()._hour = newValue}
-    }
-    
-    ///min
-    public var min: UInt32 {
-        get {return _storage._min}
-        set {_uniqueStorage()._min = newValue}
-    }
-    
-    ///1bytes week 0x00 is invalid 0x01~0x07: Monday~Sunday
-    public var week: UInt32 {
-        get {return _storage._week}
-        set {_uniqueStorage()._week = newValue}
-    }
-    
-    ///1bytes weather type
-    public var weatherType: weather_type {
-        get {return _storage._weatherType}
-        set {_uniqueStorage()._weatherType = newValue}
-    }
-    
-    ///1bytes current temperature
-    public var curTemp: Int32 {
-        get {return _storage._curTemp}
-        set {_uniqueStorage()._curTemp = newValue}
-    }
-    
-    ///1bytes maximum temperature
-    public var curMaxTemp: Int32 {
-        get {return _storage._curMaxTemp}
-        set {_uniqueStorage()._curMaxTemp = newValue}
-    }
-    
-    ///1bytes minimum temperature
-    public var curMinTemp: Int32 {
-        get {return _storage._curMinTemp}
-        set {_uniqueStorage()._curMinTemp = newValue}
-    }
-    
-    ///max:60 city name
-    public var cityName: Data {
-        get {return _storage._cityName}
-        set {_uniqueStorage()._cityName = newValue}
-    }
-    
-    ///max:48 real-time weather data, unit hour
-    public var hoursWeatherItems: [protocol_weather_hour_weather_item] {
-        get {return _storage._hoursWeatherItems}
-        set {_uniqueStorage()._hoursWeatherItems = newValue}
-    }
-    
-    ///1bytes air quality
-    public var airQuality: UInt32 {
-        get {return _storage._airQuality}
-        set {_uniqueStorage()._airQuality = newValue}
-    }
-    
-    ///2bytes precipitation probability
-    public var rainfallProbability: UInt32 {
-        get {return _storage._rainfallProbability}
-        set {_uniqueStorage()._rainfallProbability = newValue}
-    }
-    
-    ///1bytes humidity
-    public var humidity: UInt32 {
-        get {return _storage._humidity}
-        set {_uniqueStorage()._humidity = newValue}
-    }
-    
-    ///1bytes ultraviolet intensity
-    public var ultravioletIntensity: UInt32 {
-        get {return _storage._ultravioletIntensity}
-        set {_uniqueStorage()._ultravioletIntensity = newValue}
-    }
-    
-    ///1bytes wind speed, expand 100 times by default
-    public var windSpeed: UInt32 {
-        get {return _storage._windSpeed}
-        set {_uniqueStorage()._windSpeed = newValue}
-    }
-    
-    ///1bytes wind level
-    public var windLevel: UInt32 {
-        get {return _storage._windLevel}
-        set {_uniqueStorage()._windLevel = newValue}
-    }
-    
-    ///1bytes wind direction
-    public var windDirection: wind_direction_type {
-        get {return _storage._windDirection}
-        set {_uniqueStorage()._windDirection = newValue}
-    }
-    
-    ///Future weather data tentatively scheduled for 7 days
-    public var futureItems: [protocol_weather_future_item] {
-        get {return _storage._futureItems}
-        set {_uniqueStorage()._futureItems = newValue}
-    }
-    
-    ///Sunrise and sunset time item
-    public var sunriseItem: protocol_weather_sunrise_item {
-        get {return _storage._sunriseItem ?? protocol_weather_sunrise_item()}
-        set {_uniqueStorage()._sunriseItem = newValue}
-    }
-    /// Returns true if `sunriseItem` has been explicitly set.
-    public var hasSunriseItem: Bool {return _storage._sunriseItem != nil}
-    /// Clears the value of `sunriseItem`. Subsequent reads from it will return its default value.
-    mutating func clearSunriseItem() {_uniqueStorage()._sunriseItem = nil}
-    
-    ///Whether to locate the city
-    public var location: Bool {
-        get {return _storage._location}
-        set {_uniqueStorage()._location = newValue}
-    }
-    
-    ///Air pressure, unit Pa value * 100
-    public var atmosHpa: UInt32 {
-        get {return _storage._atmosHpa}
-        set {_uniqueStorage()._atmosHpa = newValue}
-    }
-    
-    ///max:24 实时紫外线强度 24小时
-    public var uvItems: [UInt32] {
-        get {return _storage._uvItems}
-        set {_uniqueStorage()._uvItems = newValue}
-    }
-    
-    ///max：3 月出月落时间item 3天
-    public var moonItem: [protocol_weather_moon_item] {
-        get {return _storage._moonItem}
-        set {_uniqueStorage()._moonItem = newValue}
-    }
-    
-    ///max：3 日出日落时间item 3天
-    public var sunriseItems: [protocol_weather_sunrise_item] {
-        get {return _storage._sunriseItems}
-        set {_uniqueStorage()._sunriseItems = newValue}
-    }
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
-    
-    fileprivate  var _storage = _StorageClass.defaultInstance
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///The latest synchronization month
+  public var month: UInt32 {
+    get {return _storage._month}
+    set {_uniqueStorage()._month = newValue}
+  }
+
+  public var day: UInt32 {
+    get {return _storage._day}
+    set {_uniqueStorage()._day = newValue}
+  }
+
+  ///hour
+  public var hour: UInt32 {
+    get {return _storage._hour}
+    set {_uniqueStorage()._hour = newValue}
+  }
+
+  ///min
+  public var min: UInt32 {
+    get {return _storage._min}
+    set {_uniqueStorage()._min = newValue}
+  }
+
+  ///1bytes week 0x00 is invalid 0x01~0x07: Monday~Sunday
+  public var week: UInt32 {
+    get {return _storage._week}
+    set {_uniqueStorage()._week = newValue}
+  }
+
+  ///1bytes weather type
+  public var weatherType: weather_type {
+    get {return _storage._weatherType}
+    set {_uniqueStorage()._weatherType = newValue}
+  }
+
+  ///1bytes current temperature
+  public var curTemp: Int32 {
+    get {return _storage._curTemp}
+    set {_uniqueStorage()._curTemp = newValue}
+  }
+
+  ///1bytes maximum temperature
+  public var curMaxTemp: Int32 {
+    get {return _storage._curMaxTemp}
+    set {_uniqueStorage()._curMaxTemp = newValue}
+  }
+
+  ///1bytes minimum temperature
+  public var curMinTemp: Int32 {
+    get {return _storage._curMinTemp}
+    set {_uniqueStorage()._curMinTemp = newValue}
+  }
+
+  ///max:60 city name
+  public var cityName: Data {
+    get {return _storage._cityName}
+    set {_uniqueStorage()._cityName = newValue}
+  }
+
+  ///max:48 real-time weather data, unit hour
+  public var hoursWeatherItems: [protocol_weather_hour_weather_item] {
+    get {return _storage._hoursWeatherItems}
+    set {_uniqueStorage()._hoursWeatherItems = newValue}
+  }
+
+  ///1bytes air quality
+  public var airQuality: UInt32 {
+    get {return _storage._airQuality}
+    set {_uniqueStorage()._airQuality = newValue}
+  }
+
+  ///2bytes precipitation probability
+  public var rainfallProbability: UInt32 {
+    get {return _storage._rainfallProbability}
+    set {_uniqueStorage()._rainfallProbability = newValue}
+  }
+
+  ///1bytes humidity
+  public var humidity: UInt32 {
+    get {return _storage._humidity}
+    set {_uniqueStorage()._humidity = newValue}
+  }
+
+  ///1bytes ultraviolet intensity
+  public var ultravioletIntensity: UInt32 {
+    get {return _storage._ultravioletIntensity}
+    set {_uniqueStorage()._ultravioletIntensity = newValue}
+  }
+
+  ///1bytes wind speed, expand 100 times by default
+  public var windSpeed: UInt32 {
+    get {return _storage._windSpeed}
+    set {_uniqueStorage()._windSpeed = newValue}
+  }
+
+  ///1bytes wind level
+  public var windLevel: UInt32 {
+    get {return _storage._windLevel}
+    set {_uniqueStorage()._windLevel = newValue}
+  }
+
+  ///1bytes wind direction
+  public var windDirection: wind_direction_type {
+    get {return _storage._windDirection}
+    set {_uniqueStorage()._windDirection = newValue}
+  }
+
+  ///Future weather data tentatively scheduled for 7 days
+  public var futureItems: [protocol_weather_future_item] {
+    get {return _storage._futureItems}
+    set {_uniqueStorage()._futureItems = newValue}
+  }
+
+  ///Sunrise and sunset time item
+  public var sunriseItem: protocol_weather_sunrise_item {
+    get {return _storage._sunriseItem ?? protocol_weather_sunrise_item()}
+    set {_uniqueStorage()._sunriseItem = newValue}
+  }
+  /// Returns true if `sunriseItem` has been explicitly set.
+  public var hasSunriseItem: Bool {return _storage._sunriseItem != nil}
+  /// Clears the value of `sunriseItem`. Subsequent reads from it will return its default value.
+  public mutating func clearSunriseItem() {_uniqueStorage()._sunriseItem = nil}
+
+  ///Whether to locate the city
+  public var location: Bool {
+    get {return _storage._location}
+    set {_uniqueStorage()._location = newValue}
+  }
+
+  ///Air pressure, unit Pa value * 100
+  public var atmosHpa: UInt32 {
+    get {return _storage._atmosHpa}
+    set {_uniqueStorage()._atmosHpa = newValue}
+  }
+
+  ////max:24 Real-time UV intensity 24 hours
+  public var uvItems: [UInt32] {
+    get {return _storage._uvItems}
+    set {_uniqueStorage()._uvItems = newValue}
+  }
+
+  ///max：3 Moonrise and moonset time item 3 days
+  public var moonItem: [protocol_weather_moon_item] {
+    get {return _storage._moonItem}
+    set {_uniqueStorage()._moonItem = newValue}
+  }
+
+  ///max：3 Sunrise and sunset time item 3 days
+  public var sunriseItems: [protocol_weather_sunrise_item] {
+    get {return _storage._sunriseItems}
+    set {_uniqueStorage()._sunriseItems = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct protocol_weather_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///1bytes weather function true on, false off
-    public var switchFlag: Bool = false
-    
-    public var detailDataItem: [protocol_weather_detail_data_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///1bytes weather function true on, false off
+  public var switchFlag: Bool = false
+
+  public var detailDataItem: [protocol_weather_detail_data_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_weather_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes function table
-    public var funcTable: UInt32 = 0
-    
-    ///1bytes maximum number of weather details supported
-    public var weatherSupportMax: UInt32 = 0
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes function table
+  public var funcTable: UInt32 = 0
+
+  ///1bytes maximum number of weather details supported
+  public var weatherSupportMax: UInt32 = 0
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -315,537 +315,537 @@ extension protocol_weather_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_weather_future_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_weather_future_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "weather_type"),
-        2: .standard(proto: "max_temp"),
-        3: .standard(proto: "min_temp"),
-    ]
-    
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.weatherType) }()
-            case 2: try { try decoder.decodeSingularInt32Field(value: &self.maxTemp) }()
-            case 3: try { try decoder.decodeSingularInt32Field(value: &self.minTemp) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_weather_future_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "weather_type"),
+    2: .standard(proto: "max_temp"),
+    3: .standard(proto: "min_temp"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.weatherType) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.maxTemp) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.minTemp) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.weatherType != .tornado {
-            try visitor.visitSingularEnumField(value: self.weatherType, fieldNumber: 1)
-        }
-        if self.maxTemp != 0 {
-            try visitor.visitSingularInt32Field(value: self.maxTemp, fieldNumber: 2)
-        }
-        if self.minTemp != 0 {
-            try visitor.visitSingularInt32Field(value: self.minTemp, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.weatherType != .tornado {
+      try visitor.visitSingularEnumField(value: self.weatherType, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_weather_future_item, rhs: protocol_weather_future_item) -> Bool {
-        if lhs.weatherType != rhs.weatherType {return false}
-        if lhs.maxTemp != rhs.maxTemp {return false}
-        if lhs.minTemp != rhs.minTemp {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.maxTemp != 0 {
+      try visitor.visitSingularInt32Field(value: self.maxTemp, fieldNumber: 2)
     }
+    if self.minTemp != 0 {
+      try visitor.visitSingularInt32Field(value: self.minTemp, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_future_item, rhs: protocol_weather_future_item) -> Bool {
+    if lhs.weatherType != rhs.weatherType {return false}
+    if lhs.maxTemp != rhs.maxTemp {return false}
+    if lhs.minTemp != rhs.minTemp {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_weather_hour_weather_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_weather_hour_weather_item"
-    public  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "weather_type"),
-        2: .same(proto: "temperature"),
-    ]
-    
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.weatherType) }()
-            case 2: try { try decoder.decodeSingularInt32Field(value: &self.temperature) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_weather_hour_weather_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "weather_type"),
+    2: .same(proto: "temperature"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.weatherType) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.temperature) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.weatherType != .tornado {
-            try visitor.visitSingularEnumField(value: self.weatherType, fieldNumber: 1)
-        }
-        if self.temperature != 0 {
-            try visitor.visitSingularInt32Field(value: self.temperature, fieldNumber: 2)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.weatherType != .tornado {
+      try visitor.visitSingularEnumField(value: self.weatherType, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_weather_hour_weather_item, rhs: protocol_weather_hour_weather_item) -> Bool {
-        if lhs.weatherType != rhs.weatherType {return false}
-        if lhs.temperature != rhs.temperature {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.temperature != 0 {
+      try visitor.visitSingularInt32Field(value: self.temperature, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_hour_weather_item, rhs: protocol_weather_hour_weather_item) -> Bool {
+    if lhs.weatherType != rhs.weatherType {return false}
+    if lhs.temperature != rhs.temperature {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_weather_sunrise_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_weather_sunrise_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "sunrise_hour"),
-        2: .standard(proto: "sunrise_min"),
-        3: .standard(proto: "sunset_hour"),
-        4: .standard(proto: "sunset_min"),
-    ]
-    
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.sunriseHour) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.sunriseMin) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.sunsetHour) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.sunsetMin) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_weather_sunrise_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sunrise_hour"),
+    2: .standard(proto: "sunrise_min"),
+    3: .standard(proto: "sunset_hour"),
+    4: .standard(proto: "sunset_min"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.sunriseHour) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.sunriseMin) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.sunsetHour) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.sunsetMin) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.sunriseHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.sunriseHour, fieldNumber: 1)
-        }
-        if self.sunriseMin != 0 {
-            try visitor.visitSingularUInt32Field(value: self.sunriseMin, fieldNumber: 2)
-        }
-        if self.sunsetHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.sunsetHour, fieldNumber: 3)
-        }
-        if self.sunsetMin != 0 {
-            try visitor.visitSingularUInt32Field(value: self.sunsetMin, fieldNumber: 4)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.sunriseHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.sunriseHour, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_weather_sunrise_item, rhs: protocol_weather_sunrise_item) -> Bool {
-        if lhs.sunriseHour != rhs.sunriseHour {return false}
-        if lhs.sunriseMin != rhs.sunriseMin {return false}
-        if lhs.sunsetHour != rhs.sunsetHour {return false}
-        if lhs.sunsetMin != rhs.sunsetMin {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.sunriseMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.sunriseMin, fieldNumber: 2)
     }
+    if self.sunsetHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.sunsetHour, fieldNumber: 3)
+    }
+    if self.sunsetMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.sunsetMin, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_sunrise_item, rhs: protocol_weather_sunrise_item) -> Bool {
+    if lhs.sunriseHour != rhs.sunriseHour {return false}
+    if lhs.sunriseMin != rhs.sunriseMin {return false}
+    if lhs.sunsetHour != rhs.sunsetHour {return false}
+    if lhs.sunsetMin != rhs.sunsetMin {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_weather_moon_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_weather_moon_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "moonrise_hour"),
-        2: .standard(proto: "moonrise_min"),
-        3: .standard(proto: "moonset_hour"),
-        4: .standard(proto: "moonset_min"),
-        5: .same(proto: "phase"),
-    ]
-    
-    public  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.moonriseHour) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.moonriseMin) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.moonsetHour) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.moonsetMin) }()
-            case 5: try { try decoder.decodeSingularEnumField(value: &self.phase) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_weather_moon_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "moonrise_hour"),
+    2: .standard(proto: "moonrise_min"),
+    3: .standard(proto: "moonset_hour"),
+    4: .standard(proto: "moonset_min"),
+    5: .same(proto: "phase"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.moonriseHour) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.moonriseMin) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.moonsetHour) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.moonsetMin) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.phase) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.moonriseHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.moonriseHour, fieldNumber: 1)
-        }
-        if self.moonriseMin != 0 {
-            try visitor.visitSingularUInt32Field(value: self.moonriseMin, fieldNumber: 2)
-        }
-        if self.moonsetHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.moonsetHour, fieldNumber: 3)
-        }
-        if self.moonsetMin != 0 {
-            try visitor.visitSingularUInt32Field(value: self.moonsetMin, fieldNumber: 4)
-        }
-        if self.phase != .newMoon {
-            try visitor.visitSingularEnumField(value: self.phase, fieldNumber: 5)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.moonriseHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.moonriseHour, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_weather_moon_item, rhs: protocol_weather_moon_item) -> Bool {
-        if lhs.moonriseHour != rhs.moonriseHour {return false}
-        if lhs.moonriseMin != rhs.moonriseMin {return false}
-        if lhs.moonsetHour != rhs.moonsetHour {return false}
-        if lhs.moonsetMin != rhs.moonsetMin {return false}
-        if lhs.phase != rhs.phase {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.moonriseMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.moonriseMin, fieldNumber: 2)
     }
+    if self.moonsetHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.moonsetHour, fieldNumber: 3)
+    }
+    if self.moonsetMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.moonsetMin, fieldNumber: 4)
+    }
+    if self.phase != .newMoon {
+      try visitor.visitSingularEnumField(value: self.phase, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_moon_item, rhs: protocol_weather_moon_item) -> Bool {
+    if lhs.moonriseHour != rhs.moonriseHour {return false}
+    if lhs.moonriseMin != rhs.moonriseMin {return false}
+    if lhs.moonsetHour != rhs.moonsetHour {return false}
+    if lhs.moonsetMin != rhs.moonsetMin {return false}
+    if lhs.phase != rhs.phase {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public  static let protoMessageName: String = "protocol_weather_detail_data_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "month"),
-        2: .same(proto: "day"),
-        3: .same(proto: "hour"),
-        4: .same(proto: "min"),
-        5: .same(proto: "week"),
-        6: .standard(proto: "weather_type"),
-        7: .standard(proto: "cur_temp"),
-        8: .standard(proto: "cur_max_temp"),
-        9: .standard(proto: "cur_min_temp"),
-        10: .standard(proto: "city_name"),
-        11: .standard(proto: "hours_weather_items"),
-        12: .standard(proto: "air_quality"),
-        13: .standard(proto: "rainfall_probability"),
-        14: .same(proto: "humidity"),
-        15: .standard(proto: "ultraviolet_intensity"),
-        16: .standard(proto: "wind_speed"),
-        17: .standard(proto: "wind_level"),
-        18: .standard(proto: "wind_direction"),
-        19: .standard(proto: "future_items"),
-        20: .standard(proto: "sunrise_item"),
-        21: .same(proto: "location"),
-        22: .standard(proto: "atmos_hpa"),
-        23: .standard(proto: "uv_items"),
-        24: .standard(proto: "moon_item"),
-        25: .standard(proto: "sunrise_items"),
-    ]
-    
-    fileprivate class _StorageClass {
-        public var _month: UInt32 = 0
-        public var _day: UInt32 = 0
-        public var _hour: UInt32 = 0
-        public var _min: UInt32 = 0
-        public var _week: UInt32 = 0
-        public var _weatherType: weather_type = .tornado
-        public var _curTemp: Int32 = 0
-        public var _curMaxTemp: Int32 = 0
-        public var _curMinTemp: Int32 = 0
-        public var _cityName: Data = Data()
-        public var _hoursWeatherItems: [protocol_weather_hour_weather_item] = []
-        public var _airQuality: UInt32 = 0
-        public var _rainfallProbability: UInt32 = 0
-        public var _humidity: UInt32 = 0
-        public var _ultravioletIntensity: UInt32 = 0
-        public var _windSpeed: UInt32 = 0
-        public var _windLevel: UInt32 = 0
-        public var _windDirection: wind_direction_type = .weatherDirectionN
-        public var _futureItems: [protocol_weather_future_item] = []
-        public var _sunriseItem: protocol_weather_sunrise_item? = nil
-        public var _location: Bool = false
-        public var _atmosHpa: UInt32 = 0
-        public var _uvItems: [UInt32] = []
-        public var _moonItem: [protocol_weather_moon_item] = []
-        public var _sunriseItems: [protocol_weather_sunrise_item] = []
-        
-        static let defaultInstance = _StorageClass()
-        
-        private init() {}
-        
-        init(copying source: _StorageClass) {
-            _month = source._month
-            _day = source._day
-            _hour = source._hour
-            _min = source._min
-            _week = source._week
-            _weatherType = source._weatherType
-            _curTemp = source._curTemp
-            _curMaxTemp = source._curMaxTemp
-            _curMinTemp = source._curMinTemp
-            _cityName = source._cityName
-            _hoursWeatherItems = source._hoursWeatherItems
-            _airQuality = source._airQuality
-            _rainfallProbability = source._rainfallProbability
-            _humidity = source._humidity
-            _ultravioletIntensity = source._ultravioletIntensity
-            _windSpeed = source._windSpeed
-            _windLevel = source._windLevel
-            _windDirection = source._windDirection
-            _futureItems = source._futureItems
-            _sunriseItem = source._sunriseItem
-            _location = source._location
-            _atmosHpa = source._atmosHpa
-            _uvItems = source._uvItems
-            _moonItem = source._moonItem
-            _sunriseItems = source._sunriseItems
-        }
+  public static let protoMessageName: String = "protocol_weather_detail_data_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "month"),
+    2: .same(proto: "day"),
+    3: .same(proto: "hour"),
+    4: .same(proto: "min"),
+    5: .same(proto: "week"),
+    6: .standard(proto: "weather_type"),
+    7: .standard(proto: "cur_temp"),
+    8: .standard(proto: "cur_max_temp"),
+    9: .standard(proto: "cur_min_temp"),
+    10: .standard(proto: "city_name"),
+    11: .standard(proto: "hours_weather_items"),
+    12: .standard(proto: "air_quality"),
+    13: .standard(proto: "rainfall_probability"),
+    14: .same(proto: "humidity"),
+    15: .standard(proto: "ultraviolet_intensity"),
+    16: .standard(proto: "wind_speed"),
+    17: .standard(proto: "wind_level"),
+    18: .standard(proto: "wind_direction"),
+    19: .standard(proto: "future_items"),
+    20: .standard(proto: "sunrise_item"),
+    21: .same(proto: "location"),
+    22: .standard(proto: "atmos_hpa"),
+    23: .standard(proto: "uv_items"),
+    24: .standard(proto: "moon_item"),
+    25: .standard(proto: "sunrise_items"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _month: UInt32 = 0
+    var _day: UInt32 = 0
+    var _hour: UInt32 = 0
+    var _min: UInt32 = 0
+    var _week: UInt32 = 0
+    var _weatherType: weather_type = .tornado
+    var _curTemp: Int32 = 0
+    var _curMaxTemp: Int32 = 0
+    var _curMinTemp: Int32 = 0
+    var _cityName: Data = Data()
+    var _hoursWeatherItems: [protocol_weather_hour_weather_item] = []
+    var _airQuality: UInt32 = 0
+    var _rainfallProbability: UInt32 = 0
+    var _humidity: UInt32 = 0
+    var _ultravioletIntensity: UInt32 = 0
+    var _windSpeed: UInt32 = 0
+    var _windLevel: UInt32 = 0
+    var _windDirection: wind_direction_type = .weatherDirectionN
+    var _futureItems: [protocol_weather_future_item] = []
+    var _sunriseItem: protocol_weather_sunrise_item? = nil
+    var _location: Bool = false
+    var _atmosHpa: UInt32 = 0
+    var _uvItems: [UInt32] = []
+    var _moonItem: [protocol_weather_moon_item] = []
+    var _sunriseItems: [protocol_weather_sunrise_item] = []
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _month = source._month
+      _day = source._day
+      _hour = source._hour
+      _min = source._min
+      _week = source._week
+      _weatherType = source._weatherType
+      _curTemp = source._curTemp
+      _curMaxTemp = source._curMaxTemp
+      _curMinTemp = source._curMinTemp
+      _cityName = source._cityName
+      _hoursWeatherItems = source._hoursWeatherItems
+      _airQuality = source._airQuality
+      _rainfallProbability = source._rainfallProbability
+      _humidity = source._humidity
+      _ultravioletIntensity = source._ultravioletIntensity
+      _windSpeed = source._windSpeed
+      _windLevel = source._windLevel
+      _windDirection = source._windDirection
+      _futureItems = source._futureItems
+      _sunriseItem = source._sunriseItem
+      _location = source._location
+      _atmosHpa = source._atmosHpa
+      _uvItems = source._uvItems
+      _moonItem = source._moonItem
+      _sunriseItems = source._sunriseItems
     }
-    
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-            _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
     }
-    
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        _ = _uniqueStorage()
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            while let fieldNumber = try decoder.nextFieldNumber() {
-                // The use of inline closures is to circumvent an issue where the compiler
-                // allocates stack space for every case branch when no optimizations are
-                // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                switch fieldNumber {
-                case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._month) }()
-                case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._day) }()
-                case 3: try { try decoder.decodeSingularUInt32Field(value: &_storage._hour) }()
-                case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._min) }()
-                case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._week) }()
-                case 6: try { try decoder.decodeSingularEnumField(value: &_storage._weatherType) }()
-                case 7: try { try decoder.decodeSingularInt32Field(value: &_storage._curTemp) }()
-                case 8: try { try decoder.decodeSingularInt32Field(value: &_storage._curMaxTemp) }()
-                case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._curMinTemp) }()
-                case 10: try { try decoder.decodeSingularBytesField(value: &_storage._cityName) }()
-                case 11: try { try decoder.decodeRepeatedMessageField(value: &_storage._hoursWeatherItems) }()
-                case 12: try { try decoder.decodeSingularUInt32Field(value: &_storage._airQuality) }()
-                case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._rainfallProbability) }()
-                case 14: try { try decoder.decodeSingularUInt32Field(value: &_storage._humidity) }()
-                case 15: try { try decoder.decodeSingularUInt32Field(value: &_storage._ultravioletIntensity) }()
-                case 16: try { try decoder.decodeSingularUInt32Field(value: &_storage._windSpeed) }()
-                case 17: try { try decoder.decodeSingularUInt32Field(value: &_storage._windLevel) }()
-                case 18: try { try decoder.decodeSingularEnumField(value: &_storage._windDirection) }()
-                case 19: try { try decoder.decodeRepeatedMessageField(value: &_storage._futureItems) }()
-                case 20: try { try decoder.decodeSingularMessageField(value: &_storage._sunriseItem) }()
-                case 21: try { try decoder.decodeSingularBoolField(value: &_storage._location) }()
-                case 22: try { try decoder.decodeSingularUInt32Field(value: &_storage._atmosHpa) }()
-                case 23: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._uvItems) }()
-                case 24: try { try decoder.decodeRepeatedMessageField(value: &_storage._moonItem) }()
-                case 25: try { try decoder.decodeRepeatedMessageField(value: &_storage._sunriseItems) }()
-                default: break
-                }
-            }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._month) }()
+        case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._day) }()
+        case 3: try { try decoder.decodeSingularUInt32Field(value: &_storage._hour) }()
+        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._min) }()
+        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._week) }()
+        case 6: try { try decoder.decodeSingularEnumField(value: &_storage._weatherType) }()
+        case 7: try { try decoder.decodeSingularInt32Field(value: &_storage._curTemp) }()
+        case 8: try { try decoder.decodeSingularInt32Field(value: &_storage._curMaxTemp) }()
+        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._curMinTemp) }()
+        case 10: try { try decoder.decodeSingularBytesField(value: &_storage._cityName) }()
+        case 11: try { try decoder.decodeRepeatedMessageField(value: &_storage._hoursWeatherItems) }()
+        case 12: try { try decoder.decodeSingularUInt32Field(value: &_storage._airQuality) }()
+        case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._rainfallProbability) }()
+        case 14: try { try decoder.decodeSingularUInt32Field(value: &_storage._humidity) }()
+        case 15: try { try decoder.decodeSingularUInt32Field(value: &_storage._ultravioletIntensity) }()
+        case 16: try { try decoder.decodeSingularUInt32Field(value: &_storage._windSpeed) }()
+        case 17: try { try decoder.decodeSingularUInt32Field(value: &_storage._windLevel) }()
+        case 18: try { try decoder.decodeSingularEnumField(value: &_storage._windDirection) }()
+        case 19: try { try decoder.decodeRepeatedMessageField(value: &_storage._futureItems) }()
+        case 20: try { try decoder.decodeSingularMessageField(value: &_storage._sunriseItem) }()
+        case 21: try { try decoder.decodeSingularBoolField(value: &_storage._location) }()
+        case 22: try { try decoder.decodeSingularUInt32Field(value: &_storage._atmosHpa) }()
+        case 23: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._uvItems) }()
+        case 24: try { try decoder.decodeRepeatedMessageField(value: &_storage._moonItem) }()
+        case 25: try { try decoder.decodeRepeatedMessageField(value: &_storage._sunriseItems) }()
+        default: break
         }
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every if/case branch local when no optimizations
-            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-            // https://github.com/apple/swift-protobuf/issues/1182
-            if _storage._month != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._month, fieldNumber: 1)
-            }
-            if _storage._day != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._day, fieldNumber: 2)
-            }
-            if _storage._hour != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._hour, fieldNumber: 3)
-            }
-            if _storage._min != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._min, fieldNumber: 4)
-            }
-            if _storage._week != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._week, fieldNumber: 5)
-            }
-            if _storage._weatherType != .tornado {
-                try visitor.visitSingularEnumField(value: _storage._weatherType, fieldNumber: 6)
-            }
-            if _storage._curTemp != 0 {
-                try visitor.visitSingularInt32Field(value: _storage._curTemp, fieldNumber: 7)
-            }
-            if _storage._curMaxTemp != 0 {
-                try visitor.visitSingularInt32Field(value: _storage._curMaxTemp, fieldNumber: 8)
-            }
-            if _storage._curMinTemp != 0 {
-                try visitor.visitSingularInt32Field(value: _storage._curMinTemp, fieldNumber: 9)
-            }
-            if !_storage._cityName.isEmpty {
-                try visitor.visitSingularBytesField(value: _storage._cityName, fieldNumber: 10)
-            }
-            if !_storage._hoursWeatherItems.isEmpty {
-                try visitor.visitRepeatedMessageField(value: _storage._hoursWeatherItems, fieldNumber: 11)
-            }
-            if _storage._airQuality != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._airQuality, fieldNumber: 12)
-            }
-            if _storage._rainfallProbability != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._rainfallProbability, fieldNumber: 13)
-            }
-            if _storage._humidity != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._humidity, fieldNumber: 14)
-            }
-            if _storage._ultravioletIntensity != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._ultravioletIntensity, fieldNumber: 15)
-            }
-            if _storage._windSpeed != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._windSpeed, fieldNumber: 16)
-            }
-            if _storage._windLevel != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._windLevel, fieldNumber: 17)
-            }
-            if _storage._windDirection != .weatherDirectionN {
-                try visitor.visitSingularEnumField(value: _storage._windDirection, fieldNumber: 18)
-            }
-            if !_storage._futureItems.isEmpty {
-                try visitor.visitRepeatedMessageField(value: _storage._futureItems, fieldNumber: 19)
-            }
-            try { if let v = _storage._sunriseItem {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
-            } }()
-            if _storage._location != false {
-                try visitor.visitSingularBoolField(value: _storage._location, fieldNumber: 21)
-            }
-            if _storage._atmosHpa != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._atmosHpa, fieldNumber: 22)
-            }
-            if !_storage._uvItems.isEmpty {
-                try visitor.visitPackedUInt32Field(value: _storage._uvItems, fieldNumber: 23)
-            }
-            if !_storage._moonItem.isEmpty {
-                try visitor.visitRepeatedMessageField(value: _storage._moonItem, fieldNumber: 24)
-            }
-            if !_storage._sunriseItems.isEmpty {
-                try visitor.visitRepeatedMessageField(value: _storage._sunriseItems, fieldNumber: 25)
-            }
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._month != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._month, fieldNumber: 1)
+      }
+      if _storage._day != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._day, fieldNumber: 2)
+      }
+      if _storage._hour != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._hour, fieldNumber: 3)
+      }
+      if _storage._min != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._min, fieldNumber: 4)
+      }
+      if _storage._week != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._week, fieldNumber: 5)
+      }
+      if _storage._weatherType != .tornado {
+        try visitor.visitSingularEnumField(value: _storage._weatherType, fieldNumber: 6)
+      }
+      if _storage._curTemp != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._curTemp, fieldNumber: 7)
+      }
+      if _storage._curMaxTemp != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._curMaxTemp, fieldNumber: 8)
+      }
+      if _storage._curMinTemp != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._curMinTemp, fieldNumber: 9)
+      }
+      if !_storage._cityName.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._cityName, fieldNumber: 10)
+      }
+      if !_storage._hoursWeatherItems.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hoursWeatherItems, fieldNumber: 11)
+      }
+      if _storage._airQuality != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._airQuality, fieldNumber: 12)
+      }
+      if _storage._rainfallProbability != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._rainfallProbability, fieldNumber: 13)
+      }
+      if _storage._humidity != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._humidity, fieldNumber: 14)
+      }
+      if _storage._ultravioletIntensity != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._ultravioletIntensity, fieldNumber: 15)
+      }
+      if _storage._windSpeed != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._windSpeed, fieldNumber: 16)
+      }
+      if _storage._windLevel != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._windLevel, fieldNumber: 17)
+      }
+      if _storage._windDirection != .weatherDirectionN {
+        try visitor.visitSingularEnumField(value: _storage._windDirection, fieldNumber: 18)
+      }
+      if !_storage._futureItems.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._futureItems, fieldNumber: 19)
+      }
+      try { if let v = _storage._sunriseItem {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
+      } }()
+      if _storage._location != false {
+        try visitor.visitSingularBoolField(value: _storage._location, fieldNumber: 21)
+      }
+      if _storage._atmosHpa != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._atmosHpa, fieldNumber: 22)
+      }
+      if !_storage._uvItems.isEmpty {
+        try visitor.visitPackedUInt32Field(value: _storage._uvItems, fieldNumber: 23)
+      }
+      if !_storage._moonItem.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._moonItem, fieldNumber: 24)
+      }
+      if !_storage._sunriseItems.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._sunriseItems, fieldNumber: 25)
+      }
     }
-    
-    public static func ==(lhs: protocol_weather_detail_data_item, rhs: protocol_weather_detail_data_item) -> Bool {
-        if lhs._storage !== rhs._storage {
-            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-                let _storage = _args.0
-                let rhs_storage = _args.1
-                if _storage._month != rhs_storage._month {return false}
-                if _storage._day != rhs_storage._day {return false}
-                if _storage._hour != rhs_storage._hour {return false}
-                if _storage._min != rhs_storage._min {return false}
-                if _storage._week != rhs_storage._week {return false}
-                if _storage._weatherType != rhs_storage._weatherType {return false}
-                if _storage._curTemp != rhs_storage._curTemp {return false}
-                if _storage._curMaxTemp != rhs_storage._curMaxTemp {return false}
-                if _storage._curMinTemp != rhs_storage._curMinTemp {return false}
-                if _storage._cityName != rhs_storage._cityName {return false}
-                if _storage._hoursWeatherItems != rhs_storage._hoursWeatherItems {return false}
-                if _storage._airQuality != rhs_storage._airQuality {return false}
-                if _storage._rainfallProbability != rhs_storage._rainfallProbability {return false}
-                if _storage._humidity != rhs_storage._humidity {return false}
-                if _storage._ultravioletIntensity != rhs_storage._ultravioletIntensity {return false}
-                if _storage._windSpeed != rhs_storage._windSpeed {return false}
-                if _storage._windLevel != rhs_storage._windLevel {return false}
-                if _storage._windDirection != rhs_storage._windDirection {return false}
-                if _storage._futureItems != rhs_storage._futureItems {return false}
-                if _storage._sunriseItem != rhs_storage._sunriseItem {return false}
-                if _storage._location != rhs_storage._location {return false}
-                if _storage._atmosHpa != rhs_storage._atmosHpa {return false}
-                if _storage._uvItems != rhs_storage._uvItems {return false}
-                if _storage._moonItem != rhs_storage._moonItem {return false}
-                if _storage._sunriseItems != rhs_storage._sunriseItems {return false}
-                return true
-            }
-            if !storagesAreEqual {return false}
-        }
-        if lhs.unknownFields != rhs.unknownFields {return false}
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_detail_data_item, rhs: protocol_weather_detail_data_item) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._month != rhs_storage._month {return false}
+        if _storage._day != rhs_storage._day {return false}
+        if _storage._hour != rhs_storage._hour {return false}
+        if _storage._min != rhs_storage._min {return false}
+        if _storage._week != rhs_storage._week {return false}
+        if _storage._weatherType != rhs_storage._weatherType {return false}
+        if _storage._curTemp != rhs_storage._curTemp {return false}
+        if _storage._curMaxTemp != rhs_storage._curMaxTemp {return false}
+        if _storage._curMinTemp != rhs_storage._curMinTemp {return false}
+        if _storage._cityName != rhs_storage._cityName {return false}
+        if _storage._hoursWeatherItems != rhs_storage._hoursWeatherItems {return false}
+        if _storage._airQuality != rhs_storage._airQuality {return false}
+        if _storage._rainfallProbability != rhs_storage._rainfallProbability {return false}
+        if _storage._humidity != rhs_storage._humidity {return false}
+        if _storage._ultravioletIntensity != rhs_storage._ultravioletIntensity {return false}
+        if _storage._windSpeed != rhs_storage._windSpeed {return false}
+        if _storage._windLevel != rhs_storage._windLevel {return false}
+        if _storage._windDirection != rhs_storage._windDirection {return false}
+        if _storage._futureItems != rhs_storage._futureItems {return false}
+        if _storage._sunriseItem != rhs_storage._sunriseItem {return false}
+        if _storage._location != rhs_storage._location {return false}
+        if _storage._atmosHpa != rhs_storage._atmosHpa {return false}
+        if _storage._uvItems != rhs_storage._uvItems {return false}
+        if _storage._moonItem != rhs_storage._moonItem {return false}
+        if _storage._sunriseItems != rhs_storage._sunriseItems {return false}
         return true
+      }
+      if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_weather_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_weather_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "switch_flag"),
-        3: .standard(proto: "detail_data_item"),
-    ]
-    
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
-            case 3: try { try decoder.decodeRepeatedMessageField(value: &self.detailDataItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_weather_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "switch_flag"),
+    3: .standard(proto: "detail_data_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.detailDataItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if self.switchFlag != false {
-            try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 2)
-        }
-        if !self.detailDataItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.detailDataItem, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_weather_operate, rhs: protocol_weather_operate) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.switchFlag != rhs.switchFlag {return false}
-        if lhs.detailDataItem != rhs.detailDataItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.switchFlag != false {
+      try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 2)
     }
+    if !self.detailDataItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.detailDataItem, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_operate, rhs: protocol_weather_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.switchFlag != rhs.switchFlag {return false}
+    if lhs.detailDataItem != rhs.detailDataItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_weather_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_weather_inquire_reply"
-    public  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "func_table"),
-        2: .standard(proto: "weather_support_max"),
-        3: .same(proto: "operate"),
-    ]
-    
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.weatherSupportMax) }()
-            case 3: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_weather_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .standard(proto: "weather_support_max"),
+    3: .same(proto: "operate"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.weatherSupportMax) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.funcTable != 0 {
-            try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
-        }
-        if self.weatherSupportMax != 0 {
-            try visitor.visitSingularUInt32Field(value: self.weatherSupportMax, fieldNumber: 2)
-        }
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_weather_inquire_reply, rhs: protocol_weather_inquire_reply) -> Bool {
-        if lhs.funcTable != rhs.funcTable {return false}
-        if lhs.weatherSupportMax != rhs.weatherSupportMax {return false}
-        if lhs.operate != rhs.operate {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.weatherSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.weatherSupportMax, fieldNumber: 2)
     }
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_weather_inquire_reply, rhs: protocol_weather_inquire_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.weatherSupportMax != rhs.weatherSupportMax {return false}
+    if lhs.operate != rhs.operate {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

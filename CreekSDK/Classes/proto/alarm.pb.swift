@@ -16,98 +16,98 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 ///Set alarm clock data subitem data
 public struct protocol_set_alarm_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes alarm clock id starts from 0
-    public var alarmID: UInt32 = 0
-    
-    ///1bytes display status disp_off does not display disp_on display
-    public var dispStatus: disp_status = .dispOff
-    
-    ///1bytes alarm clock type
-    public var type: alarm_type = .getUp
-    
-    ///1bytes
-    public var hour: UInt32 = 0
-    
-    ///1bytes
-    public var minute: UInt32 = 0
-    
-    ///1bytes switch
-    public var switchFlag: Bool = false
-    
-    ///7bytes repeated from Monday to Saturday
-    public var `repeat`: [Bool] = []
-    
-    public var laterRemindSwitchFlag: Bool = false
-    
-    ///1byte Remind the number of times to repeat the alarm later
-    public var laterRemindRepeatTimes: UInt32 = 0
-    
-    ///1bytes later reminder minutes
-    public var laterRemindMin: UInt32 = 0
-    
-    ///1bytes alarm clock vibration switch 0 off 1 on
-    public var vibrateOnOff: Bool = false
-    
-    ///max:20 alarm clock name
-    public var name: Data = Data()
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes alarm clock id starts from 0
+  public var alarmID: UInt32 = 0
+
+  ///1bytes display status disp_off does not display disp_on display
+  public var dispStatus: disp_status = .dispOff
+
+  ///1bytes alarm clock type
+  public var type: alarm_type = .getUp
+
+  ///1bytes
+  public var hour: UInt32 = 0
+
+  ///1bytes
+  public var minute: UInt32 = 0
+
+  ///1bytes switch
+  public var switchFlag: Bool = false
+
+  ///7bytes repeated from Monday to Saturday
+  public var `repeat`: [Bool] = []
+
+  public var laterRemindSwitchFlag: Bool = false
+
+  ///1byte Remind the number of times to repeat the alarm later
+  public var laterRemindRepeatTimes: UInt32 = 0
+
+  ///1bytes later reminder minutes
+  public var laterRemindMin: UInt32 = 0
+
+  ///1bytes alarm clock vibration switch 0 off 1 on
+  public var vibrateOnOff: Bool = false
+
+  ///max:20 alarm clock name
+  public var name: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_alarm_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///1bytes number of alarm clocks
-    public var num: UInt32 = 0
-    
-    ///max: 20
-    public var alarmItem: [protocol_set_alarm_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///1bytes number of alarm clocks
+  public var num: UInt32 = 0
+
+  ///max: 20
+  public var alarmItem: [protocol_set_alarm_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_alarm_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes function table
-    public var funcTable: UInt32 = 0
-    
-    ///1bytes alarm supports the maximum number
-    public var alarmSupportMax: UInt32 = 0
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///1bytes number of alarm clocks
-    public var num: UInt32 = 0
-    
-    ///max: 20
-    public var alarmItem: [protocol_set_alarm_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes function table
+  public var funcTable: UInt32 = 0
+
+  ///1bytes alarm supports the maximum number
+  public var alarmSupportMax: UInt32 = 0
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///1bytes number of alarm clocks
+  public var num: UInt32 = 0
+
+  ///max: 20
+  public var alarmItem: [protocol_set_alarm_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -119,199 +119,199 @@ extension protocol_alarm_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_set_alarm_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_set_alarm_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "alarm_id"),
-        2: .standard(proto: "disp_status"),
-        3: .same(proto: "type"),
-        4: .same(proto: "hour"),
-        5: .same(proto: "minute"),
-        6: .standard(proto: "switch_flag"),
-        7: .same(proto: "repeat"),
-        8: .standard(proto: "later_remind_switch_flag"),
-        9: .standard(proto: "later_remind_repeat_times"),
-        10: .standard(proto: "later_remind_min"),
-        11: .standard(proto: "vibrate_on_off"),
-        12: .same(proto: "name"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.alarmID) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.dispStatus) }()
-            case 3: try { try decoder.decodeSingularEnumField(value: &self.type) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
-            case 6: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
-            case 7: try { try decoder.decodeRepeatedBoolField(value: &self.`repeat`) }()
-            case 8: try { try decoder.decodeSingularBoolField(value: &self.laterRemindSwitchFlag) }()
-            case 9: try { try decoder.decodeSingularUInt32Field(value: &self.laterRemindRepeatTimes) }()
-            case 10: try { try decoder.decodeSingularUInt32Field(value: &self.laterRemindMin) }()
-            case 11: try { try decoder.decodeSingularBoolField(value: &self.vibrateOnOff) }()
-            case 12: try { try decoder.decodeSingularBytesField(value: &self.name) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_set_alarm_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "alarm_id"),
+    2: .standard(proto: "disp_status"),
+    3: .same(proto: "type"),
+    4: .same(proto: "hour"),
+    5: .same(proto: "minute"),
+    6: .standard(proto: "switch_flag"),
+    7: .same(proto: "repeat"),
+    8: .standard(proto: "later_remind_switch_flag"),
+    9: .standard(proto: "later_remind_repeat_times"),
+    10: .standard(proto: "later_remind_min"),
+    11: .standard(proto: "vibrate_on_off"),
+    12: .same(proto: "name"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.alarmID) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.dispStatus) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
+      case 7: try { try decoder.decodeRepeatedBoolField(value: &self.`repeat`) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.laterRemindSwitchFlag) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.laterRemindRepeatTimes) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.laterRemindMin) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.vibrateOnOff) }()
+      case 12: try { try decoder.decodeSingularBytesField(value: &self.name) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.alarmID != 0 {
-            try visitor.visitSingularUInt32Field(value: self.alarmID, fieldNumber: 1)
-        }
-        if self.dispStatus != .dispOff {
-            try visitor.visitSingularEnumField(value: self.dispStatus, fieldNumber: 2)
-        }
-        if self.type != .getUp {
-            try visitor.visitSingularEnumField(value: self.type, fieldNumber: 3)
-        }
-        if self.hour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 4)
-        }
-        if self.minute != 0 {
-            try visitor.visitSingularUInt32Field(value: self.minute, fieldNumber: 5)
-        }
-        if self.switchFlag != false {
-            try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 6)
-        }
-        if !self.`repeat`.isEmpty {
-            try visitor.visitPackedBoolField(value: self.`repeat`, fieldNumber: 7)
-        }
-        if self.laterRemindSwitchFlag != false {
-            try visitor.visitSingularBoolField(value: self.laterRemindSwitchFlag, fieldNumber: 8)
-        }
-        if self.laterRemindRepeatTimes != 0 {
-            try visitor.visitSingularUInt32Field(value: self.laterRemindRepeatTimes, fieldNumber: 9)
-        }
-        if self.laterRemindMin != 0 {
-            try visitor.visitSingularUInt32Field(value: self.laterRemindMin, fieldNumber: 10)
-        }
-        if self.vibrateOnOff != false {
-            try visitor.visitSingularBoolField(value: self.vibrateOnOff, fieldNumber: 11)
-        }
-        if !self.name.isEmpty {
-            try visitor.visitSingularBytesField(value: self.name, fieldNumber: 12)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.alarmID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.alarmID, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_set_alarm_item, rhs: protocol_set_alarm_item) -> Bool {
-        if lhs.alarmID != rhs.alarmID {return false}
-        if lhs.dispStatus != rhs.dispStatus {return false}
-        if lhs.type != rhs.type {return false}
-        if lhs.hour != rhs.hour {return false}
-        if lhs.minute != rhs.minute {return false}
-        if lhs.switchFlag != rhs.switchFlag {return false}
-        if lhs.`repeat` != rhs.`repeat` {return false}
-        if lhs.laterRemindSwitchFlag != rhs.laterRemindSwitchFlag {return false}
-        if lhs.laterRemindRepeatTimes != rhs.laterRemindRepeatTimes {return false}
-        if lhs.laterRemindMin != rhs.laterRemindMin {return false}
-        if lhs.vibrateOnOff != rhs.vibrateOnOff {return false}
-        if lhs.name != rhs.name {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.dispStatus != .dispOff {
+      try visitor.visitSingularEnumField(value: self.dispStatus, fieldNumber: 2)
     }
+    if self.type != .getUp {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 3)
+    }
+    if self.hour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 4)
+    }
+    if self.minute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.minute, fieldNumber: 5)
+    }
+    if self.switchFlag != false {
+      try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 6)
+    }
+    if !self.`repeat`.isEmpty {
+      try visitor.visitPackedBoolField(value: self.`repeat`, fieldNumber: 7)
+    }
+    if self.laterRemindSwitchFlag != false {
+      try visitor.visitSingularBoolField(value: self.laterRemindSwitchFlag, fieldNumber: 8)
+    }
+    if self.laterRemindRepeatTimes != 0 {
+      try visitor.visitSingularUInt32Field(value: self.laterRemindRepeatTimes, fieldNumber: 9)
+    }
+    if self.laterRemindMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.laterRemindMin, fieldNumber: 10)
+    }
+    if self.vibrateOnOff != false {
+      try visitor.visitSingularBoolField(value: self.vibrateOnOff, fieldNumber: 11)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularBytesField(value: self.name, fieldNumber: 12)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_set_alarm_item, rhs: protocol_set_alarm_item) -> Bool {
+    if lhs.alarmID != rhs.alarmID {return false}
+    if lhs.dispStatus != rhs.dispStatus {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs.hour != rhs.hour {return false}
+    if lhs.minute != rhs.minute {return false}
+    if lhs.switchFlag != rhs.switchFlag {return false}
+    if lhs.`repeat` != rhs.`repeat` {return false}
+    if lhs.laterRemindSwitchFlag != rhs.laterRemindSwitchFlag {return false}
+    if lhs.laterRemindRepeatTimes != rhs.laterRemindRepeatTimes {return false}
+    if lhs.laterRemindMin != rhs.laterRemindMin {return false}
+    if lhs.vibrateOnOff != rhs.vibrateOnOff {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_alarm_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_alarm_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .same(proto: "num"),
-        3: .standard(proto: "alarm_item"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.num) }()
-            case 3: try { try decoder.decodeRepeatedMessageField(value: &self.alarmItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_alarm_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .same(proto: "num"),
+    3: .standard(proto: "alarm_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.num) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.alarmItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if self.num != 0 {
-            try visitor.visitSingularUInt32Field(value: self.num, fieldNumber: 2)
-        }
-        if !self.alarmItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.alarmItem, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_alarm_operate, rhs: protocol_alarm_operate) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.num != rhs.num {return false}
-        if lhs.alarmItem != rhs.alarmItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.num != 0 {
+      try visitor.visitSingularUInt32Field(value: self.num, fieldNumber: 2)
     }
+    if !self.alarmItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.alarmItem, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_alarm_operate, rhs: protocol_alarm_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.num != rhs.num {return false}
+    if lhs.alarmItem != rhs.alarmItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_alarm_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_alarm_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "func_table"),
-        2: .standard(proto: "alarm_support_max"),
-        3: .same(proto: "operate"),
-        4: .same(proto: "num"),
-        5: .standard(proto: "alarm_item"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.alarmSupportMax) }()
-            case 3: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.num) }()
-            case 5: try { try decoder.decodeRepeatedMessageField(value: &self.alarmItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_alarm_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .standard(proto: "alarm_support_max"),
+    3: .same(proto: "operate"),
+    4: .same(proto: "num"),
+    5: .standard(proto: "alarm_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.alarmSupportMax) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.num) }()
+      case 5: try { try decoder.decodeRepeatedMessageField(value: &self.alarmItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.funcTable != 0 {
-            try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
-        }
-        if self.alarmSupportMax != 0 {
-            try visitor.visitSingularUInt32Field(value: self.alarmSupportMax, fieldNumber: 2)
-        }
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 3)
-        }
-        if self.num != 0 {
-            try visitor.visitSingularUInt32Field(value: self.num, fieldNumber: 4)
-        }
-        if !self.alarmItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.alarmItem, fieldNumber: 5)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_alarm_inquire_reply, rhs: protocol_alarm_inquire_reply) -> Bool {
-        if lhs.funcTable != rhs.funcTable {return false}
-        if lhs.alarmSupportMax != rhs.alarmSupportMax {return false}
-        if lhs.operate != rhs.operate {return false}
-        if lhs.num != rhs.num {return false}
-        if lhs.alarmItem != rhs.alarmItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.alarmSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.alarmSupportMax, fieldNumber: 2)
     }
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 3)
+    }
+    if self.num != 0 {
+      try visitor.visitSingularUInt32Field(value: self.num, fieldNumber: 4)
+    }
+    if !self.alarmItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.alarmItem, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_alarm_inquire_reply, rhs: protocol_alarm_inquire_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.alarmSupportMax != rhs.alarmSupportMax {return false}
+    if lhs.operate != rhs.operate {return false}
+    if lhs.num != rhs.num {return false}
+    if lhs.alarmItem != rhs.alarmItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

@@ -17,7 +17,7 @@ import SwiftProtobuf
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    public typealias Version = _2
+  typealias Version = _2
 }
 
 ///Get the sports type supported by the device
@@ -730,7 +730,7 @@ public struct protocol_exercise_func_support_reply {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -943,8 +943,8 @@ extension protocol_exercise_heart_rate_zone: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_func_support_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_func_support_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "func_table"),
     2: .same(proto: "orun"),
     3: .same(proto: "irun"),
@@ -1065,127 +1065,127 @@ extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProt
   ]
 
   fileprivate class _StorageClass {
-    public var _funcTable: UInt32 = 0
-    public var _orun: Bool = false
-    public var _irun: Bool = false
-    public var _owalk: Bool = false
-    public var _iwalk: Bool = false
-    public var _hiking: Bool = false
-    public var _ocycle: Bool = false
-    public var _icycle: Bool = false
-    public var _cricket: Bool = false
-    public var _football: Bool = false
-    public var _pswim: Bool = false
-    public var _oswim: Bool = false
-    public var _yoga: Bool = false
-    public var _pilates: Bool = false
-    public var _dance: Bool = false
-    public var _zumba: Bool = false
-    public var _rower: Bool = false
-    public var _elliptical: Bool = false
-    public var _ctraining: Bool = false
-    public var _tstraining: Bool = false
-    public var _fstraining: Bool = false
-    public var _hiit: Bool = false
-    public var _cooldown: Bool = false
-    public var _workout: Bool = false
-    public var _fitness: Bool = false
-    public var _trailRunning: Bool = false
-    public var _treadmill: Bool = false
-    public var _aerobics: Bool = false
-    public var _sitUp: Bool = false
-    public var _plank: Bool = false
-    public var _jumpingJack: Bool = false
-    public var _chinUp: Bool = false
-    public var _pushUp: Bool = false
-    public var _deepSquat: Bool = false
-    public var _highKneeLift: Bool = false
-    public var _dumbbell: Bool = false
-    public var _barbell: Bool = false
-    public var _boxing: Bool = false
-    public var _kickboxing: Bool = false
-    public var _horizontalBar: Bool = false
-    public var _parallelBars: Bool = false
-    public var _walkingMachine: Bool = false
-    public var _summitTrainers: Bool = false
-    public var _bowling: Bool = false
-    public var _tennis: Bool = false
-    public var _tableTennis: Bool = false
-    public var _golf: Bool = false
-    public var _basketball: Bool = false
-    public var _badminton: Bool = false
-    public var _hockey: Bool = false
-    public var _rugby: Bool = false
-    public var _handball: Bool = false
-    public var _squash: Bool = false
-    public var _baseball: Bool = false
-    public var _softball: Bool = false
-    public var _shuttlecock: Bool = false
-    public var _sepaktakraw: Bool = false
-    public var _streetDance: Bool = false
-    public var _mountainClinbing: Bool = false
-    public var _ropeSkipping: Bool = false
-    public var _climbStairs: Bool = false
-    public var _ballet: Bool = false
-    public var _socialDance: Bool = false
-    public var _darts: Bool = false
-    public var _horsebackRiding: Bool = false
-    public var _rollerSkating: Bool = false
-    public var _taiChi: Bool = false
-    public var _frisbee: Bool = false
-    public var _hulaHoop: Bool = false
-    public var _sleigh: Bool = false
-    public var _skating: Bool = false
-    public var _bobsleighAndTobogganing: Bool = false
-    public var _curling: Bool = false
-    public var _iceHockey: Bool = false
-    public var _surfing: Bool = false
-    public var _sailboat: Bool = false
-    public var _sailboard: Bool = false
-    public var _foldboating: Bool = false
-    public var _canoeing: Bool = false
-    public var _boatRace: Bool = false
-    public var _motorboat: Bool = false
-    public var _waterPolo: Bool = false
-    public var _slidingPlate: Bool = false
-    public var _rockClimbing: Bool = false
-    public var _bungeeJumping: Bool = false
-    public var _parkour: Bool = false
-    public var _other: Bool = false
-    public var _spinning: Bool = false
-    public var _martialArts: Bool = false
-    public var _taekwondo: Bool = false
-    public var _karate: Bool = false
-    public var _gymnastics: Bool = false
-    public var _padel: Bool = false
-    public var _pickleball: Bool = false
-    public var _snowboarding: Bool = false
-    public var _skiing: Bool = false
-    public var _paddling: Bool = false
-    public var _bmx: Bool = false
-    public var _fencing: Bool = false
-    public var _billiards: Bool = false
-    public var _beachSoccer: Bool = false
-    public var _beachVolleyball: Bool = false
-    public var _dodgeball: Bool = false
-    public var _jazz: Bool = false
-    public var _latin: Bool = false
-    public var _squareDance: Bool = false
-    public var _volleyball: Bool = false
-    public var _kiteFlying: Bool = false
-    public var _fishing: Bool = false
-    public var _archery: Bool = false
-    public var _shooting: Bool = false
-    public var _whiteWaterRafting: Bool = false
-    public var _alpineSkiing: Bool = false
-    public var _crossCountrySkiing: Bool = false
-    public var _biathon: Bool = false
-    public var _dragonBoatRacing: Bool = false
-    public var _racing: Bool = false
+    var _funcTable: UInt32 = 0
+    var _orun: Bool = false
+    var _irun: Bool = false
+    var _owalk: Bool = false
+    var _iwalk: Bool = false
+    var _hiking: Bool = false
+    var _ocycle: Bool = false
+    var _icycle: Bool = false
+    var _cricket: Bool = false
+    var _football: Bool = false
+    var _pswim: Bool = false
+    var _oswim: Bool = false
+    var _yoga: Bool = false
+    var _pilates: Bool = false
+    var _dance: Bool = false
+    var _zumba: Bool = false
+    var _rower: Bool = false
+    var _elliptical: Bool = false
+    var _ctraining: Bool = false
+    var _tstraining: Bool = false
+    var _fstraining: Bool = false
+    var _hiit: Bool = false
+    var _cooldown: Bool = false
+    var _workout: Bool = false
+    var _fitness: Bool = false
+    var _trailRunning: Bool = false
+    var _treadmill: Bool = false
+    var _aerobics: Bool = false
+    var _sitUp: Bool = false
+    var _plank: Bool = false
+    var _jumpingJack: Bool = false
+    var _chinUp: Bool = false
+    var _pushUp: Bool = false
+    var _deepSquat: Bool = false
+    var _highKneeLift: Bool = false
+    var _dumbbell: Bool = false
+    var _barbell: Bool = false
+    var _boxing: Bool = false
+    var _kickboxing: Bool = false
+    var _horizontalBar: Bool = false
+    var _parallelBars: Bool = false
+    var _walkingMachine: Bool = false
+    var _summitTrainers: Bool = false
+    var _bowling: Bool = false
+    var _tennis: Bool = false
+    var _tableTennis: Bool = false
+    var _golf: Bool = false
+    var _basketball: Bool = false
+    var _badminton: Bool = false
+    var _hockey: Bool = false
+    var _rugby: Bool = false
+    var _handball: Bool = false
+    var _squash: Bool = false
+    var _baseball: Bool = false
+    var _softball: Bool = false
+    var _shuttlecock: Bool = false
+    var _sepaktakraw: Bool = false
+    var _streetDance: Bool = false
+    var _mountainClinbing: Bool = false
+    var _ropeSkipping: Bool = false
+    var _climbStairs: Bool = false
+    var _ballet: Bool = false
+    var _socialDance: Bool = false
+    var _darts: Bool = false
+    var _horsebackRiding: Bool = false
+    var _rollerSkating: Bool = false
+    var _taiChi: Bool = false
+    var _frisbee: Bool = false
+    var _hulaHoop: Bool = false
+    var _sleigh: Bool = false
+    var _skating: Bool = false
+    var _bobsleighAndTobogganing: Bool = false
+    var _curling: Bool = false
+    var _iceHockey: Bool = false
+    var _surfing: Bool = false
+    var _sailboat: Bool = false
+    var _sailboard: Bool = false
+    var _foldboating: Bool = false
+    var _canoeing: Bool = false
+    var _boatRace: Bool = false
+    var _motorboat: Bool = false
+    var _waterPolo: Bool = false
+    var _slidingPlate: Bool = false
+    var _rockClimbing: Bool = false
+    var _bungeeJumping: Bool = false
+    var _parkour: Bool = false
+    var _other: Bool = false
+    var _spinning: Bool = false
+    var _martialArts: Bool = false
+    var _taekwondo: Bool = false
+    var _karate: Bool = false
+    var _gymnastics: Bool = false
+    var _padel: Bool = false
+    var _pickleball: Bool = false
+    var _snowboarding: Bool = false
+    var _skiing: Bool = false
+    var _paddling: Bool = false
+    var _bmx: Bool = false
+    var _fencing: Bool = false
+    var _billiards: Bool = false
+    var _beachSoccer: Bool = false
+    var _beachVolleyball: Bool = false
+    var _dodgeball: Bool = false
+    var _jazz: Bool = false
+    var _latin: Bool = false
+    var _squareDance: Bool = false
+    var _volleyball: Bool = false
+    var _kiteFlying: Bool = false
+    var _fishing: Bool = false
+    var _archery: Bool = false
+    var _shooting: Bool = false
+    var _whiteWaterRafting: Bool = false
+    var _alpineSkiing: Bool = false
+    var _crossCountrySkiing: Bool = false
+    var _biathon: Bool = false
+    var _dragonBoatRacing: Bool = false
+    var _racing: Bool = false
 
     static let defaultInstance = _StorageClass()
 
-    public init() {}
+    private init() {}
 
     init(copying source: _StorageClass) {
       _funcTable = source._funcTable
@@ -1315,7 +1315,7 @@ extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProt
     return _storage
   }
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1446,7 +1446,7 @@ extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._funcTable != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 1)
@@ -1803,7 +1803,7 @@ extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_func_support_reply, rhs: protocol_exercise_func_support_reply) -> Bool {
+  public static func ==(lhs: protocol_exercise_func_support_reply, rhs: protocol_exercise_func_support_reply) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1935,14 +1935,14 @@ extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProt
 }
 
 extension protocol_exercise_sport_mode_sort: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_sport_mode_sort"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_sport_mode_sort"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "items_len"),
     3: .standard(proto: "sport_items"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1956,7 +1956,7 @@ extension protocol_exercise_sport_mode_sort: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -1969,7 +1969,7 @@ extension protocol_exercise_sport_mode_sort: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_sport_mode_sort, rhs: protocol_exercise_sport_mode_sort) -> Bool {
+  public static func ==(lhs: protocol_exercise_sport_mode_sort, rhs: protocol_exercise_sport_mode_sort) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.itemsLen != rhs.itemsLen {return false}
     if lhs.sportItems != rhs.sportItems {return false}
@@ -1979,8 +1979,8 @@ extension protocol_exercise_sport_mode_sort: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension protocol_exercise_sport_mode_sort_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_sport_mode_sort_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_sport_mode_sort_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "min_show_num"),
     3: .standard(proto: "max_show_num"),
@@ -1989,7 +1989,7 @@ extension protocol_exercise_sport_mode_sort_inquire_reply: SwiftProtobuf.Message
     6: .standard(proto: "sport_items"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2006,7 +2006,7 @@ extension protocol_exercise_sport_mode_sort_inquire_reply: SwiftProtobuf.Message
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -2028,7 +2028,7 @@ extension protocol_exercise_sport_mode_sort_inquire_reply: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_sport_mode_sort_inquire_reply, rhs: protocol_exercise_sport_mode_sort_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_exercise_sport_mode_sort_inquire_reply, rhs: protocol_exercise_sport_mode_sort_inquire_reply) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.minShowNum != rhs.minShowNum {return false}
     if lhs.maxShowNum != rhs.maxShowNum {return false}
@@ -2041,15 +2041,15 @@ extension protocol_exercise_sport_mode_sort_inquire_reply: SwiftProtobuf.Message
 }
 
 extension protocol_exercise_sporting_param_sort: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_sporting_param_sort"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_sporting_param_sort"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "sport_type"),
     3: .standard(proto: "items_len"),
     4: .same(proto: "items"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2064,7 +2064,7 @@ extension protocol_exercise_sporting_param_sort: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -2080,7 +2080,7 @@ extension protocol_exercise_sporting_param_sort: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_sporting_param_sort, rhs: protocol_exercise_sporting_param_sort) -> Bool {
+  public static func ==(lhs: protocol_exercise_sporting_param_sort, rhs: protocol_exercise_sporting_param_sort) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.sportType != rhs.sportType {return false}
     if lhs.itemsLen != rhs.itemsLen {return false}
@@ -2091,15 +2091,15 @@ extension protocol_exercise_sporting_param_sort: SwiftProtobuf.Message, SwiftPro
 }
 
 extension protocol_exercise_sporting_param_sort_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_sporting_param_sort_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_sporting_param_sort_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "sport_type"),
     3: .standard(proto: "items_len"),
     4: .same(proto: "items"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2114,7 +2114,7 @@ extension protocol_exercise_sporting_param_sort_inquire_reply: SwiftProtobuf.Mes
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -2130,7 +2130,7 @@ extension protocol_exercise_sporting_param_sort_inquire_reply: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_sporting_param_sort_inquire_reply, rhs: protocol_exercise_sporting_param_sort_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_exercise_sporting_param_sort_inquire_reply, rhs: protocol_exercise_sporting_param_sort_inquire_reply) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.sportType != rhs.sportType {return false}
     if lhs.itemsLen != rhs.itemsLen {return false}
@@ -2141,8 +2141,8 @@ extension protocol_exercise_sporting_param_sort_inquire_reply: SwiftProtobuf.Mes
 }
 
 extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_intelligent_recognition"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_intelligent_recognition"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "walk_type_switch"),
     3: .standard(proto: "run_type_switch"),
@@ -2153,7 +2153,7 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
     8: .standard(proto: "sport_auto_end_switch"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2172,7 +2172,7 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -2200,7 +2200,7 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_intelligent_recognition, rhs: protocol_exercise_intelligent_recognition) -> Bool {
+  public static func ==(lhs: protocol_exercise_intelligent_recognition, rhs: protocol_exercise_intelligent_recognition) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.walkTypeSwitch != rhs.walkTypeSwitch {return false}
     if lhs.runTypeSwitch != rhs.runTypeSwitch {return false}
@@ -2215,8 +2215,8 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
 }
 
 extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_intelligent_recognition_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_intelligent_recognition_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "walk_type_switch"),
     3: .standard(proto: "run_type_switch"),
@@ -2227,7 +2227,7 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
     8: .standard(proto: "sport_auto_end_switch"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2246,7 +2246,7 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -2274,7 +2274,7 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_intelligent_recognition_inquire_reply, rhs: protocol_exercise_intelligent_recognition_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_exercise_intelligent_recognition_inquire_reply, rhs: protocol_exercise_intelligent_recognition_inquire_reply) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.walkTypeSwitch != rhs.walkTypeSwitch {return false}
     if lhs.runTypeSwitch != rhs.runTypeSwitch {return false}
@@ -2289,8 +2289,8 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
 }
 
 extension protocol_exercise_heart_rate_zone: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_exercise_heart_rate_zone"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_exercise_heart_rate_zone"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .same(proto: "zone1"),
     3: .same(proto: "zone2"),
@@ -2300,7 +2300,7 @@ extension protocol_exercise_heart_rate_zone: SwiftProtobuf.Message, SwiftProtobu
     7: .same(proto: "zone6"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2318,7 +2318,7 @@ extension protocol_exercise_heart_rate_zone: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -2343,7 +2343,7 @@ extension protocol_exercise_heart_rate_zone: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_exercise_heart_rate_zone, rhs: protocol_exercise_heart_rate_zone) -> Bool {
+  public static func ==(lhs: protocol_exercise_heart_rate_zone, rhs: protocol_exercise_heart_rate_zone) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.zone1 != rhs.zone1 {return false}
     if lhs.zone2 != rhs.zone2 {return false}

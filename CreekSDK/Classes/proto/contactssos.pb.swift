@@ -26,14 +26,14 @@ public struct protocol_emergency_contacts_item {
   // methods supported on all messages.
 
   ///max:32 contact phone number
-    public var phoneNumber: Data = Data()
+  public var phoneNumber: Data = Data()
 
   ///max:64 contact name
-    public var contactName: Data = Data()
+  public var contactName: Data = Data()
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_emergency_contacts_operate {
@@ -42,14 +42,14 @@ public struct protocol_emergency_contacts_operate {
   // methods supported on all messages.
 
   ///1bytes operation type 0: invalid operation 1: query 2: setting
-    public var operate: operate_type = .invalid
+  public var operate: operate_type = .invalid
 
   ///max:20 emergency contact information
-    public var contactsItem: [protocol_emergency_contacts_item] = []
+  public var contactsItem: [protocol_emergency_contacts_item] = []
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_emergency_contacts_inquire_reply {
@@ -58,17 +58,17 @@ public struct protocol_emergency_contacts_inquire_reply {
   // methods supported on all messages.
 
   ///1bytes operation type 0: invalid operation 1: query 2: setting
-    public var operate: operate_type = .invalid
+  public var operate: operate_type = .invalid
 
   ///1bytes emergency contact support display maximum number
-    public var emergencyContactsSupportMax: UInt32 = 0
+  public var emergencyContactsSupportMax: UInt32 = 0
 
   ///max:20 emergency contact information
-    public var contactsItem: [protocol_emergency_contacts_item] = []
+  public var contactsItem: [protocol_emergency_contacts_item] = []
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -80,13 +80,13 @@ extension protocol_emergency_contacts_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_emergency_contacts_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_emergency_contacts_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_emergency_contacts_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "phone_number"),
     2: .standard(proto: "contact_name"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -99,7 +99,7 @@ extension protocol_emergency_contacts_item: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.phoneNumber.isEmpty {
       try visitor.visitSingularBytesField(value: self.phoneNumber, fieldNumber: 1)
     }
@@ -109,7 +109,7 @@ extension protocol_emergency_contacts_item: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_emergency_contacts_item, rhs: protocol_emergency_contacts_item) -> Bool {
+  public static func ==(lhs: protocol_emergency_contacts_item, rhs: protocol_emergency_contacts_item) -> Bool {
     if lhs.phoneNumber != rhs.phoneNumber {return false}
     if lhs.contactName != rhs.contactName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -118,13 +118,13 @@ extension protocol_emergency_contacts_item: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension protocol_emergency_contacts_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_emergency_contacts_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_emergency_contacts_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "contacts_item"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -137,7 +137,7 @@ extension protocol_emergency_contacts_operate: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -147,7 +147,7 @@ extension protocol_emergency_contacts_operate: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_emergency_contacts_operate, rhs: protocol_emergency_contacts_operate) -> Bool {
+  public static func ==(lhs: protocol_emergency_contacts_operate, rhs: protocol_emergency_contacts_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.contactsItem != rhs.contactsItem {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -156,14 +156,14 @@ extension protocol_emergency_contacts_operate: SwiftProtobuf.Message, SwiftProto
 }
 
 extension protocol_emergency_contacts_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_emergency_contacts_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_emergency_contacts_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "emergency_contacts_support_max"),
     3: .standard(proto: "contacts_item"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -177,7 +177,7 @@ extension protocol_emergency_contacts_inquire_reply: SwiftProtobuf.Message, Swif
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -190,7 +190,7 @@ extension protocol_emergency_contacts_inquire_reply: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_emergency_contacts_inquire_reply, rhs: protocol_emergency_contacts_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_emergency_contacts_inquire_reply, rhs: protocol_emergency_contacts_inquire_reply) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.emergencyContactsSupportMax != rhs.emergencyContactsSupportMax {return false}
     if lhs.contactsItem != rhs.contactsItem {return false}

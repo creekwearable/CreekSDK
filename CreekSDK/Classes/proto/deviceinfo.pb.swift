@@ -16,7 +16,7 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
@@ -57,7 +57,7 @@ public struct protocol_device_batt_info {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_bt_name {
@@ -73,7 +73,7 @@ public struct protocol_bt_name {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct device_size_info {
@@ -92,7 +92,7 @@ public struct device_size_info {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct hardware_support {
@@ -138,7 +138,7 @@ public struct hardware_support {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct device_sn_info {
@@ -203,7 +203,7 @@ public struct device_voice_assistant {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_device_info {
@@ -278,7 +278,7 @@ public struct protocol_device_info {
   /// Returns true if `battInfo` has been explicitly set.
   public var hasBattInfo: Bool {return _storage._battInfo != nil}
   /// Clears the value of `battInfo`. Subsequent reads from it will return its default value.
-  mutating func clearBattInfo() {_uniqueStorage()._battInfo = nil}
+  public mutating func clearBattInfo() {_uniqueStorage()._battInfo = nil}
 
   public var btName: protocol_bt_name {
     get {return _storage._btName ?? protocol_bt_name()}
@@ -287,7 +287,7 @@ public struct protocol_device_info {
   /// Returns true if `btName` has been explicitly set.
   public var hasBtName: Bool {return _storage._btName != nil}
   /// Clears the value of `btName`. Subsequent reads from it will return its default value.
-  mutating func clearBtName() {_uniqueStorage()._btName = nil}
+  public mutating func clearBtName() {_uniqueStorage()._btName = nil}
 
   ///1bytes font major version number
   public var fontMajorVersion: UInt32 {
@@ -321,7 +321,7 @@ public struct protocol_device_info {
   /// Returns true if `hwSupport` has been explicitly set.
   public var hasHwSupport: Bool {return _storage._hwSupport != nil}
   /// Clears the value of `hwSupport`. Subsequent reads from it will return its default value.
-  mutating func clearHwSupport() {_uniqueStorage()._hwSupport = nil}
+  public mutating func clearHwSupport() {_uniqueStorage()._hwSupport = nil}
 
   ///gps chip model
   public var gpsSocName: String {
@@ -337,7 +337,7 @@ public struct protocol_device_info {
   /// Returns true if `sizeInfo` has been explicitly set.
   public var hasSizeInfo: Bool {return _storage._sizeInfo != nil}
   /// Clears the value of `sizeInfo`. Subsequent reads from it will return its default value.
-  mutating func clearSizeInfo() {_uniqueStorage()._sizeInfo = nil}
+  public mutating func clearSizeInfo() {_uniqueStorage()._sizeInfo = nil}
 
   ///1bytes recovery mode flag
   public var isRecoveryMode: Bool {
@@ -365,7 +365,7 @@ public struct protocol_device_info {
   /// Returns true if `snInfo` has been explicitly set.
   public var hasSnInfo: Bool {return _storage._snInfo != nil}
   /// Clears the value of `snInfo`. Subsequent reads from it will return its default value.
-  mutating func clearSnInfo() {_uniqueStorage()._snInfo = nil}
+  public mutating func clearSnInfo() {_uniqueStorage()._snInfo = nil}
 
   ///Voice assistant device
   public var voiceAssistant: device_voice_assistant {
@@ -375,7 +375,7 @@ public struct protocol_device_info {
   /// Returns true if `voiceAssistant` has been explicitly set.
   public var hasVoiceAssistant: Bool {return _storage._voiceAssistant != nil}
   /// Clears the value of `voiceAssistant`. Subsequent reads from it will return its default value.
-  mutating func clearVoiceAssistant() {_uniqueStorage()._voiceAssistant = nil}
+  public mutating func clearVoiceAssistant() {_uniqueStorage()._voiceAssistant = nil}
 
   ///Whether to start heart rate push
   public var heartratePush: Bool {
@@ -385,9 +385,9 @@ public struct protocol_device_info {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 
-  fileprivate  var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -403,8 +403,8 @@ extension protocol_device_info: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_device_batt_info"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_device_batt_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "voltage"),
     2: .same(proto: "status"),
     3: .standard(proto: "batt_level"),
@@ -417,7 +417,7 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     10: .same(proto: "mode"),
   ]
 
-    public  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -438,7 +438,7 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.voltage != 0 {
       try visitor.visitSingularUInt32Field(value: self.voltage, fieldNumber: 1)
     }
@@ -472,7 +472,7 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_device_batt_info, rhs: protocol_device_batt_info) -> Bool {
+  public static func ==(lhs: protocol_device_batt_info, rhs: protocol_device_batt_info) -> Bool {
     if lhs.voltage != rhs.voltage {return false}
     if lhs.status != rhs.status {return false}
     if lhs.battLevel != rhs.battLevel {return false}
@@ -489,13 +489,13 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension protocol_bt_name: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_bt_name"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_bt_name"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "is_support"),
     2: .standard(proto: "bt_name"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -508,7 +508,7 @@ extension protocol_bt_name: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.isSupport != false {
       try visitor.visitSingularBoolField(value: self.isSupport, fieldNumber: 1)
     }
@@ -518,7 +518,7 @@ extension protocol_bt_name: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_bt_name, rhs: protocol_bt_name) -> Bool {
+  public static func ==(lhs: protocol_bt_name, rhs: protocol_bt_name) -> Bool {
     if lhs.isSupport != rhs.isSupport {return false}
     if lhs.btName != rhs.btName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -527,14 +527,14 @@ extension protocol_bt_name: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "device_size_info"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "device_size_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "width"),
     2: .same(proto: "height"),
     3: .same(proto: "angle"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -548,7 +548,7 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.width != 0 {
       try visitor.visitSingularUInt32Field(value: self.width, fieldNumber: 1)
     }
@@ -561,7 +561,7 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: device_size_info, rhs: device_size_info) -> Bool {
+  public static func ==(lhs: device_size_info, rhs: device_size_info) -> Bool {
     if lhs.width != rhs.width {return false}
     if lhs.height != rhs.height {return false}
     if lhs.angle != rhs.angle {return false}
@@ -571,8 +571,8 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension hardware_support: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "hardware_support"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "hardware_support"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "heartrate_hardware"),
     2: .standard(proto: "acc_hardware"),
     3: .standard(proto: "gyro_hardware"),
@@ -587,7 +587,7 @@ extension hardware_support: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     12: .standard(proto: "nandflash_hardware"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -610,7 +610,7 @@ extension hardware_support: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.heartrateHardware != false {
       try visitor.visitSingularBoolField(value: self.heartrateHardware, fieldNumber: 1)
     }
@@ -650,7 +650,7 @@ extension hardware_support: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: hardware_support, rhs: hardware_support) -> Bool {
+  public static func ==(lhs: hardware_support, rhs: hardware_support) -> Bool {
     if lhs.heartrateHardware != rhs.heartrateHardware {return false}
     if lhs.accHardware != rhs.accHardware {return false}
     if lhs.gyroHardware != rhs.gyroHardware {return false}
@@ -669,8 +669,8 @@ extension hardware_support: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "device_sn_info"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "device_sn_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "product_id"),
     2: .standard(proto: "factory_id"),
     3: .standard(proto: "customer_id"),
@@ -680,7 +680,7 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     7: .standard(proto: "color_code"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -698,7 +698,7 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.productID != 0 {
       try visitor.visitSingularUInt32Field(value: self.productID, fieldNumber: 1)
     }
@@ -723,7 +723,7 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public  static func ==(lhs: device_sn_info, rhs: device_sn_info) -> Bool {
+  public static func ==(lhs: device_sn_info, rhs: device_sn_info) -> Bool {
     if lhs.productID != rhs.productID {return false}
     if lhs.factoryID != rhs.factoryID {return false}
     if lhs.customerID != rhs.customerID {return false}
@@ -737,8 +737,8 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension device_voice_assistant: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "device_voice_assistant"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "device_voice_assistant"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "fw_major_version"),
     2: .standard(proto: "fw_minor_version"),
     3: .standard(proto: "fw_type"),
@@ -749,7 +749,7 @@ extension device_voice_assistant: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     8: .standard(proto: "switch_language"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -768,7 +768,7 @@ extension device_voice_assistant: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.fwMajorVersion != 0 {
       try visitor.visitSingularUInt32Field(value: self.fwMajorVersion, fieldNumber: 1)
     }
@@ -796,7 +796,7 @@ extension device_voice_assistant: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: device_voice_assistant, rhs: device_voice_assistant) -> Bool {
+  public static func ==(lhs: device_voice_assistant, rhs: device_voice_assistant) -> Bool {
     if lhs.fwMajorVersion != rhs.fwMajorVersion {return false}
     if lhs.fwMinorVersion != rhs.fwMinorVersion {return false}
     if lhs.fwType != rhs.fwType {return false}
@@ -811,8 +811,8 @@ extension device_voice_assistant: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_device_info"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_device_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "device_id"),
     2: .standard(proto: "major_version"),
     3: .standard(proto: "minor_version"),
@@ -841,31 +841,31 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   ]
 
   fileprivate class _StorageClass {
-    public var _deviceID: UInt32 = 0
-    public var _majorVersion: UInt32 = 0
-    public var _minorVersion: UInt32 = 0
-    public var _microVersion: UInt32 = 0
-    public var _pairFlag: UInt32 = 0
-    public var _platform: Platform = .jx3085CPlatform
-    public var _shape: Shape = .squareShape
-    public var _devType: Dev_type = .watchType
-    public var _macAddr: Data = Data()
-    public var _btAddr: Data = Data()
-    public var _battInfo: protocol_device_batt_info? = nil
-    public var _btName: protocol_bt_name? = nil
-    public var _fontMajorVersion: UInt32 = 0
-    public var _fontMinorVersion: UInt32 = 0
-    public var _fontMicroVersion: UInt32 = 0
-    public var _rebootFlag: UInt32 = 0
-    public var _hwSupport: hardware_support? = nil
-    public var _gpsSocName: String = String()
-    public var _sizeInfo: device_size_info? = nil
-    public var _isRecoveryMode: Bool = false
-    public var _deviceColor: UInt32 = 0
-    public var _platePhotoPicSupportNum: UInt32 = 0
-    public var _snInfo: device_sn_info? = nil
-    public var _voiceAssistant: device_voice_assistant? = nil
-    public var _heartratePush: Bool = false
+    var _deviceID: UInt32 = 0
+    var _majorVersion: UInt32 = 0
+    var _minorVersion: UInt32 = 0
+    var _microVersion: UInt32 = 0
+    var _pairFlag: UInt32 = 0
+    var _platform: Platform = .jx3085CPlatform
+    var _shape: Shape = .squareShape
+    var _devType: Dev_type = .watchType
+    var _macAddr: Data = Data()
+    var _btAddr: Data = Data()
+    var _battInfo: protocol_device_batt_info? = nil
+    var _btName: protocol_bt_name? = nil
+    var _fontMajorVersion: UInt32 = 0
+    var _fontMinorVersion: UInt32 = 0
+    var _fontMicroVersion: UInt32 = 0
+    var _rebootFlag: UInt32 = 0
+    var _hwSupport: hardware_support? = nil
+    var _gpsSocName: String = String()
+    var _sizeInfo: device_size_info? = nil
+    var _isRecoveryMode: Bool = false
+    var _deviceColor: UInt32 = 0
+    var _platePhotoPicSupportNum: UInt32 = 0
+    var _snInfo: device_sn_info? = nil
+    var _voiceAssistant: device_voice_assistant? = nil
+    var _heartratePush: Bool = false
 
     static let defaultInstance = _StorageClass()
 
@@ -907,7 +907,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     return _storage
   }
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -946,7 +946,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1031,7 +1031,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_device_info, rhs: protocol_device_info) -> Bool {
+  public static func ==(lhs: protocol_device_info, rhs: protocol_device_info) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

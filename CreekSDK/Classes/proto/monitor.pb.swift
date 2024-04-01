@@ -16,193 +16,193 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_health_monitor_auto_adjust {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes mode automatic adjustment switch true on, false off
-    public var switchFlag: Bool = false
-    
-    ///1bytes monitoring mode
-    public var adjustMode: health_monitor_mode = .manual
-    
-    ///Starting time
-    public var startHour: UInt32 = 0
-    
-    public var startMinute: UInt32 = 0
-    
-    ///End Time
-    public var endHour: UInt32 = 0
-    
-    public var endMinute: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes mode automatic adjustment switch true on, false off
+  public var switchFlag: Bool = false
+
+  ///1bytes monitoring mode
+  public var adjustMode: health_monitor_mode = .manual
+
+  ///Starting time
+  public var startHour: UInt32 = 0
+
+  public var startMinute: UInt32 = 0
+
+  ///End Time
+  public var endHour: UInt32 = 0
+
+  public var endMinute: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_heart_monitor_notify {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes notification type
-    public var notifyFlag: notify_type = .allow
-    
-    ///1bytes true: turn on the high reminder switch, false: turn off
-    public var highRemindSwitch: Bool = false
-    
-    ///1bytes true: turn on low reminder switch, false: turn off
-    public var lowRemindSwitch: Bool = false
-    
-    ///1bytes high warning threshold
-    public var highThresholdValue: UInt32 = 0
-    
-    ///1byte low warning threshold
-    public var lowThresholdValue: UInt32 = 0
-    
-    ///1bytes reminder interval, in minutes
-    public var interval: UInt32 = 0
-    
-    ///1bytes repeat cycle Monday~Sunday
-    public var `repeat`: [Bool] = []
-    
-    ///Starting time
-    public var startHour: UInt32 = 0
-    
-    public var startMinute: UInt32 = 0
-    
-    ///End Time
-    public var endHour: UInt32 = 0
-    
-    public var endMinute: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes notification type
+  public var notifyFlag: notify_type = .allow
+
+  ///1bytes true: turn on the high reminder switch, false: turn off
+  public var highRemindSwitch: Bool = false
+
+  ///1bytes true: turn on low reminder switch, false: turn off
+  public var lowRemindSwitch: Bool = false
+
+  ///1bytes high warning threshold
+  public var highThresholdValue: UInt32 = 0
+
+  ///1byte low warning threshold
+  public var lowThresholdValue: UInt32 = 0
+
+  ///1bytes reminder interval, in minutes
+  public var interval: UInt32 = 0
+
+  ///1bytes repeat cycle Monday~Sunday
+  public var `repeat`: [Bool] = []
+
+  ///Starting time
+  public var startHour: UInt32 = 0
+
+  public var startMinute: UInt32 = 0
+
+  ///End Time
+  public var endHour: UInt32 = 0
+
+  public var endMinute: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_health_monitor_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type {
-        get {return _storage._operate}
-        set {_uniqueStorage()._operate = newValue}
-    }
-    
-    ///Health monitoring type
-    public var healthType: health_type {
-        get {return _storage._healthType}
-        set {_uniqueStorage()._healthType = newValue}
-    }
-    
-    ///1bytes default monitor mode type
-    public var defaultMode: health_monitor_mode {
-        get {return _storage._defaultMode}
-        set {_uniqueStorage()._defaultMode = newValue}
-    }
-    
-    ///2bytes measurement interval, unit s
-    public var measurementInterval: UInt32 {
-        get {return _storage._measurementInterval}
-        set {_uniqueStorage()._measurementInterval = newValue}
-    }
-    
-    ///Monitoring mode automatically adjusts sub-item data
-    public var modeAutoAdjust: protocol_health_monitor_auto_adjust {
-        get {return _storage._modeAutoAdjust ?? protocol_health_monitor_auto_adjust()}
-        set {_uniqueStorage()._modeAutoAdjust = newValue}
-    }
-    /// Returns true if `modeAutoAdjust` has been explicitly set.
-    public var hasModeAutoAdjust: Bool {return _storage._modeAutoAdjust != nil}
-    /// Clears the value of `modeAutoAdjust`. Subsequent reads from it will return its default value.
-    mutating func clearModeAutoAdjust() {_uniqueStorage()._modeAutoAdjust = nil}
-    
-    ///Reminder notification configuration
-    public var notifySetting: protocol_heart_monitor_notify {
-        get {return _storage._notifySetting ?? protocol_heart_monitor_notify()}
-        set {_uniqueStorage()._notifySetting = newValue}
-    }
-    /// Returns true if `notifySetting` has been explicitly set.
-    public var hasNotifySetting: Bool {return _storage._notifySetting != nil}
-    /// Clears the value of `notifySetting`. Subsequent reads from it will return its default value.
-    mutating func clearNotifySetting() {_uniqueStorage()._notifySetting = nil}
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
-    
-    fileprivate  var _storage = _StorageClass.defaultInstance
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
+
+  ///Health monitoring type
+  public var healthType: health_type {
+    get {return _storage._healthType}
+    set {_uniqueStorage()._healthType = newValue}
+  }
+
+  ///1bytes default monitor mode type
+  public var defaultMode: health_monitor_mode {
+    get {return _storage._defaultMode}
+    set {_uniqueStorage()._defaultMode = newValue}
+  }
+
+  ///2bytes measurement interval, unit s
+  public var measurementInterval: UInt32 {
+    get {return _storage._measurementInterval}
+    set {_uniqueStorage()._measurementInterval = newValue}
+  }
+
+  ///Monitoring mode automatically adjusts sub-item data
+  public var modeAutoAdjust: protocol_health_monitor_auto_adjust {
+    get {return _storage._modeAutoAdjust ?? protocol_health_monitor_auto_adjust()}
+    set {_uniqueStorage()._modeAutoAdjust = newValue}
+  }
+  /// Returns true if `modeAutoAdjust` has been explicitly set.
+  public var hasModeAutoAdjust: Bool {return _storage._modeAutoAdjust != nil}
+  /// Clears the value of `modeAutoAdjust`. Subsequent reads from it will return its default value.
+  public mutating func clearModeAutoAdjust() {_uniqueStorage()._modeAutoAdjust = nil}
+
+  ///Reminder notification configuration
+  public var notifySetting: protocol_heart_monitor_notify {
+    get {return _storage._notifySetting ?? protocol_heart_monitor_notify()}
+    set {_uniqueStorage()._notifySetting = newValue}
+  }
+  /// Returns true if `notifySetting` has been explicitly set.
+  public var hasNotifySetting: Bool {return _storage._notifySetting != nil}
+  /// Clears the value of `notifySetting`. Subsequent reads from it will return its default value.
+  public mutating func clearNotifySetting() {_uniqueStorage()._notifySetting = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct protocol_health_monitor_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes function table
-    public var funcTable: UInt32 {
-        get {return _storage._funcTable}
-        set {_uniqueStorage()._funcTable = newValue}
-    }
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type {
-        get {return _storage._operate}
-        set {_uniqueStorage()._operate = newValue}
-    }
-    
-    ///Health monitoring type
-    public var healthType: health_type {
-        get {return _storage._healthType}
-        set {_uniqueStorage()._healthType = newValue}
-    }
-    
-    ///1bytes default mode type
-    public var defaultMode: health_monitor_mode {
-        get {return _storage._defaultMode}
-        set {_uniqueStorage()._defaultMode = newValue}
-    }
-    
-    ///2bytes measurement interval, unit s
-    public var measurementInterval: UInt32 {
-        get {return _storage._measurementInterval}
-        set {_uniqueStorage()._measurementInterval = newValue}
-    }
-    
-    ///Monitoring mode automatically adjusts sub-item data
-    public var modeAutoAdjust: protocol_health_monitor_auto_adjust {
-        get {return _storage._modeAutoAdjust ?? protocol_health_monitor_auto_adjust()}
-        set {_uniqueStorage()._modeAutoAdjust = newValue}
-    }
-    /// Returns true if `modeAutoAdjust` has been explicitly set.
-    public var hasModeAutoAdjust: Bool {return _storage._modeAutoAdjust != nil}
-    /// Clears the value of `modeAutoAdjust`. Subsequent reads from it will return its default value.
-    mutating func clearModeAutoAdjust() {_uniqueStorage()._modeAutoAdjust = nil}
-    
-    ///Reminder notification configuration
-    public var notifySetting: protocol_heart_monitor_notify {
-        get {return _storage._notifySetting ?? protocol_heart_monitor_notify()}
-        set {_uniqueStorage()._notifySetting = newValue}
-    }
-    /// Returns true if `notifySetting` has been explicitly set.
-    public var hasNotifySetting: Bool {return _storage._notifySetting != nil}
-    /// Clears the value of `notifySetting`. Subsequent reads from it will return its default value.
-    mutating func clearNotifySetting() {_uniqueStorage()._notifySetting = nil}
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
-    
-    fileprivate  var _storage = _StorageClass.defaultInstance
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes function table
+  public var funcTable: UInt32 {
+    get {return _storage._funcTable}
+    set {_uniqueStorage()._funcTable = newValue}
+  }
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
+
+  ///Health monitoring type
+  public var healthType: health_type {
+    get {return _storage._healthType}
+    set {_uniqueStorage()._healthType = newValue}
+  }
+
+  ///1bytes default mode type
+  public var defaultMode: health_monitor_mode {
+    get {return _storage._defaultMode}
+    set {_uniqueStorage()._defaultMode = newValue}
+  }
+
+  ///2bytes measurement interval, unit s
+  public var measurementInterval: UInt32 {
+    get {return _storage._measurementInterval}
+    set {_uniqueStorage()._measurementInterval = newValue}
+  }
+
+  ///Monitoring mode automatically adjusts sub-item data
+  public var modeAutoAdjust: protocol_health_monitor_auto_adjust {
+    get {return _storage._modeAutoAdjust ?? protocol_health_monitor_auto_adjust()}
+    set {_uniqueStorage()._modeAutoAdjust = newValue}
+  }
+  /// Returns true if `modeAutoAdjust` has been explicitly set.
+  public var hasModeAutoAdjust: Bool {return _storage._modeAutoAdjust != nil}
+  /// Clears the value of `modeAutoAdjust`. Subsequent reads from it will return its default value.
+  public mutating func clearModeAutoAdjust() {_uniqueStorage()._modeAutoAdjust = nil}
+
+  ///Reminder notification configuration
+  public var notifySetting: protocol_heart_monitor_notify {
+    get {return _storage._notifySetting ?? protocol_heart_monitor_notify()}
+    set {_uniqueStorage()._notifySetting = newValue}
+  }
+  /// Returns true if `notifySetting` has been explicitly set.
+  public var hasNotifySetting: Bool {return _storage._notifySetting != nil}
+  /// Clears the value of `notifySetting`. Subsequent reads from it will return its default value.
+  public mutating func clearNotifySetting() {_uniqueStorage()._notifySetting = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -215,379 +215,379 @@ extension protocol_health_monitor_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_health_monitor_auto_adjust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public  static let protoMessageName: String = "protocol_health_monitor_auto_adjust"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "switch_flag"),
-        2: .standard(proto: "adjust_mode"),
-        3: .standard(proto: "start_hour"),
-        4: .standard(proto: "start_minute"),
-        5: .standard(proto: "end_hour"),
-        6: .standard(proto: "end_minute"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.adjustMode) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.startHour) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.startMinute) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.endHour) }()
-            case 6: try { try decoder.decodeSingularUInt32Field(value: &self.endMinute) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_health_monitor_auto_adjust"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "switch_flag"),
+    2: .standard(proto: "adjust_mode"),
+    3: .standard(proto: "start_hour"),
+    4: .standard(proto: "start_minute"),
+    5: .standard(proto: "end_hour"),
+    6: .standard(proto: "end_minute"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.adjustMode) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.startHour) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.startMinute) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.endHour) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.endMinute) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.switchFlag != false {
-            try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 1)
-        }
-        if self.adjustMode != .manual {
-            try visitor.visitSingularEnumField(value: self.adjustMode, fieldNumber: 2)
-        }
-        if self.startHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.startHour, fieldNumber: 3)
-        }
-        if self.startMinute != 0 {
-            try visitor.visitSingularUInt32Field(value: self.startMinute, fieldNumber: 4)
-        }
-        if self.endHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.endHour, fieldNumber: 5)
-        }
-        if self.endMinute != 0 {
-            try visitor.visitSingularUInt32Field(value: self.endMinute, fieldNumber: 6)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.switchFlag != false {
+      try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_health_monitor_auto_adjust, rhs: protocol_health_monitor_auto_adjust) -> Bool {
-        if lhs.switchFlag != rhs.switchFlag {return false}
-        if lhs.adjustMode != rhs.adjustMode {return false}
-        if lhs.startHour != rhs.startHour {return false}
-        if lhs.startMinute != rhs.startMinute {return false}
-        if lhs.endHour != rhs.endHour {return false}
-        if lhs.endMinute != rhs.endMinute {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.adjustMode != .manual {
+      try visitor.visitSingularEnumField(value: self.adjustMode, fieldNumber: 2)
     }
+    if self.startHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.startHour, fieldNumber: 3)
+    }
+    if self.startMinute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.startMinute, fieldNumber: 4)
+    }
+    if self.endHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.endHour, fieldNumber: 5)
+    }
+    if self.endMinute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.endMinute, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_monitor_auto_adjust, rhs: protocol_health_monitor_auto_adjust) -> Bool {
+    if lhs.switchFlag != rhs.switchFlag {return false}
+    if lhs.adjustMode != rhs.adjustMode {return false}
+    if lhs.startHour != rhs.startHour {return false}
+    if lhs.startMinute != rhs.startMinute {return false}
+    if lhs.endHour != rhs.endHour {return false}
+    if lhs.endMinute != rhs.endMinute {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_heart_monitor_notify: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_heart_monitor_notify"
-    public  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "notify_flag"),
-        2: .standard(proto: "high_remind_switch"),
-        3: .standard(proto: "low_remind_switch"),
-        4: .standard(proto: "high_threshold_value"),
-        5: .standard(proto: "low_threshold_value"),
-        6: .same(proto: "interval"),
-        7: .same(proto: "repeat"),
-        8: .standard(proto: "start_hour"),
-        9: .standard(proto: "start_minute"),
-        10: .standard(proto: "end_hour"),
-        11: .standard(proto: "end_minute"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.notifyFlag) }()
-            case 2: try { try decoder.decodeSingularBoolField(value: &self.highRemindSwitch) }()
-            case 3: try { try decoder.decodeSingularBoolField(value: &self.lowRemindSwitch) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.highThresholdValue) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.lowThresholdValue) }()
-            case 6: try { try decoder.decodeSingularUInt32Field(value: &self.interval) }()
-            case 7: try { try decoder.decodeRepeatedBoolField(value: &self.`repeat`) }()
-            case 8: try { try decoder.decodeSingularUInt32Field(value: &self.startHour) }()
-            case 9: try { try decoder.decodeSingularUInt32Field(value: &self.startMinute) }()
-            case 10: try { try decoder.decodeSingularUInt32Field(value: &self.endHour) }()
-            case 11: try { try decoder.decodeSingularUInt32Field(value: &self.endMinute) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_heart_monitor_notify"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "notify_flag"),
+    2: .standard(proto: "high_remind_switch"),
+    3: .standard(proto: "low_remind_switch"),
+    4: .standard(proto: "high_threshold_value"),
+    5: .standard(proto: "low_threshold_value"),
+    6: .same(proto: "interval"),
+    7: .same(proto: "repeat"),
+    8: .standard(proto: "start_hour"),
+    9: .standard(proto: "start_minute"),
+    10: .standard(proto: "end_hour"),
+    11: .standard(proto: "end_minute"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.notifyFlag) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.highRemindSwitch) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.lowRemindSwitch) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.highThresholdValue) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.lowThresholdValue) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.interval) }()
+      case 7: try { try decoder.decodeRepeatedBoolField(value: &self.`repeat`) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.startHour) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.startMinute) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.endHour) }()
+      case 11: try { try decoder.decodeSingularUInt32Field(value: &self.endMinute) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.notifyFlag != .allow {
-            try visitor.visitSingularEnumField(value: self.notifyFlag, fieldNumber: 1)
-        }
-        if self.highRemindSwitch != false {
-            try visitor.visitSingularBoolField(value: self.highRemindSwitch, fieldNumber: 2)
-        }
-        if self.lowRemindSwitch != false {
-            try visitor.visitSingularBoolField(value: self.lowRemindSwitch, fieldNumber: 3)
-        }
-        if self.highThresholdValue != 0 {
-            try visitor.visitSingularUInt32Field(value: self.highThresholdValue, fieldNumber: 4)
-        }
-        if self.lowThresholdValue != 0 {
-            try visitor.visitSingularUInt32Field(value: self.lowThresholdValue, fieldNumber: 5)
-        }
-        if self.interval != 0 {
-            try visitor.visitSingularUInt32Field(value: self.interval, fieldNumber: 6)
-        }
-        if !self.`repeat`.isEmpty {
-            try visitor.visitPackedBoolField(value: self.`repeat`, fieldNumber: 7)
-        }
-        if self.startHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.startHour, fieldNumber: 8)
-        }
-        if self.startMinute != 0 {
-            try visitor.visitSingularUInt32Field(value: self.startMinute, fieldNumber: 9)
-        }
-        if self.endHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.endHour, fieldNumber: 10)
-        }
-        if self.endMinute != 0 {
-            try visitor.visitSingularUInt32Field(value: self.endMinute, fieldNumber: 11)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.notifyFlag != .allow {
+      try visitor.visitSingularEnumField(value: self.notifyFlag, fieldNumber: 1)
     }
-    
-    public  static func ==(lhs: protocol_heart_monitor_notify, rhs: protocol_heart_monitor_notify) -> Bool {
-        if lhs.notifyFlag != rhs.notifyFlag {return false}
-        if lhs.highRemindSwitch != rhs.highRemindSwitch {return false}
-        if lhs.lowRemindSwitch != rhs.lowRemindSwitch {return false}
-        if lhs.highThresholdValue != rhs.highThresholdValue {return false}
-        if lhs.lowThresholdValue != rhs.lowThresholdValue {return false}
-        if lhs.interval != rhs.interval {return false}
-        if lhs.`repeat` != rhs.`repeat` {return false}
-        if lhs.startHour != rhs.startHour {return false}
-        if lhs.startMinute != rhs.startMinute {return false}
-        if lhs.endHour != rhs.endHour {return false}
-        if lhs.endMinute != rhs.endMinute {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.highRemindSwitch != false {
+      try visitor.visitSingularBoolField(value: self.highRemindSwitch, fieldNumber: 2)
     }
+    if self.lowRemindSwitch != false {
+      try visitor.visitSingularBoolField(value: self.lowRemindSwitch, fieldNumber: 3)
+    }
+    if self.highThresholdValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.highThresholdValue, fieldNumber: 4)
+    }
+    if self.lowThresholdValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.lowThresholdValue, fieldNumber: 5)
+    }
+    if self.interval != 0 {
+      try visitor.visitSingularUInt32Field(value: self.interval, fieldNumber: 6)
+    }
+    if !self.`repeat`.isEmpty {
+      try visitor.visitPackedBoolField(value: self.`repeat`, fieldNumber: 7)
+    }
+    if self.startHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.startHour, fieldNumber: 8)
+    }
+    if self.startMinute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.startMinute, fieldNumber: 9)
+    }
+    if self.endHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.endHour, fieldNumber: 10)
+    }
+    if self.endMinute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.endMinute, fieldNumber: 11)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_heart_monitor_notify, rhs: protocol_heart_monitor_notify) -> Bool {
+    if lhs.notifyFlag != rhs.notifyFlag {return false}
+    if lhs.highRemindSwitch != rhs.highRemindSwitch {return false}
+    if lhs.lowRemindSwitch != rhs.lowRemindSwitch {return false}
+    if lhs.highThresholdValue != rhs.highThresholdValue {return false}
+    if lhs.lowThresholdValue != rhs.lowThresholdValue {return false}
+    if lhs.interval != rhs.interval {return false}
+    if lhs.`repeat` != rhs.`repeat` {return false}
+    if lhs.startHour != rhs.startHour {return false}
+    if lhs.startMinute != rhs.startMinute {return false}
+    if lhs.endHour != rhs.endHour {return false}
+    if lhs.endMinute != rhs.endMinute {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_health_monitor_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public  static let protoMessageName: String = "protocol_health_monitor_operate"
-    public  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "health_type"),
-        3: .standard(proto: "default_mode"),
-        4: .standard(proto: "measurement_interval"),
-        5: .standard(proto: "mode_auto_adjust"),
-        6: .standard(proto: "notify_setting"),
-    ]
-    
-    fileprivate class _StorageClass {
-        public var _operate: operate_type = .invalid
-        public var _healthType: health_type = .heartRate
-        public var _defaultMode: health_monitor_mode = .manual
-        public var _measurementInterval: UInt32 = 0
-        public var _modeAutoAdjust: protocol_health_monitor_auto_adjust? = nil
-        public var _notifySetting: protocol_heart_monitor_notify? = nil
-        
-        static let defaultInstance = _StorageClass()
-        
-        private init() {}
-        
-        init(copying source: _StorageClass) {
-            _operate = source._operate
-            _healthType = source._healthType
-            _defaultMode = source._defaultMode
-            _measurementInterval = source._measurementInterval
-            _modeAutoAdjust = source._modeAutoAdjust
-            _notifySetting = source._notifySetting
-        }
+  public static let protoMessageName: String = "protocol_health_monitor_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "health_type"),
+    3: .standard(proto: "default_mode"),
+    4: .standard(proto: "measurement_interval"),
+    5: .standard(proto: "mode_auto_adjust"),
+    6: .standard(proto: "notify_setting"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _operate: operate_type = .invalid
+    var _healthType: health_type = .heartRate
+    var _defaultMode: health_monitor_mode = .manual
+    var _measurementInterval: UInt32 = 0
+    var _modeAutoAdjust: protocol_health_monitor_auto_adjust? = nil
+    var _notifySetting: protocol_heart_monitor_notify? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _healthType = source._healthType
+      _defaultMode = source._defaultMode
+      _measurementInterval = source._measurementInterval
+      _modeAutoAdjust = source._modeAutoAdjust
+      _notifySetting = source._notifySetting
     }
-    
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-            _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
     }
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        _ = _uniqueStorage()
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            while let fieldNumber = try decoder.nextFieldNumber() {
-                // The use of inline closures is to circumvent an issue where the compiler
-                // allocates stack space for every case branch when no optimizations are
-                // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                switch fieldNumber {
-                case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
-                case 2: try { try decoder.decodeSingularEnumField(value: &_storage._healthType) }()
-                case 3: try { try decoder.decodeSingularEnumField(value: &_storage._defaultMode) }()
-                case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._measurementInterval) }()
-                case 5: try { try decoder.decodeSingularMessageField(value: &_storage._modeAutoAdjust) }()
-                case 6: try { try decoder.decodeSingularMessageField(value: &_storage._notifySetting) }()
-                default: break
-                }
-            }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._healthType) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._defaultMode) }()
+        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._measurementInterval) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._modeAutoAdjust) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._notifySetting) }()
+        default: break
         }
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every if/case branch local when no optimizations
-            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-            // https://github.com/apple/swift-protobuf/issues/1182
-            if _storage._operate != .invalid {
-                try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
-            }
-            if _storage._healthType != .heartRate {
-                try visitor.visitSingularEnumField(value: _storage._healthType, fieldNumber: 2)
-            }
-            if _storage._defaultMode != .manual {
-                try visitor.visitSingularEnumField(value: _storage._defaultMode, fieldNumber: 3)
-            }
-            if _storage._measurementInterval != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._measurementInterval, fieldNumber: 4)
-            }
-            try { if let v = _storage._modeAutoAdjust {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-            } }()
-            try { if let v = _storage._notifySetting {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-            } }()
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      if _storage._healthType != .heartRate {
+        try visitor.visitSingularEnumField(value: _storage._healthType, fieldNumber: 2)
+      }
+      if _storage._defaultMode != .manual {
+        try visitor.visitSingularEnumField(value: _storage._defaultMode, fieldNumber: 3)
+      }
+      if _storage._measurementInterval != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._measurementInterval, fieldNumber: 4)
+      }
+      try { if let v = _storage._modeAutoAdjust {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+      try { if let v = _storage._notifySetting {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
     }
-    
-    public static func ==(lhs: protocol_health_monitor_operate, rhs: protocol_health_monitor_operate) -> Bool {
-        if lhs._storage !== rhs._storage {
-            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-                let _storage = _args.0
-                let rhs_storage = _args.1
-                if _storage._operate != rhs_storage._operate {return false}
-                if _storage._healthType != rhs_storage._healthType {return false}
-                if _storage._defaultMode != rhs_storage._defaultMode {return false}
-                if _storage._measurementInterval != rhs_storage._measurementInterval {return false}
-                if _storage._modeAutoAdjust != rhs_storage._modeAutoAdjust {return false}
-                if _storage._notifySetting != rhs_storage._notifySetting {return false}
-                return true
-            }
-            if !storagesAreEqual {return false}
-        }
-        if lhs.unknownFields != rhs.unknownFields {return false}
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_monitor_operate, rhs: protocol_health_monitor_operate) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._healthType != rhs_storage._healthType {return false}
+        if _storage._defaultMode != rhs_storage._defaultMode {return false}
+        if _storage._measurementInterval != rhs_storage._measurementInterval {return false}
+        if _storage._modeAutoAdjust != rhs_storage._modeAutoAdjust {return false}
+        if _storage._notifySetting != rhs_storage._notifySetting {return false}
         return true
+      }
+      if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_health_monitor_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public  static let protoMessageName: String = "protocol_health_monitor_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "func_table"),
-        2: .same(proto: "operate"),
-        3: .standard(proto: "health_type"),
-        4: .standard(proto: "default_mode"),
-        5: .standard(proto: "measurement_interval"),
-        6: .standard(proto: "mode_auto_adjust"),
-        7: .standard(proto: "notify_setting"),
-    ]
-    
-    fileprivate class _StorageClass {
-        public var _funcTable: UInt32 = 0
-        public var _operate: operate_type = .invalid
-        public var _healthType: health_type = .heartRate
-        public var _defaultMode: health_monitor_mode = .manual
-        public var _measurementInterval: UInt32 = 0
-        public var _modeAutoAdjust: protocol_health_monitor_auto_adjust? = nil
-        public var _notifySetting: protocol_heart_monitor_notify? = nil
-        
-        static let defaultInstance = _StorageClass()
-        
-        private init() {}
-        
-        init(copying source: _StorageClass) {
-            _funcTable = source._funcTable
-            _operate = source._operate
-            _healthType = source._healthType
-            _defaultMode = source._defaultMode
-            _measurementInterval = source._measurementInterval
-            _modeAutoAdjust = source._modeAutoAdjust
-            _notifySetting = source._notifySetting
-        }
+  public static let protoMessageName: String = "protocol_health_monitor_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "operate"),
+    3: .standard(proto: "health_type"),
+    4: .standard(proto: "default_mode"),
+    5: .standard(proto: "measurement_interval"),
+    6: .standard(proto: "mode_auto_adjust"),
+    7: .standard(proto: "notify_setting"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _funcTable: UInt32 = 0
+    var _operate: operate_type = .invalid
+    var _healthType: health_type = .heartRate
+    var _defaultMode: health_monitor_mode = .manual
+    var _measurementInterval: UInt32 = 0
+    var _modeAutoAdjust: protocol_health_monitor_auto_adjust? = nil
+    var _notifySetting: protocol_heart_monitor_notify? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _funcTable = source._funcTable
+      _operate = source._operate
+      _healthType = source._healthType
+      _defaultMode = source._defaultMode
+      _measurementInterval = source._measurementInterval
+      _modeAutoAdjust = source._modeAutoAdjust
+      _notifySetting = source._notifySetting
     }
-    
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-            _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
     }
-    
-    mutating  public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        _ = _uniqueStorage()
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            while let fieldNumber = try decoder.nextFieldNumber() {
-                // The use of inline closures is to circumvent an issue where the compiler
-                // allocates stack space for every case branch when no optimizations are
-                // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                switch fieldNumber {
-                case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
-                case 2: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
-                case 3: try { try decoder.decodeSingularEnumField(value: &_storage._healthType) }()
-                case 4: try { try decoder.decodeSingularEnumField(value: &_storage._defaultMode) }()
-                case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._measurementInterval) }()
-                case 6: try { try decoder.decodeSingularMessageField(value: &_storage._modeAutoAdjust) }()
-                case 7: try { try decoder.decodeSingularMessageField(value: &_storage._notifySetting) }()
-                default: break
-                }
-            }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._healthType) }()
+        case 4: try { try decoder.decodeSingularEnumField(value: &_storage._defaultMode) }()
+        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._measurementInterval) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._modeAutoAdjust) }()
+        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._notifySetting) }()
+        default: break
         }
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every if/case branch local when no optimizations
-            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-            // https://github.com/apple/swift-protobuf/issues/1182
-            if _storage._funcTable != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 1)
-            }
-            if _storage._operate != .invalid {
-                try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 2)
-            }
-            if _storage._healthType != .heartRate {
-                try visitor.visitSingularEnumField(value: _storage._healthType, fieldNumber: 3)
-            }
-            if _storage._defaultMode != .manual {
-                try visitor.visitSingularEnumField(value: _storage._defaultMode, fieldNumber: 4)
-            }
-            if _storage._measurementInterval != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._measurementInterval, fieldNumber: 5)
-            }
-            try { if let v = _storage._modeAutoAdjust {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-            } }()
-            try { if let v = _storage._notifySetting {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-            } }()
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._funcTable != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 1)
+      }
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 2)
+      }
+      if _storage._healthType != .heartRate {
+        try visitor.visitSingularEnumField(value: _storage._healthType, fieldNumber: 3)
+      }
+      if _storage._defaultMode != .manual {
+        try visitor.visitSingularEnumField(value: _storage._defaultMode, fieldNumber: 4)
+      }
+      if _storage._measurementInterval != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._measurementInterval, fieldNumber: 5)
+      }
+      try { if let v = _storage._modeAutoAdjust {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._notifySetting {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      } }()
     }
-    
-    public static func ==(lhs: protocol_health_monitor_inquire_reply, rhs: protocol_health_monitor_inquire_reply) -> Bool {
-        if lhs._storage !== rhs._storage {
-            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-                let _storage = _args.0
-                let rhs_storage = _args.1
-                if _storage._funcTable != rhs_storage._funcTable {return false}
-                if _storage._operate != rhs_storage._operate {return false}
-                if _storage._healthType != rhs_storage._healthType {return false}
-                if _storage._defaultMode != rhs_storage._defaultMode {return false}
-                if _storage._measurementInterval != rhs_storage._measurementInterval {return false}
-                if _storage._modeAutoAdjust != rhs_storage._modeAutoAdjust {return false}
-                if _storage._notifySetting != rhs_storage._notifySetting {return false}
-                return true
-            }
-            if !storagesAreEqual {return false}
-        }
-        if lhs.unknownFields != rhs.unknownFields {return false}
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_monitor_inquire_reply, rhs: protocol_health_monitor_inquire_reply) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._funcTable != rhs_storage._funcTable {return false}
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._healthType != rhs_storage._healthType {return false}
+        if _storage._defaultMode != rhs_storage._defaultMode {return false}
+        if _storage._measurementInterval != rhs_storage._measurementInterval {return false}
+        if _storage._modeAutoAdjust != rhs_storage._modeAutoAdjust {return false}
+        if _storage._notifySetting != rhs_storage._notifySetting {return false}
         return true
+      }
+      if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

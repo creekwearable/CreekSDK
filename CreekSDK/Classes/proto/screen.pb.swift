@@ -15,8 +15,8 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate  struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
@@ -43,7 +43,7 @@ public struct protocol_screen_night_auto_adjust {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_screen_aod_time_setting {
@@ -65,7 +65,7 @@ public struct protocol_screen_aod_time_setting {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_screen_brightness_operate {
@@ -99,7 +99,7 @@ public struct protocol_screen_brightness_operate {
   /// Returns true if `nightAutoAdjust` has been explicitly set.
   public var hasNightAutoAdjust: Bool {return _storage._nightAutoAdjust != nil}
   /// Clears the value of `nightAutoAdjust`. Subsequent reads from it will return its default value.
-  mutating func clearNightAutoAdjust() {_uniqueStorage()._nightAutoAdjust = nil}
+  public mutating func clearNightAutoAdjust() {_uniqueStorage()._nightAutoAdjust = nil}
 
   ///1bytes screen display switch true to turn on, false to turn off
   public var aodSwitchFlag: Bool {
@@ -121,7 +121,7 @@ public struct protocol_screen_brightness_operate {
   /// Returns true if `aodTimeSetting` has been explicitly set.
   public var hasAodTimeSetting: Bool {return _storage._aodTimeSetting != nil}
   /// Clears the value of `aodTimeSetting`. Subsequent reads from it will return its default value.
-  mutating func clearAodTimeSetting() {_uniqueStorage()._aodTimeSetting = nil}
+  public mutating func clearAodTimeSetting() {_uniqueStorage()._aodTimeSetting = nil}
 
   ///Whether to set the brightness to take effect
   public var levelFlag: Bool {
@@ -131,9 +131,9 @@ public struct protocol_screen_brightness_operate {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 
-  fileprivate  var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct protocol_screen_brightness_inquire_reply {
@@ -173,7 +173,7 @@ public struct protocol_screen_brightness_inquire_reply {
   /// Returns true if `nightAutoAdjust` has been explicitly set.
   public var hasNightAutoAdjust: Bool {return _storage._nightAutoAdjust != nil}
   /// Clears the value of `nightAutoAdjust`. Subsequent reads from it will return its default value.
-  mutating func clearNightAutoAdjust() {_uniqueStorage()._nightAutoAdjust = nil}
+  public mutating func clearNightAutoAdjust() {_uniqueStorage()._nightAutoAdjust = nil}
 
   ///1bytes always-on display switch true is on, false is off
   public var aodSwitchFlag: Bool {
@@ -195,13 +195,19 @@ public struct protocol_screen_brightness_inquire_reply {
   /// Returns true if `aodTimeSetting` has been explicitly set.
   public var hasAodTimeSetting: Bool {return _storage._aodTimeSetting != nil}
   /// Clears the value of `aodTimeSetting`. Subsequent reads from it will return its default value.
-  mutating func clearAodTimeSetting() {_uniqueStorage()._aodTimeSetting = nil}
+  public mutating func clearAodTimeSetting() {_uniqueStorage()._aodTimeSetting = nil}
+
+  ///Display options for the duration of the screen on. Unit: seconds
+  public var showIntervalOptions: [UInt32] {
+    get {return _storage._showIntervalOptions}
+    set {_uniqueStorage()._showIntervalOptions = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 
-  fileprivate  var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -214,8 +220,8 @@ extension protocol_screen_brightness_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_screen_night_auto_adjust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_screen_night_auto_adjust"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_screen_night_auto_adjust"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "switch_flag"),
     2: .standard(proto: "start_hour"),
     3: .standard(proto: "start_minute"),
@@ -224,7 +230,7 @@ extension protocol_screen_night_auto_adjust: SwiftProtobuf.Message, SwiftProtobu
     6: .standard(proto: "night_level"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -241,7 +247,7 @@ extension protocol_screen_night_auto_adjust: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.switchFlag != false {
       try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 1)
     }
@@ -263,7 +269,7 @@ extension protocol_screen_night_auto_adjust: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_screen_night_auto_adjust, rhs: protocol_screen_night_auto_adjust) -> Bool {
+  public static func ==(lhs: protocol_screen_night_auto_adjust, rhs: protocol_screen_night_auto_adjust) -> Bool {
     if lhs.switchFlag != rhs.switchFlag {return false}
     if lhs.startHour != rhs.startHour {return false}
     if lhs.startMinute != rhs.startMinute {return false}
@@ -276,8 +282,8 @@ extension protocol_screen_night_auto_adjust: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension protocol_screen_aod_time_setting: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_screen_aod_time_setting"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_screen_aod_time_setting"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
     2: .standard(proto: "start_hour"),
     3: .standard(proto: "start_minute"),
@@ -285,7 +291,7 @@ extension protocol_screen_aod_time_setting: SwiftProtobuf.Message, SwiftProtobuf
     5: .standard(proto: "end_minute"),
   ]
 
-    public  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -301,7 +307,7 @@ extension protocol_screen_aod_time_setting: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .intelligentMode {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
@@ -320,7 +326,7 @@ extension protocol_screen_aod_time_setting: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_screen_aod_time_setting, rhs: protocol_screen_aod_time_setting) -> Bool {
+  public static func ==(lhs: protocol_screen_aod_time_setting, rhs: protocol_screen_aod_time_setting) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.startHour != rhs.startHour {return false}
     if lhs.startMinute != rhs.startMinute {return false}
@@ -332,8 +338,8 @@ extension protocol_screen_aod_time_setting: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension protocol_screen_brightness_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_screen_brightness_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_screen_brightness_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .same(proto: "level"),
     3: .standard(proto: "show_interval"),
@@ -345,14 +351,14 @@ extension protocol_screen_brightness_operate: SwiftProtobuf.Message, SwiftProtob
   ]
 
   fileprivate class _StorageClass {
-    public var _operate: operate_type = .invalid
-    public var _level: UInt32 = 0
-    public var _showInterval: UInt32 = 0
-    public var _nightAutoAdjust: protocol_screen_night_auto_adjust? = nil
-    public var _aodSwitchFlag: Bool = false
-    public var _raiseWristSwitchFlag: Bool = false
-    public var _aodTimeSetting: protocol_screen_aod_time_setting? = nil
-    public var _levelFlag: Bool = false
+    var _operate: operate_type = .invalid
+    var _level: UInt32 = 0
+    var _showInterval: UInt32 = 0
+    var _nightAutoAdjust: protocol_screen_night_auto_adjust? = nil
+    var _aodSwitchFlag: Bool = false
+    var _raiseWristSwitchFlag: Bool = false
+    var _aodTimeSetting: protocol_screen_aod_time_setting? = nil
+    var _levelFlag: Bool = false
 
     static let defaultInstance = _StorageClass()
 
@@ -377,7 +383,7 @@ extension protocol_screen_brightness_operate: SwiftProtobuf.Message, SwiftProtob
     return _storage
   }
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -399,7 +405,7 @@ extension protocol_screen_brightness_operate: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -433,7 +439,7 @@ extension protocol_screen_brightness_operate: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_screen_brightness_operate, rhs: protocol_screen_brightness_operate) -> Bool {
+  public static func ==(lhs: protocol_screen_brightness_operate, rhs: protocol_screen_brightness_operate) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -456,8 +462,8 @@ extension protocol_screen_brightness_operate: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_screen_brightness_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_screen_brightness_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "func_table"),
     2: .same(proto: "operate"),
     3: .same(proto: "level"),
@@ -466,17 +472,19 @@ extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, Swift
     6: .standard(proto: "aod_switch_flag"),
     7: .standard(proto: "raise_wrist_switch_flag"),
     8: .standard(proto: "aod_time_setting"),
+    9: .standard(proto: "show_interval_options"),
   ]
 
   fileprivate class _StorageClass {
-    public var _funcTable: UInt32 = 0
-    public var _operate: operate_type = .invalid
-    public var _level: UInt32 = 0
-    public var _showInterval: UInt32 = 0
-    public var _nightAutoAdjust: protocol_screen_night_auto_adjust? = nil
-    public var _aodSwitchFlag: Bool = false
-    public var _raiseWristSwitchFlag: Bool = false
-    public var _aodTimeSetting: protocol_screen_aod_time_setting? = nil
+    var _funcTable: UInt32 = 0
+    var _operate: operate_type = .invalid
+    var _level: UInt32 = 0
+    var _showInterval: UInt32 = 0
+    var _nightAutoAdjust: protocol_screen_night_auto_adjust? = nil
+    var _aodSwitchFlag: Bool = false
+    var _raiseWristSwitchFlag: Bool = false
+    var _aodTimeSetting: protocol_screen_aod_time_setting? = nil
+    var _showIntervalOptions: [UInt32] = []
 
     static let defaultInstance = _StorageClass()
 
@@ -491,6 +499,7 @@ extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, Swift
       _aodSwitchFlag = source._aodSwitchFlag
       _raiseWristSwitchFlag = source._raiseWristSwitchFlag
       _aodTimeSetting = source._aodTimeSetting
+      _showIntervalOptions = source._showIntervalOptions
     }
   }
 
@@ -501,7 +510,7 @@ extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, Swift
     return _storage
   }
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -517,13 +526,14 @@ extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, Swift
         case 6: try { try decoder.decodeSingularBoolField(value: &_storage._aodSwitchFlag) }()
         case 7: try { try decoder.decodeSingularBoolField(value: &_storage._raiseWristSwitchFlag) }()
         case 8: try { try decoder.decodeSingularMessageField(value: &_storage._aodTimeSetting) }()
+        case 9: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._showIntervalOptions) }()
         default: break
         }
       }
     }
   }
 
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -553,11 +563,14 @@ extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, Swift
       try { if let v = _storage._aodTimeSetting {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
       } }()
+      if !_storage._showIntervalOptions.isEmpty {
+        try visitor.visitPackedUInt32Field(value: _storage._showIntervalOptions, fieldNumber: 9)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_screen_brightness_inquire_reply, rhs: protocol_screen_brightness_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_screen_brightness_inquire_reply, rhs: protocol_screen_brightness_inquire_reply) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -570,6 +583,7 @@ extension protocol_screen_brightness_inquire_reply: SwiftProtobuf.Message, Swift
         if _storage._aodSwitchFlag != rhs_storage._aodSwitchFlag {return false}
         if _storage._raiseWristSwitchFlag != rhs_storage._raiseWristSwitchFlag {return false}
         if _storage._aodTimeSetting != rhs_storage._aodTimeSetting {return false}
+        if _storage._showIntervalOptions != rhs_storage._showIntervalOptions {return false}
         return true
       }
       if !storagesAreEqual {return false}

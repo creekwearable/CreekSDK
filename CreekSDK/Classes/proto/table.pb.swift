@@ -25,14 +25,14 @@ public struct function_table {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-    public var isSupport: Bool = false
+  public var isSupport: Bool = false
 
   ///2bytes
-    public var cmdID: UInt32 = 0
+  public var cmdID: UInt32 = 0
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_function_table {
@@ -41,228 +41,258 @@ public struct protocol_function_table {
   // methods supported on all messages.
 
   ///Do not disturb
-    public var disturb: function_table {
+  public var disturb: function_table {
     get {return _storage._disturb ?? function_table()}
     set {_uniqueStorage()._disturb = newValue}
   }
   /// Returns true if `disturb` has been explicitly set.
-    public var hasDisturb: Bool {return _storage._disturb != nil}
+  public var hasDisturb: Bool {return _storage._disturb != nil}
   /// Clears the value of `disturb`. Subsequent reads from it will return its default value.
-    public mutating func clearDisturb() {_uniqueStorage()._disturb = nil}
+  public mutating func clearDisturb() {_uniqueStorage()._disturb = nil}
 
   ///Drink water reminder
-    public var waterRemind: function_table {
+  public var waterRemind: function_table {
     get {return _storage._waterRemind ?? function_table()}
     set {_uniqueStorage()._waterRemind = newValue}
   }
   /// Returns true if `waterRemind` has been explicitly set.
-    public var hasWaterRemind: Bool {return _storage._waterRemind != nil}
+  public var hasWaterRemind: Bool {return _storage._waterRemind != nil}
   /// Clears the value of `waterRemind`. Subsequent reads from it will return its default value.
-    public mutating func clearWaterRemind() {_uniqueStorage()._waterRemind = nil}
+  public mutating func clearWaterRemind() {_uniqueStorage()._waterRemind = nil}
 
   ///standing reminder
-    public var standingRemind: function_table {
+  public var standingRemind: function_table {
     get {return _storage._standingRemind ?? function_table()}
     set {_uniqueStorage()._standingRemind = newValue}
   }
   /// Returns true if `standingRemind` has been explicitly set.
-    public var hasStandingRemind: Bool {return _storage._standingRemind != nil}
+  public var hasStandingRemind: Bool {return _storage._standingRemind != nil}
   /// Clears the value of `standingRemind`. Subsequent reads from it will return its default value.
-    public mutating func clearStandingRemind() {_uniqueStorage()._standingRemind = nil}
+  public mutating func clearStandingRemind() {_uniqueStorage()._standingRemind = nil}
 
   ///Female health
-    public var femaleHealth: function_table {
+  public var femaleHealth: function_table {
     get {return _storage._femaleHealth ?? function_table()}
     set {_uniqueStorage()._femaleHealth = newValue}
   }
   /// Returns true if `femaleHealth` has been explicitly set.
-    public var hasFemaleHealth: Bool {return _storage._femaleHealth != nil}
+  public var hasFemaleHealth: Bool {return _storage._femaleHealth != nil}
   /// Clears the value of `femaleHealth`. Subsequent reads from it will return its default value.
-    public mutating func clearFemaleHealth() {_uniqueStorage()._femaleHealth = nil}
+  public mutating func clearFemaleHealth() {_uniqueStorage()._femaleHealth = nil}
 
   ///Weather
-    public var weather: function_table {
+  public var weather: function_table {
     get {return _storage._weather ?? function_table()}
     set {_uniqueStorage()._weather = newValue}
   }
   /// Returns true if `weather` has been explicitly set.
-    public var hasWeather: Bool {return _storage._weather != nil}
+  public var hasWeather: Bool {return _storage._weather != nil}
   /// Clears the value of `weather`. Subsequent reads from it will return its default value.
-    public mutating func clearWeather() {_uniqueStorage()._weather = nil}
+  public mutating func clearWeather() {_uniqueStorage()._weather = nil}
 
   ///Message reminder
-    public var messageData: function_table {
+  public var messageData: function_table {
     get {return _storage._messageData ?? function_table()}
     set {_uniqueStorage()._messageData = newValue}
   }
   /// Returns true if `messageData` has been explicitly set.
-    public var hasMessageData: Bool {return _storage._messageData != nil}
+  public var hasMessageData: Bool {return _storage._messageData != nil}
   /// Clears the value of `messageData`. Subsequent reads from it will return its default value.
-    public mutating func clearMessageData() {_uniqueStorage()._messageData = nil}
+  public mutating func clearMessageData() {_uniqueStorage()._messageData = nil}
 
   ///Whether it is a bt protocol call
-    public var btCall: function_table {
+  public var btCall: function_table {
     get {return _storage._btCall ?? function_table()}
     set {_uniqueStorage()._btCall = newValue}
   }
   /// Returns true if `btCall` has been explicitly set.
-    public var hasBtCall: Bool {return _storage._btCall != nil}
+  public var hasBtCall: Bool {return _storage._btCall != nil}
   /// Clears the value of `btCall`. Subsequent reads from it will return its default value.
-    public mutating func clearBtCall() {_uniqueStorage()._btCall = nil}
+  public mutating func clearBtCall() {_uniqueStorage()._btCall = nil}
 
   ///Whether ble protocol call
-    public var bleCall: function_table {
+  public var bleCall: function_table {
     get {return _storage._bleCall ?? function_table()}
     set {_uniqueStorage()._bleCall = newValue}
   }
   /// Returns true if `bleCall` has been explicitly set.
-    public var hasBleCall: Bool {return _storage._bleCall != nil}
+  public var hasBleCall: Bool {return _storage._bleCall != nil}
   /// Clears the value of `bleCall`. Subsequent reads from it will return its default value.
-    public mutating func clearBleCall() {_uniqueStorage()._bleCall = nil}
+  public mutating func clearBleCall() {_uniqueStorage()._bleCall = nil}
 
   ///schedule reminder
-    public var scheduleRemind: function_table {
+  public var scheduleRemind: function_table {
     get {return _storage._scheduleRemind ?? function_table()}
     set {_uniqueStorage()._scheduleRemind = newValue}
   }
   /// Returns true if `scheduleRemind` has been explicitly set.
-    public var hasScheduleRemind: Bool {return _storage._scheduleRemind != nil}
+  public var hasScheduleRemind: Bool {return _storage._scheduleRemind != nil}
   /// Clears the value of `scheduleRemind`. Subsequent reads from it will return its default value.
-    public mutating func clearScheduleRemind() {_uniqueStorage()._scheduleRemind = nil}
+  public mutating func clearScheduleRemind() {_uniqueStorage()._scheduleRemind = nil}
 
-  ///Voice Assistant
-    public var voiceAssistant: function_table {
+  ///Voice assistant
+  public var voiceAssistant: function_table {
     get {return _storage._voiceAssistant ?? function_table()}
     set {_uniqueStorage()._voiceAssistant = newValue}
   }
   /// Returns true if `voiceAssistant` has been explicitly set.
-    public var hasVoiceAssistant: Bool {return _storage._voiceAssistant != nil}
+  public var hasVoiceAssistant: Bool {return _storage._voiceAssistant != nil}
   /// Clears the value of `voiceAssistant`. Subsequent reads from it will return its default value.
-    public mutating func clearVoiceAssistant() {_uniqueStorage()._voiceAssistant = nil}
+  public mutating func clearVoiceAssistant() {_uniqueStorage()._voiceAssistant = nil}
 
   ///Quick card
-    public var quickCard: function_table {
+  public var quickCard: function_table {
     get {return _storage._quickCard ?? function_table()}
     set {_uniqueStorage()._quickCard = newValue}
   }
   /// Returns true if `quickCard` has been explicitly set.
-    public var hasQuickCard: Bool {return _storage._quickCard != nil}
+  public var hasQuickCard: Bool {return _storage._quickCard != nil}
   /// Clears the value of `quickCard`. Subsequent reads from it will return its default value.
-    public mutating func clearQuickCard() {_uniqueStorage()._quickCard = nil}
+  public mutating func clearQuickCard() {_uniqueStorage()._quickCard = nil}
 
   ///World clock
-    public var worldTime: function_table {
+  public var worldTime: function_table {
     get {return _storage._worldTime ?? function_table()}
     set {_uniqueStorage()._worldTime = newValue}
   }
   /// Returns true if `worldTime` has been explicitly set.
-    public var hasWorldTime: Bool {return _storage._worldTime != nil}
+  public var hasWorldTime: Bool {return _storage._worldTime != nil}
   /// Clears the value of `worldTime`. Subsequent reads from it will return its default value.
-    public mutating func clearWorldTime() {_uniqueStorage()._worldTime = nil}
+  public mutating func clearWorldTime() {_uniqueStorage()._worldTime = nil}
 
   ///Frequently used contacts
-    public var frequentContacts: function_table {
+  public var frequentContacts: function_table {
     get {return _storage._frequentContacts ?? function_table()}
     set {_uniqueStorage()._frequentContacts = newValue}
   }
   /// Returns true if `frequentContacts` has been explicitly set.
-    public var hasFrequentContacts: Bool {return _storage._frequentContacts != nil}
+  public var hasFrequentContacts: Bool {return _storage._frequentContacts != nil}
   /// Clears the value of `frequentContacts`. Subsequent reads from it will return its default value.
-    public mutating func clearFrequentContacts() {_uniqueStorage()._frequentContacts = nil}
+  public mutating func clearFrequentContacts() {_uniqueStorage()._frequentContacts = nil}
 
   ///gps function
-    public var gps: function_table {
+  public var gps: function_table {
     get {return _storage._gps ?? function_table()}
     set {_uniqueStorage()._gps = newValue}
   }
   /// Returns true if `gps` has been explicitly set.
-    public var hasGps: Bool {return _storage._gps != nil}
+  public var hasGps: Bool {return _storage._gps != nil}
   /// Clears the value of `gps`. Subsequent reads from it will return its default value.
-    public mutating func clearGps() {_uniqueStorage()._gps = nil}
+  public mutating func clearGps() {_uniqueStorage()._gps = nil}
 
   ///Online ephemeris
-    public var onlineGnss: function_table {
+  public var onlineGnss: function_table {
     get {return _storage._onlineGnss ?? function_table()}
     set {_uniqueStorage()._onlineGnss = newValue}
   }
   /// Returns true if `onlineGnss` has been explicitly set.
-    public var hasOnlineGnss: Bool {return _storage._onlineGnss != nil}
+  public var hasOnlineGnss: Bool {return _storage._onlineGnss != nil}
   /// Clears the value of `onlineGnss`. Subsequent reads from it will return its default value.
-    public mutating func clearOnlineGnss() {_uniqueStorage()._onlineGnss = nil}
+  public mutating func clearOnlineGnss() {_uniqueStorage()._onlineGnss = nil}
 
   ///Offline ephemeris
-    public var offlineGnss: function_table {
+  public var offlineGnss: function_table {
     get {return _storage._offlineGnss ?? function_table()}
     set {_uniqueStorage()._offlineGnss = newValue}
   }
   /// Returns true if `offlineGnss` has been explicitly set.
-    public var hasOfflineGnss: Bool {return _storage._offlineGnss != nil}
+  public var hasOfflineGnss: Bool {return _storage._offlineGnss != nil}
   /// Clears the value of `offlineGnss`. Subsequent reads from it will return its default value.
-    public mutating func clearOfflineGnss() {_uniqueStorage()._offlineGnss = nil}
+  public mutating func clearOfflineGnss() {_uniqueStorage()._offlineGnss = nil}
 
   ///Emergency contacts (SOS)
-    public var emergencyContacts: function_table {
+  public var emergencyContacts: function_table {
     get {return _storage._emergencyContacts ?? function_table()}
     set {_uniqueStorage()._emergencyContacts = newValue}
   }
   /// Returns true if `emergencyContacts` has been explicitly set.
-    public var hasEmergencyContacts: Bool {return _storage._emergencyContacts != nil}
+  public var hasEmergencyContacts: Bool {return _storage._emergencyContacts != nil}
   /// Clears the value of `emergencyContacts`. Subsequent reads from it will return its default value.
-    public mutating func clearEmergencyContacts() {_uniqueStorage()._emergencyContacts = nil}
+  public mutating func clearEmergencyContacts() {_uniqueStorage()._emergencyContacts = nil}
 
   ///hrv
-    public var hrv: function_table {
+  public var hrv: function_table {
     get {return _storage._hrv ?? function_table()}
     set {_uniqueStorage()._hrv = newValue}
   }
   /// Returns true if `hrv` has been explicitly set.
-    public var hasHrv: Bool {return _storage._hrv != nil}
+  public var hasHrv: Bool {return _storage._hrv != nil}
   /// Clears the value of `hrv`. Subsequent reads from it will return its default value.
-    public mutating func clearHrv() {_uniqueStorage()._hrv = nil}
+  public mutating func clearHrv() {_uniqueStorage()._hrv = nil}
 
   ///Key shortcut operations
-    public var buttonCrown: function_table {
+  public var buttonCrown: function_table {
     get {return _storage._buttonCrown ?? function_table()}
     set {_uniqueStorage()._buttonCrown = newValue}
   }
   /// Returns true if `buttonCrown` has been explicitly set.
-    public var hasButtonCrown: Bool {return _storage._buttonCrown != nil}
+  public var hasButtonCrown: Bool {return _storage._buttonCrown != nil}
   /// Clears the value of `buttonCrown`. Subsequent reads from it will return its default value.
-    public mutating func clearButtonCrown() {_uniqueStorage()._buttonCrown = nil}
+  public mutating func clearButtonCrown() {_uniqueStorage()._buttonCrown = nil}
 
   ///Focus mode
-    public var focusMode: function_table {
+  public var focusMode: function_table {
     get {return _storage._focusMode ?? function_table()}
     set {_uniqueStorage()._focusMode = newValue}
   }
   /// Returns true if `focusMode` has been explicitly set.
-    public var hasFocusMode: Bool {return _storage._focusMode != nil}
+  public var hasFocusMode: Bool {return _storage._focusMode != nil}
   /// Clears the value of `focusMode`. Subsequent reads from it will return its default value.
-    public mutating func clearFocusMode() {_uniqueStorage()._focusMode = nil}
+  public mutating func clearFocusMode() {_uniqueStorage()._focusMode = nil}
 
   ///Find watch
-    public var findWatch: function_table {
+  public var findWatch: function_table {
     get {return _storage._findWatch ?? function_table()}
     set {_uniqueStorage()._findWatch = newValue}
   }
   /// Returns true if `findWatch` has been explicitly set.
-    public var hasFindWatch: Bool {return _storage._findWatch != nil}
+  public var hasFindWatch: Bool {return _storage._findWatch != nil}
   /// Clears the value of `findWatch`. Subsequent reads from it will return its default value.
-    public  mutating func clearFindWatch() {_uniqueStorage()._findWatch = nil}
+  public mutating func clearFindWatch() {_uniqueStorage()._findWatch = nil}
 
   ///alexa
-    public var alexa: function_table {
+  public var alexa: function_table {
     get {return _storage._alexa ?? function_table()}
     set {_uniqueStorage()._alexa = newValue}
   }
   /// Returns true if `alexa` has been explicitly set.
-    public var hasAlexa: Bool {return _storage._alexa != nil}
+  public var hasAlexa: Bool {return _storage._alexa != nil}
   /// Clears the value of `alexa`. Subsequent reads from it will return its default value.
-    public mutating func clearAlexa() {_uniqueStorage()._alexa = nil}
+  public mutating func clearAlexa() {_uniqueStorage()._alexa = nil}
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  ///Application list
+  public var appList: function_table {
+    get {return _storage._appList ?? function_table()}
+    set {_uniqueStorage()._appList = newValue}
+  }
+  /// Returns true if `appList` has been explicitly set.
+  public var hasAppList: Bool {return _storage._appList != nil}
+  /// Clears the value of `appList`. Subsequent reads from it will return its default value.
+  public mutating func clearAppList() {_uniqueStorage()._appList = nil}
 
-    public init() {}
+  ///Data burying point
+  public var eventTracking: function_table {
+    get {return _storage._eventTracking ?? function_table()}
+    set {_uniqueStorage()._eventTracking = newValue}
+  }
+  /// Returns true if `eventTracking` has been explicitly set.
+  public var hasEventTracking: Bool {return _storage._eventTracking != nil}
+  /// Clears the value of `eventTracking`. Subsequent reads from it will return its default value.
+  public mutating func clearEventTracking() {_uniqueStorage()._eventTracking = nil}
+
+  ///Strava support, upload data to third-party platform
+  public var stravaApp: function_table {
+    get {return _storage._stravaApp ?? function_table()}
+    set {_uniqueStorage()._stravaApp = newValue}
+  }
+  /// Returns true if `stravaApp` has been explicitly set.
+  public var hasStravaApp: Bool {return _storage._stravaApp != nil}
+  /// Clears the value of `stravaApp`. Subsequent reads from it will return its default value.
+  public mutating func clearStravaApp() {_uniqueStorage()._stravaApp = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -275,13 +305,13 @@ extension protocol_function_table: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension function_table: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "function_table"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "function_table"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "is_support"),
     2: .standard(proto: "cmd_id"),
   ]
 
-    public  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -294,7 +324,7 @@ extension function_table: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.isSupport != false {
       try visitor.visitSingularBoolField(value: self.isSupport, fieldNumber: 1)
     }
@@ -304,7 +334,7 @@ extension function_table: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: function_table, rhs: function_table) -> Bool {
+  public static func ==(lhs: function_table, rhs: function_table) -> Bool {
     if lhs.isSupport != rhs.isSupport {return false}
     if lhs.cmdID != rhs.cmdID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -313,8 +343,8 @@ extension function_table: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_function_table"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_function_table"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "disturb"),
     2: .standard(proto: "water_remind"),
     3: .standard(proto: "standing_remind"),
@@ -337,6 +367,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     20: .standard(proto: "focus_mode"),
     21: .standard(proto: "find_watch"),
     22: .same(proto: "alexa"),
+    23: .standard(proto: "app_list"),
+    24: .standard(proto: "event_tracking"),
+    25: .standard(proto: "strava_app"),
   ]
 
   fileprivate class _StorageClass {
@@ -362,6 +395,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _focusMode: function_table? = nil
     var _findWatch: function_table? = nil
     var _alexa: function_table? = nil
+    var _appList: function_table? = nil
+    var _eventTracking: function_table? = nil
+    var _stravaApp: function_table? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -390,6 +426,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _focusMode = source._focusMode
       _findWatch = source._findWatch
       _alexa = source._alexa
+      _appList = source._appList
+      _eventTracking = source._eventTracking
+      _stravaApp = source._stravaApp
     }
   }
 
@@ -400,7 +439,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     return _storage
   }
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -430,13 +469,16 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 20: try { try decoder.decodeSingularMessageField(value: &_storage._focusMode) }()
         case 21: try { try decoder.decodeSingularMessageField(value: &_storage._findWatch) }()
         case 22: try { try decoder.decodeSingularMessageField(value: &_storage._alexa) }()
+        case 23: try { try decoder.decodeSingularMessageField(value: &_storage._appList) }()
+        case 24: try { try decoder.decodeSingularMessageField(value: &_storage._eventTracking) }()
+        case 25: try { try decoder.decodeSingularMessageField(value: &_storage._stravaApp) }()
         default: break
         }
       }
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -508,11 +550,20 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._alexa {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 22)
       } }()
+      try { if let v = _storage._appList {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 23)
+      } }()
+      try { if let v = _storage._eventTracking {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 24)
+      } }()
+      try { if let v = _storage._stravaApp {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 25)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_function_table, rhs: protocol_function_table) -> Bool {
+  public static func ==(lhs: protocol_function_table, rhs: protocol_function_table) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -539,6 +590,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._focusMode != rhs_storage._focusMode {return false}
         if _storage._findWatch != rhs_storage._findWatch {return false}
         if _storage._alexa != rhs_storage._alexa {return false}
+        if _storage._appList != rhs_storage._appList {return false}
+        if _storage._eventTracking != rhs_storage._eventTracking {return false}
+        if _storage._stravaApp != rhs_storage._stravaApp {return false}
         return true
       }
       if !storagesAreEqual {return false}

@@ -16,50 +16,50 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_health_sync_head {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///synchronous operation
-    public var syncOperate: sync_operate = .startSync
-    
-    public var syncType: sync_type = .syncHeartRate
-    
-    ///1bytes synchronization data offset hour
-    public var dataOffset: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///synchronous operation
+  public var syncOperate: sync_operate = .startSync
+
+  public var syncType: sync_type = .syncHeartRate
+
+  ///1bytes synchronization data offset hour
+  public var dataOffset: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_health_sync_head_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///synchronous operation
-    public var syncOperate: sync_operate = .startSync
-    
-    public var syncType: sync_type = .syncHeartRate
-    
-    ///1bytes end hour of synchronous data
-    public var dataOffsetr: UInt32 = 0
-    
-    ///effective data size
-    public var dataSize: UInt32 = 0
-    
-    ///whether there is next data true: yes false no, the synchronous operation is valid only when it is finished
-    public var haveNextData: Bool = false
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///synchronous operation
+  public var syncOperate: sync_operate = .startSync
+
+  public var syncType: sync_type = .syncHeartRate
+
+  ///1bytes end hour of synchronous data
+  public var dataOffsetr: UInt32 = 0
+
+  ///effective data size
+  public var dataSize: UInt32 = 0
+
+  ///whether there is next data true: yes false no, the synchronous operation is valid only when it is finished
+  public var haveNextData: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -70,101 +70,101 @@ extension protocol_health_sync_head_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_health_sync_head: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_health_sync_head"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "sync_operate"),
-        2: .standard(proto: "sync_type"),
-        3: .standard(proto: "data_offset"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.syncOperate) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.syncType) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.dataOffset) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_health_sync_head"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sync_operate"),
+    2: .standard(proto: "sync_type"),
+    3: .standard(proto: "data_offset"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.syncOperate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.syncType) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.dataOffset) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.syncOperate != .startSync {
-            try visitor.visitSingularEnumField(value: self.syncOperate, fieldNumber: 1)
-        }
-        if self.syncType != .syncHeartRate {
-            try visitor.visitSingularEnumField(value: self.syncType, fieldNumber: 2)
-        }
-        if self.dataOffset != 0 {
-            try visitor.visitSingularUInt32Field(value: self.dataOffset, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.syncOperate != .startSync {
+      try visitor.visitSingularEnumField(value: self.syncOperate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_health_sync_head, rhs: protocol_health_sync_head) -> Bool {
-        if lhs.syncOperate != rhs.syncOperate {return false}
-        if lhs.syncType != rhs.syncType {return false}
-        if lhs.dataOffset != rhs.dataOffset {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.syncType != .syncHeartRate {
+      try visitor.visitSingularEnumField(value: self.syncType, fieldNumber: 2)
     }
+    if self.dataOffset != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dataOffset, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_sync_head, rhs: protocol_health_sync_head) -> Bool {
+    if lhs.syncOperate != rhs.syncOperate {return false}
+    if lhs.syncType != rhs.syncType {return false}
+    if lhs.dataOffset != rhs.dataOffset {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_health_sync_head_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_health_sync_head_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "sync_operate"),
-        2: .standard(proto: "sync_type"),
-        3: .standard(proto: "data_offsetr"),
-        4: .standard(proto: "data_size"),
-        5: .standard(proto: "have_next_data"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.syncOperate) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.syncType) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.dataOffsetr) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.dataSize) }()
-            case 5: try { try decoder.decodeSingularBoolField(value: &self.haveNextData) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_health_sync_head_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sync_operate"),
+    2: .standard(proto: "sync_type"),
+    3: .standard(proto: "data_offsetr"),
+    4: .standard(proto: "data_size"),
+    5: .standard(proto: "have_next_data"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.syncOperate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.syncType) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.dataOffsetr) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.dataSize) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveNextData) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.syncOperate != .startSync {
-            try visitor.visitSingularEnumField(value: self.syncOperate, fieldNumber: 1)
-        }
-        if self.syncType != .syncHeartRate {
-            try visitor.visitSingularEnumField(value: self.syncType, fieldNumber: 2)
-        }
-        if self.dataOffsetr != 0 {
-            try visitor.visitSingularUInt32Field(value: self.dataOffsetr, fieldNumber: 3)
-        }
-        if self.dataSize != 0 {
-            try visitor.visitSingularUInt32Field(value: self.dataSize, fieldNumber: 4)
-        }
-        if self.haveNextData != false {
-            try visitor.visitSingularBoolField(value: self.haveNextData, fieldNumber: 5)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.syncOperate != .startSync {
+      try visitor.visitSingularEnumField(value: self.syncOperate, fieldNumber: 1)
     }
-    
-    public  static func ==(lhs: protocol_health_sync_head_reply, rhs: protocol_health_sync_head_reply) -> Bool {
-        if lhs.syncOperate != rhs.syncOperate {return false}
-        if lhs.syncType != rhs.syncType {return false}
-        if lhs.dataOffsetr != rhs.dataOffsetr {return false}
-        if lhs.dataSize != rhs.dataSize {return false}
-        if lhs.haveNextData != rhs.haveNextData {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.syncType != .syncHeartRate {
+      try visitor.visitSingularEnumField(value: self.syncType, fieldNumber: 2)
     }
+    if self.dataOffsetr != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dataOffsetr, fieldNumber: 3)
+    }
+    if self.dataSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dataSize, fieldNumber: 4)
+    }
+    if self.haveNextData != false {
+      try visitor.visitSingularBoolField(value: self.haveNextData, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_sync_head_reply, rhs: protocol_health_sync_head_reply) -> Bool {
+    if lhs.syncOperate != rhs.syncOperate {return false}
+    if lhs.syncType != rhs.syncType {return false}
+    if lhs.dataOffsetr != rhs.dataOffsetr {return false}
+    if lhs.dataSize != rhs.dataSize {return false}
+    if lhs.haveNextData != rhs.haveNextData {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

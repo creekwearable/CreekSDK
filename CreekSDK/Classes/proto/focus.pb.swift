@@ -25,21 +25,21 @@ public struct protocol_focus_sleep_mode {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-    public var switchFlag: Bool = false
+  public var switchFlag: Bool = false
 
   ///Starting time
-    public var startHour: UInt32 = 0
+  public var startHour: UInt32 = 0
 
-    public var startMinute: UInt32 = 0
+  public var startMinute: UInt32 = 0
 
   ///End Time
-    public var endHour: UInt32 = 0
+  public var endHour: UInt32 = 0
 
-    public var endMinute: UInt32 = 0
+  public var endMinute: UInt32 = 0
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_focus_mode_operate {
@@ -48,21 +48,21 @@ public struct protocol_focus_mode_operate {
   // methods supported on all messages.
 
   ///1bytes operation type 0: invalid operation 1: query 2: setting
-    public var operate: operate_type = .invalid
+  public var operate: operate_type = .invalid
 
   ///sleep mode
-    public var sleepMode: protocol_focus_sleep_mode {
+  public var sleepMode: protocol_focus_sleep_mode {
     get {return _sleepMode ?? protocol_focus_sleep_mode()}
     set {_sleepMode = newValue}
   }
   /// Returns true if `sleepMode` has been explicitly set.
-    public var hasSleepMode: Bool {return self._sleepMode != nil}
+  public var hasSleepMode: Bool {return self._sleepMode != nil}
   /// Clears the value of `sleepMode`. Subsequent reads from it will return its default value.
-    public mutating func clearSleepMode() {self._sleepMode = nil}
+  public mutating func clearSleepMode() {self._sleepMode = nil}
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 
   fileprivate var _sleepMode: protocol_focus_sleep_mode? = nil
 }
@@ -73,24 +73,24 @@ public struct protocol_focus_mode_inquire_reply {
   // methods supported on all messages.
 
   ///1bytes operation type 0: invalid operation 1: query 2: setting
-    public var operate: operate_type = .invalid
+  public var operate: operate_type = .invalid
 
   ///1bytes function table
-    public var funcTable: UInt32 = 0
+  public var funcTable: UInt32 = 0
 
   ///sleep mode
-    public var sleepMode: protocol_focus_sleep_mode {
+  public var sleepMode: protocol_focus_sleep_mode {
     get {return _sleepMode ?? protocol_focus_sleep_mode()}
     set {_sleepMode = newValue}
   }
   /// Returns true if `sleepMode` has been explicitly set.
-    public var hasSleepMode: Bool {return self._sleepMode != nil}
+  public var hasSleepMode: Bool {return self._sleepMode != nil}
   /// Clears the value of `sleepMode`. Subsequent reads from it will return its default value.
-    public mutating func clearSleepMode() {self._sleepMode = nil}
+  public mutating func clearSleepMode() {self._sleepMode = nil}
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 
   fileprivate var _sleepMode: protocol_focus_sleep_mode? = nil
 }
@@ -104,8 +104,8 @@ extension protocol_focus_mode_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_focus_sleep_mode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_focus_sleep_mode"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_focus_sleep_mode"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "switch_flag"),
     2: .standard(proto: "start_hour"),
     3: .standard(proto: "start_minute"),
@@ -113,7 +113,7 @@ extension protocol_focus_sleep_mode: SwiftProtobuf.Message, SwiftProtobuf._Messa
     5: .standard(proto: "end_minute"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -129,7 +129,7 @@ extension protocol_focus_sleep_mode: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.switchFlag != false {
       try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 1)
     }
@@ -148,7 +148,7 @@ extension protocol_focus_sleep_mode: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_focus_sleep_mode, rhs: protocol_focus_sleep_mode) -> Bool {
+  public static func ==(lhs: protocol_focus_sleep_mode, rhs: protocol_focus_sleep_mode) -> Bool {
     if lhs.switchFlag != rhs.switchFlag {return false}
     if lhs.startHour != rhs.startHour {return false}
     if lhs.startMinute != rhs.startMinute {return false}
@@ -160,13 +160,13 @@ extension protocol_focus_sleep_mode: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension protocol_focus_mode_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_focus_mode_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_focus_mode_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "sleep_mode"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -179,7 +179,7 @@ extension protocol_focus_mode_operate: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -193,7 +193,7 @@ extension protocol_focus_mode_operate: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_focus_mode_operate, rhs: protocol_focus_mode_operate) -> Bool {
+  public static func ==(lhs: protocol_focus_mode_operate, rhs: protocol_focus_mode_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs._sleepMode != rhs._sleepMode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -202,14 +202,14 @@ extension protocol_focus_mode_operate: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension protocol_focus_mode_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_focus_mode_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_focus_mode_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "func_table"),
     3: .standard(proto: "sleep_mode"),
   ]
 
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -223,7 +223,7 @@ extension protocol_focus_mode_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -240,7 +240,7 @@ extension protocol_focus_mode_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_focus_mode_inquire_reply, rhs: protocol_focus_mode_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_focus_mode_inquire_reply, rhs: protocol_focus_mode_inquire_reply) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs._sleepMode != rhs._sleepMode {return false}

@@ -15,7 +15,7 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate  struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -33,7 +33,7 @@ public struct quick_card_func {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_quick_card_operate {
@@ -48,7 +48,7 @@ public struct protocol_quick_card_operate {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 }
 
 public struct protocol_quick_card_inquire_reply {
@@ -92,7 +92,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeExerciseSupport` has been explicitly set.
   public var hasCardTypeExerciseSupport: Bool {return _storage._cardTypeExerciseSupport != nil}
   /// Clears the value of `cardTypeExerciseSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeExerciseSupport() {_uniqueStorage()._cardTypeExerciseSupport = nil}
+  public mutating func clearCardTypeExerciseSupport() {_uniqueStorage()._cardTypeExerciseSupport = nil}
 
   public var cardTypeWeatherSupport: quick_card_func {
     get {return _storage._cardTypeWeatherSupport ?? quick_card_func()}
@@ -101,7 +101,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeWeatherSupport` has been explicitly set.
   public var hasCardTypeWeatherSupport: Bool {return _storage._cardTypeWeatherSupport != nil}
   /// Clears the value of `cardTypeWeatherSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeWeatherSupport() {_uniqueStorage()._cardTypeWeatherSupport = nil}
+  public mutating func clearCardTypeWeatherSupport() {_uniqueStorage()._cardTypeWeatherSupport = nil}
 
   public var cardTypeSuggestSupport: quick_card_func {
     get {return _storage._cardTypeSuggestSupport ?? quick_card_func()}
@@ -110,7 +110,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeSuggestSupport` has been explicitly set.
   public var hasCardTypeSuggestSupport: Bool {return _storage._cardTypeSuggestSupport != nil}
   /// Clears the value of `cardTypeSuggestSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeSuggestSupport() {_uniqueStorage()._cardTypeSuggestSupport = nil}
+  public mutating func clearCardTypeSuggestSupport() {_uniqueStorage()._cardTypeSuggestSupport = nil}
 
   public var cardTypeDialSupport: quick_card_func {
     get {return _storage._cardTypeDialSupport ?? quick_card_func()}
@@ -119,7 +119,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeDialSupport` has been explicitly set.
   public var hasCardTypeDialSupport: Bool {return _storage._cardTypeDialSupport != nil}
   /// Clears the value of `cardTypeDialSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeDialSupport() {_uniqueStorage()._cardTypeDialSupport = nil}
+  public mutating func clearCardTypeDialSupport() {_uniqueStorage()._cardTypeDialSupport = nil}
 
   public var cardTypeActivitySupport: quick_card_func {
     get {return _storage._cardTypeActivitySupport ?? quick_card_func()}
@@ -128,7 +128,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeActivitySupport` has been explicitly set.
   public var hasCardTypeActivitySupport: Bool {return _storage._cardTypeActivitySupport != nil}
   /// Clears the value of `cardTypeActivitySupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeActivitySupport() {_uniqueStorage()._cardTypeActivitySupport = nil}
+  public mutating func clearCardTypeActivitySupport() {_uniqueStorage()._cardTypeActivitySupport = nil}
 
   public var cardTypeHeartrateSupport: quick_card_func {
     get {return _storage._cardTypeHeartrateSupport ?? quick_card_func()}
@@ -137,7 +137,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeHeartrateSupport` has been explicitly set.
   public var hasCardTypeHeartrateSupport: Bool {return _storage._cardTypeHeartrateSupport != nil}
   /// Clears the value of `cardTypeHeartrateSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeHeartrateSupport() {_uniqueStorage()._cardTypeHeartrateSupport = nil}
+  public mutating func clearCardTypeHeartrateSupport() {_uniqueStorage()._cardTypeHeartrateSupport = nil}
 
   public var cardTypeSleepSupport: quick_card_func {
     get {return _storage._cardTypeSleepSupport ?? quick_card_func()}
@@ -146,7 +146,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeSleepSupport` has been explicitly set.
   public var hasCardTypeSleepSupport: Bool {return _storage._cardTypeSleepSupport != nil}
   /// Clears the value of `cardTypeSleepSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeSleepSupport() {_uniqueStorage()._cardTypeSleepSupport = nil}
+  public mutating func clearCardTypeSleepSupport() {_uniqueStorage()._cardTypeSleepSupport = nil}
 
   public var cardTypeStepsSupport: quick_card_func {
     get {return _storage._cardTypeStepsSupport ?? quick_card_func()}
@@ -155,7 +155,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeStepsSupport` has been explicitly set.
   public var hasCardTypeStepsSupport: Bool {return _storage._cardTypeStepsSupport != nil}
   /// Clears the value of `cardTypeStepsSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeStepsSupport() {_uniqueStorage()._cardTypeStepsSupport = nil}
+  public mutating func clearCardTypeStepsSupport() {_uniqueStorage()._cardTypeStepsSupport = nil}
 
   public var cardTypeSpo2Support: quick_card_func {
     get {return _storage._cardTypeSpo2Support ?? quick_card_func()}
@@ -164,7 +164,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeSpo2Support` has been explicitly set.
   public var hasCardTypeSpo2Support: Bool {return _storage._cardTypeSpo2Support != nil}
   /// Clears the value of `cardTypeSpo2Support`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeSpo2Support() {_uniqueStorage()._cardTypeSpo2Support = nil}
+  public mutating func clearCardTypeSpo2Support() {_uniqueStorage()._cardTypeSpo2Support = nil}
 
   public var cardTypeMenstruationSupport: quick_card_func {
     get {return _storage._cardTypeMenstruationSupport ?? quick_card_func()}
@@ -173,7 +173,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeMenstruationSupport` has been explicitly set.
   public var hasCardTypeMenstruationSupport: Bool {return _storage._cardTypeMenstruationSupport != nil}
   /// Clears the value of `cardTypeMenstruationSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeMenstruationSupport() {_uniqueStorage()._cardTypeMenstruationSupport = nil}
+  public mutating func clearCardTypeMenstruationSupport() {_uniqueStorage()._cardTypeMenstruationSupport = nil}
 
   public var cardTypeMeasurementSupport: quick_card_func {
     get {return _storage._cardTypeMeasurementSupport ?? quick_card_func()}
@@ -182,7 +182,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeMeasurementSupport` has been explicitly set.
   public var hasCardTypeMeasurementSupport: Bool {return _storage._cardTypeMeasurementSupport != nil}
   /// Clears the value of `cardTypeMeasurementSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeMeasurementSupport() {_uniqueStorage()._cardTypeMeasurementSupport = nil}
+  public mutating func clearCardTypeMeasurementSupport() {_uniqueStorage()._cardTypeMeasurementSupport = nil}
 
   public var cardTypeRecentWorkoutSupport: quick_card_func {
     get {return _storage._cardTypeRecentWorkoutSupport ?? quick_card_func()}
@@ -191,7 +191,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeRecentWorkoutSupport` has been explicitly set.
   public var hasCardTypeRecentWorkoutSupport: Bool {return _storage._cardTypeRecentWorkoutSupport != nil}
   /// Clears the value of `cardTypeRecentWorkoutSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeRecentWorkoutSupport() {_uniqueStorage()._cardTypeRecentWorkoutSupport = nil}
+  public mutating func clearCardTypeRecentWorkoutSupport() {_uniqueStorage()._cardTypeRecentWorkoutSupport = nil}
 
   public var cardTypeHrvSupport: quick_card_func {
     get {return _storage._cardTypeHrvSupport ?? quick_card_func()}
@@ -200,7 +200,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeHrvSupport` has been explicitly set.
   public var hasCardTypeHrvSupport: Bool {return _storage._cardTypeHrvSupport != nil}
   /// Clears the value of `cardTypeHrvSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeHrvSupport() {_uniqueStorage()._cardTypeHrvSupport = nil}
+  public mutating func clearCardTypeHrvSupport() {_uniqueStorage()._cardTypeHrvSupport = nil}
 
   public var cardTypeUvSupport: quick_card_func {
     get {return _storage._cardTypeUvSupport ?? quick_card_func()}
@@ -209,7 +209,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeUvSupport` has been explicitly set.
   public var hasCardTypeUvSupport: Bool {return _storage._cardTypeUvSupport != nil}
   /// Clears the value of `cardTypeUvSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeUvSupport() {_uniqueStorage()._cardTypeUvSupport = nil}
+  public mutating func clearCardTypeUvSupport() {_uniqueStorage()._cardTypeUvSupport = nil}
 
   public var cardTypeAstronomySupport: quick_card_func {
     get {return _storage._cardTypeAstronomySupport ?? quick_card_func()}
@@ -218,7 +218,7 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeAstronomySupport` has been explicitly set.
   public var hasCardTypeAstronomySupport: Bool {return _storage._cardTypeAstronomySupport != nil}
   /// Clears the value of `cardTypeAstronomySupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeAstronomySupport() {_uniqueStorage()._cardTypeAstronomySupport = nil}
+  public mutating func clearCardTypeAstronomySupport() {_uniqueStorage()._cardTypeAstronomySupport = nil}
 
   public var cardTypeWorldClockSupport: quick_card_func {
     get {return _storage._cardTypeWorldClockSupport ?? quick_card_func()}
@@ -227,13 +227,22 @@ public struct protocol_quick_card_inquire_reply {
   /// Returns true if `cardTypeWorldClockSupport` has been explicitly set.
   public var hasCardTypeWorldClockSupport: Bool {return _storage._cardTypeWorldClockSupport != nil}
   /// Clears the value of `cardTypeWorldClockSupport`. Subsequent reads from it will return its default value.
-  mutating func clearCardTypeWorldClockSupport() {_uniqueStorage()._cardTypeWorldClockSupport = nil}
+  public mutating func clearCardTypeWorldClockSupport() {_uniqueStorage()._cardTypeWorldClockSupport = nil}
+
+  public var cardTypeAlexaSupport: quick_card_func {
+    get {return _storage._cardTypeAlexaSupport ?? quick_card_func()}
+    set {_uniqueStorage()._cardTypeAlexaSupport = newValue}
+  }
+  /// Returns true if `cardTypeAlexaSupport` has been explicitly set.
+  public var hasCardTypeAlexaSupport: Bool {return _storage._cardTypeAlexaSupport != nil}
+  /// Clears the value of `cardTypeAlexaSupport`. Subsequent reads from it will return its default value.
+  public mutating func clearCardTypeAlexaSupport() {_uniqueStorage()._cardTypeAlexaSupport = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    public init() {}
+  public init() {}
 
-  fileprivate  var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -245,13 +254,13 @@ extension protocol_quick_card_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension quick_card_func: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "quick_card_func"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "quick_card_func"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "is_support"),
     2: .standard(proto: "is_delete"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -264,7 +273,7 @@ extension quick_card_func: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.isSupport != false {
       try visitor.visitSingularBoolField(value: self.isSupport, fieldNumber: 1)
     }
@@ -274,7 +283,7 @@ extension quick_card_func: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: quick_card_func, rhs: quick_card_func) -> Bool {
+  public static func ==(lhs: quick_card_func, rhs: quick_card_func) -> Bool {
     if lhs.isSupport != rhs.isSupport {return false}
     if lhs.isDelete != rhs.isDelete {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -283,13 +292,13 @@ extension quick_card_func: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension protocol_quick_card_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_quick_card_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_quick_card_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "card_type"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -302,7 +311,7 @@ extension protocol_quick_card_operate: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
@@ -312,7 +321,7 @@ extension protocol_quick_card_operate: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_quick_card_operate, rhs: protocol_quick_card_operate) -> Bool {
+  public static func ==(lhs: protocol_quick_card_operate, rhs: protocol_quick_card_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.cardType != rhs.cardType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -321,8 +330,8 @@ extension protocol_quick_card_operate: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_quick_card_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_quick_card_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "quick_card_support_max"),
     3: .standard(proto: "quick_card_support_min"),
@@ -344,30 +353,32 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     19: .standard(proto: "card_type_uv_support"),
     20: .standard(proto: "card_type_astronomy_support"),
     21: .standard(proto: "card_type_world_clock_support"),
+    22: .standard(proto: "card_type_alexa_support"),
   ]
 
   fileprivate class _StorageClass {
-    public var _operate: operate_type = .invalid
-    public var _quickCardSupportMax: UInt32 = 0
-    public var _quickCardSupportMin: UInt32 = 0
-    public var _funcTable: UInt32 = 0
-    public var _cardType: [quick_card_type] = []
-    public var _cardTypeExerciseSupport: quick_card_func? = nil
-    public var _cardTypeWeatherSupport: quick_card_func? = nil
-    public var _cardTypeSuggestSupport: quick_card_func? = nil
-    public var _cardTypeDialSupport: quick_card_func? = nil
-    public var _cardTypeActivitySupport: quick_card_func? = nil
-    public var _cardTypeHeartrateSupport: quick_card_func? = nil
-    public var _cardTypeSleepSupport: quick_card_func? = nil
-    public var _cardTypeStepsSupport: quick_card_func? = nil
-    public var _cardTypeSpo2Support: quick_card_func? = nil
-    public var _cardTypeMenstruationSupport: quick_card_func? = nil
-    public var _cardTypeMeasurementSupport: quick_card_func? = nil
-    public var _cardTypeRecentWorkoutSupport: quick_card_func? = nil
-    public var _cardTypeHrvSupport: quick_card_func? = nil
-    public var _cardTypeUvSupport: quick_card_func? = nil
-    public var _cardTypeAstronomySupport: quick_card_func? = nil
-    public var _cardTypeWorldClockSupport: quick_card_func? = nil
+    var _operate: operate_type = .invalid
+    var _quickCardSupportMax: UInt32 = 0
+    var _quickCardSupportMin: UInt32 = 0
+    var _funcTable: UInt32 = 0
+    var _cardType: [quick_card_type] = []
+    var _cardTypeExerciseSupport: quick_card_func? = nil
+    var _cardTypeWeatherSupport: quick_card_func? = nil
+    var _cardTypeSuggestSupport: quick_card_func? = nil
+    var _cardTypeDialSupport: quick_card_func? = nil
+    var _cardTypeActivitySupport: quick_card_func? = nil
+    var _cardTypeHeartrateSupport: quick_card_func? = nil
+    var _cardTypeSleepSupport: quick_card_func? = nil
+    var _cardTypeStepsSupport: quick_card_func? = nil
+    var _cardTypeSpo2Support: quick_card_func? = nil
+    var _cardTypeMenstruationSupport: quick_card_func? = nil
+    var _cardTypeMeasurementSupport: quick_card_func? = nil
+    var _cardTypeRecentWorkoutSupport: quick_card_func? = nil
+    var _cardTypeHrvSupport: quick_card_func? = nil
+    var _cardTypeUvSupport: quick_card_func? = nil
+    var _cardTypeAstronomySupport: quick_card_func? = nil
+    var _cardTypeWorldClockSupport: quick_card_func? = nil
+    var _cardTypeAlexaSupport: quick_card_func? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -395,6 +406,7 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
       _cardTypeUvSupport = source._cardTypeUvSupport
       _cardTypeAstronomySupport = source._cardTypeAstronomySupport
       _cardTypeWorldClockSupport = source._cardTypeWorldClockSupport
+      _cardTypeAlexaSupport = source._cardTypeAlexaSupport
     }
   }
 
@@ -405,7 +417,7 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     return _storage
   }
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -434,13 +446,14 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
         case 19: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeUvSupport) }()
         case 20: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeAstronomySupport) }()
         case 21: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeWorldClockSupport) }()
+        case 22: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeAlexaSupport) }()
         default: break
         }
       }
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -509,11 +522,14 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
       try { if let v = _storage._cardTypeWorldClockSupport {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
       } }()
+      try { if let v = _storage._cardTypeAlexaSupport {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 22)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_quick_card_inquire_reply, rhs: protocol_quick_card_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_quick_card_inquire_reply, rhs: protocol_quick_card_inquire_reply) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -539,6 +555,7 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
         if _storage._cardTypeUvSupport != rhs_storage._cardTypeUvSupport {return false}
         if _storage._cardTypeAstronomySupport != rhs_storage._cardTypeAstronomySupport {return false}
         if _storage._cardTypeWorldClockSupport != rhs_storage._cardTypeWorldClockSupport {return false}
+        if _storage._cardTypeAlexaSupport != rhs_storage._cardTypeAlexaSupport {return false}
         return true
       }
       if !storagesAreEqual {return false}

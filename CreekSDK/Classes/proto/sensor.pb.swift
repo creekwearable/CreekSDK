@@ -16,104 +16,104 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_sensor_rawdata_tran_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///transmission start or end
-    public var sensorOperate: sensor_operate_type = .sensorTranStart
-    
-    ///Select ppg_g data transmission
-    public var ppgGData: Bool = false
-    
-    public var ppgRData: Bool = false
-    
-    public var ppgIrData: Bool = false
-    
-    public var accData: Bool = false
-    
-    public var gyroData: Bool = false
-    
-    ///Geomagnetic
-    public var geomagneticData: Bool = false
-    
-    public var gnssData: Bool = false
-    
-    public var audioData: Bool = false
-    
-    public var infraredData: Bool = false
-    
-    public var sarData: Bool = false
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public  init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///transmission start or end
+  public var sensorOperate: sensor_operate_type = .sensorTranStart
+
+  ///Select ppg_g data transmission
+  public var ppgGData: Bool = false
+
+  public var ppgRData: Bool = false
+
+  public var ppgIrData: Bool = false
+
+  public var accData: Bool = false
+
+  public var gyroData: Bool = false
+
+  ///Geomagnetic
+  public var geomagneticData: Bool = false
+
+  public var gnssData: Bool = false
+
+  public var audioData: Bool = false
+
+  public var infraredData: Bool = false
+
+  public var sarData: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_sensor_rawdata_tran_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///heart rate version number
-    public var hrVersion: UInt32 = 0
-    
-    /// blood oxygen version number
-    public var spo2Version: UInt32 = 0
-    
-    ///pressure
-    public var stressVersion: UInt32 = 0
-    
-    ///hrv
-    public var hrvVersion: UInt32 = 0
-    
-    ///step counting
-    public var pedoVersion: UInt32 = 0
-    
-    ///calorie
-    public var calorieVersion: UInt32 = 0
-    
-    ///distance
-    public var distanceVersion: UInt32 = 0
-    
-    ///activity level
-    public var activityLevelVersion: UInt32 = 0
-    
-    ///gesture
-    public var gestureVersion: UInt32 = 0
-    
-    ///wear
-    public var wearVersion: UInt32 = 0
-    
-    ///noise
-    public var noiseVersion: UInt32 = 0
-    
-    ///exercise duration
-    public var exerciseDurationVersion: UInt32 = 0
-    
-    ///sleep
-    public var sleepVersion: UInt32 = 0
-    
-    ///gps
-    public var gnssVersion: UInt32 = 0
-    
-    ///Motion recognition
-    public var motionRecognitionVersion: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///heart rate version number
+  public var hrVersion: UInt32 = 0
+
+  /// blood oxygen version number
+  public var spo2Version: UInt32 = 0
+
+  ///pressure
+  public var stressVersion: UInt32 = 0
+
+  ///hrv
+  public var hrvVersion: UInt32 = 0
+
+  ///step counting
+  public var pedoVersion: UInt32 = 0
+
+  ///calorie
+  public var calorieVersion: UInt32 = 0
+
+  ///distance
+  public var distanceVersion: UInt32 = 0
+
+  ///activity level
+  public var activityLevelVersion: UInt32 = 0
+
+  ///gesture
+  public var gestureVersion: UInt32 = 0
+
+  ///wear
+  public var wearVersion: UInt32 = 0
+
+  ///noise
+  public var noiseVersion: UInt32 = 0
+
+  ///exercise duration
+  public var exerciseDurationVersion: UInt32 = 0
+
+  ///sleep
+  public var sleepVersion: UInt32 = 0
+
+  ///gps
+  public var gnssVersion: UInt32 = 0
+
+  ///Motion recognition
+  public var motionRecognitionVersion: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -124,221 +124,221 @@ extension protocol_sensor_rawdata_tran_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_sensor_rawdata_tran_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_sensor_rawdata_tran_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "sensor_operate"),
-        3: .standard(proto: "ppg_g_data"),
-        4: .standard(proto: "ppg_r_data"),
-        5: .standard(proto: "ppg_ir_data"),
-        6: .standard(proto: "acc_data"),
-        7: .standard(proto: "gyro_data"),
-        8: .standard(proto: "geomagnetic_data"),
-        9: .standard(proto: "gnss_data"),
-        10: .standard(proto: "audio_data"),
-        11: .standard(proto: "infrared_data"),
-        12: .standard(proto: "sar_data"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeSingularEnumField(value: &self.sensorOperate) }()
-            case 3: try { try decoder.decodeSingularBoolField(value: &self.ppgGData) }()
-            case 4: try { try decoder.decodeSingularBoolField(value: &self.ppgRData) }()
-            case 5: try { try decoder.decodeSingularBoolField(value: &self.ppgIrData) }()
-            case 6: try { try decoder.decodeSingularBoolField(value: &self.accData) }()
-            case 7: try { try decoder.decodeSingularBoolField(value: &self.gyroData) }()
-            case 8: try { try decoder.decodeSingularBoolField(value: &self.geomagneticData) }()
-            case 9: try { try decoder.decodeSingularBoolField(value: &self.gnssData) }()
-            case 10: try { try decoder.decodeSingularBoolField(value: &self.audioData) }()
-            case 11: try { try decoder.decodeSingularBoolField(value: &self.infraredData) }()
-            case 12: try { try decoder.decodeSingularBoolField(value: &self.sarData) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_sensor_rawdata_tran_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "sensor_operate"),
+    3: .standard(proto: "ppg_g_data"),
+    4: .standard(proto: "ppg_r_data"),
+    5: .standard(proto: "ppg_ir_data"),
+    6: .standard(proto: "acc_data"),
+    7: .standard(proto: "gyro_data"),
+    8: .standard(proto: "geomagnetic_data"),
+    9: .standard(proto: "gnss_data"),
+    10: .standard(proto: "audio_data"),
+    11: .standard(proto: "infrared_data"),
+    12: .standard(proto: "sar_data"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.sensorOperate) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.ppgGData) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.ppgRData) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.ppgIrData) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.accData) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.gyroData) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.geomagneticData) }()
+      case 9: try { try decoder.decodeSingularBoolField(value: &self.gnssData) }()
+      case 10: try { try decoder.decodeSingularBoolField(value: &self.audioData) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.infraredData) }()
+      case 12: try { try decoder.decodeSingularBoolField(value: &self.sarData) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if self.sensorOperate != .sensorTranStart {
-            try visitor.visitSingularEnumField(value: self.sensorOperate, fieldNumber: 2)
-        }
-        if self.ppgGData != false {
-            try visitor.visitSingularBoolField(value: self.ppgGData, fieldNumber: 3)
-        }
-        if self.ppgRData != false {
-            try visitor.visitSingularBoolField(value: self.ppgRData, fieldNumber: 4)
-        }
-        if self.ppgIrData != false {
-            try visitor.visitSingularBoolField(value: self.ppgIrData, fieldNumber: 5)
-        }
-        if self.accData != false {
-            try visitor.visitSingularBoolField(value: self.accData, fieldNumber: 6)
-        }
-        if self.gyroData != false {
-            try visitor.visitSingularBoolField(value: self.gyroData, fieldNumber: 7)
-        }
-        if self.geomagneticData != false {
-            try visitor.visitSingularBoolField(value: self.geomagneticData, fieldNumber: 8)
-        }
-        if self.gnssData != false {
-            try visitor.visitSingularBoolField(value: self.gnssData, fieldNumber: 9)
-        }
-        if self.audioData != false {
-            try visitor.visitSingularBoolField(value: self.audioData, fieldNumber: 10)
-        }
-        if self.infraredData != false {
-            try visitor.visitSingularBoolField(value: self.infraredData, fieldNumber: 11)
-        }
-        if self.sarData != false {
-            try visitor.visitSingularBoolField(value: self.sarData, fieldNumber: 12)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_sensor_rawdata_tran_operate, rhs: protocol_sensor_rawdata_tran_operate) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.sensorOperate != rhs.sensorOperate {return false}
-        if lhs.ppgGData != rhs.ppgGData {return false}
-        if lhs.ppgRData != rhs.ppgRData {return false}
-        if lhs.ppgIrData != rhs.ppgIrData {return false}
-        if lhs.accData != rhs.accData {return false}
-        if lhs.gyroData != rhs.gyroData {return false}
-        if lhs.geomagneticData != rhs.geomagneticData {return false}
-        if lhs.gnssData != rhs.gnssData {return false}
-        if lhs.audioData != rhs.audioData {return false}
-        if lhs.infraredData != rhs.infraredData {return false}
-        if lhs.sarData != rhs.sarData {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.sensorOperate != .sensorTranStart {
+      try visitor.visitSingularEnumField(value: self.sensorOperate, fieldNumber: 2)
     }
+    if self.ppgGData != false {
+      try visitor.visitSingularBoolField(value: self.ppgGData, fieldNumber: 3)
+    }
+    if self.ppgRData != false {
+      try visitor.visitSingularBoolField(value: self.ppgRData, fieldNumber: 4)
+    }
+    if self.ppgIrData != false {
+      try visitor.visitSingularBoolField(value: self.ppgIrData, fieldNumber: 5)
+    }
+    if self.accData != false {
+      try visitor.visitSingularBoolField(value: self.accData, fieldNumber: 6)
+    }
+    if self.gyroData != false {
+      try visitor.visitSingularBoolField(value: self.gyroData, fieldNumber: 7)
+    }
+    if self.geomagneticData != false {
+      try visitor.visitSingularBoolField(value: self.geomagneticData, fieldNumber: 8)
+    }
+    if self.gnssData != false {
+      try visitor.visitSingularBoolField(value: self.gnssData, fieldNumber: 9)
+    }
+    if self.audioData != false {
+      try visitor.visitSingularBoolField(value: self.audioData, fieldNumber: 10)
+    }
+    if self.infraredData != false {
+      try visitor.visitSingularBoolField(value: self.infraredData, fieldNumber: 11)
+    }
+    if self.sarData != false {
+      try visitor.visitSingularBoolField(value: self.sarData, fieldNumber: 12)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_sensor_rawdata_tran_operate, rhs: protocol_sensor_rawdata_tran_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.sensorOperate != rhs.sensorOperate {return false}
+    if lhs.ppgGData != rhs.ppgGData {return false}
+    if lhs.ppgRData != rhs.ppgRData {return false}
+    if lhs.ppgIrData != rhs.ppgIrData {return false}
+    if lhs.accData != rhs.accData {return false}
+    if lhs.gyroData != rhs.gyroData {return false}
+    if lhs.geomagneticData != rhs.geomagneticData {return false}
+    if lhs.gnssData != rhs.gnssData {return false}
+    if lhs.audioData != rhs.audioData {return false}
+    if lhs.infraredData != rhs.infraredData {return false}
+    if lhs.sarData != rhs.sarData {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_sensor_rawdata_tran_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_sensor_rawdata_tran_inquire_reply"
-    public  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "hr_version"),
-        3: .standard(proto: "spo2_version"),
-        4: .standard(proto: "stress_version"),
-        5: .standard(proto: "hrv_version"),
-        6: .standard(proto: "pedo_version"),
-        7: .standard(proto: "calorie_version"),
-        8: .standard(proto: "distance_version"),
-        9: .standard(proto: "activity_level_version"),
-        10: .standard(proto: "gesture_version"),
-        11: .standard(proto: "wear_version"),
-        12: .standard(proto: "noise_version"),
-        13: .standard(proto: "exercise_duration_version"),
-        14: .standard(proto: "sleep_version"),
-        15: .standard(proto: "gnss_version"),
-        16: .standard(proto: "motion_recognition_version"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.hrVersion) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.spo2Version) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.stressVersion) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.hrvVersion) }()
-            case 6: try { try decoder.decodeSingularUInt32Field(value: &self.pedoVersion) }()
-            case 7: try { try decoder.decodeSingularUInt32Field(value: &self.calorieVersion) }()
-            case 8: try { try decoder.decodeSingularUInt32Field(value: &self.distanceVersion) }()
-            case 9: try { try decoder.decodeSingularUInt32Field(value: &self.activityLevelVersion) }()
-            case 10: try { try decoder.decodeSingularUInt32Field(value: &self.gestureVersion) }()
-            case 11: try { try decoder.decodeSingularUInt32Field(value: &self.wearVersion) }()
-            case 12: try { try decoder.decodeSingularUInt32Field(value: &self.noiseVersion) }()
-            case 13: try { try decoder.decodeSingularUInt32Field(value: &self.exerciseDurationVersion) }()
-            case 14: try { try decoder.decodeSingularUInt32Field(value: &self.sleepVersion) }()
-            case 15: try { try decoder.decodeSingularUInt32Field(value: &self.gnssVersion) }()
-            case 16: try { try decoder.decodeSingularUInt32Field(value: &self.motionRecognitionVersion) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_sensor_rawdata_tran_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "hr_version"),
+    3: .standard(proto: "spo2_version"),
+    4: .standard(proto: "stress_version"),
+    5: .standard(proto: "hrv_version"),
+    6: .standard(proto: "pedo_version"),
+    7: .standard(proto: "calorie_version"),
+    8: .standard(proto: "distance_version"),
+    9: .standard(proto: "activity_level_version"),
+    10: .standard(proto: "gesture_version"),
+    11: .standard(proto: "wear_version"),
+    12: .standard(proto: "noise_version"),
+    13: .standard(proto: "exercise_duration_version"),
+    14: .standard(proto: "sleep_version"),
+    15: .standard(proto: "gnss_version"),
+    16: .standard(proto: "motion_recognition_version"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.hrVersion) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.spo2Version) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.stressVersion) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.hrvVersion) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.pedoVersion) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.calorieVersion) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.distanceVersion) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.activityLevelVersion) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.gestureVersion) }()
+      case 11: try { try decoder.decodeSingularUInt32Field(value: &self.wearVersion) }()
+      case 12: try { try decoder.decodeSingularUInt32Field(value: &self.noiseVersion) }()
+      case 13: try { try decoder.decodeSingularUInt32Field(value: &self.exerciseDurationVersion) }()
+      case 14: try { try decoder.decodeSingularUInt32Field(value: &self.sleepVersion) }()
+      case 15: try { try decoder.decodeSingularUInt32Field(value: &self.gnssVersion) }()
+      case 16: try { try decoder.decodeSingularUInt32Field(value: &self.motionRecognitionVersion) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if self.hrVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.hrVersion, fieldNumber: 2)
-        }
-        if self.spo2Version != 0 {
-            try visitor.visitSingularUInt32Field(value: self.spo2Version, fieldNumber: 3)
-        }
-        if self.stressVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.stressVersion, fieldNumber: 4)
-        }
-        if self.hrvVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.hrvVersion, fieldNumber: 5)
-        }
-        if self.pedoVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.pedoVersion, fieldNumber: 6)
-        }
-        if self.calorieVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.calorieVersion, fieldNumber: 7)
-        }
-        if self.distanceVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.distanceVersion, fieldNumber: 8)
-        }
-        if self.activityLevelVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.activityLevelVersion, fieldNumber: 9)
-        }
-        if self.gestureVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.gestureVersion, fieldNumber: 10)
-        }
-        if self.wearVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.wearVersion, fieldNumber: 11)
-        }
-        if self.noiseVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.noiseVersion, fieldNumber: 12)
-        }
-        if self.exerciseDurationVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.exerciseDurationVersion, fieldNumber: 13)
-        }
-        if self.sleepVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.sleepVersion, fieldNumber: 14)
-        }
-        if self.gnssVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.gnssVersion, fieldNumber: 15)
-        }
-        if self.motionRecognitionVersion != 0 {
-            try visitor.visitSingularUInt32Field(value: self.motionRecognitionVersion, fieldNumber: 16)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_sensor_rawdata_tran_inquire_reply, rhs: protocol_sensor_rawdata_tran_inquire_reply) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.hrVersion != rhs.hrVersion {return false}
-        if lhs.spo2Version != rhs.spo2Version {return false}
-        if lhs.stressVersion != rhs.stressVersion {return false}
-        if lhs.hrvVersion != rhs.hrvVersion {return false}
-        if lhs.pedoVersion != rhs.pedoVersion {return false}
-        if lhs.calorieVersion != rhs.calorieVersion {return false}
-        if lhs.distanceVersion != rhs.distanceVersion {return false}
-        if lhs.activityLevelVersion != rhs.activityLevelVersion {return false}
-        if lhs.gestureVersion != rhs.gestureVersion {return false}
-        if lhs.wearVersion != rhs.wearVersion {return false}
-        if lhs.noiseVersion != rhs.noiseVersion {return false}
-        if lhs.exerciseDurationVersion != rhs.exerciseDurationVersion {return false}
-        if lhs.sleepVersion != rhs.sleepVersion {return false}
-        if lhs.gnssVersion != rhs.gnssVersion {return false}
-        if lhs.motionRecognitionVersion != rhs.motionRecognitionVersion {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.hrVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hrVersion, fieldNumber: 2)
     }
+    if self.spo2Version != 0 {
+      try visitor.visitSingularUInt32Field(value: self.spo2Version, fieldNumber: 3)
+    }
+    if self.stressVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.stressVersion, fieldNumber: 4)
+    }
+    if self.hrvVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hrvVersion, fieldNumber: 5)
+    }
+    if self.pedoVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pedoVersion, fieldNumber: 6)
+    }
+    if self.calorieVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.calorieVersion, fieldNumber: 7)
+    }
+    if self.distanceVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.distanceVersion, fieldNumber: 8)
+    }
+    if self.activityLevelVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.activityLevelVersion, fieldNumber: 9)
+    }
+    if self.gestureVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.gestureVersion, fieldNumber: 10)
+    }
+    if self.wearVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.wearVersion, fieldNumber: 11)
+    }
+    if self.noiseVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.noiseVersion, fieldNumber: 12)
+    }
+    if self.exerciseDurationVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.exerciseDurationVersion, fieldNumber: 13)
+    }
+    if self.sleepVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.sleepVersion, fieldNumber: 14)
+    }
+    if self.gnssVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.gnssVersion, fieldNumber: 15)
+    }
+    if self.motionRecognitionVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.motionRecognitionVersion, fieldNumber: 16)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_sensor_rawdata_tran_inquire_reply, rhs: protocol_sensor_rawdata_tran_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.hrVersion != rhs.hrVersion {return false}
+    if lhs.spo2Version != rhs.spo2Version {return false}
+    if lhs.stressVersion != rhs.stressVersion {return false}
+    if lhs.hrvVersion != rhs.hrvVersion {return false}
+    if lhs.pedoVersion != rhs.pedoVersion {return false}
+    if lhs.calorieVersion != rhs.calorieVersion {return false}
+    if lhs.distanceVersion != rhs.distanceVersion {return false}
+    if lhs.activityLevelVersion != rhs.activityLevelVersion {return false}
+    if lhs.gestureVersion != rhs.gestureVersion {return false}
+    if lhs.wearVersion != rhs.wearVersion {return false}
+    if lhs.noiseVersion != rhs.noiseVersion {return false}
+    if lhs.exerciseDurationVersion != rhs.exerciseDurationVersion {return false}
+    if lhs.sleepVersion != rhs.sleepVersion {return false}
+    if lhs.gnssVersion != rhs.gnssVersion {return false}
+    if lhs.motionRecognitionVersion != rhs.motionRecognitionVersion {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

@@ -16,59 +16,59 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_frequent_contacts_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///max:32 contact phone number
-    public var phoneNumber: Data = Data()
-    
-    ///max:64 contact name
-    public var contactName: Data = Data()
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///max:32 contact phone number
+  public var phoneNumber: Data = Data()
+
+  ///max:64 contact name
+  public var contactName: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_frequent_contacts_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///max: 20 frequent contact information
-    public var contactsItem: [protocol_frequent_contacts_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///max: 20 frequent contact information
+  public var contactsItem: [protocol_frequent_contacts_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_frequent_contacts_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///1bytes world time support display maximum number
-    public var frequentContactsSupportMax: UInt32 = 0
-    
-    ///max: 20 frequent contact information
-    public var contactsItem: [protocol_frequent_contacts_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///1bytes world time support display maximum number
+  public var frequentContactsSupportMax: UInt32 = 0
+
+  ///max: 20 frequent contact information
+  public var contactsItem: [protocol_frequent_contacts_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -80,121 +80,121 @@ extension protocol_frequent_contacts_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_frequent_contacts_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_frequent_contacts_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "phone_number"),
-        2: .standard(proto: "contact_name"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularBytesField(value: &self.phoneNumber) }()
-            case 2: try { try decoder.decodeSingularBytesField(value: &self.contactName) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_frequent_contacts_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "phone_number"),
+    2: .standard(proto: "contact_name"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.phoneNumber) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.contactName) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if !self.phoneNumber.isEmpty {
-            try visitor.visitSingularBytesField(value: self.phoneNumber, fieldNumber: 1)
-        }
-        if !self.contactName.isEmpty {
-            try visitor.visitSingularBytesField(value: self.contactName, fieldNumber: 2)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.phoneNumber.isEmpty {
+      try visitor.visitSingularBytesField(value: self.phoneNumber, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_frequent_contacts_item, rhs: protocol_frequent_contacts_item) -> Bool {
-        if lhs.phoneNumber != rhs.phoneNumber {return false}
-        if lhs.contactName != rhs.contactName {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if !self.contactName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.contactName, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_frequent_contacts_item, rhs: protocol_frequent_contacts_item) -> Bool {
+    if lhs.phoneNumber != rhs.phoneNumber {return false}
+    if lhs.contactName != rhs.contactName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_frequent_contacts_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_frequent_contacts_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "contacts_item"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeRepeatedMessageField(value: &self.contactsItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_frequent_contacts_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "contacts_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.contactsItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if !self.contactsItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.contactsItem, fieldNumber: 2)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_frequent_contacts_operate, rhs: protocol_frequent_contacts_operate) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.contactsItem != rhs.contactsItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if !self.contactsItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.contactsItem, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_frequent_contacts_operate, rhs: protocol_frequent_contacts_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.contactsItem != rhs.contactsItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_frequent_contacts_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_frequent_contacts_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "frequent_contacts_support_max"),
-        3: .standard(proto: "contacts_item"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.frequentContactsSupportMax) }()
-            case 3: try { try decoder.decodeRepeatedMessageField(value: &self.contactsItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_frequent_contacts_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "frequent_contacts_support_max"),
+    3: .standard(proto: "contacts_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.frequentContactsSupportMax) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.contactsItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if self.frequentContactsSupportMax != 0 {
-            try visitor.visitSingularUInt32Field(value: self.frequentContactsSupportMax, fieldNumber: 2)
-        }
-        if !self.contactsItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.contactsItem, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_frequent_contacts_inquire_reply, rhs: protocol_frequent_contacts_inquire_reply) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.frequentContactsSupportMax != rhs.frequentContactsSupportMax {return false}
-        if lhs.contactsItem != rhs.contactsItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.frequentContactsSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.frequentContactsSupportMax, fieldNumber: 2)
     }
+    if !self.contactsItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.contactsItem, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_frequent_contacts_inquire_reply, rhs: protocol_frequent_contacts_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.frequentContactsSupportMax != rhs.frequentContactsSupportMax {return false}
+    if lhs.contactsItem != rhs.contactsItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

@@ -393,6 +393,75 @@ extension CreekSDK{
         }
     }
     
+    
+    ///MARK :Get focus mode
+    /// - Parameter :
+    ///      - model：call back protocol_focus_mode_inquire_reply
+    /// - Returns:protocol_alarm_inquire_reply
+    public func getFocusSleep(model:@escaping focusBase,failure:@escaping failureArgument) {
+        requestId+=1
+        focusDic["getFocus\(requestId)"] = model
+        failureArgumentDic["getFocus\(requestId)"] = failure
+        methodChannel?.invokeMethod("getFocus\(requestId)", arguments: "")
+    }
+    
+    ///MARK :Set focus mode
+    /// - Parameter :
+    ///      - model: protocol_focus_mode_operate
+    /// - Returns:
+    public func setFocusSleep(model:protocol_focus_mode_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+        requestId+=1
+        successDic["setFocus\(requestId)"] = success;
+        failureArgumentDic["setFocus\(requestId)"] = failure
+        do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setFocus\(requestId)", arguments: data)
+        }catch{
+       
+        }
+    }
+    
+    ///MARK :Get app List
+    /// - Parameter :
+    ///      - model：call back protocol_app_list_inquire_reply
+    /// - Returns:protocol_app_list_inquire_reply
+    public func getAppList(model:@escaping appListBase,failure:@escaping failureArgument) {
+        requestId+=1
+        appListDic["getAppList\(requestId)"] = model
+        failureArgumentDic["getAppList\(requestId)"] = failure
+        methodChannel?.invokeMethod("getAppList\(requestId)", arguments: "")
+    }
+    
+    ///MARK :Set app List
+    /// - Parameter :
+    ///      - model: protocol_app_list_operate
+    /// - Returns:
+    public func setAppList(model:protocol_app_list_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+        requestId+=1
+        successDic["setAppList\(requestId)"] = success;
+        failureArgumentDic["setAppList\(requestId)"] = failure
+        do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setAppList\(requestId)", arguments: data)
+        }catch{
+       
+        }
+    }
+    
+    ///MARK :EventTracking
+    /// - Parameter :
+    ///      - model：call back protocol_event_tracking_inquire_reply
+    /// - Returns:protocol_event_tracking_inquire_reply
+    public func getEventTracking(model:@escaping eventTrackingBase,failure:@escaping failureArgument) {
+        requestId+=1
+        eventTrackingDic["getEventTracking\(requestId)"] = model
+        failureArgumentDic["getEventTracking\(requestId)"] = failure
+        methodChannel?.invokeMethod("getEventTracking\(requestId)", arguments: "")
+    }
+    
+
+    
+    
     ///MARK :Get screen brightness
     /// - Parameter :
     ///      - model:call back protocol_screen_brightness_inquire_reply
@@ -482,31 +551,33 @@ extension CreekSDK{
         }
     }
     
-//    ///MARK :drink water reminder
-//    /// - Parameter :
-//    ///      - model：protocol_drink_water_inquire_reply
-//    /// - Returns:
-//    public func getWater(model:@escaping ((_ model:protocol_drink_water_inquire_reply) -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
-//        water = model
-//        failureArgumentDic["getWater"] = failure
-//        methodChannel?.invokeMethod("getWater", arguments: "")
-//
-//    }
-//
-//    ///MARK ::drink water Settings
-//    /// - Parameter :
-//    ///      - model:protocol_drink_water_operate
-//    /// - Returns:
-//    public func setWater(model:protocol_drink_water_operate,success:@escaping (() -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
-//        successDic["setWater"] = success;
-//        failureArgumentDic["setWater"] = failure
-//        do{
-//            let data = try model.serializedData()
-//            methodChannel?.invokeMethod("setWater", arguments: data)
-//        }catch{
-//
-//        }
-//    }
+    ///MARK :drink water reminder
+    /// - Parameter :
+    ///      - model：protocol_drink_water_inquire_reply
+    /// - Returns:
+    public func getWater(model:@escaping waterBase,failure:@escaping failureArgument) {
+        requestId+=1
+        waterDic["getWater\(requestId)"] = model
+        failureArgumentDic["getWater\(requestId)"] = failure
+        methodChannel?.invokeMethod("getWater\(requestId)", arguments: "")
+
+    }
+
+    ///MARK ::drink water Settings
+    /// - Parameter :
+    ///      - model:protocol_drink_water_operate
+    /// - Returns:
+    public func setWater(model:protocol_drink_water_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+        requestId+=1
+        successDic["setWater\(requestId)"] = success;
+        failureArgumentDic["setWater\(requestId)"] = failure
+        do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setWater\(requestId)", arguments: data)
+        }catch{
+
+        }
+    }
     
 
     public func getFindPhoneWatch(model:@escaping findPhoneWatchBase,failure:@escaping failureArgument) {
@@ -577,25 +648,26 @@ extension CreekSDK{
         }
     }
     
+    public func getStanding(model:@escaping standingBase,failure:@escaping failureArgument) {
+        
+        requestId+=1
+        standingDic["getStanding\(requestId)"] = model
+        failureArgumentDic["getStanding\(requestId)"] = failure
+        methodChannel?.invokeMethod("getStanding\(requestId)", arguments: "")
+        
+    }
+    public func setStanding(model:protocol_standing_remind_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+        requestId+=1
+        successDic["setStanding\(requestId)"] = success;
+        failureArgumentDic["setStanding\(requestId)"] = failure
+        do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setStanding\(requestId)", arguments: data)
+        }catch{
+       
+        }
 
-//    public func getStanding(model:@escaping ((_ model:protocol_standing_remind_inquire_reply) -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
-//        standing = model
-//        failureArgumentDic["getStanding"] = failure
-//        methodChannel?.invokeMethod("getStanding", arguments: "")
-//
-//    }
-//
-//
-//    public func setStanding(model:protocol_standing_remind_operate,success:@escaping (() -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
-//        successDic["setStanding"] = success;
-//        failureArgumentDic["setStanding"] = failure
-//        do{
-//            let data = try model.serializedData()
-//            methodChannel?.invokeMethod("setStanding", arguments: data)
-//        }catch{
-//
-//        }
-//    }
+    }
     
 
 //    public func getMessageType(model:@escaping ((_ model:protocol_message_notify_func_support_reply) -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
@@ -795,7 +867,7 @@ extension CreekSDK{
     
     ///MARK :Set do not disturb
     /// - Parameter :
-    ///      - protocol_disturb_operate
+    ///      - protocol_exercise_heart_rate_zone
     /// - Returns:
     public func setSportHeartRate(model:protocol_exercise_heart_rate_zone,success:@escaping successBase,failure:@escaping failureArgument) {
         requestId+=1

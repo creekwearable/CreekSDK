@@ -16,24 +16,24 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_system_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///restart operation
-    public var restart: Bool = false
-    
-    ///shutdown operation
-    public var powerOff: Bool = false
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///restart operation
+  public var restart: Bool = false
+
+  ///shutdown operation
+  public var powerOff: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -43,39 +43,39 @@ extension protocol_system_operate: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_system_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "restart"),
-        2: .standard(proto: "power_off"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularBoolField(value: &self.restart) }()
-            case 2: try { try decoder.decodeSingularBoolField(value: &self.powerOff) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_system_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "restart"),
+    2: .standard(proto: "power_off"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.restart) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.powerOff) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.restart != false {
-            try visitor.visitSingularBoolField(value: self.restart, fieldNumber: 1)
-        }
-        if self.powerOff != false {
-            try visitor.visitSingularBoolField(value: self.powerOff, fieldNumber: 2)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.restart != false {
+      try visitor.visitSingularBoolField(value: self.restart, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_system_operate, rhs: protocol_system_operate) -> Bool {
-        if lhs.restart != rhs.restart {return false}
-        if lhs.powerOff != rhs.powerOff {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.powerOff != false {
+      try visitor.visitSingularBoolField(value: self.powerOff, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_system_operate, rhs: protocol_system_operate) -> Bool {
+    if lhs.restart != rhs.restart {return false}
+    if lhs.powerOff != rhs.powerOff {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

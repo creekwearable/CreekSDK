@@ -16,215 +16,215 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_personal_info {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes height
-    public var height: UInt32 = 0
-    
-    ///2bytes weight kg has a decimal point, and the set value is one hundred times the actual weight.
-    public var weight: UInt32 = 0
-    
-    ///1bytes gender 0: male 1: female
-    public var gender: gender_type = .genderMale
-    
-    ///2bytes //Birthday year
-    public var year: UInt32 = 0
-    
-    ///1bytes
-    public var month: UInt32 = 0
-    
-    ///1bytes
-    public var day: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes height
+  public var height: UInt32 = 0
+
+  ///2bytes weight kg has a decimal point, and the set value is one hundred times the actual weight.
+  public var weight: UInt32 = 0
+
+  ///1bytes gender 0: male 1: female
+  public var gender: gender_type = .genderMale
+
+  ///2bytes //Birthday year
+  public var year: UInt32 = 0
+
+  ///1bytes
+  public var month: UInt32 = 0
+
+  ///1bytes
+  public var day: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_perferences {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes distance unit 0x00: invalid 0x01: km, 0x02: mi
-    public var distUnit: UInt32 = 0
-    
-    ///1bytes weight unit: 0x00: invalid, 0x01: kg, 0x02: lb, 0x03: stone)
-    public var weightUnit: UInt32 = 0
-    
-    ///1bytes weather temperature unit 0x00: invalid 0x01:℃, 0x02:℉
-    public var airTempUnit: UInt32 = 0
-    
-    ///1bytes body temperature unit 0x00: invalid 0x01:℃, 0x02:℉
-    public var skinTempUnit: UInt32 = 0
-    
-    ///1bytes time format (0x00: invalid<br>0x01: 24-hour format, 0x02: 12-hour format)
-    public var is12HourFormat: UInt32 = 0
-    
-    ///1bytes week start day 0x00 week 1, 0x01 Sunday,,0x02 week 6
-    public var weekStartDay: UInt32 = 0
-    
-    ///1bytes calorie unit setting 0 is invalid, 1: default kilocalories; 2: kcal; 3: kilojoules
-    public var calorieUnit: UInt32 = 0
-    
-    ///1bytes swimming pool unit setting 0 is invalid, 1: Default meter; 2: Code
-    public var swimPoolUnit: UInt32 = 0
-    
-    ///1bytes cycling unit (km/mile) 0 invalid; 1: km kilometers; 2: miles;
-    public var cyclingUnit: UInt32 = 0
-    
-    ///1bytes walking or running unit (km/mile) setting 0 is invalid; 1: km kilometers; 2: miles;
-    public var walkingRunningUnit: UInt32 = 0
-    
-    ///1bytes stride unit
-    public var strideUnit: UInt32 = 0
-    
-    ///1bytes height unit 0x00: invalid 0x01, centimeters cm 0x02, inches ft
-    public var heightUnit: UInt32 = 0
-    
-    ///1bytes altitude unit 0x00: invalid 0x01, meter m 0x02, feet ft
-    public var altitudeUnit: UInt32 = 0
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes distance unit 0x00: invalid 0x01: km, 0x02: mi
+  public var distUnit: UInt32 = 0
+
+  ///1bytes weight unit: 0x00: invalid, 0x01: kg, 0x02: lb, 0x03: stone)
+  public var weightUnit: UInt32 = 0
+
+  ///1bytes weather temperature unit 0x00: invalid 0x01:℃, 0x02:℉
+  public var airTempUnit: UInt32 = 0
+
+  ///1bytes body temperature unit 0x00: invalid 0x01:℃, 0x02:℉
+  public var skinTempUnit: UInt32 = 0
+
+  ///1bytes time format (0x00: invalid<br>0x01: 24-hour format, 0x02: 12-hour format)
+  public var is12HourFormat: UInt32 = 0
+
+  ///1bytes week start day 0x00 week 1, 0x01 Sunday,,0x02 week 6
+  public var weekStartDay: UInt32 = 0
+
+  ///1bytes calorie unit setting 0 is invalid, 1: default kilocalories; 2: kcal; 3: kilojoules
+  public var calorieUnit: UInt32 = 0
+
+  ///1bytes swimming pool unit setting 0 is invalid, 1: Default meter; 2: Code
+  public var swimPoolUnit: UInt32 = 0
+
+  ///1bytes cycling unit (km/mile) 0 invalid; 1: km kilometers; 2: miles;
+  public var cyclingUnit: UInt32 = 0
+
+  ///1bytes walking or running unit (km/mile) setting 0 is invalid; 1: km kilometers; 2: miles;
+  public var walkingRunningUnit: UInt32 = 0
+
+  ///1bytes stride unit
+  public var strideUnit: UInt32 = 0
+
+  ///1bytes height unit 0x00: invalid 0x01, centimeters cm 0x02, inches ft
+  public var heightUnit: UInt32 = 0
+
+  ///1bytes altitude unit 0x00: invalid 0x01, meter m 0x02, feet ft
+  public var altitudeUnit: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_goal_setting {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes exercise duration target
-    public var exerciseMin: UInt32 = 0
-    
-    ///1bytes standing hour target
-    public var standingHour: UInt32 = 0
-    
-    ///2bytes calorie target
-    public var kcal: UInt32 = 0
-    
-    ///4bytes step target
-    public var steps: UInt32 = 0
-    
-    ///4bytes distance to target in meters
-    public var distance: UInt32 = 0
-    
-    ///1bytes exercise day target
-    public var workoutDay: UInt32 = 0
-    
-    ///1bytes target reminder switch true to turn on, false to turn off
-    public var notifySwitchFlag: Bool = false
-    
-    ///1bytes notification type
-    public var notifyFlag: notify_type = .allow
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes exercise duration target
+  public var exerciseMin: UInt32 = 0
+
+  ///1bytes standing hour target
+  public var standingHour: UInt32 = 0
+
+  ///2bytes calorie target
+  public var kcal: UInt32 = 0
+
+  ///4bytes step target
+  public var steps: UInt32 = 0
+
+  ///4bytes distance to target in meters
+  public var distance: UInt32 = 0
+
+  ///1bytes exercise day target
+  public var workoutDay: UInt32 = 0
+
+  ///1bytes target reminder switch true to turn on, false to turn off
+  public var notifySwitchFlag: Bool = false
+
+  ///1bytes notification type
+  public var notifyFlag: notify_type = .allow
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_user_info_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///Operation type 0: Invalid operation 1: Query 2: Setting
-    public var operate: operate_type {
-        get {return _storage._operate}
-        set {_uniqueStorage()._operate = newValue}
-    }
-    
-    public var personalInfo: protocol_personal_info {
-        get {return _storage._personalInfo ?? protocol_personal_info()}
-        set {_uniqueStorage()._personalInfo = newValue}
-    }
-    /// Returns true if `personalInfo` has been explicitly set.
-    public var hasPersonalInfo: Bool {return _storage._personalInfo != nil}
-    /// Clears the value of `personalInfo`. Subsequent reads from it will return its default value.
-    mutating func clearPersonalInfo() {_uniqueStorage()._personalInfo = nil}
-    
-    public var preferences: protocol_perferences {
-        get {return _storage._preferences ?? protocol_perferences()}
-        set {_uniqueStorage()._preferences = newValue}
-    }
-    /// Returns true if `preferences` has been explicitly set.
-    public var hasPreferences: Bool {return _storage._preferences != nil}
-    /// Clears the value of `preferences`. Subsequent reads from it will return its default value.
-    mutating func clearPreferences() {_uniqueStorage()._preferences = nil}
-    
-    public var goalSetting: protocol_goal_setting {
-        get {return _storage._goalSetting ?? protocol_goal_setting()}
-        set {_uniqueStorage()._goalSetting = newValue}
-    }
-    /// Returns true if `goalSetting` has been explicitly set.
-    public var hasGoalSetting: Bool {return _storage._goalSetting != nil}
-    /// Clears the value of `goalSetting`. Subsequent reads from it will return its default value.
-    mutating func clearGoalSetting() {_uniqueStorage()._goalSetting = nil}
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
-    
-    fileprivate  var _storage = _StorageClass.defaultInstance
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///Operation type 0: Invalid operation 1: Query 2: Setting
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
+
+  public var personalInfo: protocol_personal_info {
+    get {return _storage._personalInfo ?? protocol_personal_info()}
+    set {_uniqueStorage()._personalInfo = newValue}
+  }
+  /// Returns true if `personalInfo` has been explicitly set.
+  public var hasPersonalInfo: Bool {return _storage._personalInfo != nil}
+  /// Clears the value of `personalInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearPersonalInfo() {_uniqueStorage()._personalInfo = nil}
+
+  public var preferences: protocol_perferences {
+    get {return _storage._preferences ?? protocol_perferences()}
+    set {_uniqueStorage()._preferences = newValue}
+  }
+  /// Returns true if `preferences` has been explicitly set.
+  public var hasPreferences: Bool {return _storage._preferences != nil}
+  /// Clears the value of `preferences`. Subsequent reads from it will return its default value.
+  public mutating func clearPreferences() {_uniqueStorage()._preferences = nil}
+
+  public var goalSetting: protocol_goal_setting {
+    get {return _storage._goalSetting ?? protocol_goal_setting()}
+    set {_uniqueStorage()._goalSetting = newValue}
+  }
+  /// Returns true if `goalSetting` has been explicitly set.
+  public var hasGoalSetting: Bool {return _storage._goalSetting != nil}
+  /// Clears the value of `goalSetting`. Subsequent reads from it will return its default value.
+  public mutating func clearGoalSetting() {_uniqueStorage()._goalSetting = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct protocol_user_info_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes function table
-    public var funcTable: UInt32 {
-        get {return _storage._funcTable}
-        set {_uniqueStorage()._funcTable = newValue}
-    }
-    
-    ///Operation type 0: Invalid operation 1: Query 2: Setting
-    public var operate: operate_type {
-        get {return _storage._operate}
-        set {_uniqueStorage()._operate = newValue}
-    }
-    
-    public var personalInfo: protocol_personal_info {
-        get {return _storage._personalInfo ?? protocol_personal_info()}
-        set {_uniqueStorage()._personalInfo = newValue}
-    }
-    /// Returns true if `personalInfo` has been explicitly set.
-    public var hasPersonalInfo: Bool {return _storage._personalInfo != nil}
-    /// Clears the value of `personalInfo`. Subsequent reads from it will return its default value.
-    mutating func clearPersonalInfo() {_uniqueStorage()._personalInfo = nil}
-    
-    public var preferences: protocol_perferences {
-        get {return _storage._preferences ?? protocol_perferences()}
-        set {_uniqueStorage()._preferences = newValue}
-    }
-    /// Returns true if `preferences` has been explicitly set.
-    public var hasPreferences: Bool {return _storage._preferences != nil}
-    /// Clears the value of `preferences`. Subsequent reads from it will return its default value.
-    mutating func clearPreferences() {_uniqueStorage()._preferences = nil}
-    
-    public var goalSetting: protocol_goal_setting {
-        get {return _storage._goalSetting ?? protocol_goal_setting()}
-        set {_uniqueStorage()._goalSetting = newValue}
-    }
-    /// Returns true if `goalSetting` has been explicitly set.
-    public var hasGoalSetting: Bool {return _storage._goalSetting != nil}
-    /// Clears the value of `goalSetting`. Subsequent reads from it will return its default value.
-    mutating func clearGoalSetting() {_uniqueStorage()._goalSetting = nil}
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
-    
-    fileprivate  var _storage = _StorageClass.defaultInstance
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes function table
+  public var funcTable: UInt32 {
+    get {return _storage._funcTable}
+    set {_uniqueStorage()._funcTable = newValue}
+  }
+
+  ///Operation type 0: Invalid operation 1: Query 2: Setting
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
+
+  public var personalInfo: protocol_personal_info {
+    get {return _storage._personalInfo ?? protocol_personal_info()}
+    set {_uniqueStorage()._personalInfo = newValue}
+  }
+  /// Returns true if `personalInfo` has been explicitly set.
+  public var hasPersonalInfo: Bool {return _storage._personalInfo != nil}
+  /// Clears the value of `personalInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearPersonalInfo() {_uniqueStorage()._personalInfo = nil}
+
+  public var preferences: protocol_perferences {
+    get {return _storage._preferences ?? protocol_perferences()}
+    set {_uniqueStorage()._preferences = newValue}
+  }
+  /// Returns true if `preferences` has been explicitly set.
+  public var hasPreferences: Bool {return _storage._preferences != nil}
+  /// Clears the value of `preferences`. Subsequent reads from it will return its default value.
+  public mutating func clearPreferences() {_uniqueStorage()._preferences = nil}
+
+  public var goalSetting: protocol_goal_setting {
+    get {return _storage._goalSetting ?? protocol_goal_setting()}
+    set {_uniqueStorage()._goalSetting = newValue}
+  }
+  /// Returns true if `goalSetting` has been explicitly set.
+  public var hasGoalSetting: Bool {return _storage._goalSetting != nil}
+  /// Clears the value of `goalSetting`. Subsequent reads from it will return its default value.
+  public mutating func clearGoalSetting() {_uniqueStorage()._goalSetting = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -238,433 +238,433 @@ extension protocol_user_info_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_personal_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_personal_info"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "height"),
-        2: .same(proto: "weight"),
-        3: .same(proto: "gender"),
-        4: .same(proto: "year"),
-        5: .same(proto: "month"),
-        6: .same(proto: "day"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.height) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.weight) }()
-            case 3: try { try decoder.decodeSingularEnumField(value: &self.gender) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.year) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.month) }()
-            case 6: try { try decoder.decodeSingularUInt32Field(value: &self.day) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_personal_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "height"),
+    2: .same(proto: "weight"),
+    3: .same(proto: "gender"),
+    4: .same(proto: "year"),
+    5: .same(proto: "month"),
+    6: .same(proto: "day"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.height) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.weight) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.gender) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.year) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.month) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.day) }()
+      default: break
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.height != 0 {
-            try visitor.visitSingularUInt32Field(value: self.height, fieldNumber: 1)
-        }
-        if self.weight != 0 {
-            try visitor.visitSingularUInt32Field(value: self.weight, fieldNumber: 2)
-        }
-        if self.gender != .genderMale {
-            try visitor.visitSingularEnumField(value: self.gender, fieldNumber: 3)
-        }
-        if self.year != 0 {
-            try visitor.visitSingularUInt32Field(value: self.year, fieldNumber: 4)
-        }
-        if self.month != 0 {
-            try visitor.visitSingularUInt32Field(value: self.month, fieldNumber: 5)
-        }
-        if self.day != 0 {
-            try visitor.visitSingularUInt32Field(value: self.day, fieldNumber: 6)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.height != 0 {
+      try visitor.visitSingularUInt32Field(value: self.height, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_personal_info, rhs: protocol_personal_info) -> Bool {
-        if lhs.height != rhs.height {return false}
-        if lhs.weight != rhs.weight {return false}
-        if lhs.gender != rhs.gender {return false}
-        if lhs.year != rhs.year {return false}
-        if lhs.month != rhs.month {return false}
-        if lhs.day != rhs.day {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.weight != 0 {
+      try visitor.visitSingularUInt32Field(value: self.weight, fieldNumber: 2)
     }
+    if self.gender != .genderMale {
+      try visitor.visitSingularEnumField(value: self.gender, fieldNumber: 3)
+    }
+    if self.year != 0 {
+      try visitor.visitSingularUInt32Field(value: self.year, fieldNumber: 4)
+    }
+    if self.month != 0 {
+      try visitor.visitSingularUInt32Field(value: self.month, fieldNumber: 5)
+    }
+    if self.day != 0 {
+      try visitor.visitSingularUInt32Field(value: self.day, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_personal_info, rhs: protocol_personal_info) -> Bool {
+    if lhs.height != rhs.height {return false}
+    if lhs.weight != rhs.weight {return false}
+    if lhs.gender != rhs.gender {return false}
+    if lhs.year != rhs.year {return false}
+    if lhs.month != rhs.month {return false}
+    if lhs.day != rhs.day {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_perferences"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "dist_unit"),
-        2: .standard(proto: "weight_unit"),
-        3: .standard(proto: "air_temp_unit"),
-        4: .standard(proto: "skin_temp_unit"),
-        5: .standard(proto: "is_12hour_format"),
-        6: .standard(proto: "week_start_day"),
-        7: .standard(proto: "calorie_unit"),
-        8: .standard(proto: "swim_pool_unit"),
-        9: .standard(proto: "cycling_unit"),
-        10: .standard(proto: "walking_running_unit"),
-        11: .standard(proto: "stride_unit"),
-        12: .standard(proto: "height_unit"),
-        13: .standard(proto: "altitude_unit"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.distUnit) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.weightUnit) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.airTempUnit) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.skinTempUnit) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.is12HourFormat) }()
-            case 6: try { try decoder.decodeSingularUInt32Field(value: &self.weekStartDay) }()
-            case 7: try { try decoder.decodeSingularUInt32Field(value: &self.calorieUnit) }()
-            case 8: try { try decoder.decodeSingularUInt32Field(value: &self.swimPoolUnit) }()
-            case 9: try { try decoder.decodeSingularUInt32Field(value: &self.cyclingUnit) }()
-            case 10: try { try decoder.decodeSingularUInt32Field(value: &self.walkingRunningUnit) }()
-            case 11: try { try decoder.decodeSingularUInt32Field(value: &self.strideUnit) }()
-            case 12: try { try decoder.decodeSingularUInt32Field(value: &self.heightUnit) }()
-            case 13: try { try decoder.decodeSingularUInt32Field(value: &self.altitudeUnit) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_perferences"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "dist_unit"),
+    2: .standard(proto: "weight_unit"),
+    3: .standard(proto: "air_temp_unit"),
+    4: .standard(proto: "skin_temp_unit"),
+    5: .standard(proto: "is_12hour_format"),
+    6: .standard(proto: "week_start_day"),
+    7: .standard(proto: "calorie_unit"),
+    8: .standard(proto: "swim_pool_unit"),
+    9: .standard(proto: "cycling_unit"),
+    10: .standard(proto: "walking_running_unit"),
+    11: .standard(proto: "stride_unit"),
+    12: .standard(proto: "height_unit"),
+    13: .standard(proto: "altitude_unit"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.distUnit) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.weightUnit) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.airTempUnit) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.skinTempUnit) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.is12HourFormat) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.weekStartDay) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.calorieUnit) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.swimPoolUnit) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.cyclingUnit) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.walkingRunningUnit) }()
+      case 11: try { try decoder.decodeSingularUInt32Field(value: &self.strideUnit) }()
+      case 12: try { try decoder.decodeSingularUInt32Field(value: &self.heightUnit) }()
+      case 13: try { try decoder.decodeSingularUInt32Field(value: &self.altitudeUnit) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.distUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.distUnit, fieldNumber: 1)
-        }
-        if self.weightUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.weightUnit, fieldNumber: 2)
-        }
-        if self.airTempUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.airTempUnit, fieldNumber: 3)
-        }
-        if self.skinTempUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.skinTempUnit, fieldNumber: 4)
-        }
-        if self.is12HourFormat != 0 {
-            try visitor.visitSingularUInt32Field(value: self.is12HourFormat, fieldNumber: 5)
-        }
-        if self.weekStartDay != 0 {
-            try visitor.visitSingularUInt32Field(value: self.weekStartDay, fieldNumber: 6)
-        }
-        if self.calorieUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.calorieUnit, fieldNumber: 7)
-        }
-        if self.swimPoolUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.swimPoolUnit, fieldNumber: 8)
-        }
-        if self.cyclingUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.cyclingUnit, fieldNumber: 9)
-        }
-        if self.walkingRunningUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.walkingRunningUnit, fieldNumber: 10)
-        }
-        if self.strideUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.strideUnit, fieldNumber: 11)
-        }
-        if self.heightUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.heightUnit, fieldNumber: 12)
-        }
-        if self.altitudeUnit != 0 {
-            try visitor.visitSingularUInt32Field(value: self.altitudeUnit, fieldNumber: 13)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.distUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.distUnit, fieldNumber: 1)
     }
-    
-    public  static func ==(lhs: protocol_perferences, rhs: protocol_perferences) -> Bool {
-        if lhs.distUnit != rhs.distUnit {return false}
-        if lhs.weightUnit != rhs.weightUnit {return false}
-        if lhs.airTempUnit != rhs.airTempUnit {return false}
-        if lhs.skinTempUnit != rhs.skinTempUnit {return false}
-        if lhs.is12HourFormat != rhs.is12HourFormat {return false}
-        if lhs.weekStartDay != rhs.weekStartDay {return false}
-        if lhs.calorieUnit != rhs.calorieUnit {return false}
-        if lhs.swimPoolUnit != rhs.swimPoolUnit {return false}
-        if lhs.cyclingUnit != rhs.cyclingUnit {return false}
-        if lhs.walkingRunningUnit != rhs.walkingRunningUnit {return false}
-        if lhs.strideUnit != rhs.strideUnit {return false}
-        if lhs.heightUnit != rhs.heightUnit {return false}
-        if lhs.altitudeUnit != rhs.altitudeUnit {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.weightUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.weightUnit, fieldNumber: 2)
     }
+    if self.airTempUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.airTempUnit, fieldNumber: 3)
+    }
+    if self.skinTempUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.skinTempUnit, fieldNumber: 4)
+    }
+    if self.is12HourFormat != 0 {
+      try visitor.visitSingularUInt32Field(value: self.is12HourFormat, fieldNumber: 5)
+    }
+    if self.weekStartDay != 0 {
+      try visitor.visitSingularUInt32Field(value: self.weekStartDay, fieldNumber: 6)
+    }
+    if self.calorieUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.calorieUnit, fieldNumber: 7)
+    }
+    if self.swimPoolUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.swimPoolUnit, fieldNumber: 8)
+    }
+    if self.cyclingUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.cyclingUnit, fieldNumber: 9)
+    }
+    if self.walkingRunningUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.walkingRunningUnit, fieldNumber: 10)
+    }
+    if self.strideUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.strideUnit, fieldNumber: 11)
+    }
+    if self.heightUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.heightUnit, fieldNumber: 12)
+    }
+    if self.altitudeUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.altitudeUnit, fieldNumber: 13)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_perferences, rhs: protocol_perferences) -> Bool {
+    if lhs.distUnit != rhs.distUnit {return false}
+    if lhs.weightUnit != rhs.weightUnit {return false}
+    if lhs.airTempUnit != rhs.airTempUnit {return false}
+    if lhs.skinTempUnit != rhs.skinTempUnit {return false}
+    if lhs.is12HourFormat != rhs.is12HourFormat {return false}
+    if lhs.weekStartDay != rhs.weekStartDay {return false}
+    if lhs.calorieUnit != rhs.calorieUnit {return false}
+    if lhs.swimPoolUnit != rhs.swimPoolUnit {return false}
+    if lhs.cyclingUnit != rhs.cyclingUnit {return false}
+    if lhs.walkingRunningUnit != rhs.walkingRunningUnit {return false}
+    if lhs.strideUnit != rhs.strideUnit {return false}
+    if lhs.heightUnit != rhs.heightUnit {return false}
+    if lhs.altitudeUnit != rhs.altitudeUnit {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_goal_setting: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_goal_setting"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "exercise_min"),
-        2: .standard(proto: "standing_hour"),
-        3: .same(proto: "kcal"),
-        4: .same(proto: "steps"),
-        5: .same(proto: "distance"),
-        6: .standard(proto: "workout_day"),
-        7: .standard(proto: "notify_switch_flag"),
-        8: .standard(proto: "notify_flag"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularUInt32Field(value: &self.exerciseMin) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.standingHour) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.kcal) }()
-            case 4: try { try decoder.decodeSingularUInt32Field(value: &self.steps) }()
-            case 5: try { try decoder.decodeSingularUInt32Field(value: &self.distance) }()
-            case 6: try { try decoder.decodeSingularUInt32Field(value: &self.workoutDay) }()
-            case 7: try { try decoder.decodeSingularBoolField(value: &self.notifySwitchFlag) }()
-            case 8: try { try decoder.decodeSingularEnumField(value: &self.notifyFlag) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_goal_setting"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "exercise_min"),
+    2: .standard(proto: "standing_hour"),
+    3: .same(proto: "kcal"),
+    4: .same(proto: "steps"),
+    5: .same(proto: "distance"),
+    6: .standard(proto: "workout_day"),
+    7: .standard(proto: "notify_switch_flag"),
+    8: .standard(proto: "notify_flag"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.exerciseMin) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.standingHour) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.kcal) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.steps) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.distance) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.workoutDay) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.notifySwitchFlag) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self.notifyFlag) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.exerciseMin != 0 {
-            try visitor.visitSingularUInt32Field(value: self.exerciseMin, fieldNumber: 1)
-        }
-        if self.standingHour != 0 {
-            try visitor.visitSingularUInt32Field(value: self.standingHour, fieldNumber: 2)
-        }
-        if self.kcal != 0 {
-            try visitor.visitSingularUInt32Field(value: self.kcal, fieldNumber: 3)
-        }
-        if self.steps != 0 {
-            try visitor.visitSingularUInt32Field(value: self.steps, fieldNumber: 4)
-        }
-        if self.distance != 0 {
-            try visitor.visitSingularUInt32Field(value: self.distance, fieldNumber: 5)
-        }
-        if self.workoutDay != 0 {
-            try visitor.visitSingularUInt32Field(value: self.workoutDay, fieldNumber: 6)
-        }
-        if self.notifySwitchFlag != false {
-            try visitor.visitSingularBoolField(value: self.notifySwitchFlag, fieldNumber: 7)
-        }
-        if self.notifyFlag != .allow {
-            try visitor.visitSingularEnumField(value: self.notifyFlag, fieldNumber: 8)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.exerciseMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.exerciseMin, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_goal_setting, rhs: protocol_goal_setting) -> Bool {
-        if lhs.exerciseMin != rhs.exerciseMin {return false}
-        if lhs.standingHour != rhs.standingHour {return false}
-        if lhs.kcal != rhs.kcal {return false}
-        if lhs.steps != rhs.steps {return false}
-        if lhs.distance != rhs.distance {return false}
-        if lhs.workoutDay != rhs.workoutDay {return false}
-        if lhs.notifySwitchFlag != rhs.notifySwitchFlag {return false}
-        if lhs.notifyFlag != rhs.notifyFlag {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.standingHour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.standingHour, fieldNumber: 2)
     }
+    if self.kcal != 0 {
+      try visitor.visitSingularUInt32Field(value: self.kcal, fieldNumber: 3)
+    }
+    if self.steps != 0 {
+      try visitor.visitSingularUInt32Field(value: self.steps, fieldNumber: 4)
+    }
+    if self.distance != 0 {
+      try visitor.visitSingularUInt32Field(value: self.distance, fieldNumber: 5)
+    }
+    if self.workoutDay != 0 {
+      try visitor.visitSingularUInt32Field(value: self.workoutDay, fieldNumber: 6)
+    }
+    if self.notifySwitchFlag != false {
+      try visitor.visitSingularBoolField(value: self.notifySwitchFlag, fieldNumber: 7)
+    }
+    if self.notifyFlag != .allow {
+      try visitor.visitSingularEnumField(value: self.notifyFlag, fieldNumber: 8)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_goal_setting, rhs: protocol_goal_setting) -> Bool {
+    if lhs.exerciseMin != rhs.exerciseMin {return false}
+    if lhs.standingHour != rhs.standingHour {return false}
+    if lhs.kcal != rhs.kcal {return false}
+    if lhs.steps != rhs.steps {return false}
+    if lhs.distance != rhs.distance {return false}
+    if lhs.workoutDay != rhs.workoutDay {return false}
+    if lhs.notifySwitchFlag != rhs.notifySwitchFlag {return false}
+    if lhs.notifyFlag != rhs.notifyFlag {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_user_info_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_user_info_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "personal_info"),
-        3: .same(proto: "preferences"),
-        4: .standard(proto: "goal_setting"),
-    ]
-    
-    fileprivate class _StorageClass {
-        public var _operate: operate_type = .invalid
-        public var _personalInfo: protocol_personal_info? = nil
-        public var _preferences: protocol_perferences? = nil
-        public var _goalSetting: protocol_goal_setting? = nil
-        
-        static let defaultInstance = _StorageClass()
-        
-        private init() {}
-        
-        init(copying source: _StorageClass) {
-            _operate = source._operate
-            _personalInfo = source._personalInfo
-            _preferences = source._preferences
-            _goalSetting = source._goalSetting
-        }
+  public static let protoMessageName: String = "protocol_user_info_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "personal_info"),
+    3: .same(proto: "preferences"),
+    4: .standard(proto: "goal_setting"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _operate: operate_type = .invalid
+    var _personalInfo: protocol_personal_info? = nil
+    var _preferences: protocol_perferences? = nil
+    var _goalSetting: protocol_goal_setting? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _personalInfo = source._personalInfo
+      _preferences = source._preferences
+      _goalSetting = source._goalSetting
     }
-    
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-            _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
     }
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        _ = _uniqueStorage()
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            while let fieldNumber = try decoder.nextFieldNumber() {
-                // The use of inline closures is to circumvent an issue where the compiler
-                // allocates stack space for every case branch when no optimizations are
-                // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                switch fieldNumber {
-                case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
-                case 2: try { try decoder.decodeSingularMessageField(value: &_storage._personalInfo) }()
-                case 3: try { try decoder.decodeSingularMessageField(value: &_storage._preferences) }()
-                case 4: try { try decoder.decodeSingularMessageField(value: &_storage._goalSetting) }()
-                default: break
-                }
-            }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._personalInfo) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._preferences) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._goalSetting) }()
+        default: break
         }
+      }
     }
-    
-    public  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every if/case branch local when no optimizations
-            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-            // https://github.com/apple/swift-protobuf/issues/1182
-            if _storage._operate != .invalid {
-                try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
-            }
-            try { if let v = _storage._personalInfo {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-            } }()
-            try { if let v = _storage._preferences {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-            } }()
-            try { if let v = _storage._goalSetting {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-            } }()
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      try { if let v = _storage._personalInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._preferences {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._goalSetting {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
     }
-    
-    public static func ==(lhs: protocol_user_info_operate, rhs: protocol_user_info_operate) -> Bool {
-        if lhs._storage !== rhs._storage {
-            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-                let _storage = _args.0
-                let rhs_storage = _args.1
-                if _storage._operate != rhs_storage._operate {return false}
-                if _storage._personalInfo != rhs_storage._personalInfo {return false}
-                if _storage._preferences != rhs_storage._preferences {return false}
-                if _storage._goalSetting != rhs_storage._goalSetting {return false}
-                return true
-            }
-            if !storagesAreEqual {return false}
-        }
-        if lhs.unknownFields != rhs.unknownFields {return false}
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_user_info_operate, rhs: protocol_user_info_operate) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._personalInfo != rhs_storage._personalInfo {return false}
+        if _storage._preferences != rhs_storage._preferences {return false}
+        if _storage._goalSetting != rhs_storage._goalSetting {return false}
         return true
+      }
+      if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_user_info_inquire_reply"
-    public  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "func_table"),
-        2: .same(proto: "operate"),
-        3: .standard(proto: "personal_info"),
-        4: .same(proto: "preferences"),
-        5: .standard(proto: "goal_setting"),
-    ]
-    
-    fileprivate class _StorageClass {
-        public var _funcTable: UInt32 = 0
-        public var _operate: operate_type = .invalid
-        public var _personalInfo: protocol_personal_info? = nil
-        public var _preferences: protocol_perferences? = nil
-        public var _goalSetting: protocol_goal_setting? = nil
-        
-        static let defaultInstance = _StorageClass()
-        
-        private init() {}
-        
-        init(copying source: _StorageClass) {
-            _funcTable = source._funcTable
-            _operate = source._operate
-            _personalInfo = source._personalInfo
-            _preferences = source._preferences
-            _goalSetting = source._goalSetting
-        }
+  public static let protoMessageName: String = "protocol_user_info_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "operate"),
+    3: .standard(proto: "personal_info"),
+    4: .same(proto: "preferences"),
+    5: .standard(proto: "goal_setting"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _funcTable: UInt32 = 0
+    var _operate: operate_type = .invalid
+    var _personalInfo: protocol_personal_info? = nil
+    var _preferences: protocol_perferences? = nil
+    var _goalSetting: protocol_goal_setting? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _funcTable = source._funcTable
+      _operate = source._operate
+      _personalInfo = source._personalInfo
+      _preferences = source._preferences
+      _goalSetting = source._goalSetting
     }
-    
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-            _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
     }
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        _ = _uniqueStorage()
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            while let fieldNumber = try decoder.nextFieldNumber() {
-                // The use of inline closures is to circumvent an issue where the compiler
-                // allocates stack space for every case branch when no optimizations are
-                // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                switch fieldNumber {
-                case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
-                case 2: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
-                case 3: try { try decoder.decodeSingularMessageField(value: &_storage._personalInfo) }()
-                case 4: try { try decoder.decodeSingularMessageField(value: &_storage._preferences) }()
-                case 5: try { try decoder.decodeSingularMessageField(value: &_storage._goalSetting) }()
-                default: break
-                }
-            }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._personalInfo) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._preferences) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._goalSetting) }()
+        default: break
         }
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every if/case branch local when no optimizations
-            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-            // https://github.com/apple/swift-protobuf/issues/1182
-            if _storage._funcTable != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 1)
-            }
-            if _storage._operate != .invalid {
-                try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 2)
-            }
-            try { if let v = _storage._personalInfo {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-            } }()
-            try { if let v = _storage._preferences {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-            } }()
-            try { if let v = _storage._goalSetting {
-                try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-            } }()
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._funcTable != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 1)
+      }
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 2)
+      }
+      try { if let v = _storage._personalInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._preferences {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._goalSetting {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
     }
-    
-    public  static func ==(lhs: protocol_user_info_inquire_reply, rhs: protocol_user_info_inquire_reply) -> Bool {
-        if lhs._storage !== rhs._storage {
-            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-                let _storage = _args.0
-                let rhs_storage = _args.1
-                if _storage._funcTable != rhs_storage._funcTable {return false}
-                if _storage._operate != rhs_storage._operate {return false}
-                if _storage._personalInfo != rhs_storage._personalInfo {return false}
-                if _storage._preferences != rhs_storage._preferences {return false}
-                if _storage._goalSetting != rhs_storage._goalSetting {return false}
-                return true
-            }
-            if !storagesAreEqual {return false}
-        }
-        if lhs.unknownFields != rhs.unknownFields {return false}
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_user_info_inquire_reply, rhs: protocol_user_info_inquire_reply) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._funcTable != rhs_storage._funcTable {return false}
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._personalInfo != rhs_storage._personalInfo {return false}
+        if _storage._preferences != rhs_storage._preferences {return false}
+        if _storage._goalSetting != rhs_storage._goalSetting {return false}
         return true
+      }
+      if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

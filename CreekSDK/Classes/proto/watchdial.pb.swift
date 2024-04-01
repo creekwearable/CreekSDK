@@ -16,168 +16,168 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_watch_dial_plate_list_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///dial type
-    public var dialType: dial_type = .null
-    
-    ///2bytes current dial version number
-    public var version: UInt32 = 0
-    
-    ///4bytes current dial size
-    public var dialSize: UInt32 = 0
-    
-    ///max:30 dial name
-    public var dialName: Data = Data()
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///dial type
+  public var dialType: dial_type = .null
+
+  ///2bytes current dial version number
+  public var version: UInt32 = 0
+
+  ///4bytes current dial size
+  public var dialSize: UInt32 = 0
+
+  ///max:30 dial name
+  public var dialName: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_watch_dial_plate_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type
-    public var operate: dial_operate_type = .inquire
-    
-    ///max:30 dial name
-    public var dialName: [Data] = []
-    
-    ///max:30 dial sort
-    public var dialListSort: [Data] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type
+  public var operate: dial_operate_type = .inquire
+
+  ///max:30 dial name
+  public var dialName: [Data] = []
+
+  ///max:30 dial sort
+  public var dialListSort: [Data] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_watch_dial_plate_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type
-    public var operate: dial_operate_type {
-        get {return _storage._operate}
-        set {_uniqueStorage()._operate = newValue}
-    }
-    
-    ///1bytes calculation mode 0: Calculate by memory size 1: Calculate by number
-    public var formulaMode: UInt32 {
-        get {return _storage._formulaMode}
-        set {_uniqueStorage()._formulaMode = newValue}
-    }
-    
-    ///1bytes frame version number
-    public var plateVersion: UInt32 {
-        get {return _storage._plateVersion}
-        set {_uniqueStorage()._plateVersion = newValue}
-    }
-    
-    ///1bytes total number of cloud dials
-    public var cloudPlateNum: UInt32 {
-        get {return _storage._cloudPlateNum}
-        set {_uniqueStorage()._cloudPlateNum = newValue}
-    }
-    
-    ///1bytes number of used cloud dials
-    public var userCloudPlateNum: UInt32 {
-        get {return _storage._userCloudPlateNum}
-        set {_uniqueStorage()._userCloudPlateNum = newValue}
-    }
-    
-    ///1bytes photo plate
-    public var photoPlateNum: UInt32 {
-        get {return _storage._photoPlateNum}
-        set {_uniqueStorage()._photoPlateNum = newValue}
-    }
-    
-    ///1bytes number of used photo plates
-    public var userPhotoPlateNum: UInt32 {
-        get {return _storage._userPhotoPlateNum}
-        set {_uniqueStorage()._userPhotoPlateNum = newValue}
-    }
-    
-    ///1bytes total number of wallpaper dials
-    public var wallpaperPlateNum: UInt32 {
-        get {return _storage._wallpaperPlateNum}
-        set {_uniqueStorage()._wallpaperPlateNum = newValue}
-    }
-    
-    ///1bytes number of used wallpaper dials
-    public var userWallpaperPlateNum: UInt32 {
-        get {return _storage._userWallpaperPlateNum}
-        set {_uniqueStorage()._userWallpaperPlateNum = newValue}
-    }
-    
-    public var listItem: [protocol_watch_dial_plate_list_item] {
-        get {return _storage._listItem}
-        set {_uniqueStorage()._listItem = newValue}
-    }
-    
-    ///4bytes total size occupied by the dial
-    public var totalSize: UInt32 {
-        get {return _storage._totalSize}
-        set {_uniqueStorage()._totalSize = newValue}
-    }
-    
-    ///4bytes space used by cloud dial, unit byte
-    public var userCloudSize: UInt32 {
-        get {return _storage._userCloudSize}
-        set {_uniqueStorage()._userCloudSize = newValue}
-    }
-    
-    ///4bytes space used by album dial, unit byte
-    public var userPhotoSize: UInt32 {
-        get {return _storage._userPhotoSize}
-        set {_uniqueStorage()._userPhotoSize = newValue}
-    }
-    
-    ///max:30 //The name of the currently displayed dial
-    public var nowShowPlateName: Data {
-        get {return _storage._nowShowPlateName}
-        set {_uniqueStorage()._nowShowPlateName = newValue}
-    }
-    
-    ///1bytes compression type, 0 means no compression, 4 means use LZ4 compression method
-    public var enableCompress: UInt32 {
-        get {return _storage._enableCompress}
-        set {_uniqueStorage()._enableCompress = newValue}
-    }
-    
-    ///function table
-    public var funcTable: UInt32 {
-        get {return _storage._funcTable}
-        set {_uniqueStorage()._funcTable = newValue}
-    }
-    
-    ///1bytes number of photos supported by the photo dial
-    public var platePhotoPicSupportNum: UInt32 {
-        get {return _storage._platePhotoPicSupportNum}
-        set {_uniqueStorage()._platePhotoPicSupportNum = newValue}
-    }
-    
-    ///1bytes the maximum number supported by all dials
-    public var allPlateSupportMax: UInt32 {
-        get {return _storage._allPlateSupportMax}
-        set {_uniqueStorage()._allPlateSupportMax = newValue}
-    }
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
-    
-    fileprivate  var _storage = _StorageClass.defaultInstance
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type
+  public var operate: dial_operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
+
+  ///1bytes calculation mode 0: Calculate by memory size 1: Calculate by number
+  public var formulaMode: UInt32 {
+    get {return _storage._formulaMode}
+    set {_uniqueStorage()._formulaMode = newValue}
+  }
+
+  ///1bytes frame version number
+  public var plateVersion: UInt32 {
+    get {return _storage._plateVersion}
+    set {_uniqueStorage()._plateVersion = newValue}
+  }
+
+  ///1bytes total number of cloud dials
+  public var cloudPlateNum: UInt32 {
+    get {return _storage._cloudPlateNum}
+    set {_uniqueStorage()._cloudPlateNum = newValue}
+  }
+
+  ///1bytes number of used cloud dials
+  public var userCloudPlateNum: UInt32 {
+    get {return _storage._userCloudPlateNum}
+    set {_uniqueStorage()._userCloudPlateNum = newValue}
+  }
+
+  ///1bytes photo plate
+  public var photoPlateNum: UInt32 {
+    get {return _storage._photoPlateNum}
+    set {_uniqueStorage()._photoPlateNum = newValue}
+  }
+
+  ///1bytes number of used photo plates
+  public var userPhotoPlateNum: UInt32 {
+    get {return _storage._userPhotoPlateNum}
+    set {_uniqueStorage()._userPhotoPlateNum = newValue}
+  }
+
+  ///1bytes total number of wallpaper dials
+  public var wallpaperPlateNum: UInt32 {
+    get {return _storage._wallpaperPlateNum}
+    set {_uniqueStorage()._wallpaperPlateNum = newValue}
+  }
+
+  ///1bytes number of used wallpaper dials
+  public var userWallpaperPlateNum: UInt32 {
+    get {return _storage._userWallpaperPlateNum}
+    set {_uniqueStorage()._userWallpaperPlateNum = newValue}
+  }
+
+  public var listItem: [protocol_watch_dial_plate_list_item] {
+    get {return _storage._listItem}
+    set {_uniqueStorage()._listItem = newValue}
+  }
+
+  ///4bytes total size occupied by the dial
+  public var totalSize: UInt32 {
+    get {return _storage._totalSize}
+    set {_uniqueStorage()._totalSize = newValue}
+  }
+
+  ///4bytes space used by cloud dial, unit byte
+  public var userCloudSize: UInt32 {
+    get {return _storage._userCloudSize}
+    set {_uniqueStorage()._userCloudSize = newValue}
+  }
+
+  ///4bytes space used by album dial, unit byte
+  public var userPhotoSize: UInt32 {
+    get {return _storage._userPhotoSize}
+    set {_uniqueStorage()._userPhotoSize = newValue}
+  }
+
+  ///max:30 //The name of the currently displayed dial
+  public var nowShowPlateName: Data {
+    get {return _storage._nowShowPlateName}
+    set {_uniqueStorage()._nowShowPlateName = newValue}
+  }
+
+  ///1bytes compression type, 0 means no compression, 4 means use LZ4 compression method
+  public var enableCompress: UInt32 {
+    get {return _storage._enableCompress}
+    set {_uniqueStorage()._enableCompress = newValue}
+  }
+
+  ///function table
+  public var funcTable: UInt32 {
+    get {return _storage._funcTable}
+    set {_uniqueStorage()._funcTable = newValue}
+  }
+
+  ///1bytes number of photos supported by the photo dial
+  public var platePhotoPicSupportNum: UInt32 {
+    get {return _storage._platePhotoPicSupportNum}
+    set {_uniqueStorage()._platePhotoPicSupportNum = newValue}
+  }
+
+  ///1bytes the maximum number supported by all dials
+  public var allPlateSupportMax: UInt32 {
+    get {return _storage._allPlateSupportMax}
+    set {_uniqueStorage()._allPlateSupportMax = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -189,295 +189,295 @@ extension protocol_watch_dial_plate_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_watch_dial_plate_list_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_watch_dial_plate_list_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "dial_type"),
-        2: .same(proto: "version"),
-        3: .standard(proto: "dial_size"),
-        4: .standard(proto: "dial_name"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.dialType) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.version) }()
-            case 3: try { try decoder.decodeSingularUInt32Field(value: &self.dialSize) }()
-            case 4: try { try decoder.decodeSingularBytesField(value: &self.dialName) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_watch_dial_plate_list_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "dial_type"),
+    2: .same(proto: "version"),
+    3: .standard(proto: "dial_size"),
+    4: .standard(proto: "dial_name"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.dialType) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.version) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.dialSize) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.dialName) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.dialType != .null {
-            try visitor.visitSingularEnumField(value: self.dialType, fieldNumber: 1)
-        }
-        if self.version != 0 {
-            try visitor.visitSingularUInt32Field(value: self.version, fieldNumber: 2)
-        }
-        if self.dialSize != 0 {
-            try visitor.visitSingularUInt32Field(value: self.dialSize, fieldNumber: 3)
-        }
-        if !self.dialName.isEmpty {
-            try visitor.visitSingularBytesField(value: self.dialName, fieldNumber: 4)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.dialType != .null {
+      try visitor.visitSingularEnumField(value: self.dialType, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_watch_dial_plate_list_item, rhs: protocol_watch_dial_plate_list_item) -> Bool {
-        if lhs.dialType != rhs.dialType {return false}
-        if lhs.version != rhs.version {return false}
-        if lhs.dialSize != rhs.dialSize {return false}
-        if lhs.dialName != rhs.dialName {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.version != 0 {
+      try visitor.visitSingularUInt32Field(value: self.version, fieldNumber: 2)
     }
+    if self.dialSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dialSize, fieldNumber: 3)
+    }
+    if !self.dialName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.dialName, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_watch_dial_plate_list_item, rhs: protocol_watch_dial_plate_list_item) -> Bool {
+    if lhs.dialType != rhs.dialType {return false}
+    if lhs.version != rhs.version {return false}
+    if lhs.dialSize != rhs.dialSize {return false}
+    if lhs.dialName != rhs.dialName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_watch_dial_plate_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public  static let protoMessageName: String = "protocol_watch_dial_plate_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "dial_name"),
-        3: .standard(proto: "dial_list_sort"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeRepeatedBytesField(value: &self.dialName) }()
-            case 3: try { try decoder.decodeRepeatedBytesField(value: &self.dialListSort) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_watch_dial_plate_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "dial_name"),
+    3: .standard(proto: "dial_list_sort"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedBytesField(value: &self.dialName) }()
+      case 3: try { try decoder.decodeRepeatedBytesField(value: &self.dialListSort) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .inquire {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if !self.dialName.isEmpty {
-            try visitor.visitRepeatedBytesField(value: self.dialName, fieldNumber: 2)
-        }
-        if !self.dialListSort.isEmpty {
-            try visitor.visitRepeatedBytesField(value: self.dialListSort, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .inquire {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_watch_dial_plate_operate, rhs: protocol_watch_dial_plate_operate) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.dialName != rhs.dialName {return false}
-        if lhs.dialListSort != rhs.dialListSort {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if !self.dialName.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.dialName, fieldNumber: 2)
     }
+    if !self.dialListSort.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.dialListSort, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_watch_dial_plate_operate, rhs: protocol_watch_dial_plate_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.dialName != rhs.dialName {return false}
+    if lhs.dialListSort != rhs.dialListSort {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_watch_dial_plate_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "formula_mode"),
-        3: .standard(proto: "plate_version"),
-        4: .standard(proto: "cloud_plate_num"),
-        5: .standard(proto: "user_cloud_plate_num"),
-        6: .standard(proto: "photo_plate_num"),
-        7: .standard(proto: "user_photo_plate_num"),
-        8: .standard(proto: "wallpaper_plate_num"),
-        9: .standard(proto: "user_wallpaper_plate_num"),
-        10: .standard(proto: "list_item"),
-        11: .standard(proto: "total_size"),
-        12: .standard(proto: "user_cloud_size"),
-        13: .standard(proto: "user_photo_size"),
-        14: .standard(proto: "now_show_plate_name"),
-        15: .standard(proto: "enable_compress"),
-        16: .standard(proto: "func_table"),
-        17: .standard(proto: "plate_photo_pic_support_num"),
-        18: .standard(proto: "all_plate_support_max"),
-    ]
-    
-    fileprivate class _StorageClass {
-        public var _operate: dial_operate_type = .inquire
-        public var _formulaMode: UInt32 = 0
-        public var _plateVersion: UInt32 = 0
-        public var _cloudPlateNum: UInt32 = 0
-        public var _userCloudPlateNum: UInt32 = 0
-        public var _photoPlateNum: UInt32 = 0
-        public var _userPhotoPlateNum: UInt32 = 0
-        public var _wallpaperPlateNum: UInt32 = 0
-        public var _userWallpaperPlateNum: UInt32 = 0
-        public var _listItem: [protocol_watch_dial_plate_list_item] = []
-        public var _totalSize: UInt32 = 0
-        public var _userCloudSize: UInt32 = 0
-        public var _userPhotoSize: UInt32 = 0
-        public var _nowShowPlateName: Data = Data()
-        public var _enableCompress: UInt32 = 0
-        public var _funcTable: UInt32 = 0
-        public var _platePhotoPicSupportNum: UInt32 = 0
-        public var _allPlateSupportMax: UInt32 = 0
-        
-        static let defaultInstance = _StorageClass()
-        
-        private init() {}
-        
-        init(copying source: _StorageClass) {
-            _operate = source._operate
-            _formulaMode = source._formulaMode
-            _plateVersion = source._plateVersion
-            _cloudPlateNum = source._cloudPlateNum
-            _userCloudPlateNum = source._userCloudPlateNum
-            _photoPlateNum = source._photoPlateNum
-            _userPhotoPlateNum = source._userPhotoPlateNum
-            _wallpaperPlateNum = source._wallpaperPlateNum
-            _userWallpaperPlateNum = source._userWallpaperPlateNum
-            _listItem = source._listItem
-            _totalSize = source._totalSize
-            _userCloudSize = source._userCloudSize
-            _userPhotoSize = source._userPhotoSize
-            _nowShowPlateName = source._nowShowPlateName
-            _enableCompress = source._enableCompress
-            _funcTable = source._funcTable
-            _platePhotoPicSupportNum = source._platePhotoPicSupportNum
-            _allPlateSupportMax = source._allPlateSupportMax
-        }
+  public static let protoMessageName: String = "protocol_watch_dial_plate_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "formula_mode"),
+    3: .standard(proto: "plate_version"),
+    4: .standard(proto: "cloud_plate_num"),
+    5: .standard(proto: "user_cloud_plate_num"),
+    6: .standard(proto: "photo_plate_num"),
+    7: .standard(proto: "user_photo_plate_num"),
+    8: .standard(proto: "wallpaper_plate_num"),
+    9: .standard(proto: "user_wallpaper_plate_num"),
+    10: .standard(proto: "list_item"),
+    11: .standard(proto: "total_size"),
+    12: .standard(proto: "user_cloud_size"),
+    13: .standard(proto: "user_photo_size"),
+    14: .standard(proto: "now_show_plate_name"),
+    15: .standard(proto: "enable_compress"),
+    16: .standard(proto: "func_table"),
+    17: .standard(proto: "plate_photo_pic_support_num"),
+    18: .standard(proto: "all_plate_support_max"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _operate: dial_operate_type = .inquire
+    var _formulaMode: UInt32 = 0
+    var _plateVersion: UInt32 = 0
+    var _cloudPlateNum: UInt32 = 0
+    var _userCloudPlateNum: UInt32 = 0
+    var _photoPlateNum: UInt32 = 0
+    var _userPhotoPlateNum: UInt32 = 0
+    var _wallpaperPlateNum: UInt32 = 0
+    var _userWallpaperPlateNum: UInt32 = 0
+    var _listItem: [protocol_watch_dial_plate_list_item] = []
+    var _totalSize: UInt32 = 0
+    var _userCloudSize: UInt32 = 0
+    var _userPhotoSize: UInt32 = 0
+    var _nowShowPlateName: Data = Data()
+    var _enableCompress: UInt32 = 0
+    var _funcTable: UInt32 = 0
+    var _platePhotoPicSupportNum: UInt32 = 0
+    var _allPlateSupportMax: UInt32 = 0
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _formulaMode = source._formulaMode
+      _plateVersion = source._plateVersion
+      _cloudPlateNum = source._cloudPlateNum
+      _userCloudPlateNum = source._userCloudPlateNum
+      _photoPlateNum = source._photoPlateNum
+      _userPhotoPlateNum = source._userPhotoPlateNum
+      _wallpaperPlateNum = source._wallpaperPlateNum
+      _userWallpaperPlateNum = source._userWallpaperPlateNum
+      _listItem = source._listItem
+      _totalSize = source._totalSize
+      _userCloudSize = source._userCloudSize
+      _userPhotoSize = source._userPhotoSize
+      _nowShowPlateName = source._nowShowPlateName
+      _enableCompress = source._enableCompress
+      _funcTable = source._funcTable
+      _platePhotoPicSupportNum = source._platePhotoPicSupportNum
+      _allPlateSupportMax = source._allPlateSupportMax
     }
-    
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-            _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
     }
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        _ = _uniqueStorage()
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            while let fieldNumber = try decoder.nextFieldNumber() {
-                // The use of inline closures is to circumvent an issue where the compiler
-                // allocates stack space for every case branch when no optimizations are
-                // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                switch fieldNumber {
-                case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
-                case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._formulaMode) }()
-                case 3: try { try decoder.decodeSingularUInt32Field(value: &_storage._plateVersion) }()
-                case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._cloudPlateNum) }()
-                case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._userCloudPlateNum) }()
-                case 6: try { try decoder.decodeSingularUInt32Field(value: &_storage._photoPlateNum) }()
-                case 7: try { try decoder.decodeSingularUInt32Field(value: &_storage._userPhotoPlateNum) }()
-                case 8: try { try decoder.decodeSingularUInt32Field(value: &_storage._wallpaperPlateNum) }()
-                case 9: try { try decoder.decodeSingularUInt32Field(value: &_storage._userWallpaperPlateNum) }()
-                case 10: try { try decoder.decodeRepeatedMessageField(value: &_storage._listItem) }()
-                case 11: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalSize) }()
-                case 12: try { try decoder.decodeSingularUInt32Field(value: &_storage._userCloudSize) }()
-                case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._userPhotoSize) }()
-                case 14: try { try decoder.decodeSingularBytesField(value: &_storage._nowShowPlateName) }()
-                case 15: try { try decoder.decodeSingularUInt32Field(value: &_storage._enableCompress) }()
-                case 16: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
-                case 17: try { try decoder.decodeSingularUInt32Field(value: &_storage._platePhotoPicSupportNum) }()
-                case 18: try { try decoder.decodeSingularUInt32Field(value: &_storage._allPlateSupportMax) }()
-                default: break
-                }
-            }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._formulaMode) }()
+        case 3: try { try decoder.decodeSingularUInt32Field(value: &_storage._plateVersion) }()
+        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._cloudPlateNum) }()
+        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._userCloudPlateNum) }()
+        case 6: try { try decoder.decodeSingularUInt32Field(value: &_storage._photoPlateNum) }()
+        case 7: try { try decoder.decodeSingularUInt32Field(value: &_storage._userPhotoPlateNum) }()
+        case 8: try { try decoder.decodeSingularUInt32Field(value: &_storage._wallpaperPlateNum) }()
+        case 9: try { try decoder.decodeSingularUInt32Field(value: &_storage._userWallpaperPlateNum) }()
+        case 10: try { try decoder.decodeRepeatedMessageField(value: &_storage._listItem) }()
+        case 11: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalSize) }()
+        case 12: try { try decoder.decodeSingularUInt32Field(value: &_storage._userCloudSize) }()
+        case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._userPhotoSize) }()
+        case 14: try { try decoder.decodeSingularBytesField(value: &_storage._nowShowPlateName) }()
+        case 15: try { try decoder.decodeSingularUInt32Field(value: &_storage._enableCompress) }()
+        case 16: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
+        case 17: try { try decoder.decodeSingularUInt32Field(value: &_storage._platePhotoPicSupportNum) }()
+        case 18: try { try decoder.decodeSingularUInt32Field(value: &_storage._allPlateSupportMax) }()
+        default: break
         }
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-            if _storage._operate != .inquire {
-                try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
-            }
-            if _storage._formulaMode != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._formulaMode, fieldNumber: 2)
-            }
-            if _storage._plateVersion != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._plateVersion, fieldNumber: 3)
-            }
-            if _storage._cloudPlateNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._cloudPlateNum, fieldNumber: 4)
-            }
-            if _storage._userCloudPlateNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._userCloudPlateNum, fieldNumber: 5)
-            }
-            if _storage._photoPlateNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._photoPlateNum, fieldNumber: 6)
-            }
-            if _storage._userPhotoPlateNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._userPhotoPlateNum, fieldNumber: 7)
-            }
-            if _storage._wallpaperPlateNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._wallpaperPlateNum, fieldNumber: 8)
-            }
-            if _storage._userWallpaperPlateNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._userWallpaperPlateNum, fieldNumber: 9)
-            }
-            if !_storage._listItem.isEmpty {
-                try visitor.visitRepeatedMessageField(value: _storage._listItem, fieldNumber: 10)
-            }
-            if _storage._totalSize != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._totalSize, fieldNumber: 11)
-            }
-            if _storage._userCloudSize != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._userCloudSize, fieldNumber: 12)
-            }
-            if _storage._userPhotoSize != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._userPhotoSize, fieldNumber: 13)
-            }
-            if !_storage._nowShowPlateName.isEmpty {
-                try visitor.visitSingularBytesField(value: _storage._nowShowPlateName, fieldNumber: 14)
-            }
-            if _storage._enableCompress != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._enableCompress, fieldNumber: 15)
-            }
-            if _storage._funcTable != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 16)
-            }
-            if _storage._platePhotoPicSupportNum != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._platePhotoPicSupportNum, fieldNumber: 17)
-            }
-            if _storage._allPlateSupportMax != 0 {
-                try visitor.visitSingularUInt32Field(value: _storage._allPlateSupportMax, fieldNumber: 18)
-            }
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._operate != .inquire {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      if _storage._formulaMode != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._formulaMode, fieldNumber: 2)
+      }
+      if _storage._plateVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._plateVersion, fieldNumber: 3)
+      }
+      if _storage._cloudPlateNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._cloudPlateNum, fieldNumber: 4)
+      }
+      if _storage._userCloudPlateNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userCloudPlateNum, fieldNumber: 5)
+      }
+      if _storage._photoPlateNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._photoPlateNum, fieldNumber: 6)
+      }
+      if _storage._userPhotoPlateNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userPhotoPlateNum, fieldNumber: 7)
+      }
+      if _storage._wallpaperPlateNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._wallpaperPlateNum, fieldNumber: 8)
+      }
+      if _storage._userWallpaperPlateNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userWallpaperPlateNum, fieldNumber: 9)
+      }
+      if !_storage._listItem.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._listItem, fieldNumber: 10)
+      }
+      if _storage._totalSize != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._totalSize, fieldNumber: 11)
+      }
+      if _storage._userCloudSize != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userCloudSize, fieldNumber: 12)
+      }
+      if _storage._userPhotoSize != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userPhotoSize, fieldNumber: 13)
+      }
+      if !_storage._nowShowPlateName.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._nowShowPlateName, fieldNumber: 14)
+      }
+      if _storage._enableCompress != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._enableCompress, fieldNumber: 15)
+      }
+      if _storage._funcTable != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._funcTable, fieldNumber: 16)
+      }
+      if _storage._platePhotoPicSupportNum != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._platePhotoPicSupportNum, fieldNumber: 17)
+      }
+      if _storage._allPlateSupportMax != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._allPlateSupportMax, fieldNumber: 18)
+      }
     }
-    
-    public static func ==(lhs: protocol_watch_dial_plate_inquire_reply, rhs: protocol_watch_dial_plate_inquire_reply) -> Bool {
-        if lhs._storage !== rhs._storage {
-            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-                let _storage = _args.0
-                let rhs_storage = _args.1
-                if _storage._operate != rhs_storage._operate {return false}
-                if _storage._formulaMode != rhs_storage._formulaMode {return false}
-                if _storage._plateVersion != rhs_storage._plateVersion {return false}
-                if _storage._cloudPlateNum != rhs_storage._cloudPlateNum {return false}
-                if _storage._userCloudPlateNum != rhs_storage._userCloudPlateNum {return false}
-                if _storage._photoPlateNum != rhs_storage._photoPlateNum {return false}
-                if _storage._userPhotoPlateNum != rhs_storage._userPhotoPlateNum {return false}
-                if _storage._wallpaperPlateNum != rhs_storage._wallpaperPlateNum {return false}
-                if _storage._userWallpaperPlateNum != rhs_storage._userWallpaperPlateNum {return false}
-                if _storage._listItem != rhs_storage._listItem {return false}
-                if _storage._totalSize != rhs_storage._totalSize {return false}
-                if _storage._userCloudSize != rhs_storage._userCloudSize {return false}
-                if _storage._userPhotoSize != rhs_storage._userPhotoSize {return false}
-                if _storage._nowShowPlateName != rhs_storage._nowShowPlateName {return false}
-                if _storage._enableCompress != rhs_storage._enableCompress {return false}
-                if _storage._funcTable != rhs_storage._funcTable {return false}
-                if _storage._platePhotoPicSupportNum != rhs_storage._platePhotoPicSupportNum {return false}
-                if _storage._allPlateSupportMax != rhs_storage._allPlateSupportMax {return false}
-                return true
-            }
-            if !storagesAreEqual {return false}
-        }
-        if lhs.unknownFields != rhs.unknownFields {return false}
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_watch_dial_plate_inquire_reply, rhs: protocol_watch_dial_plate_inquire_reply) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._formulaMode != rhs_storage._formulaMode {return false}
+        if _storage._plateVersion != rhs_storage._plateVersion {return false}
+        if _storage._cloudPlateNum != rhs_storage._cloudPlateNum {return false}
+        if _storage._userCloudPlateNum != rhs_storage._userCloudPlateNum {return false}
+        if _storage._photoPlateNum != rhs_storage._photoPlateNum {return false}
+        if _storage._userPhotoPlateNum != rhs_storage._userPhotoPlateNum {return false}
+        if _storage._wallpaperPlateNum != rhs_storage._wallpaperPlateNum {return false}
+        if _storage._userWallpaperPlateNum != rhs_storage._userWallpaperPlateNum {return false}
+        if _storage._listItem != rhs_storage._listItem {return false}
+        if _storage._totalSize != rhs_storage._totalSize {return false}
+        if _storage._userCloudSize != rhs_storage._userCloudSize {return false}
+        if _storage._userPhotoSize != rhs_storage._userPhotoSize {return false}
+        if _storage._nowShowPlateName != rhs_storage._nowShowPlateName {return false}
+        if _storage._enableCompress != rhs_storage._enableCompress {return false}
+        if _storage._funcTable != rhs_storage._funcTable {return false}
+        if _storage._platePhotoPicSupportNum != rhs_storage._platePhotoPicSupportNum {return false}
+        if _storage._allPlateSupportMax != rhs_storage._allPlateSupportMax {return false}
         return true
+      }
+      if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

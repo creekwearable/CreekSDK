@@ -20,114 +20,40 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum event_id: SwiftProtobuf.Enum {
-    public typealias RawValue = Int
-  case null // = 0
-
-  ///音乐控制
-  case musicControl // = 1
-
-  ///寻找手机
-  case finePhone // = 2
-
-  ///通知更新数据
-  case syncData // = 3
-
-  ///寻找手表
-  case fineWatch // = 4
-
-  ///音量变化(alexa需要)
-  case volumeChange // = 5
-  case UNRECOGNIZED(Int)
-
-    public init() {
-    self = .null
-  }
-
-    public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .null
-    case 1: self = .musicControl
-    case 2: self = .finePhone
-    case 3: self = .syncData
-    case 4: self = .fineWatch
-    case 5: self = .volumeChange
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-    public var rawValue: Int {
-    switch self {
-    case .null: return 0
-    case .musicControl: return 1
-    case .finePhone: return 2
-    case .syncData: return 3
-    case .fineWatch: return 4
-    case .volumeChange: return 5
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-}
-
-#if swift(>=4.2)
-
-extension event_id: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-    public static var allCases: [event_id] = [
-    .null,
-    .musicControl,
-    .finePhone,
-    .syncData,
-    .fineWatch,
-    .volumeChange,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
 public struct protocol_notice_update_operate {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes 事件id
-    public var eventID: event_id = .null
+  ///1bytes event id
+  public var eventID: event_id = .null
 
-  ///1bytes 具体事件键值
-    public var eventKey: UInt32 = 0
+  ///1bytes specific event key value
+  public var eventKey: UInt32 = 0
 
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
+  ///specific event value
+  public var eventValue: UInt32 = 0
 
-    public init() {}
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension event_id: @unchecked Sendable {}
 extension protocol_notice_update_operate: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension event_id: SwiftProtobuf._ProtoNameProviding {
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "EVENT_ID_NULL"),
-    1: .same(proto: "EVENT_ID_MUSIC_CONTROL"),
-    2: .same(proto: "EVENT_ID_FINE_PHONE"),
-    3: .same(proto: "EVENT_ID_SYNC_DATA"),
-    4: .same(proto: "EVENT_ID_FINE_WATCH"),
-    5: .same(proto: "EVENT_ID_VOLUME_CHANGE"),
-  ]
-}
-
 extension protocol_notice_update_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_notice_update_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "protocol_notice_update_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "event_id"),
     2: .standard(proto: "event_key"),
+    3: .standard(proto: "event_value"),
   ]
 
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -135,24 +61,29 @@ extension protocol_notice_update_operate: SwiftProtobuf.Message, SwiftProtobuf._
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.eventID) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.eventKey) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.eventValue) }()
       default: break
       }
     }
   }
 
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.eventID != .null {
       try visitor.visitSingularEnumField(value: self.eventID, fieldNumber: 1)
     }
     if self.eventKey != 0 {
       try visitor.visitSingularUInt32Field(value: self.eventKey, fieldNumber: 2)
     }
+    if self.eventValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.eventValue, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-    public static func ==(lhs: protocol_notice_update_operate, rhs: protocol_notice_update_operate) -> Bool {
+  public static func ==(lhs: protocol_notice_update_operate, rhs: protocol_notice_update_operate) -> Bool {
     if lhs.eventID != rhs.eventID {return false}
     if lhs.eventKey != rhs.eventKey {return false}
+    if lhs.eventValue != rhs.eventValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -73,7 +73,7 @@ extension UIViewController {
 enum ExampleProvider {
     static func systemStyle() -> UITabBarController {
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.backgroundColor = .gray
+        tabBarController.tabBar.backgroundColor = .brown
         let v1 = UINavigationController(rootViewController: ViewController())
         let v2 = UINavigationController(rootViewController: DialViewController())
 

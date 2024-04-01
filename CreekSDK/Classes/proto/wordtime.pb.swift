@@ -16,59 +16,59 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-    typealias Version = _2
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 public struct protocol_world_time_item {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///4bytes offset minutes
-    public var offestMin: Int32 = 0
-    
-    ///max:32 city name
-    public var cityName: Data = Data()
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///4bytes offset minutes
+  public var offestMin: Int32 = 0
+
+  ///max:32 city name
+  public var cityName: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_world_time_operate {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///world time
-    public var worldTimeItem: [protocol_world_time_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///world time
+  public var worldTimeItem: [protocol_world_time_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 public struct protocol_world_time_inquire_reply {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-    
-    ///1bytes operation type 0: invalid operation 1: query 2: set
-    public var operate: operate_type = .invalid
-    
-    ///1bytes world time support display maximum number
-    public var wordTimeSupportMax: UInt32 = 0
-    
-    ///world time
-    public var worldTimeItem: [protocol_world_time_item] = []
-    
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-    
-    public init() {}
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: set
+  public var operate: operate_type = .invalid
+
+  ///1bytes world time support display maximum number
+  public var wordTimeSupportMax: UInt32 = 0
+
+  ///world time
+  public var worldTimeItem: [protocol_world_time_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -80,121 +80,121 @@ extension protocol_world_time_inquire_reply: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_world_time_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_world_time_item"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "offest_min"),
-        2: .standard(proto: "city_name"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularInt32Field(value: &self.offestMin) }()
-            case 2: try { try decoder.decodeSingularBytesField(value: &self.cityName) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_world_time_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "offest_min"),
+    2: .standard(proto: "city_name"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.offestMin) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.cityName) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.offestMin != 0 {
-            try visitor.visitSingularInt32Field(value: self.offestMin, fieldNumber: 1)
-        }
-        if !self.cityName.isEmpty {
-            try visitor.visitSingularBytesField(value: self.cityName, fieldNumber: 2)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.offestMin != 0 {
+      try visitor.visitSingularInt32Field(value: self.offestMin, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_world_time_item, rhs: protocol_world_time_item) -> Bool {
-        if lhs.offestMin != rhs.offestMin {return false}
-        if lhs.cityName != rhs.cityName {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if !self.cityName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.cityName, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_world_time_item, rhs: protocol_world_time_item) -> Bool {
+    if lhs.offestMin != rhs.offestMin {return false}
+    if lhs.cityName != rhs.cityName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_world_time_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public  static let protoMessageName: String = "protocol_world_time_operate"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "world_time_item"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeRepeatedMessageField(value: &self.worldTimeItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_world_time_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "world_time_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.worldTimeItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if !self.worldTimeItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.worldTimeItem, fieldNumber: 2)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_world_time_operate, rhs: protocol_world_time_operate) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.worldTimeItem != rhs.worldTimeItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if !self.worldTimeItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.worldTimeItem, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_world_time_operate, rhs: protocol_world_time_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.worldTimeItem != rhs.worldTimeItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension protocol_world_time_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "protocol_world_time_inquire_reply"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "operate"),
-        2: .standard(proto: "word_time_support_max"),
-        3: .standard(proto: "world_time_item"),
-    ]
-    
-    mutating public func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every case branch when no optimizations are
-            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-            switch fieldNumber {
-            case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-            case 2: try { try decoder.decodeSingularUInt32Field(value: &self.wordTimeSupportMax) }()
-            case 3: try { try decoder.decodeRepeatedMessageField(value: &self.worldTimeItem) }()
-            default: break
-            }
-        }
+  public static let protoMessageName: String = "protocol_world_time_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "word_time_support_max"),
+    3: .standard(proto: "world_time_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.wordTimeSupportMax) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.worldTimeItem) }()
+      default: break
+      }
     }
-    
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if self.operate != .invalid {
-            try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-        }
-        if self.wordTimeSupportMax != 0 {
-            try visitor.visitSingularUInt32Field(value: self.wordTimeSupportMax, fieldNumber: 2)
-        }
-        if !self.worldTimeItem.isEmpty {
-            try visitor.visitRepeatedMessageField(value: self.worldTimeItem, fieldNumber: 3)
-        }
-        try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    
-    public static func ==(lhs: protocol_world_time_inquire_reply, rhs: protocol_world_time_inquire_reply) -> Bool {
-        if lhs.operate != rhs.operate {return false}
-        if lhs.wordTimeSupportMax != rhs.wordTimeSupportMax {return false}
-        if lhs.worldTimeItem != rhs.worldTimeItem {return false}
-        if lhs.unknownFields != rhs.unknownFields {return false}
-        return true
+    if self.wordTimeSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.wordTimeSupportMax, fieldNumber: 2)
     }
+    if !self.worldTimeItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.worldTimeItem, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_world_time_inquire_reply, rhs: protocol_world_time_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.wordTimeSupportMax != rhs.wordTimeSupportMax {return false}
+    if lhs.worldTimeItem != rhs.worldTimeItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
