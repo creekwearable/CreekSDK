@@ -1382,6 +1382,13 @@ extension CreekSDK{
         methodChannel?.invokeMethod("parseDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
     }
     
+    ///Analytical photo dial
+    public func parsePhotoDial(_ path:String,_ width:Int,_ height:Int, _ radius:Int, _ platformType:Platform ,model:@escaping parsePhotoDialBase) {
+        requestId+=1
+        parsePhotoDialClosureDic["parsePhotoDial\(requestId)"] = model
+        methodChannel?.invokeMethod("parsePhotoDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+    }
+    
     ///Get the watch face generated image
     public func getPreviewImage(model:@escaping previewImageBase) {
         requestId+=1
@@ -1396,11 +1403,33 @@ extension CreekSDK{
         methodChannel?.invokeMethod("setCurrentColor\(requestId)", arguments: selectIndex)
     }
     
+    ///Set color
+    public func setCurrentPhotoColor(photoSelectIndex:Int,selectIndex:Int,model:@escaping parsePhotoDialBase) {
+        requestId+=1
+        parsePhotoDialClosureDic["setCurrentPhotoColor\(requestId)"] = model
+        methodChannel?.invokeMethod("setCurrentPhotoColor\(requestId)", arguments: [photoSelectIndex,selectIndex])
+    }
+    
     ///set background
     public func setCurrentBackgroundImagePath(selectIndex:Int,model:@escaping parseDialBase) {
         requestId+=1
         parseDialClosureDic["setCurrentBackgroundImagePath\(requestId)"] = model
         methodChannel?.invokeMethod("setCurrentBackgroundImagePath\(requestId)", arguments: selectIndex)
+    }
+    
+    ///Set clock position
+    public func setCurrentClockPosition(photoSelectIndex:Int,selectIndex:Int,model:@escaping parsePhotoDialBase) {
+        requestId+=1
+        parsePhotoDialClosureDic["setCurrentClockPosition\(requestId)"] = model
+        methodChannel?.invokeMethod("setCurrentClockPosition\(requestId)", arguments: [photoSelectIndex,selectIndex])
+    }
+    
+    ///Set clock position
+    public func setCurrentPhotoBackgroundImagePath(photoImagePaths:[String],selectIndex:Int,model:@escaping parsePhotoDialBase) {
+        requestId+=1
+        parsePhotoDialClosureDic["setCurrentPhotoBackgroundImagePath\(requestId)"] = model
+        let dic:[String : Any] = ["photoImagePaths":photoImagePaths,"photoSelectIndex":selectIndex]
+        methodChannel?.invokeMethod("setCurrentPhotoBackgroundImagePath\(requestId)", arguments: dic)
     }
     
     ///Set function
@@ -1415,6 +1444,13 @@ extension CreekSDK{
         requestId+=1
         dialDataClosureDic["encodeDial\(requestId)"] = model
         methodChannel?.invokeMethod("encodeDial\(requestId)", arguments: "")
+    }
+    
+    ///Generate watch face
+    public func encodePhotoDial(model:@escaping dialDataBase) {
+        requestId+=1
+        dialDataClosureDic["encodePhotoDial\(requestId)"] = model
+        methodChannel?.invokeMethod("encodePhotoDial\(requestId)", arguments: "")
     }
     
     

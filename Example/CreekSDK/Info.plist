@@ -24,6 +24,10 @@
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>\"xxxxx\" needs to access your Bluetooth to connect external devices for communication</string>
+	<key>NSCameraUsageDescription</key>
+	<string>\"xxxxx\" needs to access your</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>\"xxxxx\" needs to access your</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

@@ -58,11 +58,13 @@ class DialViewController: CreekBaseViewController,UITableViewDelegate,UITableVie
         return tab
     }()
     
+    
     let dic:[[String:Any]] = [["name":"Square watch","images":["acti06_2","func6_pink","CASIO01_01"]],["name":"Round watch","images":["Fun061101_03","Fun_061211_05_2","Act06_1201_03"]]]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setRight()
         self.title = "dial"
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
@@ -70,9 +72,23 @@ class DialViewController: CreekBaseViewController,UITableViewDelegate,UITableVie
             $0.left.right.equalTo(self.view)
             $0.bottom.equalTo(self.view).offset(-SAFEAREAINSETS.bottom)
         }
-
+    }
+    func setRight(){
+        let but = UIButton(type: .custom)
+        but.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        but.setTitleColor(.black, for: .normal)
+        but.setTitle("photo", for: .normal)
+        but.addTarget(self, action: #selector(tapClick), for: .touchUpInside)
+        let itemmeunbut = UIBarButtonItem.init(customView: but)
+        self.navigationItem.rightBarButtonItem = itemmeunbut
     }
     
+    
+
+    @objc func tapClick()  {
+        let vc = DialPhotoViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     func isDirectoryExists(at url: URL) -> Bool {

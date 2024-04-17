@@ -64,6 +64,7 @@ public typealias eventTrackingBase = (_ model:protocol_event_tracking_inquire_re
 public typealias rawQueryDBClosure = (_ jsonString:String) -> ()
 public typealias SNFirmwareBase = (_ sn:String) -> ()
 public typealias parseDialBase = (_ model:DialParseModel) -> ()
+public typealias parsePhotoDialBase = (_ model:DialPhotoParseModel) -> ()
 public typealias previewImageBase = (_ model:Data) -> ()
 public typealias dialDataBase = (_ model:Data) -> ()
 
@@ -71,7 +72,7 @@ public typealias dialDataBase = (_ model:Data) -> ()
 
 @objc open class CreekSDK: NSObject{
     
-    var connectStatus: connectionStatus = connectionStatus.none
+    public var connectStatus: connectionStatus = connectionStatus.none
     public static let instance = CreekSDK()
     var requestId:Int = 0
     var methodChannel : FlutterMethodChannel?
@@ -134,6 +135,7 @@ public typealias dialDataBase = (_ model:Data) -> ()
     var sleepsClosureDic:[String:sleepsClosure] = [:]
     var sportsClosureDic:[String:sportsClosure] = [:]
     var parseDialClosureDic:[String:parseDialBase] = [:]
+    var parsePhotoDialClosureDic:[String:parsePhotoDialBase] = [:]
     var previewImageClosureDic:[String:previewImageBase] = [:]
     var dialDataClosureDic:[String:dialDataBase] = [:]
     var sportClosureDic:[String:sportClosure] = [:]
@@ -1215,6 +1217,16 @@ public typealias dialDataBase = (_ model:Data) -> ()
                 }
                 
             }
+        }else if(call.method.contains("parsePhotoDial")){
+            if let response = call.arguments as? [String:Any]{
+                if let model = ParseJson.jsonToModel(DialPhotoParseModel.self, response){
+                    if let back = parsePhotoDialClosureDic[call.method]{
+                        back(model);
+                        parsePhotoDialClosureDic.removeValue(forKey: call.method)
+                    }
+                }
+                
+            }
         }else if(call.method.contains("setCurrentColor")){
             
             if let response = call.arguments as? [String:Any]{
@@ -1222,6 +1234,17 @@ public typealias dialDataBase = (_ model:Data) -> ()
                     if let back = parseDialClosureDic[call.method]{
                         back(model);
                         parseDialClosureDic.removeValue(forKey: call.method)
+                    }
+                }
+                
+            }
+            
+        }else if(call.method.contains("setCurrentPhotoColor")){
+            if let response = call.arguments as? [String:Any]{
+                if let model = ParseJson.jsonToModel(DialPhotoParseModel.self, response){
+                    if let back = parsePhotoDialClosureDic[call.method]{
+                        back(model);
+                        parsePhotoDialClosureDic.removeValue(forKey: call.method)
                     }
                 }
                 
@@ -1238,6 +1261,28 @@ public typealias dialDataBase = (_ model:Data) -> ()
             
                 
             }
+        }else if(call.method.contains("setCurrentClockPosition")){
+            if let response = call.arguments as? [String:Any]{
+                if let model = ParseJson.jsonToModel(DialPhotoParseModel.self, response){
+                    if let back = parsePhotoDialClosureDic[call.method]{
+                        back(model);
+                        parsePhotoDialClosureDic.removeValue(forKey: call.method)
+                    }
+                }
+                
+            }
+            
+        }else if(call.method.contains("setCurrentPhotoBackgroundImagePath")){
+            if let response = call.arguments as? [String:Any]{
+                if let model = ParseJson.jsonToModel(DialPhotoParseModel.self, response){
+                    if let back = parsePhotoDialClosureDic[call.method]{
+                        back(model);
+                        parsePhotoDialClosureDic.removeValue(forKey: call.method)
+                    }
+                }
+                
+            }
+            
         }else if(call.method.contains("setCurrentFunction")){
             if let response = call.arguments as? [String:Any]{
                 if let model = ParseJson.jsonToModel(DialParseModel.self, response){
@@ -1258,6 +1303,14 @@ public typealias dialDataBase = (_ model:Data) -> ()
             }
         }
         else if(call.method.contains("encodeDial")){
+            if let response = call.arguments as? FlutterStandardTypedData{
+                if let back = dialDataClosureDic[call.method]{
+                    back(response.data)
+                    dialDataClosureDic.removeValue(forKey: call.method)
+                }
+            }
+        }
+        else if(call.method.contains("encodePhotoDial")){
             if let response = call.arguments as? FlutterStandardTypedData{
                 if let back = dialDataClosureDic[call.method]{
                     back(response.data)

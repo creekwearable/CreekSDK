@@ -18,6 +18,9 @@
 		077A60B62B67AB8F00AFEB2B /* acti06_2.zip in Resources */ = {isa = PBXBuildFile; fileRef = 077A60B52B67AB8F00AFEB2B /* acti06_2.zip */; };
 		077A60B82B67AFDC00AFEB2B /* extension_color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A60B72B67AFDC00AFEB2B /* extension_color.swift */; };
 		077A60BA2B67B37300AFEB2B /* DialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A60B92B67B37300AFEB2B /* DialViewController.swift */; };
+		07941D2A2BCBE0CB00CBFB62 /* DialPhotoParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07941D292BCBE0CB00CBFB62 /* DialPhotoParseModel.swift */; };
+		07941D2C2BCBE58000CBFB62 /* circlePhoto.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07941D2B2BCBE58000CBFB62 /* circlePhoto.zip */; };
+		07941D362BCEB4BB00CBFB62 /* squarePhoto.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07941D352BCEB4BB00CBFB62 /* squarePhoto.zip */; };
 		07985AD22BA0816700F8EE01 /* Act06_1201_03.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07985ACF2BA0816700F8EE01 /* Act06_1201_03.zip */; };
 		07985AD32BA0816700F8EE01 /* Fun_061211_05_2.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07985AD02BA0816700F8EE01 /* Fun_061211_05_2.zip */; };
 		07985AD42BA0816700F8EE01 /* Fun061101_03.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07985AD12BA0816700F8EE01 /* Fun061101_03.zip */; };
@@ -89,6 +92,8 @@
 		079A21E22B29B0FA00F5D013 /* CommandReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */; };
 		07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */; };
 		07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */; };
+		07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */; };
+		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -109,6 +114,9 @@
 		077A60B52B67AB8F00AFEB2B /* acti06_2.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = acti06_2.zip; sourceTree = "<group>"; };
 		077A60B72B67AFDC00AFEB2B /* extension_color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_color.swift; sourceTree = "<group>"; };
 		077A60B92B67B37300AFEB2B /* DialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialViewController.swift; sourceTree = "<group>"; };
+		07941D292BCBE0CB00CBFB62 /* DialPhotoParseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoParseModel.swift; sourceTree = "<group>"; };
+		07941D2B2BCBE58000CBFB62 /* circlePhoto.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = circlePhoto.zip; sourceTree = "<group>"; };
+		07941D352BCEB4BB00CBFB62 /* squarePhoto.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = squarePhoto.zip; sourceTree = "<group>"; };
 		07985ACF2BA0816700F8EE01 /* Act06_1201_03.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Act06_1201_03.zip; sourceTree = "<group>"; };
 		07985AD02BA0816700F8EE01 /* Fun_061211_05_2.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Fun_061211_05_2.zip; sourceTree = "<group>"; };
 		07985AD12BA0816700F8EE01 /* Fun061101_03.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Fun061101_03.zip; sourceTree = "<group>"; };
@@ -180,6 +188,8 @@
 		079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandReplyViewController.swift; sourceTree = "<group>"; };
 		07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialDetailsViewController.swift; sourceTree = "<group>"; };
 		07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBSlideBar.swift; sourceTree = "<group>"; };
+		07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoViewController.swift; sourceTree = "<group>"; };
+		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreekSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +277,7 @@
 				079A21742B29A72A00F5D013 /* HrvModel.swift */,
 				079A21752B29A72A00F5D013 /* EphemerisModel.swift */,
 				077A60B32B679A5300AFEB2B /* DialParseModel.swift */,
+				07941D292BCBE0CB00CBFB62 /* DialPhotoParseModel.swift */,
 				0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */,
 			);
 			path = model;
@@ -323,6 +334,7 @@
 		079A21D82B29B0B700F5D013 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				07D139792BC64592009405D2 /* CameraPopView.swift */,
 				0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */,
 				079A21D92B29B0B700F5D013 /* GlobalDefine.swift */,
 				079A21DA2B29B0B700F5D013 /* PonyAlert.swift */,
@@ -372,6 +384,8 @@
 		607FACD21AFB9204008FA782 /* Example for CreekSDK */ = {
 			isa = PBXGroup;
 			children = (
+				07941D352BCEB4BB00CBFB62 /* squarePhoto.zip */,
+				07941D2B2BCBE58000CBFB62 /* circlePhoto.zip */,
 				07985ACF2BA0816700F8EE01 /* Act06_1201_03.zip */,
 				07985AD02BA0816700F8EE01 /* Fun_061211_05_2.zip */,
 				07985AD12BA0816700F8EE01 /* Fun061101_03.zip */,
@@ -383,6 +397,7 @@
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				077A60B92B67B37300AFEB2B /* DialViewController.swift */,
 				07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */,
+				07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */,
 				079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */,
 				079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */,
 				07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */,
@@ -480,8 +495,10 @@
 				07985AD32BA0816700F8EE01 /* Fun_061211_05_2.zip in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				077A60B62B67AB8F00AFEB2B /* acti06_2.zip in Resources */,
+				07941D362BCEB4BB00CBFB62 /* squarePhoto.zip in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */,
+				07941D2C2BCBE58000CBFB62 /* circlePhoto.zip in Resources */,
 				07985AD42BA0816700F8EE01 /* Fun061101_03.zip in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				07985AD22BA0816700F8EE01 /* Act06_1201_03.zip in Resources */,
@@ -537,11 +554,13 @@
 				"${PODS_ROOT}/../../Creek/ActResSdk.framework",
 				"${PODS_ROOT}/../../Creek/path_provider_foundation.framework",
 				"${BUILT_PRODUCTS_DIR}/CreekSDK/CreekSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework",
 			);
@@ -562,11 +581,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActResSdk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/path_provider_foundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CreekSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZIPFoundation.framework",
 			);
@@ -634,6 +655,7 @@
 				079A21C62B29A74300F5D013 /* hotKey.pb.swift in Sources */,
 				079A21D62B29A7E600F5D013 /* CreekInterFace.swift in Sources */,
 				077A60BA2B67B37300AFEB2B /* DialViewController.swift in Sources */,
+				07941D2A2BCBE0CB00CBFB62 /* DialPhotoParseModel.swift in Sources */,
 				079A21AF2B29A74300F5D013 /* menstrual.pb.swift in Sources */,
 				077A60B42B679A5300AFEB2B /* DialParseModel.swift in Sources */,
 				079A217F2B29A72A00F5D013 /* BaseModel.swift in Sources */,
@@ -643,11 +665,13 @@
 				079A21CB2B29A74300F5D013 /* contactssos.pb.swift in Sources */,
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
+				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
 				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,
 				079A21BF2B29A74300F5D013 /* time.pb.swift in Sources */,
 				079A21C92B29A74300F5D013 /* sport.pb.swift in Sources */,
 				079A21D22B29A74300F5D013 /* message.pb.swift in Sources */,
 				079A21B32B29A74300F5D013 /* standing.pb.swift in Sources */,
+				07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */,
 				079A21C12B29A74300F5D013 /* log.pb.swift in Sources */,
 				079A21D12B29A74300F5D013 /* schedule.pb.swift in Sources */,
 				079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */,

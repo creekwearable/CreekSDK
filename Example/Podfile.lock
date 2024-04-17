@@ -1,31 +1,41 @@
 PODS:
-  - CreekSDK (0.1.2):
+  - CreekSDK (0.1.3):
     - SwiftProtobuf (~> 1.25.2)
+  - CropViewController (2.7.2)
   - ESTabBarController-swift (2.8.0)
   - IQKeyboardManagerSwift (6.5.15)
   - MBProgressHUD (1.2.0)
   - SnapKit (5.6.0)
   - SwiftProtobuf (1.25.2)
   - Toast-Swift (5.0.1)
+  - TZImagePickerController (3.8.4):
+    - TZImagePickerController/Basic (= 3.8.4)
+    - TZImagePickerController/Location (= 3.8.4)
+  - TZImagePickerController/Basic (3.8.4)
+  - TZImagePickerController/Location (3.8.4)
   - ZIPFoundation (0.9.16)
 
 DEPENDENCIES:
   - CreekSDK (from `../`)
+  - CropViewController
   - ESTabBarController-swift
   - IQKeyboardManagerSwift
   - MBProgressHUD
   - SnapKit
   - Toast-Swift
+  - TZImagePickerController
   - ZIPFoundation
 
 SPEC REPOS:
   trunk:
+    - CropViewController
     - ESTabBarController-swift
     - IQKeyboardManagerSwift
     - MBProgressHUD
     - SnapKit
     - SwiftProtobuf
     - Toast-Swift
+    - TZImagePickerController
     - ZIPFoundation
 
 EXTERNAL SOURCES:
@@ -33,15 +43,17 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: e98d31255c2e0bee8d6ffde81d1fec561c8953f6
+  CreekSDK: 286bacfae41489714f516d61010075ee0309a029
+  CropViewController: 919f4e49dc298a610265bb1eeaa7e195298e3c5b
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   IQKeyboardManagerSwift: 79fab21f451441935788dc5d80ded21c32685904
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftProtobuf: 407a385e97fd206c4fbe880cc84123989167e0d1
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TZImagePickerController: f1c9f1cae6ac0e30b31aaa9698f9bf4a7cf5b84f
   ZIPFoundation: d170fa8e270b2a32bef9dcdcabff5b8f1a5deced
 
-PODFILE CHECKSUM: 535f1eaaffbcc42c0a5aaac0ccad84b46dd4cd06
+PODFILE CHECKSUM: dcae1167bc0ed28b9d26a204e1d0c8344455f885
 
 COCOAPODS: 1.12.1
