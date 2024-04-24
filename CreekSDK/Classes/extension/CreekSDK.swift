@@ -68,6 +68,8 @@ public typealias parsePhotoDialBase = (_ model:DialPhotoParseModel) -> ()
 public typealias previewImageBase = (_ model:Data) -> ()
 public typealias dialDataBase = (_ model:Data) -> ()
 
+public typealias gpsBase = () -> (EphemerisGPSModel)
+
 
 
 @objc open class CreekSDK: NSObject{
@@ -142,6 +144,7 @@ public typealias dialDataBase = (_ model:Data) -> ()
     var hrvsClosureDic:[String:hrvsClosure] = [:]
     var ephemerisClosureDic:[String:ephemerisData] = [:]
     var logPathClosure:((_ path:String) -> ())?
+    var _gpsClosure:gpsBase?
     
     public override init() {
         
@@ -1317,6 +1320,18 @@ public typealias dialDataBase = (_ model:Data) -> ()
                     dialDataClosureDic.removeValue(forKey: call.method)
                 }
             }
+        }
+        else if(call.method.contains("ephemerisInit")){
+            
+            if let back = _gpsClosure{
+               let model = back()
+               ephemerisInitGPS(model: model)
+            }
+          
+        }
+        else if(call.method.contains("ephemerisGPS")){
+            
+          
         }
     }
     

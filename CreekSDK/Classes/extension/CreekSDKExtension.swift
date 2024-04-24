@@ -1453,6 +1453,18 @@ extension CreekSDK{
         methodChannel?.invokeMethod("encodePhotoDial\(requestId)", arguments: "")
     }
     
+    public func ephemerisInit(keyId:String,publicKey:String,model:@escaping gpsBase){
+        _gpsClosure = model
+        methodChannel?.invokeMethod("ephemerisInit\(requestId)", arguments: [keyId,publicKey])
+    }
+    
+    public func ephemerisInitGPS(model:EphemerisGPSModel){
+        let json = try? JSONEncoder().encode(model)
+        if let data = json, let str = String(data: data, encoding: .utf8) {
+            methodChannel?.invokeMethod("ephemerisGPS\(requestId)", arguments: str)
+        }
+    }
+    
     
     
     
