@@ -206,8 +206,8 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         }
        
       CreekInterFace.instance.phoneBookInit();
-      let keyId = "uTrC63Xzn1WTOmoy"
-      let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqXy5JMoKV3zxLJ/Zh5btCKLM7Dl+0nPATfXXo4I03gofKz1RcExEqPZ/yogmaCYMp41iSNgRiJ6RBF/BngDPrNW+TlxYpnXTe7sHZE7n2KpKjbrZytobZez/YiPx12deQ6seCVjd2DuSVLKTzAy1rResyTGzzNwJgZaP1F1bb8J6vghDQOUXY9I0mcrVDzkHPRWLxkBBAARTZnfU6qsgke3lv6UIAW8D/3bJxkFp0JZ/x0QMBzcScC41/PF+3TBfNR9vIWpQLijLhCXI7avl/80kNZOYM9elU8bEGa1wDSYWOuRT5i8z7vvvvwqX6GsHnCdJlHB3i+p5sCirsHpBawIDAQAB"
+      let keyId = "*********"
+      let publicKey = "**********"
        
        CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
            ///Ask for GPS data, and get the latest GPS data every time you ask.
