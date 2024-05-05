@@ -67,6 +67,7 @@ public typealias parseDialBase = (_ model:DialParseModel) -> ()
 public typealias parsePhotoDialBase = (_ model:DialPhotoParseModel) -> ()
 public typealias previewImageBase = (_ model:Data) -> ()
 public typealias dialDataBase = (_ model:Data) -> ()
+public typealias boolBase = (_ model:Bool) -> ()
 
 public typealias gpsBase = () -> (EphemerisGPSModel)
 
@@ -143,6 +144,7 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var sportClosureDic:[String:sportClosure] = [:]
     var hrvsClosureDic:[String:hrvsClosure] = [:]
     var ephemerisClosureDic:[String:ephemerisData] = [:]
+    var boolClosureDic:[String:boolBase] = [:]
     var logPathClosure:((_ path:String) -> ())?
     var _gpsClosure:gpsBase?
     
@@ -1333,6 +1335,23 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
             
           
         }
+       else if(call.method.contains("checkPhoneBookPermissions")){
+          if let response = call.arguments as? Bool{
+              if let back = boolClosureDic[call.method]{
+                 back(response)
+                 boolClosureDic.removeValue(forKey: call.method)
+              }
+          }
+         
+       }
+       else if(call.method.contains("requestPhoneBookPermissions")){
+          if let response = call.arguments as? Bool{
+              if let back = boolClosureDic[call.method]{
+                 back(response)
+                 boolClosureDic.removeValue(forKey: call.method)
+              }
+          }
+       }
     }
     
 }

@@ -198,6 +198,13 @@ class CommandReplyViewController: CreekBaseViewController {
                 item.vibrateOnOff = true
                 item.name = "abc".data(using: .utf8)!
                 data.alarmItem.append(item)
+               if model.fromTable().custom_name_list{
+                  data.customNameList.append("hello".data(using: .utf8)!)
+                  data.customNameList.append("hello2".data(using: .utf8)!)
+               }
+               if model.fromTable().later_remind_min{
+                  item.laterRemindMin = 1
+               }
                 CreekInterFace.instance.setAlarm(model:data){
                     self.view.hideRemark()
                     self.textView.text = "success"

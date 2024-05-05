@@ -1,0 +1,922 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "ContactsUI",
+        "printedName": "ContactsUI",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FlutterContacts",
+        "printedName": "FlutterContacts",
+        "declKind": "Enum",
+        "usr": "s:16flutter_contacts15FlutterContactsO",
+        "mangledName": "$s16flutter_contacts15FlutterContactsO",
+        "moduleName": "flutter_contacts",
+        "intro_iOS": "9.0",
+        "declAttributes": [
+          "AccessControl",
+          "Available"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SwiftFlutterContactsPlugin",
+        "printedName": "SwiftFlutterContactsPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC8register4withySo0dF9Registrar_p_tFZ",
+            "moduleName": "flutter_contacts",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC6handle_6resultySo0D10MethodCallC_yypSgctF",
+            "moduleName": "flutter_contacts",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onListen",
+            "printedName": "onListen(withArguments:eventSink:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)onListenWithArguments:eventSink:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC8onListen13withArguments9eventSinkSo0D5ErrorCSgypSg_yAJctF",
+            "moduleName": "flutter_contacts",
+            "objc_name": "onListenWithArguments:eventSink:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onCancel",
+            "printedName": "onCancel(withArguments:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)onCancelWithArguments:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC8onCancel13withArgumentsSo0D5ErrorCSgypSg_tF",
+            "moduleName": "flutter_contacts",
+            "objc_name": "onCancelWithArguments:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "contactViewController",
+            "printedName": "contactViewController(_:didCompleteWith:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CNContactViewController",
+                "printedName": "ContactsUI.CNContactViewController",
+                "usr": "c:objc(cs)CNContactViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Contacts.CNContact?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CNContact",
+                    "printedName": "Contacts.CNContact",
+                    "usr": "c:objc(cs)CNContact"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)contactViewController:didCompleteWithContact:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC21contactViewController_15didCompleteWithySo09CNContacthI0C_So0M0CSgtF",
+            "moduleName": "flutter_contacts",
+            "objc_name": "contactViewController:didCompleteWithContact:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "contactPicker",
+            "printedName": "contactPicker(_:didSelect:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CNContactPickerViewController",
+                "printedName": "ContactsUI.CNContactPickerViewController",
+                "usr": "c:objc(cs)CNContactPickerViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CNContact",
+                "printedName": "Contacts.CNContact",
+                "usr": "c:objc(cs)CNContact"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)contactPicker:didSelectContact:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC13contactPicker_9didSelectySo09CNContactH14ViewControllerC_So0K0CtF",
+            "moduleName": "flutter_contacts",
+            "objc_name": "contactPicker:didSelectContact:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "contactPickerDidCancel",
+            "printedName": "contactPickerDidCancel(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CNContactPickerViewController",
+                "printedName": "ContactsUI.CNContactPickerViewController",
+                "usr": "c:objc(cs)CNContactPickerViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)contactPickerDidCancel:",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC22contactPickerDidCancelyySo09CNContactH14ViewControllerCF",
+            "moduleName": "flutter_contacts",
+            "objc_name": "contactPickerDidCancel:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SwiftFlutterContactsPlugin",
+                "printedName": "flutter_contacts.SwiftFlutterContactsPlugin",
+                "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin(im)init",
+            "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginCACycfc",
+            "moduleName": "flutter_contacts",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@flutter_contacts@objc(cs)SwiftFlutterContactsPlugin",
+        "mangledName": "$s16flutter_contacts26SwiftFlutterContactsPluginC",
+        "moduleName": "flutter_contacts",
+        "intro_iOS": "9.0",
+        "declAttributes": [
+          "AccessControl",
+          "Available",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "flutter_contacts"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 216,
+      "length": 6,
+      "value": "\"home\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 253,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 281,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 308,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 342,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 368,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 395,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 427,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 456,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 488,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 522,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Address.swift",
+      "kind": "StringLiteral",
+      "offset": 555,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "StringLiteral",
+      "offset": 78,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "StringLiteral",
+      "offset": 111,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "BooleanLiteral",
+      "offset": 140,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 240,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 269,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 303,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 346,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 379,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 420,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 449,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 476,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 509,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/Contact.swift",
+      "kind": "Array",
+      "offset": 538,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Email.swift",
+      "kind": "StringLiteral",
+      "offset": 168,
+      "length": 6,
+      "value": "\"home\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Email.swift",
+      "kind": "StringLiteral",
+      "offset": 205,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Email.swift",
+      "kind": "BooleanLiteral",
+      "offset": 234,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Event.swift",
+      "kind": "StringLiteral",
+      "offset": 186,
+      "length": 10,
+      "value": "\"birthday\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Event.swift",
+      "kind": "StringLiteral",
+      "offset": 227,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 78,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 104,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 132,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 160,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 188,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 218,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 253,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 287,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Name.swift",
+      "kind": "StringLiteral",
+      "offset": 323,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 88,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 115,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 147,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 183,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 211,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 245,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Organization.swift",
+      "kind": "StringLiteral",
+      "offset": 281,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Phone.swift",
+      "kind": "StringLiteral",
+      "offset": 350,
+      "length": 8,
+      "value": "\"mobile\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Phone.swift",
+      "kind": "StringLiteral",
+      "offset": 389,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Phone.swift",
+      "kind": "BooleanLiteral",
+      "offset": 418,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/SocialMedia.swift",
+      "kind": "StringLiteral",
+      "offset": 494,
+      "length": 7,
+      "value": "\"other\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/SocialMedia.swift",
+      "kind": "StringLiteral",
+      "offset": 532,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/SwiftFlutterContactsPlugin.swift",
+      "kind": "BooleanLiteral",
+      "offset": 422,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/SwiftFlutterContactsPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 15787,
+      "length": 26,
+      "value": "\"flutter_contacts.SwiftFlutterContactsPlugin\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Website.swift",
+      "kind": "StringLiteral",
+      "offset": 180,
+      "length": 10,
+      "value": "\"homepage\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/flutter_contacts-1.1.7+1\/ios\/Classes\/properties\/Website.swift",
+      "kind": "StringLiteral",
+      "offset": 221,
+      "length": 2,
+      "value": "\"\""
+    }
+  ]
+}

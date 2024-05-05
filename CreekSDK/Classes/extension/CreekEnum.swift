@@ -18,20 +18,6 @@ public enum connectionStatus : Int {
 }
 
 
-///Language
-public enum LanguageType : Int {
-    
-    case invalid
-    case  chinese
-    case english
-    case german
-    case spanish
-    case  italian
-    case  japanese
-    case  russian
-    case  portuguese
-    case  french
-}
 
 public enum BindType : Int
 {

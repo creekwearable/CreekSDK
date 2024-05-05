@@ -92,6 +92,9 @@ public struct protocol_menstruation_operate {
   ///Set the recorded utc time, record time
   public var setUtcTime: UInt32 = 0
 
+  ///1bytes menstrual cycle reminder (ovulation reminder, predicted menstrual period reminder) switch
+  public var reminderSwitch: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -125,6 +128,9 @@ public struct protocol_menstruation_inquire_reply {
 
   ///Set the recorded utc time, record time
   public var setUtcTime: UInt32 = 0
+
+  ///1bytes menstrual cycle reminder (ovulation reminder, predicted menstrual period reminder) switch
+  public var reminderSwitch: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -267,6 +273,7 @@ extension protocol_menstruation_operate: SwiftProtobuf.Message, SwiftProtobuf._M
     2: .standard(proto: "period_set"),
     3: .same(proto: "record"),
     4: .standard(proto: "set_utc_time"),
+    5: .standard(proto: "reminder_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -279,6 +286,7 @@ extension protocol_menstruation_operate: SwiftProtobuf.Message, SwiftProtobuf._M
       case 2: try { try decoder.decodeSingularMessageField(value: &self._periodSet) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.record) }()
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.setUtcTime) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.reminderSwitch) }()
       default: break
       }
     }
@@ -301,6 +309,9 @@ extension protocol_menstruation_operate: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.setUtcTime != 0 {
       try visitor.visitSingularUInt32Field(value: self.setUtcTime, fieldNumber: 4)
     }
+    if self.reminderSwitch != false {
+      try visitor.visitSingularBoolField(value: self.reminderSwitch, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -309,6 +320,7 @@ extension protocol_menstruation_operate: SwiftProtobuf.Message, SwiftProtobuf._M
     if lhs._periodSet != rhs._periodSet {return false}
     if lhs.record != rhs.record {return false}
     if lhs.setUtcTime != rhs.setUtcTime {return false}
+    if lhs.reminderSwitch != rhs.reminderSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -322,6 +334,7 @@ extension protocol_menstruation_inquire_reply: SwiftProtobuf.Message, SwiftProto
     3: .standard(proto: "menstrual_period_set"),
     4: .same(proto: "record"),
     5: .standard(proto: "set_utc_time"),
+    6: .standard(proto: "reminder_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -335,6 +348,7 @@ extension protocol_menstruation_inquire_reply: SwiftProtobuf.Message, SwiftProto
       case 3: try { try decoder.decodeSingularMessageField(value: &self._menstrualPeriodSet) }()
       case 4: try { try decoder.decodeRepeatedMessageField(value: &self.record) }()
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.setUtcTime) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.reminderSwitch) }()
       default: break
       }
     }
@@ -360,6 +374,9 @@ extension protocol_menstruation_inquire_reply: SwiftProtobuf.Message, SwiftProto
     if self.setUtcTime != 0 {
       try visitor.visitSingularUInt32Field(value: self.setUtcTime, fieldNumber: 5)
     }
+    if self.reminderSwitch != false {
+      try visitor.visitSingularBoolField(value: self.reminderSwitch, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -369,6 +386,7 @@ extension protocol_menstruation_inquire_reply: SwiftProtobuf.Message, SwiftProto
     if lhs._menstrualPeriodSet != rhs._menstrualPeriodSet {return false}
     if lhs.record != rhs.record {return false}
     if lhs.setUtcTime != rhs.setUtcTime {return false}
+    if lhs.reminderSwitch != rhs.reminderSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

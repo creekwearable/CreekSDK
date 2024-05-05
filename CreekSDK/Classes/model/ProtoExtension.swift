@@ -46,6 +46,35 @@ extension protocol_screen_brightness_inquire_reply{
     
 }
 
+class AlarmTable: NSObject {
+    ///Whether to support custom modification of later reminder minutes, field: later_remind_min
+    var later_remind_min = false
+    
+    ///Whether to support alarm clock custom label used options, field: custom_name_list
+    var custom_name_list = false
+    
+}
+
+extension protocol_alarm_inquire_reply{
+   
+   func fromTable() -> AlarmTable {
+       let alarmTable = AlarmTable()
+       let str = Int(funcTable).decimalToBinary()
+       if let firstChar = str[safe: 0] {
+           if let intValue = Int(String(firstChar)) {
+              alarmTable.later_remind_min = (intValue == 1)
+           }
+       }
+       if let secondChar = str[safe: 1] {
+           if let intValue = Int(String(secondChar)) {
+              alarmTable.custom_name_list = (intValue == 1)
+           }
+       }
+       return alarmTable
+   }
+   
+}
+
 
 extension Int{
     func decimalToBinary() -> String {

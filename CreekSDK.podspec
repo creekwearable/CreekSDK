@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.5'
+    s.version          = '0.1.6'
     s.summary          = 'A short description of CreekSDK.'
     
     # This description is used to generate tags and improve search results.
@@ -48,8 +48,10 @@ Pod::Spec.new do |s|
     'Creek/image_clipper.framework',
     'Creek/lz4.framework',
     'Creek/ActResSdk.framework',
+    'Creek/flutter_contacts.framework',
     'Creek/path_provider_foundation.framework']
     s.pod_target_xcconfig = {'VALID_ARCHS' => 'x86_64 armv7 arm64'}
+    s.resource_bundles = {'permission_handler_apple_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
     
     # s.resource_bundles = {
     #   'CreekSDK' => ['CreekSDK/Assets/*.png']

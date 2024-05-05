@@ -80,6 +80,9 @@ public struct protocol_alarm_operate {
   ///max: 20
   public var alarmItem: [protocol_set_alarm_item] = []
 
+  ///Alarm clock customization option names max:10
+  public var customNameList: [Data] = []
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -104,6 +107,9 @@ public struct protocol_alarm_inquire_reply {
 
   ///max: 20
   public var alarmItem: [protocol_set_alarm_item] = []
+
+  ///Alarm clock customization option names max:10
+  public var customNameList: [Data] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -222,6 +228,7 @@ extension protocol_alarm_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     1: .same(proto: "operate"),
     2: .same(proto: "num"),
     3: .standard(proto: "alarm_item"),
+    4: .standard(proto: "custom_name_list"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -233,6 +240,7 @@ extension protocol_alarm_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.num) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.alarmItem) }()
+      case 4: try { try decoder.decodeRepeatedBytesField(value: &self.customNameList) }()
       default: break
       }
     }
@@ -248,6 +256,9 @@ extension protocol_alarm_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if !self.alarmItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.alarmItem, fieldNumber: 3)
     }
+    if !self.customNameList.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.customNameList, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -255,6 +266,7 @@ extension protocol_alarm_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.operate != rhs.operate {return false}
     if lhs.num != rhs.num {return false}
     if lhs.alarmItem != rhs.alarmItem {return false}
+    if lhs.customNameList != rhs.customNameList {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -268,6 +280,7 @@ extension protocol_alarm_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._Me
     3: .same(proto: "operate"),
     4: .same(proto: "num"),
     5: .standard(proto: "alarm_item"),
+    6: .standard(proto: "custom_name_list"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -281,6 +294,7 @@ extension protocol_alarm_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 3: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.num) }()
       case 5: try { try decoder.decodeRepeatedMessageField(value: &self.alarmItem) }()
+      case 6: try { try decoder.decodeRepeatedBytesField(value: &self.customNameList) }()
       default: break
       }
     }
@@ -302,6 +316,9 @@ extension protocol_alarm_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.alarmItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.alarmItem, fieldNumber: 5)
     }
+    if !self.customNameList.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.customNameList, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -311,6 +328,7 @@ extension protocol_alarm_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.operate != rhs.operate {return false}
     if lhs.num != rhs.num {return false}
     if lhs.alarmItem != rhs.alarmItem {return false}
+    if lhs.customNameList != rhs.customNameList {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

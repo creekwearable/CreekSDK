@@ -101,6 +101,19 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
             }
             
             break
+        case "requst contacts permission":
+           CreekInterFace.instance.checkPhoneBookPermissions { model in
+              if !model{
+                 CreekInterFace.instance.requestPhoneBookPermissions { model in
+                    if model {
+                       print("Permissions  Success")
+                    }else{
+                       print("Permissions  Failure")
+                    }
+                 }
+              }
+           }
+            break
            
             
             
@@ -146,7 +159,7 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         return tab
     }()
     
-    var listCmd:[String] = ["Binding", "Get Device Information", "Sync", "Upload", "Get Device Bluetooth Status","connect Bluetooth Status", "Get Language", "Set Language", "Sync Time", "Get Time", "Get User Information", "Set User Information", "Get Alarm Clock", "Set Alarm Clock", "Get Do Not Disturb", "Set Do Not Disturb", "Get Screen Brightness", "Set Screen Brightness", "Get Health Monitoring", " Health monitoring setting", "Sleep monitoring acquisition", "Sleep monitoring setting","Get card", "Set card", "World clock acquisition", "World clock setting", "Message switch query", "Message switch setting", "Set weather", "Incoming call configuration query ","Incoming call configuration settings", "Contacts query", "Contacts settings", "Exercise self-identification query", "Exercise self-identification settings", "Exercise sub-item data query", "Exercise sub-item data setting ","Inquiry about the arrangement order of device exercise","Setting the arrangement order of device exercise","Get the type of exercise supported by the device","Setting the heart rate interval","Delete the dial","Query the dial","Set the dial","System operation ","Query activity data", "Query sleep data", "Query heart rate data", "Query pressure data", "Query noise data", "Query blood oxygen data", "Exercise record list", "Query exercise details" ,"Range query exercise record","Delete exercise record","Get bound device","setDBUserID","rawQueryDB","Off-line ephemeris","ephemeris","phone book","getLogPath","getFirmwareLogPath","getStand","setStand","getWater","setWater","getAppList","setAppList","getFocus","setFocus","functionTable"]
+    var listCmd:[String] = ["requst contacts permission","Binding", "Get Device Information", "Sync", "Upload", "Get Device Bluetooth Status","connect Bluetooth Status", "Get Language", "Set Language", "Sync Time", "Get Time", "Get User Information", "Set User Information", "Get Alarm Clock", "Set Alarm Clock", "Get Do Not Disturb", "Set Do Not Disturb", "Get Screen Brightness", "Set Screen Brightness", "Get Health Monitoring", " Health monitoring setting", "Sleep monitoring acquisition", "Sleep monitoring setting","Get card", "Set card", "World clock acquisition", "World clock setting", "Message switch query", "Message switch setting", "Set weather", "Incoming call configuration query ","Incoming call configuration settings", "Contacts query", "Contacts settings", "Exercise self-identification query", "Exercise self-identification settings", "Exercise sub-item data query", "Exercise sub-item data setting ","Inquiry about the arrangement order of device exercise","Setting the arrangement order of device exercise","Get the type of exercise supported by the device","Setting the heart rate interval","Delete the dial","Query the dial","Set the dial","System operation ","Query activity data", "Query sleep data", "Query heart rate data", "Query pressure data", "Query noise data", "Query blood oxygen data", "Exercise record list", "Query exercise details" ,"Range query exercise record","Delete exercise record","Get bound device","setDBUserID","rawQueryDB","Off-line ephemeris","ephemeris","phone book","getLogPath","getFirmwareLogPath","getStand","setStand","getWater","setWater","getAppList","setAppList","getFocus","setFocus","functionTable"]
     
     var deviceModel:ScanDeviceModel?
     
@@ -191,6 +204,21 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
             }
            
         }
+       
+      CreekInterFace.instance.phoneBookInit();
+      let keyId = "uTrC63Xzn1WTOmoy"
+      let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqXy5JMoKV3zxLJ/Zh5btCKLM7Dl+0nPATfXXo4I03gofKz1RcExEqPZ/yogmaCYMp41iSNgRiJ6RBF/BngDPrNW+TlxYpnXTe7sHZE7n2KpKjbrZytobZez/YiPx12deQ6seCVjd2DuSVLKTzAy1rResyTGzzNwJgZaP1F1bb8J6vghDQOUXY9I0mcrVDzkHPRWLxkBBAARTZnfU6qsgke3lv6UIAW8D/3bJxkFp0JZ/x0QMBzcScC41/PF+3TBfNR9vIWpQLijLhCXI7avl/80kNZOYM9elU8bEGa1wDSYWOuRT5i8z7vvvvwqX6GsHnCdJlHB3i+p5sCirsHpBawIDAQAB"
+       
+       CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
+           ///Ask for GPS data, and get the latest GPS data every time you ask.
+           let model = EphemerisGPSModel()
+           model.altitude = 10
+           model.latitude = Int(22.312653 * 1000000)
+           model.longitude = Int(114.027986 * 1000000)
+           model.isVaild = true
+           return model
+        
+       }
         deviceView.connect = {
             CreekInterFace.instance.inTransitionDevice(id: self.deviceModel!.device?.id ?? "") { isBool in
                 

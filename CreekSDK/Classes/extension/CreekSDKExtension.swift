@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Contacts
 
 extension CreekSDK{
     
@@ -1464,6 +1465,27 @@ extension CreekSDK{
             methodChannel?.invokeMethod("ephemerisGPS\(requestId)", arguments: str)
         }
     }
+   
+   public func phoneBookInit(){
+       methodChannel?.invokeMethod("phoneBookInit", arguments: "")
+   }
+   
+   public func monitorPhone(){
+       methodChannel?.invokeMethod("monitorPhone", arguments: "")
+   }
+   
+   public func checkPhoneBookPermissions(model:@escaping boolBase){
+       requestId+=1
+       boolClosureDic["checkPhoneBookPermissions\(requestId)"] = model
+       methodChannel?.invokeMethod("checkPhoneBookPermissions\(requestId)", arguments: "")
+   }
+   
+   public func requestPhoneBookPermissions(model:@escaping boolBase){
+       requestId+=1
+       boolClosureDic["requestPhoneBookPermissions\(requestId)"] = model
+       methodChannel?.invokeMethod("requestPhoneBookPermissions\(requestId)", arguments: "")
+   }
+   
     
     
     

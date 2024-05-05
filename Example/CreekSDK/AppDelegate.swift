@@ -23,22 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window?.makeKeyAndVisible()
         CreekInterFace.instance.setupInit()
         CreekInterFace.instance.initSDK()
-       
-       let keyId = "*********"
-       let publicKey = "***********"
-        
-        CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
-            ///Ask for GPS data, and get the latest GPS data every time you ask.
-            let model = EphemerisGPSModel()
-            model.altitude = 10
-            model.latitude = Int(22.312653 * 1000000)
-            model.longitude = Int(114.027986 * 1000000)
-            model.isVaild = true
-            return model
-         
-        }
         return true
     }
+   
+   func applicationDidEnterBackground(_ application: UIApplication) {
+      print("Cut to background")
+      CreekInterFace.instance.monitorPhone()
+   }
     
     
     

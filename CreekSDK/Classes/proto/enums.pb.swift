@@ -855,7 +855,7 @@ extension sync_operate: CaseIterable {
 public enum language: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
-  ///invalid
+  ///Invalid
   case langInvalid // = 0
 
   ///Chinese
@@ -890,6 +890,51 @@ public enum language: SwiftProtobuf.Enum {
 
   ///Polish
   case polish // = 11
+
+  ///Czech language
+  case czech // = 12
+
+  ///Slovak
+  case slovak // = 13
+
+  ///Hungarian
+  case hungarian // = 14
+
+  ///Greek
+  case greek // = 15
+
+  ///Lithuanian
+  case lithuanian // = 16
+
+  ///Latvian
+  case latvian // = 17
+
+  ///Estonian
+  case estonian // = 18
+
+  ///Bulgarian
+  case bulgarian // = 19
+
+  ///Malay language
+  case malay // = 20
+
+  ///Indonesian
+  case indonesian // = 21
+
+  ///Thailand
+  case thailand // = 22
+
+  ///Vietnamese
+  case vietnamese // = 23
+
+  ///Hebrew
+  case hebrew // = 24
+
+  /// Devagna
+  case devanagari // = 25
+
+  ///Turkish
+  case turkey // = 26
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -910,6 +955,21 @@ public enum language: SwiftProtobuf.Enum {
     case 9: self = .french
     case 10: self = .korean
     case 11: self = .polish
+    case 12: self = .czech
+    case 13: self = .slovak
+    case 14: self = .hungarian
+    case 15: self = .greek
+    case 16: self = .lithuanian
+    case 17: self = .latvian
+    case 18: self = .estonian
+    case 19: self = .bulgarian
+    case 20: self = .malay
+    case 21: self = .indonesian
+    case 22: self = .thailand
+    case 23: self = .vietnamese
+    case 24: self = .hebrew
+    case 25: self = .devanagari
+    case 26: self = .turkey
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -928,6 +988,21 @@ public enum language: SwiftProtobuf.Enum {
     case .french: return 9
     case .korean: return 10
     case .polish: return 11
+    case .czech: return 12
+    case .slovak: return 13
+    case .hungarian: return 14
+    case .greek: return 15
+    case .lithuanian: return 16
+    case .latvian: return 17
+    case .estonian: return 18
+    case .bulgarian: return 19
+    case .malay: return 20
+    case .indonesian: return 21
+    case .thailand: return 22
+    case .vietnamese: return 23
+    case .hebrew: return 24
+    case .devanagari: return 25
+    case .turkey: return 26
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -951,6 +1026,21 @@ extension language: CaseIterable {
     .french,
     .korean,
     .polish,
+    .czech,
+    .slovak,
+    .hungarian,
+    .greek,
+    .lithuanian,
+    .latvian,
+    .estonian,
+    .bulgarian,
+    .malay,
+    .indonesian,
+    .thailand,
+    .vietnamese,
+    .hebrew,
+    .devanagari,
+    .turkey,
   ]
 }
 
@@ -3628,6 +3718,21 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     9: .same(proto: "FRENCH"),
     10: .same(proto: "KOREAN"),
     11: .same(proto: "POLISH"),
+    12: .same(proto: "CZECH"),
+    13: .same(proto: "SLOVAK"),
+    14: .same(proto: "HUNGARIAN"),
+    15: .same(proto: "GREEK"),
+    16: .same(proto: "LITHUANIAN"),
+    17: .same(proto: "LATVIAN"),
+    18: .same(proto: "ESTONIAN"),
+    19: .same(proto: "BULGARIAN"),
+    20: .same(proto: "MALAY"),
+    21: .same(proto: "INDONESIAN"),
+    22: .same(proto: "THAILAND"),
+    23: .same(proto: "VIETNAMESE"),
+    24: .same(proto: "HEBREW"),
+    25: .same(proto: "DEVANAGARI"),
+    26: .same(proto: "TURKEY"),
   ]
 }
 
@@ -4051,3 +4156,4 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     18: .same(proto: "APP_LIST_SETTINGS"),
   ]
 }
+

@@ -41,41 +41,178 @@ public struct protocol_language_inquire_reply {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes operation type 0: invalid operation 1: query 2: set
-  public var operate: operate_type = .invalid
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
 
-  public var curLanguage: language = .langInvalid
+  public var curLanguage: language {
+    get {return _storage._curLanguage}
+    set {_uniqueStorage()._curLanguage = newValue}
+  }
 
   ///1bytes Chinese
-  public var chineseSupport: Bool = false
+  public var chineseSupport: Bool {
+    get {return _storage._chineseSupport}
+    set {_uniqueStorage()._chineseSupport = newValue}
+  }
 
   ///1bytes English
-  public var englishSupport: Bool = false
+  public var englishSupport: Bool {
+    get {return _storage._englishSupport}
+    set {_uniqueStorage()._englishSupport = newValue}
+  }
 
   ///1bytes German
-  public var germanSupport: Bool = false
+  public var germanSupport: Bool {
+    get {return _storage._germanSupport}
+    set {_uniqueStorage()._germanSupport = newValue}
+  }
 
   ///1bytes Spanish
-  public var spanishSupport: Bool = false
+  public var spanishSupport: Bool {
+    get {return _storage._spanishSupport}
+    set {_uniqueStorage()._spanishSupport = newValue}
+  }
 
   ///1bytes Italian
-  public var italianSupport: Bool = false
+  public var italianSupport: Bool {
+    get {return _storage._italianSupport}
+    set {_uniqueStorage()._italianSupport = newValue}
+  }
 
   ///1bytes Japanese
-  public var japaneseSupport: Bool = false
+  public var janpaneseSupport: Bool {
+    get {return _storage._janpaneseSupport}
+    set {_uniqueStorage()._janpaneseSupport = newValue}
+  }
 
   ///1bytes Russian
-  public var russianSupport: Bool = false
+  public var russianSupport: Bool {
+    get {return _storage._russianSupport}
+    set {_uniqueStorage()._russianSupport = newValue}
+  }
 
   ///1bytes Portuguese
-  public var portugueseSupport: Bool = false
+  public var portugueseSupport: Bool {
+    get {return _storage._portugueseSupport}
+    set {_uniqueStorage()._portugueseSupport = newValue}
+  }
 
   ///1bytes French
-  public var frenchSupport: Bool = false
+  public var frenchSupport: Bool {
+    get {return _storage._frenchSupport}
+    set {_uniqueStorage()._frenchSupport = newValue}
+  }
+
+  ///1bytes Korean
+  public var koreanSupport: Bool {
+    get {return _storage._koreanSupport}
+    set {_uniqueStorage()._koreanSupport = newValue}
+  }
+
+  ///1bytes Polish
+  public var polishSupport: Bool {
+    get {return _storage._polishSupport}
+    set {_uniqueStorage()._polishSupport = newValue}
+  }
+
+  ///1bytes Czech
+  public var czechSupport: Bool {
+    get {return _storage._czechSupport}
+    set {_uniqueStorage()._czechSupport = newValue}
+  }
+
+  ///1bytes Slovak
+  public var slovakSupport: Bool {
+    get {return _storage._slovakSupport}
+    set {_uniqueStorage()._slovakSupport = newValue}
+  }
+
+  ///1bytes Hungarian
+  public var hungarianSupport: Bool {
+    get {return _storage._hungarianSupport}
+    set {_uniqueStorage()._hungarianSupport = newValue}
+  }
+
+  ///1bytes Greek
+  public var greekSupport: Bool {
+    get {return _storage._greekSupport}
+    set {_uniqueStorage()._greekSupport = newValue}
+  }
+
+  ///1bytes Lithuanian
+  public var lithuanianSupport: Bool {
+    get {return _storage._lithuanianSupport}
+    set {_uniqueStorage()._lithuanianSupport = newValue}
+  }
+
+  ///1bytes Latvian
+  public var latvianSupport: Bool {
+    get {return _storage._latvianSupport}
+    set {_uniqueStorage()._latvianSupport = newValue}
+  }
+
+  ///1bytes Estonian
+  public var estonianSupport: Bool {
+    get {return _storage._estonianSupport}
+    set {_uniqueStorage()._estonianSupport = newValue}
+  }
+
+  ///1bytes Bulgarian
+  public var bulgarianSupport: Bool {
+    get {return _storage._bulgarianSupport}
+    set {_uniqueStorage()._bulgarianSupport = newValue}
+  }
+
+  ///1bytes Malay
+  public var malaySupport: Bool {
+    get {return _storage._malaySupport}
+    set {_uniqueStorage()._malaySupport = newValue}
+  }
+
+  ///1bytes Indonesian
+  public var indonesianSupport: Bool {
+    get {return _storage._indonesianSupport}
+    set {_uniqueStorage()._indonesianSupport = newValue}
+  }
+
+  ///1bytes Thai
+  public var thaiSupport: Bool {
+    get {return _storage._thaiSupport}
+    set {_uniqueStorage()._thaiSupport = newValue}
+  }
+
+  ///1bytes Vietnamese
+  public var vietnameseSupport: Bool {
+    get {return _storage._vietnameseSupport}
+    set {_uniqueStorage()._vietnameseSupport = newValue}
+  }
+
+  ///1bytes Hebrew
+  public var hebrewSupport: Bool {
+    get {return _storage._hebrewSupport}
+    set {_uniqueStorage()._hebrewSupport = newValue}
+  }
+
+  ///1bytes Devanagari
+  public var devanagariSupport: Bool {
+    get {return _storage._devanagariSupport}
+    set {_uniqueStorage()._devanagariSupport = newValue}
+  }
+
+  ///1bytes Turkish
+  public var turkeySupport: Bool {
+    get {return _storage._turkeySupport}
+    set {_uniqueStorage()._turkeySupport = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -133,83 +270,271 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     5: .standard(proto: "german_support"),
     6: .standard(proto: "spanish_support"),
     7: .standard(proto: "italian_support"),
-    8: .standard(proto: "japanese_support"),
+    8: .standard(proto: "janpanese_support"),
     9: .standard(proto: "russian_support"),
     10: .standard(proto: "portuguese_support"),
     11: .standard(proto: "french_support"),
+    12: .standard(proto: "korean_support"),
+    13: .standard(proto: "polish_support"),
+    14: .standard(proto: "czech_support"),
+    15: .standard(proto: "slovak_support"),
+    16: .standard(proto: "Hungarian_support"),
+    17: .standard(proto: "greek_support"),
+    18: .standard(proto: "lithuanian_support"),
+    19: .standard(proto: "latvian_support"),
+    20: .standard(proto: "estonian_support"),
+    21: .standard(proto: "bulgarian_support"),
+    22: .standard(proto: "malay_support"),
+    23: .standard(proto: "indonesian_support"),
+    24: .standard(proto: "thai_support"),
+    25: .standard(proto: "vietnamese_support"),
+    26: .standard(proto: "hebrew_support"),
+    27: .standard(proto: "devanagari_support"),
+    28: .standard(proto: "turkey_support"),
   ]
 
+  fileprivate class _StorageClass {
+    var _operate: operate_type = .invalid
+    var _curLanguage: language = .langInvalid
+    var _chineseSupport: Bool = false
+    var _englishSupport: Bool = false
+    var _germanSupport: Bool = false
+    var _spanishSupport: Bool = false
+    var _italianSupport: Bool = false
+    var _janpaneseSupport: Bool = false
+    var _russianSupport: Bool = false
+    var _portugueseSupport: Bool = false
+    var _frenchSupport: Bool = false
+    var _koreanSupport: Bool = false
+    var _polishSupport: Bool = false
+    var _czechSupport: Bool = false
+    var _slovakSupport: Bool = false
+    var _hungarianSupport: Bool = false
+    var _greekSupport: Bool = false
+    var _lithuanianSupport: Bool = false
+    var _latvianSupport: Bool = false
+    var _estonianSupport: Bool = false
+    var _bulgarianSupport: Bool = false
+    var _malaySupport: Bool = false
+    var _indonesianSupport: Bool = false
+    var _thaiSupport: Bool = false
+    var _vietnameseSupport: Bool = false
+    var _hebrewSupport: Bool = false
+    var _devanagariSupport: Bool = false
+    var _turkeySupport: Bool = false
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _curLanguage = source._curLanguage
+      _chineseSupport = source._chineseSupport
+      _englishSupport = source._englishSupport
+      _germanSupport = source._germanSupport
+      _spanishSupport = source._spanishSupport
+      _italianSupport = source._italianSupport
+      _janpaneseSupport = source._janpaneseSupport
+      _russianSupport = source._russianSupport
+      _portugueseSupport = source._portugueseSupport
+      _frenchSupport = source._frenchSupport
+      _koreanSupport = source._koreanSupport
+      _polishSupport = source._polishSupport
+      _czechSupport = source._czechSupport
+      _slovakSupport = source._slovakSupport
+      _hungarianSupport = source._hungarianSupport
+      _greekSupport = source._greekSupport
+      _lithuanianSupport = source._lithuanianSupport
+      _latvianSupport = source._latvianSupport
+      _estonianSupport = source._estonianSupport
+      _bulgarianSupport = source._bulgarianSupport
+      _malaySupport = source._malaySupport
+      _indonesianSupport = source._indonesianSupport
+      _thaiSupport = source._thaiSupport
+      _vietnameseSupport = source._vietnameseSupport
+      _hebrewSupport = source._hebrewSupport
+      _devanagariSupport = source._devanagariSupport
+      _turkeySupport = source._turkeySupport
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeSingularEnumField(value: &self.curLanguage) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.chineseSupport) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.englishSupport) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.germanSupport) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.spanishSupport) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.italianSupport) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self.japaneseSupport) }()
-      case 9: try { try decoder.decodeSingularBoolField(value: &self.russianSupport) }()
-      case 10: try { try decoder.decodeSingularBoolField(value: &self.portugueseSupport) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self.frenchSupport) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._curLanguage) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._chineseSupport) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._englishSupport) }()
+        case 5: try { try decoder.decodeSingularBoolField(value: &_storage._germanSupport) }()
+        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._spanishSupport) }()
+        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._italianSupport) }()
+        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._janpaneseSupport) }()
+        case 9: try { try decoder.decodeSingularBoolField(value: &_storage._russianSupport) }()
+        case 10: try { try decoder.decodeSingularBoolField(value: &_storage._portugueseSupport) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._frenchSupport) }()
+        case 12: try { try decoder.decodeSingularBoolField(value: &_storage._koreanSupport) }()
+        case 13: try { try decoder.decodeSingularBoolField(value: &_storage._polishSupport) }()
+        case 14: try { try decoder.decodeSingularBoolField(value: &_storage._czechSupport) }()
+        case 15: try { try decoder.decodeSingularBoolField(value: &_storage._slovakSupport) }()
+        case 16: try { try decoder.decodeSingularBoolField(value: &_storage._hungarianSupport) }()
+        case 17: try { try decoder.decodeSingularBoolField(value: &_storage._greekSupport) }()
+        case 18: try { try decoder.decodeSingularBoolField(value: &_storage._lithuanianSupport) }()
+        case 19: try { try decoder.decodeSingularBoolField(value: &_storage._latvianSupport) }()
+        case 20: try { try decoder.decodeSingularBoolField(value: &_storage._estonianSupport) }()
+        case 21: try { try decoder.decodeSingularBoolField(value: &_storage._bulgarianSupport) }()
+        case 22: try { try decoder.decodeSingularBoolField(value: &_storage._malaySupport) }()
+        case 23: try { try decoder.decodeSingularBoolField(value: &_storage._indonesianSupport) }()
+        case 24: try { try decoder.decodeSingularBoolField(value: &_storage._thaiSupport) }()
+        case 25: try { try decoder.decodeSingularBoolField(value: &_storage._vietnameseSupport) }()
+        case 26: try { try decoder.decodeSingularBoolField(value: &_storage._hebrewSupport) }()
+        case 27: try { try decoder.decodeSingularBoolField(value: &_storage._devanagariSupport) }()
+        case 28: try { try decoder.decodeSingularBoolField(value: &_storage._turkeySupport) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.operate != .invalid {
-      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-    }
-    if self.curLanguage != .langInvalid {
-      try visitor.visitSingularEnumField(value: self.curLanguage, fieldNumber: 2)
-    }
-    if self.chineseSupport != false {
-      try visitor.visitSingularBoolField(value: self.chineseSupport, fieldNumber: 3)
-    }
-    if self.englishSupport != false {
-      try visitor.visitSingularBoolField(value: self.englishSupport, fieldNumber: 4)
-    }
-    if self.germanSupport != false {
-      try visitor.visitSingularBoolField(value: self.germanSupport, fieldNumber: 5)
-    }
-    if self.spanishSupport != false {
-      try visitor.visitSingularBoolField(value: self.spanishSupport, fieldNumber: 6)
-    }
-    if self.italianSupport != false {
-      try visitor.visitSingularBoolField(value: self.italianSupport, fieldNumber: 7)
-    }
-    if self.japaneseSupport != false {
-      try visitor.visitSingularBoolField(value: self.japaneseSupport, fieldNumber: 8)
-    }
-    if self.russianSupport != false {
-      try visitor.visitSingularBoolField(value: self.russianSupport, fieldNumber: 9)
-    }
-    if self.portugueseSupport != false {
-      try visitor.visitSingularBoolField(value: self.portugueseSupport, fieldNumber: 10)
-    }
-    if self.frenchSupport != false {
-      try visitor.visitSingularBoolField(value: self.frenchSupport, fieldNumber: 11)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      if _storage._curLanguage != .langInvalid {
+        try visitor.visitSingularEnumField(value: _storage._curLanguage, fieldNumber: 2)
+      }
+      if _storage._chineseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._chineseSupport, fieldNumber: 3)
+      }
+      if _storage._englishSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._englishSupport, fieldNumber: 4)
+      }
+      if _storage._germanSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._germanSupport, fieldNumber: 5)
+      }
+      if _storage._spanishSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._spanishSupport, fieldNumber: 6)
+      }
+      if _storage._italianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._italianSupport, fieldNumber: 7)
+      }
+      if _storage._janpaneseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._janpaneseSupport, fieldNumber: 8)
+      }
+      if _storage._russianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._russianSupport, fieldNumber: 9)
+      }
+      if _storage._portugueseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._portugueseSupport, fieldNumber: 10)
+      }
+      if _storage._frenchSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._frenchSupport, fieldNumber: 11)
+      }
+      if _storage._koreanSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._koreanSupport, fieldNumber: 12)
+      }
+      if _storage._polishSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._polishSupport, fieldNumber: 13)
+      }
+      if _storage._czechSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._czechSupport, fieldNumber: 14)
+      }
+      if _storage._slovakSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._slovakSupport, fieldNumber: 15)
+      }
+      if _storage._hungarianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hungarianSupport, fieldNumber: 16)
+      }
+      if _storage._greekSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._greekSupport, fieldNumber: 17)
+      }
+      if _storage._lithuanianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._lithuanianSupport, fieldNumber: 18)
+      }
+      if _storage._latvianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._latvianSupport, fieldNumber: 19)
+      }
+      if _storage._estonianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._estonianSupport, fieldNumber: 20)
+      }
+      if _storage._bulgarianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._bulgarianSupport, fieldNumber: 21)
+      }
+      if _storage._malaySupport != false {
+        try visitor.visitSingularBoolField(value: _storage._malaySupport, fieldNumber: 22)
+      }
+      if _storage._indonesianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._indonesianSupport, fieldNumber: 23)
+      }
+      if _storage._thaiSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._thaiSupport, fieldNumber: 24)
+      }
+      if _storage._vietnameseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._vietnameseSupport, fieldNumber: 25)
+      }
+      if _storage._hebrewSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hebrewSupport, fieldNumber: 26)
+      }
+      if _storage._devanagariSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._devanagariSupport, fieldNumber: 27)
+      }
+      if _storage._turkeySupport != false {
+        try visitor.visitSingularBoolField(value: _storage._turkeySupport, fieldNumber: 28)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_language_inquire_reply, rhs: protocol_language_inquire_reply) -> Bool {
-    if lhs.operate != rhs.operate {return false}
-    if lhs.curLanguage != rhs.curLanguage {return false}
-    if lhs.chineseSupport != rhs.chineseSupport {return false}
-    if lhs.englishSupport != rhs.englishSupport {return false}
-    if lhs.germanSupport != rhs.germanSupport {return false}
-    if lhs.spanishSupport != rhs.spanishSupport {return false}
-    if lhs.italianSupport != rhs.italianSupport {return false}
-    if lhs.japaneseSupport != rhs.japaneseSupport {return false}
-    if lhs.russianSupport != rhs.russianSupport {return false}
-    if lhs.portugueseSupport != rhs.portugueseSupport {return false}
-    if lhs.frenchSupport != rhs.frenchSupport {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._curLanguage != rhs_storage._curLanguage {return false}
+        if _storage._chineseSupport != rhs_storage._chineseSupport {return false}
+        if _storage._englishSupport != rhs_storage._englishSupport {return false}
+        if _storage._germanSupport != rhs_storage._germanSupport {return false}
+        if _storage._spanishSupport != rhs_storage._spanishSupport {return false}
+        if _storage._italianSupport != rhs_storage._italianSupport {return false}
+        if _storage._janpaneseSupport != rhs_storage._janpaneseSupport {return false}
+        if _storage._russianSupport != rhs_storage._russianSupport {return false}
+        if _storage._portugueseSupport != rhs_storage._portugueseSupport {return false}
+        if _storage._frenchSupport != rhs_storage._frenchSupport {return false}
+        if _storage._koreanSupport != rhs_storage._koreanSupport {return false}
+        if _storage._polishSupport != rhs_storage._polishSupport {return false}
+        if _storage._czechSupport != rhs_storage._czechSupport {return false}
+        if _storage._slovakSupport != rhs_storage._slovakSupport {return false}
+        if _storage._hungarianSupport != rhs_storage._hungarianSupport {return false}
+        if _storage._greekSupport != rhs_storage._greekSupport {return false}
+        if _storage._lithuanianSupport != rhs_storage._lithuanianSupport {return false}
+        if _storage._latvianSupport != rhs_storage._latvianSupport {return false}
+        if _storage._estonianSupport != rhs_storage._estonianSupport {return false}
+        if _storage._bulgarianSupport != rhs_storage._bulgarianSupport {return false}
+        if _storage._malaySupport != rhs_storage._malaySupport {return false}
+        if _storage._indonesianSupport != rhs_storage._indonesianSupport {return false}
+        if _storage._thaiSupport != rhs_storage._thaiSupport {return false}
+        if _storage._vietnameseSupport != rhs_storage._vietnameseSupport {return false}
+        if _storage._hebrewSupport != rhs_storage._hebrewSupport {return false}
+        if _storage._devanagariSupport != rhs_storage._devanagariSupport {return false}
+        if _storage._turkeySupport != rhs_storage._turkeySupport {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

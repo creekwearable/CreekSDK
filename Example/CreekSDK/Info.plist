@@ -26,6 +26,8 @@
 	<string>\"xxxxx\" needs to access your Bluetooth to connect external devices for communication</string>
 	<key>NSCameraUsageDescription</key>
 	<string>\"xxxxx\" needs to access your</string>
+	<key>NSContactsUsageDescription</key>
+	<string>\"xxxxx\" needs to access your contacts to enable features like call notifications and Bluetooth calling on your watch</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>\"xxxxx\" needs to access your</string>
 	<key>UIBackgroundModes</key>
