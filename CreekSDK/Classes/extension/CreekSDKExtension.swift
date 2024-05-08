@@ -288,12 +288,12 @@ extension CreekSDK{
     ///       -id: DeviceModel.id
     ///       -code:pairing code
     /// - Returns:LanguageModel
-    public func bindingDevice(bindType:BindType,id:String?,code:String?,success:@escaping successBase,failure:@escaping failureBase) {
+   public func bindingDevice(bindType:BindType,id:String?,code:String?,saveDate:Bool = false,success:@escaping successBase,failure:@escaping failureBase) {
         requestId+=1
         successDic["bindDevice\(requestId)"] = success;
         failureDic["bindDevice\(requestId)"] = failure
        
-        let dic:[String:Any?] = ["bindType":bindType.rawValue,"address":id,"pairCode":code]
+       let dic:[String:Any?] = ["bindType":bindType.rawValue,"address":id,"pairCode":code,"saveDate":saveDate ? 1 : 0]
         do{
           let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
           if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
@@ -600,7 +600,13 @@ extension CreekSDK{
 
         }
     }
-    
+   
+   public func setStopPhone(success:@escaping successBase,failure:@escaping failureArgument) {
+       requestId+=1
+       successDic["setStopPhone\(requestId)"] = success;
+       failureArgumentDic["setStopPhone\(requestId)"] = failure
+       methodChannel?.invokeMethod("setStopPhone\(requestId)", arguments: "")
+   }
     
 
 //    public func getVoice(model:@escaping ((_ model:protocol_voice_assistant_inquire_reply) -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {

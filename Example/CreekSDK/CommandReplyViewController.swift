@@ -400,6 +400,10 @@ class CommandReplyViewController: CreekBaseViewController {
         case "Message switch setting":
             var data =  protocol_message_notify_switch()
             data.notifySwitch = true
+           var item = protocol_message_notify_switch_item()
+           item.remindType = .qq
+           item.notifyFlag = .allow
+           data.items.append(item)
             CreekInterFace.instance.setMessageOnOff(model: data) {
                 self.view.hideRemark()
                 self.textView.text = "success"

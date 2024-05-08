@@ -11,5 +11,6 @@ public class NoticeUpdateModel: Codable {
     
     public var eventId: eventIdType = .EVENT_ID_NULL
     public var eventKey: Int = 0
+    public var eventValue: Int = 0
     
 }

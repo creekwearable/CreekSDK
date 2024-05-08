@@ -75,6 +75,35 @@ extension protocol_alarm_inquire_reply{
    
 }
 
+class UserInfoTable: NSObject {
+    ///Whether to support wind speed unit
+    var wind_speed_unit = false
+    
+    ///Whether to support visibility units
+    var visibility_unit = false
+    
+}
+
+extension protocol_user_info_inquire_reply{
+   
+   func fromTable() -> UserInfoTable {
+       let userInfoTable = UserInfoTable()
+       let str = Int(funcTable).decimalToBinary()
+       if let firstChar = str[safe: 0] {
+           if let intValue = Int(String(firstChar)) {
+              userInfoTable.wind_speed_unit = (intValue == 1)
+           }
+       }
+       if let secondChar = str[safe: 1] {
+           if let intValue = Int(String(secondChar)) {
+              userInfoTable.visibility_unit = (intValue == 1)
+           }
+       }
+       return userInfoTable
+   }
+   
+}
+
 
 extension Int{
     func decimalToBinary() -> String {

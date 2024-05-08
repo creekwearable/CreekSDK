@@ -92,6 +92,12 @@ public struct protocol_perferences {
   ///1bytes altitude unit 0x00: invalid 0x01, meter m 0x02, feet ft
   public var altitudeUnit: UInt32 = 0
 
+  ///1bytes wind speed unit 0x00: invalid 0x01, meter/second (m/s) 0x02, kilometers/hour (km/h)
+  public var windSpeedUnit: UInt32 = 0
+
+  ///1bytes visibility unit 0x00: invalid 0x01, meter (m) 0x02, kilometers (km) 0x03, miles (mi)
+  public var visibilityUnit: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -315,6 +321,8 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     11: .standard(proto: "stride_unit"),
     12: .standard(proto: "height_unit"),
     13: .standard(proto: "altitude_unit"),
+    14: .standard(proto: "wind_speed_unit"),
+    15: .standard(proto: "visibility_unit"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -336,6 +344,8 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       case 11: try { try decoder.decodeSingularUInt32Field(value: &self.strideUnit) }()
       case 12: try { try decoder.decodeSingularUInt32Field(value: &self.heightUnit) }()
       case 13: try { try decoder.decodeSingularUInt32Field(value: &self.altitudeUnit) }()
+      case 14: try { try decoder.decodeSingularUInt32Field(value: &self.windSpeedUnit) }()
+      case 15: try { try decoder.decodeSingularUInt32Field(value: &self.visibilityUnit) }()
       default: break
       }
     }
@@ -381,6 +391,12 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if self.altitudeUnit != 0 {
       try visitor.visitSingularUInt32Field(value: self.altitudeUnit, fieldNumber: 13)
     }
+    if self.windSpeedUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.windSpeedUnit, fieldNumber: 14)
+    }
+    if self.visibilityUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.visibilityUnit, fieldNumber: 15)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -398,6 +414,8 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if lhs.strideUnit != rhs.strideUnit {return false}
     if lhs.heightUnit != rhs.heightUnit {return false}
     if lhs.altitudeUnit != rhs.altitudeUnit {return false}
+    if lhs.windSpeedUnit != rhs.windSpeedUnit {return false}
+    if lhs.visibilityUnit != rhs.visibilityUnit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

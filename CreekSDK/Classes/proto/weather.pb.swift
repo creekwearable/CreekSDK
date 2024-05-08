@@ -240,7 +240,7 @@ public struct protocol_weather_detail_data_item {
     set {_uniqueStorage()._atmosHpa = newValue}
   }
 
-  ////max:24 Real-time UV intensity 24 hours
+  ///max:24 Real-time UV intensity 24 hours
   public var uvItems: [UInt32] {
     get {return _storage._uvItems}
     set {_uniqueStorage()._uvItems = newValue}
@@ -256,6 +256,24 @@ public struct protocol_weather_detail_data_item {
   public var sunriseItems: [protocol_weather_sunrise_item] {
     get {return _storage._sunriseItems}
     set {_uniqueStorage()._sunriseItems = newValue}
+  }
+
+  ///max:48 future sea level atmospheric pressure value * 100
+  public var atmosHpaItems: [UInt32] {
+    get {return _storage._atmosHpaItems}
+    set {_uniqueStorage()._atmosHpaItems = newValue}
+  }
+
+  ///4bytes visibility unit: meters
+  public var visibility: UInt32 {
+    get {return _storage._visibility}
+    set {_uniqueStorage()._visibility = newValue}
+  }
+
+  ///1bytes visibility level
+  public var visibilityLevel: UInt32 {
+    get {return _storage._visibilityLevel}
+    set {_uniqueStorage()._visibilityLevel = newValue}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -530,6 +548,9 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
     23: .standard(proto: "uv_items"),
     24: .standard(proto: "moon_item"),
     25: .standard(proto: "sunrise_items"),
+    26: .standard(proto: "atmos_hpa_items"),
+    27: .same(proto: "visibility"),
+    28: .standard(proto: "visibility_level"),
   ]
 
   fileprivate class _StorageClass {
@@ -558,6 +579,9 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
     var _uvItems: [UInt32] = []
     var _moonItem: [protocol_weather_moon_item] = []
     var _sunriseItems: [protocol_weather_sunrise_item] = []
+    var _atmosHpaItems: [UInt32] = []
+    var _visibility: UInt32 = 0
+    var _visibilityLevel: UInt32 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -589,6 +613,9 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
       _uvItems = source._uvItems
       _moonItem = source._moonItem
       _sunriseItems = source._sunriseItems
+      _atmosHpaItems = source._atmosHpaItems
+      _visibility = source._visibility
+      _visibilityLevel = source._visibilityLevel
     }
   }
 
@@ -632,6 +659,9 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
         case 23: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._uvItems) }()
         case 24: try { try decoder.decodeRepeatedMessageField(value: &_storage._moonItem) }()
         case 25: try { try decoder.decodeRepeatedMessageField(value: &_storage._sunriseItems) }()
+        case 26: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._atmosHpaItems) }()
+        case 27: try { try decoder.decodeSingularUInt32Field(value: &_storage._visibility) }()
+        case 28: try { try decoder.decodeSingularUInt32Field(value: &_storage._visibilityLevel) }()
         default: break
         }
       }
@@ -719,6 +749,15 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
       if !_storage._sunriseItems.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._sunriseItems, fieldNumber: 25)
       }
+      if !_storage._atmosHpaItems.isEmpty {
+        try visitor.visitPackedUInt32Field(value: _storage._atmosHpaItems, fieldNumber: 26)
+      }
+      if _storage._visibility != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._visibility, fieldNumber: 27)
+      }
+      if _storage._visibilityLevel != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._visibilityLevel, fieldNumber: 28)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -753,6 +792,9 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
         if _storage._uvItems != rhs_storage._uvItems {return false}
         if _storage._moonItem != rhs_storage._moonItem {return false}
         if _storage._sunriseItems != rhs_storage._sunriseItems {return false}
+        if _storage._atmosHpaItems != rhs_storage._atmosHpaItems {return false}
+        if _storage._visibility != rhs_storage._visibility {return false}
+        if _storage._visibilityLevel != rhs_storage._visibilityLevel {return false}
         return true
       }
       if !storagesAreEqual {return false}
