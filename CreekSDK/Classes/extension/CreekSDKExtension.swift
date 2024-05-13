@@ -1492,6 +1492,32 @@ extension CreekSDK{
        methodChannel?.invokeMethod("requestPhoneBookPermissions\(requestId)", arguments: "")
    }
    
+   public func getOTAUpgradeVersion(model:@escaping valueBase){
+       requestId+=1
+       valueClosureDic["getOTAUpgradeVersion\(requestId)"] = model
+       methodChannel?.invokeMethod("getOTAUpgradeVersion\(requestId)", arguments: "")
+   }
+   
+   public func getOTAUpgradeState(fileName:String,fileData:Data,model:@escaping upgradeStateBase,failure:@escaping failureArgument){
+       requestId+=1
+       upgradeStateClosureDic["getOTAUpgradeState\(requestId)"] = model
+       failureArgumentDic["getOTAUpgradeState\(requestId)"]=failure
+      var intArray: [Int] = []
+      fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+          let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
+          intArray = Array(buffer).map { Int($0) }
+      }
+      let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
+      do{
+        let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+            methodChannel?.invokeMethod("getOTAUpgradeState\(requestId)", arguments: JSONString)
+        }
+      }catch{
+         print("Error converting string to dictionary: \(error.localizedDescription)")
+      }
+   }
+   
     
     
     

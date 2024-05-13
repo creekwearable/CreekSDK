@@ -90,6 +90,8 @@
 		079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */; };
 		079A21E12B29B0FA00F5D013 /* ScanDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */; };
 		079A21E22B29B0FA00F5D013 /* CommandReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */; };
+		07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */; };
+		07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07A73BB32BF211C0007EFFB3 /* titan.zip */; };
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
 		07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */; };
 		07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */; };
@@ -188,6 +190,8 @@
 		079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonyBaseViewController.swift; sourceTree = "<group>"; };
 		079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
 		079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandReplyViewController.swift; sourceTree = "<group>"; };
+		07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeModel.swift; sourceTree = "<group>"; };
+		07A73BB32BF211C0007EFFB3 /* titan.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = titan.zip; sourceTree = "<group>"; };
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialDetailsViewController.swift; sourceTree = "<group>"; };
 		07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBSlideBar.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 				07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */,
 				07941D292BCBE0CB00CBFB62 /* DialPhotoParseModel.swift */,
 				0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */,
+				07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 		607FACD21AFB9204008FA782 /* Example for CreekSDK */ = {
 			isa = PBXGroup;
 			children = (
+				07A73BB32BF211C0007EFFB3 /* titan.zip */,
 				07941D352BCEB4BB00CBFB62 /* squarePhoto.zip */,
 				07941D2B2BCBE58000CBFB62 /* circlePhoto.zip */,
 				07985ACF2BA0816700F8EE01 /* Act06_1201_03.zip */,
@@ -507,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */,
 				07985AD32BA0816700F8EE01 /* Fun_061211_05_2.zip in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				077A60B62B67AB8F00AFEB2B /* acti06_2.zip in Resources */,
@@ -623,6 +630,7 @@
 			files = (
 				079A21822B29A72A00F5D013 /* ActivityModel.swift in Sources */,
 				079A21D02B29A74300F5D013 /* event.pb.swift in Sources */,
+				07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */,
 				079A21782B29A72A00F5D013 /* StressModel.swift in Sources */,
 				079A21BC2B29A74300F5D013 /* system.pb.swift in Sources */,
 				079A21B22B29A74300F5D013 /* weather.pb.swift in Sources */,

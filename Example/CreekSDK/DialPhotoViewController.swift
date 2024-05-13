@@ -161,7 +161,6 @@ class DialPhotoViewController: CreekBaseViewController,CropViewControllerDelegat
             photoView.cornerRadius = FBScale(CGFloat(cornerRadius))
             photoView.itemsTitle = mode.photoImagePaths
             
-    
             photoView.slideBarItemSelected(index: mode.photoSelectIndex ?? 0)
             
             if let data = Data(base64Encoded: mode.previewImageBytes ?? "", options: .ignoreUnknownCharacters) {

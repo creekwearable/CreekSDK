@@ -68,6 +68,8 @@ public typealias parsePhotoDialBase = (_ model:DialPhotoParseModel) -> ()
 public typealias previewImageBase = (_ model:Data) -> ()
 public typealias dialDataBase = (_ model:Data) -> ()
 public typealias boolBase = (_ model:Bool) -> ()
+public typealias valueBase = (_ model:Int) -> ()
+public typealias upgradeStateBase = (_ model:UpgradeModel) -> ()
 
 public typealias gpsBase = () -> (EphemerisGPSModel)
 
@@ -145,6 +147,9 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var hrvsClosureDic:[String:hrvsClosure] = [:]
     var ephemerisClosureDic:[String:ephemerisData] = [:]
     var boolClosureDic:[String:boolBase] = [:]
+   
+    var valueClosureDic:[String:valueBase] = [:]
+    var upgradeStateClosureDic:[String:upgradeStateBase] = [:]
     var logPathClosure:((_ path:String) -> ())?
     var _gpsClosure:gpsBase?
     
@@ -1350,6 +1355,24 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
                  back(response)
                  boolClosureDic.removeValue(forKey: call.method)
               }
+          }
+       }
+       else if(call.method.contains("getOTAUpgradeVersion")){
+          if let response = call.arguments as? Int{
+              if let back = valueClosureDic[call.method]{
+                 back(response)
+                 valueClosureDic.removeValue(forKey: call.method)
+              }
+          }
+       }
+       else if(call.method.contains("getOTAUpgradeState")){
+          if let response = call.arguments as? [String:Any]{
+             if let model = ParseJson.jsonToModel(UpgradeModel.self, response){
+                 if let back = upgradeStateClosureDic[call.method]{
+                     back(model);
+                    upgradeStateClosureDic.removeValue(forKey: call.method)
+                 }
+             }
           }
        }
     }

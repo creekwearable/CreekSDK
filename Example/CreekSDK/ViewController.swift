@@ -57,6 +57,40 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
                 print("file does not exist")
             }
             break
+        case "Upload(zip)":
+           
+           CreekInterFace.instance.getOTAUpgradeVersion { model in
+              print("OTA version：\(model)")
+           }
+        
+            if let path =  Bundle.main.path(forResource: "titan", ofType: "zip"){
+                do {
+                    let fileData:Data = try Data(contentsOf: URL(fileURLWithPath: path))
+                   
+                   CreekInterFace.instance.getOTAUpgradeState(fileName: "titan.zip", fileData: fileData) { model in
+                      print("totalResource:\(model.totalResource ?? 0)  step:\(model.step ?? 0)")
+                      CreekInterFace.instance.upload(fileName: "titan.zip", fileData: fileData) { progress in
+                          print(progress)
+                      } uploadSuccess: {
+                          print("uploadSuccess")
+                      } uploadFailure: { code, message in
+                          print(message)
+                      }
+                   } failure: { code, message in
+                      print(message)
+                   }
+
+                   
+
+                } catch {
+                    print("\(error)")
+                }
+
+
+            }else{
+                print("file does not exist")
+            }
+            break
         case "Binding":
             CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
                 print("Success")
@@ -159,7 +193,7 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         return tab
     }()
     
-    var listCmd:[String] = ["requst contacts permission","Binding", "Get Device Information", "Sync", "Upload", "Get Device Bluetooth Status","connect Bluetooth Status", "Get Language", "Set Language", "Sync Time", "Get Time", "Get User Information", "Set User Information", "Get Alarm Clock", "Set Alarm Clock", "Get Do Not Disturb", "Set Do Not Disturb", "Get Screen Brightness", "Set Screen Brightness", "Get Health Monitoring", " Health monitoring setting", "Sleep monitoring acquisition", "Sleep monitoring setting","Get card", "Set card", "World clock acquisition", "World clock setting", "Message switch query", "Message switch setting", "Set weather", "Incoming call configuration query ","Incoming call configuration settings", "Contacts query", "Contacts settings", "Exercise self-identification query", "Exercise self-identification settings", "Exercise sub-item data query", "Exercise sub-item data setting ","Inquiry about the arrangement order of device exercise","Setting the arrangement order of device exercise","Get the type of exercise supported by the device","Setting the heart rate interval","Delete the dial","Query the dial","Set the dial","System operation ","Query activity data", "Query sleep data", "Query heart rate data", "Query pressure data", "Query noise data", "Query blood oxygen data", "Exercise record list", "Query exercise details" ,"Range query exercise record","Delete exercise record","Get bound device","setDBUserID","rawQueryDB","Off-line ephemeris","ephemeris","phone book","getLogPath","getFirmwareLogPath","getStand","setStand","getWater","setWater","getAppList","setAppList","getFocus","setFocus","functionTable"]
+    var listCmd:[String] = ["requst contacts permission","Binding", "Get Device Information", "Sync", "Upload","Upload(zip)","Get Device Bluetooth Status","connect Bluetooth Status", "Get Language", "Set Language", "Sync Time", "Get Time", "Get User Information", "Set User Information", "Get Alarm Clock", "Set Alarm Clock", "Get Do Not Disturb", "Set Do Not Disturb", "Get Screen Brightness", "Set Screen Brightness", "Get Health Monitoring", "Health monitoring setting", "Sleep monitoring acquisition", "Sleep monitoring setting","Get card", "Set card", "World clock acquisition", "World clock setting", "Message switch query", "Message switch setting", "Set weather", "Incoming call configuration query ","Incoming call configuration settings", "Contacts query", "Contacts settings", "Exercise self-identification query", "Exercise self-identification settings", "Exercise sub-item data query", "Exercise sub-item data setting ","Inquiry about the arrangement order of device exercise","Setting the arrangement order of device exercise","Get the type of exercise supported by the device","Setting the heart rate interval","Delete the dial","Query the dial","Set the dial","System operation ","Query activity data", "Query sleep data", "Query heart rate data", "Query pressure data", "Query noise data", "Query blood oxygen data", "Exercise record list", "Query exercise details" ,"Range query exercise record","Delete exercise record","Get bound device","setDBUserID","rawQueryDB","Off-line ephemeris","ephemeris","phone book","getLogPath","getFirmwareLogPath","getStand","setStand","getWater","setWater","getAppList","setAppList","getFocus","setFocus","functionTable"]
     
     var deviceModel:ScanDeviceModel?
     

@@ -313,8 +313,9 @@ class CommandReplyViewController: CreekBaseViewController {
         case "Health monitoring setting":
             
             var data =  protocol_health_monitor_operate()
-            data.healthType = health_type.heartRate
-            data.measurementInterval = 5
+            data.healthType = health_type.spo2
+           data.defaultMode = .manual
+            data.measurementInterval = 600
             CreekInterFace.instance.setMonitor(model: data) {
                 self.view.hideRemark()
                 self.textView.text = "success"
