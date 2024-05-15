@@ -197,6 +197,7 @@ class CommandReplyViewController: CreekBaseViewController {
                 item.laterRemindRepeatTimes = 1
                 item.vibrateOnOff = true
                 item.name = "abc".data(using: .utf8)!
+                item.laterRemindMin = 10
                 data.alarmItem.append(item)
                if model.fromTable().custom_name_list{
                   data.customNameList.append("hello".data(using: .utf8)!)

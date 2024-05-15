@@ -184,7 +184,8 @@ class DialPhotoViewController: CreekBaseViewController,CropViewControllerDelegat
     
     func setRightBut() {
         let right = UIBarButtonItem(title: "Install", style: .plain, target: self, action: #selector(rightClick))
-        self.navigationItem.rightBarButtonItem = right
+       let right2 = UIBarButtonItem(title: "rem", style: .plain, target: self, action: #selector(rightClick2))
+        self.navigationItem.rightBarButtonItems = [right,right2]
         
     }
 
@@ -205,6 +206,21 @@ class DialPhotoViewController: CreekBaseViewController,CropViewControllerDelegat
         }
        
     }
+   @objc func rightClick2(){
+      if((self.dialParseModel?.photoImagePaths ?? []).count > 1){
+         self.dialParseModel?.photoImagePaths.removeLast()
+         CreekInterFace.instance.setCurrentPhotoBackgroundImagePath(photoImagePaths: self.dialParseModel?.photoImagePaths ?? [], selectIndex: 0) { model in
+             self.dialParseModel = model
+             self.setDialUI()
+         }
+      }else{
+         CreekAlert.alertMsg(exception: "There must be at least one background")
+      }
+      
+      
+     
+      
+   }
     
     func unzipFile(){
         var macAddress = ""
