@@ -200,6 +200,25 @@ extension CreekSDK{
     public func listenDeviceState(listenDeviceState:@escaping (_ status:connectionStatus,_ deviceName:String)->()) {
         _listenDeviceState = listenDeviceState
     }
+   
+   ///MARK :Monitor the status of connected devices
+   /// - Parameter :
+   ///      - listenDeviceState：
+   /// - Returns:
+   public func listenMultipleDeviceState(listenID:String,listenDeviceState:@escaping listenDeviceBase) {
+      listenDeviceClosureDic[listenID] = listenDeviceState
+   }
+   
+   ///MARK :Monitor the status of connected devices
+   /// - Parameter :
+   ///      - listenDeviceState：
+   /// - Returns:
+   public func removeListenMultipleDeviceState(listenID:String) {
+      if let _ = listenDeviceClosureDic[listenID]{
+         listenDeviceClosureDic.removeValue(forKey: listenID)
+      }
+   }
+   
     
     ///MARK :Device bluetooth status
     /// - Parameter :

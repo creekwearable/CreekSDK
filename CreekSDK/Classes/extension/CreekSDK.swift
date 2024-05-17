@@ -70,6 +70,7 @@ public typealias dialDataBase = (_ model:Data) -> ()
 public typealias boolBase = (_ model:Bool) -> ()
 public typealias valueBase = (_ model:Int) -> ()
 public typealias upgradeStateBase = (_ model:UpgradeModel) -> ()
+public typealias listenDeviceBase = (_ status:connectionStatus,_ deviceName:String)->()
 
 public typealias gpsBase = () -> (EphemerisGPSModel)
 
@@ -150,6 +151,7 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
    
     var valueClosureDic:[String:valueBase] = [:]
     var upgradeStateClosureDic:[String:upgradeStateBase] = [:]
+    var listenDeviceClosureDic:[String:listenDeviceBase] = [:]
     var logPathClosure:((_ path:String) -> ())?
     var _gpsClosure:gpsBase?
     
@@ -303,6 +305,11 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
                         if let listenDeviceState = _listenDeviceState{
                             listenDeviceState(cStatus, deviceName ?? "")
                         }
+                       if !listenDeviceClosureDic.isEmpty {
+                          listenDeviceClosureDic.forEach { (key: String, value: listenDeviceBase) in
+                             value(cStatus, deviceName ?? "")
+                          }
+                       }
                     }
                     
                 }catch{

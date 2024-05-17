@@ -270,8 +270,8 @@ public struct protocol_weather_detail_data_item {
     set {_uniqueStorage()._visibility = newValue}
   }
 
-  ///1bytes visibility level
-  public var visibilityLevel: UInt32 {
+  ///max:30 visibility level text
+  public var visibilityLevel: Data {
     get {return _storage._visibilityLevel}
     set {_uniqueStorage()._visibilityLevel = newValue}
   }
@@ -581,7 +581,7 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
     var _sunriseItems: [protocol_weather_sunrise_item] = []
     var _atmosHpaItems: [UInt32] = []
     var _visibility: UInt32 = 0
-    var _visibilityLevel: UInt32 = 0
+    var _visibilityLevel: Data = Data()
 
     static let defaultInstance = _StorageClass()
 
@@ -661,7 +661,7 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
         case 25: try { try decoder.decodeRepeatedMessageField(value: &_storage._sunriseItems) }()
         case 26: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._atmosHpaItems) }()
         case 27: try { try decoder.decodeSingularUInt32Field(value: &_storage._visibility) }()
-        case 28: try { try decoder.decodeSingularUInt32Field(value: &_storage._visibilityLevel) }()
+        case 28: try { try decoder.decodeSingularBytesField(value: &_storage._visibilityLevel) }()
         default: break
         }
       }
@@ -755,8 +755,8 @@ extension protocol_weather_detail_data_item: SwiftProtobuf.Message, SwiftProtobu
       if _storage._visibility != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._visibility, fieldNumber: 27)
       }
-      if _storage._visibilityLevel != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._visibilityLevel, fieldNumber: 28)
+      if !_storage._visibilityLevel.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._visibilityLevel, fieldNumber: 28)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
