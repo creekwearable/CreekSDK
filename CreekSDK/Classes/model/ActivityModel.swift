@@ -42,6 +42,9 @@ public class ActivityModel: Codable {
     public  var total_floors_climbed: Int? = 0
     public var uploadStatus: Int?
     
+   ///Standing details, the array length is 24, 0 and 1 represent whether
+    public var stand_details : [Int]?
+    
     
     
     ///One data item is generated every 15 minutes the time when the last piece of data is generated can be obtained

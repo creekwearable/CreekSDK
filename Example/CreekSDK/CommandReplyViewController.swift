@@ -239,11 +239,10 @@ class CommandReplyViewController: CreekBaseViewController {
          model.num = 1
          var b = protocol_set_disturb_item()
          b.disturbID = 0
-         b.switchFlag = false
-         b.startHour = 0
-         b.endHour = 23
+         b.switchFlag = true
+         b.startHour = 15
+         b.endHour = 16
          b.endMinute = 59
-         b.repeat = [true,true,true,true,true,true,true]
          model.disturbItem = [b]
          
          CreekInterFace.instance.setDisturb(model: model) {
@@ -696,7 +695,7 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
       case "Query activity data":
-         CreekInterFace.instance.getActivityNewTimeData(startTime: "2023-10-21", endTime: "2023-10-22") { model in
+         CreekInterFace.instance.getActivityNewTimeData(startTime: "2024-05-24", endTime: "2024-05-24") { model in
             if model.code == 0{
                self.view.hideRemark()
                self.textView.text = "success"
