@@ -94,8 +94,12 @@ extension CreekSDK{
     /// - Returns:
     public func getFirmware(model:@escaping firmwareBase,failure:@escaping failureArgument) {
         requestId+=1
-        firmwareDic["getFirmware\(requestId)"] = model
-        failureArgumentDic["getFirmware\(requestId)"] = failure
+        var firmwareDicCopy = firmwareDic
+        firmwareDicCopy["getFirmware\(requestId)"] = model
+        firmwareDic = firmwareDicCopy
+        var failureArgumentDicCopy = failureArgumentDic
+        failureArgumentDicCopy["getFirmware\(requestId)"] = failure
+        failureArgumentDic = failureArgumentDicCopy
         methodChannel?.invokeMethod("getFirmware\(requestId)", arguments: "")
     }
     public func getSNFirmware(model:protocol_device_info,sn:@escaping SNFirmwareBase) {
@@ -144,7 +148,6 @@ extension CreekSDK{
             let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
             intArray = Array(buffer).map { Int($0) }
         }
-        
         let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
         do{
           let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))

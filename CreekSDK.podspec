@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.12'
+    s.version          = '0.1.13'
     s.summary          = 'A short description of CreekSDK.'
     
     # This description is used to generate tags and improve search results.
