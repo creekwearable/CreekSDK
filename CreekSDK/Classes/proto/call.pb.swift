@@ -20,16 +20,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-///Incoming call configuration
+///Call configuration
 public struct protocol_call_switch {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes operation type 0: invalid operation 1: query 2: set
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
   public var operate: operate_type = .invalid
 
-  ///1byte call switch true on false off
+  ///1bytes call switch true open false close
   public var callSwitch: Bool = false
 
   ///1bytes call delay in seconds
@@ -45,10 +45,10 @@ public struct protocol_call_switch_inquire_reply {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes operation type 0: invalid operation 1: query 2: set
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
   public var operate: operate_type = .invalid
 
-  ///1byte call switch true on false off
+  ///1bytes call switch true open false close
   public var callSwitch: Bool = false
 
   ///1bytes call delay in seconds
@@ -59,23 +59,17 @@ public struct protocol_call_switch_inquire_reply {
   public init() {}
 }
 
-///incoming call
+///Call reminder
 public struct protocol_call_remind {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///2bytes contact length
-  public var contactLen: UInt32 = 0
+  /// max:64 contact name
+  public var contactName: Data = Data()
 
-  /// contact name
-  public var contactText: String = String()
-
-  ///2bytes length of phone number
-  public var phoneNumberLen: UInt32 = 0
-
-  ///max:32 phone number
-  public var phoneNumber: String = String()
+  /// max:32 Phone number
+  public var phoneNumber: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -88,7 +82,10 @@ public struct protocol_call_remind_status {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes incoming call status
+  ///Transmission direction
+  public var tranType: tran_direction_type = .watchTran
+
+  ///1bytes Call status
   public var status: call_status = .receivedCall
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -196,10 +193,8 @@ extension protocol_call_switch_inquire_reply: SwiftProtobuf.Message, SwiftProtob
 extension protocol_call_remind: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_call_remind"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "contact_len"),
-    2: .standard(proto: "contact_text"),
-    3: .standard(proto: "phone_number_len"),
-    4: .standard(proto: "phone_number"),
+    1: .standard(proto: "contact_name"),
+    2: .standard(proto: "phone_number"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -208,35 +203,25 @@ extension protocol_call_remind: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.contactLen) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.contactText) }()
-      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.phoneNumberLen) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.phoneNumber) }()
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.contactName) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.phoneNumber) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.contactLen != 0 {
-      try visitor.visitSingularUInt32Field(value: self.contactLen, fieldNumber: 1)
-    }
-    if !self.contactText.isEmpty {
-      try visitor.visitSingularStringField(value: self.contactText, fieldNumber: 2)
-    }
-    if self.phoneNumberLen != 0 {
-      try visitor.visitSingularUInt32Field(value: self.phoneNumberLen, fieldNumber: 3)
+    if !self.contactName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.contactName, fieldNumber: 1)
     }
     if !self.phoneNumber.isEmpty {
-      try visitor.visitSingularStringField(value: self.phoneNumber, fieldNumber: 4)
+      try visitor.visitSingularBytesField(value: self.phoneNumber, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_call_remind, rhs: protocol_call_remind) -> Bool {
-    if lhs.contactLen != rhs.contactLen {return false}
-    if lhs.contactText != rhs.contactText {return false}
-    if lhs.phoneNumberLen != rhs.phoneNumberLen {return false}
+    if lhs.contactName != rhs.contactName {return false}
     if lhs.phoneNumber != rhs.phoneNumber {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -246,7 +231,8 @@ extension protocol_call_remind: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 extension protocol_call_remind_status: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_call_remind_status"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
+    1: .standard(proto: "tran_type"),
+    2: .same(proto: "status"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -255,20 +241,25 @@ extension protocol_call_remind_status: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.status) }()
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.status) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
     if self.status != .receivedCall {
-      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 1)
+      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_call_remind_status, rhs: protocol_call_remind_status) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
     if lhs.status != rhs.status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

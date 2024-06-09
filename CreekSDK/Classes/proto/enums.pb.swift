@@ -158,6 +158,48 @@ extension Shape: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+public enum tran_direction_type: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+
+  case watchTran // = 0
+
+  case appTran // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .watchTran
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .watchTran
+    case 1: self = .appTran
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .watchTran: return 0
+    case .appTran: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension tran_direction_type: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [tran_direction_type] = [
+    .watchTran,
+    .appTran,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public enum Dev_type: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
@@ -3647,6 +3689,7 @@ extension app_list: CaseIterable {
 extension operate_type: @unchecked Sendable {}
 extension Platform: @unchecked Sendable {}
 extension Shape: @unchecked Sendable {}
+extension tran_direction_type: @unchecked Sendable {}
 extension Dev_type: @unchecked Sendable {}
 extension Batt_mode: @unchecked Sendable {}
 extension Batt_status: @unchecked Sendable {}
@@ -3707,6 +3750,13 @@ extension Shape: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SQUARE_SHAPE"),
     1: .same(proto: "ROUND_SHAPE"),
+  ]
+}
+
+extension tran_direction_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "WATCH_TRAN"),
+    1: .same(proto: "APP_TRAN"),
   ]
 }
 
