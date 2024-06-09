@@ -695,7 +695,7 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
       case "Query activity data":
-         CreekInterFace.instance.getActivityNewTimeData(startTime: "2024-05-24", endTime: "2024-05-24") { model in
+         CreekInterFace.instance.getActivityNewTimeData(startTime: "2024-05-24", endTime: "2024-07-24") { model in
             if model.code == 0{
                self.view.hideRemark()
                self.textView.text = "success"

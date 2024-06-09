@@ -3043,7 +3043,39 @@ public enum message_remind_type: SwiftProtobuf.Enum {
   case amazonShopping // = 31
   case spotify // = 32
   case discord // = 33
+
+  ///其他类型
   case ohter // = 34
+  case dailyhunt // = 35
+  case fastrackSmartWorld // = 36
+  case inshorts // = 37
+  case ola // = 38
+  case phonepe // = 39
+  case swiggy // = 40
+  case zomato // = 41
+  case amazonprime // = 42
+  case amazonBusiness // = 43
+  case amazonMusic // = 44
+  case dunzo // = 45
+  case zepto // = 46
+  case flipkart // = 47
+  case gaana // = 48
+  case googleDrive // = 49
+  case gpay // = 50
+  case hotstar // = 51
+  case netflix // = 52
+  case jioCinema // = 53
+  case rapido // = 54
+  case digiLocker // = 55
+  case myntra // = 56
+  case urbanCompany // = 57
+  case paytm // = 58
+  case wynk // = 59
+  case yahoo // = 60
+  case ytmusic // = 61
+  case titanSmartWorld // = 62
+  case makeMyTrip // = 63
+  case jioTv // = 64
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3087,6 +3119,36 @@ public enum message_remind_type: SwiftProtobuf.Enum {
     case 32: self = .spotify
     case 33: self = .discord
     case 34: self = .ohter
+    case 35: self = .dailyhunt
+    case 36: self = .fastrackSmartWorld
+    case 37: self = .inshorts
+    case 38: self = .ola
+    case 39: self = .phonepe
+    case 40: self = .swiggy
+    case 41: self = .zomato
+    case 42: self = .amazonprime
+    case 43: self = .amazonBusiness
+    case 44: self = .amazonMusic
+    case 45: self = .dunzo
+    case 46: self = .zepto
+    case 47: self = .flipkart
+    case 48: self = .gaana
+    case 49: self = .googleDrive
+    case 50: self = .gpay
+    case 51: self = .hotstar
+    case 52: self = .netflix
+    case 53: self = .jioCinema
+    case 54: self = .rapido
+    case 55: self = .digiLocker
+    case 56: self = .myntra
+    case 57: self = .urbanCompany
+    case 58: self = .paytm
+    case 59: self = .wynk
+    case 60: self = .yahoo
+    case 61: self = .ytmusic
+    case 62: self = .titanSmartWorld
+    case 63: self = .makeMyTrip
+    case 64: self = .jioTv
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -3128,6 +3190,36 @@ public enum message_remind_type: SwiftProtobuf.Enum {
     case .spotify: return 32
     case .discord: return 33
     case .ohter: return 34
+    case .dailyhunt: return 35
+    case .fastrackSmartWorld: return 36
+    case .inshorts: return 37
+    case .ola: return 38
+    case .phonepe: return 39
+    case .swiggy: return 40
+    case .zomato: return 41
+    case .amazonprime: return 42
+    case .amazonBusiness: return 43
+    case .amazonMusic: return 44
+    case .dunzo: return 45
+    case .zepto: return 46
+    case .flipkart: return 47
+    case .gaana: return 48
+    case .googleDrive: return 49
+    case .gpay: return 50
+    case .hotstar: return 51
+    case .netflix: return 52
+    case .jioCinema: return 53
+    case .rapido: return 54
+    case .digiLocker: return 55
+    case .myntra: return 56
+    case .urbanCompany: return 57
+    case .paytm: return 58
+    case .wynk: return 59
+    case .yahoo: return 60
+    case .ytmusic: return 61
+    case .titanSmartWorld: return 62
+    case .makeMyTrip: return 63
+    case .jioTv: return 64
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -3174,6 +3266,36 @@ extension message_remind_type: CaseIterable {
     .spotify,
     .discord,
     .ohter,
+    .dailyhunt,
+    .fastrackSmartWorld,
+    .inshorts,
+    .ola,
+    .phonepe,
+    .swiggy,
+    .zomato,
+    .amazonprime,
+    .amazonBusiness,
+    .amazonMusic,
+    .dunzo,
+    .zepto,
+    .flipkart,
+    .gaana,
+    .googleDrive,
+    .gpay,
+    .hotstar,
+    .netflix,
+    .jioCinema,
+    .rapido,
+    .digiLocker,
+    .myntra,
+    .urbanCompany,
+    .paytm,
+    .wynk,
+    .yahoo,
+    .ytmusic,
+    .titanSmartWorld,
+    .makeMyTrip,
+    .jioTv,
   ]
 }
 
@@ -4096,6 +4218,36 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     32: .same(proto: "Spotify"),
     33: .same(proto: "Discord"),
     34: .same(proto: "OHTER"),
+    35: .same(proto: "DAILYHUNT"),
+    36: .same(proto: "FASTRACK_SMART_WORLD"),
+    37: .same(proto: "INSHORTS"),
+    38: .same(proto: "OLA"),
+    39: .same(proto: "PHONEPE"),
+    40: .same(proto: "SWIGGY"),
+    41: .same(proto: "ZOMATO"),
+    42: .same(proto: "AMAZONPRIME"),
+    43: .same(proto: "AMAZON_BUSINESS"),
+    44: .same(proto: "AMAZON_MUSIC"),
+    45: .same(proto: "DUNZO"),
+    46: .same(proto: "ZEPTO"),
+    47: .same(proto: "FLIPKART"),
+    48: .same(proto: "GAANA"),
+    49: .same(proto: "GOOGLE_DRIVE"),
+    50: .same(proto: "GPAY"),
+    51: .same(proto: "HOTSTAR"),
+    52: .same(proto: "NETFLIX"),
+    53: .same(proto: "JIO_CINEMA"),
+    54: .same(proto: "RAPIDO"),
+    55: .same(proto: "DIGI_LOCKER"),
+    56: .same(proto: "MYNTRA"),
+    57: .same(proto: "URBAN_COMPANY"),
+    58: .same(proto: "PAYTM"),
+    59: .same(proto: "WYNK"),
+    60: .same(proto: "YAHOO"),
+    61: .same(proto: "YTMUSIC"),
+    62: .same(proto: "TITAN_SMART_WORLD"),
+    63: .same(proto: "MAKE_MY_TRIP"),
+    64: .same(proto: "Jio_TV"),
   ]
 }
 
@@ -4156,4 +4308,3 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     18: .same(proto: "APP_LIST_SETTINGS"),
   ]
 }
-

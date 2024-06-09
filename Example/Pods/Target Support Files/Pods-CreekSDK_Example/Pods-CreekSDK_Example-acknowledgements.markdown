@@ -78,7 +78,7 @@ SOFTWARE.
 
 MIT License
 
-Copyright (c) 2013-2017 Iftekhar Qurashi
+Copyright (c) 2013-2023 Iftekhar Qurashi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -387,7 +387,7 @@ SOFTWARE.
 
 ## Toast-Swift
 
-Copyright (c) 2015-2017 Charles Scalesse.
+Copyright (c) 2015-2024 Charles Scalesse.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
@@ -413,7 +413,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 MIT License
 
-Copyright (c) 2017-2021 Thomas Zoechling (https://www.peakstep.com)
+Copyright (c) 2017-2024 Thomas Zoechling (https://www.peakstep.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

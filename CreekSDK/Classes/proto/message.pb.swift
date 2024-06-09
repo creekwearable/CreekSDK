@@ -207,9 +207,159 @@ public struct protocol_message_notify_func_support_reply {
     set {_uniqueStorage()._discord = newValue}
   }
 
-  public var remindTypeMax: Bool {
-    get {return _storage._remindTypeMax}
-    set {_uniqueStorage()._remindTypeMax = newValue}
+  public var other: Bool {
+    get {return _storage._other}
+    set {_uniqueStorage()._other = newValue}
+  }
+
+  public var dailyhunt: Bool {
+    get {return _storage._dailyhunt}
+    set {_uniqueStorage()._dailyhunt = newValue}
+  }
+
+  public var fastrackSmartWorld: Bool {
+    get {return _storage._fastrackSmartWorld}
+    set {_uniqueStorage()._fastrackSmartWorld = newValue}
+  }
+
+  public var inshorts: Bool {
+    get {return _storage._inshorts}
+    set {_uniqueStorage()._inshorts = newValue}
+  }
+
+  public var ola: Bool {
+    get {return _storage._ola}
+    set {_uniqueStorage()._ola = newValue}
+  }
+
+  public var phonepe: Bool {
+    get {return _storage._phonepe}
+    set {_uniqueStorage()._phonepe = newValue}
+  }
+
+  public var swiggy: Bool {
+    get {return _storage._swiggy}
+    set {_uniqueStorage()._swiggy = newValue}
+  }
+
+  public var zomato: Bool {
+    get {return _storage._zomato}
+    set {_uniqueStorage()._zomato = newValue}
+  }
+
+  public var amazonprime: Bool {
+    get {return _storage._amazonprime}
+    set {_uniqueStorage()._amazonprime = newValue}
+  }
+
+  public var amazonBusiness: Bool {
+    get {return _storage._amazonBusiness}
+    set {_uniqueStorage()._amazonBusiness = newValue}
+  }
+
+  public var amazonMusic: Bool {
+    get {return _storage._amazonMusic}
+    set {_uniqueStorage()._amazonMusic = newValue}
+  }
+
+  public var dunzo: Bool {
+    get {return _storage._dunzo}
+    set {_uniqueStorage()._dunzo = newValue}
+  }
+
+  public var zepto: Bool {
+    get {return _storage._zepto}
+    set {_uniqueStorage()._zepto = newValue}
+  }
+
+  public var flipkart: Bool {
+    get {return _storage._flipkart}
+    set {_uniqueStorage()._flipkart = newValue}
+  }
+
+  public var gaana: Bool {
+    get {return _storage._gaana}
+    set {_uniqueStorage()._gaana = newValue}
+  }
+
+  public var googleDrive: Bool {
+    get {return _storage._googleDrive}
+    set {_uniqueStorage()._googleDrive = newValue}
+  }
+
+  public var gpay: Bool {
+    get {return _storage._gpay}
+    set {_uniqueStorage()._gpay = newValue}
+  }
+
+  public var hotstar: Bool {
+    get {return _storage._hotstar}
+    set {_uniqueStorage()._hotstar = newValue}
+  }
+
+  public var netflix: Bool {
+    get {return _storage._netflix}
+    set {_uniqueStorage()._netflix = newValue}
+  }
+
+  public var jioCinema: Bool {
+    get {return _storage._jioCinema}
+    set {_uniqueStorage()._jioCinema = newValue}
+  }
+
+  public var rapido: Bool {
+    get {return _storage._rapido}
+    set {_uniqueStorage()._rapido = newValue}
+  }
+
+  public var digiLocker: Bool {
+    get {return _storage._digiLocker}
+    set {_uniqueStorage()._digiLocker = newValue}
+  }
+
+  public var myntra: Bool {
+    get {return _storage._myntra}
+    set {_uniqueStorage()._myntra = newValue}
+  }
+
+  public var urbanCompany: Bool {
+    get {return _storage._urbanCompany}
+    set {_uniqueStorage()._urbanCompany = newValue}
+  }
+
+  public var paytm: Bool {
+    get {return _storage._paytm}
+    set {_uniqueStorage()._paytm = newValue}
+  }
+
+  public var wynk: Bool {
+    get {return _storage._wynk}
+    set {_uniqueStorage()._wynk = newValue}
+  }
+
+  public var yahoo: Bool {
+    get {return _storage._yahoo}
+    set {_uniqueStorage()._yahoo = newValue}
+  }
+
+  public var ytmusic: Bool {
+    get {return _storage._ytmusic}
+    set {_uniqueStorage()._ytmusic = newValue}
+  }
+
+  public var titanSmartWorld: Bool {
+    get {return _storage._titanSmartWorld}
+    set {_uniqueStorage()._titanSmartWorld = newValue}
+  }
+
+  public var makeMyTrip: Bool {
+    get {return _storage._makeMyTrip}
+    set {_uniqueStorage()._makeMyTrip = newValue}
+  }
+
+  public var jioTv: Bool {
+    get {return _storage._jioTv}
+    set {_uniqueStorage()._jioTv = newValue}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -395,7 +545,37 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     31: .standard(proto: "Amazon_shopping"),
     32: .same(proto: "Spotify"),
     33: .same(proto: "Discord"),
-    34: .standard(proto: "remind_type_max"),
+    34: .same(proto: "OTHER"),
+    35: .same(proto: "Dailyhunt"),
+    36: .standard(proto: "Fastrack_smart_world"),
+    37: .same(proto: "Inshorts"),
+    38: .same(proto: "Ola"),
+    39: .same(proto: "Phonepe"),
+    40: .same(proto: "Swiggy"),
+    41: .same(proto: "Zomato"),
+    42: .same(proto: "Amazonprime"),
+    43: .standard(proto: "Amazon_business"),
+    44: .standard(proto: "Amazon_music"),
+    45: .same(proto: "Dunzo"),
+    46: .same(proto: "Zepto"),
+    47: .same(proto: "Flipkart"),
+    48: .same(proto: "Gaana"),
+    49: .standard(proto: "Google_drive"),
+    50: .same(proto: "Gpay"),
+    51: .same(proto: "Hotstar"),
+    52: .same(proto: "Netflix"),
+    53: .standard(proto: "Jio_cinema"),
+    54: .same(proto: "Rapido"),
+    55: .standard(proto: "Digi_locker"),
+    56: .same(proto: "Myntra"),
+    57: .standard(proto: "Urban_company"),
+    58: .same(proto: "Paytm"),
+    59: .same(proto: "Wynk"),
+    60: .same(proto: "Yahoo"),
+    61: .same(proto: "Ytmusic"),
+    62: .standard(proto: "Titan_smart_world"),
+    63: .standard(proto: "Make_my_trip"),
+    64: .standard(proto: "Jio_tv"),
   ]
 
   fileprivate class _StorageClass {
@@ -432,7 +612,37 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     var _amazonShopping: Bool = false
     var _spotify: Bool = false
     var _discord: Bool = false
-    var _remindTypeMax: Bool = false
+    var _other: Bool = false
+    var _dailyhunt: Bool = false
+    var _fastrackSmartWorld: Bool = false
+    var _inshorts: Bool = false
+    var _ola: Bool = false
+    var _phonepe: Bool = false
+    var _swiggy: Bool = false
+    var _zomato: Bool = false
+    var _amazonprime: Bool = false
+    var _amazonBusiness: Bool = false
+    var _amazonMusic: Bool = false
+    var _dunzo: Bool = false
+    var _zepto: Bool = false
+    var _flipkart: Bool = false
+    var _gaana: Bool = false
+    var _googleDrive: Bool = false
+    var _gpay: Bool = false
+    var _hotstar: Bool = false
+    var _netflix: Bool = false
+    var _jioCinema: Bool = false
+    var _rapido: Bool = false
+    var _digiLocker: Bool = false
+    var _myntra: Bool = false
+    var _urbanCompany: Bool = false
+    var _paytm: Bool = false
+    var _wynk: Bool = false
+    var _yahoo: Bool = false
+    var _ytmusic: Bool = false
+    var _titanSmartWorld: Bool = false
+    var _makeMyTrip: Bool = false
+    var _jioTv: Bool = false
 
     static let defaultInstance = _StorageClass()
 
@@ -472,7 +682,37 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       _amazonShopping = source._amazonShopping
       _spotify = source._spotify
       _discord = source._discord
-      _remindTypeMax = source._remindTypeMax
+      _other = source._other
+      _dailyhunt = source._dailyhunt
+      _fastrackSmartWorld = source._fastrackSmartWorld
+      _inshorts = source._inshorts
+      _ola = source._ola
+      _phonepe = source._phonepe
+      _swiggy = source._swiggy
+      _zomato = source._zomato
+      _amazonprime = source._amazonprime
+      _amazonBusiness = source._amazonBusiness
+      _amazonMusic = source._amazonMusic
+      _dunzo = source._dunzo
+      _zepto = source._zepto
+      _flipkart = source._flipkart
+      _gaana = source._gaana
+      _googleDrive = source._googleDrive
+      _gpay = source._gpay
+      _hotstar = source._hotstar
+      _netflix = source._netflix
+      _jioCinema = source._jioCinema
+      _rapido = source._rapido
+      _digiLocker = source._digiLocker
+      _myntra = source._myntra
+      _urbanCompany = source._urbanCompany
+      _paytm = source._paytm
+      _wynk = source._wynk
+      _yahoo = source._yahoo
+      _ytmusic = source._ytmusic
+      _titanSmartWorld = source._titanSmartWorld
+      _makeMyTrip = source._makeMyTrip
+      _jioTv = source._jioTv
     }
   }
 
@@ -524,7 +764,37 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         case 31: try { try decoder.decodeSingularBoolField(value: &_storage._amazonShopping) }()
         case 32: try { try decoder.decodeSingularBoolField(value: &_storage._spotify) }()
         case 33: try { try decoder.decodeSingularBoolField(value: &_storage._discord) }()
-        case 34: try { try decoder.decodeSingularBoolField(value: &_storage._remindTypeMax) }()
+        case 34: try { try decoder.decodeSingularBoolField(value: &_storage._other) }()
+        case 35: try { try decoder.decodeSingularBoolField(value: &_storage._dailyhunt) }()
+        case 36: try { try decoder.decodeSingularBoolField(value: &_storage._fastrackSmartWorld) }()
+        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._inshorts) }()
+        case 38: try { try decoder.decodeSingularBoolField(value: &_storage._ola) }()
+        case 39: try { try decoder.decodeSingularBoolField(value: &_storage._phonepe) }()
+        case 40: try { try decoder.decodeSingularBoolField(value: &_storage._swiggy) }()
+        case 41: try { try decoder.decodeSingularBoolField(value: &_storage._zomato) }()
+        case 42: try { try decoder.decodeSingularBoolField(value: &_storage._amazonprime) }()
+        case 43: try { try decoder.decodeSingularBoolField(value: &_storage._amazonBusiness) }()
+        case 44: try { try decoder.decodeSingularBoolField(value: &_storage._amazonMusic) }()
+        case 45: try { try decoder.decodeSingularBoolField(value: &_storage._dunzo) }()
+        case 46: try { try decoder.decodeSingularBoolField(value: &_storage._zepto) }()
+        case 47: try { try decoder.decodeSingularBoolField(value: &_storage._flipkart) }()
+        case 48: try { try decoder.decodeSingularBoolField(value: &_storage._gaana) }()
+        case 49: try { try decoder.decodeSingularBoolField(value: &_storage._googleDrive) }()
+        case 50: try { try decoder.decodeSingularBoolField(value: &_storage._gpay) }()
+        case 51: try { try decoder.decodeSingularBoolField(value: &_storage._hotstar) }()
+        case 52: try { try decoder.decodeSingularBoolField(value: &_storage._netflix) }()
+        case 53: try { try decoder.decodeSingularBoolField(value: &_storage._jioCinema) }()
+        case 54: try { try decoder.decodeSingularBoolField(value: &_storage._rapido) }()
+        case 55: try { try decoder.decodeSingularBoolField(value: &_storage._digiLocker) }()
+        case 56: try { try decoder.decodeSingularBoolField(value: &_storage._myntra) }()
+        case 57: try { try decoder.decodeSingularBoolField(value: &_storage._urbanCompany) }()
+        case 58: try { try decoder.decodeSingularBoolField(value: &_storage._paytm) }()
+        case 59: try { try decoder.decodeSingularBoolField(value: &_storage._wynk) }()
+        case 60: try { try decoder.decodeSingularBoolField(value: &_storage._yahoo) }()
+        case 61: try { try decoder.decodeSingularBoolField(value: &_storage._ytmusic) }()
+        case 62: try { try decoder.decodeSingularBoolField(value: &_storage._titanSmartWorld) }()
+        case 63: try { try decoder.decodeSingularBoolField(value: &_storage._makeMyTrip) }()
+        case 64: try { try decoder.decodeSingularBoolField(value: &_storage._jioTv) }()
         default: break
         }
       }
@@ -632,8 +902,98 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       if _storage._discord != false {
         try visitor.visitSingularBoolField(value: _storage._discord, fieldNumber: 33)
       }
-      if _storage._remindTypeMax != false {
-        try visitor.visitSingularBoolField(value: _storage._remindTypeMax, fieldNumber: 34)
+      if _storage._other != false {
+        try visitor.visitSingularBoolField(value: _storage._other, fieldNumber: 34)
+      }
+      if _storage._dailyhunt != false {
+        try visitor.visitSingularBoolField(value: _storage._dailyhunt, fieldNumber: 35)
+      }
+      if _storage._fastrackSmartWorld != false {
+        try visitor.visitSingularBoolField(value: _storage._fastrackSmartWorld, fieldNumber: 36)
+      }
+      if _storage._inshorts != false {
+        try visitor.visitSingularBoolField(value: _storage._inshorts, fieldNumber: 37)
+      }
+      if _storage._ola != false {
+        try visitor.visitSingularBoolField(value: _storage._ola, fieldNumber: 38)
+      }
+      if _storage._phonepe != false {
+        try visitor.visitSingularBoolField(value: _storage._phonepe, fieldNumber: 39)
+      }
+      if _storage._swiggy != false {
+        try visitor.visitSingularBoolField(value: _storage._swiggy, fieldNumber: 40)
+      }
+      if _storage._zomato != false {
+        try visitor.visitSingularBoolField(value: _storage._zomato, fieldNumber: 41)
+      }
+      if _storage._amazonprime != false {
+        try visitor.visitSingularBoolField(value: _storage._amazonprime, fieldNumber: 42)
+      }
+      if _storage._amazonBusiness != false {
+        try visitor.visitSingularBoolField(value: _storage._amazonBusiness, fieldNumber: 43)
+      }
+      if _storage._amazonMusic != false {
+        try visitor.visitSingularBoolField(value: _storage._amazonMusic, fieldNumber: 44)
+      }
+      if _storage._dunzo != false {
+        try visitor.visitSingularBoolField(value: _storage._dunzo, fieldNumber: 45)
+      }
+      if _storage._zepto != false {
+        try visitor.visitSingularBoolField(value: _storage._zepto, fieldNumber: 46)
+      }
+      if _storage._flipkart != false {
+        try visitor.visitSingularBoolField(value: _storage._flipkart, fieldNumber: 47)
+      }
+      if _storage._gaana != false {
+        try visitor.visitSingularBoolField(value: _storage._gaana, fieldNumber: 48)
+      }
+      if _storage._googleDrive != false {
+        try visitor.visitSingularBoolField(value: _storage._googleDrive, fieldNumber: 49)
+      }
+      if _storage._gpay != false {
+        try visitor.visitSingularBoolField(value: _storage._gpay, fieldNumber: 50)
+      }
+      if _storage._hotstar != false {
+        try visitor.visitSingularBoolField(value: _storage._hotstar, fieldNumber: 51)
+      }
+      if _storage._netflix != false {
+        try visitor.visitSingularBoolField(value: _storage._netflix, fieldNumber: 52)
+      }
+      if _storage._jioCinema != false {
+        try visitor.visitSingularBoolField(value: _storage._jioCinema, fieldNumber: 53)
+      }
+      if _storage._rapido != false {
+        try visitor.visitSingularBoolField(value: _storage._rapido, fieldNumber: 54)
+      }
+      if _storage._digiLocker != false {
+        try visitor.visitSingularBoolField(value: _storage._digiLocker, fieldNumber: 55)
+      }
+      if _storage._myntra != false {
+        try visitor.visitSingularBoolField(value: _storage._myntra, fieldNumber: 56)
+      }
+      if _storage._urbanCompany != false {
+        try visitor.visitSingularBoolField(value: _storage._urbanCompany, fieldNumber: 57)
+      }
+      if _storage._paytm != false {
+        try visitor.visitSingularBoolField(value: _storage._paytm, fieldNumber: 58)
+      }
+      if _storage._wynk != false {
+        try visitor.visitSingularBoolField(value: _storage._wynk, fieldNumber: 59)
+      }
+      if _storage._yahoo != false {
+        try visitor.visitSingularBoolField(value: _storage._yahoo, fieldNumber: 60)
+      }
+      if _storage._ytmusic != false {
+        try visitor.visitSingularBoolField(value: _storage._ytmusic, fieldNumber: 61)
+      }
+      if _storage._titanSmartWorld != false {
+        try visitor.visitSingularBoolField(value: _storage._titanSmartWorld, fieldNumber: 62)
+      }
+      if _storage._makeMyTrip != false {
+        try visitor.visitSingularBoolField(value: _storage._makeMyTrip, fieldNumber: 63)
+      }
+      if _storage._jioTv != false {
+        try visitor.visitSingularBoolField(value: _storage._jioTv, fieldNumber: 64)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -677,7 +1037,37 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         if _storage._amazonShopping != rhs_storage._amazonShopping {return false}
         if _storage._spotify != rhs_storage._spotify {return false}
         if _storage._discord != rhs_storage._discord {return false}
-        if _storage._remindTypeMax != rhs_storage._remindTypeMax {return false}
+        if _storage._other != rhs_storage._other {return false}
+        if _storage._dailyhunt != rhs_storage._dailyhunt {return false}
+        if _storage._fastrackSmartWorld != rhs_storage._fastrackSmartWorld {return false}
+        if _storage._inshorts != rhs_storage._inshorts {return false}
+        if _storage._ola != rhs_storage._ola {return false}
+        if _storage._phonepe != rhs_storage._phonepe {return false}
+        if _storage._swiggy != rhs_storage._swiggy {return false}
+        if _storage._zomato != rhs_storage._zomato {return false}
+        if _storage._amazonprime != rhs_storage._amazonprime {return false}
+        if _storage._amazonBusiness != rhs_storage._amazonBusiness {return false}
+        if _storage._amazonMusic != rhs_storage._amazonMusic {return false}
+        if _storage._dunzo != rhs_storage._dunzo {return false}
+        if _storage._zepto != rhs_storage._zepto {return false}
+        if _storage._flipkart != rhs_storage._flipkart {return false}
+        if _storage._gaana != rhs_storage._gaana {return false}
+        if _storage._googleDrive != rhs_storage._googleDrive {return false}
+        if _storage._gpay != rhs_storage._gpay {return false}
+        if _storage._hotstar != rhs_storage._hotstar {return false}
+        if _storage._netflix != rhs_storage._netflix {return false}
+        if _storage._jioCinema != rhs_storage._jioCinema {return false}
+        if _storage._rapido != rhs_storage._rapido {return false}
+        if _storage._digiLocker != rhs_storage._digiLocker {return false}
+        if _storage._myntra != rhs_storage._myntra {return false}
+        if _storage._urbanCompany != rhs_storage._urbanCompany {return false}
+        if _storage._paytm != rhs_storage._paytm {return false}
+        if _storage._wynk != rhs_storage._wynk {return false}
+        if _storage._yahoo != rhs_storage._yahoo {return false}
+        if _storage._ytmusic != rhs_storage._ytmusic {return false}
+        if _storage._titanSmartWorld != rhs_storage._titanSmartWorld {return false}
+        if _storage._makeMyTrip != rhs_storage._makeMyTrip {return false}
+        if _storage._jioTv != rhs_storage._jioTv {return false}
         return true
       }
       if !storagesAreEqual {return false}
