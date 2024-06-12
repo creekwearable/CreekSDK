@@ -59,7 +59,7 @@ class DialViewController: CreekBaseViewController,UITableViewDelegate,UITableVie
     }()
     
     
-    let dic:[[String:Any]] = [["name":"Square watch","images":["acti06_2","func6_pink","CASIO01_01"]],["name":"Round watch","images":["Fun061101_03","Fun_061211_05_2","Act06_1201_03"]]]
+    let dic:[[String:Any]] = [["name":"Square watch","images":["acti06_2","func6_pink","CASIO01_01"]],["name":"Round watch","images":["Fun061101_03","Fun_061211_05_2","Act06_1201_03","CW06G_TITAD101_01"]]]
     
 
     override func viewDidLoad() {

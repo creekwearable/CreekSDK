@@ -82,7 +82,18 @@ class DialDetailsViewController: CreekBaseViewController {
                        do {
                            try FileManager.default.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
                            try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
-                           
+                           destinationURL.appendPathComponent(titleName)
+                          if !isDirectoryExists(at: destinationURL) {
+                              do {
+                                 try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
+                                  print("Decompression is successful, the path is:\(destinationURL.path)")
+                              } catch {
+                                  print("Decompression failed: \(error)")
+                              }
+                          }else{
+                              print("The file already exists")
+                          }
+                          
                            print("Decompression is successful, the path is:\(destinationURL.path)")
                        } catch {
                            print("Decompression failed: \(error)")
@@ -92,7 +103,11 @@ class DialDetailsViewController: CreekBaseViewController {
                        destinationURL2.appendPathComponent(titleName)
                        if !isDirectoryExists(at: destinationURL2) {
                            do {
-                               try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
+                              try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
+                              if !isDirectoryExists(at: destinationURL2){
+                                 try FileManager.default.createDirectory(at: destinationURL2, withIntermediateDirectories: true, attributes: nil)
+                                 try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL2)
+                              }
                                print("Decompression is successful, the path is:\(destinationURL.path)")
                            } catch {
                                print("Decompression failed: \(error)")
