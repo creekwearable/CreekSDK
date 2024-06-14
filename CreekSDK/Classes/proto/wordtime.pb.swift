@@ -31,6 +31,9 @@ public struct protocol_world_time_item {
   ///max:32 city name
   public var cityName: Data = Data()
 
+  ///4bytes custom time difference value in minutes, used for display
+  public var customMin: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -66,6 +69,9 @@ public struct protocol_world_time_inquire_reply {
   ///world time
   public var worldTimeItem: [protocol_world_time_item] = []
 
+  ///1bytes function table
+  public var funcTable: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -84,6 +90,7 @@ extension protocol_world_time_item: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "offest_min"),
     2: .standard(proto: "city_name"),
+    3: .standard(proto: "custom_min"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -94,6 +101,7 @@ extension protocol_world_time_item: SwiftProtobuf.Message, SwiftProtobuf._Messag
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.offestMin) }()
       case 2: try { try decoder.decodeSingularBytesField(value: &self.cityName) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.customMin) }()
       default: break
       }
     }
@@ -106,12 +114,16 @@ extension protocol_world_time_item: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if !self.cityName.isEmpty {
       try visitor.visitSingularBytesField(value: self.cityName, fieldNumber: 2)
     }
+    if self.customMin != 0 {
+      try visitor.visitSingularInt32Field(value: self.customMin, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_world_time_item, rhs: protocol_world_time_item) -> Bool {
     if lhs.offestMin != rhs.offestMin {return false}
     if lhs.cityName != rhs.cityName {return false}
+    if lhs.customMin != rhs.customMin {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -161,6 +173,7 @@ extension protocol_world_time_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     1: .same(proto: "operate"),
     2: .standard(proto: "word_time_support_max"),
     3: .standard(proto: "world_time_item"),
+    4: .standard(proto: "func_table"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -172,6 +185,7 @@ extension protocol_world_time_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.wordTimeSupportMax) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.worldTimeItem) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       default: break
       }
     }
@@ -187,6 +201,9 @@ extension protocol_world_time_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     if !self.worldTimeItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.worldTimeItem, fieldNumber: 3)
     }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -194,6 +211,7 @@ extension protocol_world_time_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     if lhs.operate != rhs.operate {return false}
     if lhs.wordTimeSupportMax != rhs.wordTimeSupportMax {return false}
     if lhs.worldTimeItem != rhs.worldTimeItem {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

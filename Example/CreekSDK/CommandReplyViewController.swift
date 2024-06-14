@@ -365,6 +365,7 @@ class CommandReplyViewController: CreekBaseViewController {
          var item = protocol_world_time_item()
          item.cityName =  "shenzheng".data(using: .utf8)!
          item.offestMin = 120
+         item.customMin = -180
          data.worldTimeItem.append(item)
          CreekInterFace.instance.setWorldTime(model: data) {
             self.view.hideRemark()
