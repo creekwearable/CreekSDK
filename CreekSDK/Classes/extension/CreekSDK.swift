@@ -154,6 +154,8 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var listenDeviceClosureDic:[String:listenDeviceBase] = [:]
     var logPathClosure:((_ path:String) -> ())?
     var _gpsClosure:gpsBase?
+   
+   let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
     public override init() {
         

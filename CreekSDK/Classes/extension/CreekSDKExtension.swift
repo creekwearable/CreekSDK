@@ -38,10 +38,12 @@ extension CreekSDK{
     ///      - endScan : A callback at the end of the scan
     /// - Returns:
     public func scan(timeOut:Int = 15,devices:@escaping devicesBack,endScan:@escaping endScanBase) {
-        requestId+=1
-        devicesBackDic["scanBase\(requestId)"] = devices
-        endScanDic["endScan\(requestId)"] = endScan
-        methodChannel?.invokeMethod("scanBase\(requestId)", arguments: timeOut)
+       serialQueue.sync {
+          requestId+=1
+          devicesBackDic["scanBase\(requestId)"] = devices
+          endScanDic["endScan\(requestId)"] = endScan
+          methodChannel?.invokeMethod("scanBase\(requestId)", arguments: timeOut)
+       }
     }
     ///MARK : connect
     /// - Parameter :
@@ -59,10 +61,12 @@ extension CreekSDK{
     ///      - connect :   call back connect state   true false
     /// - Returns:
     public func scanConnect(id:String,device:@escaping deviceBack,failure:@escaping failureArgument) {
-        requestId+=1
-        deviceBackDic["scanConnect\(requestId)"] = device
-        failureArgumentDic["scanConnect\(requestId)"] = failure
-        methodChannel?.invokeMethod("scanConnect\(requestId)", arguments: id)
+       serialQueue.sync{
+          requestId+=1
+          deviceBackDic["scanConnect\(requestId)"] = device
+          failureArgumentDic["scanConnect\(requestId)"] = failure
+          methodChannel?.invokeMethod("scanConnect\(requestId)", arguments: id)
+       }
     }
     
     ///MARK : connect
@@ -77,10 +81,13 @@ extension CreekSDK{
     
     ///MARK : disconnect
     public func disconnect(success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["disconnect\(requestId)"] = success;
-        failureArgumentDic["disconnect\(requestId)"] = failure
-        methodChannel?.invokeMethod("disconnect\(requestId)", arguments: "")
+       serialQueue.sync{
+          requestId+=1
+          successDic["disconnect\(requestId)"] = success;
+          failureArgumentDic["disconnect\(requestId)"] = failure
+          methodChannel?.invokeMethod("disconnect\(requestId)", arguments: "")
+       }
+       
     }
 
     ///MARK : Stop scanning
@@ -103,25 +110,31 @@ extension CreekSDK{
         methodChannel?.invokeMethod("getFirmware\(requestId)", arguments: "")
     }
     public func getSNFirmware(model:protocol_device_info,sn:@escaping SNFirmwareBase) {
-        requestId+=1
-        SNFirmwareDic["getSNFirmware\(requestId)"] = sn
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("getSNFirmware\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync{
+          requestId+=1
+          SNFirmwareDic["getSNFirmware\(requestId)"] = sn
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("getSNFirmware\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     ///MARK :Sync health data
     /// - Parameter :
     ///      - syncProgress: sync progress
     /// - Returns:
     public func sync(syncProgress:@escaping progressBase, syncSuccess:@escaping successBase, syncFailure:@escaping failureBase) {
-        requestId+=1
-        progressDic["syncBase\(requestId)"] = syncProgress
-        successDic["syncBase\(requestId)"] = syncSuccess;
-        failureDic["syncBase\(requestId)"] = syncFailure
-        methodChannel?.invokeMethod("syncBase\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          progressDic["syncBase\(requestId)"] = syncProgress
+          successDic["syncBase\(requestId)"] = syncSuccess;
+          failureDic["syncBase\(requestId)"] = syncFailure
+          methodChannel?.invokeMethod("syncBase\(requestId)", arguments: "")
+       }
+  
     }
     ///MARK :upload
     /// - Parameter :
@@ -139,24 +152,27 @@ extension CreekSDK{
     ///
     /// - Returns:
     public func upload(fileName:String,fileData:Data,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
-        requestId+=1
-        progressDic["upload\(requestId)"] = uploadProgress
-        successDic["upload\(requestId)"] = uploadSuccess;
-        failureArgumentDic["upload\(requestId)"] = uploadFailure
-        var intArray: [Int] = []
-        fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-            let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
-            intArray = Array(buffer).map { Int($0) }
-        }
-        let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
-        do{
-          let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
-          if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-              methodChannel?.invokeMethod("upload\(requestId)", arguments: JSONString)
+       serialQueue.sync {
+          requestId+=1
+          progressDic["upload\(requestId)"] = uploadProgress
+          successDic["upload\(requestId)"] = uploadSuccess;
+          failureArgumentDic["upload\(requestId)"] = uploadFailure
+          var intArray: [Int] = []
+          fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+              let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
+              intArray = Array(buffer).map { Int($0) }
           }
-        }catch{
-           print("Error converting string to dictionary: \(error.localizedDescription)")
-        }
+          let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
+          do{
+            let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                methodChannel?.invokeMethod("upload\(requestId)", arguments: JSONString)
+            }
+          }catch{
+             print("Error converting string to dictionary: \(error.localizedDescription)")
+          }
+       }
+
     }
     
     ///MARK :backstageUpload
@@ -175,25 +191,28 @@ extension CreekSDK{
     ///
     /// - Returns:
     public func backstageUpload(fileName:String,fileData:Data,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
-        requestId+=1
-        progressDic["backstageUpload\(requestId)"] = uploadProgress
-        successDic["backstageUpload\(requestId)"] = uploadSuccess;
-        failureArgumentDic["backstageUpload\(requestId)"] = uploadFailure
-        var intArray: [Int] = []
-        fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-            let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
-            intArray = Array(buffer).map { Int($0) }
-        }
-        
-        let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
-        do{
-          let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
-          if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-              methodChannel?.invokeMethod("backstageUpload\(requestId)", arguments: JSONString)
+       serialQueue.sync {
+          requestId+=1
+          progressDic["backstageUpload\(requestId)"] = uploadProgress
+          successDic["backstageUpload\(requestId)"] = uploadSuccess;
+          failureArgumentDic["backstageUpload\(requestId)"] = uploadFailure
+          var intArray: [Int] = []
+          fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+              let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
+              intArray = Array(buffer).map { Int($0) }
           }
-        }catch{
-           print("Error converting string to dictionary: \(error.localizedDescription)")
-        }
+          
+          let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
+          do{
+            let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                methodChannel?.invokeMethod("backstageUpload\(requestId)", arguments: JSONString)
+            }
+          }catch{
+             print("Error converting string to dictionary: \(error.localizedDescription)")
+          }
+       }
+
     }
     
     ///MARK :Monitor the status of connected devices
@@ -228,10 +247,13 @@ extension CreekSDK{
     ///      - model: call back protocol_connect_status_inquire_reply
     /// - Returns:
   public func bluetoothStatus(model:@escaping bluetoothStatusBase,failure:@escaping failureArgument) {
-      requestId+=1
-      bluetoothStatusDic["bluetoothStatus\(requestId)"] = model
-      failureArgumentDic["bluetoothStatus\(requestId)"] = failure
-      methodChannel?.invokeMethod("bluetoothStatus\(requestId)", arguments: "")
+     serialQueue.sync {
+        requestId+=1
+        bluetoothStatusDic["bluetoothStatus\(requestId)"] = model
+        failureArgumentDic["bluetoothStatus\(requestId)"] = failure
+        methodChannel?.invokeMethod("bluetoothStatus\(requestId)", arguments: "")
+     }
+     
     }
     
     ///MARK :retrigger bt connect
@@ -239,24 +261,30 @@ extension CreekSDK{
     ///      - reconnect ： true false
     /// - Returns:
     public func firmwareReconnect(reconnect:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["firmwareReconnect\(requestId)"] = success;
-        failureArgumentDic["firmwareReconnect\(requestId)"] = failure
-         var model =  protocol_connect_status_operate()
-        model.reconnectOperate = reconnect
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("firmwareReconnect\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["firmwareReconnect\(requestId)"] = success;
+          failureArgumentDic["firmwareReconnect\(requestId)"] = failure
+           var model =  protocol_connect_status_operate()
+          model.reconnectOperate = reconnect
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("firmwareReconnect\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     ///MARK :Synchronize phone time to firmware
     public func syncTime(success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["syncTime\(requestId)"] = success;
-        failureArgumentDic["syncTime\(requestId)"] = failure
-        methodChannel?.invokeMethod("syncTime\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          successDic["syncTime\(requestId)"] = success;
+          failureArgumentDic["syncTime\(requestId)"] = failure
+          methodChannel?.invokeMethod("syncTime\(requestId)", arguments: "")
+       }
+        
         
     }
     ///MARK :Get firmware time
@@ -264,10 +292,13 @@ extension CreekSDK{
     ///      - model：call back protocol_device_time_inquire_reply
     /// - Returns:
     public func getTime(model:@escaping timeBase,failure:@escaping failureArgument) {
-        requestId+=1
-        timeDic["getTime\(requestId)"] = model
-        failureArgumentDic["getTime\(requestId)"] = failure
-        methodChannel?.invokeMethod("getTime\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          timeDic["getTime\(requestId)"] = model
+          failureArgumentDic["getTime\(requestId)"] = failure
+          methodChannel?.invokeMethod("getTime\(requestId)", arguments: "")
+       }
+       
     }
     
     ///MARK :get Language
@@ -275,10 +306,13 @@ extension CreekSDK{
     ///      - model：call back protocol_language_inquire_reply
     /// - Returns:
     public func getLanguage(model:@escaping languageBase,failure:@escaping failureArgument) {
-        requestId+=1
-        languageDic["getLanguage\(requestId)"] = model
-        failureArgumentDic["getLanguage\(requestId)"] = failure
-        methodChannel?.invokeMethod("getLanguage\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          languageDic["getLanguage\(requestId)"] = model
+          failureArgumentDic["getLanguage\(requestId)"] = failure
+          methodChannel?.invokeMethod("getLanguage\(requestId)", arguments: "")
+       }
+        
     }
     
     ///MARK : set Language
@@ -286,17 +320,20 @@ extension CreekSDK{
     ///      - type：language
     /// - Returns:
     public func setLanguage(type:language,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        var model = protocol_language_operate()
-        model.curLanguage = type
-        successDic["setLanguage\(requestId)"] = success;
-        failureArgumentDic["setLanguage\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setLanguage\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          var model = protocol_language_operate()
+          model.curLanguage = type
+          successDic["setLanguage\(requestId)"] = success;
+          failureArgumentDic["setLanguage\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setLanguage\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK : bind device
@@ -311,19 +348,22 @@ extension CreekSDK{
     ///       -code:pairing code
     /// - Returns:LanguageModel
    public func bindingDevice(bindType:BindType,id:String?,code:String?,saveDate:Bool = false,success:@escaping successBase,failure:@escaping failureBase) {
-        requestId+=1
-        successDic["bindDevice\(requestId)"] = success;
-        failureDic["bindDevice\(requestId)"] = failure
-       
-       let dic:[String:Any?] = ["bindType":bindType.rawValue,"address":id,"pairCode":code,"saveDate":saveDate ? 1 : 0]
-        do{
-          let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
-          if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-              methodChannel?.invokeMethod("bindDevice\(requestId)", arguments: JSONString)
-          }
-        }catch{
-           print("Error converting string to dictionary: \(error.localizedDescription)")
-        }
+      serialQueue.sync {
+         requestId+=1
+         successDic["bindDevice\(requestId)"] = success;
+         failureDic["bindDevice\(requestId)"] = failure
+        
+        let dic:[String:Any?] = ["bindType":bindType.rawValue,"address":id,"pairCode":code,"saveDate":saveDate ? 1 : 0]
+         do{
+           let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+           if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+               methodChannel?.invokeMethod("bindDevice\(requestId)", arguments: JSONString)
+           }
+         }catch{
+            print("Error converting string to dictionary: \(error.localizedDescription)")
+         }
+      }
+
     }
     
     ///MARK :Get firmware user information and preferences
@@ -331,10 +371,13 @@ extension CreekSDK{
     ///      - model：call back protocol_user_info_operate
     /// - Returns:
     public func getUserInfo(model:@escaping userBase,failure:@escaping failureArgument) {
-        requestId+=1
-        userDic["getUserInfo\(requestId)"] = model
-        failureArgumentDic["getUserInfo\(requestId)"] = failure
-        methodChannel?.invokeMethod("getUserInfo\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          userDic["getUserInfo\(requestId)"] = model
+          failureArgumentDic["getUserInfo\(requestId)"] = failure
+          methodChannel?.invokeMethod("getUserInfo\(requestId)", arguments: "")
+       }
+
     }
     
     ///MARK :Set firmware user information and preferences
@@ -342,24 +385,27 @@ extension CreekSDK{
     ///      - model: protocol_user_info_operate
     /// - Returns:
     public func setUserInfo(model:protocol_user_info_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setUserInfo\(requestId)"] = success;
-        failureArgumentDic["setUserInfo\(requestId)"] = failure
-        do{
-            var operate =  protocol_user_info_inquire_reply()
-            operate.goalSetting = model.goalSetting
-            operate.personalInfo = model.personalInfo
-            operate.preferences = model.preferences
-            let data = try operate.serializedData()
-//            let intArray = data!.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> [Int] in
-//                let buffer = UnsafeBufferPointer(start: pointer, count: data!.count)
-//                return Array(buffer.map({ Int($0) }))
-//            }
-//            print(intArray)
-            methodChannel?.invokeMethod("setUserInfo\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setUserInfo\(requestId)"] = success;
+          failureArgumentDic["setUserInfo\(requestId)"] = failure
+          do{
+              var operate =  protocol_user_info_inquire_reply()
+              operate.goalSetting = model.goalSetting
+              operate.personalInfo = model.personalInfo
+              operate.preferences = model.preferences
+              let data = try operate.serializedData()
+  //            let intArray = data!.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> [Int] in
+  //                let buffer = UnsafeBufferPointer(start: pointer, count: data!.count)
+  //                return Array(buffer.map({ Int($0) }))
+  //            }
+  //            print(intArray)
+              methodChannel?.invokeMethod("setUserInfo\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+
     }
     
     ///MARK :Get an alarm clock
@@ -367,10 +413,13 @@ extension CreekSDK{
     ///      - model：call back protocol_alarm_inquire_reply
     /// - Returns:
     public func getAlarm(model:@escaping alarmBase,failure:@escaping failureArgument) {
-        requestId+=1
-        alarmDic["getAlarm\(requestId)"] = model
-        failureArgumentDic["getAlarm\(requestId)"] = failure
-        methodChannel?.invokeMethod("getAlarm\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          alarmDic["getAlarm\(requestId)"] = model
+          failureArgumentDic["getAlarm\(requestId)"] = failure
+          methodChannel?.invokeMethod("getAlarm\(requestId)", arguments: "")
+       }
+
     }
     
     ///MARK :set an alarm
@@ -378,15 +427,18 @@ extension CreekSDK{
     ///      - model ：protocol_alarm_operate
     /// - Returns:
     public func setAlarm(model:protocol_alarm_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setAlarm\(requestId)"] = success;
-        failureArgumentDic["setAlarm\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setAlarm\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setAlarm\(requestId)"] = success;
+          failureArgumentDic["setAlarm\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setAlarm\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Get do not disturb
@@ -394,10 +446,13 @@ extension CreekSDK{
     ///      - model：call back protocol_disturb_inquire_reply
     /// - Returns:protocol_alarm_inquire_reply
     public func getDisturb(model:@escaping disturbBase,failure:@escaping failureArgument) {
-        requestId+=1
-        disturbDic["getDisturb\(requestId)"] = model
-        failureArgumentDic["getDisturb\(requestId)"] = failure
-        methodChannel?.invokeMethod("getDisturb\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          disturbDic["getDisturb\(requestId)"] = model
+          failureArgumentDic["getDisturb\(requestId)"] = failure
+          methodChannel?.invokeMethod("getDisturb\(requestId)", arguments: "")
+       }
+       
     }
     
     ///MARK :Set do not disturb
@@ -405,15 +460,18 @@ extension CreekSDK{
     ///      - model: protocol_disturb_operate
     /// - Returns:
     public func setDisturb(model:protocol_disturb_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setDisturb\(requestId)"] = success;
-        failureArgumentDic["setDisturb\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setDisturb\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setDisturb\(requestId)"] = success;
+          failureArgumentDic["setDisturb\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setDisturb\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+   
     }
     
     
@@ -422,10 +480,13 @@ extension CreekSDK{
     ///      - model：call back protocol_focus_mode_inquire_reply
     /// - Returns:protocol_alarm_inquire_reply
     public func getFocusSleep(model:@escaping focusBase,failure:@escaping failureArgument) {
-        requestId+=1
-        focusDic["getFocus\(requestId)"] = model
-        failureArgumentDic["getFocus\(requestId)"] = failure
-        methodChannel?.invokeMethod("getFocus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          focusDic["getFocus\(requestId)"] = model
+          failureArgumentDic["getFocus\(requestId)"] = failure
+          methodChannel?.invokeMethod("getFocus\(requestId)", arguments: "")
+       }
+       
     }
     
     ///MARK :Set focus mode
@@ -433,15 +494,18 @@ extension CreekSDK{
     ///      - model: protocol_focus_mode_operate
     /// - Returns:
     public func setFocusSleep(model:protocol_focus_mode_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setFocus\(requestId)"] = success;
-        failureArgumentDic["setFocus\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setFocus\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setFocus\(requestId)"] = success;
+          failureArgumentDic["setFocus\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setFocus\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Get app List
@@ -449,10 +513,13 @@ extension CreekSDK{
     ///      - model：call back protocol_app_list_inquire_reply
     /// - Returns:protocol_app_list_inquire_reply
     public func getAppList(model:@escaping appListBase,failure:@escaping failureArgument) {
-        requestId+=1
-        appListDic["getAppList\(requestId)"] = model
-        failureArgumentDic["getAppList\(requestId)"] = failure
-        methodChannel?.invokeMethod("getAppList\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          appListDic["getAppList\(requestId)"] = model
+          failureArgumentDic["getAppList\(requestId)"] = failure
+          methodChannel?.invokeMethod("getAppList\(requestId)", arguments: "")
+       }
+    
     }
     
     ///MARK :Set app List
@@ -460,15 +527,18 @@ extension CreekSDK{
     ///      - model: protocol_app_list_operate
     /// - Returns:
     public func setAppList(model:protocol_app_list_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setAppList\(requestId)"] = success;
-        failureArgumentDic["setAppList\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setAppList\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setAppList\(requestId)"] = success;
+          failureArgumentDic["setAppList\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setAppList\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :EventTracking
@@ -476,10 +546,13 @@ extension CreekSDK{
     ///      - model：call back protocol_event_tracking_inquire_reply
     /// - Returns:protocol_event_tracking_inquire_reply
     public func getEventTracking(model:@escaping eventTrackingBase,failure:@escaping failureArgument) {
-        requestId+=1
-        eventTrackingDic["getEventTracking\(requestId)"] = model
-        failureArgumentDic["getEventTracking\(requestId)"] = failure
-        methodChannel?.invokeMethod("getEventTracking\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          eventTrackingDic["getEventTracking\(requestId)"] = model
+          failureArgumentDic["getEventTracking\(requestId)"] = failure
+          methodChannel?.invokeMethod("getEventTracking\(requestId)", arguments: "")
+       }
+       
     }
     
 
@@ -490,10 +563,13 @@ extension CreekSDK{
     ///      - model:call back protocol_screen_brightness_inquire_reply
     /// - Returns:
     public func getScreen(model:@escaping screenBase,failure:@escaping failureArgument) {
-        requestId+=1
-        screenDic["getScreen\(requestId)"] = model
-        failureArgumentDic["getScreen\(requestId)"] = failure
-        methodChannel?.invokeMethod("getScreen\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          screenDic["getScreen\(requestId)"] = model
+          failureArgumentDic["getScreen\(requestId)"] = failure
+          methodChannel?.invokeMethod("getScreen\(requestId)", arguments: "")
+       }
+
     }
     
     ///MARK :Screen Brightness Settings
@@ -501,15 +577,18 @@ extension CreekSDK{
     ///      - model: protocol_screen_brightness_operate
     /// - Returns:
     public func setScreen(model:protocol_screen_brightness_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setScreen\(requestId)"] = success;
-        failureArgumentDic["setScreen\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setScreen\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setScreen\(requestId)"] = success;
+          failureArgumentDic["setScreen\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setScreen\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Health Monitoring Acquisition
@@ -518,15 +597,18 @@ extension CreekSDK{
     ///      - model : call back protocol_health_monitor_inquire_reply
     /// - Returns:
     public func getMonitor(operate:protocol_health_monitor_operate,model:@escaping monitorBase,failure:@escaping failureArgument) {
-        requestId+=1
-        monitorDic["getMonitor\(requestId)"] = model
-        failureArgumentDic["getMonitor\(requestId)"] = failure
-        do{
-            let data = try operate.serializedData()
-            methodChannel?.invokeMethod("getMonitor\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          monitorDic["getMonitor\(requestId)"] = model
+          failureArgumentDic["getMonitor\(requestId)"] = failure
+          do{
+              let data = try operate.serializedData()
+              methodChannel?.invokeMethod("getMonitor\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+  
        
     }
     
@@ -535,15 +617,18 @@ extension CreekSDK{
     ///      - model :protocol_health_monitor_operate
     /// - Returns:
     public func setMonitor(model:protocol_health_monitor_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setMonitor\(requestId)"] = success;
-        failureArgumentDic["setMonitor\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setMonitor\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setMonitor\(requestId)"] = success;
+          failureArgumentDic["setMonitor\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setMonitor\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Sleep Monitoring Acquisition
@@ -551,10 +636,13 @@ extension CreekSDK{
     ///      - model: protocol_sleep_monitor_inquire_reply
     /// - Returns:
     public func getSleepMonitor(model:@escaping sleepMonitorBase,failure:@escaping failureArgument) {
-        requestId+=1
-        sleepMonitorDic["getSleepMonitor\(requestId)"] = model
-        failureArgumentDic["getSleepMonitor\(requestId)"] = failure
-        methodChannel?.invokeMethod("getSleepMonitor\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sleepMonitorDic["getSleepMonitor\(requestId)"] = model
+          failureArgumentDic["getSleepMonitor\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSleepMonitor\(requestId)", arguments: "")
+       }
+  
        
     }
     
@@ -563,15 +651,18 @@ extension CreekSDK{
     ///      - model：protocol_sleep_monitor_operate
     /// - Returns:
     public func setSleepMonitor(model:protocol_sleep_monitor_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSleepMonitor\(requestId)"] = success;
-        failureArgumentDic["setSleepMonitor\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setSleepMonitor\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSleepMonitor\(requestId)"] = success;
+          failureArgumentDic["setSleepMonitor\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setSleepMonitor\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+   
     }
     
     ///MARK :drink water reminder
@@ -579,10 +670,13 @@ extension CreekSDK{
     ///      - model：protocol_drink_water_inquire_reply
     /// - Returns:
     public func getWater(model:@escaping waterBase,failure:@escaping failureArgument) {
-        requestId+=1
-        waterDic["getWater\(requestId)"] = model
-        failureArgumentDic["getWater\(requestId)"] = failure
-        methodChannel?.invokeMethod("getWater\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          waterDic["getWater\(requestId)"] = model
+          failureArgumentDic["getWater\(requestId)"] = failure
+          methodChannel?.invokeMethod("getWater\(requestId)", arguments: "")
+       }
+     
 
     }
 
@@ -591,43 +685,55 @@ extension CreekSDK{
     ///      - model:protocol_drink_water_operate
     /// - Returns:
     public func setWater(model:protocol_drink_water_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setWater\(requestId)"] = success;
-        failureArgumentDic["setWater\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setWater\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setWater\(requestId)"] = success;
+          failureArgumentDic["setWater\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setWater\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+   
     }
     
 
     public func getFindPhoneWatch(model:@escaping findPhoneWatchBase,failure:@escaping failureArgument) {
-        requestId+=1
-        findPhoneWatchDic["getFindPhoneWatch\(requestId)"] = model
-        failureArgumentDic["getFindPhoneWatch\(requestId)"] = failure
-        methodChannel?.invokeMethod("getFindPhoneWatch\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          findPhoneWatchDic["getFindPhoneWatch\(requestId)"] = model
+          failureArgumentDic["getFindPhoneWatch\(requestId)"] = failure
+          methodChannel?.invokeMethod("getFindPhoneWatch\(requestId)", arguments: "")
+       }
+     
     }
     
 
     public func setFindPhoneWatch(model:protocol_find_phone_watch_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setFindPhoneWatch\(requestId)"] = success;
-        failureArgumentDic["setFindPhoneWatch\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setFindPhoneWatch\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setFindPhoneWatch\(requestId)"] = success;
+          failureArgumentDic["setFindPhoneWatch\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setFindPhoneWatch\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+
     }
    
    public func setStopPhone(success:@escaping successBase,failure:@escaping failureArgument) {
-       requestId+=1
-       successDic["setStopPhone\(requestId)"] = success;
-       failureArgumentDic["setStopPhone\(requestId)"] = failure
-       methodChannel?.invokeMethod("setStopPhone\(requestId)", arguments: "")
+      serialQueue.sync {
+         requestId+=1
+         successDic["setStopPhone\(requestId)"] = success;
+         failureArgumentDic["setStopPhone\(requestId)"] = failure
+         methodChannel?.invokeMethod("setStopPhone\(requestId)", arguments: "")
+      }
+     
    }
     
 
@@ -654,10 +760,13 @@ extension CreekSDK{
     ///      - model: protocol_world_time_inquire_reply
     /// - Returns:
     public func getWorldTime(model:@escaping worldTimeBase,failure:@escaping failureArgument) {
-        requestId+=1
-        worldTimeDic["getWorldTime\(requestId)"] = model
-        failureArgumentDic["getWorldTime\(requestId)"] = failure
-        methodChannel?.invokeMethod("getWorldTime\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          worldTimeDic["getWorldTime\(requestId)"] = model
+          failureArgumentDic["getWorldTime\(requestId)"] = failure
+          methodChannel?.invokeMethod("getWorldTime\(requestId)", arguments: "")
+       }
+        
        
     }
     
@@ -666,35 +775,44 @@ extension CreekSDK{
     ///      - model ：protocol_world_time_operate
     /// - Returns:
     public func setWorldTime(model:protocol_world_time_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setWorldTime\(requestId)"] = success;
-        failureArgumentDic["setWorldTime\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setWorldTime\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setWorldTime\(requestId)"] = success;
+          failureArgumentDic["setWorldTime\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setWorldTime\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     public func getStanding(model:@escaping standingBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          standingDic["getStanding\(requestId)"] = model
+          failureArgumentDic["getStanding\(requestId)"] = failure
+          methodChannel?.invokeMethod("getStanding\(requestId)", arguments: "")
+       }
         
-        requestId+=1
-        standingDic["getStanding\(requestId)"] = model
-        failureArgumentDic["getStanding\(requestId)"] = failure
-        methodChannel?.invokeMethod("getStanding\(requestId)", arguments: "")
+       
         
     }
     public func setStanding(model:protocol_standing_remind_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setStanding\(requestId)"] = success;
-        failureArgumentDic["setStanding\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setStanding\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setStanding\(requestId)"] = success;
+          failureArgumentDic["setStanding\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setStanding\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
 
     }
     
@@ -731,10 +849,13 @@ extension CreekSDK{
     ///      - model: protocol_message_notify_switch_inquire_reply
     /// - Returns:
     public func getMessageOnOff(model:@escaping messageOnOffBase,failure:@escaping failureArgument) {
-        requestId+=1
-        messageOnOffDic["getMessageOnOff\(requestId)"] = model
-        failureArgumentDic["getMessageOnOff\(requestId)"] = failure
-        methodChannel?.invokeMethod("getMessageOnOff\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          messageOnOffDic["getMessageOnOff\(requestId)"] = model
+          failureArgumentDic["getMessageOnOff\(requestId)"] = failure
+          methodChannel?.invokeMethod("getMessageOnOff\(requestId)", arguments: "")
+       }
+     
        
     }
     
@@ -743,15 +864,18 @@ extension CreekSDK{
     ///      - model ：protocol_message_notify_switch
     /// - Returns:
     public func setMessageOnOff(model:protocol_message_notify_switch,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setMessageOnOff\(requestId)"] = success;
-        failureArgumentDic["setMessageOnOff\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setMessageOnOff\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setMessageOnOff\(requestId)"] = success;
+          failureArgumentDic["setMessageOnOff\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setMessageOnOff\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :music control
@@ -759,15 +883,18 @@ extension CreekSDK{
     ///      - model ：protocol_music_control_operate
     /// - Returns:
     public func setMusic(model:protocol_music_control_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setMusic\(requestId)"] = success;
-        failureArgumentDic["setMusic\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setMusic\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setMusic\(requestId)"] = success;
+          failureArgumentDic["setMusic\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setMusic\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+
     }
     
     ///MARK :set weather
@@ -775,15 +902,18 @@ extension CreekSDK{
     ///      - model: protocol_weather_operate
     /// - Returns:
     public func setWeather(model:protocol_weather_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setWeather\(requestId)"] = success;
-        failureArgumentDic["setWeather\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setWeather\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setWeather\(requestId)"] = success;
+          failureArgumentDic["setWeather\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setWeather\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+   
     }
     
     
@@ -792,10 +922,13 @@ extension CreekSDK{
     ///      - model : call back protocol_call_switch_inquire_reply
     /// - Returns:protocol_alarm_inquire_reply
     public func getCall(model:@escaping callBase,failure:@escaping failureArgument) {
-        requestId+=1
-        callDic["getCall\(requestId)"] = model
-        failureArgumentDic["getCall\(requestId)"] = failure
-        methodChannel?.invokeMethod("getCall\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          callDic["getCall\(requestId)"] = model
+          failureArgumentDic["getCall\(requestId)"] = failure
+          methodChannel?.invokeMethod("getCall\(requestId)", arguments: "")
+       }
+      
        
     }
     
@@ -804,15 +937,18 @@ extension CreekSDK{
     ///      - model : protocol_call_switch
     /// - Returns:
     public func setCall(model:protocol_call_switch,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setCall\(requestId)"] = success;
-        failureArgumentDic["setCall\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setCall\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setCall\(requestId)"] = success;
+          failureArgumentDic["setCall\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setCall\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
 
@@ -844,10 +980,13 @@ extension CreekSDK{
     ///      - model ：protocol_frequent_contacts_inquire_reply
     /// - Returns:
     public func getContacts(model:@escaping contactsBase,failure:@escaping failureArgument) {
-        requestId+=1
-        contactsDic["getContacts\(requestId)"] = model
-        failureArgumentDic["getContacts\(requestId)"] = failure
-        methodChannel?.invokeMethod("getContacts\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          contactsDic["getContacts\(requestId)"] = model
+          failureArgumentDic["getContacts\(requestId)"] = failure
+          methodChannel?.invokeMethod("getContacts\(requestId)", arguments: "")
+       }
+        
        
     }
     
@@ -856,25 +995,31 @@ extension CreekSDK{
     ///      - model ：protocol_frequent_contacts_operate
     /// - Returns:
     public func setContacts(model:protocol_frequent_contacts_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setContacts\(requestId)"] = success;
-        failureArgumentDic["setContacts\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setContacts\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setContacts\(requestId)"] = success;
+          failureArgumentDic["setContacts\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setContacts\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Get quick card
     /// - Parameter :
     /// - Returns:
     public func getCard(model:@escaping cardBase,failure:@escaping failureArgument) {
-        requestId+=1
-        cardDic["getCard\(requestId)"] = model
-        failureArgumentDic["getCard\(requestId)"] = failure
-        methodChannel?.invokeMethod("getCard\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          cardDic["getCard\(requestId)"] = model
+          failureArgumentDic["getCard\(requestId)"] = failure
+          methodChannel?.invokeMethod("getCard\(requestId)", arguments: "")
+       }
+       
 
     }
     
@@ -883,15 +1028,18 @@ extension CreekSDK{
     ///           -model : protocol_quick_card_operate
     /// - Returns:
     public func setCard(model:protocol_quick_card_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setCard\(requestId)"] = success;
-        failureArgumentDic["setCard\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setCard\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setCard\(requestId)"] = success;
+          failureArgumentDic["setCard\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setCard\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+
     }
     
     ///MARK :Set do not disturb
@@ -899,15 +1047,18 @@ extension CreekSDK{
     ///      - protocol_exercise_heart_rate_zone
     /// - Returns:
     public func setSportHeartRate(model:protocol_exercise_heart_rate_zone,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSportHeartRate\(requestId)"] = success;
-        failureArgumentDic["setSportHeartRate\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setSportHeartRate\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSportHeartRate\(requestId)"] = success;
+          failureArgumentDic["setSportHeartRate\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setSportHeartRate\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Obtain the type of movement supported by the device
@@ -915,10 +1066,13 @@ extension CreekSDK{
     ///      - model ：protocol_exercise_sporting_param_sort_inquire_reply
     /// - Returns:
     public func getSportType(model:@escaping sportTypeBase,failure:@escaping failureArgument) {
-        requestId+=1
-        sportTypeDic["getSportType\(requestId)"] = model
-        failureArgumentDic["getSportType\(requestId)"] = failure
-        methodChannel?.invokeMethod("getSportType\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sportTypeDic["getSportType\(requestId)"] = model
+          failureArgumentDic["getSportType\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSportType\(requestId)", arguments: "")
+       }
+       
        
     }
     
@@ -927,15 +1081,18 @@ extension CreekSDK{
     ///      - model ：protocol_exercise_sport_mode_sort
     /// - Returns:
     public func setSportSort(model:protocol_exercise_sport_mode_sort,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSportSort\(requestId)"] = success;
-        failureArgumentDic["setSportSort\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setSportSort\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSportSort\(requestId)"] = success;
+          failureArgumentDic["setSportSort\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setSportSort\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Query the sequence of equipment movement
@@ -943,10 +1100,13 @@ extension CreekSDK{
     ///      - model ： call back protocol_exercise_sport_mode_sort_inquire_reply
     /// - Returns:protocol_alarm_inquire_reply
     public func getSportSort(model:@escaping sportSortBase,failure:@escaping failureArgument) {
-        requestId+=1
-        sportSortDic["getSportSort\(requestId)"] = model
-        failureArgumentDic["getSportSort\(requestId)"] = failure
-        methodChannel?.invokeMethod("getSportSort\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sportSortDic["getSportSort\(requestId)"] = model
+          failureArgumentDic["getSportSort\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSportSort\(requestId)", arguments: "")
+       }
+    
        
     }
     
@@ -955,15 +1115,18 @@ extension CreekSDK{
     ///      - model: protocol_exercise_sporting_param_sort
     /// - Returns:
     public func setSportSub(model:protocol_exercise_sporting_param_sort,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSportSub\(requestId)"] = success;
-        failureArgumentDic["setSportSub\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setSportSub\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSportSub\(requestId)"] = success;
+          failureArgumentDic["setSportSub\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setSportSub\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Data acquisition of children in sports
@@ -971,10 +1134,13 @@ extension CreekSDK{
     ///      - model：call back protocol_exercise_sporting_param_sort_inquire_reply
     /// - Returns:protocol_alarm_inquire_reply
     public func getSportSub(model:@escaping sportSubBase,failure:@escaping failureArgument) {
-        requestId+=1
-        sportSubDic["getSportSub\(requestId)"] = model
-        failureArgumentDic["getSportSub\(requestId)"] = failure
-        methodChannel?.invokeMethod("getSportSub\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sportSubDic["getSportSub\(requestId)"] = model
+          failureArgumentDic["getSportSub\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSportSub\(requestId)", arguments: "")
+       }
+       
        
     }
     
@@ -984,15 +1150,18 @@ extension CreekSDK{
     ///      - model : protocol_exercise_intelligent_recognition
     /// - Returns:
     public func setSportIdentification(model:protocol_exercise_intelligent_recognition,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSportIdentification\(requestId)"] = success;
-        failureArgumentDic["setSportIdentification\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setSportIdentification\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSportIdentification\(requestId)"] = success;
+          failureArgumentDic["setSportIdentification\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setSportIdentification\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+   
     }
     
     ///MARK :Sports self-identification query
@@ -1000,10 +1169,13 @@ extension CreekSDK{
     ///      - model : call back protocol_exercise_intelligent_recognition_inquire_reply
     /// - Returns:
     public func getSportIdentification(model:@escaping sportIdentificationBase,failure:@escaping failureArgument) {
-        requestId+=1
-        sportIdentificationDic["getSportIdentification\(requestId)"] = model
-        failureArgumentDic["getSportIdentification\(requestId)"] = failure
-        methodChannel?.invokeMethod("getSportIdentification\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sportIdentificationDic["getSportIdentification\(requestId)"] = model
+          failureArgumentDic["getSportIdentification\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSportIdentification\(requestId)", arguments: "")
+       }
+  
        
     }
     
@@ -1013,15 +1185,18 @@ extension CreekSDK{
     ///      - model : protocol_watch_dial_plate_operate
     /// - Returns:
     public func setWatchDial(model:protocol_watch_dial_plate_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setWatchDial\(requestId)"] = success;
-        failureArgumentDic["setWatchDial\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setWatchDial\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["setWatchDial\(requestId)"] = success;
+          failureArgumentDic["setWatchDial\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setWatchDial\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Remove dial
@@ -1029,15 +1204,18 @@ extension CreekSDK{
     ///      - model : protocol_watch_dial_plate_operate
     /// - Returns:
     public func delWatchDial(model:protocol_watch_dial_plate_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["delWatchDial\(requestId)"] = success;
-        failureArgumentDic["delWatchDial\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("delWatchDial\(requestId)", arguments: data)
-        }catch{
-       
-        }
+       serialQueue.sync {
+          requestId+=1
+          successDic["delWatchDial\(requestId)"] = success;
+          failureArgumentDic["delWatchDial\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("delWatchDial\(requestId)", arguments: data)
+          }catch{
+         
+          }
+       }
+
     }
     
     ///MARK :Query dial
@@ -1045,10 +1223,13 @@ extension CreekSDK{
     ///      - model : call back protocol_watch_dial_plate_operate
     /// - Returns:
     public func getWatchDial(model:@escaping watchDialBase,failure:@escaping failureArgument) {
-        requestId+=1
-        watchDialDic["getWatchDial\(requestId)"] = model
-        failureArgumentDic["getWatchDial\(requestId)"] = failure
-        methodChannel?.invokeMethod("getWatchDial\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          watchDialDic["getWatchDial\(requestId)"] = model
+          failureArgumentDic["getWatchDial\(requestId)"] = failure
+          methodChannel?.invokeMethod("getWatchDial\(requestId)", arguments: "")
+       }
+       
        
     }
     
@@ -1057,10 +1238,13 @@ extension CreekSDK{
     ///      - type ：1 Restart operation 2 Shut down operation
     /// - Returns:
     public func setSystem(type:Int,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSystem\(requestId)"] = success;
-        failureArgumentDic["setSystem\(requestId)"] = failure
-        methodChannel?.invokeMethod("setSystem\(requestId)", arguments: type)
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSystem\(requestId)"] = success;
+          failureArgumentDic["setSystem\(requestId)"] = failure
+          methodChannel?.invokeMethod("setSystem\(requestId)", arguments: type)
+       }
+        
     }
     
     
@@ -1068,10 +1252,13 @@ extension CreekSDK{
     /// - Parameter :
     /// - Returns:
     public func getHotKey(model:@escaping hotKeyBase,failure:@escaping failureArgument) {
-        requestId+=1
-        hotKeyDic["getHotKey\(requestId)"] = model
-        failureArgumentDic["getHotKey\(requestId)"] = failure
-        methodChannel?.invokeMethod("getHotKey\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          hotKeyDic["getHotKey\(requestId)"] = model
+          failureArgumentDic["getHotKey\(requestId)"] = failure
+          methodChannel?.invokeMethod("getHotKey\(requestId)", arguments: "")
+       }
+        
 
     }
     
@@ -1080,25 +1267,31 @@ extension CreekSDK{
     ///           -model : protocol_quick_card_operate
     /// - Returns:
     public func setHotKey(model:protocol_button_crown_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setHotKey\(requestId)"] = success;
-        failureArgumentDic["setHotKey\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setHotKey\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setHotKey\(requestId)"] = success;
+          failureArgumentDic["setHotKey\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setHotKey\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+
     }
     
     ///MARK :Get menu
     /// - Parameter :
     /// - Returns:
     public func getTable(model:@escaping tableBase,failure:@escaping failureArgument) {
-        requestId+=1
-        tableDic["getTable\(requestId)"] = model
-        failureArgumentDic["getTable\(requestId)"] = failure
-        methodChannel?.invokeMethod("getTable\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          tableDic["getTable\(requestId)"] = model
+          failureArgumentDic["getTable\(requestId)"] = failure
+          methodChannel?.invokeMethod("getTable\(requestId)", arguments: "")
+       }
+        
 
     }
     
@@ -1106,10 +1299,13 @@ extension CreekSDK{
     /// - Parameter :
     /// - Returns:
     public func getContactsSOS(model:@escaping sosContactsBase,failure:@escaping failureArgument) {
-        requestId+=1
-        sosContactsDic["getSOSContacts\(requestId)"] = model
-        failureArgumentDic["getSOSContacts\(requestId)"] = failure
-        methodChannel?.invokeMethod("getSOSContacts\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sosContactsDic["getSOSContacts\(requestId)"] = model
+          failureArgumentDic["getSOSContacts\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSOSContacts\(requestId)", arguments: "")
+       }
+        
 
     }
     
@@ -1118,35 +1314,44 @@ extension CreekSDK{
     ///           -model : protocol_emergency_contacts_operate
     /// - Returns:
     public func setContactsSOS(model:protocol_emergency_contacts_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setSOSContacts\(requestId)"] = success;
-        failureArgumentDic["setSOSContacts\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setSOSContacts\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSOSContacts\(requestId)"] = success;
+          failureArgumentDic["setSOSContacts\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setSOSContacts\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+
     }
     
     public func getMenstrual(model:@escaping menstrualBase,failure:@escaping failureArgument) {
-        requestId+=1
-        menstrualDic["getMenstrual\(requestId)"] = model
-        failureArgumentDic["getMenstrual\(requestId)"] = failure
-        methodChannel?.invokeMethod("getMenstrual\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          menstrualDic["getMenstrual\(requestId)"] = model
+          failureArgumentDic["getMenstrual\(requestId)"] = failure
+          methodChannel?.invokeMethod("getMenstrual\(requestId)", arguments: "")
+       }
+        
     }
     
 
     public func setMenstrual(model:protocol_menstruation_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-        requestId+=1
-        successDic["setMenstrual\(requestId)"] = success;
-        failureArgumentDic["setMenstrual\(requestId)"] = failure
-        do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setMenstrual\(requestId)", arguments: data)
-        }catch{
+       serialQueue.sync {
+          requestId+=1
+          successDic["setMenstrual\(requestId)"] = success;
+          failureArgumentDic["setMenstrual\(requestId)"] = failure
+          do{
+              let data = try model.serializedData()
+              methodChannel?.invokeMethod("setMenstrual\(requestId)", arguments: data)
+          }catch{
 
-        }
+          }
+       }
+      
     }
     
     
@@ -1176,9 +1381,12 @@ extension CreekSDK{
     ///      - endTime 2023-08-03
     /// - Returns:
     public func getActivityNewTimeData(startTime:String,endTime:String,model: @escaping activitysClosure) {
-        requestId+=1
-        activitysClosureDic["getActivityNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getActivityNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          activitysClosureDic["getActivityNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getActivityNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+        
     }
     
     ///MARK :Get Sleep Health Data
@@ -1187,9 +1395,12 @@ extension CreekSDK{
     ///      - endTime    2023-08-03
     /// - Returns:
     public func getSleepNewTimeData(startTime:String,endTime:String,model:@escaping sleepsClosure) {
-        requestId+=1
-        sleepsClosureDic["getSleepNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getSleepNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          sleepsClosureDic["getSleepNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getSleepNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+        
     }
     ///MARK :Get Heart Rate Health Data
     /// - Parameter :
@@ -1197,9 +1408,12 @@ extension CreekSDK{
     ///      - endTime    2023-08-03
     /// - Returns:
     public func getHeartRateNewTimeData(startTime:String,endTime:String,model:@escaping heartRatesClosure) {
-        requestId+=1
-        heartRatesClosureDic["getHeartRateNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getHeartRateNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          heartRatesClosureDic["getHeartRateNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getHeartRateNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+        
     }
     ///MARK :Get Stress Health Data
     /// - Parameter :
@@ -1207,9 +1421,12 @@ extension CreekSDK{
     ///      - endTime    2023-08-03
     /// - Returns:
     public func getStressNewTimeData(startTime:String,endTime:String,model:@escaping stresssClosure) {
-        requestId+=1
-        stresssClosureDic["getStressNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getStressNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          stresssClosureDic["getStressNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getStressNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+        
     }
     ///MARK :Get Noise Health Data
     /// - Parameter :
@@ -1217,9 +1434,12 @@ extension CreekSDK{
     ///      - endTime    2023-08-03
     /// - Returns:
     public func getNoiseNewTimeData(startTime:String,endTime:String,model:@escaping noisesClosure) {
-        requestId+=1
-        noisesClosureDic["getNoiseNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getNoiseNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          noisesClosureDic["getNoiseNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getNoiseNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+        
     }
     ///MARK :Obtain blood oxygen health data
     /// - Parameter :
@@ -1227,9 +1447,12 @@ extension CreekSDK{
     ///      - endTime    2023-08-03
     /// - Returns:
     public func getSpoNewTimeData(startTime:String,endTime:String,model:@escaping oxygensClosure) {
-        requestId+=1
-        oxygensClosureDic["getSpoNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getSpoNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          oxygensClosureDic["getSpoNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getSpoNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+        
     }
     
     ///MARK :Get all motion data by type
@@ -1237,9 +1460,12 @@ extension CreekSDK{
     ///        - type : nil query all type
     /// - Returns:
     public func getSportRecord(_ type:SportType?,model:@escaping sportsClosure) {
-        requestId+=1
-        sportsClosureDic["getSportRecord\(requestId)"] = model
-        methodChannel?.invokeMethod("getSportRecord\(requestId)", arguments: type?.rawValue ?? 1000)
+       serialQueue.sync {
+          requestId+=1
+          sportsClosureDic["getSportRecord\(requestId)"] = model
+          methodChannel?.invokeMethod("getSportRecord\(requestId)", arguments: type?.rawValue ?? 1000)
+       }
+       
     }
     
     ///MARK :Get sport details
@@ -1247,9 +1473,12 @@ extension CreekSDK{
     ///         -id：SportModel.id
     /// - Returns:
     public func getSportDetails(id:Int?,model:@escaping sportClosure) {
-        requestId+=1
-        sportClosureDic["getSportDetails\(requestId)"] = model
-        methodChannel?.invokeMethod("getSportDetails\(requestId)", arguments: id)
+       serialQueue.sync {
+          requestId+=1
+          sportClosureDic["getSportDetails\(requestId)"] = model
+          methodChannel?.invokeMethod("getSportDetails\(requestId)", arguments: id)
+       }
+        
     }
     
     ///MARK :Query sports data by time range and type
@@ -1259,9 +1488,12 @@ extension CreekSDK{
     ///      - type : nil query all type
     /// - Returns:
     public func getSportTimeData(startTime:String,endTime:String,_ type:SportType?,model:@escaping sportsClosure) {
-        requestId+=1
-        sportsClosureDic["getSportTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getSportTimeData\(requestId)", arguments: [startTime ,endTime,type?.rawValue ?? 1000] as [Any])
+       serialQueue.sync {
+          requestId+=1
+          sportsClosureDic["getSportTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getSportTimeData\(requestId)", arguments: [startTime ,endTime,type?.rawValue ?? 1000] as [Any])
+       }
+        
     }
     
     ///MARK:  Delete a piece of exercise data
@@ -1269,9 +1501,12 @@ extension CreekSDK{
     ///    id:SportModel.id
     /// - Returns:
     public func delSportRecord(id:Int,model:@escaping baseClosure) {
-        requestId+=1
-        baseClosureDic["delSportRecord\(requestId)"] = model
-        methodChannel?.invokeMethod("delSportRecord\(requestId)", arguments: id)
+       serialQueue.sync {
+          requestId+=1
+          baseClosureDic["delSportRecord\(requestId)"] = model
+          methodChannel?.invokeMethod("delSportRecord\(requestId)", arguments: id)
+       }
+        
     }
     
     ///MARK :Get HRV Health Data
@@ -1280,18 +1515,24 @@ extension CreekSDK{
     ///      - endTime    2023-08-03
     /// - Returns:
     public func getHrvNewTimeData(startTime:String,endTime:String,model:@escaping hrvsClosure) {
-        requestId+=1
-        hrvsClosureDic["getHrvNewTimeData\(requestId)"] = model
-        methodChannel?.invokeMethod("getHrvNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       serialQueue.sync {
+          requestId+=1
+          hrvsClosureDic["getHrvNewTimeData\(requestId)"] = model
+          methodChannel?.invokeMethod("getHrvNewTimeData\(requestId)", arguments: [startTime ,endTime])
+       }
+       
     }
     
     ///MARK :Get all bound devices
     /// - Parameter :
     /// - Returns:
     public func getBindDevice(model:@escaping devicesBack) {
-        requestId+=1
-        devicesBackDic["getBindDevice\(requestId)"] = model
-        methodChannel?.invokeMethod("getBindDevice\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          devicesBackDic["getBindDevice\(requestId)"] = model
+          methodChannel?.invokeMethod("getBindDevice\(requestId)", arguments: "")
+       }
+       
     }
     
     ///*******************************
@@ -1299,50 +1540,74 @@ extension CreekSDK{
     ///*******************************
 
     public func getSportUploadStatus(model:@escaping sportsClosure) {
-        requestId+=1
-        sportsClosureDic["getSportUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getSportUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sportsClosureDic["getSportUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getSportUploadStatus\(requestId)", arguments: "")
+       }
+        
     }
     
     public func getActivityUploadStatus(model:@escaping activitysClosure) {
-        requestId+=1
-        activitysClosureDic["getActivityUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getActivityUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          activitysClosureDic["getActivityUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getActivityUploadStatus\(requestId)", arguments: "")
+       }
+        
     }
     
     public func getHeartRateUploadStatus(model:@escaping heartRatesClosure) {
-        requestId+=1
-        heartRatesClosureDic["getHeartRateUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getHeartRateUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          heartRatesClosureDic["getHeartRateUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getHeartRateUploadStatus\(requestId)", arguments: "")
+       }
+       
     }
     
     public func getHrvUploadStatus(model:@escaping hrvsClosure) {
-        requestId+=1
-        hrvsClosureDic["getHrvUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getHrvUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          hrvsClosureDic["getHrvUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getHrvUploadStatus\(requestId)", arguments: "")
+       }
+        
     }
     
     public func getNoiseUploadStatus(model:@escaping noisesClosure) {
-        requestId+=1
-        noisesClosureDic["getNoiseUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getNoiseUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          noisesClosureDic["getNoiseUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getNoiseUploadStatus\(requestId)", arguments: "")
+       }
+        
     }
     public func getStressUploadStatus(model:@escaping stresssClosure) {
-        requestId+=1
-        stresssClosureDic["getStressUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getStressUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          stresssClosureDic["getStressUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getStressUploadStatus\(requestId)", arguments: "")
+       }
+       
     }
     
     public func getSleepUploadDays(model:@escaping sleepsClosure) {
-        requestId+=1
-        sleepsClosureDic["getSleepUploadDays\(requestId)"] = model
-        methodChannel?.invokeMethod("getSleepUploadDays\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          sleepsClosureDic["getSleepUploadDays\(requestId)"] = model
+          methodChannel?.invokeMethod("getSleepUploadDays\(requestId)", arguments: "")
+       }
+        
     }
     
     public func getSpoUploadStatus(model:@escaping oxygensClosure) {
-        requestId+=1
-        oxygensClosureDic["getSpoUploadStatus\(requestId)"] = model
-        methodChannel?.invokeMethod("getSpoUploadStatus\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          oxygensClosureDic["getSpoUploadStatus\(requestId)"] = model
+          methodChannel?.invokeMethod("getSpoUploadStatus\(requestId)", arguments: "")
+       }
+        
     }
     
     public func setDBUser(_ userID:Int?) {
@@ -1354,39 +1619,51 @@ extension CreekSDK{
     }
     
     public func rawQueryDB(_ sql:String,model:@escaping rawQueryDBClosure) {
-        requestId+=1
-        rawQueryDBClosureDic["rawQueryDB\(requestId)"] = model
-        methodChannel?.invokeMethod("rawQueryDB\(requestId)", arguments: sql)
+       serialQueue.sync {
+          requestId+=1
+          rawQueryDBClosureDic["rawQueryDB\(requestId)"] = model
+          methodChannel?.invokeMethod("rawQueryDB\(requestId)", arguments: sql)
+       }
+        
     }
     
     public func encodeOnlineFile(_ ephemerisModel :EphemerisModel,model:@escaping ephemerisData,failure:@escaping failureArgument){
-        requestId+=1
-        ephemerisClosureDic["encodeOnlineFile\(requestId)"] = model
-        failureArgumentDic["encodeOnlineFile\(requestId)"] = failure
-        let json = try? JSONEncoder().encode(ephemerisModel)
-        if let data = json, let str = String(data: data, encoding: .utf8) {
-            methodChannel?.invokeMethod("encodeOnlineFile\(requestId)", arguments: str)
-        }
+       serialQueue.sync {
+          requestId+=1
+          ephemerisClosureDic["encodeOnlineFile\(requestId)"] = model
+          failureArgumentDic["encodeOnlineFile\(requestId)"] = failure
+          let json = try? JSONEncoder().encode(ephemerisModel)
+          if let data = json, let str = String(data: data, encoding: .utf8) {
+              methodChannel?.invokeMethod("encodeOnlineFile\(requestId)", arguments: str)
+          }
+       }
+
     }
     
     public func encodeOfflineFile(_ ephemerisModel :EphemerisModel,model:@escaping ephemerisData,failure:@escaping failureArgument){
-        requestId+=1
-        ephemerisClosureDic["encodeOfflineFile\(requestId)"] = model
-        failureArgumentDic["encodeOfflineFile\(requestId)"] = failure
-        let json = try? JSONEncoder().encode(ephemerisModel)
-        if let data = json, let str = String(data: data, encoding: .utf8) {
-            methodChannel?.invokeMethod("encodeOfflineFile\(requestId)", arguments: str)
-        }
+       serialQueue.sync {
+          requestId+=1
+          ephemerisClosureDic["encodeOfflineFile\(requestId)"] = model
+          failureArgumentDic["encodeOfflineFile\(requestId)"] = failure
+          let json = try? JSONEncoder().encode(ephemerisModel)
+          if let data = json, let str = String(data: data, encoding: .utf8) {
+              methodChannel?.invokeMethod("encodeOfflineFile\(requestId)", arguments: str)
+          }
+       }
+
     }
     
     public func encodePhoneFile(_ phoneModel :[PhoneModel],model:@escaping ephemerisData,failure:@escaping failureArgument){
-        requestId+=1
-        ephemerisClosureDic["encodePhoneFile\(requestId)"] = model
-        failureArgumentDic["encodePhoneFile\(requestId)"] = failure
-        let json = try? JSONEncoder().encode(phoneModel)
-        if let data = json, let str = String(data: data, encoding: .utf8) {
-            methodChannel?.invokeMethod("encodePhoneFile\(requestId)", arguments: str)
-        }
+       serialQueue.sync {
+          requestId+=1
+          ephemerisClosureDic["encodePhoneFile\(requestId)"] = model
+          failureArgumentDic["encodePhoneFile\(requestId)"] = failure
+          let json = try? JSONEncoder().encode(phoneModel)
+          if let data = json, let str = String(data: data, encoding: .utf8) {
+              methodChannel?.invokeMethod("encodePhoneFile\(requestId)", arguments: str)
+          }
+       }
+   
     }
     
     ///Get app log
@@ -1406,80 +1683,113 @@ extension CreekSDK{
     
     ///Analytical dial
     public func parseDial(_ path:String,_ width:Int,_ height:Int, _ radius:Int, _ platformType:Platform ,model:@escaping parseDialBase) {
-        requestId+=1
-        parseDialClosureDic["parseDial\(requestId)"] = model
-        methodChannel?.invokeMethod("parseDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+       serialQueue.sync {
+          requestId+=1
+          parseDialClosureDic["parseDial\(requestId)"] = model
+          methodChannel?.invokeMethod("parseDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+       }
+        
     }
     
     ///Analytical photo dial
     public func parsePhotoDial(_ path:String,_ width:Int,_ height:Int, _ radius:Int, _ platformType:Platform ,model:@escaping parsePhotoDialBase) {
-        requestId+=1
-        parsePhotoDialClosureDic["parsePhotoDial\(requestId)"] = model
-        methodChannel?.invokeMethod("parsePhotoDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+       serialQueue.sync {
+          requestId+=1
+          parsePhotoDialClosureDic["parsePhotoDial\(requestId)"] = model
+          methodChannel?.invokeMethod("parsePhotoDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+       }
+        
     }
     
     ///Get the watch face generated image
     public func getPreviewImage(model:@escaping previewImageBase) {
-        requestId+=1
-        previewImageClosureDic["getPreviewImage\(requestId)"] = model
-        methodChannel?.invokeMethod("getPreviewImage\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          previewImageClosureDic["getPreviewImage\(requestId)"] = model
+          methodChannel?.invokeMethod("getPreviewImage\(requestId)", arguments: "")
+       }
+        
     }
     
     ///Set color
     public func setCurrentColor(selectIndex:Int,model:@escaping parseDialBase) {
-        requestId+=1
-        parseDialClosureDic["setCurrentColor\(requestId)"] = model
-        methodChannel?.invokeMethod("setCurrentColor\(requestId)", arguments: selectIndex)
+       serialQueue.sync {
+          requestId+=1
+          parseDialClosureDic["setCurrentColor\(requestId)"] = model
+          methodChannel?.invokeMethod("setCurrentColor\(requestId)", arguments: selectIndex)
+       }
+        
     }
     
     ///Set color
     public func setCurrentPhotoColor(photoSelectIndex:Int,selectIndex:Int,model:@escaping parsePhotoDialBase) {
-        requestId+=1
-        parsePhotoDialClosureDic["setCurrentPhotoColor\(requestId)"] = model
-        methodChannel?.invokeMethod("setCurrentPhotoColor\(requestId)", arguments: [photoSelectIndex,selectIndex])
+       serialQueue.sync {
+          requestId+=1
+          parsePhotoDialClosureDic["setCurrentPhotoColor\(requestId)"] = model
+          methodChannel?.invokeMethod("setCurrentPhotoColor\(requestId)", arguments: [photoSelectIndex,selectIndex])
+       }
+       
     }
     
     ///set background
     public func setCurrentBackgroundImagePath(selectIndex:Int,model:@escaping parseDialBase) {
-        requestId+=1
-        parseDialClosureDic["setCurrentBackgroundImagePath\(requestId)"] = model
-        methodChannel?.invokeMethod("setCurrentBackgroundImagePath\(requestId)", arguments: selectIndex)
+       serialQueue.sync {
+          requestId+=1
+          parseDialClosureDic["setCurrentBackgroundImagePath\(requestId)"] = model
+          methodChannel?.invokeMethod("setCurrentBackgroundImagePath\(requestId)", arguments: selectIndex)
+       }
+        
     }
     
     ///Set clock position
     public func setCurrentClockPosition(photoSelectIndex:Int,selectIndex:Int,model:@escaping parsePhotoDialBase) {
-        requestId+=1
-        parsePhotoDialClosureDic["setCurrentClockPosition\(requestId)"] = model
-        methodChannel?.invokeMethod("setCurrentClockPosition\(requestId)", arguments: [photoSelectIndex,selectIndex])
+       serialQueue.sync {
+          requestId+=1
+          parsePhotoDialClosureDic["setCurrentClockPosition\(requestId)"] = model
+          methodChannel?.invokeMethod("setCurrentClockPosition\(requestId)", arguments: [photoSelectIndex,selectIndex])
+       }
+       
     }
     
     ///Set clock position
     public func setCurrentPhotoBackgroundImagePath(photoImagePaths:[String],selectIndex:Int,model:@escaping parsePhotoDialBase) {
-        requestId+=1
-        parsePhotoDialClosureDic["setCurrentPhotoBackgroundImagePath\(requestId)"] = model
-        let dic:[String : Any] = ["photoImagePaths":photoImagePaths,"photoSelectIndex":selectIndex]
-        methodChannel?.invokeMethod("setCurrentPhotoBackgroundImagePath\(requestId)", arguments: dic)
+       serialQueue.sync {
+          requestId+=1
+          parsePhotoDialClosureDic["setCurrentPhotoBackgroundImagePath\(requestId)"] = model
+          let dic:[String : Any] = ["photoImagePaths":photoImagePaths,"photoSelectIndex":selectIndex]
+          methodChannel?.invokeMethod("setCurrentPhotoBackgroundImagePath\(requestId)", arguments: dic)
+       }
+        
     }
     
     ///Set function
     public func setCurrentFunction(selectIndex:[Int],model:@escaping parseDialBase) {
-        requestId+=1
-        parseDialClosureDic["setCurrentFunction\(requestId)"] = model
-        methodChannel?.invokeMethod("setCurrentFunction\(requestId)", arguments: selectIndex)
+       serialQueue.sync {
+          requestId+=1
+          parseDialClosureDic["setCurrentFunction\(requestId)"] = model
+          methodChannel?.invokeMethod("setCurrentFunction\(requestId)", arguments: selectIndex)
+       }
+        
     }
     
     ///Generate watch face
     public func encodeDial(model:@escaping dialDataBase) {
-        requestId+=1
-        dialDataClosureDic["encodeDial\(requestId)"] = model
-        methodChannel?.invokeMethod("encodeDial\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          dialDataClosureDic["encodeDial\(requestId)"] = model
+          methodChannel?.invokeMethod("encodeDial\(requestId)", arguments: "")
+       }
+        
     }
     
     ///Generate watch face
     public func encodePhotoDial(model:@escaping dialDataBase) {
-        requestId+=1
-        dialDataClosureDic["encodePhotoDial\(requestId)"] = model
-        methodChannel?.invokeMethod("encodePhotoDial\(requestId)", arguments: "")
+       serialQueue.sync {
+          requestId+=1
+          dialDataClosureDic["encodePhotoDial\(requestId)"] = model
+          methodChannel?.invokeMethod("encodePhotoDial\(requestId)", arguments: "")
+       }
+        
     }
     
     public func ephemerisInit(keyId:String,publicKey:String,model:@escaping gpsBase){
@@ -1503,41 +1813,53 @@ extension CreekSDK{
    }
    
    public func checkPhoneBookPermissions(model:@escaping boolBase){
-       requestId+=1
-       boolClosureDic["checkPhoneBookPermissions\(requestId)"] = model
-       methodChannel?.invokeMethod("checkPhoneBookPermissions\(requestId)", arguments: "")
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["checkPhoneBookPermissions\(requestId)"] = model
+         methodChannel?.invokeMethod("checkPhoneBookPermissions\(requestId)", arguments: "")
+      }
+       
    }
    
    public func requestPhoneBookPermissions(model:@escaping boolBase){
-       requestId+=1
-       boolClosureDic["requestPhoneBookPermissions\(requestId)"] = model
-       methodChannel?.invokeMethod("requestPhoneBookPermissions\(requestId)", arguments: "")
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["requestPhoneBookPermissions\(requestId)"] = model
+         methodChannel?.invokeMethod("requestPhoneBookPermissions\(requestId)", arguments: "")
+      }
+       
    }
    
    public func getOTAUpgradeVersion(model:@escaping valueBase){
-       requestId+=1
-       valueClosureDic["getOTAUpgradeVersion\(requestId)"] = model
-       methodChannel?.invokeMethod("getOTAUpgradeVersion\(requestId)", arguments: "")
+      serialQueue.sync {
+         requestId+=1
+         valueClosureDic["getOTAUpgradeVersion\(requestId)"] = model
+         methodChannel?.invokeMethod("getOTAUpgradeVersion\(requestId)", arguments: "")
+      }
+       
    }
    
    public func getOTAUpgradeState(fileName:String,fileData:Data,model:@escaping upgradeStateBase,failure:@escaping failureArgument){
-       requestId+=1
-       upgradeStateClosureDic["getOTAUpgradeState\(requestId)"] = model
-       failureArgumentDic["getOTAUpgradeState\(requestId)"]=failure
-      var intArray: [Int] = []
-      fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-          let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
-          intArray = Array(buffer).map { Int($0) }
-      }
-      let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
-      do{
-        let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
-        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-            methodChannel?.invokeMethod("getOTAUpgradeState\(requestId)", arguments: JSONString)
+      serialQueue.sync {
+         requestId+=1
+         upgradeStateClosureDic["getOTAUpgradeState\(requestId)"] = model
+         failureArgumentDic["getOTAUpgradeState\(requestId)"]=failure
+        var intArray: [Int] = []
+        fileData.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+            let buffer = UnsafeBufferPointer(start: bytes, count: fileData.count)
+            intArray = Array(buffer).map { Int($0) }
         }
-      }catch{
-         print("Error converting string to dictionary: \(error.localizedDescription)")
+        let dic:[String:Any] = ["fileName":fileName,"fileData":intArray]
+        do{
+          let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+          if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+              methodChannel?.invokeMethod("getOTAUpgradeState\(requestId)", arguments: JSONString)
+          }
+        }catch{
+           print("Error converting string to dictionary: \(error.localizedDescription)")
+        }
       }
+
    }
    
     
