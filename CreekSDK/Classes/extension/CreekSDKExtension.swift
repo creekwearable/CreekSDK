@@ -1862,6 +1862,14 @@ extension CreekSDK{
 
    }
    
+   ///MARK :Monitor the status of connected devices
+   /// - Parameter :
+   ///      - listenDeviceState：
+   /// - Returns:
+   public func bluetoothStateListen(listen:@escaping (_ state:BluetoothState)->()) {
+       _bluetoothStateListen = listen
+   }
+   
     
     
     

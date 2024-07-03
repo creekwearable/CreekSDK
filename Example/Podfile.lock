@@ -1,5 +1,5 @@
 PODS:
-  - CreekSDK (0.1.18):
+  - CreekSDK (0.1.19):
     - SwiftProtobuf (~> 1.25.2)
   - CropViewController (2.7.4)
   - ESTabBarController-swift (2.8.0)
@@ -43,7 +43,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: cccf5f1382864e55bcc928602930f739c314f227
+  CreekSDK: 4b42eeb788b76ad6c39580c42023c7012cdbfda8
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   IQKeyboardManagerSwift: f9c5dc36cba16ddd2e51fa7d51c34a2e083029b5

@@ -87,6 +87,7 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var _eventReportListen:((_ model:EventReportModel) -> ())?           //Firmware reporting notification
     var _exceptionListen:((_ model:String) -> ())?                       //Bluetooth native logs
     var _listenDeviceState:((_ status:connectionStatus,_ deviceName:String)->())?   //Monitoring device
+    var _bluetoothStateListen:((_ state:BluetoothState)->())?   //Monitoring device
     var _inTransitionDevice:((_ connectState:Bool)->())?
     var _queryConnectedDevice:((_ deviceId:String) ->())?
     var _connect:((_ connectState:Bool)->())?
@@ -1382,6 +1383,30 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
                     upgradeStateClosureDic.removeValue(forKey: call.method)
                  }
              }
+          }
+       }
+       else if(call.method.contains("bluetoothStateListen")){
+          if let response = call.arguments as? Int{
+              if let back = _bluetoothStateListen{
+                 var blueState = BluetoothState.unknown
+                 switch response {
+                 case 0:
+                    blueState = .unknown
+                    break
+                 case 2:
+                    blueState = .unauthorized
+                    break
+                 case 4:
+                    blueState = .on
+                    break
+                 case 6:
+                    blueState = .off
+                    break
+                 default:
+                    break
+                 }
+                 back(blueState)
+              }
           }
        }
     }

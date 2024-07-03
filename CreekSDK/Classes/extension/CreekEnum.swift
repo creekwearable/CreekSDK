@@ -230,3 +230,11 @@ public enum PlatformType : Int{
     case JX_3085E_PLATFORM
 }
 
+public enum BluetoothState : Int {
+
+   case unknown //State unknown, update imminent.
+   case unauthorized //The application is not authorized to use the Bluetooth Low Energy role
+   case on    //Bluetooth is currently powered on and available to use.
+   case off   //Bluetooth is currently powered off
+}
+

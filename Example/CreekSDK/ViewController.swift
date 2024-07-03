@@ -240,6 +240,23 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         }
        
       CreekInterFace.instance.phoneBookInit();
+       
+       CreekInterFace.instance.bluetoothStateListen { state in
+          switch(state){
+          case .unknown:
+             print("State unknown")
+             break
+          case .unauthorized:
+             print(" The application is not authorized to use the Bluetooth Low Energy role")
+             break
+          case .on:
+             print("Bluetooth is currently powered on and available to use")
+             break
+          case .off:
+             print("Bluetooth is currently powered off")
+             break
+          }
+       }
       let keyId = "*********"
       let publicKey = "**********"
        
