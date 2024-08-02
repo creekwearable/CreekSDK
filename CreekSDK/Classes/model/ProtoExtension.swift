@@ -104,6 +104,28 @@ extension protocol_user_info_inquire_reply{
    
 }
 
+class ContactsTable: NSObject {
+   ///Whether to support wind speed unit
+    var contact_icon = false
+    
+}
+
+extension protocol_frequent_contacts_inquire_reply{
+   
+   func fromTable() -> ContactsTable {
+       let contactsTable = ContactsTable()
+       let str = Int(funcTable).decimalToBinary()
+       if let firstChar = str[safe: 0] {
+           if let intValue = Int(String(firstChar)) {
+              contactsTable.contact_icon = (intValue == 1)
+           }
+       }
+      
+       return contactsTable
+   }
+   
+}
+
 
 extension Int{
     func decimalToBinary() -> String {

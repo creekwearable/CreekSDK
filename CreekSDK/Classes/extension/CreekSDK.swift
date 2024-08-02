@@ -22,6 +22,7 @@ public typealias sportClosure = (_ model:BaseModel<SportModel>) -> ()
 public typealias devicesBack = (_ model:[ScanDeviceModel]) -> ()
 public typealias deviceBack = (_ model:ScanDeviceModel) -> ()
 public typealias ephemerisData = (_ model:Data) -> ()
+public typealias ContactsIconData = (_ model:Data) -> ()
 public typealias progressBase = (_ progress:Int) -> ()
 public typealias baseClosure = (_ model:BaseModel<BaseDataModel>) -> ()
 public typealias successBase = () -> ()
@@ -91,6 +92,7 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var _inTransitionDevice:((_ connectState:Bool)->())?
     var _queryConnectedDevice:((_ deviceId:String) ->())?
     var _connect:((_ connectState:Bool)->())?
+    var _watchResetListen:(()->())?
     var SNFirmwareDic:[String:SNFirmwareBase] = [:]
     var endScanDic:[String:endScanBase] = [:]
     var deviceBackDic:[String:deviceBack] = [:]
@@ -148,6 +150,7 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var sportClosureDic:[String:sportClosure] = [:]
     var hrvsClosureDic:[String:hrvsClosure] = [:]
     var ephemerisClosureDic:[String:ephemerisData] = [:]
+    var contactsIconClosureDic:[String:ContactsIconData] = [:]
     var boolClosureDic:[String:boolBase] = [:]
    
     var valueClosureDic:[String:valueBase] = [:]
@@ -1408,7 +1411,20 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
                  back(blueState)
               }
           }
-       }
+       }else if(call.method.contains("encodeContacts")){
+          if let response = call.arguments as? FlutterStandardTypedData{
+              if let back = contactsIconClosureDic[call.method]{
+                  back(response.data);
+                 contactsIconClosureDic.removeValue(forKey: call.method)
+                  
+              }
+          }
+      }else if(call.method.contains("watchResetListen")){
+         if let back = _watchResetListen{
+             back();
+         }
+     }
+       
     }
     
 }

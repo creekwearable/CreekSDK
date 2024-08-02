@@ -75,6 +75,7 @@ public enum Platform: SwiftProtobuf.Enum {
   case jx3085CPlatform // = 0
   case jx3085LPlatform // = 1
   case jx3085EPlatform // = 2
+  case jx3085SPlatform // = 3
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -86,6 +87,7 @@ public enum Platform: SwiftProtobuf.Enum {
     case 0: self = .jx3085CPlatform
     case 1: self = .jx3085LPlatform
     case 2: self = .jx3085EPlatform
+    case 3: self = .jx3085SPlatform
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -95,6 +97,7 @@ public enum Platform: SwiftProtobuf.Enum {
     case .jx3085CPlatform: return 0
     case .jx3085LPlatform: return 1
     case .jx3085EPlatform: return 2
+    case .jx3085SPlatform: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -109,6 +112,7 @@ extension Platform: CaseIterable {
     .jx3085CPlatform,
     .jx3085LPlatform,
     .jx3085EPlatform,
+    .jx3085SPlatform,
   ]
 }
 
@@ -153,48 +157,6 @@ extension Shape: CaseIterable {
   public static var allCases: [Shape] = [
     .squareShape,
     .roundShape,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
-public enum tran_direction_type: SwiftProtobuf.Enum {
-  public typealias RawValue = Int
-
-  case watchTran // = 0
-
-  case appTran // = 1
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .watchTran
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .watchTran
-    case 1: self = .appTran
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .watchTran: return 0
-    case .appTran: return 1
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-}
-
-#if swift(>=4.2)
-
-extension tran_direction_type: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static var allCases: [tran_direction_type] = [
-    .watchTran,
-    .appTran,
   ]
 }
 
@@ -933,7 +895,7 @@ public enum language: SwiftProtobuf.Enum {
   ///Polish
   case polish // = 11
 
-  ///Czech language
+  ///Czech
   case czech // = 12
 
   ///Slovak
@@ -957,7 +919,7 @@ public enum language: SwiftProtobuf.Enum {
   ///Bulgarian
   case bulgarian // = 19
 
-  ///Malay language
+  ///Malay
   case malay // = 20
 
   ///Indonesian
@@ -972,11 +934,26 @@ public enum language: SwiftProtobuf.Enum {
   ///Hebrew
   case hebrew // = 24
 
-  /// Devagna
+  ///Devanagari
   case devanagari // = 25
 
   ///Turkish
   case turkey // = 26
+
+  ///Romanian
+  case romanian // = 27
+
+  ///Dutch
+  case dutch // = 28
+
+  ///Ukrainian
+  case ukrainian // = 29
+
+  ///Arabic
+  case arabic // = 30
+
+  ///Persian
+  case farsi // = 31
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1012,6 +989,11 @@ public enum language: SwiftProtobuf.Enum {
     case 24: self = .hebrew
     case 25: self = .devanagari
     case 26: self = .turkey
+    case 27: self = .romanian
+    case 28: self = .dutch
+    case 29: self = .ukrainian
+    case 30: self = .arabic
+    case 31: self = .farsi
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1045,6 +1027,11 @@ public enum language: SwiftProtobuf.Enum {
     case .hebrew: return 24
     case .devanagari: return 25
     case .turkey: return 26
+    case .romanian: return 27
+    case .dutch: return 28
+    case .ukrainian: return 29
+    case .arabic: return 30
+    case .farsi: return 31
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1083,6 +1070,11 @@ extension language: CaseIterable {
     .hebrew,
     .devanagari,
     .turkey,
+    .romanian,
+    .dutch,
+    .ukrainian,
+    .arabic,
+    .farsi,
   ]
 }
 
@@ -3086,7 +3078,7 @@ public enum message_remind_type: SwiftProtobuf.Enum {
   case spotify // = 32
   case discord // = 33
 
-  ///其他类型
+  ///ohter
   case ohter // = 34
   case dailyhunt // = 35
   case fastrackSmartWorld // = 36
@@ -3338,6 +3330,50 @@ extension message_remind_type: CaseIterable {
     .titanSmartWorld,
     .makeMyTrip,
     .jioTv,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
+public enum tran_direction_type: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+
+  ///Initiated by watch
+  case watchTran // = 0
+
+  ///Initiated by app
+  case appTran // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .watchTran
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .watchTran
+    case 1: self = .appTran
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .watchTran: return 0
+    case .appTran: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension tran_direction_type: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [tran_direction_type] = [
+    .watchTran,
+    .appTran,
   ]
 }
 
@@ -3685,11 +3721,98 @@ extension app_list: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+public enum msg_send_type: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+
+  ///Send from watch
+  case watchMsgSend // = 0
+
+  ///App reply
+  case appMsgReply // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .watchMsgSend
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .watchMsgSend
+    case 1: self = .appMsgReply
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .watchMsgSend: return 0
+    case .appMsgReply: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension msg_send_type: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [msg_send_type] = [
+    .watchMsgSend,
+    .appMsgReply,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
+public enum msg_reply_type: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+
+  ///Quick reply to message
+  case msgReplyMsg // = 0
+
+  ///Quick reply to call
+  case msgReplyCall // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .msgReplyMsg
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .msgReplyMsg
+    case 1: self = .msgReplyCall
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .msgReplyMsg: return 0
+    case .msgReplyCall: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension msg_reply_type: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [msg_reply_type] = [
+    .msgReplyMsg,
+    .msgReplyCall,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension operate_type: @unchecked Sendable {}
 extension Platform: @unchecked Sendable {}
 extension Shape: @unchecked Sendable {}
-extension tran_direction_type: @unchecked Sendable {}
 extension Dev_type: @unchecked Sendable {}
 extension Batt_mode: @unchecked Sendable {}
 extension Batt_status: @unchecked Sendable {}
@@ -3721,11 +3844,14 @@ extension weather_type: @unchecked Sendable {}
 extension wind_direction_type: @unchecked Sendable {}
 extension moon_phase: @unchecked Sendable {}
 extension message_remind_type: @unchecked Sendable {}
+extension tran_direction_type: @unchecked Sendable {}
 extension notify_os_platform: @unchecked Sendable {}
 extension aod_mode: @unchecked Sendable {}
 extension event_id: @unchecked Sendable {}
 extension long_2s_press_type: @unchecked Sendable {}
 extension app_list: @unchecked Sendable {}
+extension msg_send_type: @unchecked Sendable {}
+extension msg_reply_type: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -3743,6 +3869,7 @@ extension Platform: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "JX_3085C_PLATFORM"),
     1: .same(proto: "JX_3085L_PLATFORM"),
     2: .same(proto: "JX_3085E_PLATFORM"),
+    3: .same(proto: "JX_3085S_PLATFORM"),
   ]
 }
 
@@ -3750,13 +3877,6 @@ extension Shape: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SQUARE_SHAPE"),
     1: .same(proto: "ROUND_SHAPE"),
-  ]
-}
-
-extension tran_direction_type: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "WATCH_TRAN"),
-    1: .same(proto: "APP_TRAN"),
   ]
 }
 
@@ -3905,6 +4025,11 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     24: .same(proto: "HEBREW"),
     25: .same(proto: "DEVANAGARI"),
     26: .same(proto: "TURKEY"),
+    27: .same(proto: "ROMANIAN"),
+    28: .same(proto: "DUTCH"),
+    29: .same(proto: "UKRAINIAN"),
+    30: .same(proto: "ARABIC"),
+    31: .same(proto: "FARSI"),
   ]
 }
 
@@ -4301,6 +4426,13 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
+extension tran_direction_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "WATCH_TRAN"),
+    1: .same(proto: "APP_TRAN"),
+  ]
+}
+
 extension notify_os_platform: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ANDROID_NOTIFY"),
@@ -4356,5 +4488,19 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     16: .same(proto: "APP_LIST_FIND_PHONE"),
     17: .same(proto: "APP_LIST_WORLD_CLOCK"),
     18: .same(proto: "APP_LIST_SETTINGS"),
+  ]
+}
+
+extension msg_send_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "WATCH_MSG_SEND"),
+    1: .same(proto: "APP_MSG_REPLY"),
+  ]
+}
+
+extension msg_reply_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MSG_REPLY_MSG"),
+    1: .same(proto: "MSG_REPLY_CALL"),
   ]
 }

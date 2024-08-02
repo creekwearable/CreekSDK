@@ -11,8 +11,8 @@ import Contacts
 extension CreekSDK{
     
     ///MARK : initialization SDK
-    public func initSDK() {
-        methodChannel?.invokeMethod("initSDK", arguments: "")
+   public func initSDK(type:CreekClientType = .none) {
+      methodChannel?.invokeMethod("initSDK", arguments: type.rawValue)
     }
     
     ///MARK : Authorization code verification
@@ -1870,8 +1870,25 @@ extension CreekSDK{
        _bluetoothStateListen = listen
    }
    
-    
-    
-    
+   public func encodeContacts(_ contactsIconModels :[ContactsIconModel],model:@escaping ContactsIconData,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         contactsIconClosureDic["encodeContacts\(requestId)"] = model
+         failureArgumentDic["encodeContacts\(requestId)"] = failure
+         var list:[String] = []
+         contactsIconModels.forEach { contactsIconModel in
+            let json = try? JSONEncoder().encode(contactsIconModel)
+            if let data = json, let str = String(data: data, encoding: .utf8) {
+               list.append(str)
+            }
+         }
+         methodChannel?.invokeMethod("encodeContacts\(requestId)", arguments: list)
+      }
+   }
+   
+   public func watchResetListen(listen:@escaping ()->()) {
+       _watchResetListen = listen
+   }
+   
     
 }

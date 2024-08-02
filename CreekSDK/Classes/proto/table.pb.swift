@@ -290,6 +290,46 @@ public struct protocol_function_table {
   /// Clears the value of `stravaApp`. Subsequent reads from it will return its default value.
   public mutating func clearStravaApp() {_uniqueStorage()._stravaApp = nil}
 
+  ///Sports prescription
+  public var sportPrescription: function_table {
+    get {return _storage._sportPrescription ?? function_table()}
+    set {_uniqueStorage()._sportPrescription = newValue}
+  }
+  /// Returns true if `sportPrescription` has been explicitly set.
+  public var hasSportPrescription: Bool {return _storage._sportPrescription != nil}
+  /// Clears the value of `sportPrescription`. Subsequent reads from it will return its default value.
+  public mutating func clearSportPrescription() {_uniqueStorage()._sportPrescription = nil}
+
+  ///Sports recognition
+  public var sportRecognition: function_table {
+    get {return _storage._sportRecognition ?? function_table()}
+    set {_uniqueStorage()._sportRecognition = newValue}
+  }
+  /// Returns true if `sportRecognition` has been explicitly set.
+  public var hasSportRecognition: Bool {return _storage._sportRecognition != nil}
+  /// Clears the value of `sportRecognition`. Subsequent reads from it will return its default value.
+  public mutating func clearSportRecognition() {_uniqueStorage()._sportRecognition = nil}
+
+  ///Quick reply
+  public var msgReply: function_table {
+    get {return _storage._msgReply ?? function_table()}
+    set {_uniqueStorage()._msgReply = newValue}
+  }
+  /// Returns true if `msgReply` has been explicitly set.
+  public var hasMsgReply: Bool {return _storage._msgReply != nil}
+  /// Clears the value of `msgReply`. Subsequent reads from it will return its default value.
+  public mutating func clearMsgReply() {_uniqueStorage()._msgReply = nil}
+
+  ///Message dynamic download (icon + application name)
+  public var msgAppidDownload: function_table {
+    get {return _storage._msgAppidDownload ?? function_table()}
+    set {_uniqueStorage()._msgAppidDownload = newValue}
+  }
+  /// Returns true if `msgAppidDownload` has been explicitly set.
+  public var hasMsgAppidDownload: Bool {return _storage._msgAppidDownload != nil}
+  /// Clears the value of `msgAppidDownload`. Subsequent reads from it will return its default value.
+  public mutating func clearMsgAppidDownload() {_uniqueStorage()._msgAppidDownload = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -370,6 +410,10 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     23: .standard(proto: "app_list"),
     24: .standard(proto: "event_tracking"),
     25: .standard(proto: "strava_app"),
+    26: .standard(proto: "sport_prescription"),
+    27: .standard(proto: "sport_recognition"),
+    28: .standard(proto: "msg_reply"),
+    29: .standard(proto: "msg_appid_download"),
   ]
 
   fileprivate class _StorageClass {
@@ -398,6 +442,10 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _appList: function_table? = nil
     var _eventTracking: function_table? = nil
     var _stravaApp: function_table? = nil
+    var _sportPrescription: function_table? = nil
+    var _sportRecognition: function_table? = nil
+    var _msgReply: function_table? = nil
+    var _msgAppidDownload: function_table? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -429,6 +477,10 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _appList = source._appList
       _eventTracking = source._eventTracking
       _stravaApp = source._stravaApp
+      _sportPrescription = source._sportPrescription
+      _sportRecognition = source._sportRecognition
+      _msgReply = source._msgReply
+      _msgAppidDownload = source._msgAppidDownload
     }
   }
 
@@ -472,6 +524,10 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 23: try { try decoder.decodeSingularMessageField(value: &_storage._appList) }()
         case 24: try { try decoder.decodeSingularMessageField(value: &_storage._eventTracking) }()
         case 25: try { try decoder.decodeSingularMessageField(value: &_storage._stravaApp) }()
+        case 26: try { try decoder.decodeSingularMessageField(value: &_storage._sportPrescription) }()
+        case 27: try { try decoder.decodeSingularMessageField(value: &_storage._sportRecognition) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._msgReply) }()
+        case 29: try { try decoder.decodeSingularMessageField(value: &_storage._msgAppidDownload) }()
         default: break
         }
       }
@@ -559,6 +615,18 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._stravaApp {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 25)
       } }()
+      try { if let v = _storage._sportPrescription {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
+      } }()
+      try { if let v = _storage._sportRecognition {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
+      } }()
+      try { if let v = _storage._msgReply {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
+      } }()
+      try { if let v = _storage._msgAppidDownload {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 29)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -593,6 +661,10 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._appList != rhs_storage._appList {return false}
         if _storage._eventTracking != rhs_storage._eventTracking {return false}
         if _storage._stravaApp != rhs_storage._stravaApp {return false}
+        if _storage._sportPrescription != rhs_storage._sportPrescription {return false}
+        if _storage._sportRecognition != rhs_storage._sportRecognition {return false}
+        if _storage._msgReply != rhs_storage._msgReply {return false}
+        if _storage._msgAppidDownload != rhs_storage._msgAppidDownload {return false}
         return true
       }
       if !storagesAreEqual {return false}

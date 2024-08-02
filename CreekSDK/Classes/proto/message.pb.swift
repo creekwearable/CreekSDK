@@ -25,10 +25,26 @@ public struct protocol_message_notify_switch_item {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes enumeration type of message
+  ///1bytes message enumeration type
   public var remindType: message_remind_type = .null
 
-  ///1bytes reserved: notification type: 0 allows notification; 1: silent notification; 2: close notification
+  ///1bytes reserved: Notification type: 0 allows notification; 1: silent notification; 2: close notification
+  public var notifyFlag: notify_type = .allow
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_notify_switch_ext_item {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///message application name, dynamic message
+  public var appID: Data = Data()
+
+  ///1bytes reserved: Notification type: 0 allows notification; 1: silent notification; 2: close notification
   public var notifyFlag: notify_type = .allow
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -393,6 +409,15 @@ public struct protocol_message_notify_data {
   /// max:250 message content
   public var msgContent: Data = Data()
 
+  ///message application name, other types need to be sent
+  public var appName: Data = Data()
+
+  ///message package name
+  public var appID: Data = Data()
+
+  ///message id
+  public var msgID: Data = Data()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -414,7 +439,6 @@ public struct protocol_message_notify_data_inquire_reply {
   public init() {}
 }
 
-///Set message switch
 public struct protocol_message_notify_switch {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -426,10 +450,17 @@ public struct protocol_message_notify_switch {
   ///1bytes app message notification switch
   public var notifySwitch: Bool = false
 
+  ///Default message switch
   public var items: [protocol_message_notify_switch_item] = []
 
   ///1bytes Whether to directly enter the message details or pop up the application icon switch
   public var accessDetailsDirectSwitch: Bool = false
+
+  ///Dynamic message switch
+  public var extItems: [protocol_message_notify_switch_ext_item] = []
+
+  ///Detect whether to wear a reminder switch
+  public var wearingNotifySwitch: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -441,19 +472,209 @@ public struct protocol_message_notify_switch_inquire_reply {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes operation type 0: invalid operation 1: query 2: setting
+  ///1byte operation type 0: invalid operation 1: query 2: setting
   public var operate: operate_type = .invalid
 
-  ///1bytes app message notification switch
+  ///1byte app message notification switch
   public var notifySwitch: Bool = false
 
   public var items: [protocol_message_notify_switch_item] = []
 
-  ///1bytes Whether to directly enter the message details or pop up the application icon switch
+  ///1byte whether to directly enter the message details or pop up the application icon switch
   public var accessDetailsDirectSwitch: Bool = false
 
   ///Function table
   public var funcTable: UInt32 = 0
+
+  ///Dynamic message switch
+  public var extItems: [protocol_message_notify_switch_ext_item] = []
+
+  ///Detect whether to wear the reminder switch
+  public var wearingNotifySwitch: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+///Query the status of the message package name
+public struct message_appid_status_item {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///Data that needs to be synchronized 0: No need to update, 1: Only synchronize the app name 2: Only synchronize the icon 3: Both the name and the icon need to be synchronized
+  public var needSync: UInt32 = 0
+
+  ///Message package name
+  public var appID: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct message_sync_info {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///Number of pictures
+  public var iconNum: UInt32 = 0
+
+  ///Width of picture 1
+  public var iconWidth: UInt32 = 0
+
+  ///Height of picture 1
+  public var iconHeight: UInt32 = 0
+
+  ///Width of picture 2
+  public var icon2Width: UInt32 = 0
+
+  ///Height of picture 2
+  public var icon2Height: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_appid_status_operate {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes Operation type 0: Invalid operation 1: Query 2: Setting
+  public var operate: operate_type = .invalid
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_appid_status_inquire_reply {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
+  public var operate: operate_type = .invalid
+
+  ///1bytes function table
+  public var funcTable: UInt32 = 0
+
+  public var syncInfo: message_sync_info {
+    get {return _syncInfo ?? message_sync_info()}
+    set {_syncInfo = newValue}
+  }
+  /// Returns true if `syncInfo` has been explicitly set.
+  public var hasSyncInfo: Bool {return self._syncInfo != nil}
+  /// Clears the value of `syncInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearSyncInfo() {self._syncInfo = nil}
+
+  ///Information to be synchronized
+  public var statusItem: [message_appid_status_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _syncInfo: message_sync_info? = nil
+}
+
+///App name of the message package name
+public struct message_notify_status_appid_name_item {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///Message package name
+  public var appID: Data = Data()
+
+  ///Message application name, dynamic message
+  public var appName: [Data] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_appid_name_operate {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
+  public var operate: operate_type = .invalid
+
+  ///Message name corresponding to the message package name
+  public var items: [message_notify_status_appid_name_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_reply_list_operate {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
+  public var operate: operate_type = .invalid
+
+  ///Incoming call quick reply content list
+  public var callingReplyItems: [Data] = []
+
+  ///Message quick reply content list
+  public var msgReplyItems: [Data] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_reply_list_inquire_reply {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes operation type 0: invalid operation 1: query 2: setting
+  public var operate: operate_type = .invalid
+
+  ///1bytes function table
+  public var funcTable: UInt32 = 0
+
+  ///max:6 incoming call quick reply content list
+  public var callingReplyItems: [Data] = []
+
+  ///max:6 List of message quick reply contents
+  public var msgReplyItems: [Data] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_message_reply_send_operate {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///Send direction
+  public var sendType: msg_send_type = .watchMsgSend
+
+  ///Send result true Send successfully false Send failed
+  public var sendResult: Bool = false
+
+  ///Send content
+  public var sendContent: Data = Data()
+
+  ///Message id
+  public var msgID: Data = Data()
+
+  ///Message reply type
+  public var replyType: msg_reply_type = .msgReplyMsg
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -462,11 +683,21 @@ public struct protocol_message_notify_switch_inquire_reply {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension protocol_message_notify_switch_item: @unchecked Sendable {}
+extension protocol_message_notify_switch_ext_item: @unchecked Sendable {}
 extension protocol_message_notify_func_support_reply: @unchecked Sendable {}
 extension protocol_message_notify_data: @unchecked Sendable {}
 extension protocol_message_notify_data_inquire_reply: @unchecked Sendable {}
 extension protocol_message_notify_switch: @unchecked Sendable {}
 extension protocol_message_notify_switch_inquire_reply: @unchecked Sendable {}
+extension message_appid_status_item: @unchecked Sendable {}
+extension message_sync_info: @unchecked Sendable {}
+extension protocol_message_appid_status_operate: @unchecked Sendable {}
+extension protocol_message_appid_status_inquire_reply: @unchecked Sendable {}
+extension message_notify_status_appid_name_item: @unchecked Sendable {}
+extension protocol_message_appid_name_operate: @unchecked Sendable {}
+extension protocol_message_reply_list_operate: @unchecked Sendable {}
+extension protocol_message_reply_list_inquire_reply: @unchecked Sendable {}
+extension protocol_message_reply_send_operate: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -503,6 +734,44 @@ extension protocol_message_notify_switch_item: SwiftProtobuf.Message, SwiftProto
 
   public static func ==(lhs: protocol_message_notify_switch_item, rhs: protocol_message_notify_switch_item) -> Bool {
     if lhs.remindType != rhs.remindType {return false}
+    if lhs.notifyFlag != rhs.notifyFlag {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_notify_switch_ext_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_notify_switch_ext_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "app_id"),
+    2: .standard(proto: "notify_flag"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.appID) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.notifyFlag) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.appID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.appID, fieldNumber: 1)
+    }
+    if self.notifyFlag != .allow {
+      try visitor.visitSingularEnumField(value: self.notifyFlag, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_notify_switch_ext_item, rhs: protocol_message_notify_switch_ext_item) -> Bool {
+    if lhs.appID != rhs.appID {return false}
     if lhs.notifyFlag != rhs.notifyFlag {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1086,6 +1355,9 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
     4: .standard(proto: "remind_type"),
     5: .standard(proto: "contact_text"),
     6: .standard(proto: "msg_content"),
+    7: .standard(proto: "app_name"),
+    8: .standard(proto: "app_id"),
+    9: .standard(proto: "msg_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1100,6 +1372,9 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 4: try { try decoder.decodeSingularEnumField(value: &self.remindType) }()
       case 5: try { try decoder.decodeSingularBytesField(value: &self.contactText) }()
       case 6: try { try decoder.decodeSingularBytesField(value: &self.msgContent) }()
+      case 7: try { try decoder.decodeSingularBytesField(value: &self.appName) }()
+      case 8: try { try decoder.decodeSingularBytesField(value: &self.appID) }()
+      case 9: try { try decoder.decodeSingularBytesField(value: &self.msgID) }()
       default: break
       }
     }
@@ -1124,6 +1399,15 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.msgContent.isEmpty {
       try visitor.visitSingularBytesField(value: self.msgContent, fieldNumber: 6)
     }
+    if !self.appName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.appName, fieldNumber: 7)
+    }
+    if !self.appID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.appID, fieldNumber: 8)
+    }
+    if !self.msgID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.msgID, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1134,6 +1418,9 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.remindType != rhs.remindType {return false}
     if lhs.contactText != rhs.contactText {return false}
     if lhs.msgContent != rhs.msgContent {return false}
+    if lhs.appName != rhs.appName {return false}
+    if lhs.appID != rhs.appID {return false}
+    if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1184,6 +1471,8 @@ extension protocol_message_notify_switch: SwiftProtobuf.Message, SwiftProtobuf._
     2: .standard(proto: "notify_switch"),
     3: .same(proto: "items"),
     4: .standard(proto: "access_details_direct_switch"),
+    5: .standard(proto: "ext_items"),
+    6: .standard(proto: "wearing_notify_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1196,6 +1485,8 @@ extension protocol_message_notify_switch: SwiftProtobuf.Message, SwiftProtobuf._
       case 2: try { try decoder.decodeSingularBoolField(value: &self.notifySwitch) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.accessDetailsDirectSwitch) }()
+      case 5: try { try decoder.decodeRepeatedMessageField(value: &self.extItems) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.wearingNotifySwitch) }()
       default: break
       }
     }
@@ -1214,6 +1505,12 @@ extension protocol_message_notify_switch: SwiftProtobuf.Message, SwiftProtobuf._
     if self.accessDetailsDirectSwitch != false {
       try visitor.visitSingularBoolField(value: self.accessDetailsDirectSwitch, fieldNumber: 4)
     }
+    if !self.extItems.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.extItems, fieldNumber: 5)
+    }
+    if self.wearingNotifySwitch != false {
+      try visitor.visitSingularBoolField(value: self.wearingNotifySwitch, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1222,6 +1519,8 @@ extension protocol_message_notify_switch: SwiftProtobuf.Message, SwiftProtobuf._
     if lhs.notifySwitch != rhs.notifySwitch {return false}
     if lhs.items != rhs.items {return false}
     if lhs.accessDetailsDirectSwitch != rhs.accessDetailsDirectSwitch {return false}
+    if lhs.extItems != rhs.extItems {return false}
+    if lhs.wearingNotifySwitch != rhs.wearingNotifySwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1235,6 +1534,8 @@ extension protocol_message_notify_switch_inquire_reply: SwiftProtobuf.Message, S
     3: .same(proto: "items"),
     4: .standard(proto: "access_details_direct_switch"),
     5: .standard(proto: "func_table"),
+    6: .standard(proto: "ext_items"),
+    7: .standard(proto: "wearing_notify_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1248,6 +1549,8 @@ extension protocol_message_notify_switch_inquire_reply: SwiftProtobuf.Message, S
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.accessDetailsDirectSwitch) }()
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 6: try { try decoder.decodeRepeatedMessageField(value: &self.extItems) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.wearingNotifySwitch) }()
       default: break
       }
     }
@@ -1269,6 +1572,12 @@ extension protocol_message_notify_switch_inquire_reply: SwiftProtobuf.Message, S
     if self.funcTable != 0 {
       try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 5)
     }
+    if !self.extItems.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.extItems, fieldNumber: 6)
+    }
+    if self.wearingNotifySwitch != false {
+      try visitor.visitSingularBoolField(value: self.wearingNotifySwitch, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1278,6 +1587,414 @@ extension protocol_message_notify_switch_inquire_reply: SwiftProtobuf.Message, S
     if lhs.items != rhs.items {return false}
     if lhs.accessDetailsDirectSwitch != rhs.accessDetailsDirectSwitch {return false}
     if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.extItems != rhs.extItems {return false}
+    if lhs.wearingNotifySwitch != rhs.wearingNotifySwitch {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension message_appid_status_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "message_appid_status_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "need_sync"),
+    2: .standard(proto: "app_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.needSync) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.appID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.needSync != 0 {
+      try visitor.visitSingularUInt32Field(value: self.needSync, fieldNumber: 1)
+    }
+    if !self.appID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.appID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: message_appid_status_item, rhs: message_appid_status_item) -> Bool {
+    if lhs.needSync != rhs.needSync {return false}
+    if lhs.appID != rhs.appID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension message_sync_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "message_sync_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "icon_num"),
+    2: .standard(proto: "icon_width"),
+    3: .standard(proto: "icon_height"),
+    4: .standard(proto: "icon2_width"),
+    5: .standard(proto: "icon2_height"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.iconNum) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.iconWidth) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.iconHeight) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.icon2Width) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.icon2Height) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.iconNum != 0 {
+      try visitor.visitSingularUInt32Field(value: self.iconNum, fieldNumber: 1)
+    }
+    if self.iconWidth != 0 {
+      try visitor.visitSingularUInt32Field(value: self.iconWidth, fieldNumber: 2)
+    }
+    if self.iconHeight != 0 {
+      try visitor.visitSingularUInt32Field(value: self.iconHeight, fieldNumber: 3)
+    }
+    if self.icon2Width != 0 {
+      try visitor.visitSingularUInt32Field(value: self.icon2Width, fieldNumber: 4)
+    }
+    if self.icon2Height != 0 {
+      try visitor.visitSingularUInt32Field(value: self.icon2Height, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: message_sync_info, rhs: message_sync_info) -> Bool {
+    if lhs.iconNum != rhs.iconNum {return false}
+    if lhs.iconWidth != rhs.iconWidth {return false}
+    if lhs.iconHeight != rhs.iconHeight {return false}
+    if lhs.icon2Width != rhs.icon2Width {return false}
+    if lhs.icon2Height != rhs.icon2Height {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_appid_status_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_appid_status_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_appid_status_operate, rhs: protocol_message_appid_status_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_appid_status_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_appid_status_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "sync_info"),
+    4: .standard(proto: "status_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._syncInfo) }()
+      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.statusItem) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    try { if let v = self._syncInfo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    if !self.statusItem.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.statusItem, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_appid_status_inquire_reply, rhs: protocol_message_appid_status_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs._syncInfo != rhs._syncInfo {return false}
+    if lhs.statusItem != rhs.statusItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension message_notify_status_appid_name_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "message_notify_status_appid_name_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "app_id"),
+    2: .standard(proto: "app_name"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.appID) }()
+      case 2: try { try decoder.decodeRepeatedBytesField(value: &self.appName) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.appID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.appID, fieldNumber: 1)
+    }
+    if !self.appName.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.appName, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: message_notify_status_appid_name_item, rhs: message_notify_status_appid_name_item) -> Bool {
+    if lhs.appID != rhs.appID {return false}
+    if lhs.appName != rhs.appName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_appid_name_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_appid_name_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .same(proto: "items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if !self.items.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_appid_name_operate, rhs: protocol_message_appid_name_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.items != rhs.items {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_reply_list_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_reply_list_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "calling_reply_items"),
+    3: .standard(proto: "msg_reply_items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedBytesField(value: &self.callingReplyItems) }()
+      case 3: try { try decoder.decodeRepeatedBytesField(value: &self.msgReplyItems) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if !self.callingReplyItems.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.callingReplyItems, fieldNumber: 2)
+    }
+    if !self.msgReplyItems.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.msgReplyItems, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_reply_list_operate, rhs: protocol_message_reply_list_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.callingReplyItems != rhs.callingReplyItems {return false}
+    if lhs.msgReplyItems != rhs.msgReplyItems {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_reply_list_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_reply_list_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "calling_reply_items"),
+    4: .standard(proto: "msg_reply_items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeRepeatedBytesField(value: &self.callingReplyItems) }()
+      case 4: try { try decoder.decodeRepeatedBytesField(value: &self.msgReplyItems) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    if !self.callingReplyItems.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.callingReplyItems, fieldNumber: 3)
+    }
+    if !self.msgReplyItems.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.msgReplyItems, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_reply_list_inquire_reply, rhs: protocol_message_reply_list_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.callingReplyItems != rhs.callingReplyItems {return false}
+    if lhs.msgReplyItems != rhs.msgReplyItems {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_message_reply_send_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_message_reply_send_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "send_type"),
+    2: .standard(proto: "send_result"),
+    3: .standard(proto: "send_content"),
+    4: .standard(proto: "msg_id"),
+    5: .standard(proto: "reply_type"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.sendType) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.sendResult) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.sendContent) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.msgID) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.replyType) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.sendType != .watchMsgSend {
+      try visitor.visitSingularEnumField(value: self.sendType, fieldNumber: 1)
+    }
+    if self.sendResult != false {
+      try visitor.visitSingularBoolField(value: self.sendResult, fieldNumber: 2)
+    }
+    if !self.sendContent.isEmpty {
+      try visitor.visitSingularBytesField(value: self.sendContent, fieldNumber: 3)
+    }
+    if !self.msgID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.msgID, fieldNumber: 4)
+    }
+    if self.replyType != .msgReplyMsg {
+      try visitor.visitSingularEnumField(value: self.replyType, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_message_reply_send_operate, rhs: protocol_message_reply_send_operate) -> Bool {
+    if lhs.sendType != rhs.sendType {return false}
+    if lhs.sendResult != rhs.sendResult {return false}
+    if lhs.sendContent != rhs.sendContent {return false}
+    if lhs.msgID != rhs.msgID {return false}
+    if lhs.replyType != rhs.replyType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

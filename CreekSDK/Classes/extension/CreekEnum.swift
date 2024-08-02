@@ -238,3 +238,12 @@ public enum BluetoothState : Int {
    case off   //Bluetooth is currently powered off
 }
 
+
+public enum CreekClientType : Int{
+    case none
+    case titan
+   
+}
+
+
+

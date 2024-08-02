@@ -44,7 +44,7 @@ public struct protocol_frequent_contacts_operate {
   ///1bytes operation type 0: invalid operation 1: query 2: set
   public var operate: operate_type = .invalid
 
-  ///max: 20 frequent contact information
+  ///max:20 frequent contact information
   public var contactsItem: [protocol_frequent_contacts_item] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -60,11 +60,20 @@ public struct protocol_frequent_contacts_inquire_reply {
   ///1bytes operation type 0: invalid operation 1: query 2: set
   public var operate: operate_type = .invalid
 
-  ///1bytes world time support display maximum number
+  ///1bytes maximum number of frequent contacts supported
   public var frequentContactsSupportMax: UInt32 = 0
 
-  ///max: 20 frequent contact information
+  ///max: 20 Frequently used contact information
   public var contactsItem: [protocol_frequent_contacts_item] = []
+
+  /// Function table
+  public var funcTable: UInt32 = 0
+
+  /// Contact image width
+  public var contactIconWidth: UInt32 = 0
+
+  /// Contact image height
+  public var contactIconHeight: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -161,6 +170,9 @@ extension protocol_frequent_contacts_inquire_reply: SwiftProtobuf.Message, Swift
     1: .same(proto: "operate"),
     2: .standard(proto: "frequent_contacts_support_max"),
     3: .standard(proto: "contacts_item"),
+    4: .standard(proto: "func_table"),
+    5: .standard(proto: "contact_icon_width"),
+    6: .standard(proto: "contact_icon_height"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -172,6 +184,9 @@ extension protocol_frequent_contacts_inquire_reply: SwiftProtobuf.Message, Swift
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.frequentContactsSupportMax) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.contactsItem) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.contactIconWidth) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.contactIconHeight) }()
       default: break
       }
     }
@@ -187,6 +202,15 @@ extension protocol_frequent_contacts_inquire_reply: SwiftProtobuf.Message, Swift
     if !self.contactsItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.contactsItem, fieldNumber: 3)
     }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 4)
+    }
+    if self.contactIconWidth != 0 {
+      try visitor.visitSingularUInt32Field(value: self.contactIconWidth, fieldNumber: 5)
+    }
+    if self.contactIconHeight != 0 {
+      try visitor.visitSingularUInt32Field(value: self.contactIconHeight, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -194,6 +218,9 @@ extension protocol_frequent_contacts_inquire_reply: SwiftProtobuf.Message, Swift
     if lhs.operate != rhs.operate {return false}
     if lhs.frequentContactsSupportMax != rhs.frequentContactsSupportMax {return false}
     if lhs.contactsItem != rhs.contactsItem {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.contactIconWidth != rhs.contactIconWidth {return false}
+    if lhs.contactIconHeight != rhs.contactIconHeight {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

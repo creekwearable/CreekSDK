@@ -499,18 +499,75 @@ class CommandReplyViewController: CreekBaseViewController {
          
          break
       case "Contacts settings":
-         var data =  protocol_frequent_contacts_operate()
-         var item =  protocol_frequent_contacts_item()
-         item.phoneNumber = "12345678912".data(using: .utf8)!
-         item.contactName = "bean".data(using: .utf8)!
-         data.contactsItem.append(item)
-         CreekInterFace.instance.setContacts(model: data) {
-            self.view.hideRemark()
-            self.textView.text = "success"
+         CreekInterFace.instance.getContacts { model in
+            if model.fromTable().contact_icon{
+               let fileManager = FileManager()
+               if var documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+                  documentsURL.appendPathComponent("1793985.png")
+                   let path = documentsURL.path
+                   let contactsIconModel = ContactsIconModel()
+                   contactsIconModel.phoneNum = "12345678912"
+                   contactsIconModel.path = path
+                   contactsIconModel.w =  Int(model.contactIconWidth)
+                   contactsIconModel.h = Int(model.contactIconHeight)
+                   
+                   CreekInterFace.instance.encodeContacts([contactsIconModel]) { model in
+                      CreekInterFace.instance.upload(fileName: "icon.contact_icon", fileData: model) { progress in
+                         dispatch_main_sync_safe {
+                            self.textView.text = "\(progress)"
+                         }
+                      } uploadSuccess: {
+                         
+                         var data =  protocol_frequent_contacts_operate()
+                         var item =  protocol_frequent_contacts_item()
+                         item.phoneNumber = "12345678912".data(using: .utf8)!
+                         item.contactName = "bean".data(using: .utf8)!
+                         data.contactsItem.append(item)
+                         CreekInterFace.instance.setContacts(model: data) {
+                            self.view.hideRemark()
+                            self.textView.text = "success"
+                         } failure: { code, message in
+                            self.view.hideRemark()
+                            self.textView.text = message
+                         }
+                         
+                      } uploadFailure: { code, message in
+                         self.view.hideRemark()
+                         dispatch_main_sync_safe {
+                            self.textView.text = "\(message)"
+                         }
+                      }
+
+                   } failure: { code, message in
+                      self.view.hideRemark()
+                      dispatch_main_sync_safe {
+                         self.textView.text = "\(message)"
+                      }
+                   }
+               }
+         
+            }else{
+               var data =  protocol_frequent_contacts_operate()
+               var item =  protocol_frequent_contacts_item()
+               item.phoneNumber = "12345678912".data(using: .utf8)!
+               item.contactName = "bean".data(using: .utf8)!
+               data.contactsItem.append(item)
+               CreekInterFace.instance.setContacts(model: data) {
+                  self.view.hideRemark()
+                  self.textView.text = "success"
+               } failure: { code, message in
+                  self.view.hideRemark()
+                  self.textView.text = message
+               }
+            }
          } failure: { code, message in
             self.view.hideRemark()
             self.textView.text = message
          }
+         
+         
+         
+
          break
          
          

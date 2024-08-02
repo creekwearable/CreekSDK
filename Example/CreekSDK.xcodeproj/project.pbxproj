@@ -10,6 +10,8 @@
 		0702F1AD2BBA591000712684 /* eventTracking.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AB2BBA591000712684 /* eventTracking.pb.swift */; };
 		0702F1AE2BBA591000712684 /* appList.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AC2BBA591000712684 /* appList.pb.swift */; };
 		0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */; };
+		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
+		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
 		073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
@@ -111,6 +113,8 @@
 		0702F1AB2BBA591000712684 /* eventTracking.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventTracking.pb.swift; sourceTree = "<group>"; };
 		0702F1AC2BBA591000712684 /* appList.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appList.pb.swift; sourceTree = "<group>"; };
 		0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoExtension.swift; sourceTree = "<group>"; };
+		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
+		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = CW06G_TITAD101_01.zip; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				07941D292BCBE0CB00CBFB62 /* DialPhotoParseModel.swift */,
 				0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */,
 				07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */,
+				072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 		607FACD21AFB9204008FA782 /* Example for CreekSDK */ = {
 			isa = PBXGroup;
 			children = (
+				072D41962C5C8FD500B1FB98 /* add.png */,
 				073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */,
 				07A73BB32BF211C0007EFFB3 /* titan.zip */,
 				07941D352BCEB4BB00CBFB62 /* squarePhoto.zip */,
@@ -519,6 +525,7 @@
 				07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */,
 				07985AD32BA0816700F8EE01 /* Fun_061211_05_2.zip in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				072D41972C5C8FD500B1FB98 /* add.png in Resources */,
 				077A60B62B67AB8F00AFEB2B /* acti06_2.zip in Resources */,
 				07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */,
 				07941D362BCEB4BB00CBFB62 /* squarePhoto.zip in Resources */,
@@ -666,6 +673,7 @@
 				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
 				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
+				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,
 				0702F1AD2BBA591000712684 /* eventTracking.pb.swift in Sources */,
 				079A21B82B29A74300F5D013 /* sensor.pb.swift in Sources */,
 				0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */,
