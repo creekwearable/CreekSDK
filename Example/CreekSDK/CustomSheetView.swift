@@ -146,6 +146,7 @@ class CustomSheetView: BaseSheetView ,UITableViewDelegate,UITableViewDataSource 
         backgroundView.width = width
         backgroundView.cornerRadius = cornerRadius
         backgroundView.itemsTitle = arr
+       backgroundView.slideBarItemSelected(index: self.selectIndex)
         backgroundView.callback = {
             self.selectIndex = $0
             self.tableView.reloadData()

@@ -241,7 +241,7 @@ class DialDetailsViewController: CreekBaseViewController {
             if(!(model.functions ?? []).isEmpty){
                 let aview = CustomView()
                 aview.callBlock = {
-                    let sheet =  CustomSheetView(frame: CGRect(x: 0, y: 0, width: SCREENW, height: SCREENH), height: SCREENH-FBScale(200))
+                    let sheet =  CustomSheetView(frame: CGRect(x: 0, y: 0, width: SCREENW, height: SCREENH), height: SCREENH-FBScale(800))
                     sheet.width = FBScale(CGFloat(self.width))
                     sheet.height = FBScale(CGFloat(self.height))
                     sheet.cornerRadius = FBScale(CGFloat(self.cornerRadius))

@@ -287,6 +287,7 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
         }
        
        CreekInterFace.instance.watchResetListen {
+          print("listen watchResetListen")
           CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
              
           } failure: {
