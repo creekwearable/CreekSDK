@@ -45,13 +45,27 @@ class DialDetailsViewController: CreekBaseViewController {
 
     @objc func rightClick(){
         CreekInterFace.instance.encodeDial { model in
-            CreekInterFace.instance.upload(fileName: "\(self.titleName).bin", fileData: model) { progress in
-               print(progress)
-            } uploadSuccess: {
-                print("uploadSuccess")
-            } uploadFailure: { code, message in
-                print(message)
-            }
+           
+          ///Here you need to determine the current dial size and the space of the watch.
+           CreekInterFace.instance.getWatchDial { dial in
+              print("\(dial.totalSize),\(dial.userCloudSize),\(dial.userPhotoSize)")
+              let total = Int(dial.totalSize) - Int(dial.userCloudSize) -  Int(dial.userPhotoSize)
+              if model.count > total{
+                 CreekAlert.alertMsg(exception: "Out of memory")
+              }else{
+                 CreekInterFace.instance.upload(fileName: "\(self.titleName).bin", fileData: model) { progress in
+                    print(progress)
+                 } uploadSuccess: {
+                     print("uploadSuccess")
+                 } uploadFailure: { code, message in
+                     print(message)
+                 }
+              }
+           } failure: { code, message in
+              
+           }
+
+           
 
         }
        

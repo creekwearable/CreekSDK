@@ -6,7 +6,6 @@ target 'CreekSDK_Example' do
   use_frameworks!
   pod 'CreekSDK', :path => '../'
   pod 'SnapKit'
-  pod 'IQKeyboardManagerSwift'
   pod 'MBProgressHUD'
   pod 'Toast-Swift'
   pod 'ZIPFoundation'

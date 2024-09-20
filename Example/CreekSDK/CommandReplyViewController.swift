@@ -155,6 +155,7 @@ class CommandReplyViewController: CreekBaseViewController {
             data.preferences.distUnit = 1
             data.goalSetting.notifyFlag = .close
             data.preferences.walkingRunningUnit = 2
+            data.personalInfo.gender = .genderMale
             CreekInterFace.instance.setUserInfo(model: data) {
                self.view.hideRemark()
                self.textView.text = "success"
