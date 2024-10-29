@@ -18,6 +18,13 @@ public class ContactsIconModel: Codable {
     public var w: Int?
    /// height of the image
     public var h: Int?
+   
+   public init(phoneNum: String? = nil, path: String? = nil, w: Int? = nil, h: Int? = nil) {
+      self.phoneNum = phoneNum
+      self.path = path
+      self.w = w
+      self.h = h
+   }
     
     
 }

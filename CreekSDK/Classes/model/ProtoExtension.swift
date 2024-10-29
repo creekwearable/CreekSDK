@@ -9,21 +9,21 @@
 import UIKit
 
 
-class ScreenTable: NSObject {
+public class ScreenTable: NSObject {
     ///Whether automatic brightness adjustment at night is supported bit0
-    var night = false
+   public var night = false
     
     ///Whether it supports always-on mode selection, supports using aod_time_setting, does not support using aod_switch_flag bit1
-    var steady = false
+   public var steady = false
     
     ///Whether the bright screen duration display option is supported
-    var option = false
+   public var option = false
 }
 
 
 extension protocol_screen_brightness_inquire_reply{
     
-    func fromTable() -> ScreenTable {
+   public func fromTable() -> ScreenTable {
         let screenTable = ScreenTable()
         let str = Int(funcTable).decimalToBinary()
         if let firstChar = str[safe: 0] {
@@ -46,18 +46,18 @@ extension protocol_screen_brightness_inquire_reply{
     
 }
 
-class AlarmTable: NSObject {
+public class AlarmTable: NSObject {
     ///Whether to support custom modification of later reminder minutes, field: later_remind_min
-    var later_remind_min = false
+   public var later_remind_min = false
     
     ///Whether to support alarm clock custom label used options, field: custom_name_list
-    var custom_name_list = false
+   public var custom_name_list = false
     
 }
 
 extension protocol_alarm_inquire_reply{
    
-   func fromTable() -> AlarmTable {
+   public func fromTable() -> AlarmTable {
        let alarmTable = AlarmTable()
        let str = Int(funcTable).decimalToBinary()
        if let firstChar = str[safe: 0] {
@@ -75,18 +75,18 @@ extension protocol_alarm_inquire_reply{
    
 }
 
-class UserInfoTable: NSObject {
+public class UserInfoTable: NSObject {
     ///Whether to support wind speed unit
-    var wind_speed_unit = false
+   public var wind_speed_unit = false
     
     ///Whether to support visibility units
-    var visibility_unit = false
+   public var visibility_unit = false
     
 }
 
 extension protocol_user_info_inquire_reply{
    
-   func fromTable() -> UserInfoTable {
+   public func fromTable() -> UserInfoTable {
        let userInfoTable = UserInfoTable()
        let str = Int(funcTable).decimalToBinary()
        if let firstChar = str[safe: 0] {
@@ -104,15 +104,15 @@ extension protocol_user_info_inquire_reply{
    
 }
 
-class ContactsTable: NSObject {
+public class ContactsTable: NSObject {
    ///Whether to support wind speed unit
-    var contact_icon = false
+   public var contact_icon = false
     
 }
 
 extension protocol_frequent_contacts_inquire_reply{
    
-   func fromTable() -> ContactsTable {
+   public func fromTable() -> ContactsTable {
        let contactsTable = ContactsTable()
        let str = Int(funcTable).decimalToBinary()
        if let firstChar = str[safe: 0] {
@@ -128,7 +128,7 @@ extension protocol_frequent_contacts_inquire_reply{
 
 
 extension Int{
-    func decimalToBinary() -> String {
+   public func decimalToBinary() -> String {
         var decimalNumber = self
         var binaryString = ""
         while decimalNumber > 0 {
