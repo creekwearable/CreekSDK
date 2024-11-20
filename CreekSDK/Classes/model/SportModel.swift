@@ -143,6 +143,9 @@ public class SportModel: Codable {
     
     ///Whether to support cycling movement duration
     public var travelingTimeSupport: Int?
+   
+    ///Paused exercise duration
+    public var pauseDurations: Int?
 }
 
 public class SportDataModel: Codable {
