@@ -446,7 +446,7 @@ class CommandReplyViewController: CreekBaseViewController {
          item.sunriseItems.append(item2)
          item.visibilityLevel = "hello".data(using: .utf8)!
          data.detailDataItem.append(item)
-        
+         
          CreekInterFace.instance.setWeather(model: data) {
             self.view.hideRemark()
             self.textView.text = "success"
@@ -504,15 +504,23 @@ class CommandReplyViewController: CreekBaseViewController {
             if model.fromTable().contact_icon{
                let fileManager = FileManager()
                if var documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
-                  documentsURL.appendPathComponent("1793985.png")
+                  documentsURL.appendPathComponent("directory/F4:4E:FD:C3:77:37/circlePhoto/firmware/218502.png")
                    let path = documentsURL.path
-                   let contactsIconModel = ContactsIconModel()
-                   contactsIconModel.phoneNum = "12345678912"
-                   contactsIconModel.path = path
-                   contactsIconModel.w =  Int(model.contactIconWidth)
-                   contactsIconModel.h = Int(model.contactIconHeight)
-                   
-                   CreekInterFace.instance.encodeContacts([contactsIconModel]) { model in
+             
+                  var contactsIconModels:[ContactsIconModel] = []
+                  for i in 0...9 {
+                     let contactsIconModel = ContactsIconModel()
+                     contactsIconModel.phoneNum = "1234567891\(i)"
+                     contactsIconModel.path = path
+                     contactsIconModel.w =  Int(model.contactIconWidth)
+                     contactsIconModel.h = Int(model.contactIconHeight)
+                     contactsIconModel.isLz4 = model.fromTable().contact_icon_lz4 ? 1 : 0
+                     ///For unsupported hardware versions of lz4, set the image quality to 100, and for supported versions, set the range from 10 to 100.
+                     contactsIconModel.quality = model.fromTable().contact_icon_lz4 ? 10 : 100
+                     contactsIconModels.append(contactsIconModel)
+                  }
+                  
+                   CreekInterFace.instance.encodeContacts(contactsIconModels) { model in
                       CreekInterFace.instance.upload(fileName: "icon.contact_icon", fileData: model) { progress in
                          dispatch_main_sync_safe {
                             self.textView.text = "\(progress)"
@@ -520,10 +528,14 @@ class CommandReplyViewController: CreekBaseViewController {
                       } uploadSuccess: {
                          
                          var data =  protocol_frequent_contacts_operate()
-                         var item =  protocol_frequent_contacts_item()
-                         item.phoneNumber = "12345678912".data(using: .utf8)!
-                         item.contactName = "bean".data(using: .utf8)!
-                         data.contactsItem.append(item)
+                         for i in 0...9 {
+                            var item =  protocol_frequent_contacts_item()
+                            item.phoneNumber = "1234567891\(i)".data(using: .utf8)!
+                            item.contactName = "bean\(i)".data(using: .utf8)!
+                            data.contactsItem.append(item)
+              
+                         }
+                      
                          CreekInterFace.instance.setContacts(model: data) {
                             self.view.hideRemark()
                             self.textView.text = "success"
@@ -531,6 +543,8 @@ class CommandReplyViewController: CreekBaseViewController {
                             self.view.hideRemark()
                             self.textView.text = message
                          }
+                         
+         
                          
                       } uploadFailure: { code, message in
                          self.view.hideRemark()
@@ -546,7 +560,7 @@ class CommandReplyViewController: CreekBaseViewController {
                       }
                    }
                }
-         
+               
             }else{
                var data =  protocol_frequent_contacts_operate()
                var item =  protocol_frequent_contacts_item()
@@ -567,8 +581,8 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          
          
-      
-
+         
+         
          break
          
          
@@ -870,7 +884,7 @@ class CommandReplyViewController: CreekBaseViewController {
          break
          
       case "Range query exercise record":
-         CreekInterFace.instance.getSportTimeData(startTime: "2023-08-01", endTime: "2023-08-03",nil) { model in
+         CreekInterFace.instance.getSportTimeData(startTime: "2024-11-20", endTime: "2024-11-20",nil) { model in
             if model.code == 0{
                self.view.hideRemark()
                self.textView.text = "success"

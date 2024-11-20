@@ -107,6 +107,8 @@ extension protocol_user_info_inquire_reply{
 public class ContactsTable: NSObject {
    ///Whether to support wind speed unit
    public var contact_icon = false
+   ///Does the contact avatar support compression?
+   public var contact_icon_lz4 = false
     
 }
 
@@ -120,6 +122,11 @@ extension protocol_frequent_contacts_inquire_reply{
               contactsTable.contact_icon = (intValue == 1)
            }
        }
+      if let secondChar = str[safe: 1] {
+          if let intValue = Int(String(secondChar)) {
+             contactsTable.contact_icon_lz4 = (intValue == 1)
+          }
+      }
       
        return contactsTable
    }

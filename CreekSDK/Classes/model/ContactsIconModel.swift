@@ -18,13 +18,20 @@ public class ContactsIconModel: Codable {
     public var w: Int?
    /// height of the image
     public var h: Int?
+   ///Image compression quality, minimum 10~100
+    public var quality: Int?
+   ///Does the firmware support parsing lz4 algorithm compression?
+    public var isLz4: Int?
    
-   public init(phoneNum: String? = nil, path: String? = nil, w: Int? = nil, h: Int? = nil) {
+   init(phoneNum: String? = nil, path: String? = nil, w: Int? = nil, h: Int? = nil, quality: Int? = nil, isLz4: Int? = nil) {
       self.phoneNum = phoneNum
       self.path = path
       self.w = w
       self.h = h
+      self.quality = quality
+      self.isLz4 = isLz4
    }
+   
     
     
 }

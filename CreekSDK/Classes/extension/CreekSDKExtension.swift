@@ -1870,7 +1870,7 @@ extension CreekSDK{
        _bluetoothStateListen = listen
    }
    
-   public func encodeContacts(_ contactsIconModels :[ContactsIconModel],model:@escaping ContactsIconData,failure:@escaping failureArgument){
+   public func encodeContacts(_ contactsIconModels :[ContactsIconModel], model:@escaping ContactsIconData,failure:@escaping failureArgument){
       serialQueue.sync {
          requestId+=1
          contactsIconClosureDic["encodeContacts\(requestId)"] = model
