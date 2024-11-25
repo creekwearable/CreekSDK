@@ -23,7 +23,7 @@ public class ContactsIconModel: Codable {
    ///Does the firmware support parsing lz4 algorithm compression?
     public var isLz4: Int?
    
-   init(phoneNum: String? = nil, path: String? = nil, w: Int? = nil, h: Int? = nil, quality: Int? = nil, isLz4: Int? = nil) {
+   public init(phoneNum: String? = nil, path: String? = nil, w: Int? = nil, h: Int? = nil, quality: Int? = nil, isLz4: Int? = nil) {
       self.phoneNum = phoneNum
       self.path = path
       self.w = w
