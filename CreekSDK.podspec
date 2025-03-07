@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
     s.version          = '0.1.28'
     s.summary          = 'A short description of CreekSDK.'
-    777
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
     #   * Try to keep it short, snappy and to the point.
