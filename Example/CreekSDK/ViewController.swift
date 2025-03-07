@@ -149,11 +149,6 @@ class ViewController: CreekBaseViewController,UITableViewDelegate,UITableViewDat
            }
             break
            
-            
-            
-      
-        
-
         default:
             self.navigationController?.pushViewController(vc, animated: true)
             break

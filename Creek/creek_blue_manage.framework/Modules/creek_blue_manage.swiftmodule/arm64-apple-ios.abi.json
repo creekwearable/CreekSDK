@@ -19,6 +19,13 @@
         "moduleName": "creek_blue_manage"
       },
       {
+        "kind": "Import",
+        "name": "Contacts",
+        "printedName": "Contacts",
+        "declKind": "Import",
+        "moduleName": "creek_blue_manage"
+      },
+      {
         "kind": "TypeDecl",
         "name": "SwiftCreekBlueManagePlugin",
         "printedName": "SwiftCreekBlueManagePlugin",
