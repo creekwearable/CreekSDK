@@ -11,8 +11,8 @@ import Contacts
 extension CreekSDK{
     
     ///MARK : initialization SDK
-   public func initSDK(type:CreekClientType = .none) {
-      methodChannel?.invokeMethod("initSDK", arguments: type.rawValue)
+   public func initSDK(type:CreekClientType = .none,cancelAutoConnect:CancelAutoConnectType = .auto) {
+      methodChannel?.invokeMethod("initSDK", arguments: [type.rawValue,cancelAutoConnect.rawValue])
     }
     
     ///MARK : Authorization code verification
@@ -54,6 +54,11 @@ extension CreekSDK{
         _connect = connect
         methodChannel?.invokeMethod("connect", arguments: id)
     }
+   
+   public func externalConnect(id:String,connect:@escaping ((_ connectState:Bool)->())) {
+       _connect = connect
+       methodChannel?.invokeMethod("externalConnect", arguments: id)
+   }
     
     ///MARK : connect
     /// - Parameter :
@@ -365,6 +370,18 @@ extension CreekSDK{
       }
 
     }
+   
+
+   public func authorizationVerificationDevice(success:@escaping successBase,failure:@escaping failureBase,authorizationFailure:@escaping authorizationFailureBase) {
+     serialQueue.sync {
+        requestId+=1
+        successDic["authorizationVerificationDevice\(requestId)"] = success
+        failureDic["authorizationVerificationDevice\(requestId)"] = failure
+        authorizationFailureDic["authorizationVerificationDevice\(requestId)"] = authorizationFailure
+        methodChannel?.invokeMethod("authorizationVerificationDevice\(requestId)", arguments: "")
+     }
+
+   }
     
     ///MARK :Get firmware user information and preferences
     /// - Parameter :
@@ -393,7 +410,7 @@ extension CreekSDK{
               var operate =  protocol_user_info_inquire_reply()
               operate.goalSetting = model.goalSetting
               operate.personalInfo = model.personalInfo
-              operate.preferences = model.preferences
+              operate.perferences = model.perferences
               let data = try operate.serializedData()
   //            let intArray = data!.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> [Int] in
   //                let buffer = UnsafeBufferPointer(start: pointer, count: data!.count)
@@ -1890,5 +1907,208 @@ extension CreekSDK{
        _watchResetListen = listen
    }
    
-    
+
+   public func getCalendar(model:@escaping calendarBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         calendarDic["getCalendar\(requestId)"] = model
+         failureArgumentDic["getCalendar\(requestId)"] = failure
+         methodChannel?.invokeMethod("getCalendar\(requestId)", arguments: "")
+      }
+   }
+
+   public func setCalendar(model:protocol_calendar_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setCalendar\(requestId)"] = success;
+         failureArgumentDic["setCalendar\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setCalendar\(requestId)", arguments: data)
+         }catch{
+
+         }
+      }
+   }
+   
+   public func getWatchDirection(model:@escaping watchDirectionBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         watchDirectionDic["getWatchDirection\(requestId)"] = model
+         failureArgumentDic["getWatchDirection\(requestId)"] = failure
+         methodChannel?.invokeMethod("getWatchDirection\(requestId)", arguments: "")
+      }
+   }
+
+   public func setWatchDirection(model:protocol_watch_direction_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setWatchDirection\(requestId)"] = success;
+         failureArgumentDic["setWatchDirection\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setWatchDirection\(requestId)", arguments: data)
+         }catch{
+
+         }
+      }
+   }
+   
+   public func getMorning(model:@escaping morningBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         morningDic["getMorning\(requestId)"] = model
+         failureArgumentDic["getMorning\(requestId)"] = failure
+         methodChannel?.invokeMethod("getMorning\(requestId)", arguments: "")
+      }
+   }
+
+   public func setMorning(model:protocol_good_morning_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setMorning\(requestId)"] = success;
+         failureArgumentDic["setMorning\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setMorning\(requestId)", arguments: data)
+         }catch{
+
+         }
+      }
+   }
+   
+   public func getHealthSnapshotList(page:Int = 1,size:Int = 20,model:@escaping watchDirectionBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         watchDirectionDic["getHealthSnapshotList\(requestId)"] = model
+         failureArgumentDic["getHealthSnapshotList\(requestId)"] = failure
+         do{
+           let jsonData = try JSONSerialization.data(withJSONObject: ["page":page,"size":size], options: JSONSerialization.WritingOptions.init(rawValue: 0))
+           if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+              methodChannel?.invokeMethod("getHealthSnapshotList\(requestId)", arguments: JSONString)
+           }
+         }catch{
+            print("Error converting string to dictionary: \(error.localizedDescription)")
+         }
+      }
+   }
+   
+   public func getMusicList(page:Int = 1,size:Int = 20,model:@escaping musicBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         musicDic["getMusicList\(requestId)"] = model
+         failureArgumentDic["getMusicList\(requestId)"] = failure
+         do{
+           let jsonData = try JSONSerialization.data(withJSONObject: ["page":page,"size":size], options: JSONSerialization.WritingOptions.init(rawValue: 0))
+           if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+              methodChannel?.invokeMethod("getMusicList\(requestId)", arguments: JSONString)
+           }
+         }catch{
+            print("Error converting string to dictionary: \(error.localizedDescription)")
+         }
+      }
+   }
+   public func delMusicList(model:protocol_music_file_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["delMusicList\(requestId)"] = success;
+         failureArgumentDic["delMusicList\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("delMusicList\(requestId)", arguments: data)
+         }catch{
+
+         }
+      }
+   }
+   
+   public func uploadMusic(musicModel:CreekMusicModel,fileData:Data,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         progressDic["musicUpload\(requestId)"] = uploadProgress
+         successDic["musicUpload\(requestId)"] = uploadSuccess;
+         failureArgumentDic["musicUpload\(requestId)"] = uploadFailure
+         let json = try? JSONEncoder().encode(musicModel)
+         if let data = json, let str = String(data: data, encoding: .utf8) {
+             methodChannel?.invokeMethod("musicUpload\(requestId)", arguments: [str,fileData])
+         }
+      }
+
+   }
+   
+   public func uploadSportCourse(courseModels:[CourseModel],uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         progressDic["sportCourseUpload\(requestId)"] = uploadProgress
+         successDic["sportCourseUpload\(requestId)"] = uploadSuccess;
+         failureArgumentDic["sportCourseUpload\(requestId)"] = uploadFailure
+         let json = try? JSONEncoder().encode(courseModels)
+         if let data = json, let str = String(data: data, encoding: .utf8) {
+             methodChannel?.invokeMethod("sportCourseUpload\(requestId)", arguments: str)
+         }
+      }
+   }
+   
+   
+   public func getCourse(model:@escaping courseBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         courseDic["getCourse\(requestId)"] = model
+         failureArgumentDic["getCourse\(requestId)"] = failure
+         methodChannel?.invokeMethod("getCourse\(requestId)", arguments: "")
+      }
+   }
+
+   public func delCourse(model:protocol_exercise_course_list_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["delCourse\(requestId)"] = success;
+         failureArgumentDic["delCourse\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("delCourse\(requestId)", arguments: data)
+         }catch{
+
+         }
+      }
+   }
+   
+   public func upLoadGeo(data:Data,model:@escaping geoAddressBase,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+      _geoAddressClosure = model
+      serialQueue.sync {
+         requestId+=1
+         progressDic["geoUpload\(requestId)"] = uploadProgress
+         successDic["geoUpload\(requestId)"] = uploadSuccess;
+         failureArgumentDic["geoUpload\(requestId)"] = uploadFailure
+         methodChannel?.invokeMethod("geoUpload\(requestId)", arguments: data)
+      }
+   }
+   
+   public func getGeo(model:@escaping geoBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         geoDic["getGeo\(requestId)"] = model
+         failureArgumentDic["getGeo\(requestId)"] = failure
+         methodChannel?.invokeMethod("getGeo\(requestId)", arguments: "")
+      }
+   }
+   
+   public func delGeo(model:protocol_geobin_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["delGeo\(requestId)"] = success;
+         failureArgumentDic["delGeo\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("delGeo\(requestId)", arguments: data)
+         }catch{
+
+         }
+      }
+   }
+   
+   public func routeAddress(model:String){
+      methodChannel?.invokeMethod("routeAddress\(requestId)", arguments: model)
+   }
+
 }

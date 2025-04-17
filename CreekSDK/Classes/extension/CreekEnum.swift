@@ -28,142 +28,158 @@ public enum BindType : Int
 }
 
 
-public enum SportType : Int , Codable
-{
-    static var defaultCase: SportType {
+public enum SportType: Int, Codable {
+    public static var defaultCase: SportType {
         .ORUN
     }
-    case ORUN  = 0                        //outdoor running
-    case IRUN = 1                         //indoor running
-    case OWALK = 2                        //walk outdoors
-    case IWALK = 3                        //indoor walk
-    case  HIKING = 4                      //on foot
-    case OCYCLE = 5                       //outdoor riding
-    case  ICYCLE = 6                      //indoor cycling
-    case  CRICKET = 7                     //cricket
-    case  FOOTBALL = 8                    //football
-    case PSWIM = 9                        //swimming pool
-    case OSWIM = 10                       //open area swimming
-    case  YOGA = 11                       //yoga
-    case PILATES = 12                     //Pilates
-    case DANCE = 13                       //Dance
-    case ZUMBA = 14                       //Zumba
-    case ROWER = 15                       //rowing machine
-    case  ELLIPTICAL = 16                 //elliptical machine
-    case  CTRAINING = 17                   //core training
-    case  TSTRAINING = 18                   //traditional strength training
-    case  FSTRAINING = 19                   //functional strength training
-    case  HIIT = 20                         //HIIT
-    case COOLDOWN = 21                     //Tidy up and relax
-    case WORKOUT = 22                      //free training
-    case FITNESS = 23                      //fitness
-    case TRAIL_RUNNING = 24                 //Trail running
-    
-    // 健身
-    case TREADMILL = 25                    //Stepper
-    case AEROBICS = 26                     //Aerobics
-    case SIT_UP = 27                       //Sit-ups
-    case PLANK = 28                        //Plank
-    case JUMPING_JACK = 29                 //Jackpot
-    case  CHIN_UP = 30                      //pull up
-    case PUSH_UP = 31                      //push ups
-    case  DEEP_SQUAT = 32                   //squat
-    case HIGH_KNEE_LIFT = 33               //high leg
-    case DUMBBELL = 34                     //dumbbel
-    case BARBELL = 35                      //barbell
-    case BOXING = 36                       //boxing
-    case KICKBOXING = 37                   //free sparring
-    case  HORIZONTAL_BAR = 38               //horizontal bar
-    case PARALLEL_BARS = 39                //parallel bars
-    case WALKING_MACHINE = 40              //walking machine
-    case SUMMIT_TRAINERS = 41              //climbing machine
-    
-    /*球类*/
-    case  BOWLING = 42                      //bowling
-    case TENNIS = 43                       //tennis
-    case TABLE_TENNIS = 44                 //pingpong
-    case GOLF = 45                         //golf
-    case BASKETBALL = 46                   //basketball
-    case  BADMINTON = 47                    //badminton
-    case HOCKEY = 48                       //hockey
-    case RUGBY = 49                        //football
-    case HANDBALL = 50                     //handball
-    case SQUASH = 51                       //squash
-    case BASEBALL = 52                     //baseball
-    case  SOFTBALL = 53                     //softball
-    case SHUTTLECOCK = 54                  //shuttlecock
-    case SEPAKTAKRAW = 55                  //sepak takraw
-    
-    /*休闲运动*/
-    case  STREET_DANCE = 56                 //street dance
-    case  MOUNTAIN_CLINBING = 57            //mountaineering
-    case  ROPE_SKIPPING = 58                //jump rope
-    case  CLIMB_STAIRS = 59                 //climbing stairs
-    case  BALLET = 60                       //ballet
-    case  SOCIAL_DANCE = 61                 //social dance
-    case  DARTS = 62                        //darts
-    case HORSEBACK_RIDING = 63             //horse riding
-    case ROLLER_SKATING = 64               //roller skating
-    case  TAI_CHI = 65                      //Tai Chi
-    case  FRISBEE = 66                      //Frisbee
-    case  HULA_HOOP = 67                    //Hula Hoop
-    
-    /*冰雪运动*/
-    case  SLEIGH = 68                       //sled
-    case SKATING = 69                      //skate
-    case  BOBSLEIGH_AND_TOBOGGANING = 70    //snowmobile
-    case CURLING = 71                      //Curling
-    case ICE_HOCKEY = 72                   //puck
-    
-    /*水上运动*/
-    case  SURFING = 73                      //surf
-    case  SAILBOAT = 74                     //sailboat
-    case SAILBOARD = 75                    //windsurfing
-    case  FOLDBOATING = 76                  //kayak
-    case CANOEING = 77                     //rowing
-    case BOAT_RACE = 78                    //rowing
-    case MOTORBOAT = 79                    //motor boat
-    case WATER_POLO = 80                   //water polo
-    
-    /*极限运动*/
-    case  SLIDING_PLATE = 81                //skateboard
-    case  ROCK_CLIMBING = 82                //rock climbing
-    case BUNGEE_JUMPING = 83                //bungee jumping
-    case PARKOUR = 84                       //Parkour
-    case OTHER = 85                         //other
-    
-    /*Add new sports*/
-    case    SPINNING = 86; //Spinning bike
-    case     MARTIAL_ARTS = 87; //Martial Arts
-    case    TAEKWONDO = 88; //Taekwondo
-    case    KARATE = 89; //Karate
-    case    GYMNASTICS = 90; //gymnastics
-    case     PADEL = 91; //cage tennis
-    case    PICKLEBALL = 92; //pickleball
-    case    SNOWBOARDING = 93; //Snowboarding
-    case    SKIING = 94; //Skiing
-    case     PADDLING = 95; //Paddle
-    case     BMX = 96; //BMX
-    case    FENCING = 97; //Fencing
-    case    BILLIARDS = 98; //Billiards
-    case    BEACH_SOCCER = 99; //Beach Soccer
-    case    BEACH_VOLLEYBALL = 100; //Beach volleyball
-    case    DODGEBALL = 101; //Dodgeball
-    case    JAZZ = 102; //Jazz dance
-    case     LATIN = 103; //Latin dance
-    case    SQUARE_DANCE = 104; //Square dance
-    case    VOLLEYBALL = 105; //Volleyball
-    case   KITE_FLYING = 106; //Kite flying
-    case    FISHING = 107; //Fishing
-    case     ARCHERY = 108; //Archery
-    case     SHOOTING = 109; //shooting
-    case    WHITE_WATER_RAFTING = 110; //Rafting
-    case    ALPINE_SKIING = 111; //Alpine skiing
-    case    CROSS_COUNTRY_SKIING = 112; //cross-country skiing
-    case    BIATHON = 113; //biathlon
-    case    DRAGON_BOAT_RACING = 114; //Dragon boat
-    case   RACING = 115; //racing
+
+    case ORUN = 0                        // Outdoor running
+    case IRUN = 1                        // Indoor running
+    case OWALK = 2                       // Outdoor walking
+    case IWALK = 3                       // Indoor walking
+    case HIKING = 4                      // Hiking
+    case OCYCLE = 5                      // Outdoor cycling
+    case ICYCLE = 6                      // Indoor cycling
+    case CRICKET = 7                    // Cricket
+    case FOOTBALL = 8                   // Football
+    case PSWIM = 9                      // Pool swimming
+    case OSWIM = 10                     // Open water swimming
+    case YOGA = 11                      // Yoga
+    case PILATES = 12                   // Pilates
+    case DANCE = 13                     // Dance
+    case ZUMBA = 14                     // Zumba
+    case ROWER = 15                     // Rowing machine
+    case ELLIPTICAL = 16                // Elliptical machine
+    case CTRAINING = 17                 // Core training
+    case TSTRAINING = 18                // Traditional strength training
+    case FSTRAINING = 19                // Functional strength training
+    case HIIT = 20                      // HIIT
+    case COOLDOWN = 21                  // Cooldown
+    case WORKOUT = 22                   // Free workout
+    case FITNESS = 23                   // Fitness
+    case TRAIL_RUNNING = 24             // Trail running
+    case TREADMILL = 25                 // Stair machine
+    case AEROBICS = 26                  // Aerobics
+    case SIT_UP = 27                    // Sit-ups
+    case PLANK = 28                     // Plank
+    case JUMPING_JACK = 29              // Jumping jacks
+    case CHIN_UP = 30                   // Pull-ups
+    case PUSH_UP = 31                   // Push-ups
+    case DEEP_SQUAT = 32                // Squats
+    case HIGH_KNEE_LIFT = 33            // High knees
+    case DUMBBELL = 34                  // Dumbbells
+    case BARBELL = 35                   // Barbells
+    case BOXING = 36                    // Boxing
+    case KICKBOXING = 37                // Kickboxing
+    case HORIZONTAL_BAR = 38            // Horizontal bar
+    case PARALLEL_BARS = 39             // Parallel bars
+    case WALKING_MACHINE = 40           // Walking machine
+    case SUMMIT_TRAINERS = 41           // Summit trainers
+    case BOWLING = 42                   // Bowling
+    case TENNIS = 43                    // Tennis
+    case TABLE_TENNIS = 44              // Table tennis
+    case GOLF = 45                      // Golf
+    case BASKETBALL = 46                // Basketball
+    case BADMINTON = 47                 // Badminton
+    case HOCKEY = 48                    // Hockey
+    case AMERICAN_FOOTBALL = 49         // American football
+    case HANDBALL = 50                  // Handball
+    case SQUASH = 51                    // Squash
+    case BASEBALL = 52                  // Baseball
+    case SOFTBALL = 53                  // Softball
+    case SHUTTLECOCK = 54               // Shuttlecock
+    case SEPAKTAKRAW = 55               // Sepaktakraw
+    case STREET_DANCE = 56              // Street dance
+    case MOUNTAIN_CLINBING = 57         // Mountain climbing
+    case ROPE_SKIPPING = 58             // Rope skipping
+    case CLIMB_STAIRS = 59              // Stair climbing
+    case BALLET = 60                    // Ballet
+    case SOCIAL_DANCE = 61              // Social dance
+    case DARTS = 62                     // Darts
+    case HORSEBACK_RIDING = 63          // Horseback riding
+    case ROLLER_SKATING = 64            // Roller skating
+    case TAI_CHI = 65                   // Tai chi
+    case FRISBEE = 66                   // Frisbee
+    case HULA_HOOP = 67                 // Hula hoop
+    case SLEIGH = 68                    // Sledding
+    case SKATING = 69                   // Ice skating
+    case BOBSLEIGH_AND_TOBOGGANING = 70 // Bobsleigh and tobogganing
+    case CURLING = 71                   // Curling
+    case ICE_HOCKEY = 72                // Ice hockey
+    case SURFING = 73                   // Surfing
+    case SAILBOAT = 74                  // Sailing
+    case SAILBOARD = 75                 // Windsurfing
+    case FOLDBOATING = 76               // Kayak
+    case CANOEING = 77                  // Canoeing
+    case BOAT_RACE = 78                 // Rowing
+    case MOTORBOAT = 79                 // Motorboating
+    case WATER_POLO = 80                // Water polo
+    case SLIDING_PLATE = 81             // Skateboarding
+    case ROCK_CLIMBING = 82             // Rock climbing
+    case BUNGEE_JUMPING = 83            // Bungee jumping
+    case PARKOUR = 84                   // Parkour
+    case OTHER = 85                     // Other
+    case SPINNING = 86                  // Spinning
+    case MARTIAL_ARTS = 87              // Martial arts
+    case TAEKWONDO = 88                 // Taekwondo
+    case KARATE = 89                    // Karate
+    case GYMNASTICS = 90                // Gymnastics
+    case PADEL = 91                     // Padel
+    case PICKLEBALL = 92                // Pickleball
+    case SNOWBOARDING = 93              // Snowboarding
+    case ALPINE_SKIING = 94             // Alpine skiing
+    case PADDLING = 95                  // Paddling
+    case BMX = 96                       // BMX
+    case FENCING = 97                   // Fencing
+    case BILLIARDS = 98                 // Billiards
+    case BEACH_SOCCER = 99              // Beach soccer
+    case BEACH_VOLLEYBALL = 100         // Beach volleyball
+    case DODGEBALL = 101                // Dodgeball
+    case JAZZ = 102                     // Jazz dance
+    case LATIN = 103                    // Latin dance
+    case SQUARE_DANCE = 104             // Square dance
+    case VOLLEYBALL = 105               // Volleyball
+    case KITE_FLYING = 106              // Kite flying
+    case FISHING = 107                  // Fishing
+    case ARCHERY = 108                  // Archery
+    case SHOOTING = 109                 // Shooting
+    case WHITE_WATER_RAFTING = 110      // White water rafting
+    case DOWNHILL_SKIING = 111          // Downhill skiing
+    case CROSS_COUNTRY_SKIING = 112     // Cross-country skiing
+    case BIATHON = 113                  // Biathlon
+    case DRAGON_BOAT_RACING = 114       // Dragon boat racing
+    case RACING = 115                   // Racing
+    case AUSTRALIAN_RULES_FOOTBALL = 116 // Australian rules football
+    case BOULDERING = 117               // Bouldering
+    case TRACK_RUNNING = 118            // Track running
+    case STANDUP_PADDLEBOARDING = 119   // Stand-up paddleboarding
+    case RACQUETBALL = 120              // Racquetball
+    case DISC_OLF = 121                 // Disc golf
+    case SKIING = 122                   // Skiing
+    case INLINE_SKATING = 123           // Inline skating
+    case OUTDOOR_FITNESS = 124          // Outdoor fitness
+    case SNOW_SKATEBOARDING = 125       // Snow skateboarding
+    case CANOE = 126                    // Canoe
+    case MIXED_AEROBICS = 127           // Mixed aerobics
+    case WEIGHTLIFTING = 128            // Weightlifting
+    case ULTIMATE_FRISBEE = 129         // Ultimate frisbee
+    case CROSS_TRAINING = 130           // Cross training
+    case INTERVAL_TRAINING = 131        // Interval training
+    case EQUESTRIAN_SPORTS = 132        // Equestrian sports
+    case KAYAKING = 133                 // Kayaking
+    case WRESTLING = 134                // Wrestling
+    case INDOOR_CLIMBING = 135          // Indoor climbing
+    case ATHLETICS = 136                // Athletics
+    case STEP_AEROBICS = 137            // Step aerobics
+    case PHYSICAL_CONDITIONING = 138    // Physical conditioning
+    case RECREATIONAL_SPORTS = 139      // Recreational sports
+    case CIRCUIT_TRAINING = 140         // Circuit training
+    case SNOW_SPORTS = 141              // Snow sports
+    case AEROBIC_EXERCISE = 142         // Aerobic exercise
+    case RUGBY = 143                    // Rugby
+    case REHEALTHY_TRAINING = 144       // Rehabilitation training
 }
+
 
 public enum Sport_goal_type : Int ,Codable
 {
@@ -178,6 +194,16 @@ public enum Sport_goal_type : Int ,Codable
     case  ENUM_SPORT_GOAL_DISTANCE
     case  ENUM_SPORT_GOAL_LAP
     case  ENUM_SPORT_GOAL_SWIM_DISTANCE
+}
+
+public enum sport_swim_stroke_type: Int, Codable {
+    case STROKE_TYPE_NULL = 0                     // No stroke
+    case STROKE_TYPE_FREESTYLE                   // Freestyle
+    case STROKE_TYPE_BREASTSTROKE                // Breaststroke
+    case STROKE_TYPE_BUTTERFLY_STROKE            // Butterfly stroke
+    case STROKE_TYPE_BACKSTROKE                  // Backstroke
+    case STROKE_TYPE_INDIVIDUAL_MEDLEY           // Individual medley
+    case STROKE_TYPE_INDIVIDUAL_OTHER            // Other
 }
 
 
@@ -243,6 +269,27 @@ public enum CreekClientType : Int{
     case none
     case titan
    
+}
+
+public enum CancelAutoConnectType : Int{
+    case auto
+    case cancel
+   
+}
+public enum continuing_target: Int, Codable {
+    case CONTINUING_TARGET_MANUALLY_LAP = 0      // Continuing target - Manually lap
+    case CONTINUING_TARGET_TIME = 1              // Continuing target - Time
+    case CONTINUING_TARGET_DISTANCE = 2          // Continuing target - Distance
+    case CONTINUING_TARGET_CALORIES = 3          // Continuing target - Calories
+}
+
+public enum strength_target: Int, Codable {
+    case STRENGTH_TARGET_OPEN = 0                // Strength target - Open
+    case STRENGTH_TARGET_PACE = 1                // Strength target - Pace
+    case STRENGTH_TARGET_CADENCE = 2             // Strength target - Cadence
+    case STRENGTH_TARGET_HEART_RATE_ZONE = 3     // Strength target - Heart rate zone
+    case STRENGTH_TARGET_CUSTOM_RATE_ZONE = 4    // Strength target - Custom heart rate zone
+    case STRENGTH_TARGET_POWER_ZONES = 5         // Strength target - Power zone
 }
 
 

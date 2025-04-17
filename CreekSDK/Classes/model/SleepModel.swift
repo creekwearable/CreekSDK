@@ -40,6 +40,13 @@ public class SleepModel: Codable {
     ///sleep score
     public var sleep_score: Int?
     public var uploadStatus: Int?
+    ///emperature data magnified 100 times, retain two decimal places / degree
+    public var bodyTemp: Int?
+    ///Whether to support average sleeping temperature data 0 Not supported 1 Supported
+    public var bodyTempSupport: Int?
+    ///Whether to take a nap
+    public var isNapSleep: Int?
+   
     public var datas : [SleepDataModel]?
 }
 

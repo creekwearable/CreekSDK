@@ -9,9 +9,10 @@ target 'CreekSDK_Example' do
   pod 'MBProgressHUD'
   pod 'Toast-Swift'
   pod 'ZIPFoundation'
-  pod "ESTabBarController-swift"
+#  pod "ESTabBarController-swift"
   pod 'CropViewController'
   pod 'TZImagePickerController'
+  pod 'IQKeyboardManagerSwift'
   
   post_install do |installer|
 #

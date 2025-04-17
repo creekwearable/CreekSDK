@@ -1,0 +1,6 @@
+framework module creek_ffmpeg_kit_flutter {
+  umbrella header "creek_ffmpeg_kit_flutter-umbrella.h"
+
+  export *
+  module * { export * }
+}

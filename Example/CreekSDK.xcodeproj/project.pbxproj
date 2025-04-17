@@ -7,9 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0702F1AD2BBA591000712684 /* eventTracking.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AB2BBA591000712684 /* eventTracking.pb.swift */; };
-		0702F1AE2BBA591000712684 /* appList.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AC2BBA591000712684 /* appList.pb.swift */; };
 		0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */; };
+		07266BF32DACF260000F8BED /* findphone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCA2DACF260000F8BED /* findphone.pb.swift */; };
+		07266BF42DACF260000F8BED /* sensor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDE2DACF260000F8BED /* sensor.pb.swift */; };
+		07266BF52DACF260000F8BED /* skill.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDF2DACF260000F8BED /* skill.pb.swift */; };
+		07266BF62DACF260000F8BED /* language.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD22DACF260000F8BED /* language.pb.swift */; };
+		07266BF72DACF260000F8BED /* alarm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BB92DACF260000F8BED /* alarm.pb.swift */; };
+		07266BF82DACF260000F8BED /* disturb.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC72DACF260000F8BED /* disturb.pb.swift */; };
+		07266BF92DACF260000F8BED /* healthsnapshot.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD02DACF260000F8BED /* healthsnapshot.pb.swift */; };
+		07266BFA2DACF260000F8BED /* standing.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE32DACF260000F8BED /* standing.pb.swift */; };
+		07266BFB2DACF260000F8BED /* watchdial.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BEB2DACF260000F8BED /* watchdial.pb.swift */; };
+		07266BFC2DACF260000F8BED /* appSleep.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BBE2DACF260000F8BED /* appSleep.pb.swift */; };
+		07266BFD2DACF260000F8BED /* font.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCC2DACF260000F8BED /* font.pb.swift */; };
+		07266BFE2DACF260000F8BED /* morning.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD72DACF260000F8BED /* morning.pb.swift */; };
+		07266BFF2DACF260000F8BED /* time.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE62DACF260000F8BED /* time.pb.swift */; };
+		07266C002DACF260000F8BED /* call.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC22DACF260000F8BED /* call.pb.swift */; };
+		07266C012DACF260000F8BED /* wtm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BF22DACF260000F8BED /* wtm.pb.swift */; };
+		07266C022DACF260000F8BED /* mtu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD82DACF260000F8BED /* mtu.pb.swift */; };
+		07266C032DACF260000F8BED /* sportPrescription.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE22DACF260000F8BED /* sportPrescription.pb.swift */; };
+		07266C042DACF260000F8BED /* appTable.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BBF2DACF260000F8BED /* appTable.pb.swift */; };
+		07266C052DACF260000F8BED /* update.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE82DACF260000F8BED /* update.pb.swift */; };
+		07266C062DACF260000F8BED /* contacts.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC42DACF260000F8BED /* contacts.pb.swift */; };
+		07266C072DACF260000F8BED /* deviceinfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC62DACF260000F8BED /* deviceinfo.pb.swift */; };
+		07266C082DACF260000F8BED /* contactssos.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC52DACF260000F8BED /* contactssos.pb.swift */; };
+		07266C092DACF260000F8BED /* appList.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BBD2DACF260000F8BED /* appList.pb.swift */; };
+		07266C0A2DACF260000F8BED /* focus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCB2DACF260000F8BED /* focus.pb.swift */; };
+		07266C0B2DACF260000F8BED /* menstrual.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD42DACF260000F8BED /* menstrual.pb.swift */; };
+		07266C0C2DACF260000F8BED /* sport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE12DACF260000F8BED /* sport.pb.swift */; };
+		07266C0D2DACF260000F8BED /* hotKey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD12DACF260000F8BED /* hotKey.pb.swift */; };
+		07266C0E2DACF260000F8BED /* monitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD62DACF260000F8BED /* monitor.pb.swift */; };
+		07266C0F2DACF260000F8BED /* weather.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BF02DACF260000F8BED /* weather.pb.swift */; };
+		07266C102DACF260000F8BED /* applets.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BBC2DACF260000F8BED /* applets.pb.swift */; };
+		07266C112DACF260000F8BED /* log.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD32DACF260000F8BED /* log.pb.swift */; };
+		07266C122DACF260000F8BED /* watchdirection.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BEC2DACF260000F8BED /* watchdirection.pb.swift */; };
+		07266C132DACF260000F8BED /* wordtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BF12DACF260000F8BED /* wordtime.pb.swift */; };
+		07266C142DACF260000F8BED /* event.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC92DACF260000F8BED /* event.pb.swift */; };
+		07266C152DACF260000F8BED /* binding.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC02DACF260000F8BED /* binding.pb.swift */; };
+		07266C162DACF260000F8BED /* card.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC32DACF260000F8BED /* card.pb.swift */; };
+		07266C172DACF260000F8BED /* healthhead.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCF2DACF260000F8BED /* healthhead.pb.swift */; };
+		07266C182DACF260000F8BED /* message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD52DACF260000F8BED /* message.pb.swift */; };
+		07266C192DACF260000F8BED /* watchSensor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BED2DACF260000F8BED /* watchSensor.pb.swift */; };
+		07266C1A2DACF260000F8BED /* gesture.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCD2DACF260000F8BED /* gesture.pb.swift */; };
+		07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BBB2DACF260000F8BED /* alipay.pb.swift */; };
+		07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC82DACF260000F8BED /* enums.pb.swift */; };
+		07266C1D2DACF260000F8BED /* music.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BD92DACF260000F8BED /* music.pb.swift */; };
+		07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE92DACF260000F8BED /* userinfo.pb.swift */; };
+		07266C1F2DACF260000F8BED /* voice.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BEA2DACF260000F8BED /* voice.pb.swift */; };
+		07266C202DACF260000F8BED /* tracking.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE72DACF260000F8BED /* tracking.pb.swift */; };
+		07266C212DACF260000F8BED /* schedule.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDC2DACF260000F8BED /* schedule.pb.swift */; };
+		07266C222DACF260000F8BED /* alexa.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BBA2DACF260000F8BED /* alexa.pb.swift */; };
+		07266C232DACF260000F8BED /* waterMonitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BEF2DACF260000F8BED /* waterMonitor.pb.swift */; };
+		07266C242DACF260000F8BED /* system.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE42DACF260000F8BED /* system.pb.swift */; };
+		07266C252DACF260000F8BED /* sleepMonitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE02DACF260000F8BED /* sleepMonitor.pb.swift */; };
+		07266C262DACF260000F8BED /* calendar.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BC12DACF260000F8BED /* calendar.pb.swift */; };
+		07266C272DACF260000F8BED /* table.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BE52DACF260000F8BED /* table.pb.swift */; };
+		07266C282DACF260000F8BED /* waterAssistant.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BEE2DACF260000F8BED /* waterAssistant.pb.swift */; };
+		07266C292DACF260000F8BED /* health.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCE2DACF260000F8BED /* health.pb.swift */; };
+		07266C2A2DACF260000F8BED /* ring.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDB2DACF260000F8BED /* ring.pb.swift */; };
+		07266C2B2DACF260000F8BED /* screen.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDD2DACF260000F8BED /* screen.pb.swift */; };
+		07266C2C2DACF260000F8BED /* pspkey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDA2DACF260000F8BED /* pspkey.pb.swift */; };
+		07266C2E2DACFDEB000F8BED /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C2D2DACFDEB000F8BED /* MusicModel.swift */; };
+		07266C302DAD01DE000F8BED /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C2F2DAD01DE000F8BED /* CourseModel.swift */; };
+		07266C322DAD0575000F8BED /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C312DAD0575000F8BED /* LogViewController.swift */; };
+		07266C342DAD1CAB000F8BED /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C332DAD1CAB000F8BED /* MusicViewController.swift */; };
+		07266C362DAF60F0000F8BED /* geo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C352DAF60F0000F8BED /* geo.pb.swift */; };
+		07266C382DAF64DA000F8BED /* SportCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C372DAF64DA000F8BED /* SportCourseViewController.swift */; };
+		07266C3A2DAFBBB4000F8BED /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C392DAFBBB4000F8BED /* RouteViewController.swift */; };
+		07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C3D2DAFEA29000F8BED /* OTAViewController.swift */; };
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
 		073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */; };
@@ -48,45 +112,6 @@
 		079A21832B29A72A00F5D013 /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21732B29A72A00F5D013 /* HeartRateModel.swift */; };
 		079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21742B29A72A00F5D013 /* HrvModel.swift */; };
 		079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21752B29A72A00F5D013 /* EphemerisModel.swift */; };
-		079A21AE2B29A74300F5D013 /* userinfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21872B29A74300F5D013 /* userinfo.pb.swift */; };
-		079A21AF2B29A74300F5D013 /* menstrual.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21882B29A74300F5D013 /* menstrual.pb.swift */; };
-		079A21B02B29A74300F5D013 /* focus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21892B29A74300F5D013 /* focus.pb.swift */; };
-		079A21B12B29A74300F5D013 /* gesture.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218A2B29A74300F5D013 /* gesture.pb.swift */; };
-		079A21B22B29A74300F5D013 /* weather.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218B2B29A74300F5D013 /* weather.pb.swift */; };
-		079A21B32B29A74300F5D013 /* standing.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218C2B29A74300F5D013 /* standing.pb.swift */; };
-		079A21B42B29A74300F5D013 /* findphone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218D2B29A74300F5D013 /* findphone.pb.swift */; };
-		079A21B52B29A74300F5D013 /* binding.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218E2B29A74300F5D013 /* binding.pb.swift */; };
-		079A21B62B29A74300F5D013 /* deviceinfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A218F2B29A74300F5D013 /* deviceinfo.pb.swift */; };
-		079A21B72B29A74300F5D013 /* enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21902B29A74300F5D013 /* enums.pb.swift */; };
-		079A21B82B29A74300F5D013 /* sensor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21912B29A74300F5D013 /* sensor.pb.swift */; };
-		079A21B92B29A74300F5D013 /* watchdial.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21922B29A74300F5D013 /* watchdial.pb.swift */; };
-		079A21BA2B29A74300F5D013 /* card.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21932B29A74300F5D013 /* card.pb.swift */; };
-		079A21BB2B29A74300F5D013 /* alarm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21942B29A74300F5D013 /* alarm.pb.swift */; };
-		079A21BC2B29A74300F5D013 /* system.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21952B29A74300F5D013 /* system.pb.swift */; };
-		079A21BD2B29A74300F5D013 /* update.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21962B29A74300F5D013 /* update.pb.swift */; };
-		079A21BE2B29A74300F5D013 /* mtu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21972B29A74300F5D013 /* mtu.pb.swift */; };
-		079A21BF2B29A74300F5D013 /* time.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21982B29A74300F5D013 /* time.pb.swift */; };
-		079A21C02B29A74300F5D013 /* disturb.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21992B29A74300F5D013 /* disturb.pb.swift */; };
-		079A21C12B29A74300F5D013 /* log.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219A2B29A74300F5D013 /* log.pb.swift */; };
-		079A21C22B29A74300F5D013 /* sleepMonitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219B2B29A74300F5D013 /* sleepMonitor.pb.swift */; };
-		079A21C32B29A74300F5D013 /* contacts.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219C2B29A74300F5D013 /* contacts.pb.swift */; };
-		079A21C42B29A74300F5D013 /* voice.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219D2B29A74300F5D013 /* voice.pb.swift */; };
-		079A21C52B29A74300F5D013 /* healthhead.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219E2B29A74300F5D013 /* healthhead.pb.swift */; };
-		079A21C62B29A74300F5D013 /* hotKey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A219F2B29A74300F5D013 /* hotKey.pb.swift */; };
-		079A21C72B29A74300F5D013 /* wordtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A02B29A74300F5D013 /* wordtime.pb.swift */; };
-		079A21C82B29A74300F5D013 /* music.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A12B29A74300F5D013 /* music.pb.swift */; };
-		079A21C92B29A74300F5D013 /* sport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A22B29A74300F5D013 /* sport.pb.swift */; };
-		079A21CA2B29A74300F5D013 /* screen.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A32B29A74300F5D013 /* screen.pb.swift */; };
-		079A21CB2B29A74300F5D013 /* contactssos.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A42B29A74300F5D013 /* contactssos.pb.swift */; };
-		079A21CC2B29A74300F5D013 /* waterMonitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A52B29A74300F5D013 /* waterMonitor.pb.swift */; };
-		079A21CD2B29A74300F5D013 /* language.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A62B29A74300F5D013 /* language.pb.swift */; };
-		079A21CE2B29A74300F5D013 /* table.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A72B29A74300F5D013 /* table.pb.swift */; };
-		079A21CF2B29A74300F5D013 /* monitor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A82B29A74300F5D013 /* monitor.pb.swift */; };
-		079A21D02B29A74300F5D013 /* event.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21A92B29A74300F5D013 /* event.pb.swift */; };
-		079A21D12B29A74300F5D013 /* schedule.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AA2B29A74300F5D013 /* schedule.pb.swift */; };
-		079A21D22B29A74300F5D013 /* message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AB2B29A74300F5D013 /* message.pb.swift */; };
-		079A21D32B29A74300F5D013 /* call.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AC2B29A74300F5D013 /* call.pb.swift */; };
-		079A21D42B29A74300F5D013 /* health.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21AD2B29A74300F5D013 /* health.pb.swift */; };
 		079A21D62B29A7E600F5D013 /* CreekInterFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21D52B29A7E600F5D013 /* CreekInterFace.swift */; };
 		079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21D92B29B0B700F5D013 /* GlobalDefine.swift */; };
 		079A21DD2B29B0B700F5D013 /* PonyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DA2B29B0B700F5D013 /* PonyAlert.swift */; };
@@ -110,9 +135,73 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0702F1AB2BBA591000712684 /* eventTracking.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventTracking.pb.swift; sourceTree = "<group>"; };
-		0702F1AC2BBA591000712684 /* appList.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appList.pb.swift; sourceTree = "<group>"; };
 		0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoExtension.swift; sourceTree = "<group>"; };
+		07266BB92DACF260000F8BED /* alarm.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm.pb.swift; sourceTree = "<group>"; };
+		07266BBA2DACF260000F8BED /* alexa.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alexa.pb.swift; sourceTree = "<group>"; };
+		07266BBB2DACF260000F8BED /* alipay.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alipay.pb.swift; sourceTree = "<group>"; };
+		07266BBC2DACF260000F8BED /* applets.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = applets.pb.swift; sourceTree = "<group>"; };
+		07266BBD2DACF260000F8BED /* appList.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appList.pb.swift; sourceTree = "<group>"; };
+		07266BBE2DACF260000F8BED /* appSleep.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appSleep.pb.swift; sourceTree = "<group>"; };
+		07266BBF2DACF260000F8BED /* appTable.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appTable.pb.swift; sourceTree = "<group>"; };
+		07266BC02DACF260000F8BED /* binding.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = binding.pb.swift; sourceTree = "<group>"; };
+		07266BC12DACF260000F8BED /* calendar.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendar.pb.swift; sourceTree = "<group>"; };
+		07266BC22DACF260000F8BED /* call.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = call.pb.swift; sourceTree = "<group>"; };
+		07266BC32DACF260000F8BED /* card.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.pb.swift; sourceTree = "<group>"; };
+		07266BC42DACF260000F8BED /* contacts.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contacts.pb.swift; sourceTree = "<group>"; };
+		07266BC52DACF260000F8BED /* contactssos.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactssos.pb.swift; sourceTree = "<group>"; };
+		07266BC62DACF260000F8BED /* deviceinfo.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceinfo.pb.swift; sourceTree = "<group>"; };
+		07266BC72DACF260000F8BED /* disturb.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disturb.pb.swift; sourceTree = "<group>"; };
+		07266BC82DACF260000F8BED /* enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.pb.swift; sourceTree = "<group>"; };
+		07266BC92DACF260000F8BED /* event.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = event.pb.swift; sourceTree = "<group>"; };
+		07266BCA2DACF260000F8BED /* findphone.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findphone.pb.swift; sourceTree = "<group>"; };
+		07266BCB2DACF260000F8BED /* focus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = focus.pb.swift; sourceTree = "<group>"; };
+		07266BCC2DACF260000F8BED /* font.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = font.pb.swift; sourceTree = "<group>"; };
+		07266BCD2DACF260000F8BED /* gesture.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gesture.pb.swift; sourceTree = "<group>"; };
+		07266BCE2DACF260000F8BED /* health.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = health.pb.swift; sourceTree = "<group>"; };
+		07266BCF2DACF260000F8BED /* healthhead.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthhead.pb.swift; sourceTree = "<group>"; };
+		07266BD02DACF260000F8BED /* healthsnapshot.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthsnapshot.pb.swift; sourceTree = "<group>"; };
+		07266BD12DACF260000F8BED /* hotKey.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotKey.pb.swift; sourceTree = "<group>"; };
+		07266BD22DACF260000F8BED /* language.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = language.pb.swift; sourceTree = "<group>"; };
+		07266BD32DACF260000F8BED /* log.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = log.pb.swift; sourceTree = "<group>"; };
+		07266BD42DACF260000F8BED /* menstrual.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menstrual.pb.swift; sourceTree = "<group>"; };
+		07266BD52DACF260000F8BED /* message.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.pb.swift; sourceTree = "<group>"; };
+		07266BD62DACF260000F8BED /* monitor.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monitor.pb.swift; sourceTree = "<group>"; };
+		07266BD72DACF260000F8BED /* morning.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morning.pb.swift; sourceTree = "<group>"; };
+		07266BD82DACF260000F8BED /* mtu.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mtu.pb.swift; sourceTree = "<group>"; };
+		07266BD92DACF260000F8BED /* music.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music.pb.swift; sourceTree = "<group>"; };
+		07266BDA2DACF260000F8BED /* pspkey.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pspkey.pb.swift; sourceTree = "<group>"; };
+		07266BDB2DACF260000F8BED /* ring.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ring.pb.swift; sourceTree = "<group>"; };
+		07266BDC2DACF260000F8BED /* schedule.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule.pb.swift; sourceTree = "<group>"; };
+		07266BDD2DACF260000F8BED /* screen.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = screen.pb.swift; sourceTree = "<group>"; };
+		07266BDE2DACF260000F8BED /* sensor.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sensor.pb.swift; sourceTree = "<group>"; };
+		07266BDF2DACF260000F8BED /* skill.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skill.pb.swift; sourceTree = "<group>"; };
+		07266BE02DACF260000F8BED /* sleepMonitor.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleepMonitor.pb.swift; sourceTree = "<group>"; };
+		07266BE12DACF260000F8BED /* sport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sport.pb.swift; sourceTree = "<group>"; };
+		07266BE22DACF260000F8BED /* sportPrescription.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sportPrescription.pb.swift; sourceTree = "<group>"; };
+		07266BE32DACF260000F8BED /* standing.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = standing.pb.swift; sourceTree = "<group>"; };
+		07266BE42DACF260000F8BED /* system.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = system.pb.swift; sourceTree = "<group>"; };
+		07266BE52DACF260000F8BED /* table.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = table.pb.swift; sourceTree = "<group>"; };
+		07266BE62DACF260000F8BED /* time.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.pb.swift; sourceTree = "<group>"; };
+		07266BE72DACF260000F8BED /* tracking.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tracking.pb.swift; sourceTree = "<group>"; };
+		07266BE82DACF260000F8BED /* update.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = update.pb.swift; sourceTree = "<group>"; };
+		07266BE92DACF260000F8BED /* userinfo.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userinfo.pb.swift; sourceTree = "<group>"; };
+		07266BEA2DACF260000F8BED /* voice.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voice.pb.swift; sourceTree = "<group>"; };
+		07266BEB2DACF260000F8BED /* watchdial.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchdial.pb.swift; sourceTree = "<group>"; };
+		07266BEC2DACF260000F8BED /* watchdirection.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchdirection.pb.swift; sourceTree = "<group>"; };
+		07266BED2DACF260000F8BED /* watchSensor.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchSensor.pb.swift; sourceTree = "<group>"; };
+		07266BEE2DACF260000F8BED /* waterAssistant.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterAssistant.pb.swift; sourceTree = "<group>"; };
+		07266BEF2DACF260000F8BED /* waterMonitor.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterMonitor.pb.swift; sourceTree = "<group>"; };
+		07266BF02DACF260000F8BED /* weather.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.pb.swift; sourceTree = "<group>"; };
+		07266BF12DACF260000F8BED /* wordtime.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordtime.pb.swift; sourceTree = "<group>"; };
+		07266BF22DACF260000F8BED /* wtm.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wtm.pb.swift; sourceTree = "<group>"; };
+		07266C2D2DACFDEB000F8BED /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		07266C2F2DAD01DE000F8BED /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		07266C312DAD0575000F8BED /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		07266C332DAD1CAB000F8BED /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		07266C352DAF60F0000F8BED /* geo.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo.pb.swift; sourceTree = "<group>"; };
+		07266C372DAF64DA000F8BED /* SportCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCourseViewController.swift; sourceTree = "<group>"; };
+		07266C392DAFBBB4000F8BED /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		07266C3D2DAFEA29000F8BED /* OTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTAViewController.swift; sourceTree = "<group>"; };
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = CW06G_TITAD101_01.zip; sourceTree = "<group>"; };
@@ -151,45 +240,6 @@
 		079A21732B29A72A00F5D013 /* HeartRateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateModel.swift; sourceTree = "<group>"; };
 		079A21742B29A72A00F5D013 /* HrvModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HrvModel.swift; sourceTree = "<group>"; };
 		079A21752B29A72A00F5D013 /* EphemerisModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EphemerisModel.swift; sourceTree = "<group>"; };
-		079A21872B29A74300F5D013 /* userinfo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userinfo.pb.swift; sourceTree = "<group>"; };
-		079A21882B29A74300F5D013 /* menstrual.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menstrual.pb.swift; sourceTree = "<group>"; };
-		079A21892B29A74300F5D013 /* focus.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = focus.pb.swift; sourceTree = "<group>"; };
-		079A218A2B29A74300F5D013 /* gesture.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gesture.pb.swift; sourceTree = "<group>"; };
-		079A218B2B29A74300F5D013 /* weather.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weather.pb.swift; sourceTree = "<group>"; };
-		079A218C2B29A74300F5D013 /* standing.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = standing.pb.swift; sourceTree = "<group>"; };
-		079A218D2B29A74300F5D013 /* findphone.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = findphone.pb.swift; sourceTree = "<group>"; };
-		079A218E2B29A74300F5D013 /* binding.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = binding.pb.swift; sourceTree = "<group>"; };
-		079A218F2B29A74300F5D013 /* deviceinfo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deviceinfo.pb.swift; sourceTree = "<group>"; };
-		079A21902B29A74300F5D013 /* enums.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enums.pb.swift; sourceTree = "<group>"; };
-		079A21912B29A74300F5D013 /* sensor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sensor.pb.swift; sourceTree = "<group>"; };
-		079A21922B29A74300F5D013 /* watchdial.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = watchdial.pb.swift; sourceTree = "<group>"; };
-		079A21932B29A74300F5D013 /* card.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = card.pb.swift; sourceTree = "<group>"; };
-		079A21942B29A74300F5D013 /* alarm.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alarm.pb.swift; sourceTree = "<group>"; };
-		079A21952B29A74300F5D013 /* system.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = system.pb.swift; sourceTree = "<group>"; };
-		079A21962B29A74300F5D013 /* update.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = update.pb.swift; sourceTree = "<group>"; };
-		079A21972B29A74300F5D013 /* mtu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mtu.pb.swift; sourceTree = "<group>"; };
-		079A21982B29A74300F5D013 /* time.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = time.pb.swift; sourceTree = "<group>"; };
-		079A21992B29A74300F5D013 /* disturb.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = disturb.pb.swift; sourceTree = "<group>"; };
-		079A219A2B29A74300F5D013 /* log.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = log.pb.swift; sourceTree = "<group>"; };
-		079A219B2B29A74300F5D013 /* sleepMonitor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sleepMonitor.pb.swift; sourceTree = "<group>"; };
-		079A219C2B29A74300F5D013 /* contacts.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contacts.pb.swift; sourceTree = "<group>"; };
-		079A219D2B29A74300F5D013 /* voice.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = voice.pb.swift; sourceTree = "<group>"; };
-		079A219E2B29A74300F5D013 /* healthhead.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healthhead.pb.swift; sourceTree = "<group>"; };
-		079A219F2B29A74300F5D013 /* hotKey.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hotKey.pb.swift; sourceTree = "<group>"; };
-		079A21A02B29A74300F5D013 /* wordtime.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordtime.pb.swift; sourceTree = "<group>"; };
-		079A21A12B29A74300F5D013 /* music.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = music.pb.swift; sourceTree = "<group>"; };
-		079A21A22B29A74300F5D013 /* sport.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sport.pb.swift; sourceTree = "<group>"; };
-		079A21A32B29A74300F5D013 /* screen.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = screen.pb.swift; sourceTree = "<group>"; };
-		079A21A42B29A74300F5D013 /* contactssos.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactssos.pb.swift; sourceTree = "<group>"; };
-		079A21A52B29A74300F5D013 /* waterMonitor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waterMonitor.pb.swift; sourceTree = "<group>"; };
-		079A21A62B29A74300F5D013 /* language.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = language.pb.swift; sourceTree = "<group>"; };
-		079A21A72B29A74300F5D013 /* table.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = table.pb.swift; sourceTree = "<group>"; };
-		079A21A82B29A74300F5D013 /* monitor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = monitor.pb.swift; sourceTree = "<group>"; };
-		079A21A92B29A74300F5D013 /* event.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = event.pb.swift; sourceTree = "<group>"; };
-		079A21AA2B29A74300F5D013 /* schedule.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = schedule.pb.swift; sourceTree = "<group>"; };
-		079A21AB2B29A74300F5D013 /* message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.pb.swift; sourceTree = "<group>"; };
-		079A21AC2B29A74300F5D013 /* call.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = call.pb.swift; sourceTree = "<group>"; };
-		079A21AD2B29A74300F5D013 /* health.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = health.pb.swift; sourceTree = "<group>"; };
 		079A21D52B29A7E600F5D013 /* CreekInterFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreekInterFace.swift; sourceTree = "<group>"; };
 		079A21D92B29B0B700F5D013 /* GlobalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefine.swift; sourceTree = "<group>"; };
 		079A21DA2B29B0B700F5D013 /* PonyAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonyAlert.swift; sourceTree = "<group>"; };
@@ -297,6 +347,8 @@
 				0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */,
 				07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */,
 				072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */,
+				07266C2D2DACFDEB000F8BED /* MusicModel.swift */,
+				07266C2F2DAD01DE000F8BED /* CourseModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -304,47 +356,65 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
-				0702F1AC2BBA591000712684 /* appList.pb.swift */,
-				0702F1AB2BBA591000712684 /* eventTracking.pb.swift */,
-				079A21872B29A74300F5D013 /* userinfo.pb.swift */,
-				079A21882B29A74300F5D013 /* menstrual.pb.swift */,
-				079A21892B29A74300F5D013 /* focus.pb.swift */,
-				079A218A2B29A74300F5D013 /* gesture.pb.swift */,
-				079A218B2B29A74300F5D013 /* weather.pb.swift */,
-				079A218C2B29A74300F5D013 /* standing.pb.swift */,
-				079A218D2B29A74300F5D013 /* findphone.pb.swift */,
-				079A218E2B29A74300F5D013 /* binding.pb.swift */,
-				079A218F2B29A74300F5D013 /* deviceinfo.pb.swift */,
-				079A21902B29A74300F5D013 /* enums.pb.swift */,
-				079A21912B29A74300F5D013 /* sensor.pb.swift */,
-				079A21922B29A74300F5D013 /* watchdial.pb.swift */,
-				079A21932B29A74300F5D013 /* card.pb.swift */,
-				079A21942B29A74300F5D013 /* alarm.pb.swift */,
-				079A21952B29A74300F5D013 /* system.pb.swift */,
-				079A21962B29A74300F5D013 /* update.pb.swift */,
-				079A21972B29A74300F5D013 /* mtu.pb.swift */,
-				079A21982B29A74300F5D013 /* time.pb.swift */,
-				079A21992B29A74300F5D013 /* disturb.pb.swift */,
-				079A219A2B29A74300F5D013 /* log.pb.swift */,
-				079A219B2B29A74300F5D013 /* sleepMonitor.pb.swift */,
-				079A219C2B29A74300F5D013 /* contacts.pb.swift */,
-				079A219D2B29A74300F5D013 /* voice.pb.swift */,
-				079A219E2B29A74300F5D013 /* healthhead.pb.swift */,
-				079A219F2B29A74300F5D013 /* hotKey.pb.swift */,
-				079A21A02B29A74300F5D013 /* wordtime.pb.swift */,
-				079A21A12B29A74300F5D013 /* music.pb.swift */,
-				079A21A22B29A74300F5D013 /* sport.pb.swift */,
-				079A21A32B29A74300F5D013 /* screen.pb.swift */,
-				079A21A42B29A74300F5D013 /* contactssos.pb.swift */,
-				079A21A52B29A74300F5D013 /* waterMonitor.pb.swift */,
-				079A21A62B29A74300F5D013 /* language.pb.swift */,
-				079A21A72B29A74300F5D013 /* table.pb.swift */,
-				079A21A82B29A74300F5D013 /* monitor.pb.swift */,
-				079A21A92B29A74300F5D013 /* event.pb.swift */,
-				079A21AA2B29A74300F5D013 /* schedule.pb.swift */,
-				079A21AB2B29A74300F5D013 /* message.pb.swift */,
-				079A21AC2B29A74300F5D013 /* call.pb.swift */,
-				079A21AD2B29A74300F5D013 /* health.pb.swift */,
+				07266C352DAF60F0000F8BED /* geo.pb.swift */,
+				07266BB92DACF260000F8BED /* alarm.pb.swift */,
+				07266BBA2DACF260000F8BED /* alexa.pb.swift */,
+				07266BBB2DACF260000F8BED /* alipay.pb.swift */,
+				07266BBC2DACF260000F8BED /* applets.pb.swift */,
+				07266BBD2DACF260000F8BED /* appList.pb.swift */,
+				07266BBE2DACF260000F8BED /* appSleep.pb.swift */,
+				07266BBF2DACF260000F8BED /* appTable.pb.swift */,
+				07266BC02DACF260000F8BED /* binding.pb.swift */,
+				07266BC12DACF260000F8BED /* calendar.pb.swift */,
+				07266BC22DACF260000F8BED /* call.pb.swift */,
+				07266BC32DACF260000F8BED /* card.pb.swift */,
+				07266BC42DACF260000F8BED /* contacts.pb.swift */,
+				07266BC52DACF260000F8BED /* contactssos.pb.swift */,
+				07266BC62DACF260000F8BED /* deviceinfo.pb.swift */,
+				07266BC72DACF260000F8BED /* disturb.pb.swift */,
+				07266BC82DACF260000F8BED /* enums.pb.swift */,
+				07266BC92DACF260000F8BED /* event.pb.swift */,
+				07266BCA2DACF260000F8BED /* findphone.pb.swift */,
+				07266BCB2DACF260000F8BED /* focus.pb.swift */,
+				07266BCC2DACF260000F8BED /* font.pb.swift */,
+				07266BCD2DACF260000F8BED /* gesture.pb.swift */,
+				07266BCE2DACF260000F8BED /* health.pb.swift */,
+				07266BCF2DACF260000F8BED /* healthhead.pb.swift */,
+				07266BD02DACF260000F8BED /* healthsnapshot.pb.swift */,
+				07266BD12DACF260000F8BED /* hotKey.pb.swift */,
+				07266BD22DACF260000F8BED /* language.pb.swift */,
+				07266BD32DACF260000F8BED /* log.pb.swift */,
+				07266BD42DACF260000F8BED /* menstrual.pb.swift */,
+				07266BD52DACF260000F8BED /* message.pb.swift */,
+				07266BD62DACF260000F8BED /* monitor.pb.swift */,
+				07266BD72DACF260000F8BED /* morning.pb.swift */,
+				07266BD82DACF260000F8BED /* mtu.pb.swift */,
+				07266BD92DACF260000F8BED /* music.pb.swift */,
+				07266BDA2DACF260000F8BED /* pspkey.pb.swift */,
+				07266BDB2DACF260000F8BED /* ring.pb.swift */,
+				07266BDC2DACF260000F8BED /* schedule.pb.swift */,
+				07266BDD2DACF260000F8BED /* screen.pb.swift */,
+				07266BDE2DACF260000F8BED /* sensor.pb.swift */,
+				07266BDF2DACF260000F8BED /* skill.pb.swift */,
+				07266BE02DACF260000F8BED /* sleepMonitor.pb.swift */,
+				07266BE12DACF260000F8BED /* sport.pb.swift */,
+				07266BE22DACF260000F8BED /* sportPrescription.pb.swift */,
+				07266BE32DACF260000F8BED /* standing.pb.swift */,
+				07266BE42DACF260000F8BED /* system.pb.swift */,
+				07266BE52DACF260000F8BED /* table.pb.swift */,
+				07266BE62DACF260000F8BED /* time.pb.swift */,
+				07266BE72DACF260000F8BED /* tracking.pb.swift */,
+				07266BE82DACF260000F8BED /* update.pb.swift */,
+				07266BE92DACF260000F8BED /* userinfo.pb.swift */,
+				07266BEA2DACF260000F8BED /* voice.pb.swift */,
+				07266BEB2DACF260000F8BED /* watchdial.pb.swift */,
+				07266BEC2DACF260000F8BED /* watchdirection.pb.swift */,
+				07266BED2DACF260000F8BED /* watchSensor.pb.swift */,
+				07266BEE2DACF260000F8BED /* waterAssistant.pb.swift */,
+				07266BEF2DACF260000F8BED /* waterMonitor.pb.swift */,
+				07266BF02DACF260000F8BED /* weather.pb.swift */,
+				07266BF12DACF260000F8BED /* wordtime.pb.swift */,
+				07266BF22DACF260000F8BED /* wtm.pb.swift */,
 			);
 			path = proto;
 			sourceTree = "<group>";
@@ -432,6 +502,11 @@
 				079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */,
 				07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */,
 				0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */,
+				07266C312DAD0575000F8BED /* LogViewController.swift */,
+				07266C332DAD1CAB000F8BED /* MusicViewController.swift */,
+				07266C372DAF64DA000F8BED /* SportCourseViewController.swift */,
+				07266C392DAFBBB4000F8BED /* RouteViewController.swift */,
+				07266C3D2DAFEA29000F8BED /* OTAViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -588,9 +663,19 @@
 				"${PODS_ROOT}/../../Creek/ActResSdk.framework",
 				"${PODS_ROOT}/../../Creek/flutter_contacts.framework",
 				"${PODS_ROOT}/../../Creek/path_provider_foundation.framework",
+				"${PODS_ROOT}/../../Creek/creek_sleep_stage_algorithm.framework",
+				"${PODS_ROOT}/../../Creek/ffmpegkit.framework",
+				"${PODS_ROOT}/../../Creek/libavcodec.framework",
+				"${PODS_ROOT}/../../Creek/libavdevice.framework",
+				"${PODS_ROOT}/../../Creek/libavfilter.framework",
+				"${PODS_ROOT}/../../Creek/libavformat.framework",
+				"${PODS_ROOT}/../../Creek/libavutil.framework",
+				"${PODS_ROOT}/../../Creek/libswresample.framework",
+				"${PODS_ROOT}/../../Creek/libswscale.framework",
+				"${PODS_ROOT}/../../Creek/creek_index_convert.framework",
 				"${BUILT_PRODUCTS_DIR}/CreekSDK/CreekSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
@@ -615,9 +700,19 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActResSdk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_contacts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/path_provider_foundation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_sleep_stage_algorithm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ffmpegkit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavcodec.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavdevice.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavfilter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavformat.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavutil.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswresample.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswscale.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_index_convert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CreekSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
@@ -638,88 +733,113 @@
 			buildActionMask = 2147483647;
 			files = (
 				079A21822B29A72A00F5D013 /* ActivityModel.swift in Sources */,
-				079A21D02B29A74300F5D013 /* event.pb.swift in Sources */,
 				07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */,
 				079A21782B29A72A00F5D013 /* StressModel.swift in Sources */,
-				079A21BC2B29A74300F5D013 /* system.pb.swift in Sources */,
-				079A21B22B29A74300F5D013 /* weather.pb.swift in Sources */,
-				079A21BE2B29A74300F5D013 /* mtu.pb.swift in Sources */,
-				079A21CD2B29A74300F5D013 /* language.pb.swift in Sources */,
-				079A21D42B29A74300F5D013 /* health.pb.swift in Sources */,
-				0702F1AE2BBA591000712684 /* appList.pb.swift in Sources */,
 				079A21DD2B29B0B700F5D013 /* PonyAlert.swift in Sources */,
 				0750C9362B99AED500D8E7A0 /* CustomSheetView.swift in Sources */,
-				079A21CA2B29A74300F5D013 /* screen.pb.swift in Sources */,
 				079A21612B29A71B00F5D013 /* CreekSDK.swift in Sources */,
 				079A21772B29A72A00F5D013 /* ParseJson.swift in Sources */,
-				079A21CC2B29A74300F5D013 /* waterMonitor.pb.swift in Sources */,
 				079A217C2B29A72A00F5D013 /* SportModel.swift in Sources */,
-				079A21C32B29A74300F5D013 /* contacts.pb.swift in Sources */,
-				079A21B12B29A74300F5D013 /* gesture.pb.swift in Sources */,
-				079A21B42B29A74300F5D013 /* findphone.pb.swift in Sources */,
+				07266C362DAF60F0000F8BED /* geo.pb.swift in Sources */,
 				079A21792B29A72A00F5D013 /* PhoneModel.swift in Sources */,
-				079A21D32B29A74300F5D013 /* call.pb.swift in Sources */,
-				079A21B92B29A74300F5D013 /* watchdial.pb.swift in Sources */,
-				079A21B62B29A74300F5D013 /* deviceinfo.pb.swift in Sources */,
-				079A21BD2B29A74300F5D013 /* update.pb.swift in Sources */,
-				079A21AE2B29A74300F5D013 /* userinfo.pb.swift in Sources */,
 				079A21E12B29B0FA00F5D013 /* ScanDeviceViewController.swift in Sources */,
+				07266BF32DACF260000F8BED /* findphone.pb.swift in Sources */,
+				07266BF42DACF260000F8BED /* sensor.pb.swift in Sources */,
+				07266BF52DACF260000F8BED /* skill.pb.swift in Sources */,
+				07266BF62DACF260000F8BED /* language.pb.swift in Sources */,
+				07266BF72DACF260000F8BED /* alarm.pb.swift in Sources */,
+				07266BF82DACF260000F8BED /* disturb.pb.swift in Sources */,
+				07266BF92DACF260000F8BED /* healthsnapshot.pb.swift in Sources */,
+				07266BFA2DACF260000F8BED /* standing.pb.swift in Sources */,
+				07266C302DAD01DE000F8BED /* CourseModel.swift in Sources */,
+				07266BFB2DACF260000F8BED /* watchdial.pb.swift in Sources */,
+				07266BFC2DACF260000F8BED /* appSleep.pb.swift in Sources */,
+				07266BFD2DACF260000F8BED /* font.pb.swift in Sources */,
+				07266BFE2DACF260000F8BED /* morning.pb.swift in Sources */,
+				07266BFF2DACF260000F8BED /* time.pb.swift in Sources */,
+				07266C002DACF260000F8BED /* call.pb.swift in Sources */,
+				07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */,
+				07266C012DACF260000F8BED /* wtm.pb.swift in Sources */,
+				07266C022DACF260000F8BED /* mtu.pb.swift in Sources */,
+				07266C032DACF260000F8BED /* sportPrescription.pb.swift in Sources */,
+				07266C042DACF260000F8BED /* appTable.pb.swift in Sources */,
+				07266C052DACF260000F8BED /* update.pb.swift in Sources */,
+				07266C062DACF260000F8BED /* contacts.pb.swift in Sources */,
+				07266C2E2DACFDEB000F8BED /* MusicModel.swift in Sources */,
+				07266C072DACF260000F8BED /* deviceinfo.pb.swift in Sources */,
+				07266C082DACF260000F8BED /* contactssos.pb.swift in Sources */,
+				07266C092DACF260000F8BED /* appList.pb.swift in Sources */,
+				07266C0A2DACF260000F8BED /* focus.pb.swift in Sources */,
+				07266C0B2DACF260000F8BED /* menstrual.pb.swift in Sources */,
+				07266C0C2DACF260000F8BED /* sport.pb.swift in Sources */,
+				07266C0D2DACF260000F8BED /* hotKey.pb.swift in Sources */,
+				07266C0E2DACF260000F8BED /* monitor.pb.swift in Sources */,
+				07266C0F2DACF260000F8BED /* weather.pb.swift in Sources */,
+				07266C102DACF260000F8BED /* applets.pb.swift in Sources */,
+				07266C112DACF260000F8BED /* log.pb.swift in Sources */,
+				07266C382DAF64DA000F8BED /* SportCourseViewController.swift in Sources */,
+				07266C122DACF260000F8BED /* watchdirection.pb.swift in Sources */,
+				07266C132DACF260000F8BED /* wordtime.pb.swift in Sources */,
+				07266C142DACF260000F8BED /* event.pb.swift in Sources */,
+				07266C152DACF260000F8BED /* binding.pb.swift in Sources */,
+				07266C162DACF260000F8BED /* card.pb.swift in Sources */,
+				07266C172DACF260000F8BED /* healthhead.pb.swift in Sources */,
+				07266C182DACF260000F8BED /* message.pb.swift in Sources */,
+				07266C192DACF260000F8BED /* watchSensor.pb.swift in Sources */,
+				07266C1A2DACF260000F8BED /* gesture.pb.swift in Sources */,
+				07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */,
+				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,
+				07266C1D2DACF260000F8BED /* music.pb.swift in Sources */,
+				07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */,
+				07266C1F2DACF260000F8BED /* voice.pb.swift in Sources */,
+				07266C202DACF260000F8BED /* tracking.pb.swift in Sources */,
+				07266C212DACF260000F8BED /* schedule.pb.swift in Sources */,
+				07266C222DACF260000F8BED /* alexa.pb.swift in Sources */,
+				07266C232DACF260000F8BED /* waterMonitor.pb.swift in Sources */,
+				07266C322DAD0575000F8BED /* LogViewController.swift in Sources */,
+				07266C242DACF260000F8BED /* system.pb.swift in Sources */,
+				07266C252DACF260000F8BED /* sleepMonitor.pb.swift in Sources */,
+				07266C262DACF260000F8BED /* calendar.pb.swift in Sources */,
+				07266C272DACF260000F8BED /* table.pb.swift in Sources */,
+				07266C282DACF260000F8BED /* waterAssistant.pb.swift in Sources */,
+				07266C292DACF260000F8BED /* health.pb.swift in Sources */,
+				07266C2A2DACF260000F8BED /* ring.pb.swift in Sources */,
+				07266C2B2DACF260000F8BED /* screen.pb.swift in Sources */,
+				07266C2C2DACF260000F8BED /* pspkey.pb.swift in Sources */,
 				07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */,
-				079A21C02B29A74300F5D013 /* disturb.pb.swift in Sources */,
 				079A217A2B29A72A00F5D013 /* DeviceModel.swift in Sources */,
 				079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */,
 				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
 				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
 				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,
-				0702F1AD2BBA591000712684 /* eventTracking.pb.swift in Sources */,
-				079A21B82B29A74300F5D013 /* sensor.pb.swift in Sources */,
 				0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */,
 				0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */,
-				079A21BB2B29A74300F5D013 /* alarm.pb.swift in Sources */,
-				079A21C72B29A74300F5D013 /* wordtime.pb.swift in Sources */,
 				079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */,
 				079A21802B29A72A00F5D013 /* OxygenModel.swift in Sources */,
 				079A21622B29A71B00F5D013 /* Log.swift in Sources */,
 				07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				079A21832B29A72A00F5D013 /* HeartRateModel.swift in Sources */,
-				079A21CF2B29A74300F5D013 /* monitor.pb.swift in Sources */,
 				079A21E22B29B0FA00F5D013 /* CommandReplyViewController.swift in Sources */,
-				079A21B72B29A74300F5D013 /* enums.pb.swift in Sources */,
 				077A60B82B67AFDC00AFEB2B /* extension_color.swift in Sources */,
-				079A21C62B29A74300F5D013 /* hotKey.pb.swift in Sources */,
 				079A21D62B29A7E600F5D013 /* CreekInterFace.swift in Sources */,
 				077A60BA2B67B37300AFEB2B /* DialViewController.swift in Sources */,
 				07941D2A2BCBE0CB00CBFB62 /* DialPhotoParseModel.swift in Sources */,
-				079A21AF2B29A74300F5D013 /* menstrual.pb.swift in Sources */,
 				077A60B42B679A5300AFEB2B /* DialParseModel.swift in Sources */,
 				079A217F2B29A72A00F5D013 /* BaseModel.swift in Sources */,
-				079A21C82B29A74300F5D013 /* music.pb.swift in Sources */,
 				079A217D2B29A72A00F5D013 /* SleepModel.swift in Sources */,
 				07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				079A21CB2B29A74300F5D013 /* contactssos.pb.swift in Sources */,
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
 				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,
-				079A21BF2B29A74300F5D013 /* time.pb.swift in Sources */,
-				079A21C92B29A74300F5D013 /* sport.pb.swift in Sources */,
-				079A21D22B29A74300F5D013 /* message.pb.swift in Sources */,
-				079A21B32B29A74300F5D013 /* standing.pb.swift in Sources */,
+				07266C342DAD1CAB000F8BED /* MusicViewController.swift in Sources */,
+				07266C3A2DAFBBB4000F8BED /* RouteViewController.swift in Sources */,
 				07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */,
-				079A21C12B29A74300F5D013 /* log.pb.swift in Sources */,
-				079A21D12B29A74300F5D013 /* schedule.pb.swift in Sources */,
 				079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */,
-				079A21CE2B29A74300F5D013 /* table.pb.swift in Sources */,
-				079A21B02B29A74300F5D013 /* focus.pb.swift in Sources */,
-				079A21C22B29A74300F5D013 /* sleepMonitor.pb.swift in Sources */,
-				079A21C52B29A74300F5D013 /* healthhead.pb.swift in Sources */,
-				079A21C42B29A74300F5D013 /* voice.pb.swift in Sources */,
 				079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */,
-				079A21BA2B29A74300F5D013 /* card.pb.swift in Sources */,
-				079A21B52B29A74300F5D013 /* binding.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

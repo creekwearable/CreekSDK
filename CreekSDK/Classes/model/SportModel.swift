@@ -146,6 +146,72 @@ public class SportModel: Codable {
    
     ///Paused exercise duration
     public var pauseDurations: Int?
+   
+   /// Whether speed details are supported
+   public var speedPaceSupport: Int?
+
+   /// Whether total resting calories are supported
+   public var restCaloriesSupport: Int?
+
+   /// Total resting calories
+   public var totalRestCalories: Int?
+
+   /// Whether VO2max and running power index are supported
+   public var vo2maxSupport: Int?
+
+   /// Whether swimming data is supported
+   public var swimDataSupport: Int?
+
+   /// Pool length (in meters)
+   public var poolLength: Int?
+
+   /// Pool length (in yards)
+   public var yardPoolLength: Int?
+
+   /// Number of swim laps
+   public var totalLaps: Int?
+
+   /// Main swimming stroke
+   public var mainStroke: Int?
+
+   /// Total number of strokes
+   public var totalStrokes: Int?
+
+   /// Average swimming pace
+   public var swimAvgPace: Int?
+
+   /// Swimming SWOLF = strokes per lap + time per lap (seconds)
+   public var swimAvgSwolf: Int?
+
+   /// Average stroke rate
+   public var avgStrokeRate: Int?
+
+   /// Whether paused duration is supported
+   public var pauseDurationsSupport: Int?
+
+   /// Whether workout course is supported
+   public var workoutCourseSupport: Int?
+
+   /// Total workout course duration (seconds)
+   public var courseTotalDurations: Int?
+
+   /// Total workout course distance (meters)
+   public var courseTotalDistance: Int?
+
+   /// Total workout course calories
+   public var courseTotalCalories: Int?
+
+   /// Workout course ID
+   public var courseId: Int?
+
+   /// Workout course paused duration (seconds)
+   public var coursePauseDurations: Int?
+
+   /// Workout course name
+   public var courseName: String?
+   
+   public var workoutCourseItem : [WorkoutCourseModel]?
+
 }
 
 public class SportDataModel: Codable {
@@ -158,4 +224,47 @@ public class SpeedPaceModel: Codable {
     
     public var speed: Int?
     public var pace: Int?
+}
+
+public class WorkoutCourseModel: Codable {
+    
+    /// Duration of the phase
+    public var durations: Int?
+
+    /// Type of sport
+    public var type: Int?
+
+    /// Start time
+    public var startTime: String?
+
+    /// Name
+    public var name: String?
+
+    /// Continuing target type   continuing_target（enum）
+    public var ctType: Int?
+
+    /// Strength target type    strength_target（enum）
+    public var stType: Int?
+
+    /// Continuing target value
+    public var ctValue: Int?
+
+    /// Maximum strength target value
+    public var stMax: Int?
+
+    /// Minimum strength target value
+    public var stMin: Int?
+
+    /// Average strength value, derived from the strength target type
+    public var avgStValue: Int?
+
+    /// Maximum extreme strength value
+    public var extremeValueMax: Int?
+
+    /// Minimum extreme strength value
+    public var extremeValueMin: Int?
+
+    /// Completion rate, two decimal places retained, actual value multiplied by 100
+    public var completeRate: Int?
+   
 }

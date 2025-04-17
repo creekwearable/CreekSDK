@@ -1,0 +1,6 @@
+framework module creek_sleep_stage_algorithm {
+  umbrella header "creek_sleep_stage_algorithm-umbrella.h"
+
+  export *
+  module * { export * }
+}

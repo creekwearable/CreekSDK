@@ -19,8 +19,10 @@ class CreekBaseViewController: UIViewController,UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-   
-
+       // 点击空白收起键盘
+       let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+       tap.cancelsTouchesInView = false
+       view.addGestureRecognizer(tap)
         setLeftBack()
     }
 
@@ -51,6 +53,10 @@ class CreekBaseViewController: UIViewController,UIGestureRecognizerDelegate {
     @objc func backClick(){
         self.navigationController?.popViewController(animated: true)
     }
+   // MARK: - 键盘处理
+   @objc func dismissKeyboard() {
+       view.endEditing(true)
+   }
 }
 
 //获取当前ViewController
@@ -76,15 +82,16 @@ enum ExampleProvider {
         tabBarController.tabBar.backgroundColor = .brown
         let v1 = UINavigationController(rootViewController: ViewController())
         let v2 = UINavigationController(rootViewController: DialViewController())
-
+        let v3 =  UINavigationController(rootViewController: LogViewController())
         
         v1.tabBarItem = UITabBarItem.init(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
         v2.tabBarItem = UITabBarItem.init(title: "Dial", image: UIImage(named: "find"), selectedImage: UIImage(named: "find_1"))
-
+        v3.tabBarItem = UITabBarItem.init(title: "log", image: UIImage(named: "find"), selectedImage: UIImage(named: "find_1"))
+       
 
         tabBarController.tabBar.shadowImage = nil
         
-        tabBarController.viewControllers = [v1, v2]
+        tabBarController.viewControllers = [v1, v2,v3]
         
         return tabBarController
     }

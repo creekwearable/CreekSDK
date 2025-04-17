@@ -8,6 +8,7 @@
 import UIKit
 import BackgroundTasks
 import CreekSDK
+import IQKeyboardManagerSwift
 
 
 
@@ -22,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window!.rootViewController = ExampleProvider.systemStyle()
         window?.makeKeyAndVisible()
         CreekInterFace.instance.setupInit()
-        CreekInterFace.instance.initSDK()
+       CreekInterFace.instance.initSDK(cancelAutoConnect: .cancel)
+        IQKeyboardManager.shared.enable = true
         return true
     }
    
@@ -30,12 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
       print("Cut to background")
       CreekInterFace.instance.monitorPhone()
    }
-    
-    
-    
-
-    
-
     
 }
 

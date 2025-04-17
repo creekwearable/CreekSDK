@@ -27,6 +27,7 @@ public typealias progressBase = (_ progress:Int) -> ()
 public typealias baseClosure = (_ model:BaseModel<BaseDataModel>) -> ()
 public typealias successBase = () -> ()
 public typealias failureBase = () -> ()
+public typealias authorizationFailureBase = () -> ()
 public typealias endScanBase = () -> ()
 public typealias failureArgument = (_ code:Int,_ message:String) -> ()
 public typealias firmwareBase = (_ model:protocol_device_info) -> ()
@@ -72,8 +73,16 @@ public typealias boolBase = (_ model:Bool) -> ()
 public typealias valueBase = (_ model:Int) -> ()
 public typealias upgradeStateBase = (_ model:UpgradeModel) -> ()
 public typealias listenDeviceBase = (_ status:connectionStatus,_ deviceName:String)->()
-
 public typealias gpsBase = () -> (EphemerisGPSModel)
+
+public typealias calendarBase = (_ model:protocol_calendar_inquire_reply) -> ()
+public typealias watchDirectionBase = (_ model:protocol_watch_direction_inquire_reply) -> ()
+public typealias healthSnapshotBase = (_ model:protocol_health_snap_inquire_reply) -> ()
+public typealias musicBase = (_ model:protocol_music_file_inquire_reply) -> ()
+public typealias morningBase = (_ model:protocol_good_morning_inquire_reply) -> ()
+public typealias courseBase = (_ model:protocol_exercise_course_list_inquire_reply) -> ()
+public typealias geoBase = (_ model:protocol_geobin_inquire_reply) -> ()
+public typealias geoAddressBase = (_ lat:Double,_ lon:Double) -> (String)
 
 
 
@@ -99,6 +108,7 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var devicesBackDic:[String:devicesBack] = [:]
     var progressDic:[String:progressBase] = [:] //Sync progress
     var successDic:[String:successBase] = [:]
+    var authorizationFailureDic:[String:authorizationFailureBase] = [:]
     var failureDic:[String:failureBase] = [:]
     var failureArgumentDic:[String:failureArgument] = [:]
     var baseClosureDic:[String:baseClosure] = [:]
@@ -158,6 +168,16 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
     var listenDeviceClosureDic:[String:listenDeviceBase] = [:]
     var logPathClosure:((_ path:String) -> ())?
     var _gpsClosure:gpsBase?
+   
+   
+   var calendarDic:[String:calendarBase] = [:]
+   var watchDirectionDic:[String:watchDirectionBase] = [:]
+   var healthSnapshotDic:[String:healthSnapshotBase] = [:]
+   var musicDic:[String:musicBase] = [:]
+   var morningDic:[String:morningBase] = [:]
+   var courseDic:[String:courseBase] = [:]
+   var geoDic:[String:geoBase] = [:]
+   var _geoAddressClosure:geoAddressBase?
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -222,7 +242,13 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
                     connect(response)
                 }
             }
-        }else if(call.method == "inTransitionDevice"){
+        }else if(call.method == "externalConnect"){
+           if let response = call.arguments as? Bool{
+               if let connect = _connect{
+                   connect(response)
+               }
+           }
+       }else if(call.method == "inTransitionDevice"){
             if let response = call.arguments as? Bool{
                 if let connect = _inTransitionDevice{
                     connect(response)
@@ -276,6 +302,14 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
                 }
             }
         }
+       else if(call.method == "authorizationFailure"){
+           if let response = call.arguments as? String{
+              if let back =  authorizationFailureDic[response]{
+                   back()
+                 authorizationFailureDic.removeValue(forKey: response)
+               }
+           }
+       }
         else if(call.method == "failureArgument"){
             if let response = call.arguments as? String{
                 do{
@@ -1423,7 +1457,113 @@ public typealias gpsBase = () -> (EphemerisGPSModel)
          if let back = _watchResetListen{
              back();
          }
-     }
+      }
+       else if(call.method.contains("getCalendar")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_calendar_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = calendarDic[call.method]{
+                       back(model)
+                     calendarDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }
+       else if(call.method.contains("getWatchDirection")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_watch_direction_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = watchDirectionDic[call.method]{
+                       back(model)
+                       watchDirectionDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }
+       else if(call.method.contains("getMorning")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_good_morning_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = morningDic[call.method]{
+                       back(model)
+                       morningDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }
+       else if(call.method.contains("getHealthSnapshotList")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_health_snap_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = healthSnapshotDic[call.method]{
+                       back(model)
+                       healthSnapshotDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }
+       else if(call.method.contains("getMusicList")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_music_file_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = musicDic[call.method]{
+                       back(model)
+                       musicDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }
+       else if(call.method.contains("getCourse")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_exercise_course_list_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = courseDic[call.method]{
+                       back(model)
+                     courseDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }
+       else if(call.method.contains("getGeo")){
+           if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                   let model = try protocol_geobin_inquire_reply(serializedData: response.data,partial: true)
+                  if let back = geoDic[call.method]{
+                       back(model)
+                       geoDic.removeValue(forKey: call.method)
+                   }
+               }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+           }
+           
+       }else if(call.method.contains("geoUpload")){
+          if let response = call.arguments as? NSArray{
+             if let back = _geoAddressClosure{
+                let model = back(response[0] as! Double,response[1] as! Double)
+                routeAddress(model: model)
+             }
+          }
+          
+      }
        
     }
     

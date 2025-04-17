@@ -69,6 +69,9 @@ public let SYSTEMNAME       = UIDevice.current.systemName
 public let SYSTEMVERSION    = UIDevice.current.systemVersion
 public let DEVICEUUID       = UIDevice.current.identifierForVendor?.uuidString
 public let DEVICEMODEL      = UIDevice.current.model
+
+public var globalDeviceModel:ScanDeviceModel?
+
 #elseif os(macOS)
 
 #endif

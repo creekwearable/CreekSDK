@@ -1,0 +1,6 @@
+framework module creek_index_convert {
+  umbrella header "creek_index_convert-umbrella.h"
+
+  export *
+  module * { export * }
+}
