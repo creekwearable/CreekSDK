@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window!.rootViewController = ExampleProvider.systemStyle()
         window?.makeKeyAndVisible()
         CreekInterFace.instance.setupInit()
-       CreekInterFace.instance.initSDK(cancelAutoConnect: .cancel)
+        CreekInterFace.instance.initSDK()
         IQKeyboardManager.shared.enable = true
         return true
     }
