@@ -1977,10 +1977,10 @@ extension CreekSDK{
       }
    }
    
-   public func getHealthSnapshotList(page:Int = 1,size:Int = 20,model:@escaping watchDirectionBase,failure:@escaping failureArgument) {
+   public func getHealthSnapshotList(page:Int = 1,size:Int = 20,model:@escaping healthSnapshotBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
-         watchDirectionDic["getHealthSnapshotList\(requestId)"] = model
+         healthSnapshotDic["getHealthSnapshotList\(requestId)"] = model
          failureArgumentDic["getHealthSnapshotList\(requestId)"] = failure
          do{
            let jsonData = try JSONSerialization.data(withJSONObject: ["page":page,"size":size], options: JSONSerialization.WritingOptions.init(rawValue: 0))
