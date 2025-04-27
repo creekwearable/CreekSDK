@@ -961,8 +961,9 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
          
-      case "Range query exercise record":
-         CreekInterFace.instance.getSportTimeData(startTime: "2024-11-20", endTime: "2024-11-20",nil) { model in
+      case "Get sport data":
+         CreekInterFace.instance.getSportTimeData(startTime: "2023-11-20", endTime: "2025-11-20",nil) { model in
+            self.view.hideRemark()
             if model.code == 0{
                self.view.hideRemark()
                self.textView.text = "success"

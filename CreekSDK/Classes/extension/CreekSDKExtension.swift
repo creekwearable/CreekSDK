@@ -2110,5 +2110,19 @@ extension CreekSDK{
    public func routeAddress(model:String){
       methodChannel?.invokeMethod("routeAddress\(requestId)", arguments: model)
    }
+   
+   ///MARK :Get firmware user information and preferences
+   /// - Parameter :
+   ///      - model：call back protocol_user_info_operate
+   /// - Returns:
+   public func getAuthorizationCode(model:@escaping authorizationCodeBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         authorizationCodeDic["getAuthorizationCode\(requestId)"] = model
+         failureArgumentDic["getAuthorizationCode\(requestId)"] = failure
+         methodChannel?.invokeMethod("getAuthorizationCode\(requestId)", arguments: "")
+      }
+
+   }
 
 }

@@ -35,7 +35,7 @@ public class SportModel: Codable {
     public var avgStepStride: Int?
     ///time
     public var creatTime: String?
-    //    public var deviceId: String?
+    public var deviceId: String?
     ///Exercise duration; unit: s
     public var durations: Int?
     ///start Time y-m-d h:m:s

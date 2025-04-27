@@ -83,6 +83,7 @@ public typealias morningBase = (_ model:protocol_good_morning_inquire_reply) -> 
 public typealias courseBase = (_ model:protocol_exercise_course_list_inquire_reply) -> ()
 public typealias geoBase = (_ model:protocol_geobin_inquire_reply) -> ()
 public typealias geoAddressBase = (_ lat:Double,_ lon:Double) -> (String)
+public typealias authorizationCodeBase = (_ code:String) -> ()
 
 
 
@@ -178,6 +179,7 @@ public typealias geoAddressBase = (_ lat:Double,_ lon:Double) -> (String)
    var courseDic:[String:courseBase] = [:]
    var geoDic:[String:geoBase] = [:]
    var _geoAddressClosure:geoAddressBase?
+   var authorizationCodeDic:[String:authorizationCodeBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -1563,7 +1565,15 @@ public typealias geoAddressBase = (_ lat:Double,_ lon:Double) -> (String)
              }
           }
           
-      }
+      } else if(call.method.contains("getAuthorizationCode")){
+         if let response = call.arguments as? String{
+            if let back = authorizationCodeDic[call.method]{
+                 back(response)
+                 authorizationCodeDic.removeValue(forKey: call.method)
+            }
+         }
+         
+     }
        
     }
     
