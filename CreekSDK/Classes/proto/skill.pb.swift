@@ -98,7 +98,7 @@ public struct protocol_skill_timer_inquire_reply: Sendable {
   public init() {}
 }
 
-public struct protocol_skill_control_template_operate: Sendable {
+public struct protocol_skill_control_template_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -111,6 +111,9 @@ public struct protocol_skill_control_template_operate: Sendable {
 
   ///专用模板
   public var templateType: skill_template_type = .templateTypeStopwatch
+
+  ///模版数据
+  public var templateData: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -315,6 +318,45 @@ public struct protocol_skill_music_status_operate: Sendable {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+}
+
+public struct skill_phone_call_contact: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var contactName: Data = Data()
+
+  public var phoneNum: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_skill_phone_call_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///联系人信息
+  public var callContact: skill_phone_call_contact {
+    get {return _callContact ?? skill_phone_call_contact()}
+    set {_callContact = newValue}
+  }
+  /// Returns true if `callContact` has been explicitly set.
+  public var hasCallContact: Bool {return self._callContact != nil}
+  /// Clears the value of `callContact`. Subsequent reads from it will return its default value.
+  public mutating func clearCallContact() {self._callContact = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _callContact: skill_phone_call_contact? = nil
 }
 
 public struct protocol_skill_app_jump_operate: Sendable {
@@ -523,6 +565,7 @@ extension protocol_skill_control_template_operate: SwiftProtobuf.Message, SwiftP
     1: .same(proto: "operate"),
     2: .standard(proto: "control_type"),
     3: .standard(proto: "template_type"),
+    4: .standard(proto: "template_data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -534,6 +577,7 @@ extension protocol_skill_control_template_operate: SwiftProtobuf.Message, SwiftP
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.controlType) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.templateType) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.templateData) }()
       default: break
       }
     }
@@ -549,6 +593,9 @@ extension protocol_skill_control_template_operate: SwiftProtobuf.Message, SwiftP
     if self.templateType != .templateTypeStopwatch {
       try visitor.visitSingularEnumField(value: self.templateType, fieldNumber: 3)
     }
+    if !self.templateData.isEmpty {
+      try visitor.visitSingularBytesField(value: self.templateData, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -556,6 +603,7 @@ extension protocol_skill_control_template_operate: SwiftProtobuf.Message, SwiftP
     if lhs.operate != rhs.operate {return false}
     if lhs.controlType != rhs.controlType {return false}
     if lhs.templateType != rhs.templateType {return false}
+    if lhs.templateData != rhs.templateData {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1004,6 +1052,86 @@ extension protocol_skill_music_status_operate: SwiftProtobuf.Message, SwiftProto
   public static func ==(lhs: protocol_skill_music_status_operate, rhs: protocol_skill_music_status_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.controlType != rhs.controlType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension skill_phone_call_contact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "skill_phone_call_contact"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "contact_name"),
+    2: .standard(proto: "phone_num"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.contactName) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.phoneNum) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.contactName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.contactName, fieldNumber: 1)
+    }
+    if !self.phoneNum.isEmpty {
+      try visitor.visitSingularBytesField(value: self.phoneNum, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: skill_phone_call_contact, rhs: skill_phone_call_contact) -> Bool {
+    if lhs.contactName != rhs.contactName {return false}
+    if lhs.phoneNum != rhs.phoneNum {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_skill_phone_call_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_skill_phone_call_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "call_contact"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._callContact) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    try { if let v = self._callContact {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_skill_phone_call_operate, rhs: protocol_skill_phone_call_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs._callContact != rhs._callContact {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

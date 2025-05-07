@@ -283,6 +283,42 @@ public struct protocol_quick_card_inquire_reply: @unchecked Sendable {
   /// Clears the value of `cardTypeDrinkAssitantSupport`. Subsequent reads from it will return its default value.
   public mutating func clearCardTypeDrinkAssitantSupport() {_uniqueStorage()._cardTypeDrinkAssitantSupport = nil}
 
+  public var cardTypeTrainingLoadSupport: quick_card_func {
+    get {return _storage._cardTypeTrainingLoadSupport ?? quick_card_func()}
+    set {_uniqueStorage()._cardTypeTrainingLoadSupport = newValue}
+  }
+  /// Returns true if `cardTypeTrainingLoadSupport` has been explicitly set.
+  public var hasCardTypeTrainingLoadSupport: Bool {return _storage._cardTypeTrainingLoadSupport != nil}
+  /// Clears the value of `cardTypeTrainingLoadSupport`. Subsequent reads from it will return its default value.
+  public mutating func clearCardTypeTrainingLoadSupport() {_uniqueStorage()._cardTypeTrainingLoadSupport = nil}
+
+  public var cardTypeHealthSnapSupport: quick_card_func {
+    get {return _storage._cardTypeHealthSnapSupport ?? quick_card_func()}
+    set {_uniqueStorage()._cardTypeHealthSnapSupport = newValue}
+  }
+  /// Returns true if `cardTypeHealthSnapSupport` has been explicitly set.
+  public var hasCardTypeHealthSnapSupport: Bool {return _storage._cardTypeHealthSnapSupport != nil}
+  /// Clears the value of `cardTypeHealthSnapSupport`. Subsequent reads from it will return its default value.
+  public mutating func clearCardTypeHealthSnapSupport() {_uniqueStorage()._cardTypeHealthSnapSupport = nil}
+
+  public var cardTypeIntensityMinutesSupport: quick_card_func {
+    get {return _storage._cardTypeIntensityMinutesSupport ?? quick_card_func()}
+    set {_uniqueStorage()._cardTypeIntensityMinutesSupport = newValue}
+  }
+  /// Returns true if `cardTypeIntensityMinutesSupport` has been explicitly set.
+  public var hasCardTypeIntensityMinutesSupport: Bool {return _storage._cardTypeIntensityMinutesSupport != nil}
+  /// Clears the value of `cardTypeIntensityMinutesSupport`. Subsequent reads from it will return its default value.
+  public mutating func clearCardTypeIntensityMinutesSupport() {_uniqueStorage()._cardTypeIntensityMinutesSupport = nil}
+
+  public var cardTypeCompassSupport: quick_card_func {
+    get {return _storage._cardTypeCompassSupport ?? quick_card_func()}
+    set {_uniqueStorage()._cardTypeCompassSupport = newValue}
+  }
+  /// Returns true if `cardTypeCompassSupport` has been explicitly set.
+  public var hasCardTypeCompassSupport: Bool {return _storage._cardTypeCompassSupport != nil}
+  /// Clears the value of `cardTypeCompassSupport`. Subsequent reads from it will return its default value.
+  public mutating func clearCardTypeCompassSupport() {_uniqueStorage()._cardTypeCompassSupport = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -398,6 +434,10 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     25: .standard(proto: "card_type_health_express_support"),
     26: .standard(proto: "card_type_temperature_support"),
     27: .standard(proto: "card_type_drink_assitant_support"),
+    28: .standard(proto: "card_type_training_load_support"),
+    29: .standard(proto: "card_type_health_snap_support"),
+    30: .standard(proto: "card_type_intensity_minutes_support"),
+    31: .standard(proto: "card_type_compass_support"),
   ]
 
   fileprivate class _StorageClass {
@@ -428,6 +468,10 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     var _cardTypeHealthExpressSupport: quick_card_func? = nil
     var _cardTypeTemperatureSupport: quick_card_func? = nil
     var _cardTypeDrinkAssitantSupport: quick_card_func? = nil
+    var _cardTypeTrainingLoadSupport: quick_card_func? = nil
+    var _cardTypeHealthSnapSupport: quick_card_func? = nil
+    var _cardTypeIntensityMinutesSupport: quick_card_func? = nil
+    var _cardTypeCompassSupport: quick_card_func? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -469,6 +513,10 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
       _cardTypeHealthExpressSupport = source._cardTypeHealthExpressSupport
       _cardTypeTemperatureSupport = source._cardTypeTemperatureSupport
       _cardTypeDrinkAssitantSupport = source._cardTypeDrinkAssitantSupport
+      _cardTypeTrainingLoadSupport = source._cardTypeTrainingLoadSupport
+      _cardTypeHealthSnapSupport = source._cardTypeHealthSnapSupport
+      _cardTypeIntensityMinutesSupport = source._cardTypeIntensityMinutesSupport
+      _cardTypeCompassSupport = source._cardTypeCompassSupport
     }
   }
 
@@ -514,6 +562,10 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
         case 25: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeHealthExpressSupport) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeTemperatureSupport) }()
         case 27: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeDrinkAssitantSupport) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeTrainingLoadSupport) }()
+        case 29: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeHealthSnapSupport) }()
+        case 30: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeIntensityMinutesSupport) }()
+        case 31: try { try decoder.decodeSingularMessageField(value: &_storage._cardTypeCompassSupport) }()
         default: break
         }
       }
@@ -607,6 +659,18 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
       try { if let v = _storage._cardTypeDrinkAssitantSupport {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
       } }()
+      try { if let v = _storage._cardTypeTrainingLoadSupport {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
+      } }()
+      try { if let v = _storage._cardTypeHealthSnapSupport {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 29)
+      } }()
+      try { if let v = _storage._cardTypeIntensityMinutesSupport {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 30)
+      } }()
+      try { if let v = _storage._cardTypeCompassSupport {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 31)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -643,6 +707,10 @@ extension protocol_quick_card_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
         if _storage._cardTypeHealthExpressSupport != rhs_storage._cardTypeHealthExpressSupport {return false}
         if _storage._cardTypeTemperatureSupport != rhs_storage._cardTypeTemperatureSupport {return false}
         if _storage._cardTypeDrinkAssitantSupport != rhs_storage._cardTypeDrinkAssitantSupport {return false}
+        if _storage._cardTypeTrainingLoadSupport != rhs_storage._cardTypeTrainingLoadSupport {return false}
+        if _storage._cardTypeHealthSnapSupport != rhs_storage._cardTypeHealthSnapSupport {return false}
+        if _storage._cardTypeIntensityMinutesSupport != rhs_storage._cardTypeIntensityMinutesSupport {return false}
+        if _storage._cardTypeCompassSupport != rhs_storage._cardTypeCompassSupport {return false}
         return true
       }
       if !storagesAreEqual {return false}

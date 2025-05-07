@@ -600,6 +600,26 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `geobin`. Subsequent reads from it will return its default value.
   public mutating func clearGeobin() {_uniqueStorage()._geobin = nil}
 
+  ///运动课程
+  public var workoutCourse: function_table {
+    get {return _storage._workoutCourse ?? function_table()}
+    set {_uniqueStorage()._workoutCourse = newValue}
+  }
+  /// Returns true if `workoutCourse` has been explicitly set.
+  public var hasWorkoutCourse: Bool {return _storage._workoutCourse != nil}
+  /// Clears the value of `workoutCourse`. Subsequent reads from it will return its default value.
+  public mutating func clearWorkoutCourse() {_uniqueStorage()._workoutCourse = nil}
+
+  ///用户头像下载
+  public var userIcon: function_table {
+    get {return _storage._userIcon ?? function_table()}
+    set {_uniqueStorage()._userIcon = newValue}
+  }
+  /// Returns true if `userIcon` has been explicitly set.
+  public var hasUserIcon: Bool {return _storage._userIcon != nil}
+  /// Clears the value of `userIcon`. Subsequent reads from it will return its default value.
+  public mutating func clearUserIcon() {_uniqueStorage()._userIcon = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -706,6 +726,8 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     54: .standard(proto: "ring_click_measure"),
     55: .standard(proto: "app_start_sport"),
     56: .same(proto: "geobin"),
+    57: .standard(proto: "workout_course"),
+    58: .standard(proto: "user_icon"),
   ]
 
   fileprivate class _StorageClass {
@@ -765,6 +787,8 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _ringClickMeasure: function_table? = nil
     var _appStartSport: function_table? = nil
     var _geobin: function_table? = nil
+    var _workoutCourse: function_table? = nil
+    var _userIcon: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -835,6 +859,8 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _ringClickMeasure = source._ringClickMeasure
       _appStartSport = source._appStartSport
       _geobin = source._geobin
+      _workoutCourse = source._workoutCourse
+      _userIcon = source._userIcon
     }
   }
 
@@ -909,6 +935,8 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 54: try { try decoder.decodeSingularMessageField(value: &_storage._ringClickMeasure) }()
         case 55: try { try decoder.decodeSingularMessageField(value: &_storage._appStartSport) }()
         case 56: try { try decoder.decodeSingularMessageField(value: &_storage._geobin) }()
+        case 57: try { try decoder.decodeSingularMessageField(value: &_storage._workoutCourse) }()
+        case 58: try { try decoder.decodeSingularMessageField(value: &_storage._userIcon) }()
         default: break
         }
       }
@@ -1089,6 +1117,12 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._geobin {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 56)
       } }()
+      try { if let v = _storage._workoutCourse {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 57)
+      } }()
+      try { if let v = _storage._userIcon {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 58)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1154,6 +1188,8 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._ringClickMeasure != rhs_storage._ringClickMeasure {return false}
         if _storage._appStartSport != rhs_storage._appStartSport {return false}
         if _storage._geobin != rhs_storage._geobin {return false}
+        if _storage._workoutCourse != rhs_storage._workoutCourse {return false}
+        if _storage._userIcon != rhs_storage._userIcon {return false}
         return true
       }
       if !storagesAreEqual {return false}

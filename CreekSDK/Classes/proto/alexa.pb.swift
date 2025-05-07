@@ -482,6 +482,9 @@ public struct protocol_voice_assistant_status_operate: Sendable {
   ///状态类型
   public var statusType: voice_assistant_status_type = .aiStatusNull
 
+  ///对话类型
+  public var dialogType: voice_assistant_dialog_type = .aiDialogNormal
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1541,6 +1544,7 @@ extension protocol_voice_assistant_status_operate: SwiftProtobuf.Message, SwiftP
     1: .standard(proto: "tran_type"),
     2: .standard(proto: "notice_type"),
     3: .standard(proto: "status_type"),
+    4: .standard(proto: "dialog_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1552,6 +1556,7 @@ extension protocol_voice_assistant_status_operate: SwiftProtobuf.Message, SwiftP
       case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.noticeType) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.statusType) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.dialogType) }()
       default: break
       }
     }
@@ -1567,6 +1572,9 @@ extension protocol_voice_assistant_status_operate: SwiftProtobuf.Message, SwiftP
     if self.statusType != .aiStatusNull {
       try visitor.visitSingularEnumField(value: self.statusType, fieldNumber: 3)
     }
+    if self.dialogType != .aiDialogNormal {
+      try visitor.visitSingularEnumField(value: self.dialogType, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1574,6 +1582,7 @@ extension protocol_voice_assistant_status_operate: SwiftProtobuf.Message, SwiftP
     if lhs.tranType != rhs.tranType {return false}
     if lhs.noticeType != rhs.noticeType {return false}
     if lhs.statusType != rhs.statusType {return false}
+    if lhs.dialogType != rhs.dialogType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

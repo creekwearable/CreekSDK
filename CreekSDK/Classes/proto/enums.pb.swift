@@ -3680,6 +3680,45 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///心率
   case templateTypeHeartrate // = 1
+
+  ///压力
+  case templateTypeStress // = 2
+
+  ///血氧
+  case templateTypeOxygen // = 3
+
+  ///活动
+  case templateTypeActivity // = 4
+
+  ///步数
+  case templateTypeSteps // = 5
+
+  ///卡路里
+  case templateTypeCalorie // = 6
+
+  ///锻炼时长
+  case templateTypeExerciseTime // = 7
+
+  ///勿扰模式
+  case templateTypeDisturb // = 8
+
+  ///睡眠模式
+  case templateTypeSleep // = 9
+
+  ///亮度调节
+  case templateTypeBrightness // = 10
+
+  ///抬腕亮屏
+  case templateTypeWrist // = 11
+
+  ///手电筒
+  case templateTypeFlashlight // = 12
+
+  ///音量调节
+  case templateTypeVolume // = 13
+
+  ///查找手机
+  case templateTypeFindPhone // = 14
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3690,6 +3729,19 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .templateTypeStopwatch
     case 1: self = .templateTypeHeartrate
+    case 2: self = .templateTypeStress
+    case 3: self = .templateTypeOxygen
+    case 4: self = .templateTypeActivity
+    case 5: self = .templateTypeSteps
+    case 6: self = .templateTypeCalorie
+    case 7: self = .templateTypeExerciseTime
+    case 8: self = .templateTypeDisturb
+    case 9: self = .templateTypeSleep
+    case 10: self = .templateTypeBrightness
+    case 11: self = .templateTypeWrist
+    case 12: self = .templateTypeFlashlight
+    case 13: self = .templateTypeVolume
+    case 14: self = .templateTypeFindPhone
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -3698,6 +3750,19 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .templateTypeStopwatch: return 0
     case .templateTypeHeartrate: return 1
+    case .templateTypeStress: return 2
+    case .templateTypeOxygen: return 3
+    case .templateTypeActivity: return 4
+    case .templateTypeSteps: return 5
+    case .templateTypeCalorie: return 6
+    case .templateTypeExerciseTime: return 7
+    case .templateTypeDisturb: return 8
+    case .templateTypeSleep: return 9
+    case .templateTypeBrightness: return 10
+    case .templateTypeWrist: return 11
+    case .templateTypeFlashlight: return 12
+    case .templateTypeVolume: return 13
+    case .templateTypeFindPhone: return 14
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -3706,6 +3771,19 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [skill_template_type] = [
     .templateTypeStopwatch,
     .templateTypeHeartrate,
+    .templateTypeStress,
+    .templateTypeOxygen,
+    .templateTypeActivity,
+    .templateTypeSteps,
+    .templateTypeCalorie,
+    .templateTypeExerciseTime,
+    .templateTypeDisturb,
+    .templateTypeSleep,
+    .templateTypeBrightness,
+    .templateTypeWrist,
+    .templateTypeFlashlight,
+    .templateTypeVolume,
+    .templateTypeFindPhone,
   ]
 
 }
@@ -4737,7 +4815,7 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///击剑
   case fencing // = 97
 
-  ///台球
+  ///台球/撞球
   case billiards // = 98
 
   ///沙滩足球
@@ -4845,7 +4923,7 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///皮划艇
   case kayaking // = 133
 
-  ///摔跤
+  ///摔跤/角力
   case wrestling // = 134
 
   ///室内攀岩
@@ -4877,6 +4955,108 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///康复训练
   case rehealthyTraining // = 144
+
+  ///组合运动
+  case multisport // = 145
+
+  ///健步训练
+  case walkingBrisk // = 146
+
+  ///慢跑
+  case jogging // = 147
+
+  ///蹦床
+  case trampolining // = 148
+
+  ///跳高
+  case highJump // = 149
+
+  ///铁人三项
+  case triathlon // = 150
+
+  ///马拉松
+  case marathon // = 151
+
+  ///竞走
+  case raceWalking // = 152
+
+  ///拔河
+  case tugOfWar // = 153
+
+  ///剑道
+  case kendo // = 154
+
+  ///拳击有氧
+  case cardioBoxing // = 155
+
+  ///泰拳
+  case muayThai // = 156
+
+  ///壶铃
+  case kettlebell // = 157
+
+  ///滑板车
+  case skateboarding // = 158
+
+  ///障碍赛
+  case steeplechase // = 159
+
+  ///滑翔伞冲浪
+  case kitesurfing // = 160
+
+  ///风帆冲浪
+  case windsurfing // = 161
+
+  ///手摇车
+  case handcycling // = 162
+
+  ///团体操
+  case groupCalisthenics // = 163
+
+  ///跳伞
+  case parachuting // = 164
+
+  ///赛马
+  case horseRace // = 165
+
+  ///搏击操
+  case kickboxingAerobics // = 166
+
+  ///民族舞
+  case folkDancing // = 167
+
+  ///恰恰
+  case chaCha // = 168
+
+  ///腰腹训练
+  case waistTraining // = 169
+
+  ///伸展运动
+  case stretching // = 170
+
+  ///跳水
+  case diving // = 171
+
+  ///混合健身
+  case hybridTraining // = 172
+
+  ///热气球
+  case hotAirBalloon // = 173
+
+  ///定向越野
+  case orienteering // = 174
+
+  ///健腹轮
+  case abRoller // = 175
+
+  ///交叉配合
+  case crossFit // = 176
+
+  ///钢管舞
+  case poleDance // = 177
+
+  ///门球
+  case croquet // = 178
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -5030,6 +5210,40 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 142: self = .aerobicExercise
     case 143: self = .rugby
     case 144: self = .rehealthyTraining
+    case 145: self = .multisport
+    case 146: self = .walkingBrisk
+    case 147: self = .jogging
+    case 148: self = .trampolining
+    case 149: self = .highJump
+    case 150: self = .triathlon
+    case 151: self = .marathon
+    case 152: self = .raceWalking
+    case 153: self = .tugOfWar
+    case 154: self = .kendo
+    case 155: self = .cardioBoxing
+    case 156: self = .muayThai
+    case 157: self = .kettlebell
+    case 158: self = .skateboarding
+    case 159: self = .steeplechase
+    case 160: self = .kitesurfing
+    case 161: self = .windsurfing
+    case 162: self = .handcycling
+    case 163: self = .groupCalisthenics
+    case 164: self = .parachuting
+    case 165: self = .horseRace
+    case 166: self = .kickboxingAerobics
+    case 167: self = .folkDancing
+    case 168: self = .chaCha
+    case 169: self = .waistTraining
+    case 170: self = .stretching
+    case 171: self = .diving
+    case 172: self = .hybridTraining
+    case 173: self = .hotAirBalloon
+    case 174: self = .orienteering
+    case 175: self = .abRoller
+    case 176: self = .crossFit
+    case 177: self = .poleDance
+    case 178: self = .croquet
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -5181,6 +5395,40 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .aerobicExercise: return 142
     case .rugby: return 143
     case .rehealthyTraining: return 144
+    case .multisport: return 145
+    case .walkingBrisk: return 146
+    case .jogging: return 147
+    case .trampolining: return 148
+    case .highJump: return 149
+    case .triathlon: return 150
+    case .marathon: return 151
+    case .raceWalking: return 152
+    case .tugOfWar: return 153
+    case .kendo: return 154
+    case .cardioBoxing: return 155
+    case .muayThai: return 156
+    case .kettlebell: return 157
+    case .skateboarding: return 158
+    case .steeplechase: return 159
+    case .kitesurfing: return 160
+    case .windsurfing: return 161
+    case .handcycling: return 162
+    case .groupCalisthenics: return 163
+    case .parachuting: return 164
+    case .horseRace: return 165
+    case .kickboxingAerobics: return 166
+    case .folkDancing: return 167
+    case .chaCha: return 168
+    case .waistTraining: return 169
+    case .stretching: return 170
+    case .diving: return 171
+    case .hybridTraining: return 172
+    case .hotAirBalloon: return 173
+    case .orienteering: return 174
+    case .abRoller: return 175
+    case .crossFit: return 176
+    case .poleDance: return 177
+    case .croquet: return 178
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -5332,6 +5580,40 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .aerobicExercise,
     .rugby,
     .rehealthyTraining,
+    .multisport,
+    .walkingBrisk,
+    .jogging,
+    .trampolining,
+    .highJump,
+    .triathlon,
+    .marathon,
+    .raceWalking,
+    .tugOfWar,
+    .kendo,
+    .cardioBoxing,
+    .muayThai,
+    .kettlebell,
+    .skateboarding,
+    .steeplechase,
+    .kitesurfing,
+    .windsurfing,
+    .handcycling,
+    .groupCalisthenics,
+    .parachuting,
+    .horseRace,
+    .kickboxingAerobics,
+    .folkDancing,
+    .chaCha,
+    .waistTraining,
+    .stretching,
+    .diving,
+    .hybridTraining,
+    .hotAirBalloon,
+    .orienteering,
+    .abRoller,
+    .crossFit,
+    .poleDance,
+    .croquet,
   ]
 
 }
@@ -6265,6 +6547,19 @@ extension skill_template_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "TEMPLATE_TYPE_STOPWATCH"),
     1: .same(proto: "TEMPLATE_TYPE_HEARTRATE"),
+    2: .same(proto: "TEMPLATE_TYPE_STRESS"),
+    3: .same(proto: "TEMPLATE_TYPE_OXYGEN"),
+    4: .same(proto: "TEMPLATE_TYPE_ACTIVITY"),
+    5: .same(proto: "TEMPLATE_TYPE_STEPS"),
+    6: .same(proto: "TEMPLATE_TYPE_CALORIE"),
+    7: .same(proto: "TEMPLATE_TYPE_EXERCISE_TIME"),
+    8: .same(proto: "TEMPLATE_TYPE_DISTURB"),
+    9: .same(proto: "TEMPLATE_TYPE_SLEEP"),
+    10: .same(proto: "TEMPLATE_TYPE_BRIGHTNESS"),
+    11: .same(proto: "TEMPLATE_TYPE_WRIST"),
+    12: .same(proto: "TEMPLATE_TYPE_FLASHLIGHT"),
+    13: .same(proto: "TEMPLATE_TYPE_VOLUME"),
+    14: .same(proto: "TEMPLATE_TYPE_FIND_PHONE"),
   ]
 }
 
@@ -6551,6 +6846,40 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     142: .same(proto: "AEROBIC_EXERCISE"),
     143: .same(proto: "RUGBY"),
     144: .same(proto: "REHEALTHY_TRAINING"),
+    145: .same(proto: "MULTISPORT"),
+    146: .same(proto: "WALKING_BRISK"),
+    147: .same(proto: "JOGGING"),
+    148: .same(proto: "TRAMPOLINING"),
+    149: .same(proto: "HIGH_JUMP"),
+    150: .same(proto: "TRIATHLON"),
+    151: .same(proto: "MARATHON"),
+    152: .same(proto: "RACE_WALKING"),
+    153: .same(proto: "TUG_OF_WAR"),
+    154: .same(proto: "KENDO"),
+    155: .same(proto: "CARDIO_BOXING"),
+    156: .same(proto: "MUAY_THAI"),
+    157: .same(proto: "KETTLEBELL"),
+    158: .same(proto: "SKATEBOARDING"),
+    159: .same(proto: "STEEPLECHASE"),
+    160: .same(proto: "KITESURFING"),
+    161: .same(proto: "WINDSURFING"),
+    162: .same(proto: "HANDCYCLING"),
+    163: .same(proto: "GROUP_CALISTHENICS"),
+    164: .same(proto: "PARACHUTING"),
+    165: .same(proto: "HORSE_RACE"),
+    166: .same(proto: "KICKBOXING_AEROBICS"),
+    167: .same(proto: "FOLK_DANCING"),
+    168: .same(proto: "CHA_CHA"),
+    169: .same(proto: "WAIST_TRAINING"),
+    170: .same(proto: "STRETCHING"),
+    171: .same(proto: "DIVING"),
+    172: .same(proto: "HYBRID_TRAINING"),
+    173: .same(proto: "HOT_AIR_BALLOON"),
+    174: .same(proto: "ORIENTEERING"),
+    175: .same(proto: "AB_ROLLER"),
+    176: .same(proto: "CROSS_FIT"),
+    177: .same(proto: "POLE_DANCE"),
+    178: .same(proto: "CROQUET"),
   ]
 }
 

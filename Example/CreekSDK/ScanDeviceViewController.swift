@@ -324,6 +324,7 @@ extension BluetoothDeviceListViewController: UITableViewDataSource,UITableViewDe
               } failure: {
                   print("Failure")
               }
+             
           }
           tableView.reloadData()
       }
