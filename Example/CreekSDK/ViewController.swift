@@ -133,58 +133,65 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    }
    
    func initMethod() {
-      CreekInterFace.instance.listenDeviceState { [self] status, deviceName in
-         print("\(status) \(deviceName)")
-         getBindDevice()
-      }
-      CreekInterFace.instance.noticeUpdateListen { model in
-         let json = try? JSONEncoder().encode(model)
-         if let data = json, let str = String(data: data, encoding: .utf8) {
-            print("noticeUpdateListen \(str)")
+      
+      CreekInterFace.instance.setupInit {
+         CreekInterFace.instance.initSDK()
+//         CreekInterFace.instance.externalConnect(id: "F893384D-5373-D7AB-3D60-96F43EC30BAE") { connectState in
+//            print("🌹🌹\(connectState)")
+//         }
+         CreekInterFace.instance.listenDeviceState { [self] status, deviceName in
+            print("\(status) \(deviceName)")
+            getBindDevice()
          }
-         
-      }
-      
-      CreekInterFace.instance.phoneBookInit();
-      
-      CreekInterFace.instance.bluetoothStateListen { state in
-         switch(state){
-         case .unknown:
-            print("State unknown")
-            break
-         case .unauthorized:
-            print(" The application is not authorized to use the Bluetooth Low Energy role")
-            break
-         case .on:
-            print("Bluetooth is currently powered on and available to use")
-            break
-         case .off:
-            print("Bluetooth is currently powered off")
-            break
-         }
-      }
-      let keyId = "*********"
-      let publicKey = "**********"
-      
-      CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
-         ///Ask for GPS data, and get the latest GPS data every time you ask.
-         let model = EphemerisGPSModel()
-         model.altitude = 10
-         model.latitude = Int(22.312653 * 1000000)
-         model.longitude = Int(114.027986 * 1000000)
-         model.isVaild = true
-         return model
-         
-      }
-      CreekInterFace.instance.watchResetListen {
-         print("listen watchResetListen")
-         CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
-            
-         } failure: {
+         CreekInterFace.instance.noticeUpdateListen { model in
+            let json = try? JSONEncoder().encode(model)
+            if let data = json, let str = String(data: data, encoding: .utf8) {
+               print("noticeUpdateListen \(str)")
+            }
             
          }
+         CreekInterFace.instance.phoneBookInit();
+         CreekInterFace.instance.bluetoothStateListen { state in
+            switch(state){
+            case .unknown:
+               print("State unknown")
+               break
+            case .unauthorized:
+               print(" The application is not authorized to use the Bluetooth Low Energy role")
+               break
+            case .on:
+               print("Bluetooth is currently powered on and available to use")
+               break
+            case .off:
+               print("Bluetooth is currently powered off")
+               break
+            }
+         }
+         let keyId = "*********"
+         let publicKey = "**********"
          
+         CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
+            ///Ask for GPS data, and get the latest GPS data every time you ask.
+            let model = EphemerisGPSModel()
+            model.altitude = 10
+            model.latitude = Int(22.312653 * 1000000)
+            model.longitude = Int(114.027986 * 1000000)
+            model.isVaild = true
+            return model
+            
+         }
+         CreekInterFace.instance.watchResetListen {
+            print("listen watchResetListen")
+            CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
+               
+            } failure: {
+               
+            }
+            
+         }
+        
       }
+  
    }
    
    // MARK: - 顶部设备信息卡片

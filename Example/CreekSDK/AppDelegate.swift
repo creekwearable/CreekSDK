@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = ExampleProvider.systemStyle()
         window?.makeKeyAndVisible()
-        CreekInterFace.instance.setupInit()
-        CreekInterFace.instance.initSDK()
+    
         IQKeyboardManager.shared.enable = true
         return true
     }

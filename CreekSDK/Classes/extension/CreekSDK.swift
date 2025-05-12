@@ -180,6 +180,7 @@ public typealias authorizationCodeBase = (_ code:String) -> ()
    var geoDic:[String:geoBase] = [:]
    var _geoAddressClosure:geoAddressBase?
    var authorizationCodeDic:[String:authorizationCodeBase] = [:]
+   var channelCompletedClosure:(()->())?
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -188,7 +189,8 @@ public typealias authorizationCodeBase = (_ code:String) -> ()
         super.init()
     }
     
-    public func setupInit(){
+   public func setupInit(completed:(()->())? = nil){
+        channelCompletedClosure = completed
         flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
         flutterEngine?.run(withEntrypoint: nil)
         GeneratedPluginRegistrant.register(with: flutterEngine!)
@@ -1573,7 +1575,12 @@ public typealias authorizationCodeBase = (_ code:String) -> ()
             }
          }
          
-     }
+     }else if(call.method.contains("channelCompleted")){
+        if let back = channelCompletedClosure{
+             back()
+        }
+        
+    }
        
     }
     
