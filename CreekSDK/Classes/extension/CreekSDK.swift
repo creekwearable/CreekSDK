@@ -84,6 +84,9 @@ public typealias courseBase = (_ model:protocol_exercise_course_list_inquire_rep
 public typealias geoBase = (_ model:protocol_geobin_inquire_reply) -> ()
 public typealias geoAddressBase = (_ lat:Double,_ lon:Double) -> (String)
 public typealias authorizationCodeBase = (_ code:String) -> ()
+public typealias GPXBase = (_ model:Data) -> ()
+public typealias watchSensorBase = (_ model:protocol_watch_sensors_inquire_reply) -> ()
+public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_reply) -> ()
 
 
 
@@ -181,7 +184,10 @@ public typealias authorizationCodeBase = (_ code:String) -> ()
    var _geoAddressClosure:geoAddressBase?
    var authorizationCodeDic:[String:authorizationCodeBase] = [:]
    var channelCompletedClosure:(()->())?
-   
+   var GPXDic:[String:GPXBase] = [:]
+   var watchSensorDic:[String:watchSensorBase] = [:]
+   var waterAssistantDic:[String:waterAssistantBase] = [:]
+
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
     public override init() {
@@ -1476,7 +1482,7 @@ public typealias authorizationCodeBase = (_ code:String) -> ()
            }
            
        }
-       else if(call.method.contains("getWatchDirection")){
+       else if(call.method.contains("getDirectionWatch")){
            if let response = call.arguments as? FlutterStandardTypedData{
                do{
                    let model = try protocol_watch_direction_inquire_reply(serializedData: response.data,partial: true)
@@ -1580,9 +1586,43 @@ public typealias authorizationCodeBase = (_ code:String) -> ()
              back()
         }
         
-    }
+    } else if(call.method.contains("getGPXEncodeUint8List")){
+       if let response = call.arguments as? FlutterStandardTypedData{
+          if let back = GPXDic[call.method]{
+               back(response.data)
+               GPXDic.removeValue(forKey: call.method)
+           }
+       }
        
-    }
+     } else if(call.method.contains("getSensorWatch")){
+        if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+                let model = try protocol_watch_sensors_inquire_reply(serializedData: response.data,partial: true)
+               if let back = watchSensorDic[call.method]{
+                    back(model)
+                   watchSensorDic.removeValue(forKey: call.method)
+                }
+            }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+        }
+        
+    } else if(call.method.contains("getAssistantWater")){
+       if let response = call.arguments as? FlutterStandardTypedData{
+           do{
+               let model = try protocol_water_assistant_inquire_reply(serializedData: response.data,partial: true)
+              if let back = waterAssistantDic[call.method]{
+                   back(model)
+                 waterAssistantDic.removeValue(forKey: call.method)
+               }
+           }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+           }
+       }
+       
+   }
+       
+   }
     
 }
 

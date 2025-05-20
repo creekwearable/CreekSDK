@@ -77,6 +77,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get calendar",
       "Set calendar",
       "Get health snapshot",
+      "Get Watch Sensor",
+      "Set Watch Sensor",
+      "Get Water Assistant",
    ];
    
    var filteredOptions: [String] = []
@@ -136,7 +139,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       
       CreekInterFace.instance.setupInit {
          CreekInterFace.instance.initSDK()
-//         CreekInterFace.instance.externalConnect(id: "F893384D-5373-D7AB-3D60-96F43EC30BAE") { connectState in
+//         CreekInterFace.instance.externalConnect(id: "82028D7C-6289-9D97-EC28-203AA8331DE6") { connectState in
 //            print("🌹🌹\(connectState)")
 //         }
          CreekInterFace.instance.listenDeviceState { [self] status, deviceName in
@@ -160,6 +163,15 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                print(" The application is not authorized to use the Bluetooth Low Energy role")
                break
             case .on:
+//               CreekInterFace.instance.externalConnect(id: "63E4B85A-4C68-D954-5856-CE37C78F7236") { connectState in
+//                  CreekInterFace.instance.getFirmware { model in
+//                     print("🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁")
+//                  } failure: { code, message in
+//                     
+//                  }
+//
+//                  print("🌹🌹\(connectState)")
+//               }
                print("Bluetooth is currently powered on and available to use")
                break
             case .off:
@@ -188,6 +200,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                
             }
             
+         }
+         CreekInterFace.instance.exceptionListen { model in
+            print("😄😄\(model)")
          }
         
       }

@@ -1934,20 +1934,20 @@ extension CreekSDK{
    public func getWatchDirection(model:@escaping watchDirectionBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
-         watchDirectionDic["getWatchDirection\(requestId)"] = model
-         failureArgumentDic["getWatchDirection\(requestId)"] = failure
-         methodChannel?.invokeMethod("getWatchDirection\(requestId)", arguments: "")
+         watchDirectionDic["getDirectionWatch\(requestId)"] = model
+         failureArgumentDic["getDirectionWatch\(requestId)"] = failure
+         methodChannel?.invokeMethod("getDirectionWatch\(requestId)", arguments: "")
       }
    }
 
    public func setWatchDirection(model:protocol_watch_direction_operate,success:@escaping successBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
-         successDic["setWatchDirection\(requestId)"] = success;
-         failureArgumentDic["setWatchDirection\(requestId)"] = failure
+         successDic["setDirectionWatch\(requestId)"] = success;
+         failureArgumentDic["setDirectionWatch\(requestId)"] = failure
          do{
              let data = try model.serializedData()
-             methodChannel?.invokeMethod("setWatchDirection\(requestId)", arguments: data)
+             methodChannel?.invokeMethod("setDirectionWatch\(requestId)", arguments: data)
          }catch{
 
          }
@@ -2073,14 +2073,23 @@ extension CreekSDK{
       }
    }
    
-   public func upLoadGeo(data:Data,model:@escaping geoAddressBase,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+   public func getGPXEncodeUint8List(data:Data,geoId:Int,model:@escaping geoAddressBase,encode:@escaping GPXBase){
       _geoAddressClosure = model
+      serialQueue.sync {
+         requestId+=1
+         GPXDic["getGPXEncodeUint8List\(requestId)"] = encode
+         methodChannel?.invokeMethod("getGPXEncodeUint8List\(requestId)", arguments: [data,geoId])
+      }
+   }
+   
+   public func upLoadGeo(data:Data,geoId:Int,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+   
       serialQueue.sync {
          requestId+=1
          progressDic["geoUpload\(requestId)"] = uploadProgress
          successDic["geoUpload\(requestId)"] = uploadSuccess;
          failureArgumentDic["geoUpload\(requestId)"] = uploadFailure
-         methodChannel?.invokeMethod("geoUpload\(requestId)", arguments: data)
+         methodChannel?.invokeMethod("geoUpload\(requestId)", arguments: [data,geoId])
       }
    }
    
@@ -2093,13 +2102,19 @@ extension CreekSDK{
       }
    }
    
-   public func delGeo(model:protocol_geobin_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+   public func delGeo(geoIds:[Int],success:@escaping successBase,failure:@escaping failureArgument) {
+      var operate =  protocol_geobin_operate()
+      geoIds.forEach { geoId in
+         var item  = protocol_geobin_list_item()
+         item.geobinID = UInt64(geoId)
+         operate.geobinItems.append(item)
+      }
       serialQueue.sync {
          requestId+=1
          successDic["delGeo\(requestId)"] = success;
          failureArgumentDic["delGeo\(requestId)"] = failure
          do{
-             let data = try model.serializedData()
+             let data = try operate.serializedData()
              methodChannel?.invokeMethod("delGeo\(requestId)", arguments: data)
          }catch{
 
@@ -2124,5 +2139,54 @@ extension CreekSDK{
       }
 
    }
+   
+
+   public func getWatchSensor(model:@escaping watchSensorBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         watchSensorDic["getSensorWatch\(requestId)"] = model
+         failureArgumentDic["getSensorWatch\(requestId)"] = failure
+         methodChannel?.invokeMethod("getSensorWatch\(requestId)", arguments: "")
+      }
+   }
+   
+   public func setWatchSensor(model:protocol_watch_sensors_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setSensorWatch\(requestId)"] = success;
+         failureArgumentDic["setSensorWatch\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setSensorWatch\(requestId)", arguments: data)
+         }catch{
+        
+         }
+      }
+
+   }
+   
+   public func getWaterAssistant(model:@escaping waterAssistantBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         waterAssistantDic["getAssistantWater\(requestId)"] = model
+         failureArgumentDic["getAssistantWater\(requestId)"] = failure
+         methodChannel?.invokeMethod("getAssistantWater\(requestId)", arguments: "")
+      }
+   }
+   
+//   public func setWaterAssistant(model:protocol_water_assistant_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+//      serialQueue.sync {
+//         requestId+=1
+//         successDic["setWaterAssistant\(requestId)"] = success;
+//         failureArgumentDic["setWaterAssistant\(requestId)"] = failure
+//         do{
+//             let data = try model.serializedData()
+//             methodChannel?.invokeMethod("setWaterAssistant\(requestId)", arguments: data)
+//         }catch{
+//        
+//         }
+//      }
+//
+//   }
 
 }

@@ -994,6 +994,57 @@ class CommandReplyViewController: CreekBaseViewController {
          self.view.hideRemark()
          
          break
+         
+      case "Get Watch Sensor":
+         CreekInterFace.instance.getWatchSensor{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+      case "Set Watch Sensor":
+          ///这个为true的时候，代表健康监测改成了传感器设置
+         /// protocol_function_table().waterAssistant.isSupport
+         
+         var  operate =  protocol_watch_sensors_operate()
+         operate.heartRateAllSwitch = .switchOff
+         operate.bloodOxygenAllSwitch = .switchOn
+//         operate.compassAllSwitch = .switchOn
+//         operate.baromaterAllSwitch = .switchOn
+         CreekInterFace.instance.setWatchSensor(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+         
+      case "Get Water Assistant":
+         CreekInterFace.instance.getWaterAssistant{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+         
 
       default:
          break

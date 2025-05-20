@@ -32,12 +32,15 @@ public struct protocol_geobin_list_item: @unchecked Sendable {
   ///max:30 geobin轨迹名字
   public var geobinName: Data = Data()
 
+  ///geobin文件的id
+  public var geobinID: UInt64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct protocol_geobin_operate: @unchecked Sendable {
+public struct protocol_geobin_operate: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -45,8 +48,8 @@ public struct protocol_geobin_operate: @unchecked Sendable {
   ///1bytes 操作类型
   public var operate: geobin_operate_type = .inquire
 
-  ///max:30 geobin名字
-  public var geobinName: [Data] = []
+  ///要操作的详情(删除和请求时，size填0，name与id可选其一)
+  public var geobinItems: [protocol_geobin_list_item] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -61,7 +64,7 @@ public struct protocol_geobin_inquire_reply: Sendable {
   ///1bytes 操作类型
   public var operate: geobin_operate_type = .inquire
 
-  ///1bytes 轨迹geobin文件的总个数
+  ///4bytes 轨迹geobin文件的总个数
   public var geobinNum: UInt32 = 0
 
   ///geobin轨迹列表
@@ -82,6 +85,7 @@ extension protocol_geobin_list_item: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "geobin_size"),
     2: .standard(proto: "geobin_name"),
+    3: .standard(proto: "geobin_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -92,6 +96,7 @@ extension protocol_geobin_list_item: SwiftProtobuf.Message, SwiftProtobuf._Messa
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt32Field(value: &self.geobinSize) }()
       case 2: try { try decoder.decodeSingularBytesField(value: &self.geobinName) }()
+      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.geobinID) }()
       default: break
       }
     }
@@ -104,12 +109,16 @@ extension protocol_geobin_list_item: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if !self.geobinName.isEmpty {
       try visitor.visitSingularBytesField(value: self.geobinName, fieldNumber: 2)
     }
+    if self.geobinID != 0 {
+      try visitor.visitSingularUInt64Field(value: self.geobinID, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_geobin_list_item, rhs: protocol_geobin_list_item) -> Bool {
     if lhs.geobinSize != rhs.geobinSize {return false}
     if lhs.geobinName != rhs.geobinName {return false}
+    if lhs.geobinID != rhs.geobinID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -119,7 +128,7 @@ extension protocol_geobin_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let protoMessageName: String = "protocol_geobin_operate"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
-    2: .standard(proto: "geobin_name"),
+    2: .standard(proto: "geobin_items"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -129,7 +138,7 @@ extension protocol_geobin_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeRepeatedBytesField(value: &self.geobinName) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.geobinItems) }()
       default: break
       }
     }
@@ -139,15 +148,15 @@ extension protocol_geobin_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.operate != .inquire {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    if !self.geobinName.isEmpty {
-      try visitor.visitRepeatedBytesField(value: self.geobinName, fieldNumber: 2)
+    if !self.geobinItems.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.geobinItems, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_geobin_operate, rhs: protocol_geobin_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
-    if lhs.geobinName != rhs.geobinName {return false}
+    if lhs.geobinItems != rhs.geobinItems {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
