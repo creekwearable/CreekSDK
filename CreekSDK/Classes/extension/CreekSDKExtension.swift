@@ -177,8 +177,26 @@ extension CreekSDK{
              print("Error converting string to dictionary: \(error.localizedDescription)")
           }
        }
-
     }
+   
+   public func uploadWithFilePath(fileName:String,filePath:String,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         progressDic["filePathWithUpload\(requestId)"] = uploadProgress
+         successDic["filePathWithUpload\(requestId)"] = uploadSuccess;
+         failureArgumentDic["filePathWithUpload\(requestId)"] = uploadFailure
+         let dic:[String:Any] = ["fileName":fileName,"filePath":filePath]
+         do{
+           let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+           if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+               methodChannel?.invokeMethod("filePathWithUpload\(requestId)", arguments: JSONString)
+           }
+         }catch{
+            print("Error converting string to dictionary: \(error.localizedDescription)")
+         }
+      }
+
+   }
     
     ///MARK :backstageUpload
     /// - Parameter :
@@ -2073,12 +2091,12 @@ extension CreekSDK{
       }
    }
    
-   public func getGPXEncodeUint8List(data:Data,geoId:Int,model:@escaping geoAddressBase,encode:@escaping GPXBase){
+   public func getGPXEncodeUint8List(data:Data,geoId:Int,sportType:SportType,model:@escaping geoAddressBase,encode:@escaping GPXBase){
       _geoAddressClosure = model
       serialQueue.sync {
          requestId+=1
          GPXDic["getGPXEncodeUint8List\(requestId)"] = encode
-         methodChannel?.invokeMethod("getGPXEncodeUint8List\(requestId)", arguments: [data,geoId])
+         methodChannel?.invokeMethod("getGPXEncodeUint8List\(requestId)", arguments: [data,geoId,sportType.rawValue])
       }
    }
    
@@ -2188,5 +2206,10 @@ extension CreekSDK{
 //      }
 //
 //   }
+   
+   public func aiVoiceConfig(keyId:String,publicKey:String){
+      requestId+=1
+      methodChannel?.invokeMethod("aiVoiceConfig\(requestId)", arguments: [keyId,publicKey])
+   }
 
 }

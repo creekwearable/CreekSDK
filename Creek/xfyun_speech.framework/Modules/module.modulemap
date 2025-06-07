@@ -1,0 +1,6 @@
+framework module xfyun_speech {
+  umbrella header "xfyun_speech-umbrella.h"
+
+  export *
+  module * { export * }
+}

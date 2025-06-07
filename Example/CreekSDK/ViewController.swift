@@ -139,6 +139,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       
       CreekInterFace.instance.setupInit {
          CreekInterFace.instance.initSDK()
+      
 //         CreekInterFace.instance.externalConnect(id: "82028D7C-6289-9D97-EC28-203AA8331DE6") { connectState in
 //            print("🌹🌹\(connectState)")
 //         }
@@ -147,6 +148,13 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             getBindDevice()
          }
          CreekInterFace.instance.noticeUpdateListen { model in
+            
+            if(model.eventId == .EVENT_ID_FINE_PHONE){
+               
+               ///Here you can do some ringing operations. You need to define it yourself.
+               
+            }
+            
             let json = try? JSONEncoder().encode(model)
             if let data = json, let str = String(data: data, encoding: .utf8) {
                print("noticeUpdateListen \(str)")
@@ -179,8 +187,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "*********"
-         let publicKey = "**********"
+         let keyId = "c5zUyyx5IUKn9j6BZ"
+         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmPAevf7MpvCWF3q60S7GaDY2HNDOwyVXkIpTVQVIJcHMUg1v1muHeaSgLO76KR2NIk1qN3iLgt6WmIHJWAMlanAAzkUWCixaNRlJxE3OjZCv6GgFEdSSIIA7cj/cwmqUcqthNVP1Vmp89DTY7Ah08UBpyXfjZGJBxpBkIssl35eCvSVBv8Miil8Meb2kWgoZLPNATr8WS+shvD1pIKOjmTktslHUqfxpYMST35H0tYFmzexTftrl5iPVtzd/VKMnIGS6yDWNiy/6DXCQYNfy6NgqDOVtubldW+Xv6OtLDO4My1Jlp+xG2TUUI3sZMV3glB338O6ZfEmA48X4bM7AcwIDAQAB"
+         
+         CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          
          CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
             ///Ask for GPS data, and get the latest GPS data every time you ask.

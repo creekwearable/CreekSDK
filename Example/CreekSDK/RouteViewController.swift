@@ -98,7 +98,7 @@ class RouteUploadViewController: UIViewController, UIDocumentPickerDelegate {
        if let fileData = try? Data(contentsOf: fileURL){
           
           self.view.showRemark(msg: "loding....")
-          CreekInterFace.instance.getGPXEncodeUint8List(data: fileData, geoId: 1234) { lat, lon in
+          CreekInterFace.instance.getGPXEncodeUint8List(data: fileData, geoId: 1234,sportType: .IRUN) { lat, lon in
              return "shengzheng"
           } encode: { model in
              self.view.hideRemark()

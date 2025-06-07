@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.36'
+    s.version          = '0.1.37'
     s.summary          = 'A short description of CreekSDK.'
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -59,9 +59,20 @@ Pod::Spec.new do |s|
     'Creek/libavutil.framework',
     'Creek/libswresample.framework',
     'Creek/libswscale.framework',
+    'Creek/xfyun_speech.framework',
+    'Creek/package_info_plus.framework',
+    'Creek/connectivity_plus.framework',
+    'Creek/audio_session.framework',
+    'Creek/opus_bridge.framework',
+    'Creek/flutter_silero_vad.framework',
+    'Creek/device_info.framework',
+    'Creek/creek_voice_assistant.framework',
+    'Creek/azure_speech.framework',
+    'Creek/OrderedSet.framework',
+    'Creek/flutter_native_timezone_updated_gradle.framework',
     'Creek/creek_index_convert.framework']
     s.pod_target_xcconfig = {'VALID_ARCHS' => 'x86_64 armv7 arm64'}
-    s.resource_bundles = {'permission_handler_apple_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+#    s.resource_bundles = {'permission_handler_apple_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
     
     # s.resource_bundles = {
     #   'CreekSDK' => ['CreekSDK/Assets/*.png']
@@ -69,5 +80,8 @@ Pod::Spec.new do |s|
     
     # s.public_header_files = 'Pod/Classes/**/*.h'
     s.dependency 'SwiftProtobuf', '~> 1.25.2'
+    s.dependency 'onnxruntime-objc', '1.15.0'
+    s.dependency 'MicrosoftCognitiveServicesSpeech-iOS'   , '~> 1.29.0'
+    s.static_framework = true
    
 end

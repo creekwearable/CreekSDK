@@ -1,0 +1,11 @@
+framework module creek_voice_assistant {
+  umbrella header "creek_voice_assistant-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module creek_voice_assistant.Swift {
+  header "creek_voice_assistant-Swift.h"
+  requires objc
+}

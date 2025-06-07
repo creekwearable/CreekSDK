@@ -4,3 +4,8 @@ framework module Protobuf {
   export *
   module * { export * }
 }
+
+module Protobuf.Swift {
+  header "Protobuf-Swift.h"
+  requires objc
+}

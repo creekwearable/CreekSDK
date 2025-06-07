@@ -1,0 +1,11 @@
+framework module flutter_silero_vad {
+  umbrella header "flutter_silero_vad-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module flutter_silero_vad.Swift {
+  header "flutter_silero_vad-Swift.h"
+  requires objc
+}

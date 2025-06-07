@@ -1,0 +1,50 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name connectivity_plus
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import Flutter
+import Foundation
+import Network
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import connectivity_plus
+@objc @_hasMissingDesignatedInitializers public class ConnectivityPlusPlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin, Flutter.FlutterStreamHandler {
+  @objc public static func register(with registrar: any Flutter.FlutterPluginRegistrar)
+  @objc public func detachFromEngine(for registrar: any Flutter.FlutterPluginRegistrar)
+  @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
+  @objc public func onListen(withArguments _: Any?, eventSink events: @escaping Flutter.FlutterEventSink) -> Flutter.FlutterError?
+  @objc public func onCancel(withArguments _: Any?) -> Flutter.FlutterError?
+  @objc deinit
+}
+public enum ConnectivityType {
+  case none
+  case wiredEthernet
+  case wifi
+  case cellular
+  case other
+  public static func == (a: connectivity_plus.ConnectivityType, b: connectivity_plus.ConnectivityType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ConnectivityProvider : ObjectiveC.NSObjectProtocol {
+  typealias ConnectivityUpdateHandler = ([connectivity_plus.ConnectivityType]) -> Swift.Void
+  var currentConnectivityTypes: [connectivity_plus.ConnectivityType] { get }
+  var connectivityUpdateHandler: Self.ConnectivityUpdateHandler? { get set }
+  func start()
+  func stop()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PathMonitorConnectivityProvider : ObjectiveC.NSObject, connectivity_plus.ConnectivityProvider {
+  public var currentConnectivityTypes: [connectivity_plus.ConnectivityType] {
+    get
+  }
+  public var connectivityUpdateHandler: connectivity_plus.PathMonitorConnectivityProvider.ConnectivityUpdateHandler?
+  public func start()
+  public func stop()
+  @objc deinit
+}
+extension connectivity_plus.ConnectivityType : Swift.Equatable {}
+extension connectivity_plus.ConnectivityType : Swift.Hashable {}

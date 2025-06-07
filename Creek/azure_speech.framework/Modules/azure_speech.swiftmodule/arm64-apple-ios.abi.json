@@ -1,0 +1,262 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "azure_speech",
+    "printedName": "azure_speech",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "azure_speech"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "azure_speech"
+      },
+      {
+        "kind": "Import",
+        "name": "MicrosoftCognitiveServicesSpeech",
+        "printedName": "MicrosoftCognitiveServicesSpeech",
+        "declKind": "Import",
+        "moduleName": "azure_speech"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "azure_speech"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AzureSpeechPlugin",
+        "printedName": "AzureSpeechPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@azure_speech@objc(cs)AzureSpeechPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s12azure_speech17AzureSpeechPluginC8register4withySo07FlutterE9Registrar_p_tFZ",
+            "moduleName": "azure_speech",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@azure_speech@objc(cs)AzureSpeechPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s12azure_speech17AzureSpeechPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "azure_speech",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AzureSpeechPlugin",
+                "printedName": "azure_speech.AzureSpeechPlugin",
+                "usr": "c:@M@azure_speech@objc(cs)AzureSpeechPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@azure_speech@objc(cs)AzureSpeechPlugin(im)init",
+            "mangledName": "$s12azure_speech17AzureSpeechPluginCACycfc",
+            "moduleName": "azure_speech",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@azure_speech@objc(cs)AzureSpeechPlugin",
+        "mangledName": "$s12azure_speech17AzureSpeechPluginC",
+        "moduleName": "azure_speech",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "kind": "BooleanLiteral",
+      "offset": 985,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1067,
+      "length": 5,
+      "value": "16000"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1094,
+      "length": 4,
+      "value": "2048"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 1151,
+      "length": 17,
+      "value": "\"conversionQueue\""
+    }
+  ]
+}

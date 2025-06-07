@@ -1,0 +1,801 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "Protobuf",
+    "printedName": "Protobuf",
+    "children": [
+      {
+        "kind": "TypeDecl",
+        "name": "GPBUnknownField",
+        "printedName": "GPBUnknownField",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "Value",
+            "printedName": "Value",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "varint",
+                "printedName": "varint",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Protobuf.GPBUnknownField.Value.Type) -> (Swift.UInt64) -> Protobuf.GPBUnknownField.Value",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.UInt64) -> Protobuf.GPBUnknownField.Value",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UInt64",
+                            "printedName": "Swift.UInt64",
+                            "usr": "s:s6UInt64V"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Protobuf.GPBUnknownField.Value.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO6varintyAEs6UInt64VcAEmF",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO6varintyAEs6UInt64VcAEmF",
+                "moduleName": "Protobuf"
+              },
+              {
+                "kind": "Var",
+                "name": "fixed32",
+                "printedName": "fixed32",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Protobuf.GPBUnknownField.Value.Type) -> (Swift.UInt32) -> Protobuf.GPBUnknownField.Value",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.UInt32) -> Protobuf.GPBUnknownField.Value",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UInt32",
+                            "printedName": "Swift.UInt32",
+                            "usr": "s:s6UInt32V"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Protobuf.GPBUnknownField.Value.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO7fixed32yAEs6UInt32VcAEmF",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO7fixed32yAEs6UInt32VcAEmF",
+                "moduleName": "Protobuf"
+              },
+              {
+                "kind": "Var",
+                "name": "fixed64",
+                "printedName": "fixed64",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Protobuf.GPBUnknownField.Value.Type) -> (Swift.UInt64) -> Protobuf.GPBUnknownField.Value",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.UInt64) -> Protobuf.GPBUnknownField.Value",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UInt64",
+                            "printedName": "Swift.UInt64",
+                            "usr": "s:s6UInt64V"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Protobuf.GPBUnknownField.Value.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO7fixed64yAEs6UInt64VcAEmF",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO7fixed64yAEs6UInt64VcAEmF",
+                "moduleName": "Protobuf"
+              },
+              {
+                "kind": "Var",
+                "name": "lengthDelimited",
+                "printedName": "lengthDelimited",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Protobuf.GPBUnknownField.Value.Type) -> (Foundation.Data) -> Protobuf.GPBUnknownField.Value",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.Data) -> Protobuf.GPBUnknownField.Value",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Data",
+                            "printedName": "Foundation.Data",
+                            "usr": "s:10Foundation4DataV"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Protobuf.GPBUnknownField.Value.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO15lengthDelimitedyAE10Foundation4DataVcAEmF",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO15lengthDelimitedyAE10Foundation4DataVcAEmF",
+                "moduleName": "Protobuf"
+              },
+              {
+                "kind": "Var",
+                "name": "group",
+                "printedName": "group",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Protobuf.GPBUnknownField.Value.Type) -> (Protobuf.GPBUnknownFields) -> Protobuf.GPBUnknownField.Value",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Protobuf.GPBUnknownFields) -> Protobuf.GPBUnknownField.Value",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GPBUnknownFields",
+                            "printedName": "Protobuf.GPBUnknownFields",
+                            "usr": "c:objc(cs)GPBUnknownFields"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Protobuf.GPBUnknownField.Value.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Value",
+                            "printedName": "Protobuf.GPBUnknownField.Value",
+                            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO5groupyAESo0A6FieldsCcAEmF",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO5groupyAESo0A6FieldsCcAEmF",
+                "moduleName": "Protobuf",
+                "declAttributes": [
+                  "RawDocComment"
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Value",
+                    "printedName": "Protobuf.GPBUnknownField.Value",
+                    "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Value",
+                    "printedName": "Protobuf.GPBUnknownField.Value",
+                    "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO2eeoiySbAE_AEtFZ",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO2eeoiySbAE_AEtFZ",
+                "moduleName": "Protobuf",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO",
+            "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5ValueO",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Value",
+                "printedName": "Protobuf.GPBUnknownField.Value",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So15GPBUnknownFieldC8ProtobufE5valueAbCE5ValueOvp",
+            "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5valueAbCE5ValueOvp",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Value",
+                    "printedName": "Protobuf.GPBUnknownField.Value",
+                    "usr": "s:So15GPBUnknownFieldC8ProtobufE5ValueO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So15GPBUnknownFieldC8ProtobufE5valueAbCE5ValueOvg",
+                "mangledName": "$sSo15GPBUnknownFieldC8ProtobufE5valueAbCE5ValueOvg",
+                "moduleName": "Protobuf",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)GPBUnknownField",
+        "moduleName": "Protobuf",
+        "objc_name": "GPBUnknownField",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GPBUnknownFields",
+        "printedName": "GPBUnknownFields",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "firstVarint",
+            "printedName": "firstVarint(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt64?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16GPBUnknownFieldsC8ProtobufE11firstVarintys6UInt64VSgs5Int32VF",
+            "mangledName": "$sSo16GPBUnknownFieldsC8ProtobufE11firstVarintys6UInt64VSgs5Int32VF",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "firstFixed32",
+            "printedName": "firstFixed32(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt32?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt32",
+                    "printedName": "Swift.UInt32",
+                    "usr": "s:s6UInt32V"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16GPBUnknownFieldsC8ProtobufE12firstFixed32ys6UInt32VSgs5Int32VF",
+            "mangledName": "$sSo16GPBUnknownFieldsC8ProtobufE12firstFixed32ys6UInt32VSgs5Int32VF",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "firstFixed64",
+            "printedName": "firstFixed64(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt64?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16GPBUnknownFieldsC8ProtobufE12firstFixed64ys6UInt64VSgs5Int32VF",
+            "mangledName": "$sSo16GPBUnknownFieldsC8ProtobufE12firstFixed64ys6UInt64VSgs5Int32VF",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Iterator",
+            "printedName": "Iterator",
+            "children": [
+              {
+                "kind": "Function",
+                "name": "next",
+                "printedName": "next()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Protobuf.GPBUnknownField?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPBUnknownField",
+                        "printedName": "Protobuf.GPBUnknownField",
+                        "usr": "c:objc(cs)GPBUnknownField"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So16GPBUnknownFieldsC8ProtobufE8IteratorV4nextSo0A5FieldCSgyF",
+                "mangledName": "$sSo16GPBUnknownFieldsC8ProtobufE8IteratorV4nextSo0A5FieldCSgyF",
+                "moduleName": "Protobuf",
+                "declAttributes": [
+                  "Mutating",
+                  "AccessControl"
+                ],
+                "funcSelfKind": "Mutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:So16GPBUnknownFieldsC8ProtobufE8IteratorV",
+            "mangledName": "$sSo16GPBUnknownFieldsC8ProtobufE8IteratorV",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "IteratorProtocol",
+                "printedName": "IteratorProtocol",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "Element",
+                    "printedName": "Element",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPBUnknownField",
+                        "printedName": "Protobuf.GPBUnknownField",
+                        "usr": "c:objc(cs)GPBUnknownField"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:St",
+                "mangledName": "$sSt"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "makeIterator",
+            "printedName": "makeIterator()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Iterator",
+                "printedName": "Protobuf.GPBUnknownFields.Iterator",
+                "usr": "s:So16GPBUnknownFieldsC8ProtobufE8IteratorV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16GPBUnknownFieldsC8ProtobufE12makeIteratorAbCE0E0VyF",
+            "mangledName": "$sSo16GPBUnknownFieldsC8ProtobufE12makeIteratorAbCE0E0VyF",
+            "moduleName": "Protobuf",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)GPBUnknownFields",
+        "moduleName": "Protobuf",
+        "objc_name": "GPBUnknownFields",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sequence",
+            "printedName": "Sequence",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPBUnknownField",
+                    "printedName": "Protobuf.GPBUnknownField",
+                    "usr": "c:objc(cs)GPBUnknownField"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Iterator",
+                "printedName": "Iterator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Iterator",
+                    "printedName": "Protobuf.GPBUnknownFields.Iterator",
+                    "usr": "s:So16GPBUnknownFieldsC8ProtobufE8IteratorV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:ST",
+            "mangledName": "$sST"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

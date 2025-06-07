@@ -1,0 +1,81 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+#import "opus.h"
+#import "opus_custom.h"
+#import "opus_defines.h"
+#import "opus_multistream.h"
+#import "opus_projection.h"
+#import "opus_types.h"
+#import "arch.h"
+#import "bands.h"
+#import "celt.h"
+#import "celt_lpc.h"
+#import "cpu_support.h"
+#import "cwrs.h"
+#import "ecintrin.h"
+#import "entcode.h"
+#import "entdec.h"
+#import "entenc.h"
+#import "fixed_debug.h"
+#import "fixed_generic.h"
+#import "float_cast.h"
+#import "kiss_fft.h"
+#import "laplace.h"
+#import "mathops.h"
+#import "mdct.h"
+#import "mfrngcod.h"
+#import "modes.h"
+#import "os_support.h"
+#import "pitch.h"
+#import "quant_bands.h"
+#import "rate.h"
+#import "stack_alloc.h"
+#import "static_modes_fixed.h"
+#import "static_modes_fixed_arm_ne10.h"
+#import "static_modes_float.h"
+#import "static_modes_float_arm_ne10.h"
+#import "vq.h"
+#import "_kiss_fft_guts.h"
+#import "API.h"
+#import "control.h"
+#import "debug.h"
+#import "define.h"
+#import "errors.h"
+#import "Inlines.h"
+#import "MacroCount.h"
+#import "MacroDebug.h"
+#import "macros.h"
+#import "main.h"
+#import "NSQ.h"
+#import "pitch_est_defines.h"
+#import "PLC.h"
+#import "resampler_private.h"
+#import "resampler_rom.h"
+#import "resampler_structs.h"
+#import "SigProc_FIX.h"
+#import "structs.h"
+#import "tables.h"
+#import "tuning_parameters.h"
+#import "typedef.h"
+#import "main_FIX.h"
+#import "structs_FIX.h"
+#import "analysis.h"
+#import "config.h"
+#import "mapping_matrix.h"
+#import "mlp.h"
+#import "opus_private.h"
+#import "opus_bridge_code.h"
+
+FOUNDATION_EXPORT double opus_bridgeVersionNumber;
+FOUNDATION_EXPORT const unsigned char opus_bridgeVersionString[];
+

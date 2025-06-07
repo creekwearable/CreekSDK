@@ -1,0 +1,11 @@
+framework module azure_speech {
+  umbrella header "azure_speech-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module azure_speech.Swift {
+  header "azure_speech-Swift.h"
+  requires objc
+}

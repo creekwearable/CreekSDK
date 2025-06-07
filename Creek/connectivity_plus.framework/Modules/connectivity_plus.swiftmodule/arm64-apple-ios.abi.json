@@ -1,0 +1,1368 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "connectivity_plus",
+    "printedName": "connectivity_plus",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "connectivity_plus",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ConnectivityPlusPlugin",
+        "printedName": "ConnectivityPlusPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginC8register4withySo07FlutterE9Registrar_p_tFZ",
+            "moduleName": "connectivity_plus",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "detachFromEngine",
+            "printedName": "detachFromEngine(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin(im)detachFromEngineForRegistrar:",
+            "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginC16detachFromEngine3forySo07FlutterE9Registrar_p_tF",
+            "moduleName": "connectivity_plus",
+            "objc_name": "detachFromEngineForRegistrar:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "connectivity_plus",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onListen",
+            "printedName": "onListen(withArguments:eventSink:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin(im)onListenWithArguments:eventSink:",
+            "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginC8onListen13withArguments9eventSinkSo12FlutterErrorCSgypSg_yAJctF",
+            "moduleName": "connectivity_plus",
+            "objc_name": "onListenWithArguments:eventSink:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onCancel",
+            "printedName": "onCancel(withArguments:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin(im)onCancelWithArguments:",
+            "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginC8onCancel13withArgumentsSo12FlutterErrorCSgypSg_tF",
+            "moduleName": "connectivity_plus",
+            "objc_name": "onCancelWithArguments:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ConnectivityPlusPlugin",
+                "printedName": "connectivity_plus.ConnectivityPlusPlugin",
+                "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin(im)init",
+            "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginCACycfc",
+            "moduleName": "connectivity_plus",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@connectivity_plus@objc(cs)ConnectivityPlusPlugin",
+        "mangledName": "$s17connectivity_plus22ConnectivityPlusPluginC",
+        "moduleName": "connectivity_plus",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "connectivity_plus"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ConnectivityType",
+        "printedName": "ConnectivityType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(connectivity_plus.ConnectivityType.Type) -> connectivity_plus.ConnectivityType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "connectivity_plus.ConnectivityType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO4noneyA2CmF",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO4noneyA2CmF",
+            "moduleName": "connectivity_plus"
+          },
+          {
+            "kind": "Var",
+            "name": "wiredEthernet",
+            "printedName": "wiredEthernet",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(connectivity_plus.ConnectivityType.Type) -> connectivity_plus.ConnectivityType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "connectivity_plus.ConnectivityType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO13wiredEthernetyA2CmF",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO13wiredEthernetyA2CmF",
+            "moduleName": "connectivity_plus"
+          },
+          {
+            "kind": "Var",
+            "name": "wifi",
+            "printedName": "wifi",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(connectivity_plus.ConnectivityType.Type) -> connectivity_plus.ConnectivityType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "connectivity_plus.ConnectivityType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO4wifiyA2CmF",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO4wifiyA2CmF",
+            "moduleName": "connectivity_plus"
+          },
+          {
+            "kind": "Var",
+            "name": "cellular",
+            "printedName": "cellular",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(connectivity_plus.ConnectivityType.Type) -> connectivity_plus.ConnectivityType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "connectivity_plus.ConnectivityType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO8cellularyA2CmF",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO8cellularyA2CmF",
+            "moduleName": "connectivity_plus"
+          },
+          {
+            "kind": "Var",
+            "name": "other",
+            "printedName": "other",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(connectivity_plus.ConnectivityType.Type) -> connectivity_plus.ConnectivityType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "connectivity_plus.ConnectivityType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO5otheryA2CmF",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO5otheryA2CmF",
+            "moduleName": "connectivity_plus"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ConnectivityType",
+                "printedName": "connectivity_plus.ConnectivityType",
+                "usr": "s:17connectivity_plus16ConnectivityTypeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ConnectivityType",
+                "printedName": "connectivity_plus.ConnectivityType",
+                "usr": "s:17connectivity_plus16ConnectivityTypeO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO2eeoiySbAC_ACtFZ",
+            "moduleName": "connectivity_plus",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO9hashValueSivp",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO9hashValueSivp",
+            "moduleName": "connectivity_plus",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus16ConnectivityTypeO9hashValueSivg",
+                "mangledName": "$s17connectivity_plus16ConnectivityTypeO9hashValueSivg",
+                "moduleName": "connectivity_plus",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17connectivity_plus16ConnectivityTypeO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s17connectivity_plus16ConnectivityTypeO4hash4intoys6HasherVz_tF",
+            "moduleName": "connectivity_plus",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:17connectivity_plus16ConnectivityTypeO",
+        "mangledName": "$s17connectivity_plus16ConnectivityTypeO",
+        "moduleName": "connectivity_plus",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ConnectivityProvider",
+        "printedName": "ConnectivityProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "currentConnectivityTypes",
+            "printedName": "currentConnectivityTypes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[connectivity_plus.ConnectivityType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17connectivity_plus20ConnectivityProviderP07currentC5TypesSayAA0C4TypeOGvp",
+            "mangledName": "$s17connectivity_plus20ConnectivityProviderP07currentC5TypesSayAA0C4TypeOGvp",
+            "moduleName": "connectivity_plus",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[connectivity_plus.ConnectivityType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus20ConnectivityProviderP07currentC5TypesSayAA0C4TypeOGvg",
+                "mangledName": "$s17connectivity_plus20ConnectivityProviderP07currentC5TypesSayAA0C4TypeOGvg",
+                "moduleName": "connectivity_plus",
+                "genericSig": "<τ_0_0 where τ_0_0 : connectivity_plus.ConnectivityProvider>",
+                "sugared_genericSig": "<Self where Self : connectivity_plus.ConnectivityProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "connectivityUpdateHandler",
+            "printedName": "connectivityUpdateHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(([connectivity_plus.ConnectivityType]) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "([connectivity_plus.ConnectivityType]) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[connectivity_plus.ConnectivityType]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ConnectivityType",
+                            "printedName": "connectivity_plus.ConnectivityType",
+                            "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvp",
+            "mangledName": "$s17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvp",
+            "moduleName": "connectivity_plus",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(([connectivity_plus.ConnectivityType]) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "([connectivity_plus.ConnectivityType]) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[connectivity_plus.ConnectivityType]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ConnectivityType",
+                                "printedName": "connectivity_plus.ConnectivityType",
+                                "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvg",
+                "mangledName": "$s17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvg",
+                "moduleName": "connectivity_plus",
+                "genericSig": "<τ_0_0 where τ_0_0 : connectivity_plus.ConnectivityProvider>",
+                "sugared_genericSig": "<Self where Self : connectivity_plus.ConnectivityProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(([connectivity_plus.ConnectivityType]) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "([connectivity_plus.ConnectivityType]) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[connectivity_plus.ConnectivityType]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ConnectivityType",
+                                "printedName": "connectivity_plus.ConnectivityType",
+                                "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvs",
+                "mangledName": "$s17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvs",
+                "moduleName": "connectivity_plus",
+                "genericSig": "<τ_0_0 where τ_0_0 : connectivity_plus.ConnectivityProvider>",
+                "sugared_genericSig": "<Self where Self : connectivity_plus.ConnectivityProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvM",
+                "mangledName": "$s17connectivity_plus20ConnectivityProviderP0A13UpdateHandlerySayAA0C4TypeOGcSgvM",
+                "moduleName": "connectivity_plus",
+                "genericSig": "<τ_0_0 where τ_0_0 : connectivity_plus.ConnectivityProvider>",
+                "sugared_genericSig": "<Self where Self : connectivity_plus.ConnectivityProvider>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17connectivity_plus20ConnectivityProviderP5startyyF",
+            "mangledName": "$s17connectivity_plus20ConnectivityProviderP5startyyF",
+            "moduleName": "connectivity_plus",
+            "genericSig": "<τ_0_0 where τ_0_0 : connectivity_plus.ConnectivityProvider>",
+            "sugared_genericSig": "<Self where Self : connectivity_plus.ConnectivityProvider>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stop",
+            "printedName": "stop()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17connectivity_plus20ConnectivityProviderP4stopyyF",
+            "mangledName": "$s17connectivity_plus20ConnectivityProviderP4stopyyF",
+            "moduleName": "connectivity_plus",
+            "genericSig": "<τ_0_0 where τ_0_0 : connectivity_plus.ConnectivityProvider>",
+            "sugared_genericSig": "<Self where Self : connectivity_plus.ConnectivityProvider>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:17connectivity_plus20ConnectivityProviderP",
+        "mangledName": "$s17connectivity_plus20ConnectivityProviderP",
+        "moduleName": "connectivity_plus",
+        "genericSig": "<τ_0_0 : ObjectiveC.NSObjectProtocol>",
+        "sugared_genericSig": "<Self : ObjectiveC.NSObjectProtocol>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "connectivity_plus"
+      },
+      {
+        "kind": "Import",
+        "name": "Network",
+        "printedName": "Network",
+        "declKind": "Import",
+        "moduleName": "connectivity_plus"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PathMonitorConnectivityProvider",
+        "printedName": "PathMonitorConnectivityProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "currentConnectivityTypes",
+            "printedName": "currentConnectivityTypes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[connectivity_plus.ConnectivityType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConnectivityType",
+                    "printedName": "connectivity_plus.ConnectivityType",
+                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvp",
+            "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvp",
+            "moduleName": "connectivity_plus",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[connectivity_plus.ConnectivityType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConnectivityType",
+                        "printedName": "connectivity_plus.ConnectivityType",
+                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvg",
+                "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvg",
+                "moduleName": "connectivity_plus",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "connectivityUpdateHandler",
+            "printedName": "connectivityUpdateHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(([connectivity_plus.ConnectivityType]) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "([connectivity_plus.ConnectivityType]) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[connectivity_plus.ConnectivityType]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ConnectivityType",
+                            "printedName": "connectivity_plus.ConnectivityType",
+                            "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvp",
+            "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvp",
+            "moduleName": "connectivity_plus",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(([connectivity_plus.ConnectivityType]) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "([connectivity_plus.ConnectivityType]) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[connectivity_plus.ConnectivityType]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ConnectivityType",
+                                "printedName": "connectivity_plus.ConnectivityType",
+                                "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvg",
+                "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvg",
+                "moduleName": "connectivity_plus",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(([connectivity_plus.ConnectivityType]) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "([connectivity_plus.ConnectivityType]) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[connectivity_plus.ConnectivityType]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ConnectivityType",
+                                "printedName": "connectivity_plus.ConnectivityType",
+                                "usr": "s:17connectivity_plus16ConnectivityTypeO"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvs",
+                "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvs",
+                "moduleName": "connectivity_plus",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvM",
+                "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvM",
+                "moduleName": "connectivity_plus",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC5startyyF",
+            "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC5startyyF",
+            "moduleName": "connectivity_plus",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stop",
+            "printedName": "stop()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17connectivity_plus31PathMonitorConnectivityProviderC4stopyyF",
+            "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC4stopyyF",
+            "moduleName": "connectivity_plus",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@connectivity_plus@objc(cs)PathMonitorConnectivityProvider",
+        "mangledName": "$s17connectivity_plus31PathMonitorConnectivityProviderC",
+        "moduleName": "connectivity_plus",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "ConnectivityProvider",
+            "printedName": "ConnectivityProvider",
+            "usr": "s:17connectivity_plus20ConnectivityProviderP",
+            "mangledName": "$s17connectivity_plus20ConnectivityProviderP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

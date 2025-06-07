@@ -1,0 +1,35 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Protobuf
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+@_exported import Protobuf
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension Protobuf.GPBUnknownField {
+  public enum Value : Swift.Equatable {
+    case varint(Swift.UInt64)
+    case fixed32(Swift.UInt32)
+    case fixed64(Swift.UInt64)
+    case lengthDelimited(Foundation.Data)
+    case group(Protobuf.GPBUnknownFields)
+    public static func == (a: Protobuf.GPBUnknownField.Value, b: Protobuf.GPBUnknownField.Value) -> Swift.Bool
+  }
+  public var value: Protobuf.GPBUnknownField.Value {
+    get
+  }
+}
+extension Protobuf.GPBUnknownFields {
+  public func firstVarint(_ fieldNumber: Swift.Int32) -> Swift.UInt64?
+  public func firstFixed32(_ fieldNumber: Swift.Int32) -> Swift.UInt32?
+  public func firstFixed64(_ fieldNumber: Swift.Int32) -> Swift.UInt64?
+}
+extension Protobuf.GPBUnknownFields : Swift.Sequence {
+  public typealias Element = Protobuf.GPBUnknownField
+  public struct Iterator : Swift.IteratorProtocol {
+    public mutating func next() -> Protobuf.GPBUnknownField?
+    public typealias Element = Protobuf.GPBUnknownField
+  }
+  public func makeIterator() -> Protobuf.GPBUnknownFields.Iterator
+}
