@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.38'
+    s.version          = '0.1.39'
     s.summary          = 'A short description of CreekSDK.'
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -81,7 +81,7 @@ Pod::Spec.new do |s|
     # s.public_header_files = 'Pod/Classes/**/*.h'
     s.dependency 'SwiftProtobuf', '~> 1.25.2'
     s.dependency 'onnxruntime-objc', '1.15.0'
-    s.dependency 'MicrosoftCognitiveServicesSpeech-iOS'   , '~> 1.29.0'
+    s.dependency 'MicrosoftCognitiveServicesSpeech-iOS'
     s.static_framework = true
    
 end
