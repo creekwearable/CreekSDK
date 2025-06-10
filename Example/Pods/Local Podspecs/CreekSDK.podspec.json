@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "0.1.38"
+    "tag": "0.1.39"
   },
   "platforms": {
     "ios": "12.0"
@@ -74,9 +74,14 @@
       "1.15.0"
     ],
     "MicrosoftCognitiveServicesSpeech-iOS": [
-      "~> 1.29.0"
+
     ]
   },
   "static_framework": true,
+  "resource_bundles": {
+    "CreekSDKPrivacy": [
+      "Creek/PrivacyInfo.xcprivacy"
+    ]
+  },
   "swift_version": "5.0"
 }

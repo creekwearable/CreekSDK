@@ -546,6 +546,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				D32F8ACD2FF038A8410EA577 /* [CP] Embed Pods Frameworks */,
+				DD70454B20D4FAB74954381F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -743,6 +744,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD70454B20D4FAB74954381F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CreekSDK/CreekSDKPrivacy.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CreekSDKPrivacy.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

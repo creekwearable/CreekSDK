@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<privacy>
+    <usage>
+        <description>
+            We use local database access for core app features. No user data is collected or shared.
+        </description>
+    </usage>
+    <collection>
+        <none/>
+    </collection>
+</privacy>
