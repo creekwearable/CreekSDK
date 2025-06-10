@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<privacy>
-    <usage>
-        <description>
-            We use local database access for core app features. No user data is collected or shared.
-        </description>
-    </usage>
-    <collection>
-        <none/>
-    </collection>
-</privacy>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+    <dict>
+        <key>NSPrivacyAccessedAPIType</key>
+        <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+        <key>NSPrivacyAccessedAPITypeReasons</key>
+        <array>
+            <string>Access local database using FMDB for core app features, no user data collected or tracked.</string>
+        </array>
+    </dict>
+	</array>
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+    <key>NSPrivacyTracking</key>
+    <false/>
+</dict>
+</plist>
