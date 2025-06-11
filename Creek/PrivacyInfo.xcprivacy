@@ -11,7 +11,7 @@
         <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
         <key>NSPrivacyAccessedAPITypeReasons</key>
         <array>
-            <string>Access local database using FMDB for core app features, no user data collected or tracked.</string>
+            <string>CAAppFeatureUsage</string>
         </array>
     </dict>
 	</array>
