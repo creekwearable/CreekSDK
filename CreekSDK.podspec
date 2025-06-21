@@ -8,9 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.27'
+    s.version          = '9.0.0'
     s.summary          = 'A short description of CreekSDK.'
-    777
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
     #   * Try to keep it short, snappy and to the point.
@@ -51,7 +50,7 @@ Pod::Spec.new do |s|
     'Creek/flutter_contacts.framework',
     'Creek/path_provider_foundation.framework']
     s.pod_target_xcconfig = {'VALID_ARCHS' => 'x86_64 armv7 arm64'}
-    s.resource_bundles = {'permission_handler_apple_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+#    s.resource_bundles = {'permission_handler_apple_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
     
     # s.resource_bundles = {
     #   'CreekSDK' => ['CreekSDK/Assets/*.png']
@@ -59,5 +58,9 @@ Pod::Spec.new do |s|
     
     # s.public_header_files = 'Pod/Classes/**/*.h'
     s.dependency 'SwiftProtobuf', '~> 1.25.2'
+    s.resource_bundles = {
+      'CreekSDKPrivacy' => ['Creek/PrivacyInfo.xcprivacy']
+    }
+
    
 end
