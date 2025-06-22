@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct protocol_gesture_operate: Sendable {
+public struct protocol_gesture_control_operate: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -28,15 +28,15 @@ public struct protocol_gesture_operate: Sendable {
   ///1bytes 操作类型 0：无效操作 1：查询 2：设置
   public var operate: operate_type = .invalid
 
-  ///1bytes 手势抬腕开关 true 开启,false 关闭
-  public var switchFlag: Bool = false
+  ///控制抖音开关
+  public var controlTiktokSwitch: switch_type = .switchNull
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct protocol_gesture_inquire_reply: Sendable {
+public struct protocol_gesture_control_inquire_reply: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -44,8 +44,11 @@ public struct protocol_gesture_inquire_reply: Sendable {
   ///1bytes 操作类型 0：无效操作 1：查询 2：设置
   public var operate: operate_type = .invalid
 
-  ///1bytes 手势抬腕开关 true 开启,false 关闭
-  public var switchFlag: Bool = false
+  ///控制抖音开关
+  public var controlTiktokSwitch: switch_type = .switchNull
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -54,11 +57,11 @@ public struct protocol_gesture_inquire_reply: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension protocol_gesture_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "protocol_gesture_operate"
+extension protocol_gesture_control_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_gesture_control_operate"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
-    2: .standard(proto: "switch_flag"),
+    2: .standard(proto: "control_tiktok_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -68,7 +71,7 @@ extension protocol_gesture_operate: SwiftProtobuf.Message, SwiftProtobuf._Messag
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.controlTiktokSwitch) }()
       default: break
       }
     }
@@ -78,25 +81,26 @@ extension protocol_gesture_operate: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    if self.switchFlag != false {
-      try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 2)
+    if self.controlTiktokSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.controlTiktokSwitch, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: protocol_gesture_operate, rhs: protocol_gesture_operate) -> Bool {
+  public static func ==(lhs: protocol_gesture_control_operate, rhs: protocol_gesture_control_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
-    if lhs.switchFlag != rhs.switchFlag {return false}
+    if lhs.controlTiktokSwitch != rhs.controlTiktokSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension protocol_gesture_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "protocol_gesture_inquire_reply"
+extension protocol_gesture_control_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_gesture_control_inquire_reply"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
-    2: .standard(proto: "switch_flag"),
+    2: .standard(proto: "control_tiktok_switch"),
+    3: .standard(proto: "func_table"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -106,7 +110,8 @@ extension protocol_gesture_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.switchFlag) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.controlTiktokSwitch) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       default: break
       }
     }
@@ -116,15 +121,19 @@ extension protocol_gesture_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._
     if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
-    if self.switchFlag != false {
-      try visitor.visitSingularBoolField(value: self.switchFlag, fieldNumber: 2)
+    if self.controlTiktokSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.controlTiktokSwitch, fieldNumber: 2)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: protocol_gesture_inquire_reply, rhs: protocol_gesture_inquire_reply) -> Bool {
+  public static func ==(lhs: protocol_gesture_control_inquire_reply, rhs: protocol_gesture_control_inquire_reply) -> Bool {
     if lhs.operate != rhs.operate {return false}
-    if lhs.switchFlag != rhs.switchFlag {return false}
+    if lhs.controlTiktokSwitch != rhs.controlTiktokSwitch {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

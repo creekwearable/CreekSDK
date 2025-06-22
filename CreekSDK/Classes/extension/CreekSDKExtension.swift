@@ -2207,9 +2207,47 @@ extension CreekSDK{
 //
 //   }
    
+    ///AI configuration
    public func aiVoiceConfig(keyId:String,publicKey:String){
       requestId+=1
       methodChannel?.invokeMethod("aiVoiceConfig\(requestId)", arguments: [keyId,publicKey])
    }
+    
+    ///AI configuration   CN US AF ..........
+   public func setAiVoiceCountry(countryCode:String){
+      requestId+=1
+      methodChannel?.invokeMethod("setAiVoiceCountry\(requestId)", arguments: countryCode)
+   }
+   
+    ///AI configuration
+   public func setAiVoiceCity(cityName:String){
+      requestId+=1
+      methodChannel?.invokeMethod("setAiVoiceCity\(requestId)", arguments: cityName)
+   }
+    ///Real-time monitoring of sports data
+   public func liveSportDataListen(listen:@escaping (_ model:protocol_exercise_sync_realtime_info) -> ()){
+      _liveSportDataListen = listen
+   }
+   
+    ///Real-time monitoring of motion control
+   public func liveSportControlListen(listen:@escaping (_ model:protocol_exercise_control_operate) -> ()){
+      _liveSportControlListen = listen
+   }
+    
+    public func setSportControl(controlType:exercise_control_type,success:@escaping successBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSportControl\(requestId)"] = success;
+          failureArgumentDic["setSportControl\(requestId)"] = failure
+           var operate = protocol_exercise_control_operate()
+           operate.controlType = controlType
+          do{
+              let data = try operate.serializedData()
+              methodChannel?.invokeMethod("setSportControl\(requestId)", arguments: data)
+          }catch{
+
+          }
+       }
+    }
 
 }

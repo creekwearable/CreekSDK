@@ -8,7 +8,7 @@
 import UIKit
 import BackgroundTasks
 import CreekSDK
-import IQKeyboardManagerSwift
+//import IQKeyboardManagerSwift
 
 
 
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window!.rootViewController = ExampleProvider.systemStyle()
         window?.makeKeyAndVisible()
     
-        IQKeyboardManager.shared.enable = true
+//        IQKeyboardManager.shared.enable = true
         return true
     }
    

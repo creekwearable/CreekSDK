@@ -6,15 +6,15 @@
     "children": [
       {
         "kind": "Import",
-        "name": "Flutter",
-        "printedName": "Flutter",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
         "declKind": "Import",
         "moduleName": "azure_speech"
       },
       {
         "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
+        "name": "Flutter",
+        "printedName": "Flutter",
         "declKind": "Import",
         "moduleName": "azure_speech"
       },
@@ -27,8 +27,8 @@
       },
       {
         "kind": "Import",
-        "name": "AVFoundation",
-        "printedName": "AVFoundation",
+        "name": "UIKit",
+        "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "azure_speech"
       },
@@ -233,30 +233,44 @@
     {
       "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "BooleanLiteral",
-      "offset": 985,
+      "offset": 977,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "IntegerLiteral",
-      "offset": 1067,
+      "offset": 1051,
       "length": 5,
       "value": "16000"
     },
     {
       "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "IntegerLiteral",
-      "offset": 1094,
+      "offset": 1078,
       "length": 4,
       "value": "2048"
     },
     {
       "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1151,
+      "offset": 1131,
       "length": 17,
       "value": "\"conversionQueue\""
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "kind": "Array",
+      "offset": 1219,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_bluetooth_app\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1255,
+      "length": 2,
+      "value": "50"
     }
   ]
 }

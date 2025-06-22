@@ -187,10 +187,28 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "**********"
-         let publicKey = "**********"
+         let keyId = "***********"
+         let publicKey = "*************"
          
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
+         CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")
+         CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
+         
+         
+         CreekSDK.instance.liveSportDataListen { model in
+            let json = try? model.jsonString()
+            print(json)
+         }
+         CreekSDK.instance.liveSportControlListen { model in
+            let json = try? model.jsonString()
+             print(json)
+         }
+         
+//         CreekSDK.instance.setSportControl(controlType: .controlResume) {
+//            print("success")
+//         } failure: { code, message in
+//            print("fail")
+//         }
          
          CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
             ///Ask for GPS data, and get the latest GPS data every time you ask.
@@ -391,9 +409,6 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       }
     
    }
-   
-   
-   
    
    // MARK: - 搜索功能
    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

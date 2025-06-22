@@ -12,7 +12,7 @@ target 'CreekSDK_Example' do
 #  pod "ESTabBarController-swift"
   pod 'CropViewController'
   pod 'TZImagePickerController'
-  pod 'IQKeyboardManagerSwift'
+#  pod 'IQKeyboardManagerSwift'
   
   post_install do |installer|
 #

@@ -73,6 +73,12 @@ public struct protocol_geobin_inquire_reply: Sendable {
   ///4bytes geobin所占的总大小
   public var totalSize: UInt32 = 0
 
+  ///4bytes 剩余的存储空间(单位：KB)
+  public var freeSize: UInt32 = 0
+
+  ///4bytes 最大轨迹支持下载数量
+  public var maxSupportCount: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -169,6 +175,8 @@ extension protocol_geobin_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._M
     2: .standard(proto: "geobin_num"),
     3: .standard(proto: "list_item"),
     4: .standard(proto: "total_size"),
+    5: .standard(proto: "free_size"),
+    6: .standard(proto: "max_support_count"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -181,6 +189,8 @@ extension protocol_geobin_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._M
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.geobinNum) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.listItem) }()
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.totalSize) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.freeSize) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.maxSupportCount) }()
       default: break
       }
     }
@@ -199,6 +209,12 @@ extension protocol_geobin_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.totalSize != 0 {
       try visitor.visitSingularUInt32Field(value: self.totalSize, fieldNumber: 4)
     }
+    if self.freeSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.freeSize, fieldNumber: 5)
+    }
+    if self.maxSupportCount != 0 {
+      try visitor.visitSingularUInt32Field(value: self.maxSupportCount, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -207,6 +223,8 @@ extension protocol_geobin_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._M
     if lhs.geobinNum != rhs.geobinNum {return false}
     if lhs.listItem != rhs.listItem {return false}
     if lhs.totalSize != rhs.totalSize {return false}
+    if lhs.freeSize != rhs.freeSize {return false}
+    if lhs.maxSupportCount != rhs.maxSupportCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

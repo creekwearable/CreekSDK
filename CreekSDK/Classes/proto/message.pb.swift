@@ -514,6 +514,11 @@ public struct protocol_message_notify_func_support_reply: @unchecked Sendable {
     set {_uniqueStorage()._espn = newValue}
   }
 
+  public var zalo: Bool {
+    get {return _storage._zalo}
+    set {_uniqueStorage()._zalo = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -985,6 +990,7 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     85: .same(proto: "ctrip"),
     86: .same(proto: "boss"),
     87: .same(proto: "Espn"),
+    88: .same(proto: "Zalo"),
   ]
 
   fileprivate class _StorageClass {
@@ -1075,6 +1081,7 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     var _ctrip: Bool = false
     var _boss: Bool = false
     var _espn: Bool = false
+    var _zalo: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1176,6 +1183,7 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       _ctrip = source._ctrip
       _boss = source._boss
       _espn = source._espn
+      _zalo = source._zalo
     }
   }
 
@@ -1281,6 +1289,7 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         case 85: try { try decoder.decodeSingularBoolField(value: &_storage._ctrip) }()
         case 86: try { try decoder.decodeSingularBoolField(value: &_storage._boss) }()
         case 87: try { try decoder.decodeSingularBoolField(value: &_storage._espn) }()
+        case 88: try { try decoder.decodeSingularBoolField(value: &_storage._zalo) }()
         default: break
         }
       }
@@ -1550,6 +1559,9 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       if _storage._espn != false {
         try visitor.visitSingularBoolField(value: _storage._espn, fieldNumber: 87)
       }
+      if _storage._zalo != false {
+        try visitor.visitSingularBoolField(value: _storage._zalo, fieldNumber: 88)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1646,6 +1658,7 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         if _storage._ctrip != rhs_storage._ctrip {return false}
         if _storage._boss != rhs_storage._boss {return false}
         if _storage._espn != rhs_storage._espn {return false}
+        if _storage._zalo != rhs_storage._zalo {return false}
         return true
       }
       if !storagesAreEqual {return false}

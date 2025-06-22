@@ -48,6 +48,28 @@ public struct protocol_ring_click_measure_operate: Sendable {
   public init() {}
 }
 
+public struct protocol_ring_remind_mark_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///传输方向
+  public var tranType: tran_direction_type = .watchTran
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///1bytes 事件id
+  public var eventID: ring_remind_event_type = .invalidEvent
+
+  ///具体事件数值
+  public var eventValue: ring_goal_status = .goalNotAchieved
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -107,6 +129,56 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.value != rhs.value {return false}
     if lhs.measureTime != rhs.measureTime {return false}
     if lhs.measureStatus != rhs.measureStatus {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ring_remind_mark_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "event_id"),
+    4: .standard(proto: "event_value"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.eventID) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.eventValue) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    if self.eventID != .invalidEvent {
+      try visitor.visitSingularEnumField(value: self.eventID, fieldNumber: 3)
+    }
+    if self.eventValue != .goalNotAchieved {
+      try visitor.visitSingularEnumField(value: self.eventValue, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ring_remind_mark_operate, rhs: protocol_ring_remind_mark_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.eventID != rhs.eventID {return false}
+    if lhs.eventValue != rhs.eventValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

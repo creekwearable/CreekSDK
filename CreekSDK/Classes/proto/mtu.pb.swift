@@ -56,6 +56,9 @@ public struct protocol_connect_status_inquire_reply: Sendable {
   ///1bytes bt蓝牙连接状态
   public var btConnectStatus: Bool = false
 
+  ///spp文件传输prn
+  public var sppFileTranPrn: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -109,6 +112,7 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
     3: .standard(proto: "ble_pairing_status"),
     4: .standard(proto: "bt_pairing_status"),
     5: .standard(proto: "bt_connect_status"),
+    6: .standard(proto: "spp_file_tran_prn"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -122,6 +126,7 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
       case 3: try { try decoder.decodeSingularBoolField(value: &self.blePairingStatus) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.btPairingStatus) }()
       case 5: try { try decoder.decodeSingularBoolField(value: &self.btConnectStatus) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.sppFileTranPrn) }()
       default: break
       }
     }
@@ -143,6 +148,9 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
     if self.btConnectStatus != false {
       try visitor.visitSingularBoolField(value: self.btConnectStatus, fieldNumber: 5)
     }
+    if self.sppFileTranPrn != 0 {
+      try visitor.visitSingularUInt32Field(value: self.sppFileTranPrn, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -152,6 +160,7 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
     if lhs.blePairingStatus != rhs.blePairingStatus {return false}
     if lhs.btPairingStatus != rhs.btPairingStatus {return false}
     if lhs.btConnectStatus != rhs.btConnectStatus {return false}
+    if lhs.sppFileTranPrn != rhs.sppFileTranPrn {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

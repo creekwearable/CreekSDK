@@ -627,6 +627,9 @@ public struct protocol_exercise_course_list_inquire_reply: Sendable {
   ///max: 暂定50
   public var listItems: [course_list_item] = []
 
+  ///运动课程目标支持列表
+  public var targetSupport: [course_target_support_type] = []
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1812,6 +1815,7 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     1: .same(proto: "operate"),
     2: .standard(proto: "func_table"),
     3: .standard(proto: "list_items"),
+    4: .standard(proto: "target_support"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1823,6 +1827,7 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.listItems) }()
+      case 4: try { try decoder.decodeRepeatedEnumField(value: &self.targetSupport) }()
       default: break
       }
     }
@@ -1838,6 +1843,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if !self.listItems.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.listItems, fieldNumber: 3)
     }
+    if !self.targetSupport.isEmpty {
+      try visitor.visitPackedEnumField(value: self.targetSupport, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1845,6 +1853,7 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if lhs.operate != rhs.operate {return false}
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.listItems != rhs.listItems {return false}
+    if lhs.targetSupport != rhs.targetSupport {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

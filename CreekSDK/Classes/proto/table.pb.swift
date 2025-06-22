@@ -620,6 +620,16 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `userIcon`. Subsequent reads from it will return its default value.
   public mutating func clearUserIcon() {_uniqueStorage()._userIcon = nil}
 
+  ///体温
+  public var bodyTemperature: function_table {
+    get {return _storage._bodyTemperature ?? function_table()}
+    set {_uniqueStorage()._bodyTemperature = newValue}
+  }
+  /// Returns true if `bodyTemperature` has been explicitly set.
+  public var hasBodyTemperature: Bool {return _storage._bodyTemperature != nil}
+  /// Clears the value of `bodyTemperature`. Subsequent reads from it will return its default value.
+  public mutating func clearBodyTemperature() {_uniqueStorage()._bodyTemperature = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -728,6 +738,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     56: .same(proto: "geobin"),
     57: .standard(proto: "workout_course"),
     58: .standard(proto: "user_icon"),
+    59: .standard(proto: "body_temperature"),
   ]
 
   fileprivate class _StorageClass {
@@ -789,6 +800,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _geobin: function_table? = nil
     var _workoutCourse: function_table? = nil
     var _userIcon: function_table? = nil
+    var _bodyTemperature: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -861,6 +873,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _geobin = source._geobin
       _workoutCourse = source._workoutCourse
       _userIcon = source._userIcon
+      _bodyTemperature = source._bodyTemperature
     }
   }
 
@@ -937,6 +950,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 56: try { try decoder.decodeSingularMessageField(value: &_storage._geobin) }()
         case 57: try { try decoder.decodeSingularMessageField(value: &_storage._workoutCourse) }()
         case 58: try { try decoder.decodeSingularMessageField(value: &_storage._userIcon) }()
+        case 59: try { try decoder.decodeSingularMessageField(value: &_storage._bodyTemperature) }()
         default: break
         }
       }
@@ -1123,6 +1137,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._userIcon {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 58)
       } }()
+      try { if let v = _storage._bodyTemperature {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 59)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1190,6 +1207,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._geobin != rhs_storage._geobin {return false}
         if _storage._workoutCourse != rhs_storage._workoutCourse {return false}
         if _storage._userIcon != rhs_storage._userIcon {return false}
+        if _storage._bodyTemperature != rhs_storage._bodyTemperature {return false}
         return true
       }
       if !storagesAreEqual {return false}

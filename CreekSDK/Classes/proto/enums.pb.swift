@@ -521,6 +521,9 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///中文繁体
   case tradChinese // = 32
+
+  ///瑞典
+  case sweden // = 33
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -562,6 +565,7 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 30: self = .arabic
     case 31: self = .farsi
     case 32: self = .tradChinese
+    case 33: self = .sweden
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -601,6 +605,7 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .arabic: return 30
     case .farsi: return 31
     case .tradChinese: return 32
+    case .sweden: return 33
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -640,6 +645,7 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     .arabic,
     .farsi,
     .tradChinese,
+    .sweden,
   ]
 
 }
@@ -1993,6 +1999,7 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///BOSS直聘
   case boss // = 86
   case espn // = 87
+  case zalo // = 88
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -2089,6 +2096,7 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 85: self = .ctrip
     case 86: self = .boss
     case 87: self = .espn
+    case 88: self = .zalo
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2183,6 +2191,7 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .ctrip: return 85
     case .boss: return 86
     case .espn: return 87
+    case .zalo: return 88
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -2277,6 +2286,7 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .ctrip,
     .boss,
     .espn,
+    .zalo,
   ]
 
 }
@@ -3432,6 +3442,9 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
 
   ///2s未识别到声音提示用户
   case aiStatusTips // = 7
+
+  /////5S未检测到语音，超时退出ai
+  case aiStatusTimeoutExit // = 8
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3448,6 +3461,7 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 5: self = .aiStatusUnidentify
     case 6: self = .aiStatusRelogin
     case 7: self = .aiStatusTips
+    case 8: self = .aiStatusTimeoutExit
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -3462,6 +3476,7 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiStatusUnidentify: return 5
     case .aiStatusRelogin: return 6
     case .aiStatusTips: return 7
+    case .aiStatusTimeoutExit: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -3476,6 +3491,7 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiStatusUnidentify,
     .aiStatusRelogin,
     .aiStatusTips,
+    .aiStatusTimeoutExit,
   ]
 
 }
@@ -5860,6 +5876,268 @@ public enum geobin_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum ring_goal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///未达成
+  case goalNotAchieved // = 0
+
+  ///已达成
+  case goalAchieved // = 1
+
+  ///事件无效
+  case eventInvalID // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .goalNotAchieved
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .goalNotAchieved
+    case 1: self = .goalAchieved
+    case 2: self = .eventInvalID
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .goalNotAchieved: return 0
+    case .goalAchieved: return 1
+    case .eventInvalID: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ring_goal_status] = [
+    .goalNotAchieved,
+    .goalAchieved,
+    .eventInvalID,
+  ]
+
+}
+
+public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case invalidEvent // = 0
+
+  ///步数目标达成状态
+  case stepGoal // = 1
+
+  ///卡路里目标达成状态
+  case kcalGoal // = 2
+
+  ///活跃时长目标达成状态
+  case activeTime // = 3
+
+  ///站立时长目标达成状态
+  case standTime // = 4
+
+  ///距离目标达成状态
+  case disTime // = 5
+
+  ///锻炼时长目标达成状态
+  case exerciseTime // = 6
+
+  ///高心率提醒
+  case highHeartRate // = 7
+
+  ///低心率提醒
+  case lowHeartRate // = 8
+
+  ///低电量提醒
+  case lowPower // = 9
+
+  ///NTC温度过高
+  case ntcHighTemperature // = 10
+
+  ///NTC温度过低
+  case ntcLowTemperature // = 11
+
+  ///hrv测量失败
+  case hrvMeasureFailed // = 12
+
+  ///压力测量失败
+  case stressMeasureFailed // = 13
+
+  ///呼吸率测量失败
+  case respiratoryMeasureFailed // = 14
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .invalidEvent
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .invalidEvent
+    case 1: self = .stepGoal
+    case 2: self = .kcalGoal
+    case 3: self = .activeTime
+    case 4: self = .standTime
+    case 5: self = .disTime
+    case 6: self = .exerciseTime
+    case 7: self = .highHeartRate
+    case 8: self = .lowHeartRate
+    case 9: self = .lowPower
+    case 10: self = .ntcHighTemperature
+    case 11: self = .ntcLowTemperature
+    case 12: self = .hrvMeasureFailed
+    case 13: self = .stressMeasureFailed
+    case 14: self = .respiratoryMeasureFailed
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .invalidEvent: return 0
+    case .stepGoal: return 1
+    case .kcalGoal: return 2
+    case .activeTime: return 3
+    case .standTime: return 4
+    case .disTime: return 5
+    case .exerciseTime: return 6
+    case .highHeartRate: return 7
+    case .lowHeartRate: return 8
+    case .lowPower: return 9
+    case .ntcHighTemperature: return 10
+    case .ntcLowTemperature: return 11
+    case .hrvMeasureFailed: return 12
+    case .stressMeasureFailed: return 13
+    case .respiratoryMeasureFailed: return 14
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ring_remind_event_type] = [
+    .invalidEvent,
+    .stepGoal,
+    .kcalGoal,
+    .activeTime,
+    .standTime,
+    .disTime,
+    .exerciseTime,
+    .highHeartRate,
+    .lowHeartRate,
+    .lowPower,
+    .ntcHighTemperature,
+    .ntcLowTemperature,
+    .hrvMeasureFailed,
+    .stressMeasureFailed,
+    .respiratoryMeasureFailed,
+  ]
+
+}
+
+public enum course_target_support_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///持续目标 - 手动计圈
+  case continuingTargetManuallyLap // = 0
+
+  ///持续目标 - 时间
+  case continuingTargetTime // = 1
+
+  ///持续目标 - 距离
+  case continuingTargetDistance // = 2
+
+  ///持续目标 - 卡路里
+  case continuingTargetCalories // = 3
+
+  ///强度目标 - 开放式
+  case strengthTargetOpen // = 4
+
+  ///强度目标 - 配速
+  case strengthTargetPace // = 5
+
+  ///强度目标 - 步频
+  case strengthTargetCadence // = 6
+
+  ///强度目标 心率 - 心率区间
+  case strengthTargetHeartRateZone // = 7
+
+  ///强度目标 -心率 - 自定义心率
+  case strengthTargetCustomRateZone // = 8
+
+  ///强度目标 - 功率区间
+  case strengthTargetPowerZones // = 9
+
+  ///强度目标 -心率 - 储备心率
+  case strengthTargetRateZoneReserve // = 10
+
+  ///强度目标 -心率 - 最大心率
+  case strengthTargetRateZoneMax // = 11
+
+  ///强度目标 -功率
+  case strengthTargetPower // = 12
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .continuingTargetManuallyLap
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .continuingTargetManuallyLap
+    case 1: self = .continuingTargetTime
+    case 2: self = .continuingTargetDistance
+    case 3: self = .continuingTargetCalories
+    case 4: self = .strengthTargetOpen
+    case 5: self = .strengthTargetPace
+    case 6: self = .strengthTargetCadence
+    case 7: self = .strengthTargetHeartRateZone
+    case 8: self = .strengthTargetCustomRateZone
+    case 9: self = .strengthTargetPowerZones
+    case 10: self = .strengthTargetRateZoneReserve
+    case 11: self = .strengthTargetRateZoneMax
+    case 12: self = .strengthTargetPower
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .continuingTargetManuallyLap: return 0
+    case .continuingTargetTime: return 1
+    case .continuingTargetDistance: return 2
+    case .continuingTargetCalories: return 3
+    case .strengthTargetOpen: return 4
+    case .strengthTargetPace: return 5
+    case .strengthTargetCadence: return 6
+    case .strengthTargetHeartRateZone: return 7
+    case .strengthTargetCustomRateZone: return 8
+    case .strengthTargetPowerZones: return 9
+    case .strengthTargetRateZoneReserve: return 10
+    case .strengthTargetRateZoneMax: return 11
+    case .strengthTargetPower: return 12
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [course_target_support_type] = [
+    .continuingTargetManuallyLap,
+    .continuingTargetTime,
+    .continuingTargetDistance,
+    .continuingTargetCalories,
+    .strengthTargetOpen,
+    .strengthTargetPace,
+    .strengthTargetCadence,
+    .strengthTargetHeartRateZone,
+    .strengthTargetCustomRateZone,
+    .strengthTargetPowerZones,
+    .strengthTargetRateZoneReserve,
+    .strengthTargetRateZoneMax,
+    .strengthTargetPower,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -5970,6 +6248,7 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     30: .same(proto: "ARABIC"),
     31: .same(proto: "FARSI"),
     32: .same(proto: "TRAD_CHINESE"),
+    33: .same(proto: "SWEDEN"),
   ]
 }
 
@@ -6280,6 +6559,7 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     85: .same(proto: "CTRIP"),
     86: .same(proto: "BOSS"),
     87: .same(proto: "ESPN"),
+    88: .same(proto: "ZALO"),
   ]
 }
 
@@ -6505,6 +6785,7 @@ extension voice_assistant_status_type: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "AI_STATUS_UNIDENTIFY"),
     6: .same(proto: "AI_STATUS_RELOGIN"),
     7: .same(proto: "AI_STATUS_TIPS"),
+    8: .same(proto: "AI_STATUS_TIMEOUT_EXIT"),
   ]
 }
 
@@ -6925,5 +7206,51 @@ extension geobin_operate_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "GEOBIN_OPERATE_TYPE_INQUIRE"),
     1: .same(proto: "GEOBIN_OPERATE_TYPE_DELETE"),
+  ]
+}
+
+extension ring_goal_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "GOAL_NOT_ACHIEVED"),
+    1: .same(proto: "GOAL_ACHIEVED"),
+    2: .same(proto: "EVENT_INVAlID"),
+  ]
+}
+
+extension ring_remind_event_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "INVALID_EVENT"),
+    1: .same(proto: "STEP_GOAL"),
+    2: .same(proto: "KCAL_GOAL"),
+    3: .same(proto: "ACTIVE_TIME"),
+    4: .same(proto: "STAND_TIME"),
+    5: .same(proto: "DIS_TIME"),
+    6: .same(proto: "EXERCISE_TIME"),
+    7: .same(proto: "HIGH_HEART_RATE"),
+    8: .same(proto: "LOW_HEART_RATE"),
+    9: .same(proto: "LOW_POWER"),
+    10: .same(proto: "NTC_HIGH_TEMPERATURE"),
+    11: .same(proto: "NTC_LOW_TEMPERATURE"),
+    12: .same(proto: "HRV_MEASURE_FAILED"),
+    13: .same(proto: "STRESS_MEASURE_FAILED"),
+    14: .same(proto: "RESPIRATORY_MEASURE_FAILED"),
+  ]
+}
+
+extension course_target_support_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CONTINUING_TARGET_MANUALLY_LAP"),
+    1: .same(proto: "CONTINUING_TARGET_TIME"),
+    2: .same(proto: "CONTINUING_TARGET_DISTANCE"),
+    3: .same(proto: "CONTINUING_TARGET_CALORIES"),
+    4: .same(proto: "STRENGTH_TARGET_OPEN"),
+    5: .same(proto: "STRENGTH_TARGET_PACE"),
+    6: .same(proto: "STRENGTH_TARGET_CADENCE"),
+    7: .same(proto: "STRENGTH_TARGET_HEART_RATE_ZONE"),
+    8: .same(proto: "STRENGTH_TARGET_CUSTOM_RATE_ZONE"),
+    9: .same(proto: "STRENGTH_TARGET_POWER_ZONES"),
+    10: .same(proto: "STRENGTH_TARGET_RATE_ZONE_RESERVE"),
+    11: .same(proto: "STRENGTH_TARGET_RATE_ZONE_MAX"),
+    12: .same(proto: "STRENGTH_TARGET_POWER"),
   ]
 }
