@@ -390,7 +390,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          self.navigationController?.pushViewController(vc, animated: true)
          break
       case "Upload (Sport Course)":
-         let vc = MusicUploadViewController()
+         let vc = SportCourseUploadViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
       case "Upload (Route)":
