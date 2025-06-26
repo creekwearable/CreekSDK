@@ -1,6 +1,6 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/CreekSDK
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf" "${PODS_CONFIGURATION_BUILD_DIR}/onnxruntime-objc" "${PODS_ROOT}/../../Creek" "${PODS_ROOT}/MicrosoftCognitiveServicesSpeech-iOS" "${PODS_ROOT}/onnxruntime-c" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MicrosoftCognitiveServicesSpeech-iOS" "${PODS_XCFRAMEWORKS_BUILD_DIR}/onnxruntime-c"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf" "${PODS_CONFIGURATION_BUILD_DIR}/onnxruntime-objc" "${PODS_ROOT}/../../Creek" "${PODS_ROOT}/onnxruntime-c" "${PODS_XCFRAMEWORKS_BUILD_DIR}/onnxruntime-c"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS

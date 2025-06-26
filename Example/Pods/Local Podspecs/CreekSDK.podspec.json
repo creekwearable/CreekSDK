@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "0.1.43",
+  "version": "10.0.1-noise",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "0.1.43"
+    "tag": "10.0.1-noise"
   },
   "platforms": {
     "ios": "12.0"
@@ -72,9 +72,6 @@
     ],
     "onnxruntime-objc": [
       "1.15.0"
-    ],
-    "MicrosoftCognitiveServicesSpeech-iOS": [
-
     ]
   },
   "static_framework": true,
