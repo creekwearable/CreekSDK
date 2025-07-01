@@ -76,6 +76,7 @@
 		07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C3D2DAFEA29000F8BED /* OTAViewController.swift */; };
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
+		073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */; };
 		073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
@@ -204,6 +205,7 @@
 		07266C3D2DAFEA29000F8BED /* OTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTAViewController.swift; sourceTree = "<group>"; };
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netWork.pb.swift; sourceTree = "<group>"; };
 		073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = CW06G_TITAD101_01.zip; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */,
 				07266C352DAF60F0000F8BED /* geo.pb.swift */,
 				07266BB92DACF260000F8BED /* alarm.pb.swift */,
 				07266BBA2DACF260000F8BED /* alexa.pb.swift */,
@@ -868,6 +871,7 @@
 				079A217D2B29A72A00F5D013 /* SleepModel.swift in Sources */,
 				07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */,
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,

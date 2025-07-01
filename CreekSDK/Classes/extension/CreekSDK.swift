@@ -88,6 +88,8 @@ public typealias GPXBase = (_ model:Data) -> ()
 public typealias watchSensorBase = (_ model:protocol_watch_sensors_inquire_reply) -> ()
 public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_reply) -> ()
 
+public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
+
 
 
 @objc open class CreekSDK: NSObject{
@@ -189,6 +191,7 @@ public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_
    var GPXDic:[String:GPXBase] = [:]
    var watchSensorDic:[String:watchSensorBase] = [:]
    var waterAssistantDic:[String:waterAssistantBase] = [:]
+   var firmwareUpdateDic:[String:firmwareUpdateBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -1633,7 +1636,6 @@ public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_
                print("Error converting string to dictionary: \(error.localizedDescription)")
             }
             
-            
          }
          
       }else if(call.method == "liveSportControlListen"){
@@ -1647,6 +1649,19 @@ public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_
                print("Error converting string to dictionary: \(error.localizedDescription)")
             }
             
+         }
+         
+      }else if(call.method.contains("queryFirmwareUpdate")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try firmware_update_response(serializedData: response.data,partial: true)
+               if let back = firmwareUpdateDic[call.method]{
+                  back(model)
+                  firmwareUpdateDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
          }
          
       }

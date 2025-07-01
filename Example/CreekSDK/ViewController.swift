@@ -386,6 +386,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       switch allOptions[indexPath.row] {
       case "Upload (Music)":
+         
+       
          let vc = MusicUploadViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
@@ -407,7 +409,6 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          vc.titleStr = allOptions[indexPath.row]
          self.navigationController?.pushViewController(vc, animated: true)
       }
-    
    }
    
    // MARK: - 搜索功能

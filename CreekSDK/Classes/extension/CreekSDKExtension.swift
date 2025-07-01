@@ -2249,5 +2249,37 @@ extension CreekSDK{
           }
        }
     }
+   
+   ///MARK: quire about hardware upgrades
+   ///MARK: langCode： en,zh,de,fr,es,it,pt,ja,ru,tr,th,ko,et,lt,lv,bg,el,pl,vi,cs,sk,hu,ms,id,hi,he,ro,uk,ar,nl,fa,zh_Hant
+   public func queryFirmwareUpdate(langCode:String = "en",model:@escaping firmwareUpdateBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         firmwareUpdateDic["queryFirmwareUpdate\(requestId)"] = model
+         failureArgumentDic["queryFirmwareUpdate\(requestId)"] = failure
+         methodChannel?.invokeMethod("queryFirmwareUpdate\(requestId)", arguments: langCode)
+      }
+       
+   }
+   
+   ///Start firmware update
+   public func startFirmwareUpdate(url:String,downProgress:@escaping progressBase, downSuccess:@escaping successBase, downFailure:@escaping failureArgument,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         progressDic["downstartFirmwareUpdate\(requestId)"] = downProgress
+         successDic["downstartFirmwareUpdate\(requestId)"] = downSuccess;
+         failureArgumentDic["downstartFirmwareUpdate\(requestId)"] = downFailure
+         progressDic["startFirmwareUpdate\(requestId)"] = uploadProgress
+         successDic["startFirmwareUpdate\(requestId)"] = uploadSuccess;
+         failureArgumentDic["startFirmwareUpdate\(requestId)"] = uploadFailure
+         methodChannel?.invokeMethod("startFirmwareUpdate\(requestId)", arguments: url)
+      }
+   }
+   
+   ///Request pairing
+   public func requestPairing(){
+      requestId+=1
+      methodChannel?.invokeMethod("requestPairing\(requestId)", arguments: "")
+   }
 
 }
