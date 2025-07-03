@@ -233,42 +233,42 @@
     {
       "filePath": "\/Users\/bean\/.pub-cache\/git\/flutter_silero_vad-5a64d7b49c99e8cf2bcd60dc942c4ac9bdc3b780\/ios\/Classes\/VadItarator.swift",
       "kind": "BooleanLiteral",
-      "offset": 249,
+      "offset": 267,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bean\/.pub-cache\/git\/flutter_silero_vad-5a64d7b49c99e8cf2bcd60dc942c4ac9bdc3b780\/ios\/Classes\/VadItarator.swift",
       "kind": "IntegerLiteral",
-      "offset": 278,
+      "offset": 298,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/bean\/.pub-cache\/git\/flutter_silero_vad-5a64d7b49c99e8cf2bcd60dc942c4ac9bdc3b780\/ios\/Classes\/VadItarator.swift",
       "kind": "IntegerLiteral",
-      "offset": 309,
+      "offset": 331,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/bean\/.pub-cache\/git\/flutter_silero_vad-5a64d7b49c99e8cf2bcd60dc942c4ac9bdc3b780\/ios\/Classes\/VadItarator.swift",
       "kind": "IntegerLiteral",
-      "offset": 382,
+      "offset": 414,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/bean\/.pub-cache\/git\/flutter_silero_vad-5a64d7b49c99e8cf2bcd60dc942c4ac9bdc3b780\/ios\/Classes\/VadItarator.swift",
       "kind": "IntegerLiteral",
-      "offset": 386,
+      "offset": 418,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/bean\/.pub-cache\/git\/flutter_silero_vad-5a64d7b49c99e8cf2bcd60dc942c4ac9bdc3b780\/ios\/Classes\/VadItarator.swift",
       "kind": "IntegerLiteral",
-      "offset": 390,
+      "offset": 422,
       "length": 2,
       "value": "64"
     }
