@@ -187,8 +187,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "c5zUyyx5IUKn9j6BZ"
-         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmPAevf7MpvCWF3q60S7GaDY2HNDOwyVXkIpTVQVIJcHMUg1v1muHeaSgLO76KR2NIk1qN3iLgt6WmIHJWAMlanAAzkUWCixaNRlJxE3OjZCv6GgFEdSSIIA7cj/cwmqUcqthNVP1Vmp89DTY7Ah08UBpyXfjZGJBxpBkIssl35eCvSVBv8Miil8Meb2kWgoZLPNATr8WS+shvD1pIKOjmTktslHUqfxpYMST35H0tYFmzexTftrl5iPVtzd/VKMnIGS6yDWNiy/6DXCQYNfy6NgqDOVtubldW+Xv6OtLDO4My1Jlp+xG2TUUI3sZMV3glB338O6ZfEmA48X4bM7AcwIDAQAB"
+         let keyId = "************"
+         let publicKey = "************"
          
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")

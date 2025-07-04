@@ -55,6 +55,7 @@
     "Creek/connectivity_plus.framework",
     "Creek/audio_session.framework",
     "Creek/opus_bridge.framework",
+    "Creek/onnxruntime_objc.framework",
     "Creek/device_info.framework",
     "Creek/creek_voice_assistant.framework",
     "Creek/azure_speech.framework",
