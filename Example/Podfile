@@ -4,7 +4,7 @@
 target 'CreekSDK_Example' do
   
   use_frameworks!
-  pod 'MicrosoftCognitiveServicesSpeech-iOS'
+  pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.35.0'
   pod 'CreekSDK', :path => '../'
   pod 'SnapKit'
   pod 'MBProgressHUD'
