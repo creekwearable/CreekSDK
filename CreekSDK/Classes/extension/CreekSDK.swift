@@ -67,6 +67,7 @@ public typealias rawQueryDBClosure = (_ jsonString:String) -> ()
 public typealias SNFirmwareBase = (_ sn:String) -> ()
 public typealias parseDialBase = (_ model:DialParseModel) -> ()
 public typealias parsePhotoDialBase = (_ model:DialPhotoParseModel) -> ()
+public typealias parseVideoDialBase = (_ model:DialVideoParseModel) -> ()
 public typealias previewImageBase = (_ model:Data) -> ()
 public typealias dialDataBase = (_ model:Data) -> ()
 public typealias boolBase = (_ model:Bool) -> ()
@@ -89,6 +90,8 @@ public typealias watchSensorBase = (_ model:protocol_watch_sensors_inquire_reply
 public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_reply) -> ()
 
 public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
+
+public typealias backStringBase = (_ str:String) -> ()
 
 
 
@@ -161,6 +164,7 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
    var sportsClosureDic:[String:sportsClosure] = [:]
    var parseDialClosureDic:[String:parseDialBase] = [:]
    var parsePhotoDialClosureDic:[String:parsePhotoDialBase] = [:]
+   var parseVideoDialClosureDic:[String:parseVideoDialBase] = [:]
    var previewImageClosureDic:[String:previewImageBase] = [:]
    var dialDataClosureDic:[String:dialDataBase] = [:]
    var sportClosureDic:[String:sportClosure] = [:]
@@ -192,6 +196,7 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
    var watchSensorDic:[String:watchSensorBase] = [:]
    var waterAssistantDic:[String:waterAssistantBase] = [:]
    var firmwareUpdateDic:[String:firmwareUpdateBase] = [:]
+   var backStringBaseDic:[String:backStringBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -1299,6 +1304,16 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
             }
             
          }
+      }else if(call.method.contains("parseVideoDial")){
+         if let response = call.arguments as? [String:Any]{
+            if let model = ParseJson.jsonToModel(DialVideoParseModel.self, response){
+               if let back = parseVideoDialClosureDic[call.method]{
+                  back(model);
+                  parseVideoDialClosureDic.removeValue(forKey: call.method)
+               }
+            }
+            
+         }
       }else if(call.method.contains("setCurrentColor")){
          
          if let response = call.arguments as? [String:Any]{
@@ -1322,6 +1337,16 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
             
          }
          
+      }else if(call.method.contains("setCurrentVideoColor")){
+         if let response = call.arguments as? [String:Any]{
+            if let model = ParseJson.jsonToModel(DialVideoParseModel.self, response){
+               if let back = parseVideoDialClosureDic[call.method]{
+                  back(model);
+                  parseVideoDialClosureDic.removeValue(forKey: call.method)
+               }
+            }
+         }
+         
       }else if(call.method.contains("setCurrentBackgroundImagePath")){
          if let response = call.arguments as? [String:Any]{
             if let model = ParseJson.jsonToModel(DialParseModel.self, response){
@@ -1342,6 +1367,17 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
                }
             }
             
+         }
+         
+      }else if(call.method.contains("setCurrentVideoClockPosition")){
+         if let response = call.arguments as? [String:Any]{
+            if let model = ParseJson.jsonToModel(DialVideoParseModel.self, response){
+               if let back = parseVideoDialClosureDic[call.method]{
+                  back(model);
+                  parseVideoDialClosureDic.removeValue(forKey: call.method)
+               }
+            }
+         
          }
          
       }else if(call.method.contains("setCurrentPhotoBackgroundImagePath")){
@@ -1664,6 +1700,22 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
             }
          }
          
+      }
+      else if(call.method.contains("setVideoDial")){
+         if let response = call.arguments as? String{
+            if let back = backStringBaseDic[call.method]{
+               back(response)
+               backStringBaseDic.removeValue(forKey: call.method)
+            }
+         }
+         
+      }else if(call.method.contains("encodeVideoDial")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            if let back = dialDataClosureDic[call.method]{
+               back(response.data)
+               dialDataClosureDic.removeValue(forKey: call.method)
+            }
+         }
       }
       
    }

@@ -83,23 +83,23 @@ These license terms are an agreement between you and Microsoft Corporation (or o
 
 ## 1. INSTALLATION AND USE RIGHTS.
 
-**a) General.** You may install and use any number of copies of the software to develop and test your applications that integrate API(s) used to access and/or use Cognitive Services Speech Services.
+**a) General.** You may install and use any number of copies of the software to develop and test your applications that integrate API(s) used to access and/or use Cognitive Services Speech Services including Embedded Speech Components. 
 
-**b) Third Party Components.** The software may include third party components with separate legal notices or governed by other agreements, as may be described in the ThirdPartyNotices file(s) accompanying the software or may be accessible atÂ <http://aka.ms/thirdpartynotices>. Even if such components are governed by other agreements, the disclaimer, limitations on, and exclusions of damages below also apply to the extent allowed by applicable law.
+**b) Third Party Components.** The software may include third party components with separate legal notices or governed by other agreements, as may be described in the ThirdPartyNotices file(s) accompanying the software or may be accessible at <http://aka.ms/thirdpartynotices>. Even if such components are governed by other agreements, the disclaimer, limitations on, and exclusions of damages below also apply to the extent allowed by applicable law.
 
 **c) Competitive Benchmarking**. If you are a direct competitor, and you access or use the software for purposes of competitive benchmarking, analysis, or intelligence gathering, you waive as against Microsoft, its subsidiaries, and its affiliated companies (including prospectively) any competitive use, access, and benchmarking test restrictions in the terms governing your software to the extent your terms of use are, or purport to be, more restrictive than Microsoft's terms. If this section applies and you do not waive any such purported restrictions in the terms governing your software, you are not allowed to access or use this software, and will not do so.
 
-## 2. DISTRIBUTABLE CODE.Â 
+## 2. DISTRIBUTABLE CODE. 
 
 The software may contain code you are permitted to distribute (i.e., make available for third parties) in applications you develop, as described in this Section.
 
-**a) Distribution Rights.**Â The code and test files described below are distributable if included with the software.
+**a) Distribution Rights.** The code and test files described below are distributable if included with the software.
 
-i. REDIST.TXT Files.Â You may copy and distribute the object code form of code listed on the REDIST list in the software, if any; and
+i. REDIST.TXT Files. You may copy and distribute the object code form of code listed on the REDIST list in the software, if any; and
 
 ii. Third Party Distribution. You may permit distributors of your applications to copy and distribute any of this distributable code you elect to distribute with your applications.
 
-**b) Distribution Requirements.**Â For any code you distribute, you must:
+**b) Distribution Requirements.** For any code you distribute, you must:
 
 i. add significant primary functionality to it in your applications;
 
@@ -113,49 +113,10 @@ i. use Microsoft's trademarks or trade dress in your application in any way that
 
 ii. modify or distribute the source code of any distributable code so that any part of it becomes subject to any license that requires that the distributable code, any other part of the software, or any of Microsoft's other intellectual property be disclosed or distributed in source code form, or that others have the right to modify it.
 
-## 3. CONDITIONAL RIGHTS TO USE AND DISTRIBUTE EMBEDDED SPEECH COMPONENTS (PREVIEW). 
+## 3. CONDITIONAL RIGHTS TO USE AND DISTRIBUTE EMBEDDED SPEECH COMPONENTS. 
+If you are approved for access to Embedded Speech Components in accordance with the terms for Limited Access Services in the Service-Specific Product Terms for Azure Cognitive Services and Applied AI Services available at https://www.microsoft.com/licensing/terms/welcome/welcomepage, and you are in compliance with these license terms, you may license the additional rights to use and distribute the Embedded Speech Components provided to you by Microsoft. Additional applicable terms and conditions will be made available to you upon approval to access Embedded Speech Components.
 
-If you are approved for access to Embedded Speech Components in accordance with the terms for Limited Access Services in the Service-Specific Product Terms for Azure Cognitive Services and Applied AI Services available at <https://www.microsoft.com/licensing/terms/welcome/welcomepage>, and you are in compliance with these license terms and all requirements in an applicable license agreement that references these rights, you have the following additional rights with respect to the Embedded Speech Components.
-
-**a) Definitions.**
-
-i. "Embedded Speech Components" means (i) Embedded Speech extensions in the software and (ii) Embedded Speech models provided to you by Microsoft.
-
-ii. "Company Device" means computing devices, other than Excluded Devices, that you sell, distribute, or otherwise dispose of for use with the Embedded Speech Components.
-
-iii. "End Customer" means a person, company, or other legal entity that acquires a Company Device from you.
-
-iv. "Excluded Device" means any computing device that would subject the Embedded Speech Components, as implemented in such device, to High Risk Use.
-
-v. "High Risk Use" means any use of any Embedded Speech Components where failure or fault of any kind of any Embedded Speech Components could reasonably be seen to lead to death or serious bodily injury, or to severe physical or environmental damage.
-
-**b) Distribution and Use Rights.**
-
-i. Subject to your compliance with these terms (including the distribution requirements and distribution restrictions for distributable code) and all requirements in an applicable license agreement that references these rights, you may (A) download and link the Embedded Speech Components into an application that adds significant primary functionality to the Embedded Speech Components; (B) install the Embedded Speech Components, in binary form as incorporated in your application, on Company Devices; and (C) distribute the Embedded Speech Components as installed on Company Devices to End Customers.
-
-ii. No right is provided to you to sell, distribute, sublicense, or otherwise make available the Embedded Speech Components separate from your applications that are installed on Company Devices or to implement the Embedded Speech Components in your application or Company Device in any manner that would subject the Embedded Speech Components to High Risk Use. You will use commercially reasonable efforts to notify Microsoft within a reasonable time if you become aware that an End Customer is using the Embedded Speech Components separate from your applications that are installed on Company Devices.
-
-iii. Before selling, distributing, or otherwise disposing of any version of a Company Device, you will: (i) make your own determination that the Embedded Speech Components are suitable in quality and performance for use as implemented in your application and used in such Company Device, and (ii) test and examine the Embedded Speech Components in your application as installed on such Company Device.
-
-**c) Required Updates.** From time to time, Microsoft may release by written notice an Update to the Embedded Speech Components designated as required to be performed (each a "Required Update"). Microsoft will use commercially reasonable efforts to minimize the number of Required Updates. Additional terms may apply to a Required Update and Microsoft will make these additional terms available to you. By distributing a Required Update, you agree to the additional terms. If Microsoft makes a Required Update available to you and you elect not to perform the Required Update, Microsoft has no duty or liability based on your installation, use, sale, offer for sale, importation, or other disposition or promotion of a Company Device more than 90 days after Microsoft makes available the Required Update. "Update" means, with respect to the Embedded Speech Components, a royalty-free replacement, bug-fix, or re-release of the software.
-
-**d) Change Event.** Your rights under this section are subject to the following:
-
-i. Microsoft may notify you requiring you to cease installation, further use, sale, offer for sale, importation, or other disposition or promotion of a Company Device due to a Change Event (each, a "Change Event Notice"). Such Change Event Notice will specify the extent and timing of the cessation and any other necessary actions. "Change Event" means that an applicable government or regulatory body in any jurisdiction in which a Company Device may be sold has determined that the Embedded Speech Components are illegal or otherwise subject to any regulation or legal limitation that the Embedded Speech Components were not (or not clearly) subject to as of the date on which Microsoft made the Embedded Speech Components available.
-
-ii. Microsoft will issue a Change Event Notice only to the extent it deems reasonably necessary to address the precipitating Change Event. Microsoft and you will work together, promptly and in good faith, to: (i) coordinate public communications related to the Change Event Notice that specifically reference you or your products or services; and (ii) implement the Change Event Notice as applicable to you in an orderly, effective, and prompt manner.
-
-iii. Additional obligations or remedies related to Change Events may be set forth in the applicable license agreement that references these rights.
-
-iv. DUTY TO MITIGATE. If Microsoft gives you a Change Event Notice, Microsoft has no duty or liability based on your installation, use, sale, offer for sale, importation, or other disposition or promotion of Company Devices more than 30 days after receipt of such Change Event Notice.
-
-**e) Compliance with Laws.** In exercising your rights and performing your obligations under this section, you will comply with all applicable laws, rules, statutes, orders, regulations, and judgments of any government authority having jurisdiction. If you experience a safety or product liability issue with a Company Device which relates to or implicates the Embedded Speech Components in any way, you agree to notify Microsoft promptly in writing so that Microsoft can comply with its own obligations for such an event. Microsoft will treat such notice as your Confidential Information to the extent permitted by applicable law.
-
-**f) Pre-Release Software.** The Embedded Speech Components are a pre-release version. They may not operate correctly. They may be different from the commercially released version.
-
-**g) Feedback.** If you give feedback about the Embedded Speech Components to Microsoft, you give to Microsoft, without charge, the right to use, share and commercialize your feedback in any way and for any purpose. You will not give feedback that is subject to a license that requires Microsoft to license its software or documentation to third parties because Microsoft includes your feedback in them. These rights survive this agreement.
-
-**h)** The rights and obligations set forth in this section 3 are in addition to and subject to all other provisions of these SDK license terms except to the extent of any conflict, in which case the provisions of this section 3 will control. To the extent of any conflict between the rights and obligations set forth in this section 3 and the applicable license agreement, the provisions of the applicable license agreement will control.
+**a)** The rights and obligations set forth in this section 3 are in addition to and subject to all other provisions of these SDK license terms except to the extent of any conflict, in which case the provisions of this section 3 will control. To the extent of any conflict between the rights and obligations set forth in this section 3 and the applicable license agreement, the provisions of the applicable license agreement will control.
 
 ## 4. SCOPE OF LICENSE. 
 
@@ -173,7 +134,7 @@ The software is licensed, not sold. Microsoft reserves all other rights. Unless 
 
 ## 5. DATA.
 
-**a) Data Collection.** The software may collect information about you and your use of the software, and send that to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may opt-out of many of these scenarios, but not all, as described in the product documentation.Â There are also some features in the software that may enable you to collect data from users of your applications. If you use these features to enable data collection in your applications, you must comply with applicable law, including providing appropriate notices to users of your applications. You can learn more about data collection and use in the help documentation and the privacy statement at <https://aka.ms/privacy>. Your use of the software operates as your consent to these practices.
+**a) Data Collection.** The software may collect information about you and your use of the software, and send that to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may opt-out of many of these scenarios, but not all, as described in the product documentation. There are also some features in the software that may enable you to collect data from users of your applications. If you use these features to enable data collection in your applications, you must comply with applicable law, including providing appropriate notices to users of your applications. You can learn more about data collection and use in the help documentation and the privacy statement at <https://aka.ms/privacy>. Your use of the software operates as your consent to these practices.
 
 **b) Processing of Personal Data**. To the extent Microsoft is a processor or subprocessor of personal data in connection with the software, Microsoft makes the commitments in the European Union General Data Protection Regulation Terms of the Online Services Terms to all customers effective May 25, 2018, at <https://docs.microsoft.com/legal/gdpr>.
 
@@ -223,24 +184,15 @@ This limitation applies to (a) anything related to the software, services, conte
 It also applies even if Microsoft knew or should have known about the possibility of the damages. The above limitation or exclusion may not apply to you because your state, province, or country may not allow the exclusion or limitation of incidental, consequential, or other damages.
 
 
-**Please note: As this software is distributed in Canada, some of the clauses in this agreement are provided below in French.**
-
-**Remarque: Ce logiciel Ã©tant distribuÃ© au Canada, certaines des clauses dans ce contrat sont fournies ci-dessous en franÃ§ais.**
-
-**EXONÃ‰RATION DE GARANTIE. Le logiciel visÃ© par une licence est offert Â« tel quel Â». Toute utilisation de ce logiciel est Ã  votre seule risque et pÃ©ril. Microsoft n'accorde aucune autre garantie expresse. Vous pouvez bÃ©nÃ©ficier de droits additionnels en vertu du droit local sur la protection des consommateurs, que ce contrat ne peut modifier. La ou elles sont permises par le droit locale, les garanties implicites de qualitÃ© marchande, d'adÃ©quation Ã  un usage particulier et d'absence de contrefaÃ§on sont exclues.**
-
-**LIMITATION DES DOMMAGES-INTÃ‰RÃŠTS ET EXCLUSION DE RESPONSABILITÃ‰ POUR LES DOMMAGES. Vous pouvez obtenir de Microsoft et de ses fournisseurs une indemnisation en cas de dommages directs uniquement Ã  hauteur de 5,00 \$ US. Vous ne pouvez prÃ©tendre Ã  aucune indemnisation pour les autres dommages, y compris les dommages spÃ©ciaux, indirects ou accessoires et pertes de bÃ©nÃ©fices.**
-
-**Cette limitation concerne:**
-
-**â€¢Â Â Â  tout ce qui est reliÃ© au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet tiers ou dans des programmes tiers; et**
-
-**â€¢Â Â Â  les rÃ©clamations au titre de violation de contrat ou de garantie, ou au titre de responsabilitÃ© stricte, de nÃ©gligence ou d'une autre faute dans la limite autorisÃ©e par la loi en vigueur.**
-
-**Elle s'applique Ã©galement, mÃªme si Microsoft connaissait ou devrait connaÃ®tre l'Ã©ventualitÃ© d'un tel dommage. Si votre pays n'autorise pas l'exclusion ou la limitation de responsabilitÃ© pour les dommages indirects, accessoires ou de quelque nature que ce soit, il se peut que la limitation ou l'exclusion ci-dessus ne s'appliquera pas Ã  votre Ã©gard.**
-
-**EFFET JURIDIQUE. Le prÃ©sent contrat dÃ©crit certains droits juridiques. Vous pourriez avoir d'autres droits prÃ©vus par les lois de votre pays. Le prÃ©sent contrat ne modifie pas les droits que vous confÃ¨rent les lois de votre pays si celles-ci ne le permettent pas.**
-
+**Please note: As this software is distributed in Canada, some of the clauses in this agreement are provided below in French.
+**Remarque: Ce logiciel étant distribué au Canada, certaines des clauses dans ce contrat sont fournies ci-dessous en français.
+**EXONÉRATION DE GARANTIE. Le logiciel visé par une licence est offert « tel quel ». Toute utilisation de ce logiciel est à votre seule risque et péril. Microsoft n’accorde aucune autre garantie expresse. Vous pouvez bénéficier de droits additionnels en vertu du droit local sur la protection des consommateurs, que ce contrat ne peut modifier. La ou elles sont permises par le droit locale, les garanties implicites de qualité marchande, d’adéquation à un usage particulier et d’absence de contrefaçon sont exclues.
+**LIMITATION DES DOMMAGES-INTÉRÊTS ET EXCLUSION DE RESPONSABILITÉ POUR LES DOMMAGES. Vous pouvez obtenir de Microsoft et de ses fournisseurs une indemnisation en cas de dommages directs uniquement à hauteur de 5,00 $ US. Vous ne pouvez prétendre à aucune indemnisation pour les autres dommages, y compris les dommages spéciaux, indirects ou accessoires et pertes de bénéfices.
+**Cette limitation concerne:
+** - tout ce qui est relié au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet tiers ou dans des programmes tiers; et
+** - les réclamations au titre de violation de contrat ou de garantie, ou au titre de responsabilité stricte, de négligence ou d’une autre faute dans la limite autorisée par la loi en vigueur.
+**Elle s’applique également, même si Microsoft connaissait ou devrait connaître l’éventualité d’un tel dommage. Si votre pays n’autorise pas l’exclusion ou la limitation de responsabilité pour les dommages indirects, accessoires ou de quelque nature que ce soit, il se peut que la limitation ou l’exclusion ci-dessus ne s’appliquera pas à votre égard.
+**EFFET JURIDIQUE. Le présent contrat décrit certains droits juridiques. Vous pourriez avoir d’autres droits prévus par les lois de votre pays. Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre pays si celles-ci ne le permettent pas.
 
 ## SnapKit
 

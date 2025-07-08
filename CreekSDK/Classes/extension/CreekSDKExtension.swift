@@ -2281,5 +2281,53 @@ extension CreekSDK{
       requestId+=1
       methodChannel?.invokeMethod("requestPairing\(requestId)", arguments: "")
    }
+   
+   
+   ///Analytical video dial
+   public func parseVideoDial(_ path:String,_ width:Int,_ height:Int, _ radius:Int, _ platformType:Platform ,model:@escaping parseVideoDialBase) {
+      serialQueue.sync {
+         requestId+=1
+         parseVideoDialClosureDic["parseVideoDial\(requestId)"] = model
+         methodChannel?.invokeMethod("parseVideoDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+      }
+       
+   }
+   
+   ///Analytical video dial
+   public func setVideoDial(_ videoPath:String,_ startSecond:Int,_ endSecond:Int, _ cropW:Double, _ cropH:Double,_ cropX:Double,_ cropY:Double,model:@escaping backStringBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["setVideoDial\(requestId)"] = model
+         failureArgumentDic["setVideoDial\(requestId)"] = failure
+         methodChannel?.invokeMethod("setVideoDial\(requestId)", arguments: [videoPath,startSecond,endSecond,cropW,cropH,cropX,cropY])
+      }
+       
+   }
+   
+   ///Set color
+   public func setCurrentVideoColor(selectIndex:Int,model:@escaping parseVideoDialBase) {
+      serialQueue.sync {
+         requestId+=1
+         parseVideoDialClosureDic["setCurrentVideoColor\(requestId)"] = model
+         methodChannel?.invokeMethod("setCurrentVideoColor\(requestId)", arguments: [0,selectIndex])
+      }
+   }
+   
+   public func setCurrentVideoClockPosition(selectIndex:Int,model:@escaping parseVideoDialBase) {
+      serialQueue.sync {
+         requestId+=1
+         parseVideoDialClosureDic["setCurrentVideoClockPosition\(requestId)"] = model
+         methodChannel?.invokeMethod("setCurrentVideoClockPosition\(requestId)", arguments: [0,selectIndex])
+      }
+   }
+   
+   ///Generate watch face
+   public func encodeVideoDial(model:@escaping dialDataBase) {
+      serialQueue.sync {
+         requestId+=1
+         dialDataClosureDic["encodeVideoDial\(requestId)"] = model
+         methodChannel?.invokeMethod("encodeVideoDial\(requestId)", arguments: "")
+      }
+   }
 
 }
