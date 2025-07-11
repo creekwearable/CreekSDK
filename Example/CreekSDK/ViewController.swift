@@ -194,6 +194,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
          
+         CreekInterFace.instance.calendarConfig(timerMinute: 10, systemCalendarName: "CREEK", isSupport: true) { str in
+            print(str)
+         }
+         
          
          CreekSDK.instance.liveSportDataListen { model in
             let json = try? model.jsonString()

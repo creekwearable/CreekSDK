@@ -2329,5 +2329,47 @@ extension CreekSDK{
          methodChannel?.invokeMethod("encodeVideoDial\(requestId)", arguments: "")
       }
    }
+   
+   public func delBindDevice(deviceId:String, success:@escaping successBase, failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         successDic["delBindDevice\(requestId)"] = success;
+         failureArgumentDic["delBindDevice\(requestId)"] = failure
+         methodChannel?.invokeMethod("delBindDevice\(requestId)", arguments: deviceId)
+      }
+   }
+   
+   
+   public func calendarConfig(timerMinute:Int,systemCalendarName:String,isSupport:Bool = false,model:@escaping backStringBase){
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["calendarConfig\(requestId)"] = model
+         methodChannel?.invokeMethod("calendarConfig\(requestId)", arguments: [timerMinute,systemCalendarName,isSupport ? 1 : 0])
+      }
+   }
+   
+   public func checkCalendarPermission(model:@escaping boolBase){
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["checkCalendarPermission\(requestId)"] = model
+         methodChannel?.invokeMethod("checkCalendarPermission\(requestId)", arguments: "")
+      }
+   }
+   public func requestCalendarPermission(model:@escaping boolBase){
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["requestCalendarPermission\(requestId)"] = model
+         methodChannel?.invokeMethod("requestCalendarPermission\(requestId)", arguments: "")
+      }
+   }
+   
+   public func syncCalendar(){
+      serialQueue.sync {
+         requestId+=1
+         methodChannel?.invokeMethod("syncCalendar\(requestId)", arguments: "")
+      }
+   }
+   
+   
 
 }

@@ -1699,7 +1699,6 @@ public typealias backStringBase = (_ str:String) -> ()
                print("Error converting string to dictionary: \(error.localizedDescription)")
             }
          }
-         
       }
       else if(call.method.contains("setVideoDial")){
          if let response = call.arguments as? String{
@@ -1714,6 +1713,26 @@ public typealias backStringBase = (_ str:String) -> ()
             if let back = dialDataClosureDic[call.method]{
                back(response.data)
                dialDataClosureDic.removeValue(forKey: call.method)
+            }
+         }
+      }else if(call.method.contains("calendarConfig")){
+         if let response = call.arguments as? String{
+            if let back = backStringBaseDic[call.method]{
+               back(response)
+            }
+         }
+      }else if(call.method.contains("checkCalendarPermission")){
+         if let response = call.arguments as? Int{
+            if let back = boolClosureDic[call.method]{
+               back((response == 1 ? true : false))
+               backStringBaseDic.removeValue(forKey: call.method)
+            }
+         }
+      }else if(call.method.contains("requestCalendarPermission")){
+         if let response = call.arguments as? Int{
+            if let back = boolClosureDic[call.method]{
+               back((response == 1 ? true : false))
+               backStringBaseDic.removeValue(forKey: call.method)
             }
          }
       }
