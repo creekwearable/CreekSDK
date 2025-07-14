@@ -2249,5 +2249,127 @@ extension CreekSDK{
           }
        }
     }
+   
+   ///MARK: quire about hardware upgrades
+   ///MARK: langCode： en,zh,de,fr,es,it,pt,ja,ru,tr,th,ko,et,lt,lv,bg,el,pl,vi,cs,sk,hu,ms,id,hi,he,ro,uk,ar,nl,fa,zh_Hant
+   public func queryFirmwareUpdate(langCode:String = "en",model:@escaping firmwareUpdateBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         firmwareUpdateDic["queryFirmwareUpdate\(requestId)"] = model
+         failureArgumentDic["queryFirmwareUpdate\(requestId)"] = failure
+         methodChannel?.invokeMethod("queryFirmwareUpdate\(requestId)", arguments: langCode)
+      }
+       
+   }
+   
+   ///Start firmware update
+   public func startFirmwareUpdate(url:String,downProgress:@escaping progressBase, downSuccess:@escaping successBase, downFailure:@escaping failureArgument,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         progressDic["downstartFirmwareUpdate\(requestId)"] = downProgress
+         successDic["downstartFirmwareUpdate\(requestId)"] = downSuccess;
+         failureArgumentDic["downstartFirmwareUpdate\(requestId)"] = downFailure
+         progressDic["startFirmwareUpdate\(requestId)"] = uploadProgress
+         successDic["startFirmwareUpdate\(requestId)"] = uploadSuccess;
+         failureArgumentDic["startFirmwareUpdate\(requestId)"] = uploadFailure
+         methodChannel?.invokeMethod("startFirmwareUpdate\(requestId)", arguments: url)
+      }
+   }
+   
+   ///Request pairing
+   public func requestPairing(){
+      requestId+=1
+      methodChannel?.invokeMethod("requestPairing\(requestId)", arguments: "")
+   }
+   
+   
+   ///Analytical video dial
+   public func parseVideoDial(_ path:String,_ width:Int,_ height:Int, _ radius:Int, _ platformType:Platform ,model:@escaping parseVideoDialBase) {
+      serialQueue.sync {
+         requestId+=1
+         parseVideoDialClosureDic["parseVideoDial\(requestId)"] = model
+         methodChannel?.invokeMethod("parseVideoDial\(requestId)", arguments: [path,width,height,radius,platformType.rawValue])
+      }
+       
+   }
+   
+   ///Analytical video dial
+   public func setVideoDial(_ videoPath:String,_ startSecond:Int,_ endSecond:Int, _ cropW:Double, _ cropH:Double,_ cropX:Double,_ cropY:Double,model:@escaping backStringBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["setVideoDial\(requestId)"] = model
+         failureArgumentDic["setVideoDial\(requestId)"] = failure
+         methodChannel?.invokeMethod("setVideoDial\(requestId)", arguments: [videoPath,startSecond,endSecond,cropW,cropH,cropX,cropY])
+      }
+       
+   }
+   
+   ///Set color
+   public func setCurrentVideoColor(selectIndex:Int,model:@escaping parseVideoDialBase) {
+      serialQueue.sync {
+         requestId+=1
+         parseVideoDialClosureDic["setCurrentVideoColor\(requestId)"] = model
+         methodChannel?.invokeMethod("setCurrentVideoColor\(requestId)", arguments: [0,selectIndex])
+      }
+   }
+   
+   public func setCurrentVideoClockPosition(selectIndex:Int,model:@escaping parseVideoDialBase) {
+      serialQueue.sync {
+         requestId+=1
+         parseVideoDialClosureDic["setCurrentVideoClockPosition\(requestId)"] = model
+         methodChannel?.invokeMethod("setCurrentVideoClockPosition\(requestId)", arguments: [0,selectIndex])
+      }
+   }
+   
+   ///Generate watch face
+   public func encodeVideoDial(model:@escaping dialDataBase) {
+      serialQueue.sync {
+         requestId+=1
+         dialDataClosureDic["encodeVideoDial\(requestId)"] = model
+         methodChannel?.invokeMethod("encodeVideoDial\(requestId)", arguments: "")
+      }
+   }
+   
+   public func delBindDevice(deviceId:String, success:@escaping successBase, failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         successDic["delBindDevice\(requestId)"] = success;
+         failureArgumentDic["delBindDevice\(requestId)"] = failure
+         methodChannel?.invokeMethod("delBindDevice\(requestId)", arguments: deviceId)
+      }
+   }
+   
+   
+   public func calendarConfig(timerMinute:Int,systemCalendarName:String,isSupport:Bool = false,model:@escaping backStringBase){
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["calendarConfig\(requestId)"] = model
+         methodChannel?.invokeMethod("calendarConfig\(requestId)", arguments: [timerMinute,systemCalendarName,isSupport ? 1 : 0])
+      }
+   }
+   
+   public func checkCalendarPermission(model:@escaping boolBase){
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["checkCalendarPermission\(requestId)"] = model
+         methodChannel?.invokeMethod("checkCalendarPermission\(requestId)", arguments: "")
+      }
+   }
+   public func requestCalendarPermission(model:@escaping boolBase){
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["requestCalendarPermission\(requestId)"] = model
+         methodChannel?.invokeMethod("requestCalendarPermission\(requestId)", arguments: "")
+      }
+   }
+   
+   public func syncCalendar(){
+      serialQueue.sync {
+         requestId+=1
+         methodChannel?.invokeMethod("syncCalendar\(requestId)", arguments: "")
+      }
+   }
+   
+   
 
 }

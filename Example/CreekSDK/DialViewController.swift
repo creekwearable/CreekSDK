@@ -80,7 +80,14 @@ class DialViewController: CreekBaseViewController,UITableViewDelegate,UITableVie
         but.setTitle("photo", for: .normal)
         but.addTarget(self, action: #selector(tapClick), for: .touchUpInside)
         let itemmeunbut = UIBarButtonItem.init(customView: but)
-        self.navigationItem.rightBarButtonItem = itemmeunbut
+      
+        let but2 = UIButton(type: .custom)
+        but2.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        but2.setTitleColor(.black, for: .normal)
+        but2.setTitle("video", for: .normal)
+        but2.addTarget(self, action: #selector(videoClick), for: .touchUpInside)
+        let itemmeunbut2 = UIBarButtonItem.init(customView: but2)
+        self.navigationItem.rightBarButtonItems = [itemmeunbut,itemmeunbut2]
     }
     
     
@@ -89,6 +96,11 @@ class DialViewController: CreekBaseViewController,UITableViewDelegate,UITableVie
         let vc = DialPhotoViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+   
+   @objc func videoClick()  {
+      let vc = DialVideoViewController()
+       self.navigationController?.pushViewController(vc, animated: true)
+   }
     
     
     func isDirectoryExists(at url: URL) -> Bool {

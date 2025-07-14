@@ -25,3 +25,23 @@ public class DialPhotoParseModel: Codable {
     public var previewImageBytes: String?
     
 }
+
+public class DialVideoParseModel: Codable {
+    ///Album pictures
+    public var videoImagePaths: [String] = []
+    ///colors
+    public var appColors: [String]?
+    ///clock position
+    public var clockPositionImagePaths : [String] = []
+    ///The coordinates of the currently selected image
+    public var videoSelectIndex: Int?
+    ///The coordinates of the currently selected color
+    public var colorSelectIndexList: [Int] = []
+    ///The coordinates of the currently selected clock position
+    public var clockPositionSelectIndexList: [Int] = []
+    ///preview
+    public var previewImageBytes: String?
+   
+    public var videoPath: String?
+    
+}

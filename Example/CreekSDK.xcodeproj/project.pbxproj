@@ -76,6 +76,9 @@
 		07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C3D2DAFEA29000F8BED /* OTAViewController.swift */; };
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
+		073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */; };
+		073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */; };
+		073DE4BD2E1BE00000FA2B97 /* video.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073DE4BC2E1BE00000FA2B97 /* video.zip */; };
 		073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
@@ -204,6 +207,9 @@
 		07266C3D2DAFEA29000F8BED /* OTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTAViewController.swift; sourceTree = "<group>"; };
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netWork.pb.swift; sourceTree = "<group>"; };
+		073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialVideoViewController.swift; sourceTree = "<group>"; };
+		073DE4BC2E1BE00000FA2B97 /* video.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = video.zip; sourceTree = "<group>"; };
 		073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = CW06G_TITAD101_01.zip; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */,
 				07266C352DAF60F0000F8BED /* geo.pb.swift */,
 				07266BB92DACF260000F8BED /* alarm.pb.swift */,
 				07266BBA2DACF260000F8BED /* alexa.pb.swift */,
@@ -492,12 +499,14 @@
 				0750C9312B99756400D8E7A0 /* func6_pink.zip */,
 				077A60B52B67AB8F00AFEB2B /* acti06_2.zip */,
 				077A60B12B677ED100AFEB2B /* CASIO01_01.zip */,
+				073DE4BC2E1BE00000FA2B97 /* video.zip */,
 				079A21D82B29B0B700F5D013 /* base */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				077A60B92B67B37300AFEB2B /* DialViewController.swift */,
 				07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */,
 				07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */,
+				073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */,
 				079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */,
 				079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */,
 				07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */,
@@ -606,6 +615,7 @@
 				07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */,
 				07941D362BCEB4BB00CBFB62 /* squarePhoto.zip in Resources */,
 				073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */,
+				073DE4BD2E1BE00000FA2B97 /* video.zip in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */,
 				07941D2C2BCBE58000CBFB62 /* circlePhoto.zip in Resources */,
@@ -683,6 +693,7 @@
 				"${PODS_ROOT}/../../Creek/azure_speech.framework",
 				"${PODS_ROOT}/../../Creek/OrderedSet.framework",
 				"${PODS_ROOT}/../../Creek/flutter_native_timezone_updated_gradle.framework",
+				"${PODS_ROOT}/../../Creek/device_calendar.framework",
 				"${PODS_ROOT}/../../Creek/creek_index_convert.framework",
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -729,6 +740,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/azure_speech.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OrderedSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_native_timezone_updated_gradle.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/device_calendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_index_convert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -868,6 +880,7 @@
 				079A217D2B29A72A00F5D013 /* SleepModel.swift in Sources */,
 				07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */,
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
@@ -875,6 +888,7 @@
 				07266C342DAD1CAB000F8BED /* MusicViewController.swift in Sources */,
 				07266C3A2DAFBBB4000F8BED /* RouteViewController.swift in Sources */,
 				07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */,
+				073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */,
 				079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */,
 				079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */,
 			);

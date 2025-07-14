@@ -1,0 +1,806 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "device_calendar",
+    "printedName": "device_calendar",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "EventKit",
+        "printedName": "EventKit",
+        "declKind": "Import",
+        "moduleName": "device_calendar"
+      },
+      {
+        "kind": "Import",
+        "name": "EventKitUI",
+        "printedName": "EventKitUI",
+        "declKind": "Import",
+        "moduleName": "device_calendar"
+      },
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "device_calendar"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "device_calendar"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "device_calendar"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SwiftDeviceCalendarPlugin",
+        "printedName": "SwiftDeviceCalendarPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@device_calendar@objc(cs)SwiftDeviceCalendarPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s15device_calendar25SwiftDeviceCalendarPluginC8register4withySo07FlutterF9Registrar_p_tFZ",
+            "moduleName": "device_calendar",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@device_calendar@objc(cs)SwiftDeviceCalendarPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s15device_calendar25SwiftDeviceCalendarPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "device_calendar",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "eventViewController",
+            "printedName": "eventViewController(_:didCompleteWith:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EKEventViewController",
+                "printedName": "EventKitUI.EKEventViewController",
+                "usr": "c:objc(cs)EKEventViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EKEventViewAction",
+                "printedName": "EventKitUI.EKEventViewAction",
+                "usr": "c:@E@EKEventViewAction"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@device_calendar@objc(cs)SwiftDeviceCalendarPlugin(im)eventViewController:didCompleteWithAction:",
+            "mangledName": "$s15device_calendar25SwiftDeviceCalendarPluginC19eventViewController_15didCompleteWithySo07EKEventhI0C_So0mH6ActionVtF",
+            "moduleName": "device_calendar",
+            "objc_name": "eventViewController:didCompleteWithAction:",
+            "declAttributes": [
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SwiftDeviceCalendarPlugin",
+                "printedName": "device_calendar.SwiftDeviceCalendarPlugin",
+                "usr": "c:@M@device_calendar@objc(cs)SwiftDeviceCalendarPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@device_calendar@objc(cs)SwiftDeviceCalendarPlugin(im)init",
+            "mangledName": "$s15device_calendar25SwiftDeviceCalendarPluginCACycfc",
+            "moduleName": "device_calendar",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@device_calendar@objc(cs)SwiftDeviceCalendarPlugin",
+        "mangledName": "$s15device_calendar25SwiftDeviceCalendarPluginC",
+        "moduleName": "device_calendar",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UIColor",
+        "printedName": "UIColor",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(hex:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIColor?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So7UIColorC15device_calendarE3hexABSgSS_tcfc",
+            "mangledName": "$sSo7UIColorC15device_calendarE3hexABSgSS_tcfc",
+            "moduleName": "device_calendar",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)UIColor",
+        "moduleName": "UIKit",
+        "isOpen": true,
+        "intro_iOS": "2.0",
+        "objc_name": "UIColor",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ExpressibleByColorLiteral",
+            "printedName": "_ExpressibleByColorLiteral",
+            "usr": "s:s26_ExpressibleByColorLiteralP",
+            "mangledName": "$ss26_ExpressibleByColorLiteralP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2047,
+      "length": 41,
+      "value": "\"plugins.builttoroam.com\/device_calendar\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2117,
+      "length": 5,
+      "value": "\"404\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2144,
+      "length": 5,
+      "value": "\"405\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2173,
+      "length": 5,
+      "value": "\"500\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2211,
+      "length": 5,
+      "value": "\"401\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2252,
+      "length": 71,
+      "value": "\"The user has not allowed this application to modify their calendar(s)\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2369,
+      "length": 48,
+      "value": "\"The calendar with the ID %@ could not be found\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2463,
+      "length": 34,
+      "value": "\"Calendar with ID %@ is read-only\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2540,
+      "length": 45,
+      "value": "\"The event with the ID %@ could not be found\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2657,
+      "length": 20,
+      "value": "\"requestPermissions\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2709,
+      "length": 16,
+      "value": "\"hasPermissions\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2760,
+      "length": 19,
+      "value": "\"retrieveCalendars\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2811,
+      "length": 16,
+      "value": "\"retrieveEvents\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2860,
+      "length": 17,
+      "value": "\"retrieveSources\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2914,
+      "length": 21,
+      "value": "\"createOrUpdateEvent\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 2967,
+      "length": 16,
+      "value": "\"createCalendar\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3015,
+      "length": 16,
+      "value": "\"deleteCalendar\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3060,
+      "length": 13,
+      "value": "\"deleteEvent\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3110,
+      "length": 21,
+      "value": "\"deleteEventInstance\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3163,
+      "length": 19,
+      "value": "\"showiOSEventModal\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3212,
+      "length": 12,
+      "value": "\"calendarId\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3253,
+      "length": 11,
+      "value": "\"startDate\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3291,
+      "length": 9,
+      "value": "\"endDate\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3327,
+      "length": 9,
+      "value": "\"eventId\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3364,
+      "length": 10,
+      "value": "\"eventIds\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3404,
+      "length": 12,
+      "value": "\"eventTitle\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3452,
+      "length": 18,
+      "value": "\"eventDescription\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3501,
+      "length": 13,
+      "value": "\"eventAllDay\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3549,
+      "length": 16,
+      "value": "\"eventStartDate\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3597,
+      "length": 14,
+      "value": "\"eventEndDate\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3649,
+      "length": 20,
+      "value": "\"eventStartTimeZone\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3702,
+      "length": 15,
+      "value": "\"eventLocation\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3745,
+      "length": 10,
+      "value": "\"eventURL\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3784,
+      "length": 11,
+      "value": "\"attendees\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3829,
+      "length": 16,
+      "value": "\"recurrenceRule\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3884,
+      "length": 21,
+      "value": "\"recurrenceFrequency\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3941,
+      "length": 18,
+      "value": "\"totalOccurrences\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 3987,
+      "length": 10,
+      "value": "\"interval\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4027,
+      "length": 12,
+      "value": "\"daysOfWeek\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4069,
+      "length": 12,
+      "value": "\"dayOfMonth\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4112,
+      "length": 13,
+      "value": "\"monthOfYear\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4156,
+      "length": 13,
+      "value": "\"weekOfMonth\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4193,
+      "length": 6,
+      "value": "\"name\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4231,
+      "length": 14,
+      "value": "\"emailAddress\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4269,
+      "length": 6,
+      "value": "\"role\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4304,
+      "length": 11,
+      "value": "\"reminders\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4342,
+      "length": 9,
+      "value": "\"minutes\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4389,
+      "length": 20,
+      "value": "\"followingInstances\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4441,
+      "length": 14,
+      "value": "\"calendarName\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4488,
+      "length": 15,
+      "value": "\"calendarColor\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4535,
+      "length": 14,
+      "value": "\"availability\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4585,
+      "length": 18,
+      "value": "\"attendanceStatus\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "kind": "StringLiteral",
+      "offset": 4634,
+      "length": 13,
+      "value": "\"eventStatus\""
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "10.0.3-noise",
+  "version": "10.0.5-noise",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "10.0.3-noise"
+    "tag": "10.0.5-noise"
   },
   "platforms": {
     "ios": "12.0"
@@ -55,12 +55,12 @@
     "Creek/connectivity_plus.framework",
     "Creek/audio_session.framework",
     "Creek/opus_bridge.framework",
-    "Creek/onnxruntime_objc.framework",
     "Creek/device_info.framework",
     "Creek/creek_voice_assistant.framework",
     "Creek/azure_speech.framework",
     "Creek/OrderedSet.framework",
     "Creek/flutter_native_timezone_updated_gradle.framework",
+    "Creek/device_calendar.framework",
     "Creek/creek_index_convert.framework"
   ],
   "pod_target_xcconfig": {
@@ -69,9 +69,6 @@
   "dependencies": {
     "SwiftProtobuf": [
       "~> 1.25.2"
-    ],
-    "onnxruntime-objc": [
-      "1.15.1"
     ]
   },
   "static_framework": true,

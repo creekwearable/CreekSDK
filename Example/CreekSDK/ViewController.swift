@@ -187,12 +187,16 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "************"
-         let publicKey = "************"
+         let keyId = "c5zUyyx5IUKn9j6BZ"
+         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmPAevf7MpvCWF3q60S7GaDY2HNDOwyVXkIpTVQVIJcHMUg1v1muHeaSgLO76KR2NIk1qN3iLgt6WmIHJWAMlanAAzkUWCixaNRlJxE3OjZCv6GgFEdSSIIA7cj/cwmqUcqthNVP1Vmp89DTY7Ah08UBpyXfjZGJBxpBkIssl35eCvSVBv8Miil8Meb2kWgoZLPNATr8WS+shvD1pIKOjmTktslHUqfxpYMST35H0tYFmzexTftrl5iPVtzd/VKMnIGS6yDWNiy/6DXCQYNfy6NgqDOVtubldW+Xv6OtLDO4My1Jlp+xG2TUUI3sZMV3glB338O6ZfEmA48X4bM7AcwIDAQAB"
          
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")
-         CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
+         CreekInterFace.instance.setAiVoiceCity(cityName: "NewYork")
+         
+//         CreekInterFace.instance.calendarConfig(timerMinute: 10, systemCalendarName: "CREEK", isSupport: true) { str in
+//            print(str)
+//         }
          
          
          CreekSDK.instance.liveSportDataListen { model in
@@ -386,6 +390,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       switch allOptions[indexPath.row] {
       case "Upload (Music)":
+         
+       
          let vc = MusicUploadViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
@@ -407,7 +413,6 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          vc.titleStr = allOptions[indexPath.row]
          self.navigationController?.pushViewController(vc, animated: true)
       }
-    
    }
    
    // MARK: - 搜索功能
