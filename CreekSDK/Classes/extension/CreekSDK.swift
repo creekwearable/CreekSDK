@@ -1725,14 +1725,14 @@ public typealias backStringBase = (_ str:String) -> ()
          if let response = call.arguments as? Int{
             if let back = boolClosureDic[call.method]{
                back((response == 1 ? true : false))
-               backStringBaseDic.removeValue(forKey: call.method)
+               boolClosureDic.removeValue(forKey: call.method)
             }
          }
       }else if(call.method.contains("requestCalendarPermission")){
          if let response = call.arguments as? Int{
             if let back = boolClosureDic[call.method]{
                back((response == 1 ? true : false))
-               backStringBaseDic.removeValue(forKey: call.method)
+               boolClosureDic.removeValue(forKey: call.method)
             }
          }
       }
