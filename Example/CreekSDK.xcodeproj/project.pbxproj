@@ -76,6 +76,7 @@
 		07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266C3D2DAFEA29000F8BED /* OTAViewController.swift */; };
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
+		073D059E2E30DA7F00F000B3 /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D059D2E30DA7F00F000B3 /* GoalsModel.swift */; };
 		073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */; };
 		073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */; };
 		073DE4BD2E1BE00000FA2B97 /* video.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073DE4BC2E1BE00000FA2B97 /* video.zip */; };
@@ -207,6 +208,7 @@
 		07266C3D2DAFEA29000F8BED /* OTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTAViewController.swift; sourceTree = "<group>"; };
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		073D059D2E30DA7F00F000B3 /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netWork.pb.swift; sourceTree = "<group>"; };
 		073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialVideoViewController.swift; sourceTree = "<group>"; };
 		073DE4BC2E1BE00000FA2B97 /* video.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = video.zip; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */,
 				07266C2D2DACFDEB000F8BED /* MusicModel.swift */,
 				07266C2F2DAD01DE000F8BED /* CourseModel.swift */,
+				073D059D2E30DA7F00F000B3 /* GoalsModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				07266BFD2DACF260000F8BED /* font.pb.swift in Sources */,
 				07266BFE2DACF260000F8BED /* morning.pb.swift in Sources */,
 				07266BFF2DACF260000F8BED /* time.pb.swift in Sources */,
+				073D059E2E30DA7F00F000B3 /* GoalsModel.swift in Sources */,
 				07266C002DACF260000F8BED /* call.pb.swift in Sources */,
 				07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */,
 				07266C012DACF260000F8BED /* wtm.pb.swift in Sources */,

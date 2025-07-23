@@ -2371,5 +2371,73 @@ extension CreekSDK{
    }
    
    
+   public func aiChat(content:String,threadId:String = "",userId:String,replyMessage:@escaping backStringBase,courseJson:@escaping backStringBase,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["aiChat\(requestId)"] = replyMessage
+         backStringBaseDic["aicourse"] = courseJson
+         failureArgumentDic["aiChat\(requestId)"] = failure
+         methodChannel?.invokeMethod("aiChat\(requestId)", arguments: [content,threadId,userId])
+      }
+   }
+   ///langCode： en,zh,de,fr,es,it,pt,ja,ru,tr,th,ko,et,lt,lv,bg,el,pl,vi,cs,sk,hu,ms,id,hi,he,ro,uk,ar,nl,fa,zh_Hant............
+   ///height  /cm
+   ///weight  /kg
+   public func aiAnalysisActivity(activityModel:ActivityModel,goalsModel:GoalsModel,langCode:String = "en",userId:String,height:Int,weight:Double,replyMessage:@escaping backStringBase,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["aiAnalysisActivity\(requestId)"] = replyMessage
+         failureArgumentDic["aiAnalysisActivity\(requestId)"] = failure
+         guard
+             let activityData = try? JSONEncoder().encode(activityModel),
+             let activityStr = String(data: activityData, encoding: .utf8),
+             let goalsData = try? JSONEncoder().encode(goalsModel),
+             let goalsStr = String(data: goalsData, encoding: .utf8)
+         else {
+             print("Failed to encode activityModel or goalsModel")
+             return
+         }
+         methodChannel?.invokeMethod("aiAnalysisActivity\(requestId)", arguments: [activityStr,goalsStr,langCode,userId,height,weight])
+      }
+      
+   }
+   
+   public func aiAnalysisSleep(sleepModel:SleepModel,langCode:String = "en",userId:String,replyMessage:@escaping backStringBase,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["aiAnalysisSleep\(requestId)"] = replyMessage
+         failureArgumentDic["aiAnalysisSleep\(requestId)"] = failure
+         guard
+             let sleepData = try? JSONEncoder().encode(sleepModel),
+             let sleepStr = String(data: sleepData, encoding: .utf8)
+         else {
+             print("Failed to encode sleepModel")
+             return
+         }
+         methodChannel?.invokeMethod("aiAnalysisSleep\(requestId)", arguments: [sleepStr,langCode,userId])
+      }
+      
+   }
+   
+   public func aiAnalysisSport(sportModel:SportModel,langCode:String = "en",userId:String,age:Int,gender:gender_type,replyMessage:@escaping backStringBase,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         backStringBaseDic["aiAnalysisSport\(requestId)"] = replyMessage
+         failureArgumentDic["aiAnalysisSport\(requestId)"] = failure
+         guard
+             let sportData = try? JSONEncoder().encode(sportModel),
+             let sportStr = String(data: sportData, encoding: .utf8)
+         else {
+             print("Failed to encode sportModel")
+             return
+         }
+         methodChannel?.invokeMethod("aiAnalysisSport\(requestId)", arguments: [sportStr,langCode,age,userId,"\(gender.rawValue + 1)"])
+      }
+      
+   }
+   
+   
+   
+   
 
 }
