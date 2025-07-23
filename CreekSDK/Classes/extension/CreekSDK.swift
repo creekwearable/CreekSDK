@@ -1735,6 +1735,13 @@ public typealias backStringBase = (_ str:String) -> ()
                boolClosureDic.removeValue(forKey: call.method)
             }
          }
+      }else if(call.method.contains("aiChat") || call.method.contains("aiAnalysisActivity") || call.method.contains("aiAnalysisSleep") || call.method.contains("aiAnalysisSport") ||  call.method.contains("aicourse")){
+         if let response = call.arguments as? String{
+            if let back = backStringBaseDic[call.method]{
+               back(response)
+               backStringBaseDic.removeValue(forKey: call.method)
+            }
+         }
       }
       
    }

@@ -268,3 +268,25 @@ public class WorkoutCourseModel: Codable {
     public var completeRate: Int?
    
 }
+
+public class sportLapModel: Codable {
+    /// Duration of exercise
+    public var durations: Int?
+   /// Average pace (min/km) or speed for cycling; for other sports, this is pace
+    public var avgKmPace: Int?
+   /// Average pace (min/mi) or speed for cycling; for other sports, this is pace
+    public var avgMiPace: Int?
+   /// Average power
+    public var avgPower: Int?
+   /// Distance (meters)
+    public var distance: Int?
+   /// Average heart rate value
+    public var avgHrValue: Int?
+   /// Maximum heart rate value
+    public var maxHrValue: Int?
+   /// Minimum heart rate value
+    public var minHrValue: Int?
+   /// Calories
+    public var calories: Int?
+
+}

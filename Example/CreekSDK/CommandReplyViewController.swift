@@ -60,6 +60,36 @@ class CommandReplyViewController: CreekBaseViewController {
       self.view.showRemark(msg: "loding....")
       switch titleStr{
       case "Get device information":
+         self.view.hideRemark()
+//         CreekInterFace.instance.aiChat(content: "Help me create a 30-minute running session.",userId: "1234567") { str in
+//            print(str)
+//         } courseJson: { str in
+//            print(str)
+//         } failure: { code, message in
+//            print(message)
+//         }
+//         
+//         CreekInterFace.instance.aiAnalysisSleep(sleepModel: SleepModel(),langCode: "en",userId: "1234567") { str in
+//            print(str)
+//         } failure: { code, message in
+//            print(message)
+//         }
+//         
+//         CreekInterFace.instance.aiAnalysisSport(sportModel: SportModel(), langCode: "en", userId: "1234567", age: 28, gender: .genderFemale) { str in
+//            print("aiAnalysisSport:\(str)")
+//         } failure: { code, message in
+//            print("aiAnalysisSport:\(message)")
+//         }
+//         
+//         CreekInterFace.instance.aiAnalysisActivity(activityModel: ActivityModel(), goalsModel: GoalsModel(), langCode: "en", userId: "123456", height: 178, weight: 65.5) { str in
+//            print("aiAnalysisActivity:\(str)")
+//         } failure: { code, message in
+//            print("aiAnalysisActivity:\(message)")
+//         }
+
+
+
+         
          CreekInterFace.instance.getFirmware { model in
             self.view.hideRemark()
             let json = try? model.jsonString()
