@@ -211,6 +211,8 @@ public class SportModel: Codable {
    public var courseName: String?
    
    public var workoutCourseItem : [WorkoutCourseModel]?
+   
+   public var sportLapItem : [sportLapModel]?
 
 }
 
