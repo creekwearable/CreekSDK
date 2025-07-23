@@ -212,7 +212,7 @@ public class SportModel: Codable {
    
    public var workoutCourseItem : [WorkoutCourseModel]?
    
-   public var sportLapItem : [sportLapModel]?
+   public var sportLapItem : [SportLapModel]?
 
 }
 
@@ -271,7 +271,7 @@ public class WorkoutCourseModel: Codable {
    
 }
 
-public class sportLapModel: Codable {
+public class SportLapModel: Codable {
     /// Duration of exercise
     public var durations: Int?
    /// Average pace (min/km) or speed for cycling; for other sports, this is pace
