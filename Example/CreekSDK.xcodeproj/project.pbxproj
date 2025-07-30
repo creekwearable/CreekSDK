@@ -77,6 +77,8 @@
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
 		073D059E2E30DA7F00F000B3 /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D059D2E30DA7F00F000B3 /* GoalsModel.swift */; };
+		073D05E92E3A2AD700F000B3 /* activeOta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */; };
+		073D05EA2E3A2AD700F000B3 /* zsWeather.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D05E82E3A2AD700F000B3 /* zsWeather.pb.swift */; };
 		073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */; };
 		073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */; };
 		073DE4BD2E1BE00000FA2B97 /* video.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073DE4BC2E1BE00000FA2B97 /* video.zip */; };
@@ -209,6 +211,8 @@
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		073D059D2E30DA7F00F000B3 /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
+		073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activeOta.pb.swift; sourceTree = "<group>"; };
+		073D05E82E3A2AD700F000B3 /* zsWeather.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zsWeather.pb.swift; sourceTree = "<group>"; };
 		073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netWork.pb.swift; sourceTree = "<group>"; };
 		073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialVideoViewController.swift; sourceTree = "<group>"; };
 		073DE4BC2E1BE00000FA2B97 /* video.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = video.zip; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */,
+				073D05E82E3A2AD700F000B3 /* zsWeather.pb.swift */,
 				073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */,
 				07266C352DAF60F0000F8BED /* geo.pb.swift */,
 				07266BB92DACF260000F8BED /* alarm.pb.swift */,
@@ -871,6 +877,8 @@
 				079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */,
 				079A21802B29A72A00F5D013 /* OxygenModel.swift in Sources */,
 				079A21622B29A71B00F5D013 /* Log.swift in Sources */,
+				073D05E92E3A2AD700F000B3 /* activeOta.pb.swift in Sources */,
+				073D05EA2E3A2AD700F000B3 /* zsWeather.pb.swift in Sources */,
 				07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				079A21832B29A72A00F5D013 /* HeartRateModel.swift in Sources */,

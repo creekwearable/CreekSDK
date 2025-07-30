@@ -31,6 +31,9 @@ public struct protocol_system_operate: Sendable {
   ///关机操作
   public var powerOff: Bool = false
 
+  ///恢复出厂设置
+  public var factoryReset: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -43,6 +46,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "restart"),
     2: .standard(proto: "power_off"),
+    3: .standard(proto: "factory_reset"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -53,6 +57,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self.restart) }()
       case 2: try { try decoder.decodeSingularBoolField(value: &self.powerOff) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.factoryReset) }()
       default: break
       }
     }
@@ -65,12 +70,16 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.powerOff != false {
       try visitor.visitSingularBoolField(value: self.powerOff, fieldNumber: 2)
     }
+    if self.factoryReset != false {
+      try visitor.visitSingularBoolField(value: self.factoryReset, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_system_operate, rhs: protocol_system_operate) -> Bool {
     if lhs.restart != rhs.restart {return false}
     if lhs.powerOff != rhs.powerOff {return false}
+    if lhs.factoryReset != rhs.factoryReset {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

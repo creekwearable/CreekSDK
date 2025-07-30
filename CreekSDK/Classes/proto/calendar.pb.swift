@@ -85,6 +85,12 @@ public struct protocol_calendar_operate: Sendable {
 
   public var calendarItem: [calendar_item] = []
 
+  ///当前多少页，用于分段传输。
+  public var pageIndex: UInt32 = 0
+
+  ///当前页传输多少条数据，用于分段传输。
+  public var pageNum: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -105,6 +111,15 @@ public struct protocol_calendar_inquire_reply: Sendable {
   public var calendarSupportMax: UInt32 = 0
 
   public var calendarItem: [calendar_item] = []
+
+  ///当前多少页，用于分段传输。
+  public var pageIndex: UInt32 = 0
+
+  ///当前页传输多少条数据，用于分段传输。
+  public var pageNum: UInt32 = 0
+
+  ///总共有多少个items
+  public var totalItems: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -234,6 +249,8 @@ extension protocol_calendar_operate: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "calendar_item"),
+    3: .standard(proto: "page_index"),
+    4: .standard(proto: "page_num"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -244,6 +261,8 @@ extension protocol_calendar_operate: SwiftProtobuf.Message, SwiftProtobuf._Messa
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.calendarItem) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.pageIndex) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.pageNum) }()
       default: break
       }
     }
@@ -256,12 +275,20 @@ extension protocol_calendar_operate: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if !self.calendarItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.calendarItem, fieldNumber: 2)
     }
+    if self.pageIndex != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageIndex, fieldNumber: 3)
+    }
+    if self.pageNum != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageNum, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_calendar_operate, rhs: protocol_calendar_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.calendarItem != rhs.calendarItem {return false}
+    if lhs.pageIndex != rhs.pageIndex {return false}
+    if lhs.pageNum != rhs.pageNum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -274,6 +301,9 @@ extension protocol_calendar_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     2: .standard(proto: "func_table"),
     3: .standard(proto: "calendar_support_max"),
     4: .standard(proto: "calendar_item"),
+    5: .standard(proto: "page_index"),
+    6: .standard(proto: "page_num"),
+    7: .standard(proto: "total_items"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -286,6 +316,9 @@ extension protocol_calendar_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.calendarSupportMax) }()
       case 4: try { try decoder.decodeRepeatedMessageField(value: &self.calendarItem) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.pageIndex) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.pageNum) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.totalItems) }()
       default: break
       }
     }
@@ -304,6 +337,15 @@ extension protocol_calendar_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.calendarItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.calendarItem, fieldNumber: 4)
     }
+    if self.pageIndex != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageIndex, fieldNumber: 5)
+    }
+    if self.pageNum != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageNum, fieldNumber: 6)
+    }
+    if self.totalItems != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalItems, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -312,6 +354,9 @@ extension protocol_calendar_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.calendarSupportMax != rhs.calendarSupportMax {return false}
     if lhs.calendarItem != rhs.calendarItem {return false}
+    if lhs.pageIndex != rhs.pageIndex {return false}
+    if lhs.pageNum != rhs.pageNum {return false}
+    if lhs.totalItems != rhs.totalItems {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

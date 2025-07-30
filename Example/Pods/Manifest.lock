@@ -1,11 +1,11 @@
 PODS:
-  - CreekSDK (0.1.49):
+  - CreekSDK (0.1.50):
     - MicrosoftCognitiveServicesSpeech-iOS
     - onnxruntime-objc (= 1.15.0)
     - SwiftProtobuf (~> 1.25.2)
   - CropViewController (2.7.4)
   - MBProgressHUD (1.2.0)
-  - MicrosoftCognitiveServicesSpeech-iOS (1.44.0)
+  - MicrosoftCognitiveServicesSpeech-iOS (1.45.0)
   - onnxruntime-c (1.15.0)
   - onnxruntime-objc (1.15.0):
     - onnxruntime-objc/Core (= 1.15.0)
@@ -48,10 +48,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: 7184d365f8df18d42aa5f5e969bd079253f63e2c
+  CreekSDK: fdde38f20731cedf35aa2849de5a86c2716995dc
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MicrosoftCognitiveServicesSpeech-iOS: 6e39e00447337facb47f418c9c21dd46b4d8c4d0
+  MicrosoftCognitiveServicesSpeech-iOS: 47bb6e18d9cb7868f670a8ce26ced3c090fc95ae
   onnxruntime-c: e87399683ec19e3b812e13c6692882609a802b86
   onnxruntime-objc: 57ae8f83779a4c32731065d50d02d042af581114
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a

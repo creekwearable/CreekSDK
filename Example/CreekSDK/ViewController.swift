@@ -199,14 +199,43 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          
-         CreekSDK.instance.liveSportDataListen { model in
+         CreekInterFace.instance.liveSportDataListen { model in
             let json = try? model.jsonString()
             print(json)
          }
-         CreekSDK.instance.liveSportControlListen { model in
+         CreekInterFace.instance.liveSportControlListen { model in
             let json = try? model.jsonString()
              print(json)
          }
+         
+         
+         CreekInterFace.instance.aiDialConfig { model in
+            ///pcm 音频数据（date）
+            ///转文本
+            ///文本转成功之后
+            ///
+            ////正常.normal
+            CreekInterFace.instance.aiDialSendText(text: "我想生成一个小狗", type: .normal)
+//            ///识别错误
+//            CreekInterFace.instance.aiDialSendText(text: "", type: .error)
+//            /// 网络错误
+//            CreekInterFace.instance.aiDialSendText(text: "", type: .networkError)
+            
+         } confirmText: { str in
+            ///手表确认文本
+            print(str)
+            
+            ///生成Ai图片
+            ///生成完成之后 下发图片数据
+            if let image = UIImage(named: "Act06_1201_03") {
+                if let data = image.pngData() {
+                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal)
+                }
+            }
+           
+         }
+
+         
          
 //         CreekSDK.instance.setSportControl(controlType: .controlResume) {
 //            print("success")

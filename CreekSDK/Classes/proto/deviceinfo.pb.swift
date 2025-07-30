@@ -91,6 +91,9 @@ public struct device_size_info: Sendable {
   ///2bytes 圆角角度
   public var angle: UInt32 = 0
 
+  ///戒指圈号
+  public var ringSize: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -396,6 +399,16 @@ public struct protocol_device_info: @unchecked Sendable {
     set {_uniqueStorage()._bind = newValue}
   }
 
+  ///充电仓
+  public var battCaseInfo: protocol_device_batt_info {
+    get {return _storage._battCaseInfo ?? protocol_device_batt_info()}
+    set {_uniqueStorage()._battCaseInfo = newValue}
+  }
+  /// Returns true if `battCaseInfo` has been explicitly set.
+  public var hasBattCaseInfo: Bool {return _storage._battCaseInfo != nil}
+  /// Clears the value of `battCaseInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearBattCaseInfo() {_uniqueStorage()._battCaseInfo = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -535,6 +548,7 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     1: .same(proto: "width"),
     2: .same(proto: "height"),
     3: .same(proto: "angle"),
+    4: .standard(proto: "ring_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -546,6 +560,7 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       case 1: try { try decoder.decodeSingularUInt32Field(value: &self.width) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.height) }()
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.angle) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.ringSize) }()
       default: break
       }
     }
@@ -561,6 +576,9 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if self.angle != 0 {
       try visitor.visitSingularUInt32Field(value: self.angle, fieldNumber: 3)
     }
+    if self.ringSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.ringSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -568,6 +586,7 @@ extension device_size_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if lhs.width != rhs.width {return false}
     if lhs.height != rhs.height {return false}
     if lhs.angle != rhs.angle {return false}
+    if lhs.ringSize != rhs.ringSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -843,6 +862,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     25: .standard(proto: "heartrate_push"),
     26: .standard(proto: "is_wrench_mode"),
     27: .same(proto: "bind"),
+    28: .standard(proto: "batt_case_info"),
   ]
 
   fileprivate class _StorageClass {
@@ -873,6 +893,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _heartratePush: Bool = false
     var _isWrenchMode: Bool = false
     var _bind: bind_method_support = .pairingCodeNormalSupport
+    var _battCaseInfo: protocol_device_batt_info? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -914,6 +935,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _heartratePush = source._heartratePush
       _isWrenchMode = source._isWrenchMode
       _bind = source._bind
+      _battCaseInfo = source._battCaseInfo
     }
   }
 
@@ -959,6 +981,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 25: try { try decoder.decodeSingularBoolField(value: &_storage._heartratePush) }()
         case 26: try { try decoder.decodeSingularBoolField(value: &_storage._isWrenchMode) }()
         case 27: try { try decoder.decodeSingularEnumField(value: &_storage._bind) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._battCaseInfo) }()
         default: break
         }
       }
@@ -1052,6 +1075,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if _storage._bind != .pairingCodeNormalSupport {
         try visitor.visitSingularEnumField(value: _storage._bind, fieldNumber: 27)
       }
+      try { if let v = _storage._battCaseInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1088,6 +1114,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._heartratePush != rhs_storage._heartratePush {return false}
         if _storage._isWrenchMode != rhs_storage._isWrenchMode {return false}
         if _storage._bind != rhs_storage._bind {return false}
+        if _storage._battCaseInfo != rhs_storage._battCaseInfo {return false}
         return true
       }
       if !storagesAreEqual {return false}

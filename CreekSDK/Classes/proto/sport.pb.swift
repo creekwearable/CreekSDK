@@ -549,7 +549,7 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
   }
 
   ///是否支持gps信号
-  public var gpsSupport: UInt32 {
+  public var gpsSupport: Bool {
     get {return _storage._gpsSupport}
     set {_uniqueStorage()._gpsSupport = newValue}
   }
@@ -1402,7 +1402,7 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _elevationSupport: Bool = false
     var _lapSupport: Bool = false
     var _gpsRssi: UInt32 = 0
-    var _gpsSupport: UInt32 = 0
+    var _gpsSupport: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1508,7 +1508,7 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 34: try { try decoder.decodeSingularBoolField(value: &_storage._elevationSupport) }()
         case 35: try { try decoder.decodeSingularBoolField(value: &_storage._lapSupport) }()
         case 36: try { try decoder.decodeSingularUInt32Field(value: &_storage._gpsRssi) }()
-        case 37: try { try decoder.decodeSingularUInt32Field(value: &_storage._gpsSupport) }()
+        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._gpsSupport) }()
         default: break
         }
       }
@@ -1625,8 +1625,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._gpsRssi != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._gpsRssi, fieldNumber: 36)
       }
-      if _storage._gpsSupport != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._gpsSupport, fieldNumber: 37)
+      if _storage._gpsSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._gpsSupport, fieldNumber: 37)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
