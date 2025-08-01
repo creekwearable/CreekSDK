@@ -340,6 +340,7 @@ public enum VoiceDialType : Int{
    case error = 1
    case violation = 2
    case networkError = 3
+   case noPoints = 4
 }
 
 

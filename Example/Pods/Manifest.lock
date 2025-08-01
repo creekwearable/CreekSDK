@@ -1,5 +1,5 @@
 PODS:
-  - CreekSDK (0.1.50):
+  - CreekSDK (0.1.52):
     - MicrosoftCognitiveServicesSpeech-iOS
     - onnxruntime-objc (= 1.15.0)
     - SwiftProtobuf (~> 1.25.2)
@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: fdde38f20731cedf35aa2849de5a86c2716995dc
+  CreekSDK: 12bd816ff39383453c2af23084b3b0e2f9536cdb
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: 47bb6e18d9cb7868f670a8ce26ced3c090fc95ae
