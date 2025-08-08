@@ -206,13 +206,19 @@ public typealias backStringBase = (_ str:String) -> ()
    }
    
    public func setupInit(completed:(()->())? = nil){
-      channelCompletedClosure = completed
-      flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
-      flutterEngine?.run(withEntrypoint: nil)
-      GeneratedPluginRegistrant.register(with: flutterEngine!)
-      methodChannel = FlutterMethodChannel(name: "com.watchic.app/sdk",
-                                           binaryMessenger: flutterEngine!.binaryMessenger)
-      methodChannel?.setMethodCallHandler(handle(_:result:))
+      if flutterEngine == nil{
+         channelCompletedClosure = completed
+         flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
+         flutterEngine?.run(withEntrypoint: nil)
+         GeneratedPluginRegistrant.register(with: flutterEngine!)
+         methodChannel = FlutterMethodChannel(name: "com.watchic.app/sdk",
+                                              binaryMessenger: flutterEngine!.binaryMessenger)
+         methodChannel?.setMethodCallHandler(handle(_:result:))
+      }else{
+         if let back = completed{
+            back()
+         }
+      }
    }
    
    public func setup(withflutterEngine engine: FlutterEngine) {
