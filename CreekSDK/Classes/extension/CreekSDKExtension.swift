@@ -2467,5 +2467,9 @@ extension CreekSDK{
       methodChannel?.invokeMethod("aiDialSendImages", arguments: [images,type.rawValue])
    }
    
+   public func saveBindDevice(){
+      methodChannel?.invokeMethod("saveBindDevice", arguments: "")
+   }
+   
    
 }
