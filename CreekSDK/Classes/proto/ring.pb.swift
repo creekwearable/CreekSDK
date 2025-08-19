@@ -70,6 +70,84 @@ public struct protocol_ring_remind_mark_operate: Sendable {
   public init() {}
 }
 
+public struct protocol_ring_motion_recognition_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///传输方向
+  public var tranType: tran_direction_type = .watchTran
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///运动识别运动类型
+  public var sportType: sport_type = .orun
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_remind_mark_switch_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///目标达成提醒开关
+  public var goalAchievedSwitch: switch_type = .switchNull
+
+  ///低电量提醒开关
+  public var lowPowerSwitch: switch_type = .switchNull
+
+  ///充电满提醒开关
+  public var chargerFullSwitch: switch_type = .switchNull
+
+  ///寻找戒指闪灯开关
+  public var findRingLedSwitch: switch_type = .switchNull
+
+  ///NTC温度过高提醒开关
+  public var ntctemperatureHighSwitch: switch_type = .switchNull
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_remind_switch_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///目标达成提醒开关
+  public var goalAchievedSwitch: switch_type = .switchNull
+
+  ///低电量提醒开关
+  public var lowPowerSwitch: switch_type = .switchNull
+
+  ///充电满提醒开关
+  public var chargerFullSwitch: switch_type = .switchNull
+
+  ///寻找戒指闪灯开关
+  public var findRingLedSwitch: switch_type = .switchNull
+
+  ///NTC温度过高提醒开关
+  public var ntctemperatureHighSwitch: switch_type = .switchNull
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -179,6 +257,180 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.eventID != rhs.eventID {return false}
     if lhs.eventValue != rhs.eventValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ring_motion_recognition_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ring_motion_recognition_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "sport_type"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    if self.sportType != .orun {
+      try visitor.visitSingularEnumField(value: self.sportType, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ring_motion_recognition_operate, rhs: protocol_ring_motion_recognition_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.sportType != rhs.sportType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_remind_mark_switch_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "goal_achieved_switch"),
+    3: .standard(proto: "low_power_switch"),
+    4: .standard(proto: "charger_full_switch"),
+    5: .standard(proto: "find_ring_led_switch"),
+    6: .standard(proto: "ntctemperature_high_switch"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.goalAchievedSwitch) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.lowPowerSwitch) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.chargerFullSwitch) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.findRingLedSwitch) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.ntctemperatureHighSwitch) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.goalAchievedSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.goalAchievedSwitch, fieldNumber: 2)
+    }
+    if self.lowPowerSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.lowPowerSwitch, fieldNumber: 3)
+    }
+    if self.chargerFullSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.chargerFullSwitch, fieldNumber: 4)
+    }
+    if self.findRingLedSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.findRingLedSwitch, fieldNumber: 5)
+    }
+    if self.ntctemperatureHighSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.ntctemperatureHighSwitch, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_remind_mark_switch_operate, rhs: protocol_remind_mark_switch_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.goalAchievedSwitch != rhs.goalAchievedSwitch {return false}
+    if lhs.lowPowerSwitch != rhs.lowPowerSwitch {return false}
+    if lhs.chargerFullSwitch != rhs.chargerFullSwitch {return false}
+    if lhs.findRingLedSwitch != rhs.findRingLedSwitch {return false}
+    if lhs.ntctemperatureHighSwitch != rhs.ntctemperatureHighSwitch {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_remind_switch_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "operate"),
+    3: .standard(proto: "goal_achieved_switch"),
+    4: .standard(proto: "low_power_switch"),
+    5: .standard(proto: "charger_full_switch"),
+    6: .standard(proto: "find_ring_led_switch"),
+    7: .standard(proto: "ntctemperature_high_switch"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.goalAchievedSwitch) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.lowPowerSwitch) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.chargerFullSwitch) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.findRingLedSwitch) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self.ntctemperatureHighSwitch) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 2)
+    }
+    if self.goalAchievedSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.goalAchievedSwitch, fieldNumber: 3)
+    }
+    if self.lowPowerSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.lowPowerSwitch, fieldNumber: 4)
+    }
+    if self.chargerFullSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.chargerFullSwitch, fieldNumber: 5)
+    }
+    if self.findRingLedSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.findRingLedSwitch, fieldNumber: 6)
+    }
+    if self.ntctemperatureHighSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.ntctemperatureHighSwitch, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_remind_switch_inquire_reply, rhs: protocol_remind_switch_inquire_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.operate != rhs.operate {return false}
+    if lhs.goalAchievedSwitch != rhs.goalAchievedSwitch {return false}
+    if lhs.lowPowerSwitch != rhs.lowPowerSwitch {return false}
+    if lhs.chargerFullSwitch != rhs.chargerFullSwitch {return false}
+    if lhs.findRingLedSwitch != rhs.findRingLedSwitch {return false}
+    if lhs.ntctemperatureHighSwitch != rhs.ntctemperatureHighSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

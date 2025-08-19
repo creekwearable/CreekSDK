@@ -2433,11 +2433,43 @@ extension CreekSDK{
          }
          methodChannel?.invokeMethod("aiAnalysisSport\(requestId)", arguments: [sportStr,langCode,age,userId,"\(gender.rawValue + 1)"])
       }
-      
+   }
+   
+   ///MARK :set weather
+   /// - Parameter :
+   ///      - model: protocol_weather_operate
+   /// - Returns:
+   public func setZSWeather(model:protocol_zs_weather_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setZSWeather\(requestId)"] = success;
+         failureArgumentDic["setZSWeather\(requestId)"] = failure
+         do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setZSWeather\(requestId)", arguments: data)
+         }catch{
+        
+         }
+      }
+   }
+   
+   public func aiDialConfig(voiceData:@escaping dialDataBase,confirmText:@escaping backStringBase){
+      dialDataClosureDic["aiDialPcm"] = voiceData
+      backStringBaseDic["aiDialText"] = confirmText
+      methodChannel?.invokeMethod("aiDialConfig", arguments: "")
+   }
+   
+   public func aiDialSendText(text:String,type:VoiceDialType){
+      methodChannel?.invokeMethod("aiDialSendText", arguments: [text,type.rawValue])
+   }
+   
+   public func aiDialSendImages(images:[Data],type:VoiceDialType){
+      methodChannel?.invokeMethod("aiDialSendImages", arguments: [images,type.rawValue])
+   }
+   
+   public func saveBindDevice(){
+      methodChannel?.invokeMethod("saveBindDevice", arguments: "")
    }
    
    
-   
-   
-
 }

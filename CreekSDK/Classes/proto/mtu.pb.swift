@@ -59,6 +59,12 @@ public struct protocol_connect_status_inquire_reply: Sendable {
   ///spp文件传输prn
   public var sppFileTranPrn: UInt32 = 0
 
+  ///1bytes ble hid配对状态 目前戒指在用
+  public var bleHidPairingStatus: Bool = false
+
+  ///ble文件传输prn
+  public var bleFileTranPrn: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -113,6 +119,8 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
     4: .standard(proto: "bt_pairing_status"),
     5: .standard(proto: "bt_connect_status"),
     6: .standard(proto: "spp_file_tran_prn"),
+    7: .standard(proto: "ble_hid_pairing_status"),
+    8: .standard(proto: "ble_file_tran_prn"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -127,6 +135,8 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
       case 4: try { try decoder.decodeSingularBoolField(value: &self.btPairingStatus) }()
       case 5: try { try decoder.decodeSingularBoolField(value: &self.btConnectStatus) }()
       case 6: try { try decoder.decodeSingularUInt32Field(value: &self.sppFileTranPrn) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.bleHidPairingStatus) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.bleFileTranPrn) }()
       default: break
       }
     }
@@ -151,6 +161,12 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
     if self.sppFileTranPrn != 0 {
       try visitor.visitSingularUInt32Field(value: self.sppFileTranPrn, fieldNumber: 6)
     }
+    if self.bleHidPairingStatus != false {
+      try visitor.visitSingularBoolField(value: self.bleHidPairingStatus, fieldNumber: 7)
+    }
+    if self.bleFileTranPrn != 0 {
+      try visitor.visitSingularUInt32Field(value: self.bleFileTranPrn, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -161,6 +177,8 @@ extension protocol_connect_status_inquire_reply: SwiftProtobuf.Message, SwiftPro
     if lhs.btPairingStatus != rhs.btPairingStatus {return false}
     if lhs.btConnectStatus != rhs.btConnectStatus {return false}
     if lhs.sppFileTranPrn != rhs.sppFileTranPrn {return false}
+    if lhs.bleHidPairingStatus != rhs.bleHidPairingStatus {return false}
+    if lhs.bleFileTranPrn != rhs.bleFileTranPrn {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

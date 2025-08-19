@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ZIPFoundation
 
 class DialDetailsViewController: CreekBaseViewController {
     
@@ -83,6 +84,25 @@ class DialDetailsViewController: CreekBaseViewController {
         }
 
     }
+   
+   
+   
+   /// 如果 ZIP 里只有一个顶层目录，则返回它的名字；否则返回 nil
+   func singleTopLevelFolderName(in zipURL: URL)  -> Bool {
+       guard let archive = Archive(url: zipURL, accessMode: .read) else {
+          return false
+       }
+       // 收集所有条目的首级路径
+       let tops = Set(archive.compactMap { entry in
+           entry.path
+               .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+               .components(separatedBy: "/")
+               .first
+       })
+      
+      return tops.count == 1 ? true : false
+   }
+   
     
     //MARK: Unzip file
     func unzipFile(){
@@ -92,46 +112,35 @@ class DialDetailsViewController: CreekBaseViewController {
                if let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
                    var destinationURL = documentsURL
                    destinationURL.appendPathComponent("directory")
-                   if !isDirectoryExists(at: destinationURL) {
-                       do {
-                           try FileManager.default.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
-                           try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
-                           destinationURL.appendPathComponent(titleName)
-                          if !isDirectoryExists(at: destinationURL) {
-                              do {
-                                 try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
-                                  print("Decompression is successful, the path is:\(destinationURL.path)")
-                              } catch {
-                                  print("Decompression failed: \(error)")
-                              }
-                          }else{
-                              print("The file already exists")
-                          }
-                          
-                           print("Decompression is successful, the path is:\(destinationURL.path)")
-                       } catch {
-                           print("Decompression failed: \(error)")
-                       }
-                   } else {
-                       var destinationURL2 = destinationURL
-                       destinationURL2.appendPathComponent(titleName)
-                       if !isDirectoryExists(at: destinationURL2) {
-                           do {
-                              try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
-                              if !isDirectoryExists(at: destinationURL2){
-                                 try FileManager.default.createDirectory(at: destinationURL2, withIntermediateDirectories: true, attributes: nil)
-                                 try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL2)
-                              }
-                               print("Decompression is successful, the path is:\(destinationURL.path)")
-                           } catch {
-                               print("Decompression failed: \(error)")
-                           }
-                       }else{
-                           print("The file already exists")
-                       }
-                 
-                   }
-       
+                  ///directory 目录不存在
+                  if !isDirectoryExists(at: destinationURL) {
+                      do {
+                         try FileManager.default.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
+                      } catch {
+                          print("Decompression failed: \(error)")
+                      }
+                  }
+                  if  singleTopLevelFolderName(in:  URL(fileURLWithPath: path)){
+                     ///如果是单个目录，就创建一个载体
+                     destinationURL.appendPathComponent(titleName)
+                     if !isDirectoryExists(at: destinationURL) {
+                         do {
+                            try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
+                             print("Decompression is successful, the path is:\(destinationURL.path)")
+                         } catch {
+                             print("Decompression failed: \(error)")
+                         }
+                     }else{
+                         print("The file already exists")
+                     }
+                  }else{
+                     ///多个目录不需要处理，直接解压
+                     do{
+                        try fileManager.unzipItem(at: URL(fileURLWithPath: path), to: destinationURL)
+                     }catch{
+                        
+                     }
+                  }
                }
 
         }else{
@@ -170,6 +179,14 @@ class DialDetailsViewController: CreekBaseViewController {
     }
     
     func setDialUI(){
+       var notify =   protocol_message_notify_switch()
+       notify.notifySwitch = false
+       CreekInterFace.instance.setMessageOnOff(model: notify) {
+          
+       } failure: { code, message in
+          
+       }
+
         for butview in (self.view.subviews){
             if butview.isKind(of: ZBSlideColorView.self)
             {

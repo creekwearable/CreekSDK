@@ -524,6 +524,9 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///瑞典
   case sweden // = 33
+
+  ///缅甸语
+  case burmese // = 34
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -566,6 +569,7 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 31: self = .farsi
     case 32: self = .tradChinese
     case 33: self = .sweden
+    case 34: self = .burmese
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -606,6 +610,7 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .farsi: return 31
     case .tradChinese: return 32
     case .sweden: return 33
+    case .burmese: return 34
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -646,6 +651,7 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     .farsi,
     .tradChinese,
     .sweden,
+    .burmese,
   ]
 
 }
@@ -664,6 +670,9 @@ public enum bind_method: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///配对码绑定
   case bindPairingCode // = 3
+
+  ///确认绑定
+  case bindConfirm // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -676,6 +685,7 @@ public enum bind_method: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .bindNormal
     case 2: self = .bindRemove
     case 3: self = .bindPairingCode
+    case 4: self = .bindConfirm
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -686,6 +696,7 @@ public enum bind_method: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .bindNormal: return 1
     case .bindRemove: return 2
     case .bindPairingCode: return 3
+    case .bindConfirm: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -696,6 +707,7 @@ public enum bind_method: SwiftProtobuf.Enum, Swift.CaseIterable {
     .bindNormal,
     .bindRemove,
     .bindPairingCode,
+    .bindConfirm,
   ]
 
 }
@@ -1674,6 +1686,404 @@ public enum weather_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum zs_weather_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///晴
+  case zsSunny // = 0
+
+  ///多云（白天）
+  case zsCloudyDay // = 1
+
+  ///少云（白天）
+  case zsPartlyCloudyDay // = 2
+
+  ///晴间多云
+  case zsPartlySunny // = 3
+
+  ///阴
+  case zsOvercast // = 4
+
+  ///晴（重复项唯一化）
+  case zsSunnyClear // = 5
+
+  ///多云（夜晚）
+  case zsCloudyNight // = 6
+
+  ///少云（夜晚）
+  case zsPartlyCloudyNight // = 7
+
+  ///晴间多云（重复项唯一化）
+  case zsPartlySunnyDay // = 8
+
+  ///阵雨（白天）
+  case zsShowersDay // = 9
+
+  ///强阵雨（白天）
+  case zsHeavyShowersDay // = 10
+
+  ///雷阵雨
+  case zsThunderstorms // = 11
+
+  ///强雷阵雨
+  case zsSevereThunderstorms // = 12
+
+  ///雷阵雨伴有冰雹
+  case zsThunderstormsHail // = 13
+
+  ///小雨
+  case zsLightRain // = 14
+
+  ///中雨
+  case zsModerateRain // = 15
+
+  ///大雨
+  case zsHeavyRain // = 16
+
+  ///极端降雨
+  case zsExtremeRainfall // = 17
+
+  ///毛毛雨/细雨
+  case zsDrizzleLight // = 18
+
+  ///暴雨
+  case zsTorrentialRain // = 19
+
+  ///大暴雨
+  case zsHeavyTorrential // = 20
+
+  ///特大暴雨
+  case zsExtremeTorrential // = 21
+
+  ///冻雨
+  case zsFreezingRain // = 22
+
+  ///小到中雨
+  case zsLightToModerateRain // = 23
+
+  ///中到大雨
+  case zsModerateToHeavyRain // = 24
+
+  ///大到暴雨
+  case zsHeavyToTorrential // = 25
+
+  ///暴雨到大暴雨
+  case zsTorrentialToHeavyTorrential // = 26
+
+  ///大暴雨到特大暴雨
+  case zsHeavyToExtremeTorrential // = 27
+
+  ///阵雨（夜晚）
+  case zsShowersNight // = 28
+
+  ///强阵雨（夜晚）
+  case zsHeavyShowersNight // = 29
+
+  ///雨
+  case zsRainGeneral // = 30
+
+  ///小雪
+  case zsLightSnow // = 31
+
+  ///中雪
+  case zsModerateSnow // = 32
+
+  ///大雪
+  case zsHeavySnow // = 33
+
+  ///暴雪
+  case zsSnowstorm // = 34
+
+  ///雨夹雪
+  case zsSleetMix // = 35
+
+  ///雨雪天气
+  case zsRainAndSnow // = 36
+
+  ///阵雨夹雪（白天）
+  case zsSleetShowersDay // = 37
+
+  ///阵雪（白天）
+  case zsSnowShowersDay // = 38
+
+  ///小到中雪
+  case zsLightToModerateSnow // = 39
+
+  ///中到大雪
+  case zsModerateToHeavySnow // = 40
+
+  ///大到暴雪
+  case zsHeavyToSnowstorm // = 41
+
+  ///阵雨夹雪（夜晚）
+  case zsSleetShowersNight // = 42
+
+  ///阵雪（夜晚）
+  case zsSnowShowersNight // = 43
+
+  ///雪
+  case zsSnowGeneral // = 44
+
+  ///薄雾
+  case zsMistLight // = 45
+
+  ///雾
+  case zsFogGeneral // = 46
+
+  ///霾
+  case zsHazePollution // = 47
+
+  ///扬沙
+  case zsBlowingSand // = 48
+
+  ///浮尘
+  case zsDustHaze // = 49
+
+  ///沙尘暴
+  case zsSandstorm // = 50
+
+  ///强沙尘暴
+  case zsSevereSandstorm // = 51
+
+  ///浓雾
+  case zsDenseFog // = 52
+
+  ///强浓雾
+  case zsHeavyDenseFog // = 53
+
+  ///中度霾
+  case zsModerateHaze // = 54
+
+  ///重度霾
+  case zsHeavyHaze // = 55
+
+  ///严重霾
+  case zsSevereHaze // = 56
+
+  ///大雾
+  case zsFogHeavy // = 57
+
+  ///特强浓雾
+  case zsExtremeDenseFog // = 58
+
+  ///热
+  case zsHot // = 59
+
+  ///冷
+  case zsCold // = 60
+
+  ///龙卷
+  case zsTornado // = 61
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .zsSunny
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .zsSunny
+    case 1: self = .zsCloudyDay
+    case 2: self = .zsPartlyCloudyDay
+    case 3: self = .zsPartlySunny
+    case 4: self = .zsOvercast
+    case 5: self = .zsSunnyClear
+    case 6: self = .zsCloudyNight
+    case 7: self = .zsPartlyCloudyNight
+    case 8: self = .zsPartlySunnyDay
+    case 9: self = .zsShowersDay
+    case 10: self = .zsHeavyShowersDay
+    case 11: self = .zsThunderstorms
+    case 12: self = .zsSevereThunderstorms
+    case 13: self = .zsThunderstormsHail
+    case 14: self = .zsLightRain
+    case 15: self = .zsModerateRain
+    case 16: self = .zsHeavyRain
+    case 17: self = .zsExtremeRainfall
+    case 18: self = .zsDrizzleLight
+    case 19: self = .zsTorrentialRain
+    case 20: self = .zsHeavyTorrential
+    case 21: self = .zsExtremeTorrential
+    case 22: self = .zsFreezingRain
+    case 23: self = .zsLightToModerateRain
+    case 24: self = .zsModerateToHeavyRain
+    case 25: self = .zsHeavyToTorrential
+    case 26: self = .zsTorrentialToHeavyTorrential
+    case 27: self = .zsHeavyToExtremeTorrential
+    case 28: self = .zsShowersNight
+    case 29: self = .zsHeavyShowersNight
+    case 30: self = .zsRainGeneral
+    case 31: self = .zsLightSnow
+    case 32: self = .zsModerateSnow
+    case 33: self = .zsHeavySnow
+    case 34: self = .zsSnowstorm
+    case 35: self = .zsSleetMix
+    case 36: self = .zsRainAndSnow
+    case 37: self = .zsSleetShowersDay
+    case 38: self = .zsSnowShowersDay
+    case 39: self = .zsLightToModerateSnow
+    case 40: self = .zsModerateToHeavySnow
+    case 41: self = .zsHeavyToSnowstorm
+    case 42: self = .zsSleetShowersNight
+    case 43: self = .zsSnowShowersNight
+    case 44: self = .zsSnowGeneral
+    case 45: self = .zsMistLight
+    case 46: self = .zsFogGeneral
+    case 47: self = .zsHazePollution
+    case 48: self = .zsBlowingSand
+    case 49: self = .zsDustHaze
+    case 50: self = .zsSandstorm
+    case 51: self = .zsSevereSandstorm
+    case 52: self = .zsDenseFog
+    case 53: self = .zsHeavyDenseFog
+    case 54: self = .zsModerateHaze
+    case 55: self = .zsHeavyHaze
+    case 56: self = .zsSevereHaze
+    case 57: self = .zsFogHeavy
+    case 58: self = .zsExtremeDenseFog
+    case 59: self = .zsHot
+    case 60: self = .zsCold
+    case 61: self = .zsTornado
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .zsSunny: return 0
+    case .zsCloudyDay: return 1
+    case .zsPartlyCloudyDay: return 2
+    case .zsPartlySunny: return 3
+    case .zsOvercast: return 4
+    case .zsSunnyClear: return 5
+    case .zsCloudyNight: return 6
+    case .zsPartlyCloudyNight: return 7
+    case .zsPartlySunnyDay: return 8
+    case .zsShowersDay: return 9
+    case .zsHeavyShowersDay: return 10
+    case .zsThunderstorms: return 11
+    case .zsSevereThunderstorms: return 12
+    case .zsThunderstormsHail: return 13
+    case .zsLightRain: return 14
+    case .zsModerateRain: return 15
+    case .zsHeavyRain: return 16
+    case .zsExtremeRainfall: return 17
+    case .zsDrizzleLight: return 18
+    case .zsTorrentialRain: return 19
+    case .zsHeavyTorrential: return 20
+    case .zsExtremeTorrential: return 21
+    case .zsFreezingRain: return 22
+    case .zsLightToModerateRain: return 23
+    case .zsModerateToHeavyRain: return 24
+    case .zsHeavyToTorrential: return 25
+    case .zsTorrentialToHeavyTorrential: return 26
+    case .zsHeavyToExtremeTorrential: return 27
+    case .zsShowersNight: return 28
+    case .zsHeavyShowersNight: return 29
+    case .zsRainGeneral: return 30
+    case .zsLightSnow: return 31
+    case .zsModerateSnow: return 32
+    case .zsHeavySnow: return 33
+    case .zsSnowstorm: return 34
+    case .zsSleetMix: return 35
+    case .zsRainAndSnow: return 36
+    case .zsSleetShowersDay: return 37
+    case .zsSnowShowersDay: return 38
+    case .zsLightToModerateSnow: return 39
+    case .zsModerateToHeavySnow: return 40
+    case .zsHeavyToSnowstorm: return 41
+    case .zsSleetShowersNight: return 42
+    case .zsSnowShowersNight: return 43
+    case .zsSnowGeneral: return 44
+    case .zsMistLight: return 45
+    case .zsFogGeneral: return 46
+    case .zsHazePollution: return 47
+    case .zsBlowingSand: return 48
+    case .zsDustHaze: return 49
+    case .zsSandstorm: return 50
+    case .zsSevereSandstorm: return 51
+    case .zsDenseFog: return 52
+    case .zsHeavyDenseFog: return 53
+    case .zsModerateHaze: return 54
+    case .zsHeavyHaze: return 55
+    case .zsSevereHaze: return 56
+    case .zsFogHeavy: return 57
+    case .zsExtremeDenseFog: return 58
+    case .zsHot: return 59
+    case .zsCold: return 60
+    case .zsTornado: return 61
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [zs_weather_type] = [
+    .zsSunny,
+    .zsCloudyDay,
+    .zsPartlyCloudyDay,
+    .zsPartlySunny,
+    .zsOvercast,
+    .zsSunnyClear,
+    .zsCloudyNight,
+    .zsPartlyCloudyNight,
+    .zsPartlySunnyDay,
+    .zsShowersDay,
+    .zsHeavyShowersDay,
+    .zsThunderstorms,
+    .zsSevereThunderstorms,
+    .zsThunderstormsHail,
+    .zsLightRain,
+    .zsModerateRain,
+    .zsHeavyRain,
+    .zsExtremeRainfall,
+    .zsDrizzleLight,
+    .zsTorrentialRain,
+    .zsHeavyTorrential,
+    .zsExtremeTorrential,
+    .zsFreezingRain,
+    .zsLightToModerateRain,
+    .zsModerateToHeavyRain,
+    .zsHeavyToTorrential,
+    .zsTorrentialToHeavyTorrential,
+    .zsHeavyToExtremeTorrential,
+    .zsShowersNight,
+    .zsHeavyShowersNight,
+    .zsRainGeneral,
+    .zsLightSnow,
+    .zsModerateSnow,
+    .zsHeavySnow,
+    .zsSnowstorm,
+    .zsSleetMix,
+    .zsRainAndSnow,
+    .zsSleetShowersDay,
+    .zsSnowShowersDay,
+    .zsLightToModerateSnow,
+    .zsModerateToHeavySnow,
+    .zsHeavyToSnowstorm,
+    .zsSleetShowersNight,
+    .zsSnowShowersNight,
+    .zsSnowGeneral,
+    .zsMistLight,
+    .zsFogGeneral,
+    .zsHazePollution,
+    .zsBlowingSand,
+    .zsDustHaze,
+    .zsSandstorm,
+    .zsSevereSandstorm,
+    .zsDenseFog,
+    .zsHeavyDenseFog,
+    .zsModerateHaze,
+    .zsHeavyHaze,
+    .zsSevereHaze,
+    .zsFogHeavy,
+    .zsExtremeDenseFog,
+    .zsHot,
+    .zsCold,
+    .zsTornado,
+  ]
+
+}
+
 ///风向
 public enum wind_direction_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
@@ -2000,6 +2410,13 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   case boss // = 86
   case espn // = 87
   case zalo // = 88
+  case tumblr // = 89
+  case pinterest // = 90
+  case viberMessenger // = 91
+  case flickr // = 92
+  case hangouts // = 93
+  case truecaller // = 94
+  case vk // = 95
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -2097,6 +2514,13 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 86: self = .boss
     case 87: self = .espn
     case 88: self = .zalo
+    case 89: self = .tumblr
+    case 90: self = .pinterest
+    case 91: self = .viberMessenger
+    case 92: self = .flickr
+    case 93: self = .hangouts
+    case 94: self = .truecaller
+    case 95: self = .vk
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2192,6 +2616,13 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .boss: return 86
     case .espn: return 87
     case .zalo: return 88
+    case .tumblr: return 89
+    case .pinterest: return 90
+    case .viberMessenger: return 91
+    case .flickr: return 92
+    case .hangouts: return 93
+    case .truecaller: return 94
+    case .vk: return 95
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -2287,6 +2718,13 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .boss,
     .espn,
     .zalo,
+    .tumblr,
+    .pinterest,
+    .viberMessenger,
+    .flickr,
+    .hangouts,
+    .truecaller,
+    .vk,
   ]
 
 }
@@ -3445,6 +3883,21 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
 
   /////5S未检测到语音，超时退出ai
   case aiStatusTimeoutExit // = 8
+
+  ///无积分
+  case aiStatusNoPoints // = 9
+
+  ///绘制生成失败，请重试
+  case aiStatusDrawingFailed // = 10
+
+  ///未通过审核请更换描述词
+  case aiStatusReviewFailed // = 11
+
+  ///创作失败
+  case aiStatusCreateFailed // = 12
+
+  ///表盘安装失败
+  case aiStatusDialInstallationFailed // = 13
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3462,6 +3915,11 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 6: self = .aiStatusRelogin
     case 7: self = .aiStatusTips
     case 8: self = .aiStatusTimeoutExit
+    case 9: self = .aiStatusNoPoints
+    case 10: self = .aiStatusDrawingFailed
+    case 11: self = .aiStatusReviewFailed
+    case 12: self = .aiStatusCreateFailed
+    case 13: self = .aiStatusDialInstallationFailed
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -3477,6 +3935,11 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiStatusRelogin: return 6
     case .aiStatusTips: return 7
     case .aiStatusTimeoutExit: return 8
+    case .aiStatusNoPoints: return 9
+    case .aiStatusDrawingFailed: return 10
+    case .aiStatusReviewFailed: return 11
+    case .aiStatusCreateFailed: return 12
+    case .aiStatusDialInstallationFailed: return 13
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -3492,6 +3955,11 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiStatusRelogin,
     .aiStatusTips,
     .aiStatusTimeoutExit,
+    .aiStatusNoPoints,
+    .aiStatusDrawingFailed,
+    .aiStatusReviewFailed,
+    .aiStatusCreateFailed,
+    .aiStatusDialInstallationFailed,
   ]
 
 }
@@ -3514,6 +3982,9 @@ public enum voice_assistant_noitce_type: SwiftProtobuf.Enum, Swift.CaseIterable 
 
   ///新对话
   case aiNoticeNewTalk // = 5
+
+  ///结束对话
+  case aiNoticeEndTalk // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3528,6 +3999,7 @@ public enum voice_assistant_noitce_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 3: self = .aiNoticeIrqRequest
     case 4: self = .aiNoticeListenStop
     case 5: self = .aiNoticeNewTalk
+    case 6: self = .aiNoticeEndTalk
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -3540,6 +4012,7 @@ public enum voice_assistant_noitce_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiNoticeIrqRequest: return 3
     case .aiNoticeListenStop: return 4
     case .aiNoticeNewTalk: return 5
+    case .aiNoticeEndTalk: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -3552,6 +4025,7 @@ public enum voice_assistant_noitce_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiNoticeIrqRequest,
     .aiNoticeListenStop,
     .aiNoticeNewTalk,
+    .aiNoticeEndTalk,
   ]
 
 }
@@ -3564,6 +4038,9 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
 
   ///对话回显
   case aiDialogEcho // = 1
+
+  ///ai表盘回显
+  case aiDialogAiEcho // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3574,6 +4051,7 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     switch rawValue {
     case 0: self = .aiDialogNormal
     case 1: self = .aiDialogEcho
+    case 2: self = .aiDialogAiEcho
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -3582,6 +4060,7 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     switch self {
     case .aiDialogNormal: return 0
     case .aiDialogEcho: return 1
+    case .aiDialogAiEcho: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -3590,6 +4069,7 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
   public static let allCases: [voice_assistant_dialog_type] = [
     .aiDialogNormal,
     .aiDialogEcho,
+    .aiDialogAiEcho,
   ]
 
 }
@@ -5073,6 +5553,33 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///门球
   case croquet // = 178
+
+  ///跳远
+  case longJump // = 179
+
+  ///踢踏舞
+  case tapDance // = 180
+
+  ///秋千
+  case swing // = 181
+
+  ///健身电玩
+  case exergaming // = 182
+
+  ///水中健身
+  case waterFitness // = 183
+
+  ///阶梯训练
+  case ladderTraining // = 184
+
+  ///柔软操
+  case callisthenics // = 185
+
+  ///团队竞技
+  case teamCompetition // = 186
+
+  ///做家务
+  case housework // = 187
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -5260,6 +5767,15 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 176: self = .crossFit
     case 177: self = .poleDance
     case 178: self = .croquet
+    case 179: self = .longJump
+    case 180: self = .tapDance
+    case 181: self = .swing
+    case 182: self = .exergaming
+    case 183: self = .waterFitness
+    case 184: self = .ladderTraining
+    case 185: self = .callisthenics
+    case 186: self = .teamCompetition
+    case 187: self = .housework
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -5445,6 +5961,15 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .crossFit: return 176
     case .poleDance: return 177
     case .croquet: return 178
+    case .longJump: return 179
+    case .tapDance: return 180
+    case .swing: return 181
+    case .exergaming: return 182
+    case .waterFitness: return 183
+    case .ladderTraining: return 184
+    case .callisthenics: return 185
+    case .teamCompetition: return 186
+    case .housework: return 187
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -5630,6 +6155,15 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .crossFit,
     .poleDance,
     .croquet,
+    .longJump,
+    .tapDance,
+    .swing,
+    .exergaming,
+    .waterFitness,
+    .ladderTraining,
+    .callisthenics,
+    .teamCompetition,
+    .housework,
   ]
 
 }
@@ -5965,6 +6499,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///呼吸率测量失败
   case respiratoryMeasureFailed // = 14
+
+  ///充电满
+  case chargeFull // = 15
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -5988,6 +6525,7 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 12: self = .hrvMeasureFailed
     case 13: self = .stressMeasureFailed
     case 14: self = .respiratoryMeasureFailed
+    case 15: self = .chargeFull
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6009,6 +6547,7 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .hrvMeasureFailed: return 12
     case .stressMeasureFailed: return 13
     case .respiratoryMeasureFailed: return 14
+    case .chargeFull: return 15
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6030,6 +6569,7 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .hrvMeasureFailed,
     .stressMeasureFailed,
     .respiratoryMeasureFailed,
+    .chargeFull,
   ]
 
 }
@@ -6049,32 +6589,35 @@ public enum course_target_support_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///持续目标 - 卡路里
   case continuingTargetCalories // = 3
 
+  ///持续目标 - 心率
+  case continuingTargetHeartRate // = 4
+
   ///强度目标 - 开放式
-  case strengthTargetOpen // = 4
+  case strengthTargetOpen // = 5
 
   ///强度目标 - 配速
-  case strengthTargetPace // = 5
+  case strengthTargetPace // = 6
 
   ///强度目标 - 步频
-  case strengthTargetCadence // = 6
+  case strengthTargetCadence // = 7
 
   ///强度目标 心率 - 心率区间
-  case strengthTargetHeartRateZone // = 7
+  case strengthTargetHeartRateZone // = 8
 
   ///强度目标 -心率 - 自定义心率
-  case strengthTargetCustomRateZone // = 8
+  case strengthTargetCustomRateZone // = 9
 
   ///强度目标 - 功率区间
-  case strengthTargetPowerZones // = 9
+  case strengthTargetPowerZones // = 10
 
   ///强度目标 -心率 - 储备心率
-  case strengthTargetRateZoneReserve // = 10
+  case strengthTargetRateZoneReserve // = 11
 
   ///强度目标 -心率 - 最大心率
-  case strengthTargetRateZoneMax // = 11
+  case strengthTargetRateZoneMax // = 12
 
   ///强度目标 -功率
-  case strengthTargetPower // = 12
+  case strengthTargetPower // = 13
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6087,15 +6630,16 @@ public enum course_target_support_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .continuingTargetTime
     case 2: self = .continuingTargetDistance
     case 3: self = .continuingTargetCalories
-    case 4: self = .strengthTargetOpen
-    case 5: self = .strengthTargetPace
-    case 6: self = .strengthTargetCadence
-    case 7: self = .strengthTargetHeartRateZone
-    case 8: self = .strengthTargetCustomRateZone
-    case 9: self = .strengthTargetPowerZones
-    case 10: self = .strengthTargetRateZoneReserve
-    case 11: self = .strengthTargetRateZoneMax
-    case 12: self = .strengthTargetPower
+    case 4: self = .continuingTargetHeartRate
+    case 5: self = .strengthTargetOpen
+    case 6: self = .strengthTargetPace
+    case 7: self = .strengthTargetCadence
+    case 8: self = .strengthTargetHeartRateZone
+    case 9: self = .strengthTargetCustomRateZone
+    case 10: self = .strengthTargetPowerZones
+    case 11: self = .strengthTargetRateZoneReserve
+    case 12: self = .strengthTargetRateZoneMax
+    case 13: self = .strengthTargetPower
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6106,15 +6650,16 @@ public enum course_target_support_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .continuingTargetTime: return 1
     case .continuingTargetDistance: return 2
     case .continuingTargetCalories: return 3
-    case .strengthTargetOpen: return 4
-    case .strengthTargetPace: return 5
-    case .strengthTargetCadence: return 6
-    case .strengthTargetHeartRateZone: return 7
-    case .strengthTargetCustomRateZone: return 8
-    case .strengthTargetPowerZones: return 9
-    case .strengthTargetRateZoneReserve: return 10
-    case .strengthTargetRateZoneMax: return 11
-    case .strengthTargetPower: return 12
+    case .continuingTargetHeartRate: return 4
+    case .strengthTargetOpen: return 5
+    case .strengthTargetPace: return 6
+    case .strengthTargetCadence: return 7
+    case .strengthTargetHeartRateZone: return 8
+    case .strengthTargetCustomRateZone: return 9
+    case .strengthTargetPowerZones: return 10
+    case .strengthTargetRateZoneReserve: return 11
+    case .strengthTargetRateZoneMax: return 12
+    case .strengthTargetPower: return 13
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6125,6 +6670,7 @@ public enum course_target_support_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .continuingTargetTime,
     .continuingTargetDistance,
     .continuingTargetCalories,
+    .continuingTargetHeartRate,
     .strengthTargetOpen,
     .strengthTargetPace,
     .strengthTargetCadence,
@@ -6134,6 +6680,170 @@ public enum course_target_support_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .strengthTargetRateZoneReserve,
     .strengthTargetRateZoneMax,
     .strengthTargetPower,
+  ]
+
+}
+
+public enum gesture_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///双击
+  case doubleclick // = 0
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .doubleclick
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .doubleclick
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .doubleclick: return 0
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [gesture_type] = [
+    .doubleclick,
+  ]
+
+}
+
+public enum gesture_switch_hid_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///NULL 关闭
+  case switchHidNull // = 0
+
+  ///开启 手机HID发送坐标模拟上下滑动  peripheral_hids_mouse
+  case switchHidTurnpage // = 1
+
+  ///开启 手机HID发送坐标模拟音量键  peripheral_hids_keyboard
+  case switchHidButton // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .switchHidNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .switchHidNull
+    case 1: self = .switchHidTurnpage
+    case 2: self = .switchHidButton
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .switchHidNull: return 0
+    case .switchHidTurnpage: return 1
+    case .switchHidButton: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [gesture_switch_hid_type] = [
+    .switchHidNull,
+    .switchHidTurnpage,
+    .switchHidButton,
+  ]
+
+}
+
+public enum active_ota_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///NULL
+  case activeOtaNull // = 0
+
+  ///检查
+  case activeOtaCheck // = 1
+
+  ///下载
+  case activeOtaDownload // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .activeOtaNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .activeOtaNull
+    case 1: self = .activeOtaCheck
+    case 2: self = .activeOtaDownload
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .activeOtaNull: return 0
+    case .activeOtaCheck: return 1
+    case .activeOtaDownload: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [active_ota_type] = [
+    .activeOtaNull,
+    .activeOtaCheck,
+    .activeOtaDownload,
+  ]
+
+}
+
+public enum voice_assistant_dial_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// null
+  case aiDialNull // = 0
+
+  /// 文本
+  case aiDialText // = 1
+
+  /// 背景
+  case aiDialBackground // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .aiDialNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .aiDialNull
+    case 1: self = .aiDialText
+    case 2: self = .aiDialBackground
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .aiDialNull: return 0
+    case .aiDialText: return 1
+    case .aiDialBackground: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [voice_assistant_dial_type] = [
+    .aiDialNull,
+    .aiDialText,
+    .aiDialBackground,
   ]
 
 }
@@ -6249,6 +6959,7 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     31: .same(proto: "FARSI"),
     32: .same(proto: "TRAD_CHINESE"),
     33: .same(proto: "SWEDEN"),
+    34: .same(proto: "BURMESE"),
   ]
 }
 
@@ -6258,6 +6969,7 @@ extension bind_method: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "BIND_NORMAL"),
     2: .same(proto: "BIND_REMOVE"),
     3: .same(proto: "BIND_PAIRING_CODE"),
+    4: .same(proto: "BIND_CONFIRM"),
   ]
 }
 
@@ -6435,6 +7147,73 @@ extension weather_type: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
+extension zs_weather_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ZS_SUNNY"),
+    1: .same(proto: "ZS_CLOUDY_DAY"),
+    2: .same(proto: "ZS_PARTLY_CLOUDY_DAY"),
+    3: .same(proto: "ZS_PARTLY_SUNNY"),
+    4: .same(proto: "ZS_OVERCAST"),
+    5: .same(proto: "ZS_SUNNY_CLEAR"),
+    6: .same(proto: "ZS_CLOUDY_NIGHT"),
+    7: .same(proto: "ZS_PARTLY_CLOUDY_NIGHT"),
+    8: .same(proto: "ZS_PARTLY_SUNNY_DAY"),
+    9: .same(proto: "ZS_SHOWERS_DAY"),
+    10: .same(proto: "ZS_HEAVY_SHOWERS_DAY"),
+    11: .same(proto: "ZS_THUNDERSTORMS"),
+    12: .same(proto: "ZS_SEVERE_THUNDERSTORMS"),
+    13: .same(proto: "ZS_THUNDERSTORMS_HAIL"),
+    14: .same(proto: "ZS_LIGHT_RAIN"),
+    15: .same(proto: "ZS_MODERATE_RAIN"),
+    16: .same(proto: "ZS_HEAVY_RAIN"),
+    17: .same(proto: "ZS_EXTREME_RAINFALL"),
+    18: .same(proto: "ZS_DRIZZLE_LIGHT"),
+    19: .same(proto: "ZS_TORRENTIAL_RAIN"),
+    20: .same(proto: "ZS_HEAVY_TORRENTIAL"),
+    21: .same(proto: "ZS_EXTREME_TORRENTIAL"),
+    22: .same(proto: "ZS_FREEZING_RAIN"),
+    23: .same(proto: "ZS_LIGHT_TO_MODERATE_RAIN"),
+    24: .same(proto: "ZS_MODERATE_TO_HEAVY_RAIN"),
+    25: .same(proto: "ZS_HEAVY_TO_TORRENTIAL"),
+    26: .same(proto: "ZS_TORRENTIAL_TO_HEAVY_TORRENTIAL"),
+    27: .same(proto: "ZS_HEAVY_TO_EXTREME_TORRENTIAL"),
+    28: .same(proto: "ZS_SHOWERS_NIGHT"),
+    29: .same(proto: "ZS_HEAVY_SHOWERS_NIGHT"),
+    30: .same(proto: "ZS_RAIN_GENERAL"),
+    31: .same(proto: "ZS_LIGHT_SNOW"),
+    32: .same(proto: "ZS_MODERATE_SNOW"),
+    33: .same(proto: "ZS_HEAVY_SNOW"),
+    34: .same(proto: "ZS_SNOWSTORM"),
+    35: .same(proto: "ZS_SLEET_MIX"),
+    36: .same(proto: "ZS_RAIN_AND_SNOW"),
+    37: .same(proto: "ZS_SLEET_SHOWERS_DAY"),
+    38: .same(proto: "ZS_SNOW_SHOWERS_DAY"),
+    39: .same(proto: "ZS_LIGHT_TO_MODERATE_SNOW"),
+    40: .same(proto: "ZS_MODERATE_TO_HEAVY_SNOW"),
+    41: .same(proto: "ZS_HEAVY_TO_SNOWSTORM"),
+    42: .same(proto: "ZS_SLEET_SHOWERS_NIGHT"),
+    43: .same(proto: "ZS_SNOW_SHOWERS_NIGHT"),
+    44: .same(proto: "ZS_SNOW_GENERAL"),
+    45: .same(proto: "ZS_MIST_LIGHT"),
+    46: .same(proto: "ZS_FOG_GENERAL"),
+    47: .same(proto: "ZS_HAZE_POLLUTION"),
+    48: .same(proto: "ZS_BLOWING_SAND"),
+    49: .same(proto: "ZS_DUST_HAZE"),
+    50: .same(proto: "ZS_SANDSTORM"),
+    51: .same(proto: "ZS_SEVERE_SANDSTORM"),
+    52: .same(proto: "ZS_DENSE_FOG"),
+    53: .same(proto: "ZS_HEAVY_DENSE_FOG"),
+    54: .same(proto: "ZS_MODERATE_HAZE"),
+    55: .same(proto: "ZS_HEAVY_HAZE"),
+    56: .same(proto: "ZS_SEVERE_HAZE"),
+    57: .same(proto: "ZS_FOG_HEAVY"),
+    58: .same(proto: "ZS_EXTREME_DENSE_FOG"),
+    59: .same(proto: "ZS_HOT"),
+    60: .same(proto: "ZS_COLD"),
+    61: .same(proto: "ZS_TORNADO"),
+  ]
+}
+
 extension wind_direction_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "WEATHER_DIRECTION_N"),
@@ -6560,6 +7339,13 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     86: .same(proto: "BOSS"),
     87: .same(proto: "ESPN"),
     88: .same(proto: "ZALO"),
+    89: .same(proto: "Tumblr"),
+    90: .same(proto: "Pinterest"),
+    91: .same(proto: "Viber_Messenger"),
+    92: .same(proto: "Flickr"),
+    93: .same(proto: "Hangouts"),
+    94: .same(proto: "Truecaller"),
+    95: .same(proto: "VK"),
   ]
 }
 
@@ -6786,6 +7572,11 @@ extension voice_assistant_status_type: SwiftProtobuf._ProtoNameProviding {
     6: .same(proto: "AI_STATUS_RELOGIN"),
     7: .same(proto: "AI_STATUS_TIPS"),
     8: .same(proto: "AI_STATUS_TIMEOUT_EXIT"),
+    9: .same(proto: "AI_STATUS_NO_POINTS"),
+    10: .same(proto: "AI_STATUS_DRAWING_FAILED"),
+    11: .same(proto: "AI_STATUS_REVIEW_FAILED"),
+    12: .same(proto: "AI_STATUS_CREATE_FAILED"),
+    13: .same(proto: "AI_STATUS_DIAL_INSTALLATION_FAILED"),
   ]
 }
 
@@ -6797,6 +7588,7 @@ extension voice_assistant_noitce_type: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "AI_NOTICE_IRQ_REQUEST"),
     4: .same(proto: "AI_NOTICE_LISTEN_STOP"),
     5: .same(proto: "AI_NOTICE_NEW_TALK"),
+    6: .same(proto: "AI_NOTICE_END_TALK"),
   ]
 }
 
@@ -6804,6 +7596,7 @@ extension voice_assistant_dialog_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "AI_DIALOG_NORMAL"),
     1: .same(proto: "AI_DIALOG_ECHO"),
+    2: .same(proto: "AI_DIALOG_AI_ECHO"),
   ]
 }
 
@@ -7161,6 +7954,15 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     176: .same(proto: "CROSS_FIT"),
     177: .same(proto: "POLE_DANCE"),
     178: .same(proto: "CROQUET"),
+    179: .same(proto: "LONG_JUMP"),
+    180: .same(proto: "TAP_DANCE"),
+    181: .same(proto: "SWING"),
+    182: .same(proto: "EXERGAMING"),
+    183: .same(proto: "WATER_FITNESS"),
+    184: .same(proto: "LADDER_TRAINING"),
+    185: .same(proto: "CALLISTHENICS"),
+    186: .same(proto: "TEAM_COMPETITION"),
+    187: .same(proto: "HOUSEWORK"),
   ]
 }
 
@@ -7234,6 +8036,7 @@ extension ring_remind_event_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "HRV_MEASURE_FAILED"),
     13: .same(proto: "STRESS_MEASURE_FAILED"),
     14: .same(proto: "RESPIRATORY_MEASURE_FAILED"),
+    15: .same(proto: "CHARGE_FULL"),
   ]
 }
 
@@ -7243,14 +8046,45 @@ extension course_target_support_type: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "CONTINUING_TARGET_TIME"),
     2: .same(proto: "CONTINUING_TARGET_DISTANCE"),
     3: .same(proto: "CONTINUING_TARGET_CALORIES"),
-    4: .same(proto: "STRENGTH_TARGET_OPEN"),
-    5: .same(proto: "STRENGTH_TARGET_PACE"),
-    6: .same(proto: "STRENGTH_TARGET_CADENCE"),
-    7: .same(proto: "STRENGTH_TARGET_HEART_RATE_ZONE"),
-    8: .same(proto: "STRENGTH_TARGET_CUSTOM_RATE_ZONE"),
-    9: .same(proto: "STRENGTH_TARGET_POWER_ZONES"),
-    10: .same(proto: "STRENGTH_TARGET_RATE_ZONE_RESERVE"),
-    11: .same(proto: "STRENGTH_TARGET_RATE_ZONE_MAX"),
-    12: .same(proto: "STRENGTH_TARGET_POWER"),
+    4: .same(proto: "CONTINUING_TARGET_HEART_RATE"),
+    5: .same(proto: "STRENGTH_TARGET_OPEN"),
+    6: .same(proto: "STRENGTH_TARGET_PACE"),
+    7: .same(proto: "STRENGTH_TARGET_CADENCE"),
+    8: .same(proto: "STRENGTH_TARGET_HEART_RATE_ZONE"),
+    9: .same(proto: "STRENGTH_TARGET_CUSTOM_RATE_ZONE"),
+    10: .same(proto: "STRENGTH_TARGET_POWER_ZONES"),
+    11: .same(proto: "STRENGTH_TARGET_RATE_ZONE_RESERVE"),
+    12: .same(proto: "STRENGTH_TARGET_RATE_ZONE_MAX"),
+    13: .same(proto: "STRENGTH_TARGET_POWER"),
+  ]
+}
+
+extension gesture_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "GESTURE_TYPE_DOUBLECLICK"),
+  ]
+}
+
+extension gesture_switch_hid_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SWITCH_HID_NULL"),
+    1: .same(proto: "SWITCH_HID_TURNPAGE"),
+    2: .same(proto: "SWITCH_HID_BUTTON"),
+  ]
+}
+
+extension active_ota_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ACTIVE_OTA_NULL"),
+    1: .same(proto: "ACTIVE_OTA_CHECK"),
+    2: .same(proto: "ACTIVE_OTA_DOWNLOAD"),
+  ]
+}
+
+extension voice_assistant_dial_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AI_DIAL_NULL"),
+    1: .same(proto: "AI_DIAL_TEXT"),
+    2: .same(proto: "AI_DIAL_BACKGROUND"),
   ]
 }

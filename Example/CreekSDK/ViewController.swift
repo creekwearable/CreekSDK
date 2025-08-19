@@ -187,8 +187,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "c5zUyyx5IUKn9j6BZ"
-         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmPAevf7MpvCWF3q60S7GaDY2HNDOwyVXkIpTVQVIJcHMUg1v1muHeaSgLO76KR2NIk1qN3iLgt6WmIHJWAMlanAAzkUWCixaNRlJxE3OjZCv6GgFEdSSIIA7cj/cwmqUcqthNVP1Vmp89DTY7Ah08UBpyXfjZGJBxpBkIssl35eCvSVBv8Miil8Meb2kWgoZLPNATr8WS+shvD1pIKOjmTktslHUqfxpYMST35H0tYFmzexTftrl5iPVtzd/VKMnIGS6yDWNiy/6DXCQYNfy6NgqDOVtubldW+Xv6OtLDO4My1Jlp+xG2TUUI3sZMV3glB338O6ZfEmA48X4bM7AcwIDAQAB"
+         let keyId = "L9z6xGit93O8rmFN2"
+         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAooLJ1knpZ4P3J5U158kUxjKnhj0hgt11ZIXfV/F8q+ku9uGRGL+4WuGrM1MfX1+1aqQNnCDYp57ioprm+4w7uvYwyz4j7JCutRVMm5BwbfruFfR8KwsL9z6xGit93O8rmFN2hkuUFxZSLiBBJiuhe+wtrDIPBov8QaNso/U0GrrDDgoh+R3p8fUQ3duMuL0I9pxW/sphVZOQbdNafti0AEdqJIwoQ5GSSGr0XKkHFk1kep9CifouWnHjoMqTMagDyaj07NSY2A4mxSn4S3e5L25NuJj80UcguDU6WxnZW5j9GC42BpmqA+Kcu54GqkXAF383tJHYiSXZtAFl80/bxQIDAQAB"
          
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")
@@ -199,14 +199,43 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
 //         }
          
          
-         CreekSDK.instance.liveSportDataListen { model in
+         CreekInterFace.instance.liveSportDataListen { model in
             let json = try? model.jsonString()
             print(json)
          }
-         CreekSDK.instance.liveSportControlListen { model in
+         CreekInterFace.instance.liveSportControlListen { model in
             let json = try? model.jsonString()
              print(json)
          }
+         
+         
+         CreekInterFace.instance.aiDialConfig { model in
+            ///pcm 音频数据（date）
+            ///转文本
+            ///文本转成功之后
+            ///
+            ////正常.normal
+            CreekInterFace.instance.aiDialSendText(text: "我想生成一个小狗", type: .normal)
+//            ///识别错误
+//            CreekInterFace.instance.aiDialSendText(text: "", type: .error)
+//            /// 网络错误
+//            CreekInterFace.instance.aiDialSendText(text: "", type: .networkError)
+            
+         } confirmText: { str in
+            ///手表确认文本
+            print(str)
+            
+            ///生成Ai图片
+            ///生成完成之后 下发图片数据
+            if let image = UIImage(named: "Act06_1201_03") {
+                if let data = image.pngData() {
+                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal)
+                }
+            }
+           
+         }
+
+         
          
 //         CreekSDK.instance.setSportControl(controlType: .controlResume) {
 //            print("success")

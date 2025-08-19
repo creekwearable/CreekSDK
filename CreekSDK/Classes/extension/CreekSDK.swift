@@ -1749,6 +1749,21 @@ public typealias backStringBase = (_ str:String) -> ()
             }
          }
       }
+      else if(call.method.contains("aiDialPcm")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            if let back = dialDataClosureDic[call.method]{
+               back(response.data)
+            }
+         }
+         
+      }
+      else if(call.method.contains("aiDialText")){
+         if let response = call.arguments as? String{
+            if let back = backStringBaseDic[call.method]{
+               back(response)
+            }
+         }
+      }
       
    }
    

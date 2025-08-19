@@ -630,6 +630,56 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `bodyTemperature`. Subsequent reads from it will return its default value.
   public mutating func clearBodyTemperature() {_uniqueStorage()._bodyTemperature = nil}
 
+  ///提醒开关功能表 main_id:0x36 sub_id:0x04
+  public var remindSwitch: function_table {
+    get {return _storage._remindSwitch ?? function_table()}
+    set {_uniqueStorage()._remindSwitch = newValue}
+  }
+  /// Returns true if `remindSwitch` has been explicitly set.
+  public var hasRemindSwitch: Bool {return _storage._remindSwitch != nil}
+  /// Clears the value of `remindSwitch`. Subsequent reads from it will return its default value.
+  public mutating func clearRemindSwitch() {_uniqueStorage()._remindSwitch = nil}
+
+  ///是否支持充电仓
+  public var battCaseInfo: function_table {
+    get {return _storage._battCaseInfo ?? function_table()}
+    set {_uniqueStorage()._battCaseInfo = newValue}
+  }
+  /// Returns true if `battCaseInfo` has been explicitly set.
+  public var hasBattCaseInfo: Bool {return _storage._battCaseInfo != nil}
+  /// Clears the value of `battCaseInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearBattCaseInfo() {_uniqueStorage()._battCaseInfo = nil}
+
+  ///是否支持ble hid配对
+  public var bleHidPair: function_table {
+    get {return _storage._bleHidPair ?? function_table()}
+    set {_uniqueStorage()._bleHidPair = newValue}
+  }
+  /// Returns true if `bleHidPair` has been explicitly set.
+  public var hasBleHidPair: Bool {return _storage._bleHidPair != nil}
+  /// Clears the value of `bleHidPair`. Subsequent reads from it will return its default value.
+  public mutating func clearBleHidPair() {_uniqueStorage()._bleHidPair = nil}
+
+  ///是否支持路线地图
+  public var mapRoute: function_table {
+    get {return _storage._mapRoute ?? function_table()}
+    set {_uniqueStorage()._mapRoute = newValue}
+  }
+  /// Returns true if `mapRoute` has been explicitly set.
+  public var hasMapRoute: Bool {return _storage._mapRoute != nil}
+  /// Clears the value of `mapRoute`. Subsequent reads from it will return its default value.
+  public mutating func clearMapRoute() {_uniqueStorage()._mapRoute = nil}
+
+  ///是否支持离线地图
+  public var mapOfline: function_table {
+    get {return _storage._mapOfline ?? function_table()}
+    set {_uniqueStorage()._mapOfline = newValue}
+  }
+  /// Returns true if `mapOfline` has been explicitly set.
+  public var hasMapOfline: Bool {return _storage._mapOfline != nil}
+  /// Clears the value of `mapOfline`. Subsequent reads from it will return its default value.
+  public mutating func clearMapOfline() {_uniqueStorage()._mapOfline = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -739,6 +789,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     57: .standard(proto: "workout_course"),
     58: .standard(proto: "user_icon"),
     59: .standard(proto: "body_temperature"),
+    60: .standard(proto: "remind_switch"),
+    61: .standard(proto: "batt_case_info"),
+    62: .standard(proto: "ble_hid_pair"),
+    63: .standard(proto: "map_route"),
+    64: .standard(proto: "map_ofline"),
   ]
 
   fileprivate class _StorageClass {
@@ -801,6 +856,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _workoutCourse: function_table? = nil
     var _userIcon: function_table? = nil
     var _bodyTemperature: function_table? = nil
+    var _remindSwitch: function_table? = nil
+    var _battCaseInfo: function_table? = nil
+    var _bleHidPair: function_table? = nil
+    var _mapRoute: function_table? = nil
+    var _mapOfline: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -874,6 +934,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _workoutCourse = source._workoutCourse
       _userIcon = source._userIcon
       _bodyTemperature = source._bodyTemperature
+      _remindSwitch = source._remindSwitch
+      _battCaseInfo = source._battCaseInfo
+      _bleHidPair = source._bleHidPair
+      _mapRoute = source._mapRoute
+      _mapOfline = source._mapOfline
     }
   }
 
@@ -951,6 +1016,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 57: try { try decoder.decodeSingularMessageField(value: &_storage._workoutCourse) }()
         case 58: try { try decoder.decodeSingularMessageField(value: &_storage._userIcon) }()
         case 59: try { try decoder.decodeSingularMessageField(value: &_storage._bodyTemperature) }()
+        case 60: try { try decoder.decodeSingularMessageField(value: &_storage._remindSwitch) }()
+        case 61: try { try decoder.decodeSingularMessageField(value: &_storage._battCaseInfo) }()
+        case 62: try { try decoder.decodeSingularMessageField(value: &_storage._bleHidPair) }()
+        case 63: try { try decoder.decodeSingularMessageField(value: &_storage._mapRoute) }()
+        case 64: try { try decoder.decodeSingularMessageField(value: &_storage._mapOfline) }()
         default: break
         }
       }
@@ -1140,6 +1210,21 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._bodyTemperature {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 59)
       } }()
+      try { if let v = _storage._remindSwitch {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 60)
+      } }()
+      try { if let v = _storage._battCaseInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 61)
+      } }()
+      try { if let v = _storage._bleHidPair {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 62)
+      } }()
+      try { if let v = _storage._mapRoute {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 63)
+      } }()
+      try { if let v = _storage._mapOfline {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 64)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1208,6 +1293,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._workoutCourse != rhs_storage._workoutCourse {return false}
         if _storage._userIcon != rhs_storage._userIcon {return false}
         if _storage._bodyTemperature != rhs_storage._bodyTemperature {return false}
+        if _storage._remindSwitch != rhs_storage._remindSwitch {return false}
+        if _storage._battCaseInfo != rhs_storage._battCaseInfo {return false}
+        if _storage._bleHidPair != rhs_storage._bleHidPair {return false}
+        if _storage._mapRoute != rhs_storage._mapRoute {return false}
+        if _storage._mapOfline != rhs_storage._mapOfline {return false}
         return true
       }
       if !storagesAreEqual {return false}
