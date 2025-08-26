@@ -680,6 +680,16 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `mapOfline`. Subsequent reads from it will return its default value.
   public mutating func clearMapOfline() {_uniqueStorage()._mapOfline = nil}
 
+  ///是否支持超级通知
+  public var superMsg: function_table {
+    get {return _storage._superMsg ?? function_table()}
+    set {_uniqueStorage()._superMsg = newValue}
+  }
+  /// Returns true if `superMsg` has been explicitly set.
+  public var hasSuperMsg: Bool {return _storage._superMsg != nil}
+  /// Clears the value of `superMsg`. Subsequent reads from it will return its default value.
+  public mutating func clearSuperMsg() {_uniqueStorage()._superMsg = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -794,6 +804,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     62: .standard(proto: "ble_hid_pair"),
     63: .standard(proto: "map_route"),
     64: .standard(proto: "map_ofline"),
+    65: .standard(proto: "super_msg"),
   ]
 
   fileprivate class _StorageClass {
@@ -861,6 +872,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _bleHidPair: function_table? = nil
     var _mapRoute: function_table? = nil
     var _mapOfline: function_table? = nil
+    var _superMsg: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -939,6 +951,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _bleHidPair = source._bleHidPair
       _mapRoute = source._mapRoute
       _mapOfline = source._mapOfline
+      _superMsg = source._superMsg
     }
   }
 
@@ -1021,6 +1034,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 62: try { try decoder.decodeSingularMessageField(value: &_storage._bleHidPair) }()
         case 63: try { try decoder.decodeSingularMessageField(value: &_storage._mapRoute) }()
         case 64: try { try decoder.decodeSingularMessageField(value: &_storage._mapOfline) }()
+        case 65: try { try decoder.decodeSingularMessageField(value: &_storage._superMsg) }()
         default: break
         }
       }
@@ -1225,6 +1239,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._mapOfline {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 64)
       } }()
+      try { if let v = _storage._superMsg {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 65)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1298,6 +1315,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._bleHidPair != rhs_storage._bleHidPair {return false}
         if _storage._mapRoute != rhs_storage._mapRoute {return false}
         if _storage._mapOfline != rhs_storage._mapOfline {return false}
+        if _storage._superMsg != rhs_storage._superMsg {return false}
         return true
       }
       if !storagesAreEqual {return false}

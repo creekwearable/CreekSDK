@@ -519,6 +519,51 @@ public struct protocol_message_notify_func_support_reply: @unchecked Sendable {
     set {_uniqueStorage()._zalo = newValue}
   }
 
+  public var tumblr: Bool {
+    get {return _storage._tumblr}
+    set {_uniqueStorage()._tumblr = newValue}
+  }
+
+  public var pinterest: Bool {
+    get {return _storage._pinterest}
+    set {_uniqueStorage()._pinterest = newValue}
+  }
+
+  public var viberMessenger: Bool {
+    get {return _storage._viberMessenger}
+    set {_uniqueStorage()._viberMessenger = newValue}
+  }
+
+  public var flickr: Bool {
+    get {return _storage._flickr}
+    set {_uniqueStorage()._flickr = newValue}
+  }
+
+  public var hangouts: Bool {
+    get {return _storage._hangouts}
+    set {_uniqueStorage()._hangouts = newValue}
+  }
+
+  public var truecaller: Bool {
+    get {return _storage._truecaller}
+    set {_uniqueStorage()._truecaller = newValue}
+  }
+
+  public var vk: Bool {
+    get {return _storage._vk}
+    set {_uniqueStorage()._vk = newValue}
+  }
+
+  public var blinkit: Bool {
+    get {return _storage._blinkit}
+    set {_uniqueStorage()._blinkit = newValue}
+  }
+
+  public var tinder: Bool {
+    get {return _storage._tinder}
+    set {_uniqueStorage()._tinder = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -558,6 +603,12 @@ public struct protocol_message_notify_data: @unchecked Sendable {
 
   ///消息id
   public var msgID: Data = Data()
+
+  ///超级通知
+  public var superMsgType: super_msg_state_type = .actionInvalid
+
+  ///数字内容，比如验证码
+  public var numContent: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -991,6 +1042,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     86: .same(proto: "boss"),
     87: .same(proto: "Espn"),
     88: .same(proto: "Zalo"),
+    89: .same(proto: "Tumblr"),
+    90: .same(proto: "Pinterest"),
+    91: .standard(proto: "Viber_Messenger"),
+    92: .same(proto: "Flickr"),
+    93: .same(proto: "Hangouts"),
+    94: .same(proto: "Truecaller"),
+    95: .same(proto: "VK"),
+    96: .same(proto: "Blinkit"),
+    97: .same(proto: "Tinder"),
   ]
 
   fileprivate class _StorageClass {
@@ -1082,6 +1142,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     var _boss: Bool = false
     var _espn: Bool = false
     var _zalo: Bool = false
+    var _tumblr: Bool = false
+    var _pinterest: Bool = false
+    var _viberMessenger: Bool = false
+    var _flickr: Bool = false
+    var _hangouts: Bool = false
+    var _truecaller: Bool = false
+    var _vk: Bool = false
+    var _blinkit: Bool = false
+    var _tinder: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1184,6 +1253,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       _boss = source._boss
       _espn = source._espn
       _zalo = source._zalo
+      _tumblr = source._tumblr
+      _pinterest = source._pinterest
+      _viberMessenger = source._viberMessenger
+      _flickr = source._flickr
+      _hangouts = source._hangouts
+      _truecaller = source._truecaller
+      _vk = source._vk
+      _blinkit = source._blinkit
+      _tinder = source._tinder
     }
   }
 
@@ -1290,6 +1368,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         case 86: try { try decoder.decodeSingularBoolField(value: &_storage._boss) }()
         case 87: try { try decoder.decodeSingularBoolField(value: &_storage._espn) }()
         case 88: try { try decoder.decodeSingularBoolField(value: &_storage._zalo) }()
+        case 89: try { try decoder.decodeSingularBoolField(value: &_storage._tumblr) }()
+        case 90: try { try decoder.decodeSingularBoolField(value: &_storage._pinterest) }()
+        case 91: try { try decoder.decodeSingularBoolField(value: &_storage._viberMessenger) }()
+        case 92: try { try decoder.decodeSingularBoolField(value: &_storage._flickr) }()
+        case 93: try { try decoder.decodeSingularBoolField(value: &_storage._hangouts) }()
+        case 94: try { try decoder.decodeSingularBoolField(value: &_storage._truecaller) }()
+        case 95: try { try decoder.decodeSingularBoolField(value: &_storage._vk) }()
+        case 96: try { try decoder.decodeSingularBoolField(value: &_storage._blinkit) }()
+        case 97: try { try decoder.decodeSingularBoolField(value: &_storage._tinder) }()
         default: break
         }
       }
@@ -1562,6 +1649,33 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       if _storage._zalo != false {
         try visitor.visitSingularBoolField(value: _storage._zalo, fieldNumber: 88)
       }
+      if _storage._tumblr != false {
+        try visitor.visitSingularBoolField(value: _storage._tumblr, fieldNumber: 89)
+      }
+      if _storage._pinterest != false {
+        try visitor.visitSingularBoolField(value: _storage._pinterest, fieldNumber: 90)
+      }
+      if _storage._viberMessenger != false {
+        try visitor.visitSingularBoolField(value: _storage._viberMessenger, fieldNumber: 91)
+      }
+      if _storage._flickr != false {
+        try visitor.visitSingularBoolField(value: _storage._flickr, fieldNumber: 92)
+      }
+      if _storage._hangouts != false {
+        try visitor.visitSingularBoolField(value: _storage._hangouts, fieldNumber: 93)
+      }
+      if _storage._truecaller != false {
+        try visitor.visitSingularBoolField(value: _storage._truecaller, fieldNumber: 94)
+      }
+      if _storage._vk != false {
+        try visitor.visitSingularBoolField(value: _storage._vk, fieldNumber: 95)
+      }
+      if _storage._blinkit != false {
+        try visitor.visitSingularBoolField(value: _storage._blinkit, fieldNumber: 96)
+      }
+      if _storage._tinder != false {
+        try visitor.visitSingularBoolField(value: _storage._tinder, fieldNumber: 97)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1659,6 +1773,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         if _storage._boss != rhs_storage._boss {return false}
         if _storage._espn != rhs_storage._espn {return false}
         if _storage._zalo != rhs_storage._zalo {return false}
+        if _storage._tumblr != rhs_storage._tumblr {return false}
+        if _storage._pinterest != rhs_storage._pinterest {return false}
+        if _storage._viberMessenger != rhs_storage._viberMessenger {return false}
+        if _storage._flickr != rhs_storage._flickr {return false}
+        if _storage._hangouts != rhs_storage._hangouts {return false}
+        if _storage._truecaller != rhs_storage._truecaller {return false}
+        if _storage._vk != rhs_storage._vk {return false}
+        if _storage._blinkit != rhs_storage._blinkit {return false}
+        if _storage._tinder != rhs_storage._tinder {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -1680,6 +1803,8 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
     7: .standard(proto: "app_name"),
     8: .standard(proto: "app_id"),
     9: .standard(proto: "msg_id"),
+    10: .standard(proto: "super_msg_type"),
+    11: .standard(proto: "num_content"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1697,6 +1822,8 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 7: try { try decoder.decodeSingularBytesField(value: &self.appName) }()
       case 8: try { try decoder.decodeSingularBytesField(value: &self.appID) }()
       case 9: try { try decoder.decodeSingularBytesField(value: &self.msgID) }()
+      case 10: try { try decoder.decodeSingularEnumField(value: &self.superMsgType) }()
+      case 11: try { try decoder.decodeSingularBytesField(value: &self.numContent) }()
       default: break
       }
     }
@@ -1730,6 +1857,12 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.msgID.isEmpty {
       try visitor.visitSingularBytesField(value: self.msgID, fieldNumber: 9)
     }
+    if self.superMsgType != .actionInvalid {
+      try visitor.visitSingularEnumField(value: self.superMsgType, fieldNumber: 10)
+    }
+    if !self.numContent.isEmpty {
+      try visitor.visitSingularBytesField(value: self.numContent, fieldNumber: 11)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1743,6 +1876,8 @@ extension protocol_message_notify_data: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.appName != rhs.appName {return false}
     if lhs.appID != rhs.appID {return false}
     if lhs.msgID != rhs.msgID {return false}
+    if lhs.superMsgType != rhs.superMsgType {return false}
+    if lhs.numContent != rhs.numContent {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

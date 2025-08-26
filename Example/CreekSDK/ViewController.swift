@@ -139,6 +139,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       
       CreekInterFace.instance.setupInit {
          CreekInterFace.instance.initSDK()
+   
+        
       
 //         CreekInterFace.instance.externalConnect(id: "82028D7C-6289-9D97-EC28-203AA8331DE6") { connectState in
 //            print("🌹🌹\(connectState)")
@@ -188,10 +190,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             }
          }
          let keyId = "*********"
-         let publicKey = "************"
-         
+         let publicKey = "**************"
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
-         CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")
+         CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
          
          CreekInterFace.instance.calendarConfig(timerMinute: 10, systemCalendarName: "CREEK", isSupport: true) { str in
@@ -234,6 +235,23 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             }
            
          }
+         
+         CreekInterFace.instance.initGlobalConfig(keyId: keyId, publicKey: publicKey)
+       
+         CreekInterFace.instance.ephemerisListen {
+           /// Received a notification indicating that the ephemeris file needs to be updated
+            let model = EphemerisGPSModel()
+            model.altitude = 10
+            model.latitude = Int(22.312653 * 1000000)
+            model.longitude = Int(114.027986 * 1000000)
+            model.isVaild = true
+            CreekInterFace.instance.updateEphemeris(model: model) {
+               print("ephemeris update success")
+            } failure: { code, message in
+               print(message)
+            }
+            
+         }
 
          
          
@@ -243,16 +261,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
 //            print("fail")
 //         }
          
-         CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
-            ///Ask for GPS data, and get the latest GPS data every time you ask.
-            let model = EphemerisGPSModel()
-            model.altitude = 10
-            model.latitude = Int(22.312653 * 1000000)
-            model.longitude = Int(114.027986 * 1000000)
-            model.isVaild = true
-            return model
-            
-         }
+
          CreekInterFace.instance.watchResetListen {
             print("listen watchResetListen")
             CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {

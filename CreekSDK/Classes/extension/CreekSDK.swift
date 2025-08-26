@@ -92,6 +92,7 @@ public typealias waterAssistantBase = (_ model:protocol_water_assistant_inquire_
 public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
 
 public typealias backStringBase = (_ str:String) -> ()
+public typealias ephemerisDataBase = (_ model:ephemeris_data_operate) -> ()
 
 
 
@@ -197,6 +198,9 @@ public typealias backStringBase = (_ str:String) -> ()
    var waterAssistantDic:[String:waterAssistantBase] = [:]
    var firmwareUpdateDic:[String:firmwareUpdateBase] = [:]
    var backStringBaseDic:[String:backStringBase] = [:]
+   var ephemerisDataBaseDic:[String:ephemerisDataBase] = [:]
+   
+   var _ephemerisListen:(() -> ())?
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -206,13 +210,19 @@ public typealias backStringBase = (_ str:String) -> ()
    }
    
    public func setupInit(completed:(()->())? = nil){
-      channelCompletedClosure = completed
-      flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
-      flutterEngine?.run(withEntrypoint: nil)
-      GeneratedPluginRegistrant.register(with: flutterEngine!)
-      methodChannel = FlutterMethodChannel(name: "com.watchic.app/sdk",
-                                           binaryMessenger: flutterEngine!.binaryMessenger)
-      methodChannel?.setMethodCallHandler(handle(_:result:))
+      if flutterEngine == nil{
+         channelCompletedClosure = completed
+         flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
+         flutterEngine?.run(withEntrypoint: nil)
+         GeneratedPluginRegistrant.register(with: flutterEngine!)
+         methodChannel = FlutterMethodChannel(name: "com.watchic.app/sdk",
+                                              binaryMessenger: flutterEngine!.binaryMessenger)
+         methodChannel?.setMethodCallHandler(handle(_:result:))
+      }else{
+         if let back = completed{
+            back()
+         }
+      }
    }
    
    public func setup(withflutterEngine engine: FlutterEngine) {
@@ -1756,6 +1766,24 @@ public typealias backStringBase = (_ str:String) -> ()
             if let back = backStringBaseDic[call.method]{
                back(response)
             }
+         }
+      }
+      else if(call.method.contains("getEphemerisUpdateTime")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try ephemeris_data_operate(serializedData: response.data,partial: true)
+               if let back = ephemerisDataBaseDic[call.method]{
+                  back(model)
+                  ephemerisDataBaseDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method.contains("ephemerisListen")){
+         if let back = _ephemerisListen{
+            back()
          }
       }
       

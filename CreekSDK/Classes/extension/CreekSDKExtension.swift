@@ -1827,10 +1827,10 @@ extension CreekSDK{
         
     }
     
-    public func ephemerisInit(keyId:String,publicKey:String,model:@escaping gpsBase){
-        _gpsClosure = model
-        methodChannel?.invokeMethod("ephemerisInit\(requestId)", arguments: [keyId,publicKey])
-    }
+//    public func ephemerisInit(keyId:String,publicKey:String,model:@escaping gpsBase){
+//        _gpsClosure = model
+//        methodChannel?.invokeMethod("ephemerisInit\(requestId)", arguments: [keyId,publicKey])
+//    }
     
     public func ephemerisInitGPS(model:EphemerisGPSModel){
         let json = try? JSONEncoder().encode(model)
@@ -2471,5 +2471,33 @@ extension CreekSDK{
       methodChannel?.invokeMethod("saveBindDevice", arguments: "")
    }
    
+   public func initGlobalConfig(keyId:String,publicKey:String){
+       methodChannel?.invokeMethod("initGlobalConfig", arguments: [keyId,publicKey])
+   }
+   
+   
+   public func ephemerisListen(listen:@escaping (() -> ())){
+      _ephemerisListen = listen
+   }
+   
+   public func getEphemerisUpdateTime(model:@escaping ephemerisDataBase){
+      serialQueue.sync {
+         requestId+=1
+         ephemerisDataBaseDic["getEphemerisUpdateTime\(requestId)"] = model
+         methodChannel?.invokeMethod("getEphemerisUpdateTime\(requestId)", arguments: "str")
+      }
+   }
+   
+   public func updateEphemeris(model:EphemerisGPSModel,success:@escaping successBase,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         successDic["updateEphemeris\(requestId)"] = success;
+         failureArgumentDic["updateEphemeris\(requestId)"] = failure
+         let json = try? JSONEncoder().encode(model)
+         if let data = json, let str = String(data: data, encoding: .utf8) {
+             methodChannel?.invokeMethod("updateEphemeris\(requestId)", arguments: str)
+         }
+      }
+   }
    
 }

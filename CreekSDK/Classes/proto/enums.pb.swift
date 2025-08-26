@@ -527,6 +527,18 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///缅甸语
   case burmese // = 34
+
+  ///高棉语
+  case khmer // = 35
+
+  ///孟加拉语
+  case bengali // = 36
+
+  ///斯洛文尼亚
+  case slovene // = 37
+
+  ///克罗地亚
+  case hrvatski // = 38
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -570,6 +582,10 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 32: self = .tradChinese
     case 33: self = .sweden
     case 34: self = .burmese
+    case 35: self = .khmer
+    case 36: self = .bengali
+    case 37: self = .slovene
+    case 38: self = .hrvatski
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -611,6 +627,10 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .tradChinese: return 32
     case .sweden: return 33
     case .burmese: return 34
+    case .khmer: return 35
+    case .bengali: return 36
+    case .slovene: return 37
+    case .hrvatski: return 38
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -652,6 +672,10 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     .tradChinese,
     .sweden,
     .burmese,
+    .khmer,
+    .bengali,
+    .slovene,
+    .hrvatski,
   ]
 
 }
@@ -2417,6 +2441,8 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   case hangouts // = 93
   case truecaller // = 94
   case vk // = 95
+  case blinkit // = 96
+  case tinder // = 97
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -2521,6 +2547,8 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 93: self = .hangouts
     case 94: self = .truecaller
     case 95: self = .vk
+    case 96: self = .blinkit
+    case 97: self = .tinder
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2623,6 +2651,8 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .hangouts: return 93
     case .truecaller: return 94
     case .vk: return 95
+    case .blinkit: return 96
+    case .tinder: return 97
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -2725,6 +2755,8 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .hangouts,
     .truecaller,
     .vk,
+    .blinkit,
+    .tinder,
   ]
 
 }
@@ -5580,6 +5612,18 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///做家务
   case housework // = 187
+
+  ///马球
+  case polo // = 188
+
+  ///兜网马球
+  case polocrosse // = 189
+
+  ///障碍赛马
+  case showJumping // = 190
+
+  ///花样骑术
+  case dressage // = 191
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -5776,6 +5820,10 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 185: self = .callisthenics
     case 186: self = .teamCompetition
     case 187: self = .housework
+    case 188: self = .polo
+    case 189: self = .polocrosse
+    case 190: self = .showJumping
+    case 191: self = .dressage
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -5970,6 +6018,10 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .callisthenics: return 185
     case .teamCompetition: return 186
     case .housework: return 187
+    case .polo: return 188
+    case .polocrosse: return 189
+    case .showJumping: return 190
+    case .dressage: return 191
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6164,6 +6216,10 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .callisthenics,
     .teamCompetition,
     .housework,
+    .polo,
+    .polocrosse,
+    .showJumping,
+    .dressage,
   ]
 
 }
@@ -6848,6 +6904,216 @@ public enum voice_assistant_dial_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum super_msg_state_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///普通通知
+  case actionInvalid // = 0
+
+  /// 已接单
+  case rideAccepted // = 1
+
+  /// 进行中
+  case rideOngoing // = 2
+
+  ///已到达哦
+  case rideArrived // = 3
+
+  /// 已完成
+  case rideCompleted // = 4
+
+  /// 已取消
+  case rideCancelled // = 5
+
+  /// 超时
+  case rideTimeout // = 6
+
+  /// 新配对
+  case matched // = 7
+
+  /// 超级喜欢
+  case superLike // = 8
+
+  /// 喜欢
+  case like // = 9
+
+  /// 点赞
+  case postLiked // = 10
+
+  /// 付款
+  case paymentSent // = 11
+
+  /// 收款
+  case paymentReceived // = 12
+
+  /// 超级通知
+  case actionSuper // = 255
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .actionInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .actionInvalid
+    case 1: self = .rideAccepted
+    case 2: self = .rideOngoing
+    case 3: self = .rideArrived
+    case 4: self = .rideCompleted
+    case 5: self = .rideCancelled
+    case 6: self = .rideTimeout
+    case 7: self = .matched
+    case 8: self = .superLike
+    case 9: self = .like
+    case 10: self = .postLiked
+    case 11: self = .paymentSent
+    case 12: self = .paymentReceived
+    case 255: self = .actionSuper
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .actionInvalid: return 0
+    case .rideAccepted: return 1
+    case .rideOngoing: return 2
+    case .rideArrived: return 3
+    case .rideCompleted: return 4
+    case .rideCancelled: return 5
+    case .rideTimeout: return 6
+    case .matched: return 7
+    case .superLike: return 8
+    case .like: return 9
+    case .postLiked: return 10
+    case .paymentSent: return 11
+    case .paymentReceived: return 12
+    case .actionSuper: return 255
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [super_msg_state_type] = [
+    .actionInvalid,
+    .rideAccepted,
+    .rideOngoing,
+    .rideArrived,
+    .rideCompleted,
+    .rideCancelled,
+    .rideTimeout,
+    .matched,
+    .superLike,
+    .like,
+    .postLiked,
+    .paymentSent,
+    .paymentReceived,
+    .actionSuper,
+  ]
+
+}
+
+public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///炬心平台
+  case actions // = 0
+
+  ///nordic平台
+  case nordic // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .actions
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .actions
+    case 1: self = .nordic
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .actions: return 0
+    case .nordic: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Platform_pspkey] = [
+    .actions,
+    .nordic,
+  ]
+
+}
+
+public enum cardio_fitness_level: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///空
+  case cfLevelNull // = 0
+
+  /// 低
+  case cfLevelLow // = 1
+
+  /// 偏低
+  case cfLevelLowMid // = 2
+
+  /// 中等
+  case cfLevelMeduim // = 3
+
+  /// 良好
+  case cfLevelGood // = 4
+
+  /// 优秀
+  case cfLevelExcellent // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .cfLevelNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .cfLevelNull
+    case 1: self = .cfLevelLow
+    case 2: self = .cfLevelLowMid
+    case 3: self = .cfLevelMeduim
+    case 4: self = .cfLevelGood
+    case 5: self = .cfLevelExcellent
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .cfLevelNull: return 0
+    case .cfLevelLow: return 1
+    case .cfLevelLowMid: return 2
+    case .cfLevelMeduim: return 3
+    case .cfLevelGood: return 4
+    case .cfLevelExcellent: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [cardio_fitness_level] = [
+    .cfLevelNull,
+    .cfLevelLow,
+    .cfLevelLowMid,
+    .cfLevelMeduim,
+    .cfLevelGood,
+    .cfLevelExcellent,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -6960,6 +7226,10 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     32: .same(proto: "TRAD_CHINESE"),
     33: .same(proto: "SWEDEN"),
     34: .same(proto: "BURMESE"),
+    35: .same(proto: "KHMER"),
+    36: .same(proto: "BENGALI"),
+    37: .same(proto: "SLOVENE"),
+    38: .same(proto: "HRVATSKI"),
   ]
 }
 
@@ -7346,6 +7616,8 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     93: .same(proto: "Hangouts"),
     94: .same(proto: "Truecaller"),
     95: .same(proto: "VK"),
+    96: .same(proto: "BLINKIT"),
+    97: .same(proto: "TINDER"),
   ]
 }
 
@@ -7963,6 +8235,10 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     185: .same(proto: "CALLISTHENICS"),
     186: .same(proto: "TEAM_COMPETITION"),
     187: .same(proto: "HOUSEWORK"),
+    188: .same(proto: "POLO"),
+    189: .same(proto: "POLOCROSSE"),
+    190: .same(proto: "SHOW_JUMPING"),
+    191: .same(proto: "DRESSAGE"),
   ]
 }
 
@@ -8086,5 +8362,42 @@ extension voice_assistant_dial_type: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "AI_DIAL_NULL"),
     1: .same(proto: "AI_DIAL_TEXT"),
     2: .same(proto: "AI_DIAL_BACKGROUND"),
+  ]
+}
+
+extension super_msg_state_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ACTION_INVALID"),
+    1: .same(proto: "RIDE_ACCEPTED"),
+    2: .same(proto: "RIDE_ONGOING"),
+    3: .same(proto: "RIDE_ARRIVED"),
+    4: .same(proto: "RIDE_COMPLETED"),
+    5: .same(proto: "RIDE_CANCELLED"),
+    6: .same(proto: "RIDE_TIMEOUT"),
+    7: .same(proto: "MATCHED"),
+    8: .same(proto: "SUPER_LIKE"),
+    9: .same(proto: "LIKE"),
+    10: .same(proto: "POST_LIKED"),
+    11: .same(proto: "PAYMENT_SENT"),
+    12: .same(proto: "PAYMENT_RECEIVED"),
+    255: .same(proto: "ACTION_SUPER"),
+  ]
+}
+
+extension Platform_pspkey: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ACTIONS"),
+    1: .same(proto: "NORDIC"),
+  ]
+}
+
+extension cardio_fitness_level: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CF_LEVEL_NULL"),
+    1: .same(proto: "CF_LEVEL_LOW"),
+    2: .same(proto: "CF_LEVEL_LOW_MID"),
+    3: .same(proto: "CF_LEVEL_MEDUIM"),
+    4: .same(proto: "CF_LEVEL_GOOD"),
+    5: .same(proto: "CF_LEVEL_EXCELLENT"),
   ]
 }
