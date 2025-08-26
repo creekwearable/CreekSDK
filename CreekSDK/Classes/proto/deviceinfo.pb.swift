@@ -409,6 +409,12 @@ public struct protocol_device_info: @unchecked Sendable {
   /// Clears the value of `battCaseInfo`. Subsequent reads from it will return its default value.
   public mutating func clearBattCaseInfo() {_uniqueStorage()._battCaseInfo = nil}
 
+  ///获取飞利浦key不同平台
+  public var pspkey: Platform_pspkey {
+    get {return _storage._pspkey}
+    set {_uniqueStorage()._pspkey = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -863,6 +869,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     26: .standard(proto: "is_wrench_mode"),
     27: .same(proto: "bind"),
     28: .standard(proto: "batt_case_info"),
+    29: .same(proto: "pspkey"),
   ]
 
   fileprivate class _StorageClass {
@@ -894,6 +901,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _isWrenchMode: Bool = false
     var _bind: bind_method_support = .pairingCodeNormalSupport
     var _battCaseInfo: protocol_device_batt_info? = nil
+    var _pspkey: Platform_pspkey = .actions
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -936,6 +944,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _isWrenchMode = source._isWrenchMode
       _bind = source._bind
       _battCaseInfo = source._battCaseInfo
+      _pspkey = source._pspkey
     }
   }
 
@@ -982,6 +991,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 26: try { try decoder.decodeSingularBoolField(value: &_storage._isWrenchMode) }()
         case 27: try { try decoder.decodeSingularEnumField(value: &_storage._bind) }()
         case 28: try { try decoder.decodeSingularMessageField(value: &_storage._battCaseInfo) }()
+        case 29: try { try decoder.decodeSingularEnumField(value: &_storage._pspkey) }()
         default: break
         }
       }
@@ -1078,6 +1088,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       try { if let v = _storage._battCaseInfo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
+      if _storage._pspkey != .actions {
+        try visitor.visitSingularEnumField(value: _storage._pspkey, fieldNumber: 29)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1115,6 +1128,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._isWrenchMode != rhs_storage._isWrenchMode {return false}
         if _storage._bind != rhs_storage._bind {return false}
         if _storage._battCaseInfo != rhs_storage._battCaseInfo {return false}
+        if _storage._pspkey != rhs_storage._pspkey {return false}
         return true
       }
       if !storagesAreEqual {return false}

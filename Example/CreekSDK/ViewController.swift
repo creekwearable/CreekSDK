@@ -139,6 +139,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       
       CreekInterFace.instance.setupInit {
          CreekInterFace.instance.initSDK()
+   
+        
       
 //         CreekInterFace.instance.externalConnect(id: "82028D7C-6289-9D97-EC28-203AA8331DE6") { connectState in
 //            print("🌹🌹\(connectState)")
@@ -187,16 +189,16 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "L9z6xGit93O8rmFN2"
-         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAooLJ1knpZ4P3J5U158kUxjKnhj0hgt11ZIXfV/F8q+ku9uGRGL+4WuGrM1MfX1+1aqQNnCDYp57ioprm+4w7uvYwyz4j7JCutRVMm5BwbfruFfR8KwsL9z6xGit93O8rmFN2hkuUFxZSLiBBJiuhe+wtrDIPBov8QaNso/U0GrrDDgoh+R3p8fUQ3duMuL0I9pxW/sphVZOQbdNafti0AEdqJIwoQ5GSSGr0XKkHFk1kep9CifouWnHjoMqTMagDyaj07NSY2A4mxSn4S3e5L25NuJj80UcguDU6WxnZW5j9GC42BpmqA+Kcu54GqkXAF383tJHYiSXZtAFl80/bxQIDAQAB"
+         let keyId = "*********"
+         let publicKey = "***********"
          
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
-         CreekInterFace.instance.setAiVoiceCountry(countryCode: "US")
-         CreekInterFace.instance.setAiVoiceCity(cityName: "NewYork")
+         CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
+         CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
          
-//         CreekInterFace.instance.calendarConfig(timerMinute: 10, systemCalendarName: "CREEK", isSupport: true) { str in
-//            print(str)
-//         }
+         CreekInterFace.instance.calendarConfig(timerMinute: 10, systemCalendarName: "CREEK", isSupport: true) { str in
+            print(str)
+         }
          
          
          CreekInterFace.instance.liveSportDataListen { model in
@@ -234,6 +236,23 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             }
            
          }
+         
+         CreekInterFace.instance.initGlobalConfig(keyId: keyId, publicKey: publicKey)
+       
+         CreekInterFace.instance.ephemerisListen {
+           /// Received a notification indicating that the ephemeris file needs to be updated
+            let model = EphemerisGPSModel()
+            model.altitude = 10
+            model.latitude = Int(22.312653 * 1000000)
+            model.longitude = Int(114.027986 * 1000000)
+            model.isVaild = true
+            CreekInterFace.instance.updateEphemeris(model: model) {
+               print("ephemeris update success")
+            } failure: { code, message in
+               print(message)
+            }
+            
+         }
 
          
          
@@ -243,16 +262,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
 //            print("fail")
 //         }
          
-         CreekInterFace.instance.ephemerisInit(keyId: keyId, publicKey: publicKey) {
-            ///Ask for GPS data, and get the latest GPS data every time you ask.
-            let model = EphemerisGPSModel()
-            model.altitude = 10
-            model.latitude = Int(22.312653 * 1000000)
-            model.longitude = Int(114.027986 * 1000000)
-            model.isVaild = true
-            return model
-            
-         }
+
          CreekInterFace.instance.watchResetListen {
             print("listen watchResetListen")
             CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {

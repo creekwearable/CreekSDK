@@ -83,6 +83,10 @@
 		073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */; };
 		073DE4BD2E1BE00000FA2B97 /* video.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073DE4BC2E1BE00000FA2B97 /* video.zip */; };
 		073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */ = {isa = PBXBuildFile; fileRef = 073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */; };
+		073FD2462E5D548A00652FCF /* cardioFitness.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */; };
+		073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */; };
+		073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2442E5D548A00652FCF /* ephemeris.pb.swift */; };
+		073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2452E5D548A00652FCF /* medicine.pb.swift */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
 		0750C9362B99AED500D8E7A0 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */; };
@@ -217,6 +221,10 @@
 		073DE4B82E1B6C8A00FA2B97 /* DialVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialVideoViewController.swift; sourceTree = "<group>"; };
 		073DE4BC2E1BE00000FA2B97 /* video.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = video.zip; sourceTree = "<group>"; };
 		073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = CW06G_TITAD101_01.zip; sourceTree = "<group>"; };
+		073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bloodPressure.pb.swift; sourceTree = "<group>"; };
+		073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
+		073FD2442E5D548A00652FCF /* ephemeris.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ephemeris.pb.swift; sourceTree = "<group>"; };
+		073FD2452E5D548A00652FCF /* medicine.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicine.pb.swift; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
 		0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
@@ -369,6 +377,10 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */,
+				073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */,
+				073FD2442E5D548A00652FCF /* ephemeris.pb.swift */,
+				073FD2452E5D548A00652FCF /* medicine.pb.swift */,
 				073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */,
 				073D05E82E3A2AD700F000B3 /* zsWeather.pb.swift */,
 				073DE4A22E12DBD900FA2B97 /* netWork.pb.swift */,
@@ -850,6 +862,10 @@
 				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,
 				07266C1D2DACF260000F8BED /* music.pb.swift in Sources */,
 				07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */,
+				073FD2462E5D548A00652FCF /* cardioFitness.pb.swift in Sources */,
+				073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */,
+				073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */,
+				073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */,
 				07266C1F2DACF260000F8BED /* voice.pb.swift in Sources */,
 				07266C202DACF260000F8BED /* tracking.pb.swift in Sources */,
 				07266C212DACF260000F8BED /* schedule.pb.swift in Sources */,

@@ -256,6 +256,30 @@ public struct protocol_language_inquire_reply: @unchecked Sendable {
     set {_uniqueStorage()._burmeseSupport = newValue}
   }
 
+  ///1bytes高棉语
+  public var khmerSupport: Bool {
+    get {return _storage._khmerSupport}
+    set {_uniqueStorage()._khmerSupport = newValue}
+  }
+
+  ///1bytes孟加拉语
+  public var bengaliSupport: Bool {
+    get {return _storage._bengaliSupport}
+    set {_uniqueStorage()._bengaliSupport = newValue}
+  }
+
+  ///1bytes斯洛文尼亚
+  public var sloveneSupport: Bool {
+    get {return _storage._sloveneSupport}
+    set {_uniqueStorage()._sloveneSupport = newValue}
+  }
+
+  ///1bytes克罗地亚
+  public var hrvatskiSupport: Bool {
+    get {return _storage._hrvatskiSupport}
+    set {_uniqueStorage()._hrvatskiSupport = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -342,6 +366,10 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     34: .standard(proto: "trad_chinese_support"),
     35: .standard(proto: "sweden_support"),
     36: .standard(proto: "burmese_support"),
+    37: .standard(proto: "khmer_support"),
+    38: .standard(proto: "bengali_support"),
+    39: .standard(proto: "slovene_support"),
+    40: .standard(proto: "hrvatski_support"),
   ]
 
   fileprivate class _StorageClass {
@@ -381,6 +409,10 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     var _tradChineseSupport: Bool = false
     var _swedenSupport: Bool = false
     var _burmeseSupport: Bool = false
+    var _khmerSupport: Bool = false
+    var _bengaliSupport: Bool = false
+    var _sloveneSupport: Bool = false
+    var _hrvatskiSupport: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -431,6 +463,10 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
       _tradChineseSupport = source._tradChineseSupport
       _swedenSupport = source._swedenSupport
       _burmeseSupport = source._burmeseSupport
+      _khmerSupport = source._khmerSupport
+      _bengaliSupport = source._bengaliSupport
+      _sloveneSupport = source._sloveneSupport
+      _hrvatskiSupport = source._hrvatskiSupport
     }
   }
 
@@ -485,6 +521,10 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
         case 34: try { try decoder.decodeSingularBoolField(value: &_storage._tradChineseSupport) }()
         case 35: try { try decoder.decodeSingularBoolField(value: &_storage._swedenSupport) }()
         case 36: try { try decoder.decodeSingularBoolField(value: &_storage._burmeseSupport) }()
+        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._khmerSupport) }()
+        case 38: try { try decoder.decodeSingularBoolField(value: &_storage._bengaliSupport) }()
+        case 39: try { try decoder.decodeSingularBoolField(value: &_storage._sloveneSupport) }()
+        case 40: try { try decoder.decodeSingularBoolField(value: &_storage._hrvatskiSupport) }()
         default: break
         }
       }
@@ -601,6 +641,18 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
       if _storage._burmeseSupport != false {
         try visitor.visitSingularBoolField(value: _storage._burmeseSupport, fieldNumber: 36)
       }
+      if _storage._khmerSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._khmerSupport, fieldNumber: 37)
+      }
+      if _storage._bengaliSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._bengaliSupport, fieldNumber: 38)
+      }
+      if _storage._sloveneSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._sloveneSupport, fieldNumber: 39)
+      }
+      if _storage._hrvatskiSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hrvatskiSupport, fieldNumber: 40)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -646,6 +698,10 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
         if _storage._tradChineseSupport != rhs_storage._tradChineseSupport {return false}
         if _storage._swedenSupport != rhs_storage._swedenSupport {return false}
         if _storage._burmeseSupport != rhs_storage._burmeseSupport {return false}
+        if _storage._khmerSupport != rhs_storage._khmerSupport {return false}
+        if _storage._bengaliSupport != rhs_storage._bengaliSupport {return false}
+        if _storage._sloveneSupport != rhs_storage._sloveneSupport {return false}
+        if _storage._hrvatskiSupport != rhs_storage._hrvatskiSupport {return false}
         return true
       }
       if !storagesAreEqual {return false}
