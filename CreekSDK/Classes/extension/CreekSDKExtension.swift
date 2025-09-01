@@ -2488,14 +2488,15 @@ extension CreekSDK{
       }
    }
    
-   public func updateEphemeris(model:EphemerisGPSModel,success:@escaping successBase,failure:@escaping failureArgument){
+   public func updateEphemeris(model:EphemerisGPSModel,isBackground:Bool = false,success:@escaping successBase,failure:@escaping failureArgument){
       serialQueue.sync {
          requestId+=1
          successDic["updateEphemeris\(requestId)"] = success;
          failureArgumentDic["updateEphemeris\(requestId)"] = failure
          let json = try? JSONEncoder().encode(model)
          if let data = json, let str = String(data: data, encoding: .utf8) {
-             methodChannel?.invokeMethod("updateEphemeris\(requestId)", arguments: str)
+            let value = isBackground ? 1 : 0
+            methodChannel?.invokeMethod("updateEphemeris\(requestId)", arguments: [str,value])
          }
       }
    }
