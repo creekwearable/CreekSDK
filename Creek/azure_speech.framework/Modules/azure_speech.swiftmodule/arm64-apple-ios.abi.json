@@ -231,42 +231,42 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "filePath": "\/Users\/bob\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "BooleanLiteral",
       "offset": 977,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "filePath": "\/Users\/bob\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "IntegerLiteral",
       "offset": 1051,
       "length": 5,
       "value": "16000"
     },
     {
-      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "filePath": "\/Users\/bob\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "IntegerLiteral",
       "offset": 1078,
       "length": 4,
       "value": "2048"
     },
     {
-      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "filePath": "\/Users\/bob\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "StringLiteral",
       "offset": 1131,
       "length": 17,
       "value": "\"conversionQueue\""
     },
     {
-      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "filePath": "\/Users\/bob\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "Array",
       "offset": 1219,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
+      "filePath": "\/Users\/bob\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/azure_speech\/ios\/Classes\/AzureSpeechPlugin.swift",
       "kind": "IntegerLiteral",
       "offset": 1255,
       "length": 2,

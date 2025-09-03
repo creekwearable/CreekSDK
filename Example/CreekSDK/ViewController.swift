@@ -80,6 +80,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get Watch Sensor",
       "Set Watch Sensor",
       "Get Water Assistant",
+      "Get Medicine Remind",
+      "Get BloodPressure",
+      "Set Volume",
+      "Get Volume",
    ];
    
    var filteredOptions: [String] = []

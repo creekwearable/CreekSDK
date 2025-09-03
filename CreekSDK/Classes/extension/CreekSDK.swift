@@ -93,8 +93,9 @@ public typealias firmwareUpdateBase = (_ model:firmware_update_response) -> ()
 
 public typealias backStringBase = (_ str:String) -> ()
 public typealias ephemerisDataBase = (_ model:ephemeris_data_operate) -> ()
-
-
+public typealias volumeAdjustBase = (_ model: protocol_volume_adjust_inquire_reply) -> ()
+public typealias bloodPressureBase = (_ model: protocol_blood_pressure_inquire_reply) -> ()
+public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -199,6 +200,9 @@ public typealias ephemerisDataBase = (_ model:ephemeris_data_operate) -> ()
    var firmwareUpdateDic:[String:firmwareUpdateBase] = [:]
    var backStringBaseDic:[String:backStringBase] = [:]
    var ephemerisDataBaseDic:[String:ephemerisDataBase] = [:]
+   var volumeAdjustDic:[String:volumeAdjustBase] = [:]
+   var bloodPressureDic:[String:bloodPressureBase] = [:]
+   var medicineRemindDic:[String:medicineRemindBase] = [:]
    
    var _ephemerisListen:(() -> ())?
    
@@ -1784,6 +1788,73 @@ public typealias ephemerisDataBase = (_ model:ephemeris_data_operate) -> ()
       else if(call.method.contains("ephemerisListen")){
          if let back = _ephemerisListen{
             back()
+         }
+      }
+      else if(call.method.contains("getVolumeAdjust")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_volume_adjust_inquire_reply(serializedData: response.data,partial: true)
+               if let back = volumeAdjustDic[call.method]{
+                  back(model)
+                  volumeAdjustDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting volume adjust data: \(error.localizedDescription)")
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse volume adjust data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }
+         }
+      }
+      else if(call.method.contains("setVolumeAdjust")){
+         if let response = call.arguments as? Bool{
+            if let success = successDic[call.method]{
+               success()
+               successDic.removeValue(forKey: call.method)
+            }
+         }
+      }
+      
+      else if(call.method.contains("getBloodPressure")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_blood_pressure_inquire_reply(serializedData: response.data,partial: true)
+               if let back = bloodPressureDic[call.method]{
+                  back(model)
+                  bloodPressureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting blood pressure data: \(error.localizedDescription)")
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse blood pressure data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }
+         }
+      }
+      else if(call.method.contains("setMedicineRemind")){
+         if let response = call.arguments as? Bool{
+            if let success = successDic[call.method]{
+               success()
+               successDic.removeValue(forKey: call.method)
+            }
+         }
+      } else if(call.method.contains("getMedicineRemind")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_medicine_remind_inquire_reply(serializedData: response.data,partial: true)
+               if let back = medicineRemindDic[call.method]{
+                  back(model)
+                  medicineRemindDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting blood pressure data: \(error.localizedDescription)")
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse blood pressure data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }
          }
       }
       
