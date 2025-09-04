@@ -2551,21 +2551,23 @@ extension CreekSDK{
    /// - Returns: Blood pressure measurements from device
    ///
    /// 
+
    public func getBloodPressure(page:Int = 1,size:Int = 20,model:@escaping bloodPressureBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          bloodPressureDic["getBloodPressure\(requestId)"] = model
          failureArgumentDic["getBloodPressure\(requestId)"] = failure
          do{
-            let jsonData = try JSONSerialization.data(withJSONObject: ["page":page,"size":size], options: JSONSerialization.WritingOptions.init(rawValue: 0))
-            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-               methodChannel?.invokeMethod("getBloodPressure\(requestId)", arguments: JSONString)
-            }
+           let jsonData = try JSONSerialization.data(withJSONObject: ["page":page,"size":size], options: JSONSerialization.WritingOptions.init(rawValue: 0))
+           if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+              methodChannel?.invokeMethod("getBloodPressure\(requestId)", arguments: JSONString)
+           }
          }catch{
             print("Error converting string to dictionary: \(error.localizedDescription)")
          }
       }
    }
+   
    
    public func getMedicineRemind(model: @escaping medicineRemindBase, failure: @escaping failureArgument) {
       serialQueue.sync {
