@@ -193,8 +193,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "*********"
-         let publicKey = "**************"
+         let keyId = "L8z6xGit93O8rmFN1"
+         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyP/xgvASh9B1+KBnSu1N1/69D9bXh0yhV13WBzEEwnu3Ubv4YUMdJyrEmAo8sF7INX6GR1KP5+qDF4v5DRrsMfASGoSHwd9LW6NJZKIhdcQsUvS5yzoo0+o93/f0xnUeci8U7YtVyr4MaZ9z4CoWpydOt5cPSA03N8JRR/qP3zjsZDjjGvARSI/V6fuIXArfZY2Pc0lklb7RzdtQeFppICxYesHcStn8vhwNfLf47KWzC2cWi4bSb3CBaqDnTkLAGVT7GUxccPa6lez8zZPszGc1g1KiZ3X2XKdv4CZEuCL239JHXrbrseHkPf8M7/Y+FuC/CdBUD6EZohmK8js7hwIDAQAB"
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
@@ -234,7 +234,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             ///生成完成之后 下发图片数据
             if let image = UIImage(named: "Act06_1201_03") {
                 if let data = image.pngData() {
-                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal)
+                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal,dialName: "oneDial")
                 }
             }
            

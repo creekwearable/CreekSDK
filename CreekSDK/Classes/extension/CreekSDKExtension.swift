@@ -2463,8 +2463,8 @@ extension CreekSDK{
       methodChannel?.invokeMethod("aiDialSendText", arguments: [text,type.rawValue])
    }
    
-   public func aiDialSendImages(images:[Data],type:VoiceDialType){
-      methodChannel?.invokeMethod("aiDialSendImages", arguments: [images,type.rawValue])
+   public func aiDialSendImages(images:[Data],type:VoiceDialType,dialName:String = "aidial"){
+      methodChannel?.invokeMethod("aiDialSendImages", arguments: [images,type.rawValue,dialName])
    }
    
    public func saveBindDevice(){

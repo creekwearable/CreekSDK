@@ -210,6 +210,36 @@ public class SportModel: Codable {
    /// Workout course name
    public var courseName: String?
    
+   /// Whether multi-sport is supported
+   public var multiSportSupport: Int?
+
+   /// Multi-sport index
+   public var multiSportIndex: Int?
+
+   /// Total number of multi-sports
+   public var multiSportCount: Int?
+
+   /// Whether this is the last one
+   public var multiSportIsLastOne: Int?
+
+   /// Total duration of multi-sport
+   public var multiSportTotalDurations: Int?
+
+   /// Total distance of multi-sport
+   public var multiSportTotalDistance: Int?
+
+   /// Total calories of multi-sport
+   public var multiSportTotalCalories: Int?
+
+   /// Total active calories of multi-sport
+   public var multiSportActiveCalories: Int?
+
+   /// Average heart rate of multi-sport
+   public var multiSportAvgHr: Int?
+
+   /// Multi-sport ID
+   public var multiSportId: Int?
+   
    public var workoutCourseItem : [WorkoutCourseModel]?
    
    public var sportLapItem : [SportLapModel]?
