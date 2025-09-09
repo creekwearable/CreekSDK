@@ -13,6 +13,7 @@ target 'CreekSDK_Example' do
   pod 'CropViewController'
   pod 'TZImagePickerController'
 #  pod 'IQKeyboardManagerSwift'
+ pod 'Protobuf', '~> 3.21'
   
   post_install do |installer|
 #

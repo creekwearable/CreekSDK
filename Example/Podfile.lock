@@ -1,5 +1,5 @@
 PODS:
-  - CreekSDK (0.1.57):
+  - CreekSDK (0.1.58):
     - MicrosoftCognitiveServicesSpeech-iOS
     - onnxruntime-objc (= 1.15.0)
     - SwiftProtobuf (~> 1.25.2)
@@ -11,6 +11,7 @@ PODS:
     - onnxruntime-objc/Core (= 1.15.0)
   - onnxruntime-objc/Core (1.15.0):
     - onnxruntime-c (= 1.15.0)
+  - Protobuf (3.29.5)
   - SnapKit (5.7.1)
   - SwiftProtobuf (1.25.2)
   - Toast-Swift (5.1.1)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - CreekSDK (from `../`)
   - CropViewController
   - MBProgressHUD
+  - Protobuf (~> 3.21)
   - SnapKit
   - Toast-Swift
   - TZImagePickerController
@@ -37,6 +39,7 @@ SPEC REPOS:
     - MicrosoftCognitiveServicesSpeech-iOS
     - onnxruntime-c
     - onnxruntime-objc
+    - Protobuf
     - SnapKit
     - SwiftProtobuf
     - Toast-Swift
@@ -48,18 +51,19 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: bebd4035bcabf6dcb2075e00cde92bdd2fbba9c5
+  CreekSDK: 17009e00141a40ea177bce4e34956ca4d19a1499
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: 47bb6e18d9cb7868f670a8ce26ced3c090fc95ae
   onnxruntime-c: e87399683ec19e3b812e13c6692882609a802b86
   onnxruntime-objc: 57ae8f83779a4c32731065d50d02d042af581114
+  Protobuf: 164aea2ae380c3951abdc3e195220c01d17400e0
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftProtobuf: 407a385e97fd206c4fbe880cc84123989167e0d1
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
   TZImagePickerController: 456f470b5dea97b37226ec7a694994a8663340b2
   ZIPFoundation: b8c29ea7ae353b309bc810586181fd073cb3312c
 
-PODFILE CHECKSUM: 12e28926e161338c00a61ede009868891ff21063
+PODFILE CHECKSUM: 4fdbd3ec01e7f751910b9ca54d8fe12cc6b8cc23
 
 COCOAPODS: 1.16.2
