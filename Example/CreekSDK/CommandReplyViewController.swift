@@ -87,6 +87,11 @@ class CommandReplyViewController: CreekBaseViewController {
 //            print("aiAnalysisActivity:\(message)")
 //         }
 
+         CreekInterFace.instance.getAuthorizationCode { code in
+            
+         } failure: { code, message in
+            
+         }
 
 
          
