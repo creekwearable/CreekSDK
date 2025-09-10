@@ -1,5 +1,5 @@
 PODS:
-  - CreekSDK (0.1.58):
+  - CreekSDK (11.0.0):
     - MicrosoftCognitiveServicesSpeech-iOS
     - onnxruntime-objc (= 1.15.0)
     - SwiftProtobuf (~> 1.25.2)
@@ -51,7 +51,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: 17009e00141a40ea177bce4e34956ca4d19a1499
+  CreekSDK: 5b9818a9dbb9e7bc3e2cff17dbe37aa9f0377f66
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: 47bb6e18d9cb7868f670a8ce26ced3c090fc95ae
@@ -64,6 +64,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: 456f470b5dea97b37226ec7a694994a8663340b2
   ZIPFoundation: b8c29ea7ae353b309bc810586181fd073cb3312c
 
-PODFILE CHECKSUM: 4fdbd3ec01e7f751910b9ca54d8fe12cc6b8cc23
+PODFILE CHECKSUM: 26b9e95c7e77176da6eaaeb4746738269e11e221
 
 COCOAPODS: 1.16.2
