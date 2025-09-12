@@ -1268,9 +1268,9 @@ extension CreekSDK{
        
     }
     
-    ///MARK :Firmware Settings
+    ///MARK :setSystem Settings
     /// - Parameter :
-    ///      - type ：1 Restart operation 2 Shut down operation
+    ///      - type ：1 Restart operation 2 Shut down operation  3 Restore factory settings  4 Clear bt information
     /// - Returns:
     public func setSystem(type:Int,success:@escaping successBase,failure:@escaping failureArgument) {
        serialQueue.sync {
@@ -2453,9 +2453,11 @@ extension CreekSDK{
       }
    }
    
-   public func aiDialConfig(voiceData:@escaping dialDataBase,confirmText:@escaping backStringBase){
+   public func aiDialConfig(voiceData:@escaping dialDataBase,confirmText:@escaping backStringBase,success:@escaping successBase,failure:@escaping failureArgument){
       dialDataClosureDic["aiDialPcm"] = voiceData
       backStringBaseDic["aiDialText"] = confirmText
+      successDic["aiDialConfig"] = success;
+      failureArgumentDic["aiDialConfig"] = failure
       methodChannel?.invokeMethod("aiDialConfig", arguments: "")
    }
    

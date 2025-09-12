@@ -324,7 +324,10 @@ public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire
          if let response = call.arguments as? String{
             if let back =  successDic[response]{
                back()
-               successDic.removeValue(forKey: response)
+               if !response.contains("aiDialConfig"){
+                  successDic.removeValue(forKey: response)
+               }
+              
             }
          }
       }
@@ -332,7 +335,9 @@ public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire
          if let response = call.arguments as? String{
             if let back =  failureDic[response]{
                back()
-               failureDic.removeValue(forKey: response)
+               if !response.contains("aiDialConfig"){
+                  failureDic.removeValue(forKey: response)
+               }
             }
          }
       }
