@@ -295,10 +295,12 @@ public enum eventIdType : Int ,Codable
       .EVENT_ID_NULL
    }
    case EVENT_ID_NULL = 0
-   case EVENT_ID_MUSIC_CONTROL = 1//音乐控制
-   case EVENT_ID_FINE_PHONE = 2 //寻找手机
-   case EVENT_ID_SYNC_DATA = 3//通知更新数据
-   case EVENT_ID_FINE_WATCH = 4//寻找手表
+   case EVENT_ID_MUSIC_CONTROL = 1//music control
+   case EVENT_ID_FINE_PHONE = 2 //Find mobile phone
+   case EVENT_ID_SYNC_DATA = 3//Notify updated data
+   case EVENT_ID_FINE_WATCH = 4//looking for watch
+   case EVENT_ID_VOLUME_CHANGE = 5//volume change
+   case EVENT_ID_CONTROL_CAMERA = 6//Control taking photos
 }
 
 public enum SyncServerType : Int{

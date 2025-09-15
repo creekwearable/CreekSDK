@@ -142,6 +142,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		C46B44CA2E6840CA00069759 /* volumeAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -287,6 +288,7 @@
 		69F2B4B0C8838C152A7AC3B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7010E1C78F779EB1911230E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9C9DF34213BA917D34C3310F /* CreekSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CreekSDK.podspec; path = ../CreekSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volumeAdjust.pb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +431,7 @@
 				07266BE22DACF260000F8BED /* sportPrescription.pb.swift */,
 				07266BE32DACF260000F8BED /* standing.pb.swift */,
 				07266BE42DACF260000F8BED /* system.pb.swift */,
+				C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */,
 				07266BE52DACF260000F8BED /* table.pb.swift */,
 				07266BE62DACF260000F8BED /* time.pb.swift */,
 				07266BE72DACF260000F8BED /* tracking.pb.swift */,
@@ -576,7 +579,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				D32F8ACD2FF038A8410EA577 /* [CP] Embed Pods Frameworks */,
-				DD70454B20D4FAB74954381F /* [CP] Copy Pods Resources */,
+				D7E3C3C0C0E3E18A51933EC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -777,7 +780,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD70454B20D4FAB74954381F /* [CP] Copy Pods Resources */ = {
+		D7E3C3C0C0E3E18A51933EC8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -893,6 +896,7 @@
 				079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */,
 				079A21802B29A72A00F5D013 /* OxygenModel.swift in Sources */,
 				079A21622B29A71B00F5D013 /* Log.swift in Sources */,
+				C46B44CA2E6840CA00069759 /* volumeAdjust.pb.swift in Sources */,
 				073D05E92E3A2AD700F000B3 /* activeOta.pb.swift in Sources */,
 				073D05EA2E3A2AD700F000B3 /* zsWeather.pb.swift in Sources */,
 				07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */,

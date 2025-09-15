@@ -80,6 +80,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get Watch Sensor",
       "Set Watch Sensor",
       "Get Water Assistant",
+      "Get Medicine Remind",
+      "Get BloodPressure",
+      "Set Volume",
+      "Get Volume",
    ];
    
    var filteredOptions: [String] = []
@@ -189,9 +193,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "*********"
-         let publicKey = "***********"
-         
+         let keyId = "********"
+         let publicKey = "***************"
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
@@ -203,11 +206,11 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          
          CreekInterFace.instance.liveSportDataListen { model in
             let json = try? model.jsonString()
-            print(json)
+            print(json ?? "")
          }
          CreekInterFace.instance.liveSportControlListen { model in
             let json = try? model.jsonString()
-             print(json)
+             print(json ?? "")
          }
          
          
@@ -229,12 +232,16 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             
             ///生成Ai图片
             ///生成完成之后 下发图片数据
-            if let image = UIImage(named: "Act06_1201_03") {
+            if let image = UIImage(named: "AIDial_0") {
                 if let data = image.pngData() {
-                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal)
+                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal,dialName: "oneDial")
                 }
             }
            
+         }success: {
+            print("dial success")
+         }failure: { code, message in
+            print("dial:\(message)")
          }
          
          CreekInterFace.instance.initGlobalConfig(keyId: keyId, publicKey: publicKey)

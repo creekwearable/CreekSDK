@@ -1268,9 +1268,9 @@ extension CreekSDK{
        
     }
     
-    ///MARK :Firmware Settings
+    ///MARK :setSystem Settings
     /// - Parameter :
-    ///      - type ：1 Restart operation 2 Shut down operation
+    ///      - type ：1 Restart operation 2 Shut down operation  3 Restore factory settings  4 Clear bt information
     /// - Returns:
     public func setSystem(type:Int,success:@escaping successBase,failure:@escaping failureArgument) {
        serialQueue.sync {
@@ -2453,9 +2453,11 @@ extension CreekSDK{
       }
    }
    
-   public func aiDialConfig(voiceData:@escaping dialDataBase,confirmText:@escaping backStringBase){
+   public func aiDialConfig(voiceData:@escaping dialDataBase,confirmText:@escaping backStringBase,success:@escaping successBase,failure:@escaping failureArgument){
       dialDataClosureDic["aiDialPcm"] = voiceData
       backStringBaseDic["aiDialText"] = confirmText
+      successDic["aiDialConfig"] = success;
+      failureArgumentDic["aiDialConfig"] = failure
       methodChannel?.invokeMethod("aiDialConfig", arguments: "")
    }
    
@@ -2463,8 +2465,8 @@ extension CreekSDK{
       methodChannel?.invokeMethod("aiDialSendText", arguments: [text,type.rawValue])
    }
    
-   public func aiDialSendImages(images:[Data],type:VoiceDialType){
-      methodChannel?.invokeMethod("aiDialSendImages", arguments: [images,type.rawValue])
+   public func aiDialSendImages(images:[Data],type:VoiceDialType,dialName:String = "aidial"){
+      methodChannel?.invokeMethod("aiDialSendImages", arguments: [images,type.rawValue,dialName])
    }
    
    public func saveBindDevice(){
@@ -2497,6 +2499,106 @@ extension CreekSDK{
          if let data = json, let str = String(data: data, encoding: .utf8) {
             let value = isBackground ? 1 : 0
             methodChannel?.invokeMethod("updateEphemeris\(requestId)", arguments: [str,value])
+         }
+      }
+   }
+    
+    ///MARK : Get volume adjust settings
+   /// - Parameters:
+   ///      - model: Callback with volume adjust data
+   ///      - failure: Failure callback with error code and message
+   /// - Returns: Volume adjust settings from device
+   public func getVolumeAdjust(model: @escaping volumeAdjustBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getVolumeAdjust\(requestId)"
+         volumeAdjustDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   ///MARK : Set volume adjust settings
+   /// - Parameters:
+   ///      - model: Volume adjust configuration data
+   ///      - success: Success callback
+   ///      - failure: Failure callback with error code and message
+   /// - Returns: Success/failure status
+   public func setVolumeAdjust(model: protocol_volume_adjust_operate, success: @escaping successBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "setVolumeAdjust\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         
+         do {
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod(methodName, arguments: data)
+         } catch {
+            print("Error serializing volume adjust data: \(error.localizedDescription)")
+            failure(-1, "Failed to serialize volume adjust data")
+            // Clean up dictionaries
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+         }
+      }
+   }
+   
+   ///MARK : Get blood pressure data
+   /// - Parameters:
+   ///      - model: Callback with blood pressure data
+   ///      - failure: Failure callback with error code and message
+   /// - Returns: Blood pressure measurements from device
+   ///
+   /// 
+   public func getBloodPressure(page:Int = 1,size:Int = 20,model:@escaping bloodPressureBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         bloodPressureDic["getBloodPressure\(requestId)"] = model
+         failureArgumentDic["getBloodPressure\(requestId)"] = failure
+         do{
+            let jsonData = try JSONSerialization.data(withJSONObject: ["page":page,"size":size], options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+               methodChannel?.invokeMethod("getBloodPressure\(requestId)", arguments: JSONString)
+            }
+         }catch{
+            print("Error converting string to dictionary: \(error.localizedDescription)")
+         }
+      }
+   }
+   
+   public func getMedicineRemind(model: @escaping medicineRemindBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getMedicineRemind\(requestId)"
+         medicineRemindDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   ///MARK : Set volume adjust settings
+   /// - Parameters:
+   ///      - model: Volume adjust configuration data
+   ///      - success: Success callback
+   ///      - failure: Failure callback with error code and message
+   /// - Returns: Success/failure status
+   public func setMedicineRemind(model: protocol_medicine_remind_operate, success: @escaping successBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "setMedicineRemind\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         
+         do {
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod(methodName, arguments: data)
+         } catch {
+            print("Error serializing volume adjust data: \(error.localizedDescription)")
+            failure(-1, "Failed to serialize volume adjust data")
+            // Clean up dictionaries
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
          }
       }
    }

@@ -87,6 +87,11 @@ class CommandReplyViewController: CreekBaseViewController {
             print("aiAnalysisActivity:\(message)")
          }
 
+         CreekInterFace.instance.getAuthorizationCode { code in
+            
+         } failure: { code, message in
+            
+         }
 
 
          
@@ -1075,6 +1080,68 @@ class CommandReplyViewController: CreekBaseViewController {
          
          break
          
+      case "Set Volume":
+          ///这个为true的时候，代表健康监测改成了传感器设置
+         /// protocol_function_table().waterAssistant.isSupport
+         
+         var  operate =  protocol_volume_adjust_operate()
+         operate.ringtoneVolume = 3
+         CreekInterFace.instance.setVolumeAdjust(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+         
+      case "Get Volume":
+         CreekInterFace.instance.getVolumeAdjust{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+      case "Get BloodPressure":
+         CreekInterFace.instance.getBloodPressure(page: 1,size: 10){ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+         
+      case  "Get Medicine Remind":
+         CreekInterFace.instance.getMedicineRemind{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
 
       default:
          break
