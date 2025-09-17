@@ -432,371 +432,371 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2047,
       "length": 41,
       "value": "\"plugins.builttoroam.com\/device_calendar\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2117,
       "length": 5,
       "value": "\"404\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2144,
       "length": 5,
       "value": "\"405\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2173,
       "length": 5,
       "value": "\"500\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2211,
       "length": 5,
       "value": "\"401\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2252,
       "length": 71,
       "value": "\"The user has not allowed this application to modify their calendar(s)\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2369,
       "length": 48,
       "value": "\"The calendar with the ID %@ could not be found\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2463,
       "length": 34,
       "value": "\"Calendar with ID %@ is read-only\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2540,
       "length": 45,
       "value": "\"The event with the ID %@ could not be found\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2657,
       "length": 20,
       "value": "\"requestPermissions\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2709,
       "length": 16,
       "value": "\"hasPermissions\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2760,
       "length": 19,
       "value": "\"retrieveCalendars\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2811,
       "length": 16,
       "value": "\"retrieveEvents\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2860,
       "length": 17,
       "value": "\"retrieveSources\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2914,
       "length": 21,
       "value": "\"createOrUpdateEvent\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 2967,
       "length": 16,
       "value": "\"createCalendar\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3015,
       "length": 16,
       "value": "\"deleteCalendar\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3060,
       "length": 13,
       "value": "\"deleteEvent\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3110,
       "length": 21,
       "value": "\"deleteEventInstance\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3163,
       "length": 19,
       "value": "\"showiOSEventModal\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3212,
       "length": 12,
       "value": "\"calendarId\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3253,
       "length": 11,
       "value": "\"startDate\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3291,
       "length": 9,
       "value": "\"endDate\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3327,
       "length": 9,
       "value": "\"eventId\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3364,
       "length": 10,
       "value": "\"eventIds\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3404,
       "length": 12,
       "value": "\"eventTitle\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3452,
       "length": 18,
       "value": "\"eventDescription\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3501,
       "length": 13,
       "value": "\"eventAllDay\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3549,
       "length": 16,
       "value": "\"eventStartDate\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3597,
       "length": 14,
       "value": "\"eventEndDate\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3649,
       "length": 20,
       "value": "\"eventStartTimeZone\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3702,
       "length": 15,
       "value": "\"eventLocation\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3745,
       "length": 10,
       "value": "\"eventURL\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3784,
       "length": 11,
       "value": "\"attendees\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3829,
       "length": 16,
       "value": "\"recurrenceRule\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3884,
       "length": 21,
       "value": "\"recurrenceFrequency\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3941,
       "length": 18,
       "value": "\"totalOccurrences\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 3987,
       "length": 10,
       "value": "\"interval\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4027,
       "length": 12,
       "value": "\"daysOfWeek\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4069,
       "length": 12,
       "value": "\"dayOfMonth\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4112,
       "length": 13,
       "value": "\"monthOfYear\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4156,
       "length": 13,
       "value": "\"weekOfMonth\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4193,
       "length": 6,
       "value": "\"name\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4231,
       "length": 14,
       "value": "\"emailAddress\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4269,
       "length": 6,
       "value": "\"role\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4304,
       "length": 11,
       "value": "\"reminders\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4342,
       "length": 9,
       "value": "\"minutes\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4389,
       "length": 20,
       "value": "\"followingInstances\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4441,
       "length": 14,
       "value": "\"calendarName\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4488,
       "length": 15,
       "value": "\"calendarColor\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4535,
       "length": 14,
       "value": "\"availability\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4585,
       "length": 18,
       "value": "\"attendanceStatus\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
+      "filePath": "\/Users\/bob\/.pub-cache\/hosted\/pub.dev\/device_calendar-4.3.3\/ios\/Classes\/SwiftDeviceCalendarPlugin.swift",
       "kind": "StringLiteral",
       "offset": 4634,
       "length": 13,

@@ -142,6 +142,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		C4524E342E797EA800F91EBA /* trainingLoad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */; };
+		C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */; };
 		C46B44CA2E6840CA00069759 /* volumeAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */; };
 /* End PBXBuildFile section */
 
@@ -288,6 +290,8 @@
 		69F2B4B0C8838C152A7AC3B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7010E1C78F779EB1911230E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9C9DF34213BA917D34C3310F /* CreekSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CreekSDK.podspec; path = ../CreekSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingLoad.pb.swift; sourceTree = "<group>"; };
+		C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
 		C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volumeAdjust.pb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -407,6 +411,7 @@
 				07266BCA2DACF260000F8BED /* findphone.pb.swift */,
 				07266BCB2DACF260000F8BED /* focus.pb.swift */,
 				07266BCC2DACF260000F8BED /* font.pb.swift */,
+				C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */,
 				07266BCD2DACF260000F8BED /* gesture.pb.swift */,
 				07266BCE2DACF260000F8BED /* health.pb.swift */,
 				07266BCF2DACF260000F8BED /* healthhead.pb.swift */,
@@ -414,6 +419,7 @@
 				07266BD12DACF260000F8BED /* hotKey.pb.swift */,
 				07266BD22DACF260000F8BED /* language.pb.swift */,
 				07266BD32DACF260000F8BED /* log.pb.swift */,
+				C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */,
 				07266BD42DACF260000F8BED /* menstrual.pb.swift */,
 				07266BD52DACF260000F8BED /* message.pb.swift */,
 				07266BD62DACF260000F8BED /* monitor.pb.swift */,
@@ -860,6 +866,7 @@
 				07266C172DACF260000F8BED /* healthhead.pb.swift in Sources */,
 				07266C182DACF260000F8BED /* message.pb.swift in Sources */,
 				07266C192DACF260000F8BED /* watchSensor.pb.swift in Sources */,
+				C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */,
 				07266C1A2DACF260000F8BED /* gesture.pb.swift in Sources */,
 				07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */,
 				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,
@@ -877,6 +884,7 @@
 				07266C322DAD0575000F8BED /* LogViewController.swift in Sources */,
 				07266C242DACF260000F8BED /* system.pb.swift in Sources */,
 				07266C252DACF260000F8BED /* sleepMonitor.pb.swift in Sources */,
+				C4524E342E797EA800F91EBA /* trainingLoad.pb.swift in Sources */,
 				07266C262DACF260000F8BED /* calendar.pb.swift in Sources */,
 				07266C272DACF260000F8BED /* table.pb.swift in Sources */,
 				07266C282DACF260000F8BED /* waterAssistant.pb.swift in Sources */,

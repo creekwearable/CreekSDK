@@ -554,6 +554,18 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._gpsSupport = newValue}
   }
 
+  ///步数显示是否支持
+  public var stepSupport: Bool {
+    get {return _storage._stepSupport}
+    set {_uniqueStorage()._stepSupport = newValue}
+  }
+
+  ///步数
+  public var totalStep: UInt32 {
+    get {return _storage._totalStep}
+    set {_uniqueStorage()._totalStep = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -629,6 +641,141 @@ public struct protocol_exercise_course_list_inquire_reply: Sendable {
 
   ///运动课程目标支持列表
   public var targetSupport: [course_target_support_type] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_total_mileage_item: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///运动类型
+  public var sportType: mileage_sport_type = .mileageNull
+
+  ///时间范围
+  public var timeType: mileage_time_type = .weekly
+
+  ///目标类型
+  public var targetType: mileage_target_type = .activity
+
+  ///当前活动次数
+  public var curActivityCount: UInt32 = 0
+
+  ///当前距离
+  public var curDistance: UInt32 = 0
+
+  ///目标活动次数
+  public var goalActivityCount: UInt32 = 0
+
+  ///目标距离
+  public var goalDistance: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_exercise_total_mileage_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  public var mileageItem: protocol_total_mileage_item {
+    get {return _mileageItem ?? protocol_total_mileage_item()}
+    set {_mileageItem = newValue}
+  }
+  /// Returns true if `mileageItem` has been explicitly set.
+  public var hasMileageItem: Bool {return self._mileageItem != nil}
+  /// Clears the value of `mileageItem`. Subsequent reads from it will return its default value.
+  public mutating func clearMileageItem() {self._mileageItem = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _mileageItem: protocol_total_mileage_item? = nil
+}
+
+public struct protocol_exercise_total_mileage_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  public var mileageItem: protocol_total_mileage_item {
+    get {return _mileageItem ?? protocol_total_mileage_item()}
+    set {_mileageItem = newValue}
+  }
+  /// Returns true if `mileageItem` has been explicitly set.
+  public var hasMileageItem: Bool {return self._mileageItem != nil}
+  /// Clears the value of `mileageItem`. Subsequent reads from it will return its default value.
+  public mutating func clearMileageItem() {self._mileageItem = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _mileageItem: protocol_total_mileage_item? = nil
+}
+
+///设置动作指导数据子项数据
+public struct action_list_item: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///唯一标识
+  public var id: UInt32 = 0
+
+  ///版本号
+  public var version: UInt32 = 0
+
+  ///类型
+  public var type: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_exercise_action_list_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型
+  public var operate: operate_course_list_type = .courseInvalid
+
+  public var listItems: [action_list_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_action_list_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes操作类型
+  public var operate: operate_course_list_type = .courseInvalid
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  public var listItems: [action_list_item] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1363,6 +1510,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     35: .standard(proto: "lap_support"),
     36: .standard(proto: "gps_rssi"),
     37: .standard(proto: "gps_support"),
+    38: .standard(proto: "step_support"),
+    39: .standard(proto: "total_step"),
   ]
 
   fileprivate class _StorageClass {
@@ -1403,16 +1552,14 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _lapSupport: Bool = false
     var _gpsRssi: UInt32 = 0
     var _gpsSupport: Bool = false
+    var _stepSupport: Bool = false
+    var _totalStep: UInt32 = 0
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -1454,6 +1601,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       _lapSupport = source._lapSupport
       _gpsRssi = source._gpsRssi
       _gpsSupport = source._gpsSupport
+      _stepSupport = source._stepSupport
+      _totalStep = source._totalStep
     }
   }
 
@@ -1509,6 +1658,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 35: try { try decoder.decodeSingularBoolField(value: &_storage._lapSupport) }()
         case 36: try { try decoder.decodeSingularUInt32Field(value: &_storage._gpsRssi) }()
         case 37: try { try decoder.decodeSingularBoolField(value: &_storage._gpsSupport) }()
+        case 38: try { try decoder.decodeSingularBoolField(value: &_storage._stepSupport) }()
+        case 39: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalStep) }()
         default: break
         }
       }
@@ -1628,6 +1779,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._gpsSupport != false {
         try visitor.visitSingularBoolField(value: _storage._gpsSupport, fieldNumber: 37)
       }
+      if _storage._stepSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._stepSupport, fieldNumber: 38)
+      }
+      if _storage._totalStep != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._totalStep, fieldNumber: 39)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1674,6 +1831,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         if _storage._lapSupport != rhs_storage._lapSupport {return false}
         if _storage._gpsRssi != rhs_storage._gpsRssi {return false}
         if _storage._gpsSupport != rhs_storage._gpsSupport {return false}
+        if _storage._stepSupport != rhs_storage._stepSupport {return false}
+        if _storage._totalStep != rhs_storage._totalStep {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -1854,6 +2013,290 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.listItems != rhs.listItems {return false}
     if lhs.targetSupport != rhs.targetSupport {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_total_mileage_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_total_mileage_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sport_type"),
+    2: .standard(proto: "time_type"),
+    3: .standard(proto: "target_type"),
+    4: .standard(proto: "cur_activity_count"),
+    5: .standard(proto: "cur_distance"),
+    6: .standard(proto: "goal_activity_count"),
+    7: .standard(proto: "goal_distance"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.timeType) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.targetType) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.curActivityCount) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.curDistance) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.goalActivityCount) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.goalDistance) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.sportType != .mileageNull {
+      try visitor.visitSingularEnumField(value: self.sportType, fieldNumber: 1)
+    }
+    if self.timeType != .weekly {
+      try visitor.visitSingularEnumField(value: self.timeType, fieldNumber: 2)
+    }
+    if self.targetType != .activity {
+      try visitor.visitSingularEnumField(value: self.targetType, fieldNumber: 3)
+    }
+    if self.curActivityCount != 0 {
+      try visitor.visitSingularUInt32Field(value: self.curActivityCount, fieldNumber: 4)
+    }
+    if self.curDistance != 0 {
+      try visitor.visitSingularUInt32Field(value: self.curDistance, fieldNumber: 5)
+    }
+    if self.goalActivityCount != 0 {
+      try visitor.visitSingularUInt32Field(value: self.goalActivityCount, fieldNumber: 6)
+    }
+    if self.goalDistance != 0 {
+      try visitor.visitSingularUInt32Field(value: self.goalDistance, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_total_mileage_item, rhs: protocol_total_mileage_item) -> Bool {
+    if lhs.sportType != rhs.sportType {return false}
+    if lhs.timeType != rhs.timeType {return false}
+    if lhs.targetType != rhs.targetType {return false}
+    if lhs.curActivityCount != rhs.curActivityCount {return false}
+    if lhs.curDistance != rhs.curDistance {return false}
+    if lhs.goalActivityCount != rhs.goalActivityCount {return false}
+    if lhs.goalDistance != rhs.goalDistance {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_exercise_total_mileage_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_exercise_total_mileage_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "mileage_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._mileageItem) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    try { if let v = self._mileageItem {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_exercise_total_mileage_operate, rhs: protocol_exercise_total_mileage_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs._mileageItem != rhs._mileageItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_exercise_total_mileage_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_exercise_total_mileage_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "mileage_item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._mileageItem) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    try { if let v = self._mileageItem {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_exercise_total_mileage_inquire_reply, rhs: protocol_exercise_total_mileage_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs._mileageItem != rhs._mileageItem {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension action_list_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "action_list_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "version"),
+    3: .same(proto: "type"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.version) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.type) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
+    }
+    if self.version != 0 {
+      try visitor.visitSingularUInt32Field(value: self.version, fieldNumber: 2)
+    }
+    if self.type != 0 {
+      try visitor.visitSingularUInt32Field(value: self.type, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: action_list_item, rhs: action_list_item) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.version != rhs.version {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_exercise_action_list_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_exercise_action_list_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "list_items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.listItems) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .courseInvalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if !self.listItems.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.listItems, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_exercise_action_list_operate, rhs: protocol_exercise_action_list_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.listItems != rhs.listItems {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_action_list_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_action_list_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "list_items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.listItems) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .courseInvalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    if !self.listItems.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.listItems, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_action_list_inquire_reply, rhs: protocol_action_list_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.listItems != rhs.listItems {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

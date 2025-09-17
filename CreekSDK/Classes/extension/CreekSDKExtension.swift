@@ -2550,7 +2550,7 @@ extension CreekSDK{
    ///      - failure: Failure callback with error code and message
    /// - Returns: Blood pressure measurements from device
    ///
-   /// 
+   ///
 
    public func getBloodPressure(page:Int = 1,size:Int = 20,model:@escaping bloodPressureBase,failure:@escaping failureArgument) {
       serialQueue.sync {
@@ -2563,7 +2563,11 @@ extension CreekSDK{
               methodChannel?.invokeMethod("getBloodPressure\(requestId)", arguments: JSONString)
            }
          }catch{
+            let methodName = "getBloodPressure\(requestId)";
             print("Error converting string to dictionary: \(error.localizedDescription)")
+            failure(-1, "Failed to serialize blood pressure data")
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
          }
       }
    }
@@ -2579,12 +2583,7 @@ extension CreekSDK{
       }
    }
    
-   ///MARK : Set volume adjust settings
-   /// - Parameters:
-   ///      - model: Volume adjust configuration data
-   ///      - success: Success callback
-   ///      - failure: Failure callback with error code and message
-   /// - Returns: Success/failure status
+   
    public func setMedicineRemind(model: protocol_medicine_remind_operate, success: @escaping successBase, failure: @escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
@@ -2596,12 +2595,33 @@ extension CreekSDK{
             let data = try model.serializedData()
             methodChannel?.invokeMethod(methodName, arguments: data)
          } catch {
-            print("Error serializing volume adjust data: \(error.localizedDescription)")
-            failure(-1, "Failed to serialize volume adjust data")
+            print("Error serializing medicine remind data: \(error.localizedDescription)")
+            failure(-1, "Failed to serialize medicine remind data")
             // Clean up dictionaries
             successDic.removeValue(forKey: methodName)
             failureArgumentDic.removeValue(forKey: methodName)
          }
+      }
+   }
+   
+   ///训练负荷
+   public func getTrainingLoad(model: @escaping trainLoadBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getTrainingLoad\(requestId)"
+         trainLoadBaseDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   /// 获取有氧适能
+   public func getCardioFitness(model: @escaping cardioFitnessBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getCardioFitness\(requestId)"
+         cardioFitnessBaseDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
       }
    }
    

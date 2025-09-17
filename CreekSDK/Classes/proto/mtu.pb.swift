@@ -31,6 +31,12 @@ public struct protocol_connect_status_operate: Sendable {
   ///1bytes 重连操作
   public var reconnectOperate: Bool = false
 
+  ///1bytes 网络状态
+  public var networkStatus: Bool = false
+
+  ///1bytes手机类型
+  public var phoneType: conn_phone_type = .connNull
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -77,6 +83,8 @@ extension protocol_connect_status_operate: SwiftProtobuf.Message, SwiftProtobuf.
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operate"),
     2: .standard(proto: "reconnect_operate"),
+    3: .standard(proto: "network_status"),
+    4: .standard(proto: "phone_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -87,6 +95,8 @@ extension protocol_connect_status_operate: SwiftProtobuf.Message, SwiftProtobuf.
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularBoolField(value: &self.reconnectOperate) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.networkStatus) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.phoneType) }()
       default: break
       }
     }
@@ -99,12 +109,20 @@ extension protocol_connect_status_operate: SwiftProtobuf.Message, SwiftProtobuf.
     if self.reconnectOperate != false {
       try visitor.visitSingularBoolField(value: self.reconnectOperate, fieldNumber: 2)
     }
+    if self.networkStatus != false {
+      try visitor.visitSingularBoolField(value: self.networkStatus, fieldNumber: 3)
+    }
+    if self.phoneType != .connNull {
+      try visitor.visitSingularEnumField(value: self.phoneType, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_connect_status_operate, rhs: protocol_connect_status_operate) -> Bool {
     if lhs.operate != rhs.operate {return false}
     if lhs.reconnectOperate != rhs.reconnectOperate {return false}
+    if lhs.networkStatus != rhs.networkStatus {return false}
+    if lhs.phoneType != rhs.phoneType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

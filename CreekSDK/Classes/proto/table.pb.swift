@@ -560,7 +560,7 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `healthSnap`. Subsequent reads from it will return its default value.
   public mutating func clearHealthSnap() {_uniqueStorage()._healthSnap = nil}
 
-  ///手势
+  ///手势 main_id:0x3b
   public var gesture: function_table {
     get {return _storage._gesture ?? function_table()}
     set {_uniqueStorage()._gesture = newValue}
@@ -690,6 +690,76 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `superMsg`. Subsequent reads from it will return its default value.
   public mutating func clearSuperMsg() {_uniqueStorage()._superMsg = nil}
 
+  ///是否支持血压数据 main_id:0x3d
+  public var bloodPressure: function_table {
+    get {return _storage._bloodPressure ?? function_table()}
+    set {_uniqueStorage()._bloodPressure = newValue}
+  }
+  /// Returns true if `bloodPressure` has been explicitly set.
+  public var hasBloodPressure: Bool {return _storage._bloodPressure != nil}
+  /// Clears the value of `bloodPressure`. Subsequent reads from it will return its default value.
+  public mutating func clearBloodPressure() {_uniqueStorage()._bloodPressure = nil}
+
+  ///是否支持吃药提醒 main_id:0x3e
+  public var medicineRemind: function_table {
+    get {return _storage._medicineRemind ?? function_table()}
+    set {_uniqueStorage()._medicineRemind = newValue}
+  }
+  /// Returns true if `medicineRemind` has been explicitly set.
+  public var hasMedicineRemind: Bool {return _storage._medicineRemind != nil}
+  /// Clears the value of `medicineRemind`. Subsequent reads from it will return its default value.
+  public mutating func clearMedicineRemind() {_uniqueStorage()._medicineRemind = nil}
+
+  ///是否支持有氧适能 main_id:0x39
+  public var cardioFitness: function_table {
+    get {return _storage._cardioFitness ?? function_table()}
+    set {_uniqueStorage()._cardioFitness = newValue}
+  }
+  /// Returns true if `cardioFitness` has been explicitly set.
+  public var hasCardioFitness: Bool {return _storage._cardioFitness != nil}
+  /// Clears the value of `cardioFitness`. Subsequent reads from it will return its default value.
+  public mutating func clearCardioFitness() {_uniqueStorage()._cardioFitness = nil}
+
+  ///是否支持训练负荷 main_id:0x3f
+  public var trainingLoad: function_table {
+    get {return _storage._trainingLoad ?? function_table()}
+    set {_uniqueStorage()._trainingLoad = newValue}
+  }
+  /// Returns true if `trainingLoad` has been explicitly set.
+  public var hasTrainingLoad: Bool {return _storage._trainingLoad != nil}
+  /// Clears the value of `trainingLoad`. Subsequent reads from it will return its default value.
+  public mutating func clearTrainingLoad() {_uniqueStorage()._trainingLoad = nil}
+
+  ///是否支持音量调节 main_id:0x40
+  public var volumeAdjust: function_table {
+    get {return _storage._volumeAdjust ?? function_table()}
+    set {_uniqueStorage()._volumeAdjust = newValue}
+  }
+  /// Returns true if `volumeAdjust` has been explicitly set.
+  public var hasVolumeAdjust: Bool {return _storage._volumeAdjust != nil}
+  /// Clears the value of `volumeAdjust`. Subsequent reads from it will return its default value.
+  public mutating func clearVolumeAdjust() {_uniqueStorage()._volumeAdjust = nil}
+
+  ///是否支持动作指导
+  public var actionGuide: function_table {
+    get {return _storage._actionGuide ?? function_table()}
+    set {_uniqueStorage()._actionGuide = newValue}
+  }
+  /// Returns true if `actionGuide` has been explicitly set.
+  public var hasActionGuide: Bool {return _storage._actionGuide != nil}
+  /// Clears the value of `actionGuide`. Subsequent reads from it will return its default value.
+  public mutating func clearActionGuide() {_uniqueStorage()._actionGuide = nil}
+
+  ///是否支持训练准备度
+  public var trainingReadiness: function_table {
+    get {return _storage._trainingReadiness ?? function_table()}
+    set {_uniqueStorage()._trainingReadiness = newValue}
+  }
+  /// Returns true if `trainingReadiness` has been explicitly set.
+  public var hasTrainingReadiness: Bool {return _storage._trainingReadiness != nil}
+  /// Clears the value of `trainingReadiness`. Subsequent reads from it will return its default value.
+  public mutating func clearTrainingReadiness() {_uniqueStorage()._trainingReadiness = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -805,6 +875,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     63: .standard(proto: "map_route"),
     64: .standard(proto: "map_ofline"),
     65: .standard(proto: "super_msg"),
+    66: .standard(proto: "blood_pressure"),
+    67: .standard(proto: "medicine_remind"),
+    68: .standard(proto: "cardio_fitness"),
+    69: .standard(proto: "training_load"),
+    70: .standard(proto: "volume_adjust"),
+    71: .standard(proto: "action_guide"),
+    72: .standard(proto: "training_readiness"),
   ]
 
   fileprivate class _StorageClass {
@@ -873,16 +950,19 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _mapRoute: function_table? = nil
     var _mapOfline: function_table? = nil
     var _superMsg: function_table? = nil
+    var _bloodPressure: function_table? = nil
+    var _medicineRemind: function_table? = nil
+    var _cardioFitness: function_table? = nil
+    var _trainingLoad: function_table? = nil
+    var _volumeAdjust: function_table? = nil
+    var _actionGuide: function_table? = nil
+    var _trainingReadiness: function_table? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -952,6 +1032,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _mapRoute = source._mapRoute
       _mapOfline = source._mapOfline
       _superMsg = source._superMsg
+      _bloodPressure = source._bloodPressure
+      _medicineRemind = source._medicineRemind
+      _cardioFitness = source._cardioFitness
+      _trainingLoad = source._trainingLoad
+      _volumeAdjust = source._volumeAdjust
+      _actionGuide = source._actionGuide
+      _trainingReadiness = source._trainingReadiness
     }
   }
 
@@ -1035,6 +1122,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 63: try { try decoder.decodeSingularMessageField(value: &_storage._mapRoute) }()
         case 64: try { try decoder.decodeSingularMessageField(value: &_storage._mapOfline) }()
         case 65: try { try decoder.decodeSingularMessageField(value: &_storage._superMsg) }()
+        case 66: try { try decoder.decodeSingularMessageField(value: &_storage._bloodPressure) }()
+        case 67: try { try decoder.decodeSingularMessageField(value: &_storage._medicineRemind) }()
+        case 68: try { try decoder.decodeSingularMessageField(value: &_storage._cardioFitness) }()
+        case 69: try { try decoder.decodeSingularMessageField(value: &_storage._trainingLoad) }()
+        case 70: try { try decoder.decodeSingularMessageField(value: &_storage._volumeAdjust) }()
+        case 71: try { try decoder.decodeSingularMessageField(value: &_storage._actionGuide) }()
+        case 72: try { try decoder.decodeSingularMessageField(value: &_storage._trainingReadiness) }()
         default: break
         }
       }
@@ -1242,6 +1336,27 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._superMsg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 65)
       } }()
+      try { if let v = _storage._bloodPressure {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 66)
+      } }()
+      try { if let v = _storage._medicineRemind {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 67)
+      } }()
+      try { if let v = _storage._cardioFitness {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
+      } }()
+      try { if let v = _storage._trainingLoad {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 69)
+      } }()
+      try { if let v = _storage._volumeAdjust {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 70)
+      } }()
+      try { if let v = _storage._actionGuide {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 71)
+      } }()
+      try { if let v = _storage._trainingReadiness {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 72)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1316,6 +1431,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._mapRoute != rhs_storage._mapRoute {return false}
         if _storage._mapOfline != rhs_storage._mapOfline {return false}
         if _storage._superMsg != rhs_storage._superMsg {return false}
+        if _storage._bloodPressure != rhs_storage._bloodPressure {return false}
+        if _storage._medicineRemind != rhs_storage._medicineRemind {return false}
+        if _storage._cardioFitness != rhs_storage._cardioFitness {return false}
+        if _storage._trainingLoad != rhs_storage._trainingLoad {return false}
+        if _storage._volumeAdjust != rhs_storage._volumeAdjust {return false}
+        if _storage._actionGuide != rhs_storage._actionGuide {return false}
+        if _storage._trainingReadiness != rhs_storage._trainingReadiness {return false}
         return true
       }
       if !storagesAreEqual {return false}

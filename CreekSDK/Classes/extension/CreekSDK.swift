@@ -96,6 +96,9 @@ public typealias ephemerisDataBase = (_ model:ephemeris_data_operate) -> ()
 public typealias volumeAdjustBase = (_ model: protocol_volume_adjust_inquire_reply) -> ()
 public typealias bloodPressureBase = (_ model: protocol_blood_pressure_inquire_reply) -> ()
 public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire_reply) -> ()
+public typealias trainLoadBase = (_ model: protocol_training_load_inquire_reply) -> ()
+public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_reply) -> ()
+
 
 @objc open class CreekSDK: NSObject{
    
@@ -205,6 +208,8 @@ public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire
    var medicineRemindDic:[String:medicineRemindBase] = [:]
    
    var _ephemerisListen:(() -> ())?
+   var trainLoadBaseDic:[String:trainLoadBase] = [:]
+   var cardioFitnessBaseDic:[String:cardioFitnessBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -1854,14 +1859,50 @@ public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire
                   medicineRemindDic.removeValue(forKey: call.method)
                }
             }catch{
-               print("Error converting blood pressure data: \(error.localizedDescription)")
+               print("Error converting getMedicineRemind data: \(error.localizedDescription)")
                if let failure = failureArgumentDic[call.method]{
-                  failure(-1, "Failed to parse blood pressure data")
+                  failure(-1, "Failed to parse getMedicineRemind data")
                   failureArgumentDic.removeValue(forKey: call.method)
                }
             }
          }
       }
+      else if(call.method.contains("getTrainingLoad")){
+        if let response = call.arguments as? FlutterStandardTypedData{
+           do{
+              let model = try protocol_training_load_inquire_reply(serializedData: response.data,partial: true)
+              if let back = trainLoadBaseDic[call.method]{
+                 back(model)
+                 trainLoadBaseDic.removeValue(forKey: call.method)
+              }
+           }catch{
+              print("Error getTrainingLoad data: \(error.localizedDescription)")
+              if let failure = failureArgumentDic[call.method]{
+                 failure(-1, "Failed to parse getTrainingLoad data")
+                 failureArgumentDic.removeValue(forKey: call.method)
+              }
+           }
+        }
+     }
+      else if(call.method.contains("getCardioFitness")){
+        if let response = call.arguments as? FlutterStandardTypedData{
+           do{
+              let model = try protocol_cardio_fitness_inquire_reply(serializedData: response.data,partial: true)
+              if let back = cardioFitnessBaseDic[call.method]{
+                 back(model)
+                 cardioFitnessBaseDic.removeValue(forKey: call.method)
+              }
+           }catch{
+              print("Error converting getCardioFitness data: \(error.localizedDescription)")
+              if let failure = failureArgumentDic[call.method]{
+                 failure(-1, "Failed to parse getCardioFitness data")
+                 failureArgumentDic.removeValue(forKey: call.method)
+              }
+           }
+        }
+     }
+      
+      
       
    }
    
