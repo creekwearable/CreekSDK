@@ -2624,5 +2624,36 @@ extension CreekSDK{
          methodChannel?.invokeMethod(methodName, arguments: "")
       }
    }
-   
+    
+    ///点测获取健康数据
+    public func getClickHealthMeasure(type: health_measure_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          let methodName = "getClickHealthMeasure\(requestId)"
+          clickHealthMeasureDic[methodName] = model
+          failureArgumentDic[methodName] = failure
+           methodChannel?.invokeMethod(methodName, arguments: type.rawValue)
+       }
+    }
+    
+   ///点测数据设置
+    public func setClickHealthMeasure(model: protocol_ring_click_measure_operate, success: @escaping successBase, failure: @escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          let methodName = "setClickHealthMeasure\(requestId)"
+          successDic[methodName] = success
+          failureArgumentDic[methodName] = failure
+          
+          do {
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod(methodName, arguments: data)
+          } catch {
+             print("Error serializing setClickHealthMeasure data: \(error.localizedDescription)")
+             failure(-1, "Failed to serialize setClickHealthMeasure data")
+             // Clean up dictionaries
+             successDic.removeValue(forKey: methodName)
+             failureArgumentDic.removeValue(forKey: methodName)
+          }
+       }
+    }
 }

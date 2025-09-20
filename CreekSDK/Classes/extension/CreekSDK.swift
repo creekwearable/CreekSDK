@@ -98,7 +98,7 @@ public typealias bloodPressureBase = (_ model: protocol_blood_pressure_inquire_r
 public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire_reply) -> ()
 public typealias trainLoadBase = (_ model: protocol_training_load_inquire_reply) -> ()
 public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_reply) -> ()
-
+public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_operate) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -210,6 +210,7 @@ public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_r
    var _ephemerisListen:(() -> ())?
    var trainLoadBaseDic:[String:trainLoadBase] = [:]
    var cardioFitnessBaseDic:[String:cardioFitnessBase] = [:]
+   var clickHealthMeasureDic:[String:clickHealthMeasureBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -1901,6 +1902,31 @@ public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_r
            }
         }
      }
+       else if(call.method.contains("setClickHealthMeasure")){
+          if let response = call.arguments as? Bool{
+             if let success = successDic[call.method]{
+                success()
+                successDic.removeValue(forKey: call.method)
+             }
+          }
+       } else if(call.method.contains("getClickHealthMeasure")){
+          if let response = call.arguments as? FlutterStandardTypedData{
+             do{
+                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+                if let back = clickHealthMeasureDic[call.method]{
+                   back(model)
+                    clickHealthMeasureDic.removeValue(forKey: call.method)
+                }
+             }catch{
+                print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
+                if let failure = failureArgumentDic[call.method]{
+                   failure(-1, "Failed to parse getClickHealthMeasure data")
+                   failureArgumentDic.removeValue(forKey: call.method)
+                }
+             }
+          }
+       }
+       
       
       
       
