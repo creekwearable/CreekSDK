@@ -99,6 +99,7 @@ public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire
 public typealias trainLoadBase = (_ model: protocol_training_load_inquire_reply) -> ()
 public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_reply) -> ()
 public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_operate) -> ()
+public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -211,7 +212,7 @@ public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_
    var trainLoadBaseDic:[String:trainLoadBase] = [:]
    var cardioFitnessBaseDic:[String:cardioFitnessBase] = [:]
    var clickHealthMeasureDic:[String:clickHealthMeasureBase] = [:]
-   
+   var watchReminderWitchDic:[String:watchReminderWitchBase] = [:]
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
    public override init() {
@@ -1921,6 +1922,29 @@ public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_
                 print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
                 if let failure = failureArgumentDic[call.method]{
                    failure(-1, "Failed to parse getClickHealthMeasure data")
+                   failureArgumentDic.removeValue(forKey: call.method)
+                }
+             }
+          }
+       }else if(call.method.contains("setWatchReminderWitch")){
+          if let response = call.arguments as? Bool{
+             if let success = successDic[call.method]{
+                success()
+                successDic.removeValue(forKey: call.method)
+             }
+          }
+       } else if(call.method.contains("getWatchReminderWitch")) {
+          if let response = call.arguments as? FlutterStandardTypedData{
+             do{
+                let model = try protocol_remind_switch_inquire_reply(serializedData: response.data,partial: true)
+                if let back = watchReminderWitchDic[call.method]{
+                   back(model)
+                   watchReminderWitchDic.removeValue(forKey: call.method)
+                }
+             }catch{
+                print("Error converting getWatchReminderWitch data: \(error.localizedDescription)")
+                if let failure = failureArgumentDic[call.method]{
+                   failure(-1, "Failed to parse getWatchReminderWitch data")
                    failureArgumentDic.removeValue(forKey: call.method)
                 }
              }

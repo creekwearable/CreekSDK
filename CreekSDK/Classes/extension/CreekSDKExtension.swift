@@ -2656,4 +2656,38 @@ extension CreekSDK{
           }
        }
     }
+   
+
+
+   ///戒指触发 App 提醒开关
+   public func getWatchReminderWitch(model: @escaping watchReminderWitchBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getWatchReminderWitch\(requestId)"
+         watchReminderWitchDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   ///戒指触发 App 提醒开关
+   public func setWatchReminderWitch(model: protocol_remind_mark_switch_operate, success: @escaping successBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "setWatchReminderWitch\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         
+         do {
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod(methodName, arguments: data)
+         } catch {
+            print("Error serializing setWatchReminderWitch data: \(error.localizedDescription)")
+            failure(-1, "Failed to serialize setWatchReminderWitch data")
+            // Clean up dictionaries
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+         }
+      }
+   }
 }
