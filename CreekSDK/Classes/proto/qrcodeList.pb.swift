@@ -45,8 +45,8 @@ public struct protocol_qr_code_list_operate: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
-  public var operate: operate_type = .invalid
+  ///1bytes
+  public var operate: operate_II_type = .insert
 
   ///当前多少页，用于分段传输。
   public var pageIndex: UInt32 = 0
@@ -161,7 +161,7 @@ extension protocol_qr_code_list_operate: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.operate != .invalid {
+    if self.operate != .insert {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
     if self.pageIndex != 0 {

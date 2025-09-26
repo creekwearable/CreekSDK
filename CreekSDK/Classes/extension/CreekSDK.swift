@@ -100,6 +100,8 @@ public typealias trainLoadBase = (_ model: protocol_training_load_inquire_reply)
 public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_reply) -> ()
 public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_operate) -> ()
 public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inquire_reply) -> ()
+public typealias afClosure = (_ model:BaseModel<[CreekAfModel]>) -> ()
+public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -213,6 +215,9 @@ public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inqui
    var cardioFitnessBaseDic:[String:cardioFitnessBase] = [:]
    var clickHealthMeasureDic:[String:clickHealthMeasureBase] = [:]
    var watchReminderWitchDic:[String:watchReminderWitchBase] = [:]
+   var afClosureDic:[String:afClosure] = [:]
+   var afPpgClosureDic:[String:afPpgClosure] = [:]
+    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
    public override init() {
@@ -1949,6 +1954,42 @@ public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inqui
                 }
              }
           }
+       }    else if(call.method.contains("getAfPpgData")){
+          if let response = call.arguments as? String{
+             do{
+                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
+                   
+                   if let back = afPpgClosureDic[call.method]{
+                      back(model);
+                      afPpgClosureDic.removeValue(forKey: call.method)
+                   }
+                }
+                
+             }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+             }
+             
+          }
+          
+       }  else if(call.method.contains("getAfData")){
+          if let response = call.arguments as? String{
+             do{
+                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfModel]>.self, dic){
+                   
+                   if let back = afClosureDic[call.method]{
+                      back(model);
+                      afClosureDic.removeValue(forKey: call.method)
+                   }
+                }
+                
+             }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+             }
+             
+          }
+          
        }
        
       

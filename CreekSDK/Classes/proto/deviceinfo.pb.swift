@@ -187,7 +187,7 @@ public struct device_voice_assistant: Sendable {
   /// 固件次版本号
   public var fwMinorVersion: UInt32 = 0
 
-  /// 固件语言类型
+  /// 固件语言类型 1中文 2英文
   public var fwType: UInt32 = 0
 
   /// 网络主版本号
@@ -199,7 +199,7 @@ public struct device_voice_assistant: Sendable {
   /// 网络语言类型
   public var nwType: UInt32 = 0
 
-  ///当前语言
+  ///当前语言 //1中文， 2英文
   public var currentLanguage: UInt32 = 0
 
   ///是否切换语言  0是切换 1是未切换
@@ -327,7 +327,7 @@ public struct protocol_device_info: @unchecked Sendable {
   /// Clears the value of `hwSupport`. Subsequent reads from it will return its default value.
   public mutating func clearHwSupport() {_uniqueStorage()._hwSupport = nil}
 
-  ///gps芯片型号
+  ///gps芯片型号 //"UC6228CI"是和芯星通 "BCM4776x"是新思 "CC1165W"芯与物 "AG3335"络达 "UC7510"和芯星通第二代 "UC7510_2"和芯星通第二代离线星历方式更换
   public var gpsSocName: String {
     get {return _storage._gpsSocName}
     set {_uniqueStorage()._gpsSocName = newValue}
@@ -371,7 +371,7 @@ public struct protocol_device_info: @unchecked Sendable {
   /// Clears the value of `snInfo`. Subsequent reads from it will return its default value.
   public mutating func clearSnInfo() {_uniqueStorage()._snInfo = nil}
 
-  ///语音助手设备
+  ///知存语音助手设备
   public var voiceAssistant: device_voice_assistant {
     get {return _storage._voiceAssistant ?? device_voice_assistant()}
     set {_uniqueStorage()._voiceAssistant = newValue}
@@ -413,6 +413,12 @@ public struct protocol_device_info: @unchecked Sendable {
   public var pspkey: Platform_pspkey {
     get {return _storage._pspkey}
     set {_uniqueStorage()._pspkey = newValue}
+  }
+
+  ///获取用户序列号
+  public var userSnInfo: Data {
+    get {return _storage._userSnInfo}
+    set {_uniqueStorage()._userSnInfo = newValue}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -870,6 +876,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     27: .same(proto: "bind"),
     28: .standard(proto: "batt_case_info"),
     29: .same(proto: "pspkey"),
+    30: .standard(proto: "user_sn_info"),
   ]
 
   fileprivate class _StorageClass {
@@ -902,6 +909,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _bind: bind_method_support = .pairingCodeNormalSupport
     var _battCaseInfo: protocol_device_batt_info? = nil
     var _pspkey: Platform_pspkey = .actions
+    var _userSnInfo: Data = Data()
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -941,6 +949,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _bind = source._bind
       _battCaseInfo = source._battCaseInfo
       _pspkey = source._pspkey
+      _userSnInfo = source._userSnInfo
     }
   }
 
@@ -988,6 +997,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 27: try { try decoder.decodeSingularEnumField(value: &_storage._bind) }()
         case 28: try { try decoder.decodeSingularMessageField(value: &_storage._battCaseInfo) }()
         case 29: try { try decoder.decodeSingularEnumField(value: &_storage._pspkey) }()
+        case 30: try { try decoder.decodeSingularBytesField(value: &_storage._userSnInfo) }()
         default: break
         }
       }
@@ -1087,6 +1097,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if _storage._pspkey != .actions {
         try visitor.visitSingularEnumField(value: _storage._pspkey, fieldNumber: 29)
       }
+      if !_storage._userSnInfo.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._userSnInfo, fieldNumber: 30)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1125,6 +1138,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._bind != rhs_storage._bind {return false}
         if _storage._battCaseInfo != rhs_storage._battCaseInfo {return false}
         if _storage._pspkey != rhs_storage._pspkey {return false}
+        if _storage._userSnInfo != rhs_storage._userSnInfo {return false}
         return true
       }
       if !storagesAreEqual {return false}

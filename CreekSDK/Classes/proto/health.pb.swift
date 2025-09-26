@@ -109,11 +109,14 @@ public struct protocol_health_get_data_size_inquire_reply: Sendable {
   ///支持呼吸率数据
   public var respiratoryRateSupport: Bool = false
 
-  ///支持皮肤温度数据
+  ///支持体温数据
   public var bodyTemperatureSupport: Bool = false
 
   ///支持飞利浦睡眠数据
-  public var pspSleppSupport: Bool = false
+  public var pspSleepSupport: Bool = false
+
+  ///支持鱼跃项目房颤算法数据
+  public var afSupport: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -258,7 +261,8 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     11: .standard(proto: "body_energy_support"),
     12: .standard(proto: "respiratory_rate_support"),
     13: .standard(proto: "body_temperature_support"),
-    14: .standard(proto: "psp_slepp_support"),
+    14: .standard(proto: "psp_sleep_support"),
+    15: .standard(proto: "af_support"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -280,7 +284,8 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
       case 11: try { try decoder.decodeSingularBoolField(value: &self.bodyEnergySupport) }()
       case 12: try { try decoder.decodeSingularBoolField(value: &self.respiratoryRateSupport) }()
       case 13: try { try decoder.decodeSingularBoolField(value: &self.bodyTemperatureSupport) }()
-      case 14: try { try decoder.decodeSingularBoolField(value: &self.pspSleppSupport) }()
+      case 14: try { try decoder.decodeSingularBoolField(value: &self.pspSleepSupport) }()
+      case 15: try { try decoder.decodeSingularBoolField(value: &self.afSupport) }()
       default: break
       }
     }
@@ -326,8 +331,11 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     if self.bodyTemperatureSupport != false {
       try visitor.visitSingularBoolField(value: self.bodyTemperatureSupport, fieldNumber: 13)
     }
-    if self.pspSleppSupport != false {
-      try visitor.visitSingularBoolField(value: self.pspSleppSupport, fieldNumber: 14)
+    if self.pspSleepSupport != false {
+      try visitor.visitSingularBoolField(value: self.pspSleepSupport, fieldNumber: 14)
+    }
+    if self.afSupport != false {
+      try visitor.visitSingularBoolField(value: self.afSupport, fieldNumber: 15)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -346,7 +354,8 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     if lhs.bodyEnergySupport != rhs.bodyEnergySupport {return false}
     if lhs.respiratoryRateSupport != rhs.respiratoryRateSupport {return false}
     if lhs.bodyTemperatureSupport != rhs.bodyTemperatureSupport {return false}
-    if lhs.pspSleppSupport != rhs.pspSleppSupport {return false}
+    if lhs.pspSleepSupport != rhs.pspSleepSupport {return false}
+    if lhs.afSupport != rhs.afSupport {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

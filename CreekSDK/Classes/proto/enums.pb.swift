@@ -1133,6 +1133,12 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///飞利浦睡眠
   case syncPspSleep // = 12
+
+  ///房颤算法数据
+  case syncAf // = 13
+
+  ///异常房颤算法数据
+  case syncPpgAf // = 14
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1154,6 +1160,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 10: self = .syncRespiratoryRate
     case 11: self = .syncBodyTemperature
     case 12: self = .syncPspSleep
+    case 13: self = .syncAf
+    case 14: self = .syncPpgAf
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1173,6 +1181,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncRespiratoryRate: return 10
     case .syncBodyTemperature: return 11
     case .syncPspSleep: return 12
+    case .syncAf: return 13
+    case .syncPpgAf: return 14
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1192,6 +1202,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncRespiratoryRate,
     .syncBodyTemperature,
     .syncPspSleep,
+    .syncAf,
+    .syncPpgAf,
   ]
 
 }
@@ -7690,6 +7702,8 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     10: .same(proto: "SYNC_RESPIRATORY_RATE"),
     11: .same(proto: "SYNC_BODY_TEMPERATURE"),
     12: .same(proto: "SYNC_PSP_SLEEP"),
+    13: .same(proto: "SYNC_af"),
+    14: .same(proto: "SYNC_ppg_af"),
   ]
 }
 

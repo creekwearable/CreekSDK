@@ -967,6 +967,7 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
       case "Exercise record list":
+         
          CreekInterFace.instance.getSportRecord(nil) { model in
             if model.code == 0{
                self.view.hideRemark()

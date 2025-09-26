@@ -2690,4 +2690,35 @@ extension CreekSDK{
          }
       }
    }
+   
+   
+   ///MARK :Get af Health Data
+   /// - Parameter :
+   ///      - startTime 2023-08-03
+   ///      - endTime 2023-08-03
+   /// - Returns:
+   public func getAfData(startTime:String,endTime:String,model: @escaping afClosure) {
+      serialQueue.sync {
+         requestId+=1
+         afClosureDic["getAfData\(requestId)"] = model
+         methodChannel?.invokeMethod("getAfData\(requestId)", arguments: [startTime ,endTime])
+      }
+       
+   }
+   
+   
+   ///MARK :Get af Health Data
+   /// - Parameter :
+   ///      - startTime 2023-08-03
+   ///      - endTime 2023-08-03
+   /// - Returns:
+   public func getAfPpgData(startTime:String,endTime:String,model: @escaping afPpgClosure) {
+      serialQueue.sync {
+         requestId+=1
+         afPpgClosureDic["getAfPpgData\(requestId)"] = model
+         methodChannel?.invokeMethod("getAfPpgData\(requestId)", arguments: [startTime ,endTime])
+      }
+       
+   }
+   
 }

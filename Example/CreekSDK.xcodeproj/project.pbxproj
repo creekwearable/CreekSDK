@@ -145,6 +145,8 @@
 		C4524E342E797EA800F91EBA /* trainingLoad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */; };
 		C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */; };
 		C46B44CA2E6840CA00069759 /* volumeAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */; };
+		C47349322E86C59300DE8374 /* AfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47349312E86C58A00DE8374 /* AfModel.swift */; };
+		C47349342E86C5A200DE8374 /* AfPpgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47349332E86C59900DE8374 /* AfPpgModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -293,6 +295,8 @@
 		C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingLoad.pb.swift; sourceTree = "<group>"; };
 		C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
 		C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volumeAdjust.pb.swift; sourceTree = "<group>"; };
+		C47349312E86C58A00DE8374 /* AfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfModel.swift; sourceTree = "<group>"; };
+		C47349332E86C59900DE8374 /* AfPpgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfPpgModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +355,8 @@
 		079A21652B29A72A00F5D013 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C47349312E86C58A00DE8374 /* AfModel.swift */,
+				C47349332E86C59900DE8374 /* AfPpgModel.swift */,
 				079A21662B29A72A00F5D013 /* NoiseModel.swift */,
 				079A21672B29A72A00F5D013 /* ParseJson.swift */,
 				079A21682B29A72A00F5D013 /* StressModel.swift */,
@@ -819,6 +825,7 @@
 				079A21612B29A71B00F5D013 /* CreekSDK.swift in Sources */,
 				079A21772B29A72A00F5D013 /* ParseJson.swift in Sources */,
 				079A217C2B29A72A00F5D013 /* SportModel.swift in Sources */,
+				C47349342E86C5A200DE8374 /* AfPpgModel.swift in Sources */,
 				07266C362DAF60F0000F8BED /* geo.pb.swift in Sources */,
 				079A21792B29A72A00F5D013 /* PhoneModel.swift in Sources */,
 				079A21E12B29B0FA00F5D013 /* ScanDeviceViewController.swift in Sources */,
@@ -880,6 +887,7 @@
 				07266C202DACF260000F8BED /* tracking.pb.swift in Sources */,
 				07266C212DACF260000F8BED /* schedule.pb.swift in Sources */,
 				07266C222DACF260000F8BED /* alexa.pb.swift in Sources */,
+				C47349322E86C59300DE8374 /* AfModel.swift in Sources */,
 				07266C232DACF260000F8BED /* waterMonitor.pb.swift in Sources */,
 				07266C322DAD0575000F8BED /* LogViewController.swift in Sources */,
 				07266C242DACF260000F8BED /* system.pb.swift in Sources */,

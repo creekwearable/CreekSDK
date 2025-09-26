@@ -21,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct protocol_ring_click_measure_operate: Sendable {
+public struct protocol_ring_click_measure_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -43,6 +43,9 @@ public struct protocol_ring_click_measure_operate: Sendable {
 
   ///测量状态
   public var measureStatus: health_measure_status = .healthStatusMeasuring
+
+  ///数据组
+  public var dataList: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -240,6 +243,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     4: .same(proto: "value"),
     5: .standard(proto: "measure_time"),
     6: .standard(proto: "measure_status"),
+    7: .standard(proto: "data_list"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -254,6 +258,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.value) }()
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.measureTime) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.measureStatus) }()
+      case 7: try { try decoder.decodeSingularBytesField(value: &self.dataList) }()
       default: break
       }
     }
@@ -278,6 +283,9 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if self.measureStatus != .healthStatusMeasuring {
       try visitor.visitSingularEnumField(value: self.measureStatus, fieldNumber: 6)
     }
+    if !self.dataList.isEmpty {
+      try visitor.visitSingularBytesField(value: self.dataList, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -288,6 +296,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.value != rhs.value {return false}
     if lhs.measureTime != rhs.measureTime {return false}
     if lhs.measureStatus != rhs.measureStatus {return false}
+    if lhs.dataList != rhs.dataList {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
