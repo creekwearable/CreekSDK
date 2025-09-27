@@ -354,6 +354,8 @@ public enum strength_target: Int, Codable {
    case STRENGTH_TARGET_HEART_RATE_ZONE = 3     // Strength target - Heart rate zone
    case STRENGTH_TARGET_CUSTOM_RATE_ZONE = 4    // Strength target - Custom heart rate zone
    case STRENGTH_TARGET_POWER_ZONES = 5         // Strength target - Power zone
+   case STRENGTH_TARGET_RATE_ZONE_RESERVE = 6   // Heart Rate - Heart Rate Reserve
+   case STRENGTH_TARGET_RATE_ZONE_MAX = 7       //Heart Rate - Maximum Heart Rate
 }
 
 public enum VoiceDialType : Int{

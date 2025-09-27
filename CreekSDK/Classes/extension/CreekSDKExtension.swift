@@ -2721,4 +2721,17 @@ extension CreekSDK{
        
    }
    
+   ///Smart hydration
+   public func getHydrateAssistant(model: @escaping hydrateAssistantBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getHydrateAssistant\(requestId)"
+         hydrateAssistantBaseDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   
+   
 }

@@ -6,27 +6,14 @@
 //  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
-public struct CreekAfPpgModel: Codable, CustomStringConvertible {
-    var id: Int?
-    var userID: Int?
-    var deviceId: String?
-    var createTime: String?
-    var firmwareVersion: String?
-    var firmwareId: Int?
-    var offsetLast: Int?
-    var offsetLastTime: String?
-    var values: [Int]?
+public class CreekAfPpgModel: Codable {
+   public var id: Int?
+   public var userID: Int?
+   public var deviceId: String?
+   public var create_time: String?
+   public var startTime: String?
+   public var offset_last: Int?
+   public var uploadStatus: Int?
+   public var datas: [Int]?
 
-    var description: String {
-        return """
-        CreekAfPpgModel(id: \(id ?? 0), userID: \(userID ?? 0), deviceId: \(deviceId ?? "nil"), \
-        createTime: \(createTime ?? "nil"), firmwareVersion: \(firmwareVersion ?? "nil"), \
-        firmwareId: \(firmwareId ?? 0), offsetLast: \(offsetLast ?? 0), \
-        offsetLastTime: \(offsetLastTime ?? "nil"), values: \(values ?? []))
-        """
-    }
-
-    static func toThis() -> String {
-        return "CreekAfPpgModel"
-    }
 }

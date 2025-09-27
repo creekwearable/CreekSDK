@@ -102,6 +102,7 @@ public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_
 public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inquire_reply) -> ()
 public typealias afClosure = (_ model:BaseModel<[CreekAfModel]>) -> ()
 public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
+public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -217,6 +218,7 @@ public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
    var watchReminderWitchDic:[String:watchReminderWitchBase] = [:]
    var afClosureDic:[String:afClosure] = [:]
    var afPpgClosureDic:[String:afPpgClosure] = [:]
+   var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
     
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -1988,6 +1990,19 @@ public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
                 print("Error converting string to dictionary: \(error.localizedDescription)")
              }
              
+          }
+          
+       } else if(call.method.contains("getHydrateAssistant")){
+          if let response = call.arguments as? FlutterStandardTypedData{
+             do{
+                let model = try protocol_hydrate_assistant_inquire_reply(serializedData: response.data,partial: true)
+                if let back = hydrateAssistantBaseDic[call.method]{
+                   back(model)
+                   hydrateAssistantBaseDic.removeValue(forKey: call.method)
+                }
+             }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+             }
           }
           
        }

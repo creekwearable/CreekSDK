@@ -421,6 +421,12 @@ public struct protocol_device_info: @unchecked Sendable {
     set {_uniqueStorage()._userSnInfo = newValue}
   }
 
+  ///电话本最大数量
+  public var phoneBookNumMax: UInt32 {
+    get {return _storage._phoneBookNumMax}
+    set {_uniqueStorage()._phoneBookNumMax = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -877,6 +883,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     28: .standard(proto: "batt_case_info"),
     29: .same(proto: "pspkey"),
     30: .standard(proto: "user_sn_info"),
+    31: .standard(proto: "phone_book_num_max"),
   ]
 
   fileprivate class _StorageClass {
@@ -910,12 +917,17 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _battCaseInfo: protocol_device_batt_info? = nil
     var _pspkey: Platform_pspkey = .actions
     var _userSnInfo: Data = Data()
+    var _phoneBookNumMax: UInt32 = 0
 
+    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
@@ -950,6 +962,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _battCaseInfo = source._battCaseInfo
       _pspkey = source._pspkey
       _userSnInfo = source._userSnInfo
+      _phoneBookNumMax = source._phoneBookNumMax
     }
   }
 
@@ -998,6 +1011,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 28: try { try decoder.decodeSingularMessageField(value: &_storage._battCaseInfo) }()
         case 29: try { try decoder.decodeSingularEnumField(value: &_storage._pspkey) }()
         case 30: try { try decoder.decodeSingularBytesField(value: &_storage._userSnInfo) }()
+        case 31: try { try decoder.decodeSingularUInt32Field(value: &_storage._phoneBookNumMax) }()
         default: break
         }
       }
@@ -1100,6 +1114,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if !_storage._userSnInfo.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._userSnInfo, fieldNumber: 30)
       }
+      if _storage._phoneBookNumMax != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._phoneBookNumMax, fieldNumber: 31)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1139,6 +1156,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._battCaseInfo != rhs_storage._battCaseInfo {return false}
         if _storage._pspkey != rhs_storage._pspkey {return false}
         if _storage._userSnInfo != rhs_storage._userSnInfo {return false}
+        if _storage._phoneBookNumMax != rhs_storage._phoneBookNumMax {return false}
         return true
       }
       if !storagesAreEqual {return false}

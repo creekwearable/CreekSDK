@@ -87,11 +87,11 @@ class CommandReplyViewController: CreekBaseViewController {
 //            print("aiAnalysisActivity:\(message)")
 //         }
 
-         CreekInterFace.instance.getAuthorizationCode { code in
-            
-         } failure: { code, message in
-            
-         }
+//         CreekInterFace.instance.getAuthorizationCode { code in
+//            
+//         } failure: { code, message in
+//            
+//         }
 
 
          
@@ -182,15 +182,19 @@ class CommandReplyViewController: CreekBaseViewController {
          break
       case "Bind device":
          CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil, success: {
+            self.view.hideRemark()
             self.textView.text = "success"
          }, failure: {
+            self.view.hideRemark()
             self.textView.text = "failure"
          })
          break
       case "Unbind":
          CreekInterFace.instance.bindingDevice(bindType: .bindRemove, id: nil, code: nil, success: {
+            self.view.hideRemark()
             self.textView.text = "success"
          }, failure: {
+            self.view.hideRemark()
             self.textView.text = "failure"
          })
          break
@@ -198,8 +202,10 @@ class CommandReplyViewController: CreekBaseViewController {
          CreekInterFace.instance.sync { progress in
             self.textView.text = "progress\(progress)"
          } syncSuccess: {
+            self.view.hideRemark()
             self.textView.text = "success"
          } syncFailure: {
+            self.view.hideRemark()
             self.textView.text = "failure"
          }
          break
@@ -1143,7 +1149,127 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          
          break
-
+      case  "get music":
+         CreekInterFace.instance.getMusicList (size: 50){ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "del music":
+         CreekInterFace.instance.getMusicList (size: 50){ model in
+            self.view.hideRemark()
+            var operate = protocol_music_file_operate()
+            operate.trackItem = model.fileItems
+            CreekInterFace.instance.delMusicList(model: operate) {
+               self.view.hideRemark()
+               self.textView.text = "success"
+            } failure: { code, message in
+               self.view.hideRemark()
+               self.textView.text = message
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "get course":
+         CreekInterFace.instance.getCourse{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "del course":
+         CreekInterFace.instance.getCourse { model in
+            self.view.hideRemark()
+            var operate = protocol_exercise_course_list_operate()
+            operate.listItems = model.listItems
+            CreekInterFace.instance.delCourse(model: operate) {
+               self.view.hideRemark()
+               self.textView.text = "success"
+            } failure: { code, message in
+               self.view.hideRemark()
+               self.textView.text = message
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "get route":
+         CreekInterFace.instance.getGeo{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "del route":
+         CreekInterFace.instance.getGeo { model in
+            self.view.hideRemark()
+            let ids = model.listItem.map { Int($0.geobinID) }
+            CreekInterFace.instance.delGeo(geoIds: ids) {
+               self.view.hideRemark()
+               self.textView.text = "success"
+            } failure: { code, message in
+               self.view.hideRemark()
+               self.textView.text = message
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "get training load":
+         CreekInterFace.instance.getTrainingLoad{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case  "get smart hydration":
+         CreekInterFace.instance.getHydrateAssistant{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+         
       default:
          break
          

@@ -128,6 +128,9 @@
 		079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */; };
 		079A21E12B29B0FA00F5D013 /* ScanDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */; };
 		079A21E22B29B0FA00F5D013 /* CommandReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */; };
+		079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06ED2E87CD570088C49A /* multifileTran.pb.swift */; };
+		079D06F02E87CD570088C49A /* hydrateAassistant.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */; };
+		079D06F12E87CD570088C49A /* qrcodeList.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */; };
 		07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */; };
 		07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07A73BB32BF211C0007EFFB3 /* titan.zip */; };
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
@@ -271,6 +274,9 @@
 		079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonyBaseViewController.swift; sourceTree = "<group>"; };
 		079A21DF2B29B0FA00F5D013 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
 		079A21E02B29B0FA00F5D013 /* CommandReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandReplyViewController.swift; sourceTree = "<group>"; };
+		079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hydrateAassistant.pb.swift; sourceTree = "<group>"; };
+		079D06ED2E87CD570088C49A /* multifileTran.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multifileTran.pb.swift; sourceTree = "<group>"; };
+		079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeList.pb.swift; sourceTree = "<group>"; };
 		07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeModel.swift; sourceTree = "<group>"; };
 		07A73BB32BF211C0007EFFB3 /* titan.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = titan.zip; sourceTree = "<group>"; };
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -389,6 +395,9 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */,
+				079D06ED2E87CD570088C49A /* multifileTran.pb.swift */,
+				079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */,
 				073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */,
 				073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */,
 				073FD2442E5D548A00652FCF /* ephemeris.pb.swift */,
@@ -905,6 +914,9 @@
 				079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */,
 				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
+				079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */,
+				079D06F02E87CD570088C49A /* hydrateAassistant.pb.swift in Sources */,
+				079D06F12E87CD570088C49A /* qrcodeList.pb.swift in Sources */,
 				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
 				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,
 				0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */,
