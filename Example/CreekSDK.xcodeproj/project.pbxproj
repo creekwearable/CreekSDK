@@ -145,6 +145,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		C44BFBA52E8A400400E63C19 /* GPSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BFBA42E8A400200E63C19 /* GPSModel.swift */; };
 		C4524E342E797EA800F91EBA /* trainingLoad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */; };
 		C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */; };
 		C46B44CA2E6840CA00069759 /* volumeAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */; };
@@ -298,6 +299,7 @@
 		69F2B4B0C8838C152A7AC3B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7010E1C78F779EB1911230E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9C9DF34213BA917D34C3310F /* CreekSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CreekSDK.podspec; path = ../CreekSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C44BFBA42E8A400200E63C19 /* GPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSModel.swift; sourceTree = "<group>"; };
 		C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingLoad.pb.swift; sourceTree = "<group>"; };
 		C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
 		C46B44C92E6840CA00069759 /* volumeAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volumeAdjust.pb.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 		079A21652B29A72A00F5D013 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C44BFBA42E8A400200E63C19 /* GPSModel.swift */,
 				C47349312E86C58A00DE8374 /* AfModel.swift */,
 				C47349332E86C59900DE8374 /* AfPpgModel.swift */,
 				079A21662B29A72A00F5D013 /* NoiseModel.swift */,
@@ -912,6 +915,7 @@
 				07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */,
 				079A217A2B29A72A00F5D013 /* DeviceModel.swift in Sources */,
 				079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */,
+				C44BFBA52E8A400400E63C19 /* GPSModel.swift in Sources */,
 				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
 				079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */,

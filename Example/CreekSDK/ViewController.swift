@@ -268,7 +268,19 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             }
             
          }
-
+         
+         // 使用
+         CreekInterFace.instance.sportGps {
+            var model = GPSModel()
+            model.latitude = 12
+            model.accuracy = 1000
+            model.gpsPermission = true
+            CreekInterFace.instance.setSportGPS(model: model, success: {
+               
+            }, failure: { code, msg in
+               
+            })
+         }
          
          
 //         CreekSDK.instance.setSportControl(controlType: .controlResume) {

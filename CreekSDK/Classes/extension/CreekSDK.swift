@@ -103,6 +103,7 @@ public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inqui
 public typealias afClosure = (_ model:BaseModel<[CreekAfModel]>) -> ()
 public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
 public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inquire_reply) -> ()
+public typealias sportGpsBase = () -> (GPSModel)
 
 @objc open class CreekSDK: NSObject{
    
@@ -187,9 +188,14 @@ public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inqu
    var listenDeviceClosureDic:[String:listenDeviceBase] = [:]
    var logPathClosure:((_ path:String) -> ())?
    var _gpsClosure:gpsBase?
+//   var _sportgGpsClosure:sportGpsBase?
    var _liveSportDataListen:((_ model:protocol_exercise_sync_realtime_info) -> ())?
    var _liveSportControlListen:((_ model:protocol_exercise_control_operate) -> ())?
-   
+    
+   var _ringAlarmVibrateListen:(() -> ())?
+   var _motionRecognitionListen:(() -> ())?
+   var _ringReminderListen:(() -> ())?
+   var _sportGpsListen:(() -> ())?
    
    var calendarDic:[String:calendarBase] = [:]
    var watchDirectionDic:[String:watchDirectionBase] = [:]
@@ -221,6 +227,7 @@ public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inqu
    var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
     
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
+    
    
    public override init() {
       
@@ -2005,7 +2012,34 @@ public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inqu
              }
           }
           
-       }
+       } else if(call.method.contains("sportGps")){
+           if let back = _sportGpsListen{
+              back()
+           }
+           
+        } else if(call.method == "ringAlarmVibrateListen"){
+            if let back = _ringAlarmVibrateListen{
+               back()
+            }
+            
+         } else if(call.method == "motionRecognitionListen"){
+             if let back = _motionRecognitionListen{
+                back()
+             }
+             
+          } else if(call.method == "ringReminderListen"){
+              if let back = _ringReminderListen{
+                 back()
+              }
+              
+           }
+       else if(call.method == "sportGps"){
+           if let back = _sportGpsListen{
+              back()
+           }
+           
+        } 
+
        
       
       

@@ -2732,6 +2732,35 @@ extension CreekSDK{
       }
    }
    
+    ///闹钟提醒通知
+    public func ringAlarmVibrateListen(listen:@escaping (() -> ())){
+       _ringAlarmVibrateListen = listen
+   }
+   
+    ///运动识别
+    public func motionRecognitionListen(listen:@escaping (() -> ())){
+        _motionRecognitionListen = listen
+    }
+    ///提醒监听
+    public func ringReminderListen(listen:@escaping (() -> ())){
+        _ringReminderListen = listen
+    }
+    ///无GPS下发轨迹
+    public func sportGps(listen:@escaping (() -> ())){
+        _sportGpsListen = listen
+    }
    
    
+   public func setSportGPS(model:GPSModel, success:@escaping successBase,failure:@escaping failureArgument){
+       serialQueue.sync {
+          requestId+=1
+          successDic["setSportGps\(requestId)"] = success;
+          failureArgumentDic["setSportGps\(requestId)"] = failure
+          let json = try? JSONEncoder().encode(model)
+          if let data = json, let str = String(data: data, encoding: .utf8) {
+             methodChannel?.invokeMethod("setSportGps\(requestId)", arguments: str)
+          }
+       }
+   }
+    
 }
