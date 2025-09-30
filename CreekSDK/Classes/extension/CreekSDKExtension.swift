@@ -2626,7 +2626,7 @@ extension CreekSDK{
    }
     
     ///点测获取健康数据
-    public func getClickHealthMeasure(type: health_measure_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
+    public func getClickHealthMeasure(type: ring_health_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
        serialQueue.sync {
           requestId+=1
           let methodName = "getClickHealthMeasure\(requestId)"
@@ -2733,20 +2733,20 @@ extension CreekSDK{
    }
    
     ///闹钟提醒通知
-    public func ringAlarmVibrateListen(listen:@escaping (() -> ())){
+   public func ringAlarmVibrateListen(listen:@escaping ((_ model: protocol_ring_alarm_vibrate_notify_operate) -> ())){
        _ringAlarmVibrateListen = listen
    }
    
     ///运动识别
-    public func motionRecognitionListen(listen:@escaping (() -> ())){
+   public func motionRecognitionListen(listen:@escaping ((_ model: protocol_ring_motion_recognition_operate) -> ())){
         _motionRecognitionListen = listen
     }
     ///提醒监听
-    public func ringReminderListen(listen:@escaping (() -> ())){
+   public func ringReminderListen(listen:@escaping ((_ model: protocol_ring_remind_mark_operate) -> ())){
         _ringReminderListen = listen
     }
     ///无GPS下发轨迹
-    public func sportGps(listen:@escaping (() -> ())){
+   public func sportGps(listen:@escaping ((_ model: GPSModel) -> ())){
         _sportGpsListen = listen
     }
    
