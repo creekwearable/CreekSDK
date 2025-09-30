@@ -191,13 +191,10 @@ public typealias sportGpsBase = () -> (GPSModel)
 //   var _sportgGpsClosure:sportGpsBase?
    var _liveSportDataListen:((_ model:protocol_exercise_sync_realtime_info) -> ())?
    var _liveSportControlListen:((_ model:protocol_exercise_control_operate) -> ())?
-    
-    var _ringAlarmVibrateListen:((_ model:protocol_ring_alarm_vibrate_notify_operate) -> ())?
-    var _motionRecognitionListen:((_ model:protocol_ring_motion_recognition_operate) -> ())?
-    var _ringReminderListen:((_ model:protocol_ring_remind_mark_operate) -> ())?
-//    var _sportGpsListen:((_ model: protocol_exercise_gps_info) -> ())?
-   var _sportGpsListen:((_ model: GPSModel) -> ())?
-    
+   var _ringAlarmVibrateListen:((_ model:protocol_ring_alarm_vibrate_notify_operate) -> ())?
+   var _motionRecognitionListen:((_ model:protocol_ring_motion_recognition_operate) -> ())?
+   var _ringReminderListen:((_ model:protocol_ring_remind_mark_operate) -> ())?
+   var _sportGpsListen:((_ model:protocol_exercise_gps_info) -> ())?
    var calendarDic:[String:calendarBase] = [:]
    var watchDirectionDic:[String:watchDirectionBase] = [:]
    var healthSnapshotDic:[String:healthSnapshotBase] = [:]
@@ -2013,65 +2010,60 @@ public typealias sportGpsBase = () -> (GPSModel)
              }
           }
           
-       } else if(call.method == "ringAlarmVibrateListen"){
-            if let response = call.arguments as? FlutterStandardTypedData{
-               do{
-                  let model = try protocol_ring_alarm_vibrate_notify_operate(serializedData: response.data,partial: true)
-                  if let back = _ringAlarmVibrateListen{
-                     back(model)
-                  }
-               }catch{
-                  print("Error converting string to dictionary: \(error.localizedDescription)")
-               }
-            }
-            
-            
-         } else if(call.method == "motionRecognitionListen"){
-            
-             if let response = call.arguments as? FlutterStandardTypedData{
-                do{
-                   let model = try protocol_ring_motion_recognition_operate(serializedData: response.data,partial: true)
-                   if let back = _motionRecognitionListen{
-                      back(model)
-                   }
-                }catch{
-                   print("Error converting string to dictionary: \(error.localizedDescription)")
-                }
-                
-             }
-             
-          } else if(call.method == "ringReminderListen"){
-              if let response = call.arguments as? FlutterStandardTypedData{
-                 do{
-                    let model = try protocol_ring_remind_mark_operate(serializedData: response.data,partial: true)
-                    if let back = _ringReminderListen{
-                       back(model)
-                    }
-                 }catch{
-                    print("Error converting string to dictionary: \(error.localizedDescription)")
-                 }
-                 
-              }
-              
-           }
-       else if(call.method == "sportGps"){
-          
-           if let response = call.arguments as? String{
+
+       }else if(call.method == "ringAlarmVibrateListen"){
+           
+           if let response = call.arguments as? FlutterStandardTypedData{
               do{
-                 let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
-                 if let model = ParseJson.jsonToModel(GPSModel.self, dic){
-                    if let back = _sportGpsListen{
-                       back(model)
-                    }
+                 let model = try protocol_ring_alarm_vibrate_notify_operate(serializedData: response.data,partial: true)
+                 if let back = _ringAlarmVibrateListen{
+                    back(model)
                  }
-                 
               }catch{
                  print("Error converting string to dictionary: \(error.localizedDescription)")
               }
               
            }
-           
-        } 
+            
+            
+         } else if(call.method == "motionRecognitionListen"){
+
+            if let response = call.arguments as? FlutterStandardTypedData{
+               do{
+                  let model = try protocol_ring_motion_recognition_operate(serializedData: response.data,partial: true)
+                  if let back = _motionRecognitionListen{
+                     back(model)
+                  }
+               }catch{
+                  print("Error converting string to dictionary: \(error.localizedDescription)")
+               }
+               
+            }
+             
+          } else if(call.method == "ringReminderListen"){
+             if let response = call.arguments as? FlutterStandardTypedData{
+                do{
+                   let model = try protocol_ring_remind_mark_operate(serializedData: response.data,partial: true)
+                   if let back = _ringReminderListen{
+                      back(model)
+                   }
+                }catch{
+                   print("Error converting string to dictionary: \(error.localizedDescription)")
+                }
+             }
+           }
+       else if(call.method == "sportGpsListen"){
+          if let response = call.arguments as? FlutterStandardTypedData{
+             do{
+                let model = try protocol_exercise_gps_info(serializedData: response.data,partial: true)
+                if let back = _sportGpsListen{
+                   back(model)
+                }
+             }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+             }
+          }
+        }
 
        
       
