@@ -34,6 +34,9 @@ public struct protocol_system_operate: Sendable {
   ///恢复出厂设置
   public var factoryReset: Bool = false
 
+  ///清除bt信息
+  public var btInfoClean: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -47,6 +50,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     1: .same(proto: "restart"),
     2: .standard(proto: "power_off"),
     3: .standard(proto: "factory_reset"),
+    4: .standard(proto: "bt_info_clean"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -58,6 +62,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 1: try { try decoder.decodeSingularBoolField(value: &self.restart) }()
       case 2: try { try decoder.decodeSingularBoolField(value: &self.powerOff) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self.factoryReset) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.btInfoClean) }()
       default: break
       }
     }
@@ -73,6 +78,9 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.factoryReset != false {
       try visitor.visitSingularBoolField(value: self.factoryReset, fieldNumber: 3)
     }
+    if self.btInfoClean != false {
+      try visitor.visitSingularBoolField(value: self.btInfoClean, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -80,6 +88,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.restart != rhs.restart {return false}
     if lhs.powerOff != rhs.powerOff {return false}
     if lhs.factoryReset != rhs.factoryReset {return false}
+    if lhs.btInfoClean != rhs.btInfoClean {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

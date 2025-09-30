@@ -236,14 +236,44 @@ public class SportModel: Codable {
 
    /// Average heart rate of multi-sport
    public var multiSportAvgHr: Int?
-
    /// Multi-sport ID
    public var multiSportId: Int?
    
    public var workoutCourseItem : [WorkoutCourseModel]?
    
    public var sportLapItem : [SportLapModel]?
-
+   ///Power details
+   public var powerItem : [Int]?
+   ///Does it support swimming heart rate?
+   public var swimHrSupport: Int?
+   ///Whether to support swimming tracks
+   public var swimTrailSupport: Int?
+   ///Whether to support real-time pacing, speed
+   public var rtKmSpeedPaceSupport: Int?
+   ///Does it support expanding the speed unit by 100 times to be compatible with previous data types?
+   public var speedUnit100: Int?
+   ///Whether to support swimming time
+   public var swimDurationSupport: Int?
+   ///swimming time
+   public var swimDurations: Int?
+   ///Whether to support mile distance
+   public var miDistanceSupport: Int?
+   ///Average mile pace is transmitted in seconds, for example, 361 361/60=6 minutes, the remainder is 1s 6''1'
+   public var avgMiPace: Int?
+   ///Fastest mile pace
+   public var fastMiPace: Int?
+   ///Average speed in miles per hour (mi/h) Firmware scaled up 100 times
+   public var avgMiSpeed: Int?
+   ///Fastest mile speed mi/h firmware expanded 100 times
+   public var fastMiSpeed: Int?
+   ///Whether to support swimming distance unit (yards)
+   public var swimDistanceSupport: Int?
+   ///Swimming distance Unit: yards
+   public var swimYardDistance: Int?
+   ///Football distance support display
+   public var footballDistanceSupport: Int?
+   
+   
 }
 
 public class SportDataModel: Codable {
@@ -298,6 +328,9 @@ public class WorkoutCourseModel: Codable {
 
     /// Completion rate, two decimal places retained, actual value multiplied by 100
     public var completeRate: Int?
+   
+    ///step type
+    public var steptype: Int?
    
 }
 

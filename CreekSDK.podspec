@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '10.0.14-noise'
+    s.version          = '10.0.15-noise'
     s.summary          = 'A short description of CreekSDK.'
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/creekwearable/CreekSDK.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
     
-    s.ios.deployment_target = '12.0'
-    s.platform              = :ios, "12.0"
+    s.ios.deployment_target = '13.0'
+    s.platform              = :ios, "13.0"
     s.swift_versions = ['5.0']
     s.source_files = 'CreekSDK/Classes/**/*'
     
@@ -64,7 +64,6 @@ Pod::Spec.new do |s|
     'Creek/connectivity_plus.framework',
     'Creek/audio_session.framework',
     'Creek/opus_bridge.framework',
-#    'Creek/onnxruntime_objc.framework',
 #    'Creek/flutter_silero_vad.framework',
     'Creek/device_info.framework',
     'Creek/creek_voice_assistant.framework',

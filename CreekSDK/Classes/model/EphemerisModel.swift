@@ -21,13 +21,13 @@ public class EphemerisModel:Codable{
     /// 位置是否有效
     public var isVaild:Bool?
 
-    /// 纬度 放大100000倍
+    /// 纬度 放大1000000倍
     public var latitude:Int?
 
     /// 纬度方向 S南纬  N北纬
     public var latitudeDire:String?
 
-    /// 经度 放大100000倍
+    /// 经度 放大1000000倍
     public var longitude:Int?
 
     /// 经度方向 W西经 E东经

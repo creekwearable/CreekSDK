@@ -8,6 +8,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
+import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -20,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct protocol_ring_click_measure_operate: Sendable {
+public struct protocol_ring_click_measure_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -42,6 +43,9 @@ public struct protocol_ring_click_measure_operate: Sendable {
 
   ///测量状态
   public var measureStatus: health_measure_status = .healthStatusMeasuring
+
+  ///数据组
+  public var dataList: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -65,9 +69,21 @@ public struct protocol_ring_remind_mark_operate: Sendable {
   ///具体事件数值
   public var eventValue: ring_goal_status = .goalNotAchieved
 
+  ///事件发生的时间
+  public var eventTime: ring_remind_event_time {
+    get {return _eventTime ?? ring_remind_event_time()}
+    set {_eventTime = newValue}
+  }
+  /// Returns true if `eventTime` has been explicitly set.
+  public var hasEventTime: Bool {return self._eventTime != nil}
+  /// Clears the value of `eventTime`. Subsequent reads from it will return its default value.
+  public mutating func clearEventTime() {self._eventTime = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _eventTime: ring_remind_event_time? = nil
 }
 
 public struct protocol_ring_motion_recognition_operate: Sendable {
@@ -112,6 +128,12 @@ public struct protocol_remind_mark_switch_operate: Sendable {
   ///NTC温度过高提醒开关
   public var ntctemperatureHighSwitch: switch_type = .switchNull
 
+  ///心率过高提醒开关
+  public var heartRateHighSwitch: switch_type = .switchNull
+
+  ///心率过低提醒开关
+  public var heartRateLowSwitch: switch_type = .switchNull
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -143,6 +165,68 @@ public struct protocol_remind_switch_inquire_reply: Sendable {
   ///NTC温度过高提醒开关
   public var ntctemperatureHighSwitch: switch_type = .switchNull
 
+  ///心率过高提醒开关
+  public var heartRateHighSwitch: switch_type = .switchNull
+
+  public var heartRateLowSwitch: switch_type = .switchNull
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_ring_alarm_vibrate_notify_operate: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///传输方向
+  public var tranType: tran_direction_type = .watchTran
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///闹钟id 从0开始
+  public var alarmID: UInt32 = 0
+
+  ///1bytes
+  public var hour: UInt32 = 0
+
+  ///1bytes
+  public var minute: UInt32 = 0
+
+  ///max:30 闹钟名称
+  public var alarmName: Data = Data()
+
+  ///闹钟震动状态
+  public var status: ring_alarm_vibrate_status = .vibrationStop
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct ring_remind_event_time: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///事件发生的起始时间点
+  public var year: UInt32 = 0
+
+  public var month: UInt32 = 0
+
+  public var day: UInt32 = 0
+
+  public var hour: UInt32 = 0
+
+  public var minute: UInt32 = 0
+
+  public var second: UInt32 = 0
+
+  ///事件的持续时长，单位s
+  public var duration: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -159,6 +243,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     4: .same(proto: "value"),
     5: .standard(proto: "measure_time"),
     6: .standard(proto: "measure_status"),
+    7: .standard(proto: "data_list"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -173,6 +258,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.value) }()
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.measureTime) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.measureStatus) }()
+      case 7: try { try decoder.decodeSingularBytesField(value: &self.dataList) }()
       default: break
       }
     }
@@ -197,6 +283,9 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if self.measureStatus != .healthStatusMeasuring {
       try visitor.visitSingularEnumField(value: self.measureStatus, fieldNumber: 6)
     }
+    if !self.dataList.isEmpty {
+      try visitor.visitSingularBytesField(value: self.dataList, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -207,6 +296,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.value != rhs.value {return false}
     if lhs.measureTime != rhs.measureTime {return false}
     if lhs.measureStatus != rhs.measureStatus {return false}
+    if lhs.dataList != rhs.dataList {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -219,6 +309,7 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     2: .standard(proto: "func_table"),
     3: .standard(proto: "event_id"),
     4: .standard(proto: "event_value"),
+    5: .standard(proto: "event_time"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -231,12 +322,17 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.eventID) }()
       case 4: try { try decoder.decodeSingularEnumField(value: &self.eventValue) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._eventTime) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.tranType != .watchTran {
       try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
     }
@@ -249,6 +345,9 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     if self.eventValue != .goalNotAchieved {
       try visitor.visitSingularEnumField(value: self.eventValue, fieldNumber: 4)
     }
+    try { if let v = self._eventTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -257,6 +356,7 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.eventID != rhs.eventID {return false}
     if lhs.eventValue != rhs.eventValue {return false}
+    if lhs._eventTime != rhs._eventTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -315,6 +415,8 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     4: .standard(proto: "charger_full_switch"),
     5: .standard(proto: "find_ring_led_switch"),
     6: .standard(proto: "ntctemperature_high_switch"),
+    7: .standard(proto: "heart_rate_high_switch"),
+    8: .standard(proto: "heart_rate_low_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -329,6 +431,8 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
       case 4: try { try decoder.decodeSingularEnumField(value: &self.chargerFullSwitch) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.findRingLedSwitch) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.ntctemperatureHighSwitch) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self.heartRateHighSwitch) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self.heartRateLowSwitch) }()
       default: break
       }
     }
@@ -353,6 +457,12 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     if self.ntctemperatureHighSwitch != .switchNull {
       try visitor.visitSingularEnumField(value: self.ntctemperatureHighSwitch, fieldNumber: 6)
     }
+    if self.heartRateHighSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.heartRateHighSwitch, fieldNumber: 7)
+    }
+    if self.heartRateLowSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.heartRateLowSwitch, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -363,6 +473,8 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.chargerFullSwitch != rhs.chargerFullSwitch {return false}
     if lhs.findRingLedSwitch != rhs.findRingLedSwitch {return false}
     if lhs.ntctemperatureHighSwitch != rhs.ntctemperatureHighSwitch {return false}
+    if lhs.heartRateHighSwitch != rhs.heartRateHighSwitch {return false}
+    if lhs.heartRateLowSwitch != rhs.heartRateLowSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -378,6 +490,8 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     5: .standard(proto: "charger_full_switch"),
     6: .standard(proto: "find_ring_led_switch"),
     7: .standard(proto: "ntctemperature_high_switch"),
+    8: .standard(proto: "heart_rate_high_switch"),
+    9: .standard(proto: "heart_rate_low_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -393,6 +507,8 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
       case 5: try { try decoder.decodeSingularEnumField(value: &self.chargerFullSwitch) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.findRingLedSwitch) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.ntctemperatureHighSwitch) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self.heartRateHighSwitch) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self.heartRateLowSwitch) }()
       default: break
       }
     }
@@ -420,6 +536,12 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     if self.ntctemperatureHighSwitch != .switchNull {
       try visitor.visitSingularEnumField(value: self.ntctemperatureHighSwitch, fieldNumber: 7)
     }
+    if self.heartRateHighSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.heartRateHighSwitch, fieldNumber: 8)
+    }
+    if self.heartRateLowSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.heartRateLowSwitch, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -431,6 +553,144 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     if lhs.chargerFullSwitch != rhs.chargerFullSwitch {return false}
     if lhs.findRingLedSwitch != rhs.findRingLedSwitch {return false}
     if lhs.ntctemperatureHighSwitch != rhs.ntctemperatureHighSwitch {return false}
+    if lhs.heartRateHighSwitch != rhs.heartRateHighSwitch {return false}
+    if lhs.heartRateLowSwitch != rhs.heartRateLowSwitch {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ring_alarm_vibrate_notify_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ring_alarm_vibrate_notify_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .standard(proto: "func_table"),
+    3: .standard(proto: "alarm_id"),
+    4: .same(proto: "hour"),
+    5: .same(proto: "minute"),
+    6: .standard(proto: "alarm_name"),
+    7: .same(proto: "status"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.alarmID) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
+      case 6: try { try decoder.decodeSingularBytesField(value: &self.alarmName) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self.status) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 2)
+    }
+    if self.alarmID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.alarmID, fieldNumber: 3)
+    }
+    if self.hour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 4)
+    }
+    if self.minute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.minute, fieldNumber: 5)
+    }
+    if !self.alarmName.isEmpty {
+      try visitor.visitSingularBytesField(value: self.alarmName, fieldNumber: 6)
+    }
+    if self.status != .vibrationStop {
+      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ring_alarm_vibrate_notify_operate, rhs: protocol_ring_alarm_vibrate_notify_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.alarmID != rhs.alarmID {return false}
+    if lhs.hour != rhs.hour {return false}
+    if lhs.minute != rhs.minute {return false}
+    if lhs.alarmName != rhs.alarmName {return false}
+    if lhs.status != rhs.status {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ring_remind_event_time: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "ring_remind_event_time"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "year"),
+    2: .same(proto: "month"),
+    3: .same(proto: "day"),
+    4: .same(proto: "hour"),
+    5: .same(proto: "minute"),
+    6: .same(proto: "second"),
+    7: .same(proto: "duration"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.year) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.month) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.day) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.second) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.duration) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.year != 0 {
+      try visitor.visitSingularUInt32Field(value: self.year, fieldNumber: 1)
+    }
+    if self.month != 0 {
+      try visitor.visitSingularUInt32Field(value: self.month, fieldNumber: 2)
+    }
+    if self.day != 0 {
+      try visitor.visitSingularUInt32Field(value: self.day, fieldNumber: 3)
+    }
+    if self.hour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 4)
+    }
+    if self.minute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.minute, fieldNumber: 5)
+    }
+    if self.second != 0 {
+      try visitor.visitSingularUInt32Field(value: self.second, fieldNumber: 6)
+    }
+    if self.duration != 0 {
+      try visitor.visitSingularUInt32Field(value: self.duration, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: ring_remind_event_time, rhs: ring_remind_event_time) -> Bool {
+    if lhs.year != rhs.year {return false}
+    if lhs.month != rhs.month {return false}
+    if lhs.day != rhs.day {return false}
+    if lhs.hour != rhs.hour {return false}
+    if lhs.minute != rhs.minute {return false}
+    if lhs.second != rhs.second {return false}
+    if lhs.duration != rhs.duration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -174,6 +174,12 @@ public struct protocol_watch_dial_plate_inquire_reply: @unchecked Sendable {
     set {_uniqueStorage()._allPlateSupportMax = newValue}
   }
 
+  ///视频表盘最大播放长度（秒）
+  public var videoPlayLengthMax: UInt32 {
+    get {return _storage._videoPlayLengthMax}
+    set {_uniqueStorage()._videoPlayLengthMax = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -298,6 +304,7 @@ extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftP
     16: .standard(proto: "func_table"),
     17: .standard(proto: "plate_photo_pic_support_num"),
     18: .standard(proto: "all_plate_support_max"),
+    19: .standard(proto: "video_play_length_max"),
   ]
 
   fileprivate class _StorageClass {
@@ -319,6 +326,7 @@ extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftP
     var _funcTable: UInt32 = 0
     var _platePhotoPicSupportNum: UInt32 = 0
     var _allPlateSupportMax: UInt32 = 0
+    var _videoPlayLengthMax: UInt32 = 0
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -351,6 +359,7 @@ extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftP
       _funcTable = source._funcTable
       _platePhotoPicSupportNum = source._platePhotoPicSupportNum
       _allPlateSupportMax = source._allPlateSupportMax
+      _videoPlayLengthMax = source._videoPlayLengthMax
     }
   }
 
@@ -387,6 +396,7 @@ extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftP
         case 16: try { try decoder.decodeSingularUInt32Field(value: &_storage._funcTable) }()
         case 17: try { try decoder.decodeSingularUInt32Field(value: &_storage._platePhotoPicSupportNum) }()
         case 18: try { try decoder.decodeSingularUInt32Field(value: &_storage._allPlateSupportMax) }()
+        case 19: try { try decoder.decodeSingularUInt32Field(value: &_storage._videoPlayLengthMax) }()
         default: break
         }
       }
@@ -449,6 +459,9 @@ extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftP
       if _storage._allPlateSupportMax != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._allPlateSupportMax, fieldNumber: 18)
       }
+      if _storage._videoPlayLengthMax != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._videoPlayLengthMax, fieldNumber: 19)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -476,6 +489,7 @@ extension protocol_watch_dial_plate_inquire_reply: SwiftProtobuf.Message, SwiftP
         if _storage._funcTable != rhs_storage._funcTable {return false}
         if _storage._platePhotoPicSupportNum != rhs_storage._platePhotoPicSupportNum {return false}
         if _storage._allPlateSupportMax != rhs_storage._allPlateSupportMax {return false}
+        if _storage._videoPlayLengthMax != rhs_storage._videoPlayLengthMax {return false}
         return true
       }
       if !storagesAreEqual {return false}

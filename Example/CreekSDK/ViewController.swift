@@ -17,13 +17,21 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Set user information",
       "Query time",
       "Set time",
-      "Upload (OTA)",
-      "Upload (Music)",
-      "Upload (Sport Course)",
-      "Upload (Route)",
       "Bind device",
       "Unbind",
       "Sync health",
+      "Upload (OTA)",
+      "Upload (Music)",
+      "get music",
+      "del music",
+      "Upload (Sport Course)",
+      "get course",
+      "del course",
+      "Upload (Route)",
+      "get route",
+      "del route",
+      "get training load",
+      "get smart hydration",
       "Get watch dial",
       "Set watch dial",
       "Delete watch dial",
@@ -193,8 +201,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                break
             }
          }
-         let keyId = "********"
-         let publicKey = "***************"
+         let keyId = "L9z6xGit93O8rmFN2"
+         let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAooLJ1knpZ4P3J5U158kUxjKnhj0hgt11ZIXfV/F8q+ku9uGRGL+4WuGrM1MfX1+1aqQNnCDYp57ioprm+4w7uvYwyz4j7JCutRVMm5BwbfruFfR8KwsL9z6xGit93O8rmFN2hkuUFxZSLiBBJiuhe+wtrDIPBov8QaNso/U0GrrDDgoh+R3p8fUQ3duMuL0I9pxW/sphVZOQbdNafti0AEdqJIwoQ5GSSGr0XKkHFk1kep9CifouWnHjoMqTMagDyaj07NSY2A4mxSn4S3e5L25NuJj80UcguDU6WxnZW5j9GC42BpmqA+Kcu54GqkXAF383tJHYiSXZtAFl80/bxQIDAQAB"
          CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
@@ -260,7 +268,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             }
             
          }
-
+         
          
          
 //         CreekSDK.instance.setSportControl(controlType: .controlResume) {
@@ -436,8 +444,6 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       switch allOptions[indexPath.row] {
       case "Upload (Music)":
-         
-       
          let vc = MusicUploadViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break

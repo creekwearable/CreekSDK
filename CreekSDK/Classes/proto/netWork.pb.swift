@@ -56,6 +56,8 @@ public struct firmware_update_data: Sendable {
 
   public var upgradeIntroduce: String = String()
 
+  public var pattern: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -117,6 +119,7 @@ extension firmware_update_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     1: .same(proto: "firmwareVersion"),
     2: .same(proto: "firmwareUrl"),
     3: .same(proto: "upgradeIntroduce"),
+    4: .same(proto: "pattern"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -128,6 +131,7 @@ extension firmware_update_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       case 1: try { try decoder.decodeSingularStringField(value: &self.firmwareVersion) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.firmwareURL) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.upgradeIntroduce) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.pattern) }()
       default: break
       }
     }
@@ -143,6 +147,9 @@ extension firmware_update_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if !self.upgradeIntroduce.isEmpty {
       try visitor.visitSingularStringField(value: self.upgradeIntroduce, fieldNumber: 3)
     }
+    if self.pattern != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pattern, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -150,6 +157,7 @@ extension firmware_update_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if lhs.firmwareVersion != rhs.firmwareVersion {return false}
     if lhs.firmwareURL != rhs.firmwareURL {return false}
     if lhs.upgradeIntroduce != rhs.upgradeIntroduce {return false}
+    if lhs.pattern != rhs.pattern {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

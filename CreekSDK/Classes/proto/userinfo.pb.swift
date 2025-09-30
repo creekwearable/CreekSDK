@@ -98,6 +98,9 @@ public struct protocol_perferences: Sendable {
   ///1bytes 能见度单位 0x00：无效 0x01,米（m） 0x02,千米（km） 0x03,英里（mi）
   public var visibilityUnit: UInt32 = 0
 
+  ///1bytes 血压单位 0x00：无效 0x01,毫米汞柱（mmhg）0x02,千帕（kpa）
+  public var bloodPressureUnit: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -148,6 +151,7 @@ public struct protocol_user_info_operate: @unchecked Sendable {
     set {_uniqueStorage()._operate = newValue}
   }
 
+  ///个人信息
   public var personalInfo: protocol_personal_info {
     get {return _storage._personalInfo ?? protocol_personal_info()}
     set {_uniqueStorage()._personalInfo = newValue}
@@ -157,6 +161,7 @@ public struct protocol_user_info_operate: @unchecked Sendable {
   /// Clears the value of `personalInfo`. Subsequent reads from it will return its default value.
   public mutating func clearPersonalInfo() {_uniqueStorage()._personalInfo = nil}
 
+  ///单位设置
   public var perferences: protocol_perferences {
     get {return _storage._perferences ?? protocol_perferences()}
     set {_uniqueStorage()._perferences = newValue}
@@ -166,6 +171,7 @@ public struct protocol_user_info_operate: @unchecked Sendable {
   /// Clears the value of `perferences`. Subsequent reads from it will return its default value.
   public mutating func clearPerferences() {_uniqueStorage()._perferences = nil}
 
+  ///目标设置
   public var goalSetting: protocol_goal_setting {
     get {return _storage._goalSetting ?? protocol_goal_setting()}
     set {_uniqueStorage()._goalSetting = newValue}
@@ -199,6 +205,7 @@ public struct protocol_user_info_inquire_reply: @unchecked Sendable {
     set {_uniqueStorage()._operate = newValue}
   }
 
+  ///个人信息
   public var personalInfo: protocol_personal_info {
     get {return _storage._personalInfo ?? protocol_personal_info()}
     set {_uniqueStorage()._personalInfo = newValue}
@@ -208,6 +215,7 @@ public struct protocol_user_info_inquire_reply: @unchecked Sendable {
   /// Clears the value of `personalInfo`. Subsequent reads from it will return its default value.
   public mutating func clearPersonalInfo() {_uniqueStorage()._personalInfo = nil}
 
+  ///单位设置
   public var perferences: protocol_perferences {
     get {return _storage._perferences ?? protocol_perferences()}
     set {_uniqueStorage()._perferences = newValue}
@@ -217,6 +225,7 @@ public struct protocol_user_info_inquire_reply: @unchecked Sendable {
   /// Clears the value of `perferences`. Subsequent reads from it will return its default value.
   public mutating func clearPerferences() {_uniqueStorage()._perferences = nil}
 
+  ///目标设置
   public var goalSetting: protocol_goal_setting {
     get {return _storage._goalSetting ?? protocol_goal_setting()}
     set {_uniqueStorage()._goalSetting = newValue}
@@ -225,6 +234,18 @@ public struct protocol_user_info_inquire_reply: @unchecked Sendable {
   public var hasGoalSetting: Bool {return _storage._goalSetting != nil}
   /// Clears the value of `goalSetting`. Subsequent reads from it will return its default value.
   public mutating func clearGoalSetting() {_uniqueStorage()._goalSetting = nil}
+
+  ///用户图片宽度
+  public var userIconWidth: UInt32 {
+    get {return _storage._userIconWidth}
+    set {_uniqueStorage()._userIconWidth = newValue}
+  }
+
+  ///用户图片高度
+  public var userIconHeight: UInt32 {
+    get {return _storage._userIconHeight}
+    set {_uniqueStorage()._userIconHeight = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -315,6 +336,7 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     13: .standard(proto: "altitude_unit"),
     14: .standard(proto: "wind_speed_unit"),
     15: .standard(proto: "visibility_unit"),
+    16: .standard(proto: "blood_pressure_unit"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -338,6 +360,7 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       case 13: try { try decoder.decodeSingularUInt32Field(value: &self.altitudeUnit) }()
       case 14: try { try decoder.decodeSingularUInt32Field(value: &self.windSpeedUnit) }()
       case 15: try { try decoder.decodeSingularUInt32Field(value: &self.visibilityUnit) }()
+      case 16: try { try decoder.decodeSingularUInt32Field(value: &self.bloodPressureUnit) }()
       default: break
       }
     }
@@ -389,6 +412,9 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if self.visibilityUnit != 0 {
       try visitor.visitSingularUInt32Field(value: self.visibilityUnit, fieldNumber: 15)
     }
+    if self.bloodPressureUnit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.bloodPressureUnit, fieldNumber: 16)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -408,6 +434,7 @@ extension protocol_perferences: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if lhs.altitudeUnit != rhs.altitudeUnit {return false}
     if lhs.windSpeedUnit != rhs.windSpeedUnit {return false}
     if lhs.visibilityUnit != rhs.visibilityUnit {return false}
+    if lhs.bloodPressureUnit != rhs.bloodPressureUnit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -595,6 +622,8 @@ extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf
     3: .standard(proto: "personal_info"),
     4: .same(proto: "perferences"),
     5: .standard(proto: "goal_setting"),
+    6: .standard(proto: "user_icon_width"),
+    7: .standard(proto: "user_icon_height"),
   ]
 
   fileprivate class _StorageClass {
@@ -603,6 +632,8 @@ extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf
     var _personalInfo: protocol_personal_info? = nil
     var _perferences: protocol_perferences? = nil
     var _goalSetting: protocol_goal_setting? = nil
+    var _userIconWidth: UInt32 = 0
+    var _userIconHeight: UInt32 = 0
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -622,6 +653,8 @@ extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf
       _personalInfo = source._personalInfo
       _perferences = source._perferences
       _goalSetting = source._goalSetting
+      _userIconWidth = source._userIconWidth
+      _userIconHeight = source._userIconHeight
     }
   }
 
@@ -645,6 +678,8 @@ extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf
         case 3: try { try decoder.decodeSingularMessageField(value: &_storage._personalInfo) }()
         case 4: try { try decoder.decodeSingularMessageField(value: &_storage._perferences) }()
         case 5: try { try decoder.decodeSingularMessageField(value: &_storage._goalSetting) }()
+        case 6: try { try decoder.decodeSingularUInt32Field(value: &_storage._userIconWidth) }()
+        case 7: try { try decoder.decodeSingularUInt32Field(value: &_storage._userIconHeight) }()
         default: break
         }
       }
@@ -672,6 +707,12 @@ extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf
       try { if let v = _storage._goalSetting {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       } }()
+      if _storage._userIconWidth != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userIconWidth, fieldNumber: 6)
+      }
+      if _storage._userIconHeight != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._userIconHeight, fieldNumber: 7)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -686,6 +727,8 @@ extension protocol_user_info_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._personalInfo != rhs_storage._personalInfo {return false}
         if _storage._perferences != rhs_storage._perferences {return false}
         if _storage._goalSetting != rhs_storage._goalSetting {return false}
+        if _storage._userIconWidth != rhs_storage._userIconWidth {return false}
+        if _storage._userIconHeight != rhs_storage._userIconHeight {return false}
         return true
       }
       if !storagesAreEqual {return false}
