@@ -1916,10 +1916,15 @@ public typealias sportGpsBase = () -> (GPSModel)
         }
      }
        else if(call.method.contains("setClickHealthMeasure")){
-          if let response = call.arguments as? Bool{
-             if let success = successDic[call.method]{
-                success()
-                successDic.removeValue(forKey: call.method)
+          if let response = call.arguments as? FlutterStandardTypedData{
+             do{
+                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+                if let back = clickHealthMeasureDic[call.method]{
+                   back(model)
+                    clickHealthMeasureDic.removeValue(forKey: call.method)
+                }
+             }catch{
+                print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
              }
           }
        } else if(call.method.contains("getClickHealthMeasure")){
@@ -1932,10 +1937,6 @@ public typealias sportGpsBase = () -> (GPSModel)
                 }
              }catch{
                 print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
-                if let failure = failureArgumentDic[call.method]{
-                   failure(-1, "Failed to parse getClickHealthMeasure data")
-                   failureArgumentDic.removeValue(forKey: call.method)
-                }
              }
           }
        }else if(call.method.contains("setWatchReminderWitch")){

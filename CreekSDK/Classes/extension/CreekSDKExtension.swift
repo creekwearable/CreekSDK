@@ -2234,13 +2234,14 @@ extension CreekSDK{
       _liveSportControlListen = listen
    }
    
-   public func setSportControl(controlType:exercise_control_type,success:@escaping successBase,failure:@escaping failureArgument) {
+   public func setSportControl(controlType:exercise_control_type,_ sportType:sport_type = .orun,success:@escaping successBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          successDic["setSportControl\(requestId)"] = success;
          failureArgumentDic["setSportControl\(requestId)"] = failure
          var operate = protocol_exercise_control_operate()
          operate.controlType = controlType
+         operate.sportType = sportType
          do{
             let data = try operate.serializedData()
             methodChannel?.invokeMethod("setSportControl\(requestId)", arguments: data)
@@ -2641,7 +2642,7 @@ extension CreekSDK{
    }
    
    ///点测获取健康数据
-   public func getClickHealthMeasure(type: health_measure_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
+   public func getClickHealthMeasure(type: ring_health_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          let methodName = "getClickHealthMeasure\(requestId)"
@@ -2652,11 +2653,11 @@ extension CreekSDK{
    }
    
    ///点测数据设置
-   public func setClickHealthMeasure(model: protocol_ring_click_measure_operate, success: @escaping successBase, failure: @escaping failureArgument) {
+   public func setClickHealthMeasure(model: protocol_ring_click_measure_operate, success: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          let methodName = "setClickHealthMeasure\(requestId)"
-         successDic[methodName] = success
+         clickHealthMeasureDic[methodName] = success
          failureArgumentDic[methodName] = failure
          
          do {
