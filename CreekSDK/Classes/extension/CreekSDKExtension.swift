@@ -2673,8 +2673,6 @@ extension CreekSDK{
       }
    }
    
-   
-   
    ///戒指触发 App 提醒开关
    public func getWatchReminderWitch(model: @escaping watchReminderWitchBase, failure: @escaping failureArgument) {
       serialQueue.sync {
@@ -2734,7 +2732,6 @@ extension CreekSDK{
          afPpgClosureDic["getAfPpgData\(requestId)"] = model
          methodChannel?.invokeMethod("getAfPpgData\(requestId)", arguments: [startTime ,endTime])
       }
-      
    }
    
    ///Smart hydration
@@ -2777,5 +2774,35 @@ extension CreekSDK{
          }
       }
    }
+   
+   public func getAfPpgUploadStatus(model:@escaping afPpgClosure) {
+      serialQueue.sync {
+         requestId+=1
+         afPpgClosureDic["getAfPpgUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getAfPpgUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
+   public func getAfUploadStatus(model:@escaping afClosure) {
+      serialQueue.sync {
+         requestId+=1
+         afClosureDic["getAfUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getAfUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
+   public func startMeasure(type:ring_health_type,model:@escaping clickHealthMeasureBase,failure:@escaping commonErrorBase){
+      serialQueue.sync {
+         requestId+=1
+         clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
+         commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
+         methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: type.rawValue)
+      }
+   }
+   
+   public func stopMeasure(type:ring_health_type){
+      methodChannel?.invokeMethod("stopMeasure", arguments: type.rawValue)
+   }
+   
    
 }

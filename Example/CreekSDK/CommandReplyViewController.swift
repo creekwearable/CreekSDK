@@ -1269,6 +1269,77 @@ class CommandReplyViewController: CreekBaseViewController {
             self.textView.text = message
          }
          break
+      case "Get af data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getAfData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         
+         break
+      case "Get afPpg data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getAfPpgData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         break
+      case "getWatchReminderWitch":
+         CreekInterFace.instance.getWatchReminderWitch { model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+         
+      case "setWatchReminderWitch":
+         var  operate =  protocol_remind_mark_switch_operate()
+         operate.goalAchievedSwitch = switch_type.switchOn
+         operate.lowPowerSwitch = switch_type.switchOn
+         operate.chargerFullSwitch = switch_type.switchOn
+         operate.findRingLedSwitch = switch_type.switchOn
+         operate.ntctemperatureHighSwitch = switch_type.switchOn
+         operate.heartRateHighSwitch = switch_type.switchOn
+         operate.heartRateLowSwitch = switch_type.switchOn
+         operate.sedentaryRemindSwitch = switch_type.switchOn
+         operate.highStressSwitch = switch_type.switchOn
+         operate.lowSpo2Switch = switch_type.switchOn
+         CreekInterFace.instance.setWatchReminderWitch(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
       default:
          break
          

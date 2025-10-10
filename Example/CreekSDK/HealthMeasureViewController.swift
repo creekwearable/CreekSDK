@@ -31,7 +31,6 @@ class HealthMeasureViewController: UIViewController {
     ]
     
     private var selectedType: ring_health_type = .ringHeartRate
-    private var measuringTask: Task<Void, Never>?
     
     // MARK: - 生命周期
     override func viewDidLoad() {
@@ -108,46 +107,18 @@ class HealthMeasureViewController: UIViewController {
     @objc private func startMeasureTapped() {
         resultLabel.text = "--"
         statusLabel.text = "状态：测量中..."
-        
-        // 取消旧任务
-        measuringTask?.cancel()
-        
-        measuringTask = Task {
-            do {
-                let value = try await HealthMeasureManager.shared.measureHealth(
-                    selectedType: selectedType,
-                    measureType: .healthMeasureStart
-                )
-                await MainActor.run {
-                    statusLabel.text = "状态：测量完成 ✅"
-                    resultLabel.text = "结果：\(value)"
-                }
-            } catch {
-                await MainActor.run {
-                    statusLabel.text = "状态：\(error.localizedDescription)"
-                    resultLabel.text = "--"
-                }
-            }
-        }
+       CreekInterFace.instance.startMeasure(type: selectedType) { model in
+          self.statusLabel.text = "状态：测量完成 ✅"
+          self.resultLabel.text =  "结果：\(model.value)"
+       } failure: { model in
+          self.statusLabel.text = model.message
+       }
+
     }
     
     @objc private func stopMeasureTapped() {
-        measuringTask?.cancel()
-        Task {
-            do {
-                _ = try await HealthMeasureManager.shared.measureHealth(
-                    selectedType: selectedType,
-                    measureType: .healthMeasureStop
-                )
-                await MainActor.run {
-                    statusLabel.text = "状态：已停止测量 ⛔️"
-                }
-            } catch {
-                await MainActor.run {
-                    statusLabel.text = "停止失败：\(error.localizedDescription)"
-                }
-            }
-        }
+       statusLabel.text = "状态：已停止测量 ⛔️"
+       CreekInterFace.instance.stopMeasure(type: selectedType)
     }
 }
 
@@ -176,119 +147,3 @@ extension HealthMeasureViewController: UIPickerViewDataSource, UIPickerViewDeleg
     }
 }
 
-
-class HealthMeasureManager {
-    
-    static let shared = HealthMeasureManager()
-    private var lastMeasureTime: Date?
-    
-    /// 点击测量，返回最终测量值或错误
-    func measureHealth(
-        selectedType: ring_health_type,
-        measureType: health_measure_type,
-        timeout: TimeInterval = 60   // ⏱ 超时 60 秒
-    ) async throws -> Int {
-        
-        var measuredValue = 0
-        var endBool = false
-        let startTime = Date()
-        
-        // 1️⃣ 发送测量指令
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            var operateModel = protocol_ring_click_measure_operate()
-            operateModel.healthType = selectedType
-            operateModel.measureType = measureType
-            
-            CreekInterFace.instance.setClickHealthMeasure(model: operateModel) { model in
-                switch model.measureStatus {
-                case .healthStatusNoWear:
-                    continuation.resume(throwing: NSError(domain: "HealthMeasure", code: 1, userInfo: [NSLocalizedDescriptionKey: "未佩戴"]))
-                case .healthStatusFail:
-                    continuation.resume(throwing: NSError(domain: "HealthMeasure", code: 2, userInfo: [NSLocalizedDescriptionKey: "测量失败"]))
-                default:
-                    continuation.resume(returning: ())
-                }
-            } failure: { code, message in
-                continuation.resume(throwing: NSError(domain: "HealthMeasure", code: code, userInfo: [NSLocalizedDescriptionKey: message]))
-            }
-        }
-        
-        // 停止命令直接返回
-        if measureType == .healthMeasureStop {
-            return measuredValue
-        }
-        
-        // 2️⃣ 轮询获取结果
-        while !endBool {
-            // 超时检查
-            if Date().timeIntervalSince(startTime) > timeout {
-                // 超时停止测量
-                Task {
-                    var stopModel = protocol_ring_click_measure_operate()
-                    stopModel.healthType = selectedType
-                    stopModel.measureType = .healthMeasureStop
-                    CreekInterFace.instance.setClickHealthMeasure(model: stopModel) { _ in
-                        print("⏰ 超时，已自动发送停止测量指令")
-                    } failure: { code, message in
-                        print("❌ 停止测量失败: \(code), \(message)")
-                    }
-                }
-                throw NSError(domain: "HealthMeasure", code: 3, userInfo: [NSLocalizedDescriptionKey: "测量超时"])
-            }
-            
-            // 控制最小 1 秒间隔
-            if let last = lastMeasureTime {
-                let diff = Date().timeIntervalSince(last)
-                if diff < 1 {
-                    try await Task.sleep(nanoseconds: UInt64((1 - diff) * 1_000_000_000))
-                }
-            }
-            lastMeasureTime = Date()
-            
-            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-                CreekInterFace.instance.getClickHealthMeasure(type: selectedType) { model in
-                    // 停止命令时退出
-                    if model.measureType == .healthMeasureStop {
-                        endBool = true
-                        continuation.resume(returning: ())
-                        return
-                    }
-                    
-                    switch model.measureStatus {
-                    case .healthStatusResult:
-                        measuredValue = Int(model.value)
-                        endBool = true
-                        
-                        // 自动发送停止测量指令
-                        Task {
-                            var stopModel = protocol_ring_click_measure_operate()
-                            stopModel.healthType = selectedType
-                            stopModel.measureType = .healthMeasureStop
-                            CreekInterFace.instance.setClickHealthMeasure(model: stopModel) { _ in
-                                print("✅ 已发送停止测量指令")
-                            } failure: { code, message in
-                                print("❌ 停止测量失败: \(code), \(message)")
-                            }
-                        }
-                        continuation.resume(returning: ())
-                        
-                    case .healthStatusNoWear:
-                        endBool = true
-                        continuation.resume(throwing: NSError(domain: "HealthMeasure", code: 1, userInfo: [NSLocalizedDescriptionKey: "未佩戴"]))
-                        
-                    case .healthStatusFail:
-                        endBool = true
-                        continuation.resume(throwing: NSError(domain: "HealthMeasure", code: 2, userInfo: [NSLocalizedDescriptionKey: "测量失败"]))
-                        
-                    default:
-                        continuation.resume(returning: ())
-                    }
-                } failure: { code, message in
-                    continuation.resume(throwing: NSError(domain: "HealthMeasure", code: code, userInfo: [NSLocalizedDescriptionKey: message]))
-                }
-            }
-        }
-        
-        return measuredValue
-    }
-}

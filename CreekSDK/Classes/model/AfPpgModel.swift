@@ -11,7 +11,6 @@ public class CreekAfPpgModel: Codable {
    public var userID: Int?
    public var deviceId: String?
    public var create_time: String?
-   public var startTime: String?
    public var offset_last: Int?
    public var uploadStatus: Int?
    public var datas: [Int]?

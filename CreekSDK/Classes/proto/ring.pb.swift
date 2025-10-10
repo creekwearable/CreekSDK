@@ -134,6 +134,15 @@ public struct protocol_remind_mark_switch_operate: Sendable {
   ///心率过低提醒开关
   public var heartRateLowSwitch: switch_type = .switchNull
 
+  ///久坐提醒开关
+  public var sedentaryRemindSwitch: switch_type = .switchNull
+
+  ///压力过高提醒开关
+  public var highStressSwitch: switch_type = .switchNull
+
+  ///血氧过低开关
+  public var lowSpo2Switch: switch_type = .switchNull
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -169,6 +178,15 @@ public struct protocol_remind_switch_inquire_reply: Sendable {
   public var heartRateHighSwitch: switch_type = .switchNull
 
   public var heartRateLowSwitch: switch_type = .switchNull
+
+  ///久坐提醒开关
+  public var sedentaryRemindSwitch: switch_type = .switchNull
+
+  ///压力过高提醒开关
+  public var highStressSwitch: switch_type = .switchNull
+
+  ///血氧过低开关
+  public var lowSpo2Switch: switch_type = .switchNull
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -417,6 +435,9 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     6: .standard(proto: "ntctemperature_high_switch"),
     7: .standard(proto: "heart_rate_high_switch"),
     8: .standard(proto: "heart_rate_low_switch"),
+    9: .standard(proto: "sedentary_remind_switch"),
+    10: .standard(proto: "high_stress_switch"),
+    11: .standard(proto: "low_spo2_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -433,6 +454,9 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
       case 6: try { try decoder.decodeSingularEnumField(value: &self.ntctemperatureHighSwitch) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.heartRateHighSwitch) }()
       case 8: try { try decoder.decodeSingularEnumField(value: &self.heartRateLowSwitch) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self.sedentaryRemindSwitch) }()
+      case 10: try { try decoder.decodeSingularEnumField(value: &self.highStressSwitch) }()
+      case 11: try { try decoder.decodeSingularEnumField(value: &self.lowSpo2Switch) }()
       default: break
       }
     }
@@ -463,6 +487,15 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     if self.heartRateLowSwitch != .switchNull {
       try visitor.visitSingularEnumField(value: self.heartRateLowSwitch, fieldNumber: 8)
     }
+    if self.sedentaryRemindSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.sedentaryRemindSwitch, fieldNumber: 9)
+    }
+    if self.highStressSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.highStressSwitch, fieldNumber: 10)
+    }
+    if self.lowSpo2Switch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.lowSpo2Switch, fieldNumber: 11)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -475,6 +508,9 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.ntctemperatureHighSwitch != rhs.ntctemperatureHighSwitch {return false}
     if lhs.heartRateHighSwitch != rhs.heartRateHighSwitch {return false}
     if lhs.heartRateLowSwitch != rhs.heartRateLowSwitch {return false}
+    if lhs.sedentaryRemindSwitch != rhs.sedentaryRemindSwitch {return false}
+    if lhs.highStressSwitch != rhs.highStressSwitch {return false}
+    if lhs.lowSpo2Switch != rhs.lowSpo2Switch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -492,6 +528,9 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     7: .standard(proto: "ntctemperature_high_switch"),
     8: .standard(proto: "heart_rate_high_switch"),
     9: .standard(proto: "heart_rate_low_switch"),
+    10: .standard(proto: "sedentary_remind_switch"),
+    11: .standard(proto: "high_stress_switch"),
+    12: .standard(proto: "low_spo2_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -509,6 +548,9 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
       case 7: try { try decoder.decodeSingularEnumField(value: &self.ntctemperatureHighSwitch) }()
       case 8: try { try decoder.decodeSingularEnumField(value: &self.heartRateHighSwitch) }()
       case 9: try { try decoder.decodeSingularEnumField(value: &self.heartRateLowSwitch) }()
+      case 10: try { try decoder.decodeSingularEnumField(value: &self.sedentaryRemindSwitch) }()
+      case 11: try { try decoder.decodeSingularEnumField(value: &self.highStressSwitch) }()
+      case 12: try { try decoder.decodeSingularEnumField(value: &self.lowSpo2Switch) }()
       default: break
       }
     }
@@ -542,6 +584,15 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     if self.heartRateLowSwitch != .switchNull {
       try visitor.visitSingularEnumField(value: self.heartRateLowSwitch, fieldNumber: 9)
     }
+    if self.sedentaryRemindSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.sedentaryRemindSwitch, fieldNumber: 10)
+    }
+    if self.highStressSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.highStressSwitch, fieldNumber: 11)
+    }
+    if self.lowSpo2Switch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.lowSpo2Switch, fieldNumber: 12)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -555,6 +606,9 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     if lhs.ntctemperatureHighSwitch != rhs.ntctemperatureHighSwitch {return false}
     if lhs.heartRateHighSwitch != rhs.heartRateHighSwitch {return false}
     if lhs.heartRateLowSwitch != rhs.heartRateLowSwitch {return false}
+    if lhs.sedentaryRemindSwitch != rhs.sedentaryRemindSwitch {return false}
+    if lhs.highStressSwitch != rhs.highStressSwitch {return false}
+    if lhs.lowSpo2Switch != rhs.lowSpo2Switch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

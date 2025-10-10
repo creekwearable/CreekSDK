@@ -134,6 +134,7 @@
 		079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F22E9605720088C49A /* SportsLiveViewController.swift */; };
 		079D06F52E9611BF0088C49A /* GlobalListenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F42E9611BF0088C49A /* GlobalListenManager.swift */; };
 		079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */; };
+		079D06F92E9964410088C49A /* commonError.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F82E9964410088C49A /* commonError.pb.swift */; };
 		07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */; };
 		07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07A73BB32BF211C0007EFFB3 /* titan.zip */; };
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
@@ -284,6 +285,7 @@
 		079D06F22E9605720088C49A /* SportsLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsLiveViewController.swift; sourceTree = "<group>"; };
 		079D06F42E9611BF0088C49A /* GlobalListenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalListenManager.swift; sourceTree = "<group>"; };
 		079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMeasureViewController.swift; sourceTree = "<group>"; };
+		079D06F82E9964410088C49A /* commonError.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonError.pb.swift; sourceTree = "<group>"; };
 		07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeModel.swift; sourceTree = "<group>"; };
 		07A73BB32BF211C0007EFFB3 /* titan.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = titan.zip; sourceTree = "<group>"; };
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				079D06F82E9964410088C49A /* commonError.pb.swift */,
 				079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */,
 				079D06ED2E87CD570088C49A /* multifileTran.pb.swift */,
 				079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */,
@@ -860,6 +863,7 @@
 				07266BFA2DACF260000F8BED /* standing.pb.swift in Sources */,
 				07266C302DAD01DE000F8BED /* CourseModel.swift in Sources */,
 				07266BFB2DACF260000F8BED /* watchdial.pb.swift in Sources */,
+				079D06F92E9964410088C49A /* commonError.pb.swift in Sources */,
 				07266BFC2DACF260000F8BED /* appSleep.pb.swift in Sources */,
 				07266BFD2DACF260000F8BED /* font.pb.swift in Sources */,
 				07266BFE2DACF260000F8BED /* morning.pb.swift in Sources */,

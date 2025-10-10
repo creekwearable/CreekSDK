@@ -6592,6 +6592,15 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///疑似房颤提醒标记
   case isAf // = 17
+
+  ///久坐提醒
+  case sedentaryRemind // = 18
+
+  ///压力过高提醒
+  case highStress // = 19
+
+  ///血氧过低提醒
+  case lowSpo2 // = 20
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6618,6 +6627,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 15: self = .chargeFull
     case 16: self = .sysPoweroff
     case 17: self = .isAf
+    case 18: self = .sedentaryRemind
+    case 19: self = .highStress
+    case 20: self = .lowSpo2
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6642,6 +6654,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .chargeFull: return 15
     case .sysPoweroff: return 16
     case .isAf: return 17
+    case .sedentaryRemind: return 18
+    case .highStress: return 19
+    case .lowSpo2: return 20
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6666,6 +6681,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .chargeFull,
     .sysPoweroff,
     .isAf,
+    .sedentaryRemind,
+    .highStress,
+    .lowSpo2,
   ]
 
 }
@@ -7488,6 +7506,75 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [ring_alarm_vibrate_status] = [
     .vibrationStop,
     .vibrationStart,
+  ]
+
+}
+
+/// 公共错误码
+public enum CommonErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未知错误
+  case commonUnknown // = 0
+
+  /// 操作中
+  case commonInProgress // = 1
+
+  /// 操作已取消
+  case commonCanceled // = 2
+
+  /// 超时
+  case commonTimeout // = 3
+
+  /// 未佩戴
+  case commonNotWorn // = 4
+
+  /// 操作失败
+  case commonFailed // = 5
+
+  /// 内部错误
+  case commonInternalError // = 6
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .commonUnknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .commonUnknown
+    case 1: self = .commonInProgress
+    case 2: self = .commonCanceled
+    case 3: self = .commonTimeout
+    case 4: self = .commonNotWorn
+    case 5: self = .commonFailed
+    case 6: self = .commonInternalError
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .commonUnknown: return 0
+    case .commonInProgress: return 1
+    case .commonCanceled: return 2
+    case .commonTimeout: return 3
+    case .commonNotWorn: return 4
+    case .commonFailed: return 5
+    case .commonInternalError: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [CommonErrorCode] = [
+    .commonUnknown,
+    .commonInProgress,
+    .commonCanceled,
+    .commonTimeout,
+    .commonNotWorn,
+    .commonFailed,
+    .commonInternalError,
   ]
 
 }
@@ -8698,6 +8785,9 @@ extension ring_remind_event_type: SwiftProtobuf._ProtoNameProviding {
     15: .same(proto: "CHARGE_FULL"),
     16: .same(proto: "SYS_POWEROFF"),
     17: .same(proto: "IS_AF"),
+    18: .same(proto: "SEDENTARY_REMIND"),
+    19: .same(proto: "HIGH_STRESS"),
+    20: .same(proto: "LOW_SPO2"),
   ]
 }
 
@@ -8846,5 +8936,17 @@ extension ring_alarm_vibrate_status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "VIBRATION_STOP"),
     1: .same(proto: "VIBRATION_START"),
+  ]
+}
+
+extension CommonErrorCode: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "COMMON_UNKNOWN"),
+    1: .same(proto: "COMMON_IN_PROGRESS"),
+    2: .same(proto: "COMMON_CANCELED"),
+    3: .same(proto: "COMMON_TIMEOUT"),
+    4: .same(proto: "COMMON_NOT_WORN"),
+    5: .same(proto: "COMMON_FAILED"),
+    6: .same(proto: "COMMON_INTERNAL_ERROR"),
   ]
 }

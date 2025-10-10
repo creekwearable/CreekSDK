@@ -79,6 +79,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get blood oxygen data",
       "Get HRV data",
       "Get sport data",
+      "Get af data",
+      "Get afPpg data",
       "Set status to uploaded",
       "Get good morning",
       "Set good morning",
@@ -93,7 +95,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Set Volume",
       "Get Volume",
       "Sport live",
-      "Health Measure"
+      "Health Measure",
+      "getWatchReminderWitch",
+      "setWatchReminderWitch"
    ];
    
    var filteredOptions: [String] = []
@@ -283,6 +287,19 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          CreekInterFace.instance.exceptionListen { model in
             print("😄😄\(model)")
+         }
+         
+         CreekInterFace.instance.ringReminderListen { model in
+            let json = try? model.jsonString()
+            print(json ?? "")
+         }
+         CreekInterFace.instance.ringAlarmVibrateListen { model in
+            let json = try? model.jsonString()
+            print(json ?? "")
+         }
+         CreekInterFace.instance.motionRecognitionListen { model in
+            let json = try? model.jsonString()
+            print(json ?? "")
          }
         
       }
