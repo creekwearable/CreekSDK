@@ -104,6 +104,7 @@ public typealias afClosure = (_ model:BaseModel<[CreekAfModel]>) -> ()
 public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
 public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inquire_reply) -> ()
 public typealias sportGpsBase = () -> (GPSModel)
+public typealias commonErrorBase = (_ model: CommonError) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -223,6 +224,7 @@ public typealias sportGpsBase = () -> (GPSModel)
    var afClosureDic:[String:afClosure] = [:]
    var afPpgClosureDic:[String:afPpgClosure] = [:]
    var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
+   var commonErrorBaseDic:[String:commonErrorBase] = [:]
     
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -1831,15 +1833,6 @@ public typealias sportGpsBase = () -> (GPSModel)
             }
          }
       }
-      else if(call.method.contains("setVolumeAdjust")){
-         if let response = call.arguments as? Bool{
-            if let success = successDic[call.method]{
-               success()
-               successDic.removeValue(forKey: call.method)
-            }
-         }
-      }
-      
       else if(call.method.contains("getBloodPressure")){
          if let response = call.arguments as? FlutterStandardTypedData{
             do{
@@ -1916,10 +1909,15 @@ public typealias sportGpsBase = () -> (GPSModel)
         }
      }
        else if(call.method.contains("setClickHealthMeasure")){
-          if let response = call.arguments as? Bool{
-             if let success = successDic[call.method]{
-                success()
-                successDic.removeValue(forKey: call.method)
+          if let response = call.arguments as? FlutterStandardTypedData{
+             do{
+                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+                if let back = clickHealthMeasureDic[call.method]{
+                   back(model)
+                    clickHealthMeasureDic.removeValue(forKey: call.method)
+                }
+             }catch{
+                print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
              }
           }
        } else if(call.method.contains("getClickHealthMeasure")){
@@ -1932,17 +1930,6 @@ public typealias sportGpsBase = () -> (GPSModel)
                 }
              }catch{
                 print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
-                if let failure = failureArgumentDic[call.method]{
-                   failure(-1, "Failed to parse getClickHealthMeasure data")
-                   failureArgumentDic.removeValue(forKey: call.method)
-                }
-             }
-          }
-       }else if(call.method.contains("setWatchReminderWitch")){
-          if let response = call.arguments as? Bool{
-             if let success = successDic[call.method]{
-                success()
-                successDic.removeValue(forKey: call.method)
              }
           }
        } else if(call.method.contains("getWatchReminderWitch")) {
@@ -1954,11 +1941,7 @@ public typealias sportGpsBase = () -> (GPSModel)
                    watchReminderWitchDic.removeValue(forKey: call.method)
                 }
              }catch{
-                print("Error converting getWatchReminderWitch data: \(error.localizedDescription)")
-                if let failure = failureArgumentDic[call.method]{
-                   failure(-1, "Failed to parse getWatchReminderWitch data")
-                   failureArgumentDic.removeValue(forKey: call.method)
-                }
+                print("Error getWatchReminderWitch data: \(error.localizedDescription)")
              }
           }
        }    else if(call.method.contains("getAfPpgData")){
@@ -1966,7 +1949,6 @@ public typealias sportGpsBase = () -> (GPSModel)
              do{
                 let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
                 if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
-                   
                    if let back = afPpgClosureDic[call.method]{
                       back(model);
                       afPpgClosureDic.removeValue(forKey: call.method)
@@ -1976,10 +1958,44 @@ public typealias sportGpsBase = () -> (GPSModel)
              }catch{
                 print("Error converting string to dictionary: \(error.localizedDescription)")
              }
+          }
+          
+       }   else if(call.method.contains("getAfPpgUploadStatus")){
+          if let response = call.arguments as? String{
+             do{
+                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
+                   if let back = afPpgClosureDic[call.method]{
+                      back(model);
+                      afPpgClosureDic.removeValue(forKey: call.method)
+                   }
+                }
+                
+             }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+             }
+            
+          }
+          
+       }   else if(call.method.contains("getAfData")){
+          if let response = call.arguments as? String{
+             do{
+                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfModel]>.self, dic){
+                   
+                   if let back = afClosureDic[call.method]{
+                      back(model);
+                      afClosureDic.removeValue(forKey: call.method)
+                   }
+                }
+                
+             }catch{
+                print("Error converting string to dictionary: \(error.localizedDescription)")
+             }
              
           }
           
-       }  else if(call.method.contains("getAfData")){
+       }  else if(call.method.contains("getAfUploadStatus")){
           if let response = call.arguments as? String{
              do{
                 let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
@@ -2064,11 +2080,34 @@ public typealias sportGpsBase = () -> (GPSModel)
              }
           }
         }
-
-       
       
-      
-      
+      else if(call.method.contains("successstartMeasure")){
+        if let response = call.arguments as? FlutterStandardTypedData{
+           do{
+              let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+              if let back = clickHealthMeasureDic[call.method]{
+                 back(model)
+                 clickHealthMeasureDic.removeValue(forKey: call.method)
+              }
+           }catch{
+              print("Error converting string to dictionary: \(error.localizedDescription)")
+           }
+        }
+     }
+      else if(call.method.contains("failurestartMeasure")){
+        if let response = call.arguments as? FlutterStandardTypedData{
+           do{
+              let model = try CommonError(serializedData: response.data,partial: true)
+              if let back = commonErrorBaseDic[call.method]{
+                 back(model)
+                 commonErrorBaseDic.removeValue(forKey: call.method)
+              }
+           }catch{
+              print("Error converting string to dictionary: \(error.localizedDescription)")
+           }
+        }
+        
+     }
    }
    
 }

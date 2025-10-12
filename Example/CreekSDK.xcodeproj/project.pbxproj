@@ -131,6 +131,10 @@
 		079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06ED2E87CD570088C49A /* multifileTran.pb.swift */; };
 		079D06F02E87CD570088C49A /* hydrateAassistant.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */; };
 		079D06F12E87CD570088C49A /* qrcodeList.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */; };
+		079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F22E9605720088C49A /* SportsLiveViewController.swift */; };
+		079D06F52E9611BF0088C49A /* GlobalListenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F42E9611BF0088C49A /* GlobalListenManager.swift */; };
+		079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */; };
+		079D06F92E9964410088C49A /* commonError.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F82E9964410088C49A /* commonError.pb.swift */; };
 		07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */; };
 		07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07A73BB32BF211C0007EFFB3 /* titan.zip */; };
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
@@ -278,6 +282,10 @@
 		079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hydrateAassistant.pb.swift; sourceTree = "<group>"; };
 		079D06ED2E87CD570088C49A /* multifileTran.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multifileTran.pb.swift; sourceTree = "<group>"; };
 		079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeList.pb.swift; sourceTree = "<group>"; };
+		079D06F22E9605720088C49A /* SportsLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsLiveViewController.swift; sourceTree = "<group>"; };
+		079D06F42E9611BF0088C49A /* GlobalListenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalListenManager.swift; sourceTree = "<group>"; };
+		079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMeasureViewController.swift; sourceTree = "<group>"; };
+		079D06F82E9964410088C49A /* commonError.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonError.pb.swift; sourceTree = "<group>"; };
 		07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeModel.swift; sourceTree = "<group>"; };
 		07A73BB32BF211C0007EFFB3 /* titan.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = titan.zip; sourceTree = "<group>"; };
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -398,6 +406,7 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				079D06F82E9964410088C49A /* commonError.pb.swift */,
 				079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */,
 				079D06ED2E87CD570088C49A /* multifileTran.pb.swift */,
 				079D06EE2E87CD570088C49A /* qrcodeList.pb.swift */,
@@ -483,6 +492,7 @@
 				079A21DA2B29B0B700F5D013 /* PonyAlert.swift */,
 				079A21DB2B29B0B700F5D013 /* PonyBaseViewController.swift */,
 				077A60B72B67AFDC00AFEB2B /* extension_color.swift */,
+				079D06F42E9611BF0088C49A /* GlobalListenManager.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -564,6 +574,8 @@
 				07266C372DAF64DA000F8BED /* SportCourseViewController.swift */,
 				07266C392DAFBBB4000F8BED /* RouteViewController.swift */,
 				07266C3D2DAFEA29000F8BED /* OTAViewController.swift */,
+				079D06F22E9605720088C49A /* SportsLiveViewController.swift */,
+				079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -851,6 +863,7 @@
 				07266BFA2DACF260000F8BED /* standing.pb.swift in Sources */,
 				07266C302DAD01DE000F8BED /* CourseModel.swift in Sources */,
 				07266BFB2DACF260000F8BED /* watchdial.pb.swift in Sources */,
+				079D06F92E9964410088C49A /* commonError.pb.swift in Sources */,
 				07266BFC2DACF260000F8BED /* appSleep.pb.swift in Sources */,
 				07266BFD2DACF260000F8BED /* font.pb.swift in Sources */,
 				07266BFE2DACF260000F8BED /* morning.pb.swift in Sources */,
@@ -888,6 +901,7 @@
 				C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */,
 				07266C1A2DACF260000F8BED /* gesture.pb.swift in Sources */,
 				07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */,
+				079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */,
 				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,
 				07266C1D2DACF260000F8BED /* music.pb.swift in Sources */,
 				07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */,
@@ -939,6 +953,7 @@
 				079A21D62B29A7E600F5D013 /* CreekInterFace.swift in Sources */,
 				077A60BA2B67B37300AFEB2B /* DialViewController.swift in Sources */,
 				07941D2A2BCBE0CB00CBFB62 /* DialPhotoParseModel.swift in Sources */,
+				079D06F52E9611BF0088C49A /* GlobalListenManager.swift in Sources */,
 				077A60B42B679A5300AFEB2B /* DialParseModel.swift in Sources */,
 				079A217F2B29A72A00F5D013 /* BaseModel.swift in Sources */,
 				079A217D2B29A72A00F5D013 /* SleepModel.swift in Sources */,
@@ -948,6 +963,7 @@
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
+				079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */,
 				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,
 				07266C342DAD1CAB000F8BED /* MusicViewController.swift in Sources */,
 				07266C3A2DAFBBB4000F8BED /* RouteViewController.swift in Sources */,

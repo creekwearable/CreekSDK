@@ -312,6 +312,9 @@ public enum SyncServerType : Int{
    case spo
    case sport
    case hrv
+   case temperature
+   case af
+   case afPpg
 }
 
 public enum PlatformType : Int{

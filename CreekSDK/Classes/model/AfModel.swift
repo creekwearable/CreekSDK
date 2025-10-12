@@ -11,8 +11,6 @@ public class CreekAfModel: Codable {
    public var userID: Int?
    public var deviceId: String?
    public var creat_time: String?
-   public var firmwareVersion: String?
-   public var firmwareId: Int?
    public var offset_last: Int?
    public var uploadStatus: Int?
    public var datas: [CreekAfValueModel]?

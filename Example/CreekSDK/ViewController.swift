@@ -79,6 +79,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get blood oxygen data",
       "Get HRV data",
       "Get sport data",
+      "Get af data",
+      "Get afPpg data",
       "Set status to uploaded",
       "Get good morning",
       "Set good morning",
@@ -92,6 +94,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get BloodPressure",
       "Set Volume",
       "Get Volume",
+      "Sport live",
+      "Health Measure",
+      "getWatchReminderWitch",
+      "setWatchReminderWitch"
    ];
    
    var filteredOptions: [String] = []
@@ -212,15 +218,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          
-         CreekInterFace.instance.liveSportDataListen { model in
-            let json = try? model.jsonString()
-            print(json ?? "")
-         }
-         CreekInterFace.instance.liveSportControlListen { model in
-            let json = try? model.jsonString()
-             print(json ?? "")
-         }
-         
+           _ = GlobalListenManager.shared
          
          CreekInterFace.instance.aiDialConfig { model in
             ///pcm 音频数据（date）
@@ -289,6 +287,19 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          CreekInterFace.instance.exceptionListen { model in
             print("😄😄\(model)")
+         }
+         
+         CreekInterFace.instance.ringReminderListen { model in
+            let json = try? model.jsonString()
+            print(json ?? "")
+         }
+         CreekInterFace.instance.ringAlarmVibrateListen { model in
+            let json = try? model.jsonString()
+            print(json ?? "")
+         }
+         CreekInterFace.instance.motionRecognitionListen { model in
+            let json = try? model.jsonString()
+            print(json ?? "")
          }
         
       }
@@ -457,6 +468,14 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          break
       case "Upload (OTA)":
          let vc = OTAUploadViewController()
+         self.navigationController?.pushViewController(vc, animated: true)
+         break
+      case "Sport live":
+         let vc = SportsLiveViewController()
+         self.navigationController?.pushViewController(vc, animated: true)
+         break
+      case "Health Measure":
+         let vc = HealthMeasureViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
       default:

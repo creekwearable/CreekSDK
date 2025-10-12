@@ -2234,13 +2234,14 @@ extension CreekSDK{
       _liveSportControlListen = listen
    }
    
-   public func setSportControl(controlType:exercise_control_type,success:@escaping successBase,failure:@escaping failureArgument) {
+   public func setSportControl(controlType:exercise_control_type,_ sportType:sport_type = .orun,success:@escaping successBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          successDic["setSportControl\(requestId)"] = success;
          failureArgumentDic["setSportControl\(requestId)"] = failure
          var operate = protocol_exercise_control_operate()
          operate.controlType = controlType
+         operate.sportType = sportType
          do{
             let data = try operate.serializedData()
             methodChannel?.invokeMethod("setSportControl\(requestId)", arguments: data)
@@ -2641,7 +2642,7 @@ extension CreekSDK{
    }
    
    ///点测获取健康数据
-   public func getClickHealthMeasure(type: health_measure_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
+   public func getClickHealthMeasure(type: ring_health_type,model: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          let methodName = "getClickHealthMeasure\(requestId)"
@@ -2652,11 +2653,11 @@ extension CreekSDK{
    }
    
    ///点测数据设置
-   public func setClickHealthMeasure(model: protocol_ring_click_measure_operate, success: @escaping successBase, failure: @escaping failureArgument) {
+   public func setClickHealthMeasure(model: protocol_ring_click_measure_operate, success: @escaping clickHealthMeasureBase, failure: @escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
          let methodName = "setClickHealthMeasure\(requestId)"
-         successDic[methodName] = success
+         clickHealthMeasureDic[methodName] = success
          failureArgumentDic[methodName] = failure
          
          do {
@@ -2671,8 +2672,6 @@ extension CreekSDK{
          }
       }
    }
-   
-   
    
    ///戒指触发 App 提醒开关
    public func getWatchReminderWitch(model: @escaping watchReminderWitchBase, failure: @escaping failureArgument) {
@@ -2733,7 +2732,6 @@ extension CreekSDK{
          afPpgClosureDic["getAfPpgData\(requestId)"] = model
          methodChannel?.invokeMethod("getAfPpgData\(requestId)", arguments: [startTime ,endTime])
       }
-      
    }
    
    ///Smart hydration
@@ -2776,5 +2774,35 @@ extension CreekSDK{
          }
       }
    }
+   
+   public func getAfPpgUploadStatus(model:@escaping afPpgClosure) {
+      serialQueue.sync {
+         requestId+=1
+         afPpgClosureDic["getAfPpgUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getAfPpgUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
+   public func getAfUploadStatus(model:@escaping afClosure) {
+      serialQueue.sync {
+         requestId+=1
+         afClosureDic["getAfUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getAfUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
+   public func startMeasure(type:ring_health_type,model:@escaping clickHealthMeasureBase,failure:@escaping commonErrorBase){
+      serialQueue.sync {
+         requestId+=1
+         clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
+         commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
+         methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: type.rawValue)
+      }
+   }
+   
+   public func stopMeasure(type:ring_health_type){
+      methodChannel?.invokeMethod("stopMeasure", arguments: type.rawValue)
+   }
+   
    
 }

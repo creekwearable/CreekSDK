@@ -7,6 +7,7 @@
 
 import UIKit
 import CreekSDK
+import Foundation
 
 class CommandReplyViewController: CreekBaseViewController {
    
@@ -61,39 +62,39 @@ class CommandReplyViewController: CreekBaseViewController {
       switch titleStr{
       case "Get device information":
          self.view.hideRemark()
-//         CreekInterFace.instance.aiChat(content: "Help me create a 30-minute running session.",userId: "1234567") { str in
-//            print(str)
-//         } courseJson: { str in
-//            print(str)
-//         } failure: { code, message in
-//            print(message)
-//         }
-//         
-//         CreekInterFace.instance.aiAnalysisSleep(sleepModel: SleepModel(),langCode: "en",userId: "1234567") { str in
-//            print(str)
-//         } failure: { code, message in
-//            print(message)
-//         }
-//         
-//         CreekInterFace.instance.aiAnalysisSport(sportModel: SportModel(), langCode: "en", userId: "1234567", age: 28, gender: .genderFemale) { str in
-//            print("aiAnalysisSport:\(str)")
-//         } failure: { code, message in
-//            print("aiAnalysisSport:\(message)")
-//         }
-//         
-//         CreekInterFace.instance.aiAnalysisActivity(activityModel: ActivityModel(), goalsModel: GoalsModel(), langCode: "en", userId: "123456", height: 178, weight: 65.5) { str in
-//            print("aiAnalysisActivity:\(str)")
-//         } failure: { code, message in
-//            print("aiAnalysisActivity:\(message)")
-//         }
-
-//         CreekInterFace.instance.getAuthorizationCode { code in
-//            
-//         } failure: { code, message in
-//            
-//         }
-
-
+         //         CreekInterFace.instance.aiChat(content: "Help me create a 30-minute running session.",userId: "1234567") { str in
+         //            print(str)
+         //         } courseJson: { str in
+         //            print(str)
+         //         } failure: { code, message in
+         //            print(message)
+         //         }
+         //
+         //         CreekInterFace.instance.aiAnalysisSleep(sleepModel: SleepModel(),langCode: "en",userId: "1234567") { str in
+         //            print(str)
+         //         } failure: { code, message in
+         //            print(message)
+         //         }
+         //
+         //         CreekInterFace.instance.aiAnalysisSport(sportModel: SportModel(), langCode: "en", userId: "1234567", age: 28, gender: .genderFemale) { str in
+         //            print("aiAnalysisSport:\(str)")
+         //         } failure: { code, message in
+         //            print("aiAnalysisSport:\(message)")
+         //         }
+         //
+         //         CreekInterFace.instance.aiAnalysisActivity(activityModel: ActivityModel(), goalsModel: GoalsModel(), langCode: "en", userId: "123456", height: 178, weight: 65.5) { str in
+         //            print("aiAnalysisActivity:\(str)")
+         //         } failure: { code, message in
+         //            print("aiAnalysisActivity:\(message)")
+         //         }
+         
+         //         CreekInterFace.instance.getAuthorizationCode { code in
+         //
+         //         } failure: { code, message in
+         //
+         //         }
+         
+         
          
          CreekInterFace.instance.getFirmware { model in
             self.view.hideRemark()
@@ -110,7 +111,6 @@ class CommandReplyViewController: CreekBaseViewController {
             self.view.hideRemark()
             self.textView.text = message
          }
-         
          
          break
       case "Get user information":
@@ -388,8 +388,8 @@ class CommandReplyViewController: CreekBaseViewController {
                let fileManager = FileManager()
                if var documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
                   documentsURL.appendPathComponent("directory/F4:4E:FD:C3:77:37/circlePhoto/firmware/218502.png")
-                   let path = documentsURL.path
-             
+                  let path = documentsURL.path
+                  
                   var contactsIconModels:[ContactsIconModel] = []
                   for i in 0...9 {
                      let contactsIconModel = ContactsIconModel()
@@ -403,45 +403,45 @@ class CommandReplyViewController: CreekBaseViewController {
                      contactsIconModels.append(contactsIconModel)
                   }
                   
-                   CreekInterFace.instance.encodeContacts(contactsIconModels) { model in
-                      CreekInterFace.instance.upload(fileName: "icon.contact_icon", fileData: model) { progress in
-                         dispatch_main_sync_safe {
-                            self.textView.text = "\(progress)"
-                         }
-                      } uploadSuccess: {
-                         
-                         var data =  protocol_frequent_contacts_operate()
-                         for i in 0...9 {
-                            var item =  protocol_frequent_contacts_item()
-                            item.phoneNumber = "1234567891\(i)".data(using: .utf8)!
-                            item.contactName = "bean\(i)".data(using: .utf8)!
-                            data.contactsItem.append(item)
-              
-                         }
-                      
-                         CreekInterFace.instance.setContacts(model: data) {
-                            self.view.hideRemark()
-                            self.textView.text = "success"
-                         } failure: { code, message in
-                            self.view.hideRemark()
-                            self.textView.text = message
-                         }
-                         
-         
-                         
-                      } uploadFailure: { code, message in
-                         self.view.hideRemark()
-                         dispatch_main_sync_safe {
-                            self.textView.text = "\(message)"
-                         }
-                      }
-
-                   } failure: { code, message in
-                      self.view.hideRemark()
-                      dispatch_main_sync_safe {
-                         self.textView.text = "\(message)"
-                      }
-                   }
+                  CreekInterFace.instance.encodeContacts(contactsIconModels) { model in
+                     CreekInterFace.instance.upload(fileName: "icon.contact_icon", fileData: model) { progress in
+                        dispatch_main_sync_safe {
+                           self.textView.text = "\(progress)"
+                        }
+                     } uploadSuccess: {
+                        
+                        var data =  protocol_frequent_contacts_operate()
+                        for i in 0...9 {
+                           var item =  protocol_frequent_contacts_item()
+                           item.phoneNumber = "1234567891\(i)".data(using: .utf8)!
+                           item.contactName = "bean\(i)".data(using: .utf8)!
+                           data.contactsItem.append(item)
+                           
+                        }
+                        
+                        CreekInterFace.instance.setContacts(model: data) {
+                           self.view.hideRemark()
+                           self.textView.text = "success"
+                        } failure: { code, message in
+                           self.view.hideRemark()
+                           self.textView.text = message
+                        }
+                        
+                        
+                        
+                     } uploadFailure: { code, message in
+                        self.view.hideRemark()
+                        dispatch_main_sync_safe {
+                           self.textView.text = "\(message)"
+                        }
+                     }
+                     
+                  } failure: { code, message in
+                     self.view.hideRemark()
+                     dispatch_main_sync_safe {
+                        self.textView.text = "\(message)"
+                     }
+                  }
                }
                
             }else{
@@ -954,7 +954,7 @@ class CommandReplyViewController: CreekBaseViewController {
             }
          }
          break
-
+         
       case "Get blood oxygen data":
          let formatter = DateFormatter()
          formatter.dateFormat = "yyyy-MM-dd"
@@ -1053,14 +1053,14 @@ class CommandReplyViewController: CreekBaseViewController {
          
          break
       case "Set Watch Sensor":
-          ///这个为true的时候，代表健康监测改成了传感器设置
+         ///这个为true的时候，代表健康监测改成了传感器设置
          /// protocol_function_table().waterAssistant.isSupport
          
          var  operate =  protocol_watch_sensors_operate()
          operate.heartRateAllSwitch = .switchOff
          operate.bloodOxygenAllSwitch = .switchOn
-//         operate.compassAllSwitch = .switchOn
-//         operate.baromaterAllSwitch = .switchOn
+         //         operate.compassAllSwitch = .switchOn
+         //         operate.baromaterAllSwitch = .switchOn
          CreekInterFace.instance.setWatchSensor(model: operate) {
             self.view.hideRemark()
             self.textView.text = "success"
@@ -1088,7 +1088,7 @@ class CommandReplyViewController: CreekBaseViewController {
          break
          
       case "Set Volume":
-          ///这个为true的时候，代表健康监测改成了传感器设置
+         ///这个为true的时候，代表健康监测改成了传感器设置
          /// protocol_function_table().waterAssistant.isSupport
          
          var  operate =  protocol_volume_adjust_operate()
@@ -1269,10 +1269,87 @@ class CommandReplyViewController: CreekBaseViewController {
             self.textView.text = message
          }
          break
+      case "Get af data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getAfData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
          
+         break
+      case "Get afPpg data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getAfPpgData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         break
+      case "getWatchReminderWitch":
+         CreekInterFace.instance.getWatchReminderWitch { model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+         
+      case "setWatchReminderWitch":
+         var  operate =  protocol_remind_mark_switch_operate()
+         operate.goalAchievedSwitch = switch_type.switchOn
+         operate.lowPowerSwitch = switch_type.switchOn
+         operate.chargerFullSwitch = switch_type.switchOn
+         operate.findRingLedSwitch = switch_type.switchOn
+         operate.ntctemperatureHighSwitch = switch_type.switchOn
+         operate.heartRateHighSwitch = switch_type.switchOn
+         operate.heartRateLowSwitch = switch_type.switchOn
+         operate.sedentaryRemindSwitch = switch_type.switchOn
+         operate.highStressSwitch = switch_type.switchOn
+         operate.lowSpo2Switch = switch_type.switchOn
+         CreekInterFace.instance.setWatchReminderWitch(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
       default:
          break
          
       }
    }
+   
 }
+
+
+
+
+
+
