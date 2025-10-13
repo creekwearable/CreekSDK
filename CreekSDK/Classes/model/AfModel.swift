@@ -18,5 +18,5 @@ public class CreekAfModel: Codable {
 
 public class CreekAfValueModel: Codable{
    public var offset: Int?
-   public var isAf: Int?
+   public var value: Int?
 }
