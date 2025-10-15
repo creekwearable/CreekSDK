@@ -135,6 +135,9 @@
 		079D06F52E9611BF0088C49A /* GlobalListenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F42E9611BF0088C49A /* GlobalListenManager.swift */; };
 		079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */; };
 		079D06F92E9964410088C49A /* commonError.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F82E9964410088C49A /* commonError.pb.swift */; };
+		079D06FB2E9DF1170088C49A /* FindPhoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */; };
+		079D06FD2E9DF2520088C49A /* find_phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 079D06FC2E9DF2520088C49A /* find_phone.mp3 */; };
+		079D06FF2E9E1E070088C49A /* silent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 079D06FE2E9E1E070088C49A /* silent.mp3 */; };
 		07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */; };
 		07A73BB42BF211C0007EFFB3 /* titan.zip in Resources */ = {isa = PBXBuildFile; fileRef = 07A73BB32BF211C0007EFFB3 /* titan.zip */; };
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
@@ -286,6 +289,9 @@
 		079D06F42E9611BF0088C49A /* GlobalListenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalListenManager.swift; sourceTree = "<group>"; };
 		079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMeasureViewController.swift; sourceTree = "<group>"; };
 		079D06F82E9964410088C49A /* commonError.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonError.pb.swift; sourceTree = "<group>"; };
+		079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPhoneManager.swift; sourceTree = "<group>"; };
+		079D06FC2E9DF2520088C49A /* find_phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_phone.mp3; sourceTree = "<group>"; };
+		079D06FE2E9E1E070088C49A /* silent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silent.mp3; sourceTree = "<group>"; };
 		07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeModel.swift; sourceTree = "<group>"; };
 		07A73BB32BF211C0007EFFB3 /* titan.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = titan.zip; sourceTree = "<group>"; };
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -546,6 +552,8 @@
 		607FACD21AFB9204008FA782 /* Example for CreekSDK */ = {
 			isa = PBXGroup;
 			children = (
+				079D06FE2E9E1E070088C49A /* silent.mp3 */,
+				079D06FC2E9DF2520088C49A /* find_phone.mp3 */,
 				072D41962C5C8FD500B1FB98 /* add.png */,
 				073E04C22C198019009EA116 /* CW06G_TITAD101_01.zip */,
 				07A73BB32BF211C0007EFFB3 /* titan.zip */,
@@ -561,6 +569,7 @@
 				079A21D82B29B0B700F5D013 /* base */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */,
 				077A60B92B67B37300AFEB2B /* DialViewController.swift */,
 				07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */,
 				07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */,
@@ -674,9 +683,11 @@
 				077A60B62B67AB8F00AFEB2B /* acti06_2.zip in Resources */,
 				07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */,
 				07941D362BCEB4BB00CBFB62 /* squarePhoto.zip in Resources */,
+				079D06FF2E9E1E070088C49A /* silent.mp3 in Resources */,
 				073E04C32C19801A009EA116 /* CW06G_TITAD101_01.zip in Resources */,
 				073DE4BD2E1BE00000FA2B97 /* video.zip in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				079D06FD2E9DF2520088C49A /* find_phone.mp3 in Resources */,
 				0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */,
 				07941D2C2BCBE58000CBFB62 /* circlePhoto.zip in Resources */,
 				07985AD42BA0816700F8EE01 /* Fun061101_03.zip in Resources */,
@@ -939,6 +950,7 @@
 				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,
 				0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */,
 				0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */,
+				079D06FB2E9DF1170088C49A /* FindPhoneManager.swift in Sources */,
 				079A21852B29A72A00F5D013 /* EphemerisModel.swift in Sources */,
 				079A21802B29A72A00F5D013 /* OxygenModel.swift in Sources */,
 				079A21622B29A71B00F5D013 /* Log.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 import BackgroundTasks
 import CreekSDK
+import AVFAudio
 //import IQKeyboardManagerSwift
 
 
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = ExampleProvider.systemStyle()
         window?.makeKeyAndVisible()
+        FindPhoneManager.shared.setupAudioSession()
     
 //        IQKeyboardManager.shared.enable = true
         return true
@@ -31,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
       print("Cut to background")
       CreekInterFace.instance.monitorPhone()
    }
+   
+   func applicationWillEnterForeground(_ application: UIApplication) {
+      FindPhoneManager.shared.stopRing()
+   }
+   
+   
     
 }
 

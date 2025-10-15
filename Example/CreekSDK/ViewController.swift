@@ -134,6 +134,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       return tab
    }()
    
+
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = .systemGroupedBackground
@@ -170,17 +172,13 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          CreekInterFace.instance.noticeUpdateListen { model in
             
             if(model.eventId == .EVENT_ID_FINE_PHONE){
-               
                ///Here you can do some ringing operations. You need to define it yourself.
-               
-            }
-            
-            let json = try? JSONEncoder().encode(model)
-            if let data = json, let str = String(data: data, encoding: .utf8) {
-               print("noticeUpdateListen \(str)")
+               FindPhoneManager.shared.playRing(seconds: 10)
             }
             
          }
+         
+         
          CreekInterFace.instance.phoneBookInit();
          CreekInterFace.instance.bluetoothStateListen { state in
             switch(state){

@@ -29,19 +29,20 @@
 	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>\"xxxxx\" needs to access your Bluetooth to connect external devices for communication</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Access most functions for calendar viewing and editing.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>\"xxxxx\" needs to access your</string>
 	<key>NSContactsUsageDescription</key>
 	<string>c"xxxxx\" needs to access your contacts to enable features like call notifications and Bluetooth calling on your watch</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>\"xxxxx\" needs to access your</string>
-    <key>NSCalendarsUsageDescription</key>
-    <string>Access most functions for calendar viewing and editing.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
 		<string>bluetooth-peripheral</string>
 		<string>fetch</string>
+		<string>audio</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
