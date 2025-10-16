@@ -2461,6 +2461,9 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   case vk // = 95
   case blinkit // = 96
   case tinder // = 97
+  case ebay // = 98
+  case pedidosya // = 99
+  case bancaMovilBac // = 100
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -2567,6 +2570,9 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 95: self = .vk
     case 96: self = .blinkit
     case 97: self = .tinder
+    case 98: self = .ebay
+    case 99: self = .pedidosya
+    case 100: self = .bancaMovilBac
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2671,6 +2677,9 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .vk: return 95
     case .blinkit: return 96
     case .tinder: return 97
+    case .ebay: return 98
+    case .pedidosya: return 99
+    case .bancaMovilBac: return 100
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -2775,6 +2784,9 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .vk,
     .blinkit,
     .tinder,
+    .ebay,
+    .pedidosya,
+    .bancaMovilBac,
   ]
 
 }
@@ -4450,11 +4462,11 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///活动
   case activity // = 0
 
-  ///运动
+  ///锻炼
   case workout // = 1
 
-  ///计步
-  case steps // = 2
+  ///锻炼记录
+  case exerciseLog // = 2
 
   ///心率
   case heartrate // = 3
@@ -4462,47 +4474,80 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///睡眠
   case sleep // = 4
 
+  ///体温
+  case temp // = 5
+
   ///压力
-  case stress // = 5
-
-  ///女性健康
-  case menstruation // = 6
-
-  ///呼吸训练
-  case breathe // = 7
-
-  ///闹钟
-  case alarms // = 8
-
-  ///电话
-  case phone // = 9
-
-  ///倒计时
-  case timers // = 10
-
-  ///秒表
-  case stopwatch // = 11
+  case stress // = 6
 
   ///血氧
-  case spo2 // = 12
+  case spo2 // = 7
+
+  ///生理周期
+  case menstruation // = 8
+
+  ///健康拍照
+  case takePhoto // = 9
+
+  ///有氧势能
+  case aerobicPotentialEnergy // = 10
+
+  ///训练负荷
+  case trainingLoad // = 11
+
+  ///语音备忘录
+  case voiceMemo // = 12
+
+  ///呼吸训练
+  case breathe // = 13
+
+  ///喝水助手
+  case drinkingWater // = 14
+
+  ///支付宝
+  case alipay // = 15
+
+  ///日程
+  case calendar // = 16
+
+  ///闹钟
+  case alarms // = 17
+
+  ///计时器
+  case timers // = 18
+
+  ///秒表
+  case stopwatch // = 19
+
+  ///计算器
+  case calculator // = 20
+
+  ///电话
+  case phone // = 21
+
+  ///指南针
+  case compass // = 22
+
+  ///海拔气压
+  case altitudePressure // = 23
 
   ///天气
-  case weather // = 13
+  case weather // = 24
 
   ///相机控制
-  case cameraRemote // = 14
+  case cameraRemote // = 25
 
   ///音乐控制
-  case music // = 15
-
-  ///寻找手机
-  case findPhone // = 16
+  case music // = 26
 
   ///世界时钟
-  case worldClock // = 17
+  case worldClock // = 27
+
+  ///寻找手机
+  case findPhone // = 28
 
   ///设置
-  case settings // = 18
+  case settings // = 29
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4513,23 +4558,34 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .activity
     case 1: self = .workout
-    case 2: self = .steps
+    case 2: self = .exerciseLog
     case 3: self = .heartrate
     case 4: self = .sleep
-    case 5: self = .stress
-    case 6: self = .menstruation
-    case 7: self = .breathe
-    case 8: self = .alarms
-    case 9: self = .phone
-    case 10: self = .timers
-    case 11: self = .stopwatch
-    case 12: self = .spo2
-    case 13: self = .weather
-    case 14: self = .cameraRemote
-    case 15: self = .music
-    case 16: self = .findPhone
-    case 17: self = .worldClock
-    case 18: self = .settings
+    case 5: self = .temp
+    case 6: self = .stress
+    case 7: self = .spo2
+    case 8: self = .menstruation
+    case 9: self = .takePhoto
+    case 10: self = .aerobicPotentialEnergy
+    case 11: self = .trainingLoad
+    case 12: self = .voiceMemo
+    case 13: self = .breathe
+    case 14: self = .drinkingWater
+    case 15: self = .alipay
+    case 16: self = .calendar
+    case 17: self = .alarms
+    case 18: self = .timers
+    case 19: self = .stopwatch
+    case 20: self = .calculator
+    case 21: self = .phone
+    case 22: self = .compass
+    case 23: self = .altitudePressure
+    case 24: self = .weather
+    case 25: self = .cameraRemote
+    case 26: self = .music
+    case 27: self = .worldClock
+    case 28: self = .findPhone
+    case 29: self = .settings
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4538,23 +4594,34 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .activity: return 0
     case .workout: return 1
-    case .steps: return 2
+    case .exerciseLog: return 2
     case .heartrate: return 3
     case .sleep: return 4
-    case .stress: return 5
-    case .menstruation: return 6
-    case .breathe: return 7
-    case .alarms: return 8
-    case .phone: return 9
-    case .timers: return 10
-    case .stopwatch: return 11
-    case .spo2: return 12
-    case .weather: return 13
-    case .cameraRemote: return 14
-    case .music: return 15
-    case .findPhone: return 16
-    case .worldClock: return 17
-    case .settings: return 18
+    case .temp: return 5
+    case .stress: return 6
+    case .spo2: return 7
+    case .menstruation: return 8
+    case .takePhoto: return 9
+    case .aerobicPotentialEnergy: return 10
+    case .trainingLoad: return 11
+    case .voiceMemo: return 12
+    case .breathe: return 13
+    case .drinkingWater: return 14
+    case .alipay: return 15
+    case .calendar: return 16
+    case .alarms: return 17
+    case .timers: return 18
+    case .stopwatch: return 19
+    case .calculator: return 20
+    case .phone: return 21
+    case .compass: return 22
+    case .altitudePressure: return 23
+    case .weather: return 24
+    case .cameraRemote: return 25
+    case .music: return 26
+    case .worldClock: return 27
+    case .findPhone: return 28
+    case .settings: return 29
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4563,22 +4630,33 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [app_list] = [
     .activity,
     .workout,
-    .steps,
+    .exerciseLog,
     .heartrate,
     .sleep,
+    .temp,
     .stress,
+    .spo2,
     .menstruation,
+    .takePhoto,
+    .aerobicPotentialEnergy,
+    .trainingLoad,
+    .voiceMemo,
     .breathe,
+    .drinkingWater,
+    .alipay,
+    .calendar,
     .alarms,
-    .phone,
     .timers,
     .stopwatch,
-    .spo2,
+    .calculator,
+    .phone,
+    .compass,
+    .altitudePressure,
     .weather,
     .cameraRemote,
     .music,
-    .findPhone,
     .worldClock,
+    .findPhone,
     .settings,
   ]
 
@@ -5652,6 +5730,90 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///花样骑术
   case dressage // = 191
+
+  ///新增运动类型
+  case waterSkiing // = 192
+
+  ///航海
+  case sailing // = 193
+
+  ///其他水上运动
+  case otherWaterSports // = 194
+
+  ///AVT
+  case avt // = 195
+
+  ///打猎
+  case hunting // = 196
+
+  ///其他雪上运动
+  case otherWinterSports // = 197
+
+  ///硬拉
+  case deadlift // = 198
+
+  ///卡巴迪
+  case kabbadi // = 199
+
+  ///滑伞
+  case paragliding // = 200
+
+  ///墙球
+  case wallBall // = 201
+
+  ///蹼泳
+  case finSwimming // = 202
+
+  ///全身有氧训练机
+  case cardioCruiser // = 203
+
+  ///足排球
+  case footvolley // = 204
+
+  ///登山骑行
+  case mountainCycling // = 205
+
+  ///腹轮
+  case rolledAbdomen // = 206
+
+  ///浮潜
+  case snorkeling // = 207
+
+  ///腹部训练
+  case abs // = 208
+
+  ///柔道
+  case judo // = 209
+
+  ///头脑放松
+  case mindAndRelax // = 210
+
+  ///俯卧撑跳
+  case bobbyJumps // = 211
+
+  ///法国踢腿术
+  case savate // = 212
+
+  ///漂浮滑板
+  case hoverboard // = 213
+
+  ///雪地摩托
+  case snowmobile // = 214
+
+  ///园艺
+  case gardening // = 215
+
+  ///上肢运动
+  case upperBody // = 216
+
+  ///背部运动
+  case backExercises // = 217
+
+  ///艺术游泳
+  case artisticSwimming // = 218
+
+  ///波比跳
+  case burpee // = 219
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -5852,6 +6014,34 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 189: self = .polocrosse
     case 190: self = .showJumping
     case 191: self = .dressage
+    case 192: self = .waterSkiing
+    case 193: self = .sailing
+    case 194: self = .otherWaterSports
+    case 195: self = .avt
+    case 196: self = .hunting
+    case 197: self = .otherWinterSports
+    case 198: self = .deadlift
+    case 199: self = .kabbadi
+    case 200: self = .paragliding
+    case 201: self = .wallBall
+    case 202: self = .finSwimming
+    case 203: self = .cardioCruiser
+    case 204: self = .footvolley
+    case 205: self = .mountainCycling
+    case 206: self = .rolledAbdomen
+    case 207: self = .snorkeling
+    case 208: self = .abs
+    case 209: self = .judo
+    case 210: self = .mindAndRelax
+    case 211: self = .bobbyJumps
+    case 212: self = .savate
+    case 213: self = .hoverboard
+    case 214: self = .snowmobile
+    case 215: self = .gardening
+    case 216: self = .upperBody
+    case 217: self = .backExercises
+    case 218: self = .artisticSwimming
+    case 219: self = .burpee
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6050,6 +6240,34 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .polocrosse: return 189
     case .showJumping: return 190
     case .dressage: return 191
+    case .waterSkiing: return 192
+    case .sailing: return 193
+    case .otherWaterSports: return 194
+    case .avt: return 195
+    case .hunting: return 196
+    case .otherWinterSports: return 197
+    case .deadlift: return 198
+    case .kabbadi: return 199
+    case .paragliding: return 200
+    case .wallBall: return 201
+    case .finSwimming: return 202
+    case .cardioCruiser: return 203
+    case .footvolley: return 204
+    case .mountainCycling: return 205
+    case .rolledAbdomen: return 206
+    case .snorkeling: return 207
+    case .abs: return 208
+    case .judo: return 209
+    case .mindAndRelax: return 210
+    case .bobbyJumps: return 211
+    case .savate: return 212
+    case .hoverboard: return 213
+    case .snowmobile: return 214
+    case .gardening: return 215
+    case .upperBody: return 216
+    case .backExercises: return 217
+    case .artisticSwimming: return 218
+    case .burpee: return 219
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6248,6 +6466,34 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .polocrosse,
     .showJumping,
     .dressage,
+    .waterSkiing,
+    .sailing,
+    .otherWaterSports,
+    .avt,
+    .hunting,
+    .otherWinterSports,
+    .deadlift,
+    .kabbadi,
+    .paragliding,
+    .wallBall,
+    .finSwimming,
+    .cardioCruiser,
+    .footvolley,
+    .mountainCycling,
+    .rolledAbdomen,
+    .snorkeling,
+    .abs,
+    .judo,
+    .mindAndRelax,
+    .bobbyJumps,
+    .savate,
+    .hoverboard,
+    .snowmobile,
+    .gardening,
+    .upperBody,
+    .backExercises,
+    .artisticSwimming,
+    .burpee,
   ]
 
 }
@@ -7579,6 +7825,44 @@ public enum CommonErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum voice_assistant_string_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// null
+  case aiStringNull // = 0
+
+  /// 文本
+  case aiStringText // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .aiStringNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .aiStringNull
+    case 1: self = .aiStringText
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .aiStringNull: return 0
+    case .aiStringText: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [voice_assistant_string_type] = [
+    .aiStringNull,
+    .aiStringText,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8086,6 +8370,9 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     95: .same(proto: "VK"),
     96: .same(proto: "BLINKIT"),
     97: .same(proto: "TINDER"),
+    98: .same(proto: "EBAY"),
+    99: .same(proto: "PEDIDOSYA"),
+    100: .same(proto: "BANCA_MOVIL_BAC"),
   ]
 }
 
@@ -8401,23 +8688,34 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "APP_LIST_ACTIVITY"),
     1: .same(proto: "APP_LIST_WORKOUT"),
-    2: .same(proto: "APP_LIST_STEPS"),
+    2: .same(proto: "APP_LIST_EXERCISE_LOG"),
     3: .same(proto: "APP_LIST_HEARTRATE"),
     4: .same(proto: "APP_LIST_SLEEP"),
-    5: .same(proto: "APP_LIST_STRESS"),
-    6: .same(proto: "APP_LIST_MENSTRUATION"),
-    7: .same(proto: "APP_LIST_BREATHE"),
-    8: .same(proto: "APP_LIST_ALARMS"),
-    9: .same(proto: "APP_LIST_PHONE"),
-    10: .same(proto: "APP_LIST_TIMERS"),
-    11: .same(proto: "APP_LIST_STOPWATCH"),
-    12: .same(proto: "APP_LIST_SPO2"),
-    13: .same(proto: "APP_LIST_WEATHER"),
-    14: .same(proto: "APP_LIST_CAMERA_REMOTE"),
-    15: .same(proto: "APP_LIST_MUSIC"),
-    16: .same(proto: "APP_LIST_FIND_PHONE"),
-    17: .same(proto: "APP_LIST_WORLD_CLOCK"),
-    18: .same(proto: "APP_LIST_SETTINGS"),
+    5: .same(proto: "APP_LIST_TEMP"),
+    6: .same(proto: "APP_LIST_STRESS"),
+    7: .same(proto: "APP_LIST_SPO2"),
+    8: .same(proto: "APP_LIST_MENSTRUATION"),
+    9: .same(proto: "APP_LIST_TAKE_PHOTO"),
+    10: .same(proto: "APP_LIST_AEROBIC_POTENTIAL_ENERGY"),
+    11: .same(proto: "APP_LIST_TRAINING_LOAD"),
+    12: .same(proto: "APP_LIST_VOICE_MEMO"),
+    13: .same(proto: "APP_LIST_BREATHE"),
+    14: .same(proto: "APP_LIST_DRINKING_WATER"),
+    15: .same(proto: "APP_LIST_ALIPAY"),
+    16: .same(proto: "APP_LIST_CALENDAR"),
+    17: .same(proto: "APP_LIST_ALARMS"),
+    18: .same(proto: "APP_LIST_TIMERS"),
+    19: .same(proto: "APP_LIST_STOPWATCH"),
+    20: .same(proto: "APP_LIST_CALCULATOR"),
+    21: .same(proto: "APP_LIST_PHONE"),
+    22: .same(proto: "APP_LIST_COMPASS"),
+    23: .same(proto: "APP_LIST_ALTITUDE_PRESSURE"),
+    24: .same(proto: "APP_LIST_WEATHER"),
+    25: .same(proto: "APP_LIST_CAMERA_REMOTE"),
+    26: .same(proto: "APP_LIST_MUSIC"),
+    27: .same(proto: "APP_LIST_WORLD_CLOCK"),
+    28: .same(proto: "APP_LIST_FIND_PHONE"),
+    29: .same(proto: "APP_LIST_SETTINGS"),
   ]
 }
 
@@ -8709,6 +9007,34 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     189: .same(proto: "POLOCROSSE"),
     190: .same(proto: "SHOW_JUMPING"),
     191: .same(proto: "DRESSAGE"),
+    192: .same(proto: "WATER_SKIING"),
+    193: .same(proto: "SAILING"),
+    194: .same(proto: "OTHER_WATER_SPORTS"),
+    195: .same(proto: "AVT"),
+    196: .same(proto: "HUNTING"),
+    197: .same(proto: "OTHER_WINTER_SPORTS"),
+    198: .same(proto: "DEADLIFT"),
+    199: .same(proto: "KABBADI"),
+    200: .same(proto: "PARAGLIDING"),
+    201: .same(proto: "WALL_BALL"),
+    202: .same(proto: "FIN_SWIMMING"),
+    203: .same(proto: "CARDIO_CRUISER"),
+    204: .same(proto: "FOOTVOLLEY"),
+    205: .same(proto: "MOUNTAIN_CYCLING"),
+    206: .same(proto: "ROLLED_ABDOMEN"),
+    207: .same(proto: "SNORKELING"),
+    208: .same(proto: "ABS"),
+    209: .same(proto: "JUDO"),
+    210: .same(proto: "MIND_AND_RELAX"),
+    211: .same(proto: "BOBBY_JUMPS"),
+    212: .same(proto: "SAVATE"),
+    213: .same(proto: "HOVERBOARD"),
+    214: .same(proto: "SNOWMOBILE"),
+    215: .same(proto: "GARDENING"),
+    216: .same(proto: "UPPER_BODY"),
+    217: .same(proto: "BACK_EXERCISES"),
+    218: .same(proto: "ARTISTIC_SWIMMING"),
+    219: .same(proto: "BURPEE"),
   ]
 }
 
@@ -8948,5 +9274,12 @@ extension CommonErrorCode: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "COMMON_NOT_WORN"),
     5: .same(proto: "COMMON_FAILED"),
     6: .same(proto: "COMMON_INTERNAL_ERROR"),
+  ]
+}
+
+extension voice_assistant_string_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AI_STRING_NULL"),
+    1: .same(proto: "AI_STRING_TEXT"),
   ]
 }

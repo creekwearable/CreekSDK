@@ -98,6 +98,7 @@ public typealias bloodPressureBase = (_ model: protocol_blood_pressure_inquire_r
 public typealias medicineRemindBase = (_ model: protocol_medicine_remind_inquire_reply) -> ()
 public typealias trainLoadBase = (_ model: protocol_training_load_inquire_reply) -> ()
 public typealias cardioFitnessBase = (_ model: protocol_cardio_fitness_inquire_reply) -> ()
+public typealias qrCodeListBase = (_ model: protocol_qr_code_list_inquire_reply) -> ()
 public typealias clickHealthMeasureBase = (_ model: protocol_ring_click_measure_operate) -> ()
 public typealias watchReminderWitchBase = (_ model: protocol_remind_switch_inquire_reply) -> ()
 public typealias afClosure = (_ model:BaseModel<[CreekAfModel]>) -> ()
@@ -225,6 +226,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
    var afPpgClosureDic:[String:afPpgClosure] = [:]
    var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
    var commonErrorBaseDic:[String:commonErrorBase] = [:]
+   var qrCodeListBaseDic:[String:qrCodeListBase] = [:]
     
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -1891,7 +1893,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
            }
         }
      }
-      else if(call.method.contains("getCardioFitness")){
+      else if(call.method.contains("getFitnessCardio")){
         if let response = call.arguments as? FlutterStandardTypedData{
            do{
               let model = try protocol_cardio_fitness_inquire_reply(serializedData: response.data,partial: true)
@@ -1901,10 +1903,6 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
               }
            }catch{
               print("Error converting getCardioFitness data: \(error.localizedDescription)")
-              if let failure = failureArgumentDic[call.method]{
-                 failure(-1, "Failed to parse getCardioFitness data")
-                 failureArgumentDic.removeValue(forKey: call.method)
-              }
            }
         }
      }
@@ -2107,6 +2105,19 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
            }
         }
         
+     }
+      else if(call.method.contains("getQrCodeList")){
+        if let response = call.arguments as? FlutterStandardTypedData{
+           do{
+              let model = try protocol_qr_code_list_inquire_reply(serializedData: response.data,partial: true)
+              if let back = qrCodeListBaseDic[call.method]{
+                 back(model)
+                 qrCodeListBaseDic.removeValue(forKey: call.method)
+              }
+           }catch{
+              print("Error converting string to dictionary: \(error.localizedDescription)")
+           }
+        }
      }
    }
    

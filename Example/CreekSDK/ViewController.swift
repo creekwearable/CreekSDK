@@ -97,7 +97,11 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Sport live",
       "Health Measure",
       "getWatchReminderWitch",
-      "setWatchReminderWitch"
+      "setWatchReminderWitch",
+      "get cardio fitness",
+      "set cardio fitness",
+      "get qr code",
+      "set qr code"
    ];
    
    var filteredOptions: [String] = []
@@ -133,6 +137,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       tab.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
       return tab
    }()
+   
+
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -170,17 +176,13 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          CreekInterFace.instance.noticeUpdateListen { model in
             
             if(model.eventId == .EVENT_ID_FINE_PHONE){
-               
                ///Here you can do some ringing operations. You need to define it yourself.
-               
-            }
-            
-            let json = try? JSONEncoder().encode(model)
-            if let data = json, let str = String(data: data, encoding: .utf8) {
-               print("noticeUpdateListen \(str)")
+               FindPhoneManager.shared.playRing(seconds: 10)
             }
             
          }
+         
+         
          CreekInterFace.instance.phoneBookInit();
          CreekInterFace.instance.bluetoothStateListen { state in
             switch(state){

@@ -85,6 +85,9 @@ public struct protocol_qr_code_list_inquire_reply: Sendable {
   ///二维码内容
   public var items: [qr_code_list_item] = []
 
+  ///总共有多少个items
+  public var totalItems: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -195,6 +198,7 @@ extension protocol_qr_code_list_inquire_reply: SwiftProtobuf.Message, SwiftProto
     4: .standard(proto: "page_index"),
     5: .standard(proto: "page_num"),
     6: .same(proto: "items"),
+    7: .standard(proto: "total_items"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -209,6 +213,7 @@ extension protocol_qr_code_list_inquire_reply: SwiftProtobuf.Message, SwiftProto
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.pageIndex) }()
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.pageNum) }()
       case 6: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.totalItems) }()
       default: break
       }
     }
@@ -233,6 +238,9 @@ extension protocol_qr_code_list_inquire_reply: SwiftProtobuf.Message, SwiftProto
     if !self.items.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 6)
     }
+    if self.totalItems != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalItems, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -243,6 +251,7 @@ extension protocol_qr_code_list_inquire_reply: SwiftProtobuf.Message, SwiftProto
     if lhs.pageIndex != rhs.pageIndex {return false}
     if lhs.pageNum != rhs.pageNum {return false}
     if lhs.items != rhs.items {return false}
+    if lhs.totalItems != rhs.totalItems {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
