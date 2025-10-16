@@ -2619,7 +2619,7 @@ extension CreekSDK{
    public func getCardioFitness(model: @escaping cardioFitnessBase, failure: @escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
-         let methodName = "getCardioFitness\(requestId)"
+         let methodName = "getFitnessCardio\(requestId)"
          cardioFitnessBaseDic[methodName] = model
          failureArgumentDic[methodName] = failure
          methodChannel?.invokeMethod(methodName, arguments: "")
@@ -2630,11 +2630,11 @@ extension CreekSDK{
    public func setCardioFitness(model:protocol_cardio_fitness_operate,success:@escaping successBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
-         successDic["setCardioFitness\(requestId)"] = success;
-         failureArgumentDic["setCardioFitness\(requestId)"] = failure
+         successDic["setFitnessCardio\(requestId)"] = success;
+         failureArgumentDic["setFitnessCardio\(requestId)"] = failure
          do{
             let data = try model.serializedData()
-            methodChannel?.invokeMethod("setCardioFitness\(requestId)", arguments: data)
+            methodChannel?.invokeMethod("setFitnessCardio\(requestId)", arguments: data)
          }catch{
             
          }
@@ -2804,5 +2804,33 @@ extension CreekSDK{
       methodChannel?.invokeMethod("stopMeasure", arguments: type.rawValue)
    }
    
+   
+   public func getQrCodeList(model: @escaping qrCodeListBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getQrCodeList\(requestId)"
+         qrCodeListBaseDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   public func setQrCodeList(model:protocol_qr_code_list_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setQrCodeList\(requestId)"] = success;
+         failureArgumentDic["setQrCodeList\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setQrCodeList\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   public func cancelUploadTask(){
+      methodChannel?.invokeMethod("cancelUploadTask", arguments: "")
+   }
    
 }

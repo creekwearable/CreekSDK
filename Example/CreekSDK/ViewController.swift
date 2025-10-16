@@ -97,7 +97,11 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Sport live",
       "Health Measure",
       "getWatchReminderWitch",
-      "setWatchReminderWitch"
+      "setWatchReminderWitch",
+      "get cardio fitness",
+      "set cardio fitness",
+      "get qr code",
+      "set qr code"
    ];
    
    var filteredOptions: [String] = []

@@ -564,6 +564,21 @@ public struct protocol_message_notify_func_support_reply: @unchecked Sendable {
     set {_uniqueStorage()._tinder = newValue}
   }
 
+  public var ebay: Bool {
+    get {return _storage._ebay}
+    set {_uniqueStorage()._ebay = newValue}
+  }
+
+  public var pedidosYa: Bool {
+    get {return _storage._pedidosYa}
+    set {_uniqueStorage()._pedidosYa = newValue}
+  }
+
+  public var bancaMovilBac: Bool {
+    get {return _storage._bancaMovilBac}
+    set {_uniqueStorage()._bancaMovilBac = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1051,6 +1066,9 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     95: .same(proto: "VK"),
     96: .same(proto: "Blinkit"),
     97: .same(proto: "Tinder"),
+    98: .same(proto: "Ebay"),
+    99: .same(proto: "PedidosYa"),
+    100: .standard(proto: "banca_movil_bac"),
   ]
 
   fileprivate class _StorageClass {
@@ -1151,6 +1169,9 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     var _vk: Bool = false
     var _blinkit: Bool = false
     var _tinder: Bool = false
+    var _ebay: Bool = false
+    var _pedidosYa: Bool = false
+    var _bancaMovilBac: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1262,6 +1283,9 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       _vk = source._vk
       _blinkit = source._blinkit
       _tinder = source._tinder
+      _ebay = source._ebay
+      _pedidosYa = source._pedidosYa
+      _bancaMovilBac = source._bancaMovilBac
     }
   }
 
@@ -1377,6 +1401,9 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         case 95: try { try decoder.decodeSingularBoolField(value: &_storage._vk) }()
         case 96: try { try decoder.decodeSingularBoolField(value: &_storage._blinkit) }()
         case 97: try { try decoder.decodeSingularBoolField(value: &_storage._tinder) }()
+        case 98: try { try decoder.decodeSingularBoolField(value: &_storage._ebay) }()
+        case 99: try { try decoder.decodeSingularBoolField(value: &_storage._pedidosYa) }()
+        case 100: try { try decoder.decodeSingularBoolField(value: &_storage._bancaMovilBac) }()
         default: break
         }
       }
@@ -1676,6 +1703,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       if _storage._tinder != false {
         try visitor.visitSingularBoolField(value: _storage._tinder, fieldNumber: 97)
       }
+      if _storage._ebay != false {
+        try visitor.visitSingularBoolField(value: _storage._ebay, fieldNumber: 98)
+      }
+      if _storage._pedidosYa != false {
+        try visitor.visitSingularBoolField(value: _storage._pedidosYa, fieldNumber: 99)
+      }
+      if _storage._bancaMovilBac != false {
+        try visitor.visitSingularBoolField(value: _storage._bancaMovilBac, fieldNumber: 100)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1782,6 +1818,9 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         if _storage._vk != rhs_storage._vk {return false}
         if _storage._blinkit != rhs_storage._blinkit {return false}
         if _storage._tinder != rhs_storage._tinder {return false}
+        if _storage._ebay != rhs_storage._ebay {return false}
+        if _storage._pedidosYa != rhs_storage._pedidosYa {return false}
+        if _storage._bancaMovilBac != rhs_storage._bancaMovilBac {return false}
         return true
       }
       if !storagesAreEqual {return false}

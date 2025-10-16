@@ -1340,6 +1340,72 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          
          break
+         
+      case "get cardio fitness":
+         CreekInterFace.instance.getCardioFitness{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "set cardio fitness":
+         var  operate =  protocol_cardio_fitness_operate()
+         var vo2max =  cardio_fitness_vo2max_data()
+         vo2max.vo2MaxValue = 40
+         vo2max.unixTime = UInt32(Date().timeIntervalSince1970)
+         operate.vo2MaxBest = vo2max
+         CreekInterFace.instance.setCardioFitness(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+      case "get qr code":
+         CreekInterFace.instance.getQrCodeList{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "set qr code":
+         var  operate =  protocol_qr_code_list_operate()
+         
+         operate.operate = .insert
+//         operate.operate = .delete
+//         operate.operate = .update
+         
+         var item =  qr_code_list_item()
+         item.id = 1
+         item.content = "test".data(using: .utf8)!
+         item.name = "test".data(using: .utf8)!
+         operate.items.append(item)
+   
+         CreekInterFace.instance.setQrCodeList(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
       default:
          break
          

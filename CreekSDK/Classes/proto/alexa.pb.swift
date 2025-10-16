@@ -532,6 +532,15 @@ public struct protocol_voice_assistant_function_table: Sendable {
   ///enum voice_assistant_status_type,支持超时退出ai
   public var aiStatusTimeoutExit: Bool = false
 
+  ///版本号
+  public var version: UInt32 = 0
+
+  ///是否支持打字机效果
+  public var aiTypewriterEffectSupport: Bool = false
+
+  ///支持应用跳转
+  public var aiApplicationSkillSupport: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -547,6 +556,25 @@ public struct protocol_voice_assistant_dial_operate: @unchecked Sendable {
 
   ///文本类型
   public var dialType: voice_assistant_dial_type = .aiDialNull
+
+  ///文本
+  public var extraInfo: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_voice_assistant_string_operate: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 传输类型 0：无效操作 1：手表发起 2：app发
+  public var tranType: tran_direction_type = .watchTran
+
+  ///文本类型
+  public var stringType: voice_assistant_string_type = .aiStringNull
 
   ///文本
   public var extraInfo: Data = Data()
@@ -1698,6 +1726,9 @@ extension protocol_voice_assistant_function_table: SwiftProtobuf.Message, SwiftP
   public static let protoMessageName: String = "protocol_voice_assistant_function_table"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "ai_status_timeout_exit"),
+    2: .same(proto: "version"),
+    3: .standard(proto: "ai_typewriter_effect_support"),
+    4: .standard(proto: "ai_application_skill_support"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1707,6 +1738,9 @@ extension protocol_voice_assistant_function_table: SwiftProtobuf.Message, SwiftP
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self.aiStatusTimeoutExit) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.version) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.aiTypewriterEffectSupport) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.aiApplicationSkillSupport) }()
       default: break
       }
     }
@@ -1716,11 +1750,23 @@ extension protocol_voice_assistant_function_table: SwiftProtobuf.Message, SwiftP
     if self.aiStatusTimeoutExit != false {
       try visitor.visitSingularBoolField(value: self.aiStatusTimeoutExit, fieldNumber: 1)
     }
+    if self.version != 0 {
+      try visitor.visitSingularUInt32Field(value: self.version, fieldNumber: 2)
+    }
+    if self.aiTypewriterEffectSupport != false {
+      try visitor.visitSingularBoolField(value: self.aiTypewriterEffectSupport, fieldNumber: 3)
+    }
+    if self.aiApplicationSkillSupport != false {
+      try visitor.visitSingularBoolField(value: self.aiApplicationSkillSupport, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_voice_assistant_function_table, rhs: protocol_voice_assistant_function_table) -> Bool {
     if lhs.aiStatusTimeoutExit != rhs.aiStatusTimeoutExit {return false}
+    if lhs.version != rhs.version {return false}
+    if lhs.aiTypewriterEffectSupport != rhs.aiTypewriterEffectSupport {return false}
+    if lhs.aiApplicationSkillSupport != rhs.aiApplicationSkillSupport {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1764,6 +1810,50 @@ extension protocol_voice_assistant_dial_operate: SwiftProtobuf.Message, SwiftPro
   public static func ==(lhs: protocol_voice_assistant_dial_operate, rhs: protocol_voice_assistant_dial_operate) -> Bool {
     if lhs.tranType != rhs.tranType {return false}
     if lhs.dialType != rhs.dialType {return false}
+    if lhs.extraInfo != rhs.extraInfo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_voice_assistant_string_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_voice_assistant_string_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .standard(proto: "string_type"),
+    3: .standard(proto: "extra_info"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.stringType) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.extraInfo) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.stringType != .aiStringNull {
+      try visitor.visitSingularEnumField(value: self.stringType, fieldNumber: 2)
+    }
+    if !self.extraInfo.isEmpty {
+      try visitor.visitSingularBytesField(value: self.extraInfo, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_voice_assistant_string_operate, rhs: protocol_voice_assistant_string_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.stringType != rhs.stringType {return false}
     if lhs.extraInfo != rhs.extraInfo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
