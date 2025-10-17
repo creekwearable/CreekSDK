@@ -268,7 +268,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             }
             
          }
-         
+         CreekInterFace.instance.delDeviceListen {  model in
+            print("del mac:\(model)")
+            self.getBindDevice()
+         }
          
          
 //         CreekSDK.instance.setSportControl(controlType: .controlResume) {
