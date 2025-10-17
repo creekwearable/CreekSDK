@@ -117,6 +117,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
    var _noticeUpdateListen:((_ model:NoticeUpdateModel) -> ())?         //Firmware update notification
    var _eventReportListen:((_ model:EventReportModel) -> ())?           //Firmware reporting notification
    var _exceptionListen:((_ model:String) -> ())?                       //Bluetooth native logs
+   var _delDeviceListen:((_ model:String) -> ())?                       //Bluetooth native logs
    var _listenDeviceState:((_ status:connectionStatus,_ deviceName:String)->())?   //Monitoring device
    var _bluetoothStateListen:((_ state:BluetoothState)->())?   //Monitoring device
    var _inTransitionDevice:((_ connectState:Bool)->())?
@@ -2119,6 +2120,13 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
            }
         }
      }
+      else if(call.method == "delDeviceNotice"){
+         if let response = call.arguments as? String{
+            if let back = _delDeviceListen{
+               back(response)
+            }
+         }
+      }
    }
    
 }

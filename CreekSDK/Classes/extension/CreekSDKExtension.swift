@@ -2833,4 +2833,9 @@ extension CreekSDK{
       methodChannel?.invokeMethod("cancelUploadTask", arguments: "")
    }
    
+   
+   public func delDeviceListen(model:@escaping (_ model:String) -> ()) {
+      _delDeviceListen = model
+   }
+   
 }
