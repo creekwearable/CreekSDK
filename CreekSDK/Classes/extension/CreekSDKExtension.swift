@@ -2872,6 +2872,14 @@ extension CreekSDK{
       
    }
    
+   public func getRespiratoryNewTimeData(startTime:String,endTime:String,model:@escaping respiratoryClosure) {
+      serialQueue.sync {
+         requestId+=1
+         respiratoryClosureDic["getRespiratoryNewTimeData\(requestId)"] = model
+         methodChannel?.invokeMethod("getRespiratoryNewTimeData\(requestId)", arguments: [startTime ,endTime])
+      }
+   }
+   
    public func getRespiratoryUploadStatus(model:@escaping respiratoryClosure) {
       serialQueue.sync {
          requestId+=1
