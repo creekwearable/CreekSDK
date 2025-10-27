@@ -2091,12 +2091,12 @@ extension CreekSDK{
       }
    }
    
-   public func getGPXEncodeUint8List(data:Data,geoId:Int,sportType:SportType,model:@escaping geoAddressBase,encode:@escaping GPXBase){
+   public func getGPXEncodeUint8List(data:Data,geoId:Int,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
       _geoAddressClosure = model
       serialQueue.sync {
          requestId+=1
          GPXDic["getGPXEncodeUint8List\(requestId)"] = encode
-         methodChannel?.invokeMethod("getGPXEncodeUint8List\(requestId)", arguments: [data,geoId,sportType.rawValue])
+         methodChannel?.invokeMethod("getGPXEncodeUint8List\(requestId)", arguments: [data,geoId,sportType.rawValue,distance])
       }
    }
    
@@ -2837,5 +2837,64 @@ extension CreekSDK{
    public func delDeviceListen(model:@escaping (_ model:String) -> ()) {
       _delDeviceListen = model
    }
+   
+   
+   ///MARK :Get do not disturb new
+   /// - Parameter :
+   ///      - model：call back protocol_disturb_inquire_reply
+   /// - Returns:protocol_alarm_inquire_reply
+   public func getNewDisturb(model:@escaping disturbNewBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         disturbNewDic["getNewDisturb\(requestId)"] = model
+         failureArgumentDic["getNewDisturb\(requestId)"] = failure
+         methodChannel?.invokeMethod("getNewDisturb\(requestId)", arguments: "")
+      }
+      
+   }
+   
+   ///MARK :Set do not disturb
+   /// - Parameter :
+   ///      - model: protocol_disturb_operate
+   /// - Returns:
+   public func setNewDisturb(model:protocol_disturb_switch_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setNewDisturb\(requestId)"] = success;
+         failureArgumentDic["setNewDisturb\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setNewDisturb\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+      
+   }
+   
+   public func getRespiratoryUploadStatus(model:@escaping respiratoryClosure) {
+      serialQueue.sync {
+         requestId+=1
+         respiratoryClosureDic["getRespiratoryUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getRespiratoryUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
+//   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
+//      serialQueue.sync {
+//         requestId+=1
+//         successDic["setOnOffSuperMessage\(requestId)"] = success;
+//         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
+//         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
+//      }
+//   }
+//   
+//   public func getOnOffSuperMessage(model:@escaping boolBase) {
+//      serialQueue.sync {
+//         requestId+=1
+//         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
+//         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
+//      }
+//   }
    
 }

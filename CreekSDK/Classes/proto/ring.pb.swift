@@ -143,6 +143,9 @@ public struct protocol_remind_mark_switch_operate: Sendable {
   ///血氧过低开关
   public var lowSpo2Switch: switch_type = .switchNull
 
+  ///房颤异常提醒开关
+  public var afAbnormalSwitch: switch_type = .switchNull
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -187,6 +190,9 @@ public struct protocol_remind_switch_inquire_reply: Sendable {
 
   ///血氧过低开关
   public var lowSpo2Switch: switch_type = .switchNull
+
+  ///房颤异常提醒开关
+  public var afAbnormalSwitch: switch_type = .switchNull
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -438,6 +444,7 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     9: .standard(proto: "sedentary_remind_switch"),
     10: .standard(proto: "high_stress_switch"),
     11: .standard(proto: "low_spo2_switch"),
+    12: .standard(proto: "af_abnormal_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -457,6 +464,7 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
       case 9: try { try decoder.decodeSingularEnumField(value: &self.sedentaryRemindSwitch) }()
       case 10: try { try decoder.decodeSingularEnumField(value: &self.highStressSwitch) }()
       case 11: try { try decoder.decodeSingularEnumField(value: &self.lowSpo2Switch) }()
+      case 12: try { try decoder.decodeSingularEnumField(value: &self.afAbnormalSwitch) }()
       default: break
       }
     }
@@ -496,6 +504,9 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     if self.lowSpo2Switch != .switchNull {
       try visitor.visitSingularEnumField(value: self.lowSpo2Switch, fieldNumber: 11)
     }
+    if self.afAbnormalSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.afAbnormalSwitch, fieldNumber: 12)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -511,6 +522,7 @@ extension protocol_remind_mark_switch_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.sedentaryRemindSwitch != rhs.sedentaryRemindSwitch {return false}
     if lhs.highStressSwitch != rhs.highStressSwitch {return false}
     if lhs.lowSpo2Switch != rhs.lowSpo2Switch {return false}
+    if lhs.afAbnormalSwitch != rhs.afAbnormalSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -531,6 +543,7 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     10: .standard(proto: "sedentary_remind_switch"),
     11: .standard(proto: "high_stress_switch"),
     12: .standard(proto: "low_spo2_switch"),
+    13: .standard(proto: "af_abnormal_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -551,6 +564,7 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
       case 10: try { try decoder.decodeSingularEnumField(value: &self.sedentaryRemindSwitch) }()
       case 11: try { try decoder.decodeSingularEnumField(value: &self.highStressSwitch) }()
       case 12: try { try decoder.decodeSingularEnumField(value: &self.lowSpo2Switch) }()
+      case 13: try { try decoder.decodeSingularEnumField(value: &self.afAbnormalSwitch) }()
       default: break
       }
     }
@@ -593,6 +607,9 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     if self.lowSpo2Switch != .switchNull {
       try visitor.visitSingularEnumField(value: self.lowSpo2Switch, fieldNumber: 12)
     }
+    if self.afAbnormalSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.afAbnormalSwitch, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -609,6 +626,7 @@ extension protocol_remind_switch_inquire_reply: SwiftProtobuf.Message, SwiftProt
     if lhs.sedentaryRemindSwitch != rhs.sedentaryRemindSwitch {return false}
     if lhs.highStressSwitch != rhs.highStressSwitch {return false}
     if lhs.lowSpo2Switch != rhs.lowSpo2Switch {return false}
+    if lhs.afAbnormalSwitch != rhs.afAbnormalSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

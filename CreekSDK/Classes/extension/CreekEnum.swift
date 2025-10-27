@@ -313,6 +313,7 @@ public enum SyncServerType : Int{
    case sport
    case hrv
    case temperature
+   case respiratory
    case af
    case afPpg
 }

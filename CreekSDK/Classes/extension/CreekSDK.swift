@@ -14,6 +14,7 @@ public typealias activitysClosure = (_ model:BaseModel<[ActivityModel]>) -> ()
 public typealias heartRatesClosure = (_ model:BaseModel<[HeartRateModel]>) -> ()
 public typealias stresssClosure = (_ model:BaseModel<[StressModel]>) -> ()
 public typealias noisesClosure = (_ model:BaseModel<[NoiseModel]>) -> ()
+public typealias respiratoryClosure = (_ model:BaseModel<[RespiratoryModel]>) -> ()
 public typealias oxygensClosure = (_ model:BaseModel<[OxygenModel]>) -> ()
 public typealias sleepsClosure = (_ model:BaseModel<[SleepModel]>) -> ()
 public typealias sportsClosure = (_ model:BaseModel<[SportModel]>) -> ()
@@ -36,6 +37,7 @@ public typealias languageBase = (_ model:protocol_language_inquire_reply) -> ()
 public typealias userBase = (_ model:protocol_user_info_operate) -> ()
 public typealias alarmBase = (_ model:protocol_alarm_inquire_reply) -> ()
 public typealias disturbBase = (_ model:protocol_disturb_inquire_reply) -> ()
+public typealias disturbNewBase = (_ model:protocol_disturb_switch_inquire_reply) -> ()
 public typealias screenBase = (_ model:protocol_screen_brightness_inquire_reply) -> ()
 public typealias monitorBase = (_ model:protocol_health_monitor_inquire_reply) -> ()
 public typealias sleepMonitorBase = (_ model:protocol_sleep_monitor_inquire_reply) -> ()
@@ -228,6 +230,8 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
    var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
    var commonErrorBaseDic:[String:commonErrorBase] = [:]
    var qrCodeListBaseDic:[String:qrCodeListBase] = [:]
+    var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
+   var respiratoryClosureDic:[String:respiratoryClosure] = [:]
     
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -2126,6 +2130,60 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
                back(response)
             }
          }
+      }
+      else if(call.method.contains("getNewDisturb")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_disturb_switch_inquire_reply(serializedData: response.data,partial: true)
+               if let back = disturbNewDic[call.method]{
+                  back(model)
+                  disturbNewDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method.contains("getRespiratoryNewTimeData")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[RespiratoryModel]>.self, dic){
+                  if let back = respiratoryClosureDic[call.method]{
+                     back(model);
+                     respiratoryClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+      }
+      else if(call.method.contains("getRespiratoryUploadStatus")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[RespiratoryModel]>.self, dic){
+                  if let back = respiratoryClosureDic[call.method]{
+                     back(model);
+                     respiratoryClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+      }
+      else if(call.method.contains("getOnOffSuperMessage")){
+         if let response = call.arguments as? Bool{
+            if let back = boolClosureDic[call.method]{
+               back(response)
+               boolClosureDic.removeValue(forKey: call.method)
+            }
+         }
+         
       }
    }
    

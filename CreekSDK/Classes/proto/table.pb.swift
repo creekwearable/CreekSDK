@@ -770,6 +770,16 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `totalMileage`. Subsequent reads from it will return its default value.
   public mutating func clearTotalMileage() {_uniqueStorage()._totalMileage = nil}
 
+  ///是否选择用勿扰定时开关设置
+  public var disturbSwitch: function_table {
+    get {return _storage._disturbSwitch ?? function_table()}
+    set {_uniqueStorage()._disturbSwitch = newValue}
+  }
+  /// Returns true if `disturbSwitch` has been explicitly set.
+  public var hasDisturbSwitch: Bool {return _storage._disturbSwitch != nil}
+  /// Clears the value of `disturbSwitch`. Subsequent reads from it will return its default value.
+  public mutating func clearDisturbSwitch() {_uniqueStorage()._disturbSwitch = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -893,6 +903,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     71: .standard(proto: "action_guide"),
     72: .standard(proto: "training_readiness"),
     73: .standard(proto: "total_mileage"),
+    74: .standard(proto: "disturb_switch"),
   ]
 
   fileprivate class _StorageClass {
@@ -969,6 +980,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _actionGuide: function_table? = nil
     var _trainingReadiness: function_table? = nil
     var _totalMileage: function_table? = nil
+    var _disturbSwitch: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1056,6 +1068,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _actionGuide = source._actionGuide
       _trainingReadiness = source._trainingReadiness
       _totalMileage = source._totalMileage
+      _disturbSwitch = source._disturbSwitch
     }
   }
 
@@ -1147,6 +1160,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 71: try { try decoder.decodeSingularMessageField(value: &_storage._actionGuide) }()
         case 72: try { try decoder.decodeSingularMessageField(value: &_storage._trainingReadiness) }()
         case 73: try { try decoder.decodeSingularMessageField(value: &_storage._totalMileage) }()
+        case 74: try { try decoder.decodeSingularMessageField(value: &_storage._disturbSwitch) }()
         default: break
         }
       }
@@ -1378,6 +1392,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._totalMileage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 73)
       } }()
+      try { if let v = _storage._disturbSwitch {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 74)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1460,6 +1477,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._actionGuide != rhs_storage._actionGuide {return false}
         if _storage._trainingReadiness != rhs_storage._trainingReadiness {return false}
         if _storage._totalMileage != rhs_storage._totalMileage {return false}
+        if _storage._disturbSwitch != rhs_storage._disturbSwitch {return false}
         return true
       }
       if !storagesAreEqual {return false}
