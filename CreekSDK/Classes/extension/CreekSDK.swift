@@ -2090,7 +2090,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
               let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
               if let back = clickHealthMeasureDic[call.method]{
                  back(model)
-                 clickHealthMeasureDic.removeValue(forKey: call.method)
+//                 clickHealthMeasureDic.removeValue(forKey: call.method)
               }
            }catch{
               print("Error converting string to dictionary: \(error.localizedDescription)")

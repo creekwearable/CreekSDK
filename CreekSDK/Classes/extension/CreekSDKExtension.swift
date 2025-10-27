@@ -2791,12 +2791,13 @@ extension CreekSDK{
       }
    }
    
-   public func startMeasure(type:ring_health_type,model:@escaping clickHealthMeasureBase,failure:@escaping commonErrorBase){
+   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase){
       serialQueue.sync {
          requestId+=1
          clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
          commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
-         methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: type.rawValue)
+         successDic["startMeasure\(requestId)"] = success
+         methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: [type.rawValue,measureDuration,timeout])
       }
    }
    
@@ -2818,7 +2819,7 @@ extension CreekSDK{
    public func setQrCodeList(model:protocol_qr_code_list_operate,success:@escaping successBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
-         successDic["setQrCodeList\(requestId)"] = success;
+         successDic["setQrCodeList\(requestId)"] = success
          failureArgumentDic["setQrCodeList\(requestId)"] = failure
          do{
             let data = try model.serializedData()
