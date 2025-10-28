@@ -94,7 +94,15 @@ class CommandReplyViewController: CreekBaseViewController {
          //
          //         }
          
+         CreekInterFace.instance.checkPhoneBookPermissions { model in
+            print("checkPhoneBookPermissions \(model.description)")
+            CreekInterFace.instance.requestPhoneBookPermissions { model in
+               print("requestPhoneBookPermissions \(model.description)")
+            }
+         }
          
+       
+  
          
          CreekInterFace.instance.getFirmware { model in
             self.view.hideRemark()

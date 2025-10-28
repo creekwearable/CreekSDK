@@ -107,11 +107,13 @@ class HealthMeasureViewController: UIViewController {
     @objc private func startMeasureTapped() {
         resultLabel.text = "--"
         statusLabel.text = "状态：测量中..."
-       CreekInterFace.instance.startMeasure(type: selectedType) { model in
-          self.statusLabel.text = "状态：测量完成 ✅"
-          self.resultLabel.text =  "结果：\(model.value)"
-       } failure: { model in
-          self.statusLabel.text = model.message
+       
+       CreekInterFace.instance.startMeasure(type: selectedType,measureDuration: 30,timeout: 60) { [weak self] model in
+          self?.resultLabel.text =  "结果：\(model.value)"
+       } success: {[weak self] in
+          self?.statusLabel.text = "状态：测量完成 ✅"
+       } failure: {[weak self] model in
+          self?.statusLabel.text = model.message
        }
 
     }
@@ -120,6 +122,7 @@ class HealthMeasureViewController: UIViewController {
        statusLabel.text = "状态：已停止测量 ⛔️"
        CreekInterFace.instance.stopMeasure(type: selectedType)
     }
+   
 }
 
 // MARK: - UIPickerView 数据源 & 代理

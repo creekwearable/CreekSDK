@@ -1009,6 +1009,9 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///皮肤温度
   case skinTemperature // = 6
+
+  ///房颤
+  case atrialFibrillation // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1024,6 +1027,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 4: self = .bodyEnergy
     case 5: self = .respiratoryRate
     case 6: self = .skinTemperature
+    case 7: self = .atrialFibrillation
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1037,6 +1041,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .bodyEnergy: return 4
     case .respiratoryRate: return 5
     case .skinTemperature: return 6
+    case .atrialFibrillation: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1050,6 +1055,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .bodyEnergy,
     .respiratoryRate,
     .skinTemperature,
+    .atrialFibrillation,
   ]
 
 }
@@ -4107,6 +4113,9 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
 
   ///ai表盘回显
   case aiDialogAiEcho // = 2
+
+  ///日程回显
+  case aiDialogAiCalendarEcho // = 3
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4118,6 +4127,7 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 0: self = .aiDialogNormal
     case 1: self = .aiDialogEcho
     case 2: self = .aiDialogAiEcho
+    case 3: self = .aiDialogAiCalendarEcho
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4127,6 +4137,7 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiDialogNormal: return 0
     case .aiDialogEcho: return 1
     case .aiDialogAiEcho: return 2
+    case .aiDialogAiCalendarEcho: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4136,6 +4147,7 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiDialogNormal,
     .aiDialogEcho,
     .aiDialogAiEcho,
+    .aiDialogAiCalendarEcho,
   ]
 
 }
@@ -7863,6 +7875,324 @@ public enum voice_assistant_string_type: SwiftProtobuf.Enum, Swift.CaseIterable 
 
 }
 
+public enum operate_drink_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case drinkInvalid // = 0
+
+  ///查询
+  case drinkInquire // = 1
+
+  ///设置
+  case drinkSet // = 2
+
+  ///增加
+  case drinkAdd // = 3
+
+  ///删除
+  case drinkDelete // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .drinkInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .drinkInvalid
+    case 1: self = .drinkInquire
+    case 2: self = .drinkSet
+    case 3: self = .drinkAdd
+    case 4: self = .drinkDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .drinkInvalid: return 0
+    case .drinkInquire: return 1
+    case .drinkSet: return 2
+    case .drinkAdd: return 3
+    case .drinkDelete: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_drink_type] = [
+    .drinkInvalid,
+    .drinkInquire,
+    .drinkSet,
+    .drinkAdd,
+    .drinkDelete,
+  ]
+
+}
+
+public enum drink_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case typeInvalid // = 0
+
+  ///水        100%
+  case water // = 1
+
+  ///牛奶       87%
+  case milk // = 2
+
+  ///茶         99%
+  case tea // = 3
+
+  ///果汁       85%
+  case juice // = 4
+
+  ///椰子水     94%
+  case coconutWater // = 5
+
+  ///软饮       94%
+  case softDrinks // = 6
+
+  ///酪浆       90%
+  case butterMilk // = 7
+
+  ///拉西       88%
+  case lassic // = 8
+
+  ///蛋白粉冲剂  92%
+  case proteinShake // = 9
+
+  ///柠檬水     94%
+  case lemonade // = 10
+
+  ///奶昔      75%
+  case miikShake // = 11
+
+  ///电解质饮料 94%
+  case electrolytes // = 12
+
+  ///其他      90%
+  case typeOther // = 13
+
+  ///啤酒      +150%
+  case beer // = 14
+
+  ///鸡尾酒    +225%
+  case cocktail // = 15
+
+  ///咖啡      95%
+  case coffee // = 16
+
+  ///印度红茶   99%
+  case masalaChai // = 17
+
+  ///奶茶       85%
+  case milkTea // = 18
+
+  ///冰沙       80%
+  case smoothie // = 19
+
+  ///拿铁       85%
+  case latte // = 20
+
+  ///豆奶       90%
+  case soyMilk // = 21
+
+  ///椰奶       85%
+  case coconutMilk // = 22
+
+  ///热巧克力    80%
+  case hotChocolate // = 23
+
+  ///可乐       89%
+  case coke // = 24
+
+  ///绿茶       99%
+  case greenTea // = 25
+
+  ///乌龙茶     99%
+  case oolongTea // = 26
+
+  ///大麦茶     99%
+  case barleyTea // = 27
+
+  ///酸梅汤     92%
+  case suanmeitang // = 28
+
+  ///甘蔗汁     88%
+  case sugarcaneJuice // = 29
+
+  ///米汤       95%
+  case riceWater // = 30
+
+  ///甜米酒     +120%
+  case sikhye // = 31
+
+  ///红酒       +225%
+  case wine // = 32
+
+  ///过滤咖啡    98%
+  case filterCoffee // = 33
+
+  ///卡布奇诺    85%
+  case cappuccino // = 34
+
+  ///豆浆        90%
+  case soyWater // = 35
+
+  ///燕麦奶      85%
+  case oatMilk // = 36
+
+  ///杏仁奶      90%
+  case almondMilk // = 37
+
+  ///酸奶        85%
+  case yogurt // = 38
+
+  ///苏打水      93%
+  case sodas // = 39
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .typeInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .typeInvalid
+    case 1: self = .water
+    case 2: self = .milk
+    case 3: self = .tea
+    case 4: self = .juice
+    case 5: self = .coconutWater
+    case 6: self = .softDrinks
+    case 7: self = .butterMilk
+    case 8: self = .lassic
+    case 9: self = .proteinShake
+    case 10: self = .lemonade
+    case 11: self = .miikShake
+    case 12: self = .electrolytes
+    case 13: self = .typeOther
+    case 14: self = .beer
+    case 15: self = .cocktail
+    case 16: self = .coffee
+    case 17: self = .masalaChai
+    case 18: self = .milkTea
+    case 19: self = .smoothie
+    case 20: self = .latte
+    case 21: self = .soyMilk
+    case 22: self = .coconutMilk
+    case 23: self = .hotChocolate
+    case 24: self = .coke
+    case 25: self = .greenTea
+    case 26: self = .oolongTea
+    case 27: self = .barleyTea
+    case 28: self = .suanmeitang
+    case 29: self = .sugarcaneJuice
+    case 30: self = .riceWater
+    case 31: self = .sikhye
+    case 32: self = .wine
+    case 33: self = .filterCoffee
+    case 34: self = .cappuccino
+    case 35: self = .soyWater
+    case 36: self = .oatMilk
+    case 37: self = .almondMilk
+    case 38: self = .yogurt
+    case 39: self = .sodas
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .typeInvalid: return 0
+    case .water: return 1
+    case .milk: return 2
+    case .tea: return 3
+    case .juice: return 4
+    case .coconutWater: return 5
+    case .softDrinks: return 6
+    case .butterMilk: return 7
+    case .lassic: return 8
+    case .proteinShake: return 9
+    case .lemonade: return 10
+    case .miikShake: return 11
+    case .electrolytes: return 12
+    case .typeOther: return 13
+    case .beer: return 14
+    case .cocktail: return 15
+    case .coffee: return 16
+    case .masalaChai: return 17
+    case .milkTea: return 18
+    case .smoothie: return 19
+    case .latte: return 20
+    case .soyMilk: return 21
+    case .coconutMilk: return 22
+    case .hotChocolate: return 23
+    case .coke: return 24
+    case .greenTea: return 25
+    case .oolongTea: return 26
+    case .barleyTea: return 27
+    case .suanmeitang: return 28
+    case .sugarcaneJuice: return 29
+    case .riceWater: return 30
+    case .sikhye: return 31
+    case .wine: return 32
+    case .filterCoffee: return 33
+    case .cappuccino: return 34
+    case .soyWater: return 35
+    case .oatMilk: return 36
+    case .almondMilk: return 37
+    case .yogurt: return 38
+    case .sodas: return 39
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [drink_type] = [
+    .typeInvalid,
+    .water,
+    .milk,
+    .tea,
+    .juice,
+    .coconutWater,
+    .softDrinks,
+    .butterMilk,
+    .lassic,
+    .proteinShake,
+    .lemonade,
+    .miikShake,
+    .electrolytes,
+    .typeOther,
+    .beer,
+    .cocktail,
+    .coffee,
+    .masalaChai,
+    .milkTea,
+    .smoothie,
+    .latte,
+    .soyMilk,
+    .coconutMilk,
+    .hotChocolate,
+    .coke,
+    .greenTea,
+    .oolongTea,
+    .barleyTea,
+    .suanmeitang,
+    .sugarcaneJuice,
+    .riceWater,
+    .sikhye,
+    .wine,
+    .filterCoffee,
+    .cappuccino,
+    .soyWater,
+    .oatMilk,
+    .almondMilk,
+    .yogurt,
+    .sodas,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8048,6 +8378,7 @@ extension health_type: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "BODY_ENERGY"),
     5: .same(proto: "RESPIRATORY_RATE"),
     6: .same(proto: "SKIN_TEMPERATURE"),
+    7: .same(proto: "ATRIAL_FIBRILLATION"),
   ]
 }
 
@@ -8625,6 +8956,7 @@ extension voice_assistant_dialog_type: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "AI_DIALOG_NORMAL"),
     1: .same(proto: "AI_DIALOG_ECHO"),
     2: .same(proto: "AI_DIALOG_AI_ECHO"),
+    3: .same(proto: "AI_DIALOG_AI_CALENDAR_ECHO"),
   ]
 }
 
@@ -9281,5 +9613,60 @@ extension voice_assistant_string_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "AI_STRING_NULL"),
     1: .same(proto: "AI_STRING_TEXT"),
+  ]
+}
+
+extension operate_drink_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "DRINK_INVALID"),
+    1: .same(proto: "DRINK_INQUIRE"),
+    2: .same(proto: "DRINK_SET"),
+    3: .same(proto: "DRINK_ADD"),
+    4: .same(proto: "DRINK_DELETE"),
+  ]
+}
+
+extension drink_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TYPE_INVALID"),
+    1: .same(proto: "WATER"),
+    2: .same(proto: "MILK"),
+    3: .same(proto: "TEA"),
+    4: .same(proto: "JUICE"),
+    5: .same(proto: "COCONUT_WATER"),
+    6: .same(proto: "SOFT_DRINKS"),
+    7: .same(proto: "BUTTER_MILK"),
+    8: .same(proto: "LASSIC"),
+    9: .same(proto: "PROTEIN_SHAKE"),
+    10: .same(proto: "LEMONADE"),
+    11: .same(proto: "MIIK_SHAKE"),
+    12: .same(proto: "ELECTROLYTES"),
+    13: .same(proto: "TYPE_OTHER"),
+    14: .same(proto: "BEER"),
+    15: .same(proto: "COCKTAIL"),
+    16: .same(proto: "COFFEE"),
+    17: .same(proto: "MASALA_CHAI"),
+    18: .same(proto: "MILK_TEA"),
+    19: .same(proto: "SMOOTHIE"),
+    20: .same(proto: "LATTE"),
+    21: .same(proto: "SOY_MILK"),
+    22: .same(proto: "COCONUT_MILK"),
+    23: .same(proto: "HOT_CHOCOLATE"),
+    24: .same(proto: "COKE"),
+    25: .same(proto: "GREEN_TEA"),
+    26: .same(proto: "OOLONG_TEA"),
+    27: .same(proto: "BARLEY_TEA"),
+    28: .same(proto: "SUANMEITANG"),
+    29: .same(proto: "SUGARCANE_JUICE"),
+    30: .same(proto: "RICE_WATER"),
+    31: .same(proto: "SIKHYE"),
+    32: .same(proto: "WINE"),
+    33: .same(proto: "FILTER_COFFEE"),
+    34: .same(proto: "CAPPUCCINO"),
+    35: .same(proto: "SOY_WATER"),
+    36: .same(proto: "OAT_MILK"),
+    37: .same(proto: "ALMOND_MILK"),
+    38: .same(proto: "YOGURT"),
+    39: .same(proto: "SODAS"),
   ]
 }

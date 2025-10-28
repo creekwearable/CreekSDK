@@ -108,6 +108,39 @@ public struct protocol_disturb_inquire_reply: Sendable {
   public init() {}
 }
 
+///（只依据开关来判断,不根据时间来，同步app）
+public struct protocol_disturb_switch_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///1bytes 勿扰模式功能开关 true 开启,false 关闭
+  public var disturbSwitch: switch_type = .switchNull
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_disturb_switch_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///1bytes 勿扰模式功能开关 true 开启,false 关闭
+  public var disturbSwitch: switch_type = .switchNull
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_set_disturb_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -296,6 +329,82 @@ extension protocol_disturb_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._
     if lhs.num != rhs.num {return false}
     if lhs.disturbOnOff != rhs.disturbOnOff {return false}
     if lhs.disturbItem != rhs.disturbItem {return false}
+    if lhs.disturbSwitch != rhs.disturbSwitch {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_disturb_switch_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_disturb_switch_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "disturb_switch"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.disturbSwitch) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.disturbSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.disturbSwitch, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_disturb_switch_operate, rhs: protocol_disturb_switch_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.disturbSwitch != rhs.disturbSwitch {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_disturb_switch_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_disturb_switch_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "disturb_switch"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.disturbSwitch) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.disturbSwitch != .switchNull {
+      try visitor.visitSingularEnumField(value: self.disturbSwitch, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_disturb_switch_inquire_reply, rhs: protocol_disturb_switch_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
     if lhs.disturbSwitch != rhs.disturbSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

@@ -6,6 +6,37 @@
     "children": [
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "creek_blue_manage",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "creek_blue_manage"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "creek_blue_manage"
+      },
+      {
+        "kind": "Import",
+        "name": "AudioToolbox",
+        "printedName": "AudioToolbox",
+        "declKind": "Import",
+        "moduleName": "creek_blue_manage"
+      },
+      {
+        "kind": "Import",
         "name": "Flutter",
         "printedName": "Flutter",
         "declKind": "Import",
@@ -222,5 +253,13 @@
     ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/creekbluemanage\/ios\/Classes\/CreekFindPhoneManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2695,
+      "length": 1,
+      "value": "5"
+    }
+  ]
 }
