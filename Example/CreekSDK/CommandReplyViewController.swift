@@ -199,17 +199,7 @@ class CommandReplyViewController: CreekBaseViewController {
          })
          break
       case "Sync health":
-//         CreekInterFace.instance.sync { progress in
-//            self.textView.text = "progress\(progress)"
-//         } syncSuccess: {
-//            self.view.hideRemark()
-//            self.textView.text = "success"
-//         } syncFailure: {
-//            self.view.hideRemark()
-//            self.textView.text = "failure"
-//         }
-         
-         CreekInterFace.instance.syncHealthType(type: .syncHeartRate) { progress in
+         CreekInterFace.instance.sync { progress in
             self.textView.text = "progress\(progress)"
          } syncSuccess: {
             self.view.hideRemark()
@@ -218,6 +208,16 @@ class CommandReplyViewController: CreekBaseViewController {
             self.view.hideRemark()
             self.textView.text = "failure"
          }
+         
+//         CreekInterFace.instance.syncHealthType(type: .syncActivity) { progress in
+//            self.textView.text = "progress\(progress)"
+//         } syncSuccess: {
+//            self.view.hideRemark()
+//            self.textView.text = "success"
+//         } syncFailure: {
+//            self.view.hideRemark()
+//            self.textView.text = "failure"
+//         }
          break
       case "Get watch dial":
          CreekInterFace.instance.getWatchDial { model in
