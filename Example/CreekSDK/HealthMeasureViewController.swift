@@ -109,7 +109,7 @@ class HealthMeasureViewController: UIViewController {
         statusLabel.text = "状态：测量中..."
        
        CreekInterFace.instance.startMeasure(type: selectedType,measureDuration: 30,timeout: 60) { [weak self] model in
-          self?.resultLabel.text =  "结果：\(model.value)"
+          self?.resultLabel.text =  "结果：\(model.value) 脉率:\(model.pulseRateValue)"
        } success: {[weak self] in
           self?.statusLabel.text = "状态：测量完成 ✅"
        } failure: {[weak self] model in

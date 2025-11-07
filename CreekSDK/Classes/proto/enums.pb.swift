@@ -4293,6 +4293,27 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///查找手机
   case templateTypeFindPhone // = 14
+
+  ///控制中心
+  case templateTypeControlCenter // = 16
+
+  ///通知中心
+  case templateTypeNotificationCenter // = 17
+
+  ///负一屏
+  case templateTypeSuggestion // = 18
+
+  ///一级卡片
+  case templateTypeLevelOneCard // = 19
+
+  ///常亮模式
+  case templateTypeAlwaysonMode // = 20
+
+  ///开启关闭声音
+  case templateTypeVolumeMode // = 21
+
+  ///开启关闭自动亮度
+  case templateTypeAutoBrightnessMode // = 22
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4316,6 +4337,13 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 12: self = .templateTypeFlashlight
     case 13: self = .templateTypeVolume
     case 14: self = .templateTypeFindPhone
+    case 16: self = .templateTypeControlCenter
+    case 17: self = .templateTypeNotificationCenter
+    case 18: self = .templateTypeSuggestion
+    case 19: self = .templateTypeLevelOneCard
+    case 20: self = .templateTypeAlwaysonMode
+    case 21: self = .templateTypeVolumeMode
+    case 22: self = .templateTypeAutoBrightnessMode
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4337,6 +4365,13 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .templateTypeFlashlight: return 12
     case .templateTypeVolume: return 13
     case .templateTypeFindPhone: return 14
+    case .templateTypeControlCenter: return 16
+    case .templateTypeNotificationCenter: return 17
+    case .templateTypeSuggestion: return 18
+    case .templateTypeLevelOneCard: return 19
+    case .templateTypeAlwaysonMode: return 20
+    case .templateTypeVolumeMode: return 21
+    case .templateTypeAutoBrightnessMode: return 22
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4358,6 +4393,13 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .templateTypeFlashlight,
     .templateTypeVolume,
     .templateTypeFindPhone,
+    .templateTypeControlCenter,
+    .templateTypeNotificationCenter,
+    .templateTypeSuggestion,
+    .templateTypeLevelOneCard,
+    .templateTypeAlwaysonMode,
+    .templateTypeVolumeMode,
+    .templateTypeAutoBrightnessMode,
   ]
 
 }
@@ -7792,6 +7834,9 @@ public enum CommonErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// 内部错误
   case commonInternalError // = 6
+
+  /// 蓝牙未连接
+  case commonBluetoothNotConnected // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -7807,6 +7852,7 @@ public enum CommonErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 4: self = .commonNotWorn
     case 5: self = .commonFailed
     case 6: self = .commonInternalError
+    case 7: self = .commonBluetoothNotConnected
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7820,6 +7866,7 @@ public enum CommonErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .commonNotWorn: return 4
     case .commonFailed: return 5
     case .commonInternalError: return 6
+    case .commonBluetoothNotConnected: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7833,6 +7880,7 @@ public enum CommonErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     .commonNotWorn,
     .commonFailed,
     .commonInternalError,
+    .commonBluetoothNotConnected,
   ]
 
 }
@@ -8189,6 +8237,40 @@ public enum drink_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .almondMilk,
     .yogurt,
     .sodas,
+  ]
+
+}
+
+public enum health_realtime_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case healthStart // = 0
+  case healthEnd // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .healthStart
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .healthStart
+    case 1: self = .healthEnd
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .healthStart: return 0
+    case .healthEnd: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [health_realtime_operate_type] = [
+    .healthStart,
+    .healthEnd,
   ]
 
 }
@@ -8994,6 +9076,13 @@ extension skill_template_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "TEMPLATE_TYPE_FLASHLIGHT"),
     13: .same(proto: "TEMPLATE_TYPE_VOLUME"),
     14: .same(proto: "TEMPLATE_TYPE_FIND_PHONE"),
+    16: .same(proto: "TEMPLATE_TYPE_CONTROL_CENTER"),
+    17: .same(proto: "TEMPLATE_TYPE_NOTIFICATION_CENTER"),
+    18: .same(proto: "TEMPLATE_TYPE_SUGGESTION"),
+    19: .same(proto: "TEMPLATE_TYPE_LEVEL_ONE_CARD"),
+    20: .same(proto: "TEMPLATE_TYPE_ALWAYSON_MODE"),
+    21: .same(proto: "TEMPLATE_TYPE_VOLUME_MODE"),
+    22: .same(proto: "TEMPLATE_TYPE_AUTO_BRIGHTNESS_MODE"),
   ]
 }
 
@@ -9606,6 +9695,7 @@ extension CommonErrorCode: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "COMMON_NOT_WORN"),
     5: .same(proto: "COMMON_FAILED"),
     6: .same(proto: "COMMON_INTERNAL_ERROR"),
+    7: .same(proto: "COMMON_BLUETOOTH_NOT_CONNECTED"),
   ]
 }
 
@@ -9668,5 +9758,12 @@ extension drink_type: SwiftProtobuf._ProtoNameProviding {
     37: .same(proto: "ALMOND_MILK"),
     38: .same(proto: "YOGURT"),
     39: .same(proto: "SODAS"),
+  ]
+}
+
+extension health_realtime_operate_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "HEALTH_START"),
+    1: .same(proto: "HEALTH_END"),
   ]
 }

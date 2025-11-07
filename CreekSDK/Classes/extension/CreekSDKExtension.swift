@@ -141,6 +141,22 @@ extension CreekSDK{
       }
       
    }
+   
+   ///MARK :Sync health data
+   /// - Parameter :
+   ///      - syncProgress: sync progress
+   /// - Returns:
+   public func syncHealthType(type:sync_type,syncProgress:@escaping progressBase, syncSuccess:@escaping successBase, syncFailure:@escaping failureBase) {
+      serialQueue.sync {
+         requestId+=1
+         progressDic["syncHealthTypeBase\(requestId)"] = syncProgress
+         successDic["syncHealthTypeBase\(requestId)"] = syncSuccess;
+         failureDic["syncHealthTypeBase\(requestId)"] = syncFailure
+         methodChannel?.invokeMethod("syncHealthTypeBase\(requestId)", arguments: type.rawValue)
+      }
+      
+   }
+   
    ///MARK :upload
    /// - Parameter :
    ///      - fileName：The filename needs to include the suffix
