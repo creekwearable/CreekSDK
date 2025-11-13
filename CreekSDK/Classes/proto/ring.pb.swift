@@ -47,6 +47,9 @@ public struct protocol_ring_click_measure_operate: @unchecked Sendable {
   ///数据组
   public var dataList: Data = Data()
 
+  ///脉率测量值
+  public var pulseRateValue: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -268,6 +271,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     5: .standard(proto: "measure_time"),
     6: .standard(proto: "measure_status"),
     7: .standard(proto: "data_list"),
+    8: .standard(proto: "pulse_rate_value"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -283,6 +287,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.measureTime) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.measureStatus) }()
       case 7: try { try decoder.decodeSingularBytesField(value: &self.dataList) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.pulseRateValue) }()
       default: break
       }
     }
@@ -310,6 +315,9 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if !self.dataList.isEmpty {
       try visitor.visitSingularBytesField(value: self.dataList, fieldNumber: 7)
     }
+    if self.pulseRateValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pulseRateValue, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -321,6 +329,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.measureTime != rhs.measureTime {return false}
     if lhs.measureStatus != rhs.measureStatus {return false}
     if lhs.dataList != rhs.dataList {return false}
+    if lhs.pulseRateValue != rhs.pulseRateValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

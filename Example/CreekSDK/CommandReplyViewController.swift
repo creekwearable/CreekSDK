@@ -94,14 +94,6 @@ class CommandReplyViewController: CreekBaseViewController {
          //
          //         }
          
-         CreekInterFace.instance.checkPhoneBookPermissions { model in
-            print("checkPhoneBookPermissions \(model.description)")
-            CreekInterFace.instance.requestPhoneBookPermissions { model in
-               print("requestPhoneBookPermissions \(model.description)")
-            }
-         }
-         
-       
   
          
          CreekInterFace.instance.getFirmware { model in
@@ -216,6 +208,16 @@ class CommandReplyViewController: CreekBaseViewController {
             self.view.hideRemark()
             self.textView.text = "failure"
          }
+         
+//         CreekInterFace.instance.syncHealthType(type: .syncActivity) { progress in
+//            self.textView.text = "progress\(progress)"
+//         } syncSuccess: {
+//            self.view.hideRemark()
+//            self.textView.text = "success"
+//         } syncFailure: {
+//            self.view.hideRemark()
+//            self.textView.text = "failure"
+//         }
          break
       case "Get watch dial":
          CreekInterFace.instance.getWatchDial { model in
@@ -968,6 +970,24 @@ class CommandReplyViewController: CreekBaseViewController {
          formatter.dateFormat = "yyyy-MM-dd"
          let currentDateStr = formatter.string(from: Date())
          CreekInterFace.instance.getSpoNewTimeData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         break
+         
+      case "Get respiratory data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getRespiratoryNewTimeData(startTime: currentDateStr, endTime: currentDateStr) { model in
             if model.code == 0{
                self.view.hideRemark()
                self.textView.text = "success"

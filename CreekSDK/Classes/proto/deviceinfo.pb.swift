@@ -171,6 +171,9 @@ public struct device_sn_info: Sendable {
   ///颜色代号
   public var colorCode: UInt32 = 0
 
+  ///戒指尺寸
+  public var ringSize: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -718,6 +721,7 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     5: .standard(proto: "batch_num"),
     6: .standard(proto: "serial_num"),
     7: .standard(proto: "color_code"),
+    8: .standard(proto: "ring_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -733,6 +737,7 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.batchNum) }()
       case 6: try { try decoder.decodeSingularUInt32Field(value: &self.serialNum) }()
       case 7: try { try decoder.decodeSingularUInt32Field(value: &self.colorCode) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.ringSize) }()
       default: break
       }
     }
@@ -760,6 +765,9 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if self.colorCode != 0 {
       try visitor.visitSingularUInt32Field(value: self.colorCode, fieldNumber: 7)
     }
+    if self.ringSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.ringSize, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -771,6 +779,7 @@ extension device_sn_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if lhs.batchNum != rhs.batchNum {return false}
     if lhs.serialNum != rhs.serialNum {return false}
     if lhs.colorCode != rhs.colorCode {return false}
+    if lhs.ringSize != rhs.ringSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
