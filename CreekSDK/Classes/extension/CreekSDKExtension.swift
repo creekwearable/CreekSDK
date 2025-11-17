@@ -12,7 +12,7 @@ extension CreekSDK{
    
    ///MARK : initialization SDK
    public func initSDK(type:CreekClientType = .none,cancelAutoConnect:CancelAutoConnectType = .auto) {
-      methodChannel?.invokeMethod("initSDK", arguments: [type.rawValue,cancelAutoConnect.rawValue])
+      methodChannel?.invokeMethod("initSDK", arguments: [2,cancelAutoConnect.rawValue])
    }
    
    ///MARK : Authorization code verification

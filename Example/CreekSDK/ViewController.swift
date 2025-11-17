@@ -178,7 +178,13 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             
             if(model.eventId == .EVENT_ID_FINE_PHONE){
                ///Here you can do some ringing operations. You need to define it yourself.
-               FindPhoneManager.shared.playRing(seconds: 10)
+               if model.eventKey == 0{
+                  FindPhoneManager.shared.playRing(seconds: 10)
+               }else if model.eventKey == 1{
+                  FindPhoneManager.shared.stopRing()
+               }else{
+                  FindPhoneManager.shared.playRing(seconds: model.eventKey)
+               }
             }
             
          }
