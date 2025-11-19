@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "10.0.21-noise",
+  "version": "10.0.22-noise",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "10.0.21-noise"
+    "tag": "10.0.22-noise"
   },
   "platforms": {
     "ios": "13.0"
