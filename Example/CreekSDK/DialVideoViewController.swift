@@ -330,7 +330,7 @@ class DialVideoViewController: CreekBaseViewController,CropViewControllerDelegat
    func cropViewController(_ cropViewController: CropViewController, didCropImageToRect cropRect: CGRect, angle: Int) {
       print("Clipping area coordinates: \(cropRect)")
       cropViewController.dismiss(animated: true, completion: nil)
-      CreekInterFace.instance.setVideoDial(saveVideoPath, 0, 3, cropRect.size.width, cropRect.size.height, cropRect.origin.x, cropRect.origin.y) { videoPath in
+      CreekInterFace.instance.setVideoDial(saveVideoPath, 0, 5, cropRect.size.width, cropRect.size.height, cropRect.origin.x, cropRect.origin.y) { videoPath in
          print("生成的视频地址:\(videoPath)")
          // 自动播放
          dispatch_main_sync_safe {
