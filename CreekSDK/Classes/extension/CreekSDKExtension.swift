@@ -2905,21 +2905,14 @@ extension CreekSDK{
       }
    }
    
-//   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
-//      serialQueue.sync {
-//         requestId+=1
-//         successDic["setOnOffSuperMessage\(requestId)"] = success;
-//         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
-//         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
-//      }
-//   }
-//   
-//   public func getOnOffSuperMessage(model:@escaping boolBase) {
-//      serialQueue.sync {
-//         requestId+=1
-//         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
-//         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
-//      }
-//   }
+   public func philipSleepListen(model:@escaping backStringBase){
+      backStringBaseDic["philipSleepListen"] = model
+   }
+   
+   public func setPhilipSleepJson(model:String){
+      serialQueue.sync {
+         methodChannel?.invokeMethod("setPhilipSleepJson\(requestId)", arguments: model)
+      }
+   }
    
 }

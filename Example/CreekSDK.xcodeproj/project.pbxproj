@@ -162,6 +162,19 @@
 		C47349342E86C5A200DE8374 /* AfPpgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47349332E86C59900DE8374 /* AfPpgModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		073230952ECD7278003CD42C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoExtension.swift; sourceTree = "<group>"; };
 		07266BB92DACF260000F8BED /* alarm.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm.pb.swift; sourceTree = "<group>"; };
@@ -631,6 +644,7 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				D32F8ACD2FF038A8410EA577 /* [CP] Embed Pods Frameworks */,
 				D7E3C3C0C0E3E18A51933EC8 /* [CP] Copy Pods Resources */,
+				073230952ECD7278003CD42C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -307,7 +307,22 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             let json = try? model.jsonString()
             print(json ?? "")
          }
-        
+         
+//         CreekInterFace.instance.philipSleepListen { path in
+//            print("文件地址:\(path)")
+//            let url = URL(fileURLWithPath: path)
+//            do {
+//                let data = try Data(contentsOf: url)
+//                Task{
+//                   let resultSegments = await PSPParser.shared.parserPSPSleep(from: data)
+//                   CreekInterFace.instance.setPhilipSleepJson(model: resultSegments)
+//                }
+//            } catch {
+//                print("❌ 读取文件失败：\(error.localizedDescription)")
+//               CreekInterFace.instance.setPhilipSleepJson(model: "")
+//                
+//            }
+//         }
       }
   
    }

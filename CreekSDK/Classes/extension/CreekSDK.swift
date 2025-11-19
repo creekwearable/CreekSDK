@@ -2185,6 +2185,16 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
          }
          
       }
+      else if(call.method.contains("philipSleepListen")){
+         if let response = call.arguments as? String{
+            if let back = backStringBaseDic[call.method]{
+               back(response)
+               backStringBaseDic.removeValue(forKey: call.method)
+            }
+         }
+         
+      }
+      
    }
    
 }
