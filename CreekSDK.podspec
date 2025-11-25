@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '0.1.81'
+    s.version          = '0.1.82'
     s.summary          = 'A short description of CreekSDK.'
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -73,6 +73,7 @@ Pod::Spec.new do |s|
     'Creek/device_calendar.framework',
     'Creek/device_info_plus.framework',
     'Creek/flutter_timezone.framework',
+    'Creek/objective_c.framework',
     'Creek/creek_index_convert.framework']
     s.pod_target_xcconfig = {'VALID_ARCHS' => 'x86_64 armv7 arm64'}
 #    s.resource_bundles = {'permission_handler_apple_privacy' => ['Resources/PrivacyInfo.xcprivacy']}

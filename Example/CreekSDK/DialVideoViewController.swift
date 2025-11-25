@@ -324,6 +324,7 @@ class DialVideoViewController: CreekBaseViewController,CropViewControllerDelegat
       cropViewController.cropView.alpha = 0.5
       self.present(cropViewController, animated: true, completion: nil)
    }
+   
    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
       cropViewController.dismiss(animated: true, completion: nil)
    }
