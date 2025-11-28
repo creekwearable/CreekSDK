@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "0.0.1-titan",
+  "version": "11.0.1-titan",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "0.0.1-titan"
+    "tag": "11.0.1-titan"
   },
   "platforms": {
     "ios": "13.0"

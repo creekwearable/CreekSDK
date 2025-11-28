@@ -1,6 +1,6 @@
 PODS:
   - CreekFFmpeg (0.0.1)
-  - CreekSDK (0.0.1-titan):
+  - CreekSDK (11.0.1-titan):
     - MicrosoftCognitiveServicesSpeech-iOS
     - SwiftProtobuf (~> 1.25.2)
   - CropViewController (2.7.4)
@@ -51,7 +51,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CreekFFmpeg: f32c075e1b24972f1efe7519edb2a3fff3c500ac
-  CreekSDK: ed1090c79a0624d590b1f15106d1d97e903597ee
+  CreekSDK: fa04004943cffb94153a5e9c43313c8ecd0ee07d
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: 6e39e00447337facb47f418c9c21dd46b4d8c4d0
