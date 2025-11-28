@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "0.1.82",
+  "version": "0.0.1-titan",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "0.1.82"
+    "tag": "0.0.1-titan"
   },
   "platforms": {
     "ios": "13.0"
@@ -42,14 +42,6 @@
     "Creek/creek_ffmpeg_kit_flutter.framework",
     "Creek/path_provider_foundation.framework",
     "Creek/creek_sleep_stage_algorithm.framework",
-    "Creek/ffmpegkit.framework",
-    "Creek/libavcodec.framework",
-    "Creek/libavdevice.framework",
-    "Creek/libavfilter.framework",
-    "Creek/libavformat.framework",
-    "Creek/libavutil.framework",
-    "Creek/libswresample.framework",
-    "Creek/libswscale.framework",
     "Creek/xfyun_speech.framework",
     "Creek/package_info_plus.framework",
     "Creek/connectivity_plus.framework",
@@ -73,9 +65,7 @@
     "SwiftProtobuf": [
       "~> 1.25.2"
     ],
-    "MicrosoftCognitiveServicesSpeech-iOS": [
-
-    ]
+    "MicrosoftCognitiveServicesSpeech-iOS": []
   },
   "static_framework": true,
   "resource_bundles": {

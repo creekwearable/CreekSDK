@@ -145,6 +145,7 @@
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
 		07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */; };
 		07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */; };
+		07C8B3A42ED95259006D32C0 /* CreekFFmpegManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8B3A32ED95259006D32C0 /* CreekFFmpegManager.swift */; };
 		07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */; };
 		07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */; };
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
@@ -301,6 +302,7 @@
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialDetailsViewController.swift; sourceTree = "<group>"; };
 		07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBSlideBar.swift; sourceTree = "<group>"; };
+		07C8B3A32ED95259006D32C0 /* CreekFFmpegManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreekFFmpegManager.swift; sourceTree = "<group>"; };
 		07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemerisGPSModel.swift; sourceTree = "<group>"; };
 		07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoViewController.swift; sourceTree = "<group>"; };
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				07266C3D2DAFEA29000F8BED /* OTAViewController.swift */,
 				079D06F22E9605720088C49A /* SportsLiveViewController.swift */,
 				079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */,
+				07C8B3A32ED95259006D32C0 /* CreekFFmpegManager.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -736,6 +739,15 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-frameworks.sh",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/ffmpegkit.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libavcodec.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libavdevice.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libavfilter.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libavformat.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libavutil.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libswresample.framework",
+				"${PODS_ROOT}/CreekFFmpeg/FFmpeg/libswscale.framework",
+				"${BUILT_PRODUCTS_DIR}/CreekFFmpeg/CreekFFmpeg.framework",
 				"${PODS_ROOT}/../../Creek/sbc.framework",
 				"${PODS_ROOT}/../../Creek/App.framework",
 				"${PODS_ROOT}/../../Creek/creek_blue_manage.framework",
@@ -752,14 +764,6 @@
 				"${PODS_ROOT}/../../Creek/flutter_contacts.framework",
 				"${PODS_ROOT}/../../Creek/path_provider_foundation.framework",
 				"${PODS_ROOT}/../../Creek/creek_sleep_stage_algorithm.framework",
-				"${PODS_ROOT}/../../Creek/ffmpegkit.framework",
-				"${PODS_ROOT}/../../Creek/libavcodec.framework",
-				"${PODS_ROOT}/../../Creek/libavdevice.framework",
-				"${PODS_ROOT}/../../Creek/libavfilter.framework",
-				"${PODS_ROOT}/../../Creek/libavformat.framework",
-				"${PODS_ROOT}/../../Creek/libavutil.framework",
-				"${PODS_ROOT}/../../Creek/libswresample.framework",
-				"${PODS_ROOT}/../../Creek/libswscale.framework",
 				"${PODS_ROOT}/../../Creek/xfyun_speech.framework",
 				"${PODS_ROOT}/../../Creek/package_info_plus.framework",
 				"${PODS_ROOT}/../../Creek/connectivity_plus.framework",
@@ -786,6 +790,15 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ffmpegkit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavcodec.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavdevice.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavfilter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavformat.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavutil.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswresample.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswscale.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CreekFFmpeg.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sbc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/App.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_blue_manage.framework",
@@ -802,14 +815,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_contacts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/path_provider_foundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_sleep_stage_algorithm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ffmpegkit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavcodec.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavdevice.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavfilter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavformat.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavutil.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswresample.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswscale.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/xfyun_speech.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/package_info_plus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/connectivity_plus.framework",
@@ -919,6 +924,7 @@
 				07266C132DACF260000F8BED /* wordtime.pb.swift in Sources */,
 				07266C142DACF260000F8BED /* event.pb.swift in Sources */,
 				07266C152DACF260000F8BED /* binding.pb.swift in Sources */,
+				07C8B3A42ED95259006D32C0 /* CreekFFmpegManager.swift in Sources */,
 				07266C162DACF260000F8BED /* card.pb.swift in Sources */,
 				07266C172DACF260000F8BED /* healthhead.pb.swift in Sources */,
 				07266C182DACF260000F8BED /* message.pb.swift in Sources */,

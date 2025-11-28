@@ -5,6 +5,7 @@ target 'CreekSDK_Example' do
   
   use_frameworks!
   pod 'CreekSDK', :path => '../'
+  pod 'CreekFFmpeg',:git => 'https://github.com/creekwearable/creek_ffmpeg.git', :tag => '0.0.1'
   pod 'SnapKit'
   pod 'MBProgressHUD'
   pod 'Toast-Swift'
