@@ -1435,7 +1435,7 @@ class CommandReplyViewController: CreekBaseViewController {
          
          break
       case "get deviceStatus":
-         CreekInterFace.instance.getDeviceStatus{ model in
+         CreekInterFace.instance.getDeviceStatus(type: .sportStatus){ model in
             self.view.hideRemark()
             let json = try? model.jsonString()
             if let str = json{
