@@ -753,6 +753,9 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///保存数据
   case saveData // = 4
+
+  ///绑定账号信息
+  case bindAccount // = 5
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -766,6 +769,7 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .success
     case 3: self = .bound
     case 4: self = .saveData
+    case 5: self = .bindAccount
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -777,6 +781,7 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .success: return 2
     case .bound: return 3
     case .saveData: return 4
+    case .bindAccount: return 5
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -788,6 +793,7 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     .success,
     .bound,
     .saveData,
+    .bindAccount,
   ]
 
 }
@@ -1012,6 +1018,9 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///房颤
   case atrialFibrillation // = 7
+
+  ///睡眠呼吸暂停
+  case osa // = 8
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1028,6 +1037,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 5: self = .respiratoryRate
     case 6: self = .skinTemperature
     case 7: self = .atrialFibrillation
+    case 8: self = .osa
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1042,6 +1052,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .respiratoryRate: return 5
     case .skinTemperature: return 6
     case .atrialFibrillation: return 7
+    case .osa: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1056,6 +1067,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .respiratoryRate,
     .skinTemperature,
     .atrialFibrillation,
+    .osa,
   ]
 
 }
@@ -4602,6 +4614,12 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///设置
   case settings // = 29
+
+  ///SOS界面
+  case sos // = 30
+
+  ///耳机连接界面
+  case twsConnect // = 31
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4640,6 +4658,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 27: self = .worldClock
     case 28: self = .findPhone
     case 29: self = .settings
+    case 30: self = .sos
+    case 31: self = .twsConnect
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4676,6 +4696,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .worldClock: return 27
     case .findPhone: return 28
     case .settings: return 29
+    case .sos: return 30
+    case .twsConnect: return 31
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4712,6 +4734,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     .worldClock,
     .findPhone,
     .settings,
+    .sos,
+    .twsConnect,
   ]
 
 }
@@ -5868,6 +5892,24 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///波比跳
   case burpee // = 219
+
+  ///胸部训练
+  case chestTraining // = 220
+
+  ///肩部训练
+  case shoulderTraining // = 221
+
+  ///下肢训练
+  case lowerBodyTraining // = 222
+
+  ///背部训练
+  case backTraining // = 223
+
+  ///跑步
+  case run // = 224
+
+  ///走路
+  case walk // = 225
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6096,6 +6138,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 217: self = .backExercises
     case 218: self = .artisticSwimming
     case 219: self = .burpee
+    case 220: self = .chestTraining
+    case 221: self = .shoulderTraining
+    case 222: self = .lowerBodyTraining
+    case 223: self = .backTraining
+    case 224: self = .run
+    case 225: self = .walk
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6322,6 +6370,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .backExercises: return 217
     case .artisticSwimming: return 218
     case .burpee: return 219
+    case .chestTraining: return 220
+    case .shoulderTraining: return 221
+    case .lowerBodyTraining: return 222
+    case .backTraining: return 223
+    case .run: return 224
+    case .walk: return 225
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6548,6 +6602,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .backExercises,
     .artisticSwimming,
     .burpee,
+    .chestTraining,
+    .shoulderTraining,
+    .lowerBodyTraining,
+    .backTraining,
+    .run,
+    .walk,
   ]
 
 }
@@ -7380,6 +7440,9 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///nordic平台
   case nordic // = 1
+
+  ///nordic平台，带睡眠
+  case nordicSleep // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -7390,6 +7453,7 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .actions
     case 1: self = .nordic
+    case 2: self = .nordicSleep
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7398,6 +7462,7 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .actions: return 0
     case .nordic: return 1
+    case .nordicSleep: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7406,6 +7471,7 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [Platform_pspkey] = [
     .actions,
     .nordic,
+    .nordicSleep,
   ]
 
 }
@@ -7780,6 +7846,9 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case vibrationStop // = 0
   case vibrationStart // = 1
+
+  ///稍后提醒
+  case laterRemind // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -7790,6 +7859,7 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .vibrationStop
     case 1: self = .vibrationStart
+    case 2: self = .laterRemind
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7798,6 +7868,7 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .vibrationStop: return 0
     case .vibrationStart: return 1
+    case .laterRemind: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7806,6 +7877,7 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [ring_alarm_vibrate_status] = [
     .vibrationStop,
     .vibrationStart,
+    .laterRemind,
   ]
 
 }
@@ -8275,6 +8347,114 @@ public enum health_realtime_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable
 
 }
 
+public enum ring_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///弹窗通知
+  case alert // = 0
+
+  ///静默执行
+  case silent // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .alert
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .alert
+    case 1: self = .silent
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .alert: return 0
+    case .silent: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ring_remind_type] = [
+    .alert,
+    .silent,
+  ]
+
+}
+
+public enum device_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///运动状态
+  case sportStatus // = 0
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .sportStatus
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .sportStatus
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .sportStatus: return 0
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [device_status_type] = [
+    .sportStatus,
+  ]
+
+}
+
+public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///无异动
+  case healthAbnormalNone // = 0
+
+  ///监测到异常
+  case healthAbnormalExist // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .healthAbnormalNone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .healthAbnormalNone
+    case 1: self = .healthAbnormalExist
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .healthAbnormalNone: return 0
+    case .healthAbnormalExist: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [health_abnormal_status] = [
+    .healthAbnormalNone,
+    .healthAbnormalExist,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8411,6 +8591,7 @@ extension bind_flag: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "BIND_FLAG_SUCCESS"),
     3: .same(proto: "BIND_FLAG_BOUND"),
     4: .same(proto: "BIND_FLAG_SAVE_DATA"),
+    5: .same(proto: "BIND_ACCOUNT"),
   ]
 }
 
@@ -8461,6 +8642,7 @@ extension health_type: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "RESPIRATORY_RATE"),
     6: .same(proto: "SKIN_TEMPERATURE"),
     7: .same(proto: "ATRIAL_FIBRILLATION"),
+    8: .same(proto: "OSA"),
   ]
 }
 
@@ -9137,6 +9319,8 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     27: .same(proto: "APP_LIST_WORLD_CLOCK"),
     28: .same(proto: "APP_LIST_FIND_PHONE"),
     29: .same(proto: "APP_LIST_SETTINGS"),
+    30: .same(proto: "APP_LIST_SOS"),
+    31: .same(proto: "APP_LIST_TWS_CONNECT"),
   ]
 }
 
@@ -9456,6 +9640,12 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     217: .same(proto: "BACK_EXERCISES"),
     218: .same(proto: "ARTISTIC_SWIMMING"),
     219: .same(proto: "BURPEE"),
+    220: .same(proto: "CHEST_TRAINING"),
+    221: .same(proto: "SHOULDER_TRAINING"),
+    222: .same(proto: "LOWER_BODY_TRAINING"),
+    223: .same(proto: "BACK_TRAINING"),
+    224: .same(proto: "RUN"),
+    225: .same(proto: "WALK"),
   ]
 }
 
@@ -9610,6 +9800,7 @@ extension Platform_pspkey: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ACTIONS"),
     1: .same(proto: "NORDIC"),
+    2: .same(proto: "NORDIC_SLEEP"),
   ]
 }
 
@@ -9683,6 +9874,7 @@ extension ring_alarm_vibrate_status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "VIBRATION_STOP"),
     1: .same(proto: "VIBRATION_START"),
+    2: .same(proto: "LATER_REMIND"),
   ]
 }
 
@@ -9765,5 +9957,25 @@ extension health_realtime_operate_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HEALTH_START"),
     1: .same(proto: "HEALTH_END"),
+  ]
+}
+
+extension ring_remind_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "RING_REMIND_TYPE_ALERT"),
+    1: .same(proto: "RING_REMIND_TYPE_SILENT"),
+  ]
+}
+
+extension device_status_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "sport_status"),
+  ]
+}
+
+extension health_abnormal_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "HEALTH_ABNORMAL_NONE"),
+    1: .same(proto: "HEALTH_ABNORMAL_EXIST"),
   ]
 }

@@ -108,6 +108,7 @@ public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
 public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inquire_reply) -> ()
 public typealias sportGpsBase = () -> (GPSModel)
 public typealias commonErrorBase = (_ model: CommonError) -> ()
+public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -193,7 +194,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
    var listenDeviceClosureDic:[String:listenDeviceBase] = [:]
    var logPathClosure:((_ path:String) -> ())?
    var _gpsClosure:gpsBase?
-//   var _sportgGpsClosure:sportGpsBase?
+   //   var _sportgGpsClosure:sportGpsBase?
    var _liveSportDataListen:((_ model:protocol_exercise_sync_realtime_info) -> ())?
    var _liveSportControlListen:((_ model:protocol_exercise_control_operate) -> ())?
    var _ringAlarmVibrateListen:((_ model:protocol_ring_alarm_vibrate_notify_operate) -> ())?
@@ -230,11 +231,12 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
    var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
    var commonErrorBaseDic:[String:commonErrorBase] = [:]
    var qrCodeListBaseDic:[String:qrCodeListBase] = [:]
-    var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
+   var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
    var respiratoryClosureDic:[String:respiratoryClosure] = [:]
-    
+   var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
+   
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
-    
+   
    
    public override init() {
       
@@ -355,7 +357,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
                if !response.contains("aiDialConfig"){
                   successDic.removeValue(forKey: response)
                }
-              
+               
             }
          }
       }
@@ -1424,7 +1426,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
                   parseVideoDialClosureDic.removeValue(forKey: call.method)
                }
             }
-         
+            
          }
          
       }else if(call.method.contains("setCurrentPhotoBackgroundImagePath")){
@@ -1882,248 +1884,248 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
          }
       }
       else if(call.method.contains("getTrainingLoad")){
-        if let response = call.arguments as? FlutterStandardTypedData{
-           do{
-              let model = try protocol_training_load_inquire_reply(serializedData: response.data,partial: true)
-              if let back = trainLoadBaseDic[call.method]{
-                 back(model)
-                 trainLoadBaseDic.removeValue(forKey: call.method)
-              }
-           }catch{
-              print("Error getTrainingLoad data: \(error.localizedDescription)")
-              if let failure = failureArgumentDic[call.method]{
-                 failure(-1, "Failed to parse getTrainingLoad data")
-                 failureArgumentDic.removeValue(forKey: call.method)
-              }
-           }
-        }
-     }
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_training_load_inquire_reply(serializedData: response.data,partial: true)
+               if let back = trainLoadBaseDic[call.method]{
+                  back(model)
+                  trainLoadBaseDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error getTrainingLoad data: \(error.localizedDescription)")
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse getTrainingLoad data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }
+         }
+      }
       else if(call.method.contains("getFitnessCardio")){
-        if let response = call.arguments as? FlutterStandardTypedData{
-           do{
-              let model = try protocol_cardio_fitness_inquire_reply(serializedData: response.data,partial: true)
-              if let back = cardioFitnessBaseDic[call.method]{
-                 back(model)
-                 cardioFitnessBaseDic.removeValue(forKey: call.method)
-              }
-           }catch{
-              print("Error converting getCardioFitness data: \(error.localizedDescription)")
-           }
-        }
-     }
-       else if(call.method.contains("setClickHealthMeasure")){
-          if let response = call.arguments as? FlutterStandardTypedData{
-             do{
-                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
-                if let back = clickHealthMeasureDic[call.method]{
-                   back(model)
-                    clickHealthMeasureDic.removeValue(forKey: call.method)
-                }
-             }catch{
-                print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
-             }
-          }
-       } else if(call.method.contains("getClickHealthMeasure")){
-          if let response = call.arguments as? FlutterStandardTypedData{
-             do{
-                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
-                if let back = clickHealthMeasureDic[call.method]{
-                   back(model)
-                    clickHealthMeasureDic.removeValue(forKey: call.method)
-                }
-             }catch{
-                print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
-             }
-          }
-       } else if(call.method.contains("getWatchReminderWitch")) {
-          if let response = call.arguments as? FlutterStandardTypedData{
-             do{
-                let model = try protocol_remind_switch_inquire_reply(serializedData: response.data,partial: true)
-                if let back = watchReminderWitchDic[call.method]{
-                   back(model)
-                   watchReminderWitchDic.removeValue(forKey: call.method)
-                }
-             }catch{
-                print("Error getWatchReminderWitch data: \(error.localizedDescription)")
-             }
-          }
-       }    else if(call.method.contains("getAfPpgData")){
-          if let response = call.arguments as? String{
-             do{
-                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
-                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
-                   if let back = afPpgClosureDic[call.method]{
-                      back(model);
-                      afPpgClosureDic.removeValue(forKey: call.method)
-                   }
-                }
-                
-             }catch{
-                print("Error converting string to dictionary: \(error.localizedDescription)")
-             }
-          }
-          
-       }   else if(call.method.contains("getAfPpgUploadStatus")){
-          if let response = call.arguments as? String{
-             do{
-                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
-                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
-                   if let back = afPpgClosureDic[call.method]{
-                      back(model);
-                      afPpgClosureDic.removeValue(forKey: call.method)
-                   }
-                }
-                
-             }catch{
-                print("Error converting string to dictionary: \(error.localizedDescription)")
-             }
-            
-          }
-          
-       }   else if(call.method.contains("getAfData")){
-          if let response = call.arguments as? String{
-             do{
-                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
-                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfModel]>.self, dic){
-                   
-                   if let back = afClosureDic[call.method]{
-                      back(model);
-                      afClosureDic.removeValue(forKey: call.method)
-                   }
-                }
-                
-             }catch{
-                print("Error converting string to dictionary: \(error.localizedDescription)")
-             }
-             
-          }
-          
-       }  else if(call.method.contains("getAfUploadStatus")){
-          if let response = call.arguments as? String{
-             do{
-                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
-                if let model = ParseJson.jsonToModel(BaseModel<[CreekAfModel]>.self, dic){
-                   
-                   if let back = afClosureDic[call.method]{
-                      back(model);
-                      afClosureDic.removeValue(forKey: call.method)
-                   }
-                }
-                
-             }catch{
-                print("Error converting string to dictionary: \(error.localizedDescription)")
-             }
-             
-          }
-          
-       } else if(call.method.contains("getHydrateAssistant")){
-          if let response = call.arguments as? FlutterStandardTypedData{
-             do{
-                let model = try protocol_hydrate_assistant_inquire_reply(serializedData: response.data,partial: true)
-                if let back = hydrateAssistantBaseDic[call.method]{
-                   back(model)
-                   hydrateAssistantBaseDic.removeValue(forKey: call.method)
-                }
-             }catch{
-                print("Error converting string to dictionary: \(error.localizedDescription)")
-             }
-          }
-          
-
-       }else if(call.method == "ringAlarmVibrateListen"){
-           
-           if let response = call.arguments as? FlutterStandardTypedData{
-              do{
-                 let model = try protocol_ring_alarm_vibrate_notify_operate(serializedData: response.data,partial: true)
-                 if let back = _ringAlarmVibrateListen{
-                    back(model)
-                 }
-              }catch{
-                 print("Error converting string to dictionary: \(error.localizedDescription)")
-              }
-              
-           }
-            
-            
-         } else if(call.method == "motionRecognitionListen"){
-
-            if let response = call.arguments as? FlutterStandardTypedData{
-               do{
-                  let model = try protocol_ring_motion_recognition_operate(serializedData: response.data,partial: true)
-                  if let back = _motionRecognitionListen{
-                     back(model)
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_cardio_fitness_inquire_reply(serializedData: response.data,partial: true)
+               if let back = cardioFitnessBaseDic[call.method]{
+                  back(model)
+                  cardioFitnessBaseDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting getCardioFitness data: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method.contains("setClickHealthMeasure")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+               if let back = clickHealthMeasureDic[call.method]{
+                  back(model)
+                  clickHealthMeasureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
+            }
+         }
+      } else if(call.method.contains("getClickHealthMeasure")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+               if let back = clickHealthMeasureDic[call.method]{
+                  back(model)
+                  clickHealthMeasureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting getClickHealthMeasure data: \(error.localizedDescription)")
+            }
+         }
+      } else if(call.method.contains("getWatchReminderWitch")) {
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_remind_switch_inquire_reply(serializedData: response.data,partial: true)
+               if let back = watchReminderWitchDic[call.method]{
+                  back(model)
+                  watchReminderWitchDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error getWatchReminderWitch data: \(error.localizedDescription)")
+            }
+         }
+      }    else if(call.method.contains("getAfPpgData")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
+                  if let back = afPpgClosureDic[call.method]{
+                     back(model);
+                     afPpgClosureDic.removeValue(forKey: call.method)
                   }
-               }catch{
-                  print("Error converting string to dictionary: \(error.localizedDescription)")
                }
                
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
             }
-             
-          } else if(call.method == "ringReminderListen"){
-             if let response = call.arguments as? FlutterStandardTypedData{
-                do{
-                   let model = try protocol_ring_remind_mark_operate(serializedData: response.data,partial: true)
-                   if let back = _ringReminderListen{
-                      back(model)
-                   }
-                }catch{
-                   print("Error converting string to dictionary: \(error.localizedDescription)")
-                }
-             }
-           }
-       else if(call.method == "sportGpsListen"){
-          if let response = call.arguments as? FlutterStandardTypedData{
-             do{
-                let model = try protocol_exercise_gps_info(serializedData: response.data,partial: true)
-                if let back = _sportGpsListen{
-                   back(model)
-                }
-             }catch{
-                print("Error converting string to dictionary: \(error.localizedDescription)")
-             }
-          }
-        }
+         }
+         
+      }   else if(call.method.contains("getAfPpgUploadStatus")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[CreekAfPpgModel]>.self, dic){
+                  if let back = afPpgClosureDic[call.method]{
+                     back(model);
+                     afPpgClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+               
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+         
+      }   else if(call.method.contains("getAfData")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[CreekAfModel]>.self, dic){
+                  
+                  if let back = afClosureDic[call.method]{
+                     back(model);
+                     afClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+               
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+         
+      }  else if(call.method.contains("getAfUploadStatus")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[CreekAfModel]>.self, dic){
+                  
+                  if let back = afClosureDic[call.method]{
+                     back(model);
+                     afClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+               
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+         
+      } else if(call.method.contains("getHydrateAssistant")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_hydrate_assistant_inquire_reply(serializedData: response.data,partial: true)
+               if let back = hydrateAssistantBaseDic[call.method]{
+                  back(model)
+                  hydrateAssistantBaseDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
+         
+      }else if(call.method == "ringAlarmVibrateListen"){
+         
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ring_alarm_vibrate_notify_operate(serializedData: response.data,partial: true)
+               if let back = _ringAlarmVibrateListen{
+                  back(model)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+         
+         
+      } else if(call.method == "motionRecognitionListen"){
+         
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ring_motion_recognition_operate(serializedData: response.data,partial: true)
+               if let back = _motionRecognitionListen{
+                  back(model)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+         
+      } else if(call.method == "ringReminderListen"){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ring_remind_mark_operate(serializedData: response.data,partial: true)
+               if let back = _ringReminderListen{
+                  back(model)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method == "sportGpsListen"){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_exercise_gps_info(serializedData: response.data,partial: true)
+               if let back = _sportGpsListen{
+                  back(model)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
       
       else if(call.method.contains("successstartMeasure")){
-        if let response = call.arguments as? FlutterStandardTypedData{
-           do{
-              let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
-              if let back = clickHealthMeasureDic[call.method]{
-                 back(model)
-//                 clickHealthMeasureDic.removeValue(forKey: call.method)
-              }
-           }catch{
-              print("Error converting string to dictionary: \(error.localizedDescription)")
-           }
-        }
-     }
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
+               if let back = clickHealthMeasureDic[call.method]{
+                  back(model)
+                  //                 clickHealthMeasureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
       else if(call.method.contains("failurestartMeasure")){
-        if let response = call.arguments as? FlutterStandardTypedData{
-           do{
-              let model = try CommonError(serializedData: response.data,partial: true)
-              if let back = commonErrorBaseDic[call.method]{
-                 back(model)
-                 commonErrorBaseDic.removeValue(forKey: call.method)
-              }
-           }catch{
-              print("Error converting string to dictionary: \(error.localizedDescription)")
-           }
-        }
-        
-     }
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try CommonError(serializedData: response.data,partial: true)
+               if let back = commonErrorBaseDic[call.method]{
+                  back(model)
+                  commonErrorBaseDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
+      }
       else if(call.method.contains("getQrCodeList")){
-        if let response = call.arguments as? FlutterStandardTypedData{
-           do{
-              let model = try protocol_qr_code_list_inquire_reply(serializedData: response.data,partial: true)
-              if let back = qrCodeListBaseDic[call.method]{
-                 back(model)
-                 qrCodeListBaseDic.removeValue(forKey: call.method)
-              }
-           }catch{
-              print("Error converting string to dictionary: \(error.localizedDescription)")
-           }
-        }
-     }
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_qr_code_list_inquire_reply(serializedData: response.data,partial: true)
+               if let back = qrCodeListBaseDic[call.method]{
+                  back(model)
+                  qrCodeListBaseDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
       else if(call.method == "delDeviceNotice"){
          if let response = call.arguments as? String{
             if let back = _delDeviceListen{
@@ -2190,6 +2192,20 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
             if let back = backStringBaseDic[call.method]{
                back(response)
                backStringBaseDic.removeValue(forKey: call.method)
+            }
+         }
+         
+      }
+      else if(call.method.contains("getDeviceStatus")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_device_status_inquire_reply(serializedData: response.data,partial: true)
+               if let back = deviceStatusClosureDic[call.method]{
+                  back(model)
+                  deviceStatusClosureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
             }
          }
          

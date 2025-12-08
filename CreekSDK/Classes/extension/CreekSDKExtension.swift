@@ -2915,4 +2915,13 @@ extension CreekSDK{
       }
    }
    
+   public func getDeviceStatus(model:@escaping deviceStatusBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         deviceStatusClosureDic["getDeviceStatus\(requestId)"] = model
+         failureArgumentDic["getDeviceStatus\(requestId)"] = failure
+         methodChannel?.invokeMethod("getDeviceStatus\(requestId)", arguments: "")
+      }
+   }
+   
 }

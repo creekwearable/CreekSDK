@@ -430,6 +430,24 @@ public struct protocol_device_info: @unchecked Sendable {
     set {_uniqueStorage()._phoneBookNumMax = newValue}
   }
 
+  ///用户ID(配对时，固件上报)
+  public var userid: Data {
+    get {return _storage._userid}
+    set {_uniqueStorage()._userid = newValue}
+  }
+
+  ///账号(配对时，固件上报)
+  public var accountid: Data {
+    get {return _storage._accountid}
+    set {_uniqueStorage()._accountid = newValue}
+  }
+
+  ///boot ota状态,true表示在ota模式
+  public var bootOtaStatus: Bool {
+    get {return _storage._bootOtaStatus}
+    set {_uniqueStorage()._bootOtaStatus = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -893,6 +911,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     29: .same(proto: "pspkey"),
     30: .standard(proto: "user_sn_info"),
     31: .standard(proto: "phone_book_num_max"),
+    32: .same(proto: "userid"),
+    33: .same(proto: "accountid"),
+    34: .standard(proto: "boot_ota_status"),
   ]
 
   fileprivate class _StorageClass {
@@ -927,6 +948,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _pspkey: Platform_pspkey = .actions
     var _userSnInfo: Data = Data()
     var _phoneBookNumMax: UInt32 = 0
+    var _userid: Data = Data()
+    var _accountid: Data = Data()
+    var _bootOtaStatus: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -972,6 +996,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _pspkey = source._pspkey
       _userSnInfo = source._userSnInfo
       _phoneBookNumMax = source._phoneBookNumMax
+      _userid = source._userid
+      _accountid = source._accountid
+      _bootOtaStatus = source._bootOtaStatus
     }
   }
 
@@ -1021,6 +1048,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 29: try { try decoder.decodeSingularEnumField(value: &_storage._pspkey) }()
         case 30: try { try decoder.decodeSingularBytesField(value: &_storage._userSnInfo) }()
         case 31: try { try decoder.decodeSingularUInt32Field(value: &_storage._phoneBookNumMax) }()
+        case 32: try { try decoder.decodeSingularBytesField(value: &_storage._userid) }()
+        case 33: try { try decoder.decodeSingularBytesField(value: &_storage._accountid) }()
+        case 34: try { try decoder.decodeSingularBoolField(value: &_storage._bootOtaStatus) }()
         default: break
         }
       }
@@ -1126,6 +1156,15 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if _storage._phoneBookNumMax != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._phoneBookNumMax, fieldNumber: 31)
       }
+      if !_storage._userid.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._userid, fieldNumber: 32)
+      }
+      if !_storage._accountid.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._accountid, fieldNumber: 33)
+      }
+      if _storage._bootOtaStatus != false {
+        try visitor.visitSingularBoolField(value: _storage._bootOtaStatus, fieldNumber: 34)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1166,6 +1205,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._pspkey != rhs_storage._pspkey {return false}
         if _storage._userSnInfo != rhs_storage._userSnInfo {return false}
         if _storage._phoneBookNumMax != rhs_storage._phoneBookNumMax {return false}
+        if _storage._userid != rhs_storage._userid {return false}
+        if _storage._accountid != rhs_storage._accountid {return false}
+        if _storage._bootOtaStatus != rhs_storage._bootOtaStatus {return false}
         return true
       }
       if !storagesAreEqual {return false}
