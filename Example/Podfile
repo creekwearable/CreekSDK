@@ -14,6 +14,7 @@ target 'CreekSDK_Example' do
   pod 'CropViewController'
   pod 'TZImagePickerController'
 #  pod 'IQKeyboardManagerSwift'
+  pod 'MicrosoftCognitiveServicesSpeech-iOS'
   
   post_install do |installer|
 #

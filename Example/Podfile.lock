@@ -1,7 +1,6 @@
 PODS:
   - CreekFFmpeg (0.0.1)
-  - CreekSDK (11.0.1-titan):
-    - MicrosoftCognitiveServicesSpeech-iOS
+  - CreekSDK (11.0.3):
     - SwiftProtobuf (~> 1.25.2)
   - CropViewController (2.7.4)
   - MBProgressHUD (1.2.0)
@@ -21,6 +20,7 @@ DEPENDENCIES:
   - CreekSDK (from `../`)
   - CropViewController
   - MBProgressHUD
+  - MicrosoftCognitiveServicesSpeech-iOS
   - SnapKit
   - Toast-Swift
   - TZImagePickerController
@@ -51,7 +51,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CreekFFmpeg: f32c075e1b24972f1efe7519edb2a3fff3c500ac
-  CreekSDK: fa04004943cffb94153a5e9c43313c8ecd0ee07d
+  CreekSDK: 2133fda0b243ea7b08d05bc526889004ce0e8df3
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: 6e39e00447337facb47f418c9c21dd46b4d8c4d0
@@ -61,6 +61,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: a013c186415f6044914bb0d0dd960a884cff46ec
   ZIPFoundation: b8c29ea7ae353b309bc810586181fd073cb3312c
 
-PODFILE CHECKSUM: 4a14ca1669efc68434b710dce062ecbb635be627
+PODFILE CHECKSUM: 57f1b93ed3070a59e68e769d02dd3692cd28f705
 
 COCOAPODS: 1.16.2

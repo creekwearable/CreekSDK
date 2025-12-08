@@ -1,6 +1,6 @@
 {
   "name": "CreekSDK",
-  "version": "11.0.1-titan",
+  "version": "11.0.3",
   "summary": "A short description of CreekSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/creekwearable/CreekSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/creekwearable/CreekSDK.git",
-    "tag": "11.0.1-titan"
+    "tag": "11.0.3"
   },
   "platforms": {
     "ios": "13.0"
@@ -64,8 +64,7 @@
   "dependencies": {
     "SwiftProtobuf": [
       "~> 1.25.2"
-    ],
-    "MicrosoftCognitiveServicesSpeech-iOS": []
+    ]
   },
   "static_framework": true,
   "resource_bundles": {
