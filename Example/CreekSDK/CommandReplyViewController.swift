@@ -82,11 +82,24 @@ class CommandReplyViewController: CreekBaseViewController {
          //            print("aiAnalysisSport:\(message)")
          //         }
          //
-         //         CreekInterFace.instance.aiAnalysisActivity(activityModel: ActivityModel(), goalsModel: GoalsModel(), langCode: "en", userId: "123456", height: 178, weight: 65.5) { str in
-         //            print("aiAnalysisActivity:\(str)")
-         //         } failure: { code, message in
-         //            print("aiAnalysisActivity:\(message)")
-         //         }
+//         let model =  ActivityModel()
+//         model.total_activity_calories = 500
+//         model.total_distances = 566
+//         model.total_stand_hour = 10
+//         model.total_step = 400
+//         model.total_exercise_min = 60
+//         let goal =  GoalsModel()
+//         goal.calories = 1000
+//         goal.steps = 8000
+//         goal.exercise = 60
+//         goal.distance = 2000
+//         goal.stand = 10
+//         
+//         CreekInterFace.instance.aiAnalysisActivity(activityModel: model, goalsModel: goal, langCode: "zh", userId: "123456", height: 178, weight: 65.5) { str in
+//            print("aiAnalysisActivity:\(str)")
+//         } failure: { code, message in
+//            print("aiAnalysisActivity:\(message)")
+//         }
          
          //         CreekInterFace.instance.getAuthorizationCode { code in
          //
@@ -94,7 +107,7 @@ class CommandReplyViewController: CreekBaseViewController {
          //
          //         }
          
-  
+         
          
          CreekInterFace.instance.getFirmware { model in
             self.view.hideRemark()
@@ -209,15 +222,15 @@ class CommandReplyViewController: CreekBaseViewController {
             self.textView.text = "failure"
          }
          
-//         CreekInterFace.instance.syncHealthType(type: .syncActivity) { progress in
-//            self.textView.text = "progress\(progress)"
-//         } syncSuccess: {
-//            self.view.hideRemark()
-//            self.textView.text = "success"
-//         } syncFailure: {
-//            self.view.hideRemark()
-//            self.textView.text = "failure"
-//         }
+         //         CreekInterFace.instance.syncHealthType(type: .syncActivity) { progress in
+         //            self.textView.text = "progress\(progress)"
+         //         } syncSuccess: {
+         //            self.view.hideRemark()
+         //            self.textView.text = "success"
+         //         } syncFailure: {
+         //            self.view.hideRemark()
+         //            self.textView.text = "failure"
+         //         }
          break
       case "Get watch dial":
          CreekInterFace.instance.getWatchDial { model in
@@ -1416,15 +1429,15 @@ class CommandReplyViewController: CreekBaseViewController {
          var  operate =  protocol_qr_code_list_operate()
          
          operate.operate = .insert
-//         operate.operate = .delete
-//         operate.operate = .update
+         //         operate.operate = .delete
+         //         operate.operate = .update
          
          var item =  qr_code_list_item()
          item.id = 1
          item.content = "test".data(using: .utf8)!
          item.name = "test".data(using: .utf8)!
          operate.items.append(item)
-   
+         
          CreekInterFace.instance.setQrCodeList(model: operate) {
             self.view.hideRemark()
             self.textView.text = "success"
