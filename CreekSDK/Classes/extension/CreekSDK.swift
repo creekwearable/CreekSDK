@@ -27,6 +27,7 @@ public typealias ContactsIconData = (_ model:Data) -> ()
 public typealias progressBase = (_ progress:Int) -> ()
 public typealias baseClosure = (_ model:BaseModel<BaseDataModel>) -> ()
 public typealias successBase = () -> ()
+public typealias abnormalBase = () -> ()
 public typealias failureBase = () -> ()
 public typealias authorizationFailureBase = () -> ()
 public typealias endScanBase = () -> ()
@@ -234,6 +235,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
    var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
    var respiratoryClosureDic:[String:respiratoryClosure] = [:]
    var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
+   var abnormalClosureDic:[String:abnormalBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -2208,7 +2210,11 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
                print("Error converting string to dictionary: \(error.localizedDescription)")
             }
          }
-         
+      }
+      else if(call.method.contains("abnormalstartMeasure")){
+         if let back = abnormalClosureDic[call.method]{
+            back()
+         }
       }
       
    }

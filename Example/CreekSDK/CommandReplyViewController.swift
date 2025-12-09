@@ -1437,6 +1437,11 @@ class CommandReplyViewController: CreekBaseViewController {
       case "get deviceStatus":
          CreekInterFace.instance.getDeviceStatus(type: .sportStatus){ model in
             self.view.hideRemark()
+            if model.value == 1 {
+               print("运动中")
+            }else{
+               print("未运动")
+            }
             let json = try? model.jsonString()
             if let str = json{
                dispatch_main_sync_safe {

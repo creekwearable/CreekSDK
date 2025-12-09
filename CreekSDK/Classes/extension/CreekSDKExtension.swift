@@ -2807,11 +2807,12 @@ extension CreekSDK{
       }
    }
    
-   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase){
+   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase){
       serialQueue.sync {
          requestId+=1
          clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
          commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
+         abnormalClosureDic["abnormalstartMeasure\(requestId)"] = abnormal
          successDic["startMeasure\(requestId)"] = success
          methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: [type.rawValue,measureDuration,timeout])
       }
