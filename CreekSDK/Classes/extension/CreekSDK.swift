@@ -108,6 +108,7 @@ public typealias afPpgClosure = (_ model:BaseModel<[CreekAfPpgModel]>) -> ()
 public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inquire_reply) -> ()
 public typealias sportGpsBase = () -> (GPSModel)
 public typealias commonErrorBase = (_ model: CommonError) -> ()
+public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistant_setting_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -232,6 +233,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
    var qrCodeListBaseDic:[String:qrCodeListBase] = [:]
     var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
    var respiratoryClosureDic:[String:respiratoryClosure] = [:]
+   var hydrateAssistantConfigClosureDic:[String:hydrateAssistantConfigBase] = [:]
     
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -2181,6 +2183,20 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
             if let back = boolClosureDic[call.method]{
                back(response)
                boolClosureDic.removeValue(forKey: call.method)
+            }
+         }
+         
+      }
+      else if(call.method.contains("getConfigHydrateAssistant")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_hydrate_assistant_setting_inquire_reply(serializedData: response.data,partial: true)
+               if let back = hydrateAssistantConfigClosureDic[call.method]{
+                  back(model)
+                  hydrateAssistantConfigClosureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
             }
          }
          

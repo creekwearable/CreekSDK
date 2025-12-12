@@ -102,7 +102,12 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "get cardio fitness",
       "set cardio fitness",
       "get qr code",
-      "set qr code"
+      "set qr code",
+      "getHydrateAssistant",
+      "addHydrateAssistant",
+      "getHydrateAssistantConfig",
+      "setHydrateAssistantConfig",
+      "setVitalityScore",
    ];
    
    var filteredOptions: [String] = []

@@ -2107,7 +2107,7 @@ extension CreekSDK{
       }
    }
    
-   public func getGPXEncodeUint8List(data:Data,geoId:Int,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
+   public func getGPXEncodeUint8List(data:Data,geoId:UInt64,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
       _geoAddressClosure = model
       serialQueue.sync {
          requestId+=1
@@ -2116,7 +2116,7 @@ extension CreekSDK{
       }
    }
    
-   public func upLoadGeo(data:Data,geoId:Int,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+   public func upLoadGeo(data:Data,geoId:UInt64,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
       
       serialQueue.sync {
          requestId+=1
@@ -2921,5 +2921,57 @@ extension CreekSDK{
 //         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
 //      }
 //   }
+   
+   
+   public func setHydrateAssistant(model:protocol_hydrate_assistant_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setHydrateAssistant\(requestId)"] = success;
+         failureArgumentDic["setHydrateAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setHydrateAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   public func getHydrateAssistantConfig(model:@escaping hydrateAssistantConfigBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         hydrateAssistantConfigClosureDic["getConfigHydrateAssistant\(requestId)"] = model
+         failureArgumentDic["getConfigHydrateAssistant\(requestId)"] = failure
+         methodChannel?.invokeMethod("getConfigHydrateAssistant\(requestId)", arguments: "")
+      }
+   }
+   
+   public func setHydrateAssistantConfig(model:protocol_hydrate_assistant_setting_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setConfigHydrateAssistant\(requestId)"] = success;
+         failureArgumentDic["setConfigHydrateAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setConfigHydrateAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   public func setVitalityScore(model:protocol_custom_titan_vitality_score_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setVitalityScore\(requestId)"] = success;
+         failureArgumentDic["setVitalityScore\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setVitalityScore\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
    
 }
