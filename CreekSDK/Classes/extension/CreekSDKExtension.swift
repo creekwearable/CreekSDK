@@ -2136,11 +2136,11 @@ extension CreekSDK{
       }
    }
    
-   public func delGeo(geoIds:[Int],success:@escaping successBase,failure:@escaping failureArgument) {
+   public func delGeo(geoIds:[UInt64],success:@escaping successBase,failure:@escaping failureArgument) {
       var operate =  protocol_geobin_operate()
       geoIds.forEach { geoId in
          var item  = protocol_geobin_list_item()
-         item.geobinID = UInt64(geoId)
+         item.geobinID = geoId
          operate.geobinItems.append(item)
       }
       serialQueue.sync {
