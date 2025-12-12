@@ -184,51 +184,51 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "IntegerLiteral",
-      "offset": 1632,
+      "offset": 1644,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "IntegerLiteral",
-      "offset": 1662,
+      "offset": 1674,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "IntegerLiteral",
-      "offset": 1683,
+      "offset": 1695,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "IntegerLiteral",
-      "offset": 1702,
+      "offset": 1714,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "IntegerLiteral",
-      "offset": 1718,
+      "offset": 1730,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "IntegerLiteral",
-      "offset": 1746,
+      "offset": 1758,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.3\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/path_provider_foundation-2.4.1\/darwin\/path_provider_foundation\/Sources\/path_provider_foundation\/messages.g.swift",
       "kind": "StringLiteral",
-      "offset": 3619,
+      "offset": 3631,
       "length": 2,
       "value": "\"\""
     }

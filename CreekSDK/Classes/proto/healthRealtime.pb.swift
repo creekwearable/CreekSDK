@@ -100,6 +100,129 @@ public struct protocol_health_realtime_inquire_reply: Sendable {
   public init() {}
 }
 
+public struct protocol_health_sleep_data_time: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var year: UInt32 = 0
+
+  public var month: UInt32 = 0
+
+  public var day: UInt32 = 0
+
+  public var hour: UInt32 = 0
+
+  public var minute: UInt32 = 0
+
+  public var second: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_health_sleep_data: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var sleepID: UInt32 {
+    get {return _storage._sleepID}
+    set {_uniqueStorage()._sleepID = newValue}
+  }
+
+  ///入睡时间
+  public var fallAsleepTime: protocol_health_sleep_data_time {
+    get {return _storage._fallAsleepTime ?? protocol_health_sleep_data_time()}
+    set {_uniqueStorage()._fallAsleepTime = newValue}
+  }
+  /// Returns true if `fallAsleepTime` has been explicitly set.
+  public var hasFallAsleepTime: Bool {return _storage._fallAsleepTime != nil}
+  /// Clears the value of `fallAsleepTime`. Subsequent reads from it will return its default value.
+  public mutating func clearFallAsleepTime() {_uniqueStorage()._fallAsleepTime = nil}
+
+  ///起床时间
+  public var getUpTime: protocol_health_sleep_data_time {
+    get {return _storage._getUpTime ?? protocol_health_sleep_data_time()}
+    set {_uniqueStorage()._getUpTime = newValue}
+  }
+  /// Returns true if `getUpTime` has been explicitly set.
+  public var hasGetUpTime: Bool {return _storage._getUpTime != nil}
+  /// Clears the value of `getUpTime`. Subsequent reads from it will return its default value.
+  public mutating func clearGetUpTime() {_uniqueStorage()._getUpTime = nil}
+
+  ///睡眠总时长
+  public var totalSleepTimeMins: UInt32 {
+    get {return _storage._totalSleepTimeMins}
+    set {_uniqueStorage()._totalSleepTimeMins = newValue}
+  }
+
+  ///睡眠阶段-总清醒时长, 单位:分钟
+  public var wakeMins: UInt32 {
+    get {return _storage._wakeMins}
+    set {_uniqueStorage()._wakeMins = newValue}
+  }
+
+  ///睡眠阶段-总浅眠时长 单位:分钟
+  public var lightSleepMins: UInt32 {
+    get {return _storage._lightSleepMins}
+    set {_uniqueStorage()._lightSleepMins = newValue}
+  }
+
+  ///睡眠阶段-总深眠时长 单位:分钟
+  public var deepSleepMins: UInt32 {
+    get {return _storage._deepSleepMins}
+    set {_uniqueStorage()._deepSleepMins = newValue}
+  }
+
+  ///睡眠阶段-总REM时长 单位:分钟
+  public var remMins: UInt32 {
+    get {return _storage._remMins}
+    set {_uniqueStorage()._remMins = newValue}
+  }
+
+  ///睡眠得分
+  public var sleepScore: UInt32 {
+    get {return _storage._sleepScore}
+    set {_uniqueStorage()._sleepScore = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct protocol_health_sleep_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_health_slepp_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  public var sleepData: [protocol_health_sleep_data] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_health_realtime_monitor_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -279,6 +402,278 @@ extension protocol_health_realtime_inquire_reply: SwiftProtobuf.Message, SwiftPr
     if lhs.spo2Value != rhs.spo2Value {return false}
     if lhs.hrvValue != rhs.hrvValue {return false}
     if lhs.stressValue != rhs.stressValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_health_sleep_data_time: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_health_sleep_data_time"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "year"),
+    2: .same(proto: "month"),
+    3: .same(proto: "day"),
+    4: .same(proto: "hour"),
+    5: .same(proto: "minute"),
+    6: .same(proto: "second"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.year) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.month) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.day) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.second) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.year != 0 {
+      try visitor.visitSingularUInt32Field(value: self.year, fieldNumber: 1)
+    }
+    if self.month != 0 {
+      try visitor.visitSingularUInt32Field(value: self.month, fieldNumber: 2)
+    }
+    if self.day != 0 {
+      try visitor.visitSingularUInt32Field(value: self.day, fieldNumber: 3)
+    }
+    if self.hour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 4)
+    }
+    if self.minute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.minute, fieldNumber: 5)
+    }
+    if self.second != 0 {
+      try visitor.visitSingularUInt32Field(value: self.second, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_sleep_data_time, rhs: protocol_health_sleep_data_time) -> Bool {
+    if lhs.year != rhs.year {return false}
+    if lhs.month != rhs.month {return false}
+    if lhs.day != rhs.day {return false}
+    if lhs.hour != rhs.hour {return false}
+    if lhs.minute != rhs.minute {return false}
+    if lhs.second != rhs.second {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_health_sleep_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_health_sleep_data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sleep_id"),
+    2: .standard(proto: "fall_asleep_time"),
+    3: .standard(proto: "get_up_time"),
+    4: .standard(proto: "total_sleep_time_mins"),
+    5: .standard(proto: "wake_mins"),
+    6: .standard(proto: "light_sleep_mins"),
+    7: .standard(proto: "deep_sleep_mins"),
+    8: .standard(proto: "rem_mins"),
+    9: .standard(proto: "sleep_score"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _sleepID: UInt32 = 0
+    var _fallAsleepTime: protocol_health_sleep_data_time? = nil
+    var _getUpTime: protocol_health_sleep_data_time? = nil
+    var _totalSleepTimeMins: UInt32 = 0
+    var _wakeMins: UInt32 = 0
+    var _lightSleepMins: UInt32 = 0
+    var _deepSleepMins: UInt32 = 0
+    var _remMins: UInt32 = 0
+    var _sleepScore: UInt32 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _sleepID = source._sleepID
+      _fallAsleepTime = source._fallAsleepTime
+      _getUpTime = source._getUpTime
+      _totalSleepTimeMins = source._totalSleepTimeMins
+      _wakeMins = source._wakeMins
+      _lightSleepMins = source._lightSleepMins
+      _deepSleepMins = source._deepSleepMins
+      _remMins = source._remMins
+      _sleepScore = source._sleepScore
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._sleepID) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._fallAsleepTime) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._getUpTime) }()
+        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalSleepTimeMins) }()
+        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._wakeMins) }()
+        case 6: try { try decoder.decodeSingularUInt32Field(value: &_storage._lightSleepMins) }()
+        case 7: try { try decoder.decodeSingularUInt32Field(value: &_storage._deepSleepMins) }()
+        case 8: try { try decoder.decodeSingularUInt32Field(value: &_storage._remMins) }()
+        case 9: try { try decoder.decodeSingularUInt32Field(value: &_storage._sleepScore) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._sleepID != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._sleepID, fieldNumber: 1)
+      }
+      try { if let v = _storage._fallAsleepTime {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._getUpTime {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      if _storage._totalSleepTimeMins != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._totalSleepTimeMins, fieldNumber: 4)
+      }
+      if _storage._wakeMins != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._wakeMins, fieldNumber: 5)
+      }
+      if _storage._lightSleepMins != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._lightSleepMins, fieldNumber: 6)
+      }
+      if _storage._deepSleepMins != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._deepSleepMins, fieldNumber: 7)
+      }
+      if _storage._remMins != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._remMins, fieldNumber: 8)
+      }
+      if _storage._sleepScore != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._sleepScore, fieldNumber: 9)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_sleep_data, rhs: protocol_health_sleep_data) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._sleepID != rhs_storage._sleepID {return false}
+        if _storage._fallAsleepTime != rhs_storage._fallAsleepTime {return false}
+        if _storage._getUpTime != rhs_storage._getUpTime {return false}
+        if _storage._totalSleepTimeMins != rhs_storage._totalSleepTimeMins {return false}
+        if _storage._wakeMins != rhs_storage._wakeMins {return false}
+        if _storage._lightSleepMins != rhs_storage._lightSleepMins {return false}
+        if _storage._deepSleepMins != rhs_storage._deepSleepMins {return false}
+        if _storage._remMins != rhs_storage._remMins {return false}
+        if _storage._sleepScore != rhs_storage._sleepScore {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_health_sleep_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_health_sleep_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_sleep_operate, rhs: protocol_health_sleep_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_health_slepp_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_health_slepp_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "sleep_data"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.sleepData) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if !self.sleepData.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.sleepData, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_health_slepp_inquire_reply, rhs: protocol_health_slepp_inquire_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.sleepData != rhs.sleepData {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

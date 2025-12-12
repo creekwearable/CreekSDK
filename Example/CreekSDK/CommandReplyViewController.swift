@@ -1434,6 +1434,103 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          
          break
+      case "getHydrateAssistant":
+         CreekInterFace.instance.getHydrateAssistant{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "addHydrateAssistant":
+         var  operate =  protocol_hydrate_assistant_operate()
+         operate.operate = .hydrareAdd
+         var item = hydrate_assistant_daily_item()
+         item.drinkType = .barleyTea
+         item.drinkValue = 100
+         item.hour = 8
+         item.min = 30
+         operate.item = item
+         CreekInterFace.instance.setHydrateAssistant(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+      case "delHydrateAssistant":
+         var  operate =  protocol_hydrate_assistant_operate()
+         operate.operate = .hydrareDelete
+         var item = hydrate_assistant_daily_item()
+         item.recordID = 1  //拿获取到的列表id
+         operate.item = item
+         CreekInterFace.instance.setHydrateAssistant(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "getHydrateAssistantConfig":
+         CreekInterFace.instance.getHydrateAssistantConfig{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setHydrateAssistantConfig":
+         var  operate =  protocol_hydrate_assistant_setting_operate()
+          var setting = hydrate_assistant_setting();
+          setting.interval = 30;
+          setting.switchFlag = true;
+          var timeSection = hydrate_assistant_time_section();
+          timeSection.startHour = 8;
+          timeSection.startMinute = 0;
+          timeSection.endHour = 8;
+          timeSection.endMinute = 30;
+          var timeSection2 = hydrate_assistant_time_section();
+          timeSection2.startHour = 9;
+          timeSection2.startMinute = 0;
+          timeSection2.endHour = 9;
+          timeSection2.endMinute = 30;
+          setting.timeSection.append(timeSection)
+          setting.timeSection.append(timeSection2)
+          operate.setting = setting
+         CreekInterFace.instance.setHydrateAssistantConfig(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setVitalityScore":
+         var  operate =  protocol_custom_titan_vitality_score_operate()
+         operate.vitalityScore = 50
+         CreekInterFace.instance.setVitalityScore(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
       default:
          break
          

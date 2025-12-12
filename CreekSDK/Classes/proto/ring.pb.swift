@@ -50,6 +50,9 @@ public struct protocol_ring_click_measure_operate: @unchecked Sendable {
   ///脉率测量值
   public var pulseRateValue: UInt32 = 0
 
+  ///异常状态
+  public var abnormalStatus: health_abnormal_status = .healthAbnormalNone
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -81,6 +84,9 @@ public struct protocol_ring_remind_mark_operate: Sendable {
   public var hasEventTime: Bool {return self._eventTime != nil}
   /// Clears the value of `eventTime`. Subsequent reads from it will return its default value.
   public mutating func clearEventTime() {self._eventTime = nil}
+
+  ///提醒方式
+  public var remindType: ring_remind_type = .alert
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -228,6 +234,9 @@ public struct protocol_ring_alarm_vibrate_notify_operate: @unchecked Sendable {
   ///闹钟震动状态
   public var status: ring_alarm_vibrate_status = .vibrationStop
 
+  ///是否支持稍后提醒
+  public var laterRemindSwitchFlag: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -272,6 +281,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     6: .standard(proto: "measure_status"),
     7: .standard(proto: "data_list"),
     8: .standard(proto: "pulse_rate_value"),
+    9: .standard(proto: "abnormal_status"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -288,6 +298,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
       case 6: try { try decoder.decodeSingularEnumField(value: &self.measureStatus) }()
       case 7: try { try decoder.decodeSingularBytesField(value: &self.dataList) }()
       case 8: try { try decoder.decodeSingularUInt32Field(value: &self.pulseRateValue) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self.abnormalStatus) }()
       default: break
       }
     }
@@ -318,6 +329,9 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if self.pulseRateValue != 0 {
       try visitor.visitSingularUInt32Field(value: self.pulseRateValue, fieldNumber: 8)
     }
+    if self.abnormalStatus != .healthAbnormalNone {
+      try visitor.visitSingularEnumField(value: self.abnormalStatus, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -330,6 +344,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.measureStatus != rhs.measureStatus {return false}
     if lhs.dataList != rhs.dataList {return false}
     if lhs.pulseRateValue != rhs.pulseRateValue {return false}
+    if lhs.abnormalStatus != rhs.abnormalStatus {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -343,6 +358,7 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     3: .standard(proto: "event_id"),
     4: .standard(proto: "event_value"),
     5: .standard(proto: "event_time"),
+    6: .standard(proto: "remind_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -356,6 +372,7 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
       case 3: try { try decoder.decodeSingularEnumField(value: &self.eventID) }()
       case 4: try { try decoder.decodeSingularEnumField(value: &self.eventValue) }()
       case 5: try { try decoder.decodeSingularMessageField(value: &self._eventTime) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.remindType) }()
       default: break
       }
     }
@@ -381,6 +398,9 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     try { if let v = self._eventTime {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
     } }()
+    if self.remindType != .alert {
+      try visitor.visitSingularEnumField(value: self.remindType, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -390,6 +410,7 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.eventID != rhs.eventID {return false}
     if lhs.eventValue != rhs.eventValue {return false}
     if lhs._eventTime != rhs._eventTime {return false}
+    if lhs.remindType != rhs.remindType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -651,6 +672,7 @@ extension protocol_ring_alarm_vibrate_notify_operate: SwiftProtobuf.Message, Swi
     5: .same(proto: "minute"),
     6: .standard(proto: "alarm_name"),
     7: .same(proto: "status"),
+    8: .standard(proto: "later_remind_switch_flag"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -666,6 +688,7 @@ extension protocol_ring_alarm_vibrate_notify_operate: SwiftProtobuf.Message, Swi
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
       case 6: try { try decoder.decodeSingularBytesField(value: &self.alarmName) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.status) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.laterRemindSwitchFlag) }()
       default: break
       }
     }
@@ -693,6 +716,9 @@ extension protocol_ring_alarm_vibrate_notify_operate: SwiftProtobuf.Message, Swi
     if self.status != .vibrationStop {
       try visitor.visitSingularEnumField(value: self.status, fieldNumber: 7)
     }
+    if self.laterRemindSwitchFlag != false {
+      try visitor.visitSingularBoolField(value: self.laterRemindSwitchFlag, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -704,6 +730,7 @@ extension protocol_ring_alarm_vibrate_notify_operate: SwiftProtobuf.Message, Swi
     if lhs.minute != rhs.minute {return false}
     if lhs.alarmName != rhs.alarmName {return false}
     if lhs.status != rhs.status {return false}
+    if lhs.laterRemindSwitchFlag != rhs.laterRemindSwitchFlag {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
