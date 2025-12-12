@@ -1256,7 +1256,7 @@ class CommandReplyViewController: CreekBaseViewController {
       case  "del route":
          CreekInterFace.instance.getGeo { model in
             self.view.hideRemark()
-            let ids = model.listItem.map { Int($0.geobinID) }
+            let ids = model.listItem.map { ($0.geobinID) }
             CreekInterFace.instance.delGeo(geoIds: ids) {
                self.view.hideRemark()
                self.textView.text = "success"
