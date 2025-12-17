@@ -125,6 +125,12 @@ public struct protocol_hydrate_assistant_operate: Sendable {
   ///设置记录的utc时间，记录时间
   public var setUtcTime: UInt32 = 0
 
+  ///当前多少页，用于分段传输。
+  public var pageIndex: UInt32 = 0
+
+  ///当前页传输多少条数据，用于分段传输。
+  public var pageNum: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -158,6 +164,15 @@ public struct protocol_hydrate_assistant_inquire_reply: Sendable {
 
   ///设置记录的utc时间，记录时间
   public var setUtcTime: UInt32 = 0
+
+  ///当前多少页，用于分段传输。
+  public var pageIndex: UInt32 = 0
+
+  ///当前页传输多少条数据，用于分段传输。
+  public var pageNum: UInt32 = 0
+
+  ///总共有多少个 daily_data
+  public var totalItems: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -475,6 +490,8 @@ extension protocol_hydrate_assistant_operate: SwiftProtobuf.Message, SwiftProtob
     1: .same(proto: "operate"),
     2: .same(proto: "item"),
     3: .standard(proto: "set_utc_time"),
+    4: .standard(proto: "page_index"),
+    5: .standard(proto: "page_num"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -486,6 +503,8 @@ extension protocol_hydrate_assistant_operate: SwiftProtobuf.Message, SwiftProtob
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._item) }()
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.setUtcTime) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.pageIndex) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.pageNum) }()
       default: break
       }
     }
@@ -505,6 +524,12 @@ extension protocol_hydrate_assistant_operate: SwiftProtobuf.Message, SwiftProtob
     if self.setUtcTime != 0 {
       try visitor.visitSingularUInt32Field(value: self.setUtcTime, fieldNumber: 3)
     }
+    if self.pageIndex != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageIndex, fieldNumber: 4)
+    }
+    if self.pageNum != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageNum, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -512,6 +537,8 @@ extension protocol_hydrate_assistant_operate: SwiftProtobuf.Message, SwiftProtob
     if lhs.operate != rhs.operate {return false}
     if lhs._item != rhs._item {return false}
     if lhs.setUtcTime != rhs.setUtcTime {return false}
+    if lhs.pageIndex != rhs.pageIndex {return false}
+    if lhs.pageNum != rhs.pageNum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -525,6 +552,9 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
     3: .standard(proto: "last_drink_time"),
     4: .standard(proto: "daily_data"),
     5: .standard(proto: "set_utc_time"),
+    6: .standard(proto: "page_index"),
+    7: .standard(proto: "page_num"),
+    8: .standard(proto: "total_items"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -538,6 +568,9 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
       case 3: try { try decoder.decodeSingularMessageField(value: &self._lastDrinkTime) }()
       case 4: try { try decoder.decodeRepeatedMessageField(value: &self.dailyData) }()
       case 5: try { try decoder.decodeSingularUInt32Field(value: &self.setUtcTime) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.pageIndex) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.pageNum) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.totalItems) }()
       default: break
       }
     }
@@ -563,6 +596,15 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
     if self.setUtcTime != 0 {
       try visitor.visitSingularUInt32Field(value: self.setUtcTime, fieldNumber: 5)
     }
+    if self.pageIndex != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageIndex, fieldNumber: 6)
+    }
+    if self.pageNum != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pageNum, fieldNumber: 7)
+    }
+    if self.totalItems != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalItems, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -572,6 +614,9 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
     if lhs._lastDrinkTime != rhs._lastDrinkTime {return false}
     if lhs.dailyData != rhs.dailyData {return false}
     if lhs.setUtcTime != rhs.setUtcTime {return false}
+    if lhs.pageIndex != rhs.pageIndex {return false}
+    if lhs.pageNum != rhs.pageNum {return false}
+    if lhs.totalItems != rhs.totalItems {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

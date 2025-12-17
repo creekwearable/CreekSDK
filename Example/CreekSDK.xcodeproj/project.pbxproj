@@ -150,6 +150,7 @@
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
 		07D91DD92EEBFE7700E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */; };
 		07D91DDA2EEBFE7700E155A6 /* vitalityScore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */; };
+		07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -308,6 +309,7 @@
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
 		07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
 		07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalityScore.pb.swift; sourceTree = "<group>"; };
+		07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayer.pb.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreekSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -421,6 +423,7 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */,
 				07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */,
 				07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */,
 				07322F992EBDF103003CD42C /* healthRealtime.pb.swift */,
@@ -963,6 +966,7 @@
 				079A217A2B29A72A00F5D013 /* DeviceModel.swift in Sources */,
 				079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */,
 				C44BFBA52E8A400400E63C19 /* GPSModel.swift in Sources */,
+				07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */,
 				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
 				079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */,

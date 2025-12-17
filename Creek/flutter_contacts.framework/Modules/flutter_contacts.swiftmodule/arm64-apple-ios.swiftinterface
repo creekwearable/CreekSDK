@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name flutter_contacts
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name flutter_contacts
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Contacts
 import ContactsUI
 import Flutter
@@ -18,9 +18,15 @@ public enum FlutterContacts {
 public class SwiftFlutterContactsPlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin, Flutter.FlutterStreamHandler, ContactsUI.CNContactViewControllerDelegate, ContactsUI.CNContactPickerDelegate {
   @objc public static func register(with registrar: any Flutter.FlutterPluginRegistrar)
   @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func onListen(withArguments _: Any?, eventSink events: @escaping Flutter.FlutterEventSink) -> Flutter.FlutterError?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func onCancel(withArguments _: Any?) -> Flutter.FlutterError?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func contactViewController(_ viewController: ContactsUI.CNContactViewController, didCompleteWith contact: Contacts.CNContact?)
+  #endif
   @objc public func contactPicker(_: ContactsUI.CNContactPickerViewController, didSelect contact: Contacts.CNContact)
   @objc public func contactPickerDidCancel(_: ContactsUI.CNContactPickerViewController)
   @objc deinit
