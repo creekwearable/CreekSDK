@@ -4326,6 +4326,9 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///开启关闭自动亮度
   case templateTypeAutoBrightnessMode // = 22
+
+  ///睡眠
+  case templateTypeSleepData // = 23
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4356,6 +4359,7 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 20: self = .templateTypeAlwaysonMode
     case 21: self = .templateTypeVolumeMode
     case 22: self = .templateTypeAutoBrightnessMode
+    case 23: self = .templateTypeSleepData
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4384,6 +4388,7 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .templateTypeAlwaysonMode: return 20
     case .templateTypeVolumeMode: return 21
     case .templateTypeAutoBrightnessMode: return 22
+    case .templateTypeSleepData: return 23
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4412,6 +4417,7 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .templateTypeAlwaysonMode,
     .templateTypeVolumeMode,
     .templateTypeAutoBrightnessMode,
+    .templateTypeSleepData,
   ]
 
 }
@@ -8455,6 +8461,100 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum config_pic_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case picNull // = 0
+  case picIndex8 // = 1
+  case pic0565 // = 2
+  case pic8888 // = 3
+  case picJpeg // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .picNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .picNull
+    case 1: self = .picIndex8
+    case 2: self = .pic0565
+    case 3: self = .pic8888
+    case 4: self = .picJpeg
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .picNull: return 0
+    case .picIndex8: return 1
+    case .pic0565: return 2
+    case .pic8888: return 3
+    case .picJpeg: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [config_pic_type] = [
+    .picNull,
+    .picIndex8,
+    .pic0565,
+    .pic8888,
+    .picJpeg,
+  ]
+
+}
+
+public enum hydrate_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case hydrareInvalid // = 0
+
+  ///查询
+  case hydrareInquire // = 1
+
+  ///增加
+  case hydrareAdd // = 2
+
+  ///删除
+  case hydrareDelete // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .hydrareInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .hydrareInvalid
+    case 1: self = .hydrareInquire
+    case 2: self = .hydrareAdd
+    case 3: self = .hydrareDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .hydrareInvalid: return 0
+    case .hydrareInquire: return 1
+    case .hydrareAdd: return 2
+    case .hydrareDelete: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [hydrate_operate_type] = [
+    .hydrareInvalid,
+    .hydrareInquire,
+    .hydrareAdd,
+    .hydrareDelete,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -9265,6 +9365,7 @@ extension skill_template_type: SwiftProtobuf._ProtoNameProviding {
     20: .same(proto: "TEMPLATE_TYPE_ALWAYSON_MODE"),
     21: .same(proto: "TEMPLATE_TYPE_VOLUME_MODE"),
     22: .same(proto: "TEMPLATE_TYPE_AUTO_BRIGHTNESS_MODE"),
+    23: .same(proto: "TEMPLATE_TYPE_SLEEP_DATA"),
   ]
 }
 
@@ -9977,5 +10078,24 @@ extension health_abnormal_status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HEALTH_ABNORMAL_NONE"),
     1: .same(proto: "HEALTH_ABNORMAL_EXIST"),
+  ]
+}
+
+extension config_pic_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PIC_NULL"),
+    1: .same(proto: "PIC_INDEX8"),
+    2: .same(proto: "PIC_0565"),
+    3: .same(proto: "PIC_8888"),
+    4: .same(proto: "PIC_JPEG"),
+  ]
+}
+
+extension hydrate_operate_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "HYDRARE_INVALID"),
+    1: .same(proto: "HYDRARE_INQUIRE"),
+    2: .same(proto: "HYDRARE_ADD"),
+    3: .same(proto: "HYDRARE_DELETE"),
   ]
 }

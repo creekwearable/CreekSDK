@@ -103,7 +103,12 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "set cardio fitness",
       "get qr code",
       "set qr code",
-       "get deviceStatus"
+      "get deviceStatus",
+      "getHydrateAssistant",
+      "addHydrateAssistant",
+      "getHydrateAssistantConfig",
+      "setHydrateAssistantConfig",
+      "setVitalityScore",
    ];
    
    var filteredOptions: [String] = []
@@ -140,7 +145,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       return tab
    }()
    
-
+   
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -197,15 +202,15 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                print(" The application is not authorized to use the Bluetooth Low Energy role")
                break
             case .on:
-//               CreekInterFace.instance.externalConnect(id: "63E4B85A-4C68-D954-5856-CE37C78F7236") { connectState in
-//                  CreekInterFace.instance.getFirmware { model in
-//                     print("🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁")
-//                  } failure: { code, message in
-//                     
-//                  }
-//
-//                  print("🌹🌹\(connectState)")
-//               }
+               //               CreekInterFace.instance.externalConnect(id: "63E4B85A-4C68-D954-5856-CE37C78F7236") { connectState in
+               //                  CreekInterFace.instance.getFirmware { model in
+               //                     print("🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁")
+               //                  } failure: { code, message in
+               //
+               //                  }
+               //
+               //                  print("🌹🌹\(connectState)")
+               //               }
                print("Bluetooth is currently powered on and available to use")
                break
             case .off:
@@ -224,7 +229,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          
-           _ = GlobalListenManager.shared
+         _ = GlobalListenManager.shared
          
          CreekInterFace.instance.aiDialConfig { model in
             ///pcm 音频数据（date）
@@ -233,10 +238,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             ///
             ////正常.normal
             CreekInterFace.instance.aiDialSendText(text: "我想生成一个小狗", type: .normal)
-//            ///识别错误
-//            CreekInterFace.instance.aiDialSendText(text: "", type: .error)
-//            /// 网络错误
-//            CreekInterFace.instance.aiDialSendText(text: "", type: .networkError)
+            //            ///识别错误
+            //            CreekInterFace.instance.aiDialSendText(text: "", type: .error)
+            //            /// 网络错误
+            //            CreekInterFace.instance.aiDialSendText(text: "", type: .networkError)
             
          } confirmText: { str in
             ///手表确认文本
@@ -245,11 +250,11 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             ///生成Ai图片
             ///生成完成之后 下发图片数据
             if let image = UIImage(named: "AIDial_0") {
-                if let data = image.pngData() {
-                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal,dialName: "oneDial")
-                }
+               if let data = image.pngData() {
+                  CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal,dialName: "oneDial")
+               }
             }
-           
+            
          }success: {
             print("dial success")
          }failure: { code, message in
@@ -257,9 +262,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          CreekInterFace.instance.initGlobalConfig(keyId: keyId, publicKey: publicKey)
-       
+         
          CreekInterFace.instance.ephemerisListen {
-           /// Received a notification indicating that the ephemeris file needs to be updated
+            /// Received a notification indicating that the ephemeris file needs to be updated
             let model = EphemerisGPSModel()
             model.altitude = 10
             model.latitude = Int(22.312653 * 1000000)
@@ -278,13 +283,13 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          
-//         CreekSDK.instance.setSportControl(controlType: .controlResume) {
-//            print("success")
-//         } failure: { code, message in
-//            print("fail")
-//         }
+         //         CreekSDK.instance.setSportControl(controlType: .controlResume) {
+         //            print("success")
+         //         } failure: { code, message in
+         //            print("fail")
+         //         }
          
-
+         
          CreekInterFace.instance.watchResetListen {
             print("listen watchResetListen")
             CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
@@ -311,23 +316,23 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             print(json ?? "")
          }
          
-//         CreekInterFace.instance.philipSleepListen { path in
-//            print("文件地址:\(path)")
-//            let url = URL(fileURLWithPath: path)
-//            do {
-//                let data = try Data(contentsOf: url)
-//                Task{
-//                   let resultSegments = await PSPParser.shared.parserPSPSleep(from: data)
-//                   CreekInterFace.instance.setPhilipSleepJson(model: resultSegments)
-//                }
-//            } catch {
-//                print("❌ 读取文件失败：\(error.localizedDescription)")
-//               CreekInterFace.instance.setPhilipSleepJson(model: "")
-//                
-//            }
-//         }
+         //         CreekInterFace.instance.philipSleepListen { path in
+         //            print("文件地址:\(path)")
+         //            let url = URL(fileURLWithPath: path)
+         //            do {
+         //                let data = try Data(contentsOf: url)
+         //                Task{
+         //                   let resultSegments = await PSPParser.shared.parserPSPSleep(from: data)
+         //                   CreekInterFace.instance.setPhilipSleepJson(model: resultSegments)
+         //                }
+         //            } catch {
+         //                print("❌ 读取文件失败：\(error.localizedDescription)")
+         //               CreekInterFace.instance.setPhilipSleepJson(model: "")
+         //
+         //            }
+         //         }
       }
-  
+      
    }
    
    // MARK: - 顶部设备信息卡片
@@ -535,6 +540,6 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
       }
    }
-
+   
 }
 

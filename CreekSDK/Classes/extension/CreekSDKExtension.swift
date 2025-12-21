@@ -2107,7 +2107,7 @@ extension CreekSDK{
       }
    }
    
-   public func getGPXEncodeUint8List(data:Data,geoId:Int,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
+   public func getGPXEncodeUint8List(data:Data,geoId:UInt64,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
       _geoAddressClosure = model
       serialQueue.sync {
          requestId+=1
@@ -2116,7 +2116,7 @@ extension CreekSDK{
       }
    }
    
-   public func upLoadGeo(data:Data,geoId:Int,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+   public func upLoadGeo(data:Data,geoId:UInt64,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
       
       serialQueue.sync {
          requestId+=1
@@ -2136,11 +2136,11 @@ extension CreekSDK{
       }
    }
    
-   public func delGeo(geoIds:[Int],success:@escaping successBase,failure:@escaping failureArgument) {
+   public func delGeo(geoIds:[UInt64],success:@escaping successBase,failure:@escaping failureArgument) {
       var operate =  protocol_geobin_operate()
       geoIds.forEach { geoId in
          var item  = protocol_geobin_list_item()
-         item.geobinID = UInt64(geoId)
+         item.geobinID = geoId
          operate.geobinItems.append(item)
       }
       serialQueue.sync {
@@ -2924,5 +2924,36 @@ extension CreekSDK{
          methodChannel?.invokeMethod("getDeviceStatus\(requestId)", arguments: type.rawValue)
       }
    }
+   
+   
+   public func setHydrateAssistant(model:protocol_hydrate_assistant_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setHydrateAssistant\(requestId)"] = success;
+         failureArgumentDic["setHydrateAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setHydrateAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   
+   public func setHydrateAssistantConfig(model:protocol_hydrate_assistant_setting_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setConfigHydrateAssistant\(requestId)"] = success;
+         failureArgumentDic["setConfigHydrateAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setConfigHydrateAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
    
 }

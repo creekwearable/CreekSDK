@@ -213,6 +213,42 @@ public struct device_voice_assistant: Sendable {
   public init() {}
 }
 
+public struct config_info: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var type: config_pic_type = .picNull
+
+  public var isLz4Compress: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct config_info_type: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///联系人头像
+  public var contact: config_info {
+    get {return _contact ?? config_info()}
+    set {_contact = newValue}
+  }
+  /// Returns true if `contact` has been explicitly set.
+  public var hasContact: Bool {return self._contact != nil}
+  /// Clears the value of `contact`. Subsequent reads from it will return its default value.
+  public mutating func clearContact() {self._contact = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _contact: config_info? = nil
+}
+
 public struct protocol_device_info: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -447,6 +483,16 @@ public struct protocol_device_info: @unchecked Sendable {
     get {return _storage._bootOtaStatus}
     set {_uniqueStorage()._bootOtaStatus = newValue}
   }
+
+  ///图片格式配置
+  public var config: config_info_type {
+    get {return _storage._config ?? config_info_type()}
+    set {_uniqueStorage()._config = newValue}
+  }
+  /// Returns true if `config` has been explicitly set.
+  public var hasConfig: Bool {return _storage._config != nil}
+  /// Clears the value of `config`. Subsequent reads from it will return its default value.
+  public mutating func clearConfig() {_uniqueStorage()._config = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -877,6 +923,80 @@ extension device_voice_assistant: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
+extension config_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "config_info"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "type"),
+    2: .standard(proto: "is_lz4_compress"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.isLz4Compress) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.type != .picNull {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
+    }
+    if self.isLz4Compress != false {
+      try visitor.visitSingularBoolField(value: self.isLz4Compress, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: config_info, rhs: config_info) -> Bool {
+    if lhs.type != rhs.type {return false}
+    if lhs.isLz4Compress != rhs.isLz4Compress {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension config_info_type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "config_info_type"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "contact"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._contact) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._contact {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: config_info_type, rhs: config_info_type) -> Bool {
+    if lhs._contact != rhs._contact {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_device_info"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -914,6 +1034,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     32: .same(proto: "userid"),
     33: .same(proto: "accountid"),
     34: .standard(proto: "boot_ota_status"),
+    35: .same(proto: "config"),
   ]
 
   fileprivate class _StorageClass {
@@ -951,6 +1072,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _userid: Data = Data()
     var _accountid: Data = Data()
     var _bootOtaStatus: Bool = false
+    var _config: config_info_type? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -999,6 +1121,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _userid = source._userid
       _accountid = source._accountid
       _bootOtaStatus = source._bootOtaStatus
+      _config = source._config
     }
   }
 
@@ -1051,6 +1174,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 32: try { try decoder.decodeSingularBytesField(value: &_storage._userid) }()
         case 33: try { try decoder.decodeSingularBytesField(value: &_storage._accountid) }()
         case 34: try { try decoder.decodeSingularBoolField(value: &_storage._bootOtaStatus) }()
+        case 35: try { try decoder.decodeSingularMessageField(value: &_storage._config) }()
         default: break
         }
       }
@@ -1165,6 +1289,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if _storage._bootOtaStatus != false {
         try visitor.visitSingularBoolField(value: _storage._bootOtaStatus, fieldNumber: 34)
       }
+      try { if let v = _storage._config {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1208,6 +1335,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._userid != rhs_storage._userid {return false}
         if _storage._accountid != rhs_storage._accountid {return false}
         if _storage._bootOtaStatus != rhs_storage._bootOtaStatus {return false}
+        if _storage._config != rhs_storage._config {return false}
         return true
       }
       if !storagesAreEqual {return false}
