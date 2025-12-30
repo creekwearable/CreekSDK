@@ -1559,7 +1559,7 @@ extension CreekSDK{
       }
       
    }
-
+   
    /// MARK: Delete sport record by device MAC address and start time
    /// - Parameters:
    ///   - mac: Device MAC address
@@ -1567,21 +1567,18 @@ extension CreekSDK{
    ///   - success: Success callback
    ///   - failure: Failure callback
    public func delSportRecordWithMac(
-       mac: String,
-       startTime: String,
-       success: @escaping successBase,
-       failure: @escaping failureArgument
+      mac: String,
+      startTime: String,
+      model:@escaping baseClosure
    ) {
-       serialQueue.sync {
-           requestId += 1
-           let methodName = "withMacDelSportRecord\(requestId)"
-           successDic[methodName] = success
-           failureArgumentDic[methodName] = failure
-           methodChannel?.invokeMethod(
-               methodName,
-               arguments: [mac, startTime]
-           )
-       }
+      serialQueue.sync {
+         requestId += 1
+         baseClosureDic["withMacDelSportRecord\(requestId)"] = model
+         methodChannel?.invokeMethod(
+            "withMacDelSportRecord\(requestId)",
+            arguments: [mac, startTime]
+         )
+      }
    }
    
    ///MARK :Get HRV Health Data
@@ -2948,24 +2945,24 @@ extension CreekSDK{
          methodChannel?.invokeMethod("getDeviceStatus\(requestId)", arguments: type.rawValue)
       }
    }
-
-//   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
-//      serialQueue.sync {
-//         requestId+=1
-//         successDic["setOnOffSuperMessage\(requestId)"] = success;
-//         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
-//         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
-//      }
-//   }
-//
-//   public func getOnOffSuperMessage(model:@escaping boolBase) {
-//      serialQueue.sync {
-//         requestId+=1
-//         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
-//         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
-//      }
-//   }
-
+   
+   //   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
+   //      serialQueue.sync {
+   //         requestId+=1
+   //         successDic["setOnOffSuperMessage\(requestId)"] = success;
+   //         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
+   //         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
+   //      }
+   //   }
+   //
+   //   public func getOnOffSuperMessage(model:@escaping boolBase) {
+   //      serialQueue.sync {
+   //         requestId+=1
+   //         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
+   //         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
+   //      }
+   //   }
+   
    
    
 }
