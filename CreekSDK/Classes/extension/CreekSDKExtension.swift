@@ -1559,6 +1559,30 @@ extension CreekSDK{
       }
       
    }
+
+   /// MARK: Delete sport record by device MAC address and start time
+   /// - Parameters:
+   ///   - mac: Device MAC address
+   ///   - startTime: Sport start time (yyyy-MM-dd HH:mm:ss)
+   ///   - success: Success callback
+   ///   - failure: Failure callback
+   public func delSportRecordWithMac(
+       mac: String,
+       startTime: String,
+       success: @escaping successBase,
+       failure: @escaping failureArgument
+   ) {
+       serialQueue.sync {
+           requestId += 1
+           let methodName = "withMacDelSportRecord\(requestId)"
+           successDic[methodName] = success
+           failureArgumentDic[methodName] = failure
+           methodChannel?.invokeMethod(
+               methodName,
+               arguments: [mac, startTime]
+           )
+       }
+   }
    
    ///MARK :Get HRV Health Data
    /// - Parameter :
@@ -2924,36 +2948,24 @@ extension CreekSDK{
          methodChannel?.invokeMethod("getDeviceStatus\(requestId)", arguments: type.rawValue)
       }
    }
-   
-   
-   public func setHydrateAssistant(model:protocol_hydrate_assistant_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-      serialQueue.sync {
-         requestId+=1
-         successDic["setHydrateAssistant\(requestId)"] = success;
-         failureArgumentDic["setHydrateAssistant\(requestId)"] = failure
-         do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setHydrateAssistant\(requestId)", arguments: data)
-         }catch{
-            
-         }
-      }
-   }
-   
-   
-   public func setHydrateAssistantConfig(model:protocol_hydrate_assistant_setting_operate,success:@escaping successBase,failure:@escaping failureArgument) {
-      serialQueue.sync {
-         requestId+=1
-         successDic["setConfigHydrateAssistant\(requestId)"] = success;
-         failureArgumentDic["setConfigHydrateAssistant\(requestId)"] = failure
-         do{
-            let data = try model.serializedData()
-            methodChannel?.invokeMethod("setConfigHydrateAssistant\(requestId)", arguments: data)
-         }catch{
-            
-         }
-      }
-   }
+
+//   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
+//      serialQueue.sync {
+//         requestId+=1
+//         successDic["setOnOffSuperMessage\(requestId)"] = success;
+//         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
+//         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
+//      }
+//   }
+//
+//   public func getOnOffSuperMessage(model:@escaping boolBase) {
+//      serialQueue.sync {
+//         requestId+=1
+//         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
+//         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
+//      }
+//   }
+
    
    
 }

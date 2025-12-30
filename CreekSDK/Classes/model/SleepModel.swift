@@ -104,6 +104,34 @@ public class SleepModel: Codable {
    
    /// NEW: minimal out-of-bed duration (minutes)
    public var outBedDurationMin: Int?
+
+   /// Average stress value during sleep
+   public var stressAverageValue: Int?
+
+   /// Minimum stress value during sleep
+   public var stressMinValue: Int?
+
+   /// Maximum stress value during sleep
+   public var stressMaxValue: Int?
+
+   /// Whether training readiness is supported
+   public var readinessSupport: Bool?
+
+   /// Training readiness score
+   public var readinessScore: Int?
+
+   /// Total duration with SpO2 below 90% (minutes)
+   public var spo2BelowDuration: Int?
+
+   /// Oxygen Desaturation Index (ODI) value
+   public var odiValue: Int?
+
+   /// Oxygen desaturation event count (OSA event count)
+   public var osaEventCount: Int?
+
+   /// Count of oxygen drops with a decrease ≥ 4
+   public var maxDrop4Cnt: Int?
+
    public var datas : [SleepDataModel]?
 }
 

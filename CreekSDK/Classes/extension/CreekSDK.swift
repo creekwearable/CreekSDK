@@ -966,7 +966,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
          
          
       }
-      else if(call.method.contains("delSportRecord")){
+      else if(call.method.contains("delSportRecord") || call.method.contains("withMacDelSportRecord")){
          if let response = call.arguments as? String{
             do{
                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
