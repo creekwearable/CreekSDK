@@ -964,7 +964,7 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
          
          
       }
-      else if(call.method.contains("delSportRecord")){
+      else if(call.method.contains("delSportRecord") || call.method.contains("withMacDelSportRecord")){
          if let response = call.arguments as? String{
             do{
                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)

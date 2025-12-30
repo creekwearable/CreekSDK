@@ -1559,6 +1559,30 @@ extension CreekSDK{
       }
       
    }
+
+   /// MARK: Delete sport record by device MAC address and start time
+   /// - Parameters:
+   ///   - mac: Device MAC address
+   ///   - startTime: Sport start time (yyyy-MM-dd HH:mm:ss)
+   ///   - success: Success callback
+   ///   - failure: Failure callback
+   public func delSportRecordWithMac(
+       mac: String,
+       startTime: String,
+       success: @escaping successBase,
+       failure: @escaping failureArgument
+   ) {
+       serialQueue.sync {
+           requestId += 1
+           let methodName = "withMacDelSportRecord\(requestId)"
+           successDic[methodName] = success
+           failureArgumentDic[methodName] = failure
+           methodChannel?.invokeMethod(
+               methodName,
+               arguments: [mac, startTime]
+           )
+       }
+   }
    
    ///MARK :Get HRV Health Data
    /// - Parameter :
@@ -2913,7 +2937,7 @@ extension CreekSDK{
 //         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
 //      }
 //   }
-//   
+//
 //   public func getOnOffSuperMessage(model:@escaping boolBase) {
 //      serialQueue.sync {
 //         requestId+=1
