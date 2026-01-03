@@ -115,7 +115,7 @@ public class SleepModel: Codable {
    public var stressMaxValue: Int?
 
    /// Whether training readiness is supported
-   public var readinessSupport: Bool?
+   public var readinessSupport: Int?
 
    /// Training readiness score
    public var readinessScore: Int?
