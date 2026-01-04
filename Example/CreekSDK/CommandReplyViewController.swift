@@ -1521,15 +1521,29 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
       case "setVitalityScore":
-         var  operate =  protocol_custom_titan_vitality_score_operate()
-         operate.vitalityScore = 50
-         CreekInterFace.instance.setVitalityScore(model: operate) {
+//         var  operate =  protocol_custom_titan_vitality_score_operate()
+//         operate.vitalityScore = 50
+//         CreekInterFace.instance.setVitalityScore(model: operate) {
+//            self.view.hideRemark()
+//            self.textView.text = "success"
+//         } failure: { code, message in
+//            self.view.hideRemark()
+//            self.textView.text = message
+//         }
+         
+         CreekInterFace.instance.getCurrentLocationFirmware { model in
             self.view.hideRemark()
-            self.textView.text = "success"
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
          } failure: { code, message in
             self.view.hideRemark()
             self.textView.text = message
          }
+
          break
       default:
          break
