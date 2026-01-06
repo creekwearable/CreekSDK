@@ -62,6 +62,31 @@ public struct hydrate_assistant_daily_item: Sendable {
   ///补水的类型
   public var drinkType: drink_type = .typeInvalid
 
+  ///补水的时间，秒
+  public var second: UInt32 = 0
+
+  ///百分比
+  public var percent: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct hydrate_assistant_daily_target: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///用户日常补水目标
+  public var userNormalTarget: UInt32 = 0
+
+  ///用户运动补水目标
+  public var userSportTarget: UInt32 = 0
+
+  ///用户压力补水目标
+  public var userStressTarget: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -174,11 +199,22 @@ public struct protocol_hydrate_assistant_inquire_reply: Sendable {
   ///总共有多少个 daily_data
   public var totalItems: UInt32 = 0
 
+  ///每日目标
+  public var dailyTarget: hydrate_assistant_daily_target {
+    get {return _dailyTarget ?? hydrate_assistant_daily_target()}
+    set {_dailyTarget = newValue}
+  }
+  /// Returns true if `dailyTarget` has been explicitly set.
+  public var hasDailyTarget: Bool {return self._dailyTarget != nil}
+  /// Clears the value of `dailyTarget`. Subsequent reads from it will return its default value.
+  public mutating func clearDailyTarget() {self._dailyTarget = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
   fileprivate var _lastDrinkTime: hydrate_assistant_time? = nil
+  fileprivate var _dailyTarget: hydrate_assistant_daily_target? = nil
 }
 
 public struct hydrate_assistant_time_section: Sendable {
@@ -278,6 +314,76 @@ public struct protocol_hydrate_assistant_setting_inquire_reply: Sendable {
   fileprivate var _setting: hydrate_assistant_setting? = nil
 }
 
+public struct protocol_hydrate_assistant_support_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///功能表
+  public var funcTable: UInt32 = 0
+
+  public var supportType: [drink_type] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct hydrate_assistant_daily_update_item: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///记录id
+  public var recordID: UInt32 = 0
+
+  ///补水的时间，小时
+  public var hour: UInt32 = 0
+
+  ///补水的时间，分钟
+  public var min: UInt32 = 0
+
+  ///补水的时间，秒
+  public var second: UInt32 = 0
+
+  ///补水的量
+  public var drinkValue: UInt32 = 0
+
+  ///补水的类型
+  public var drinkType: drink_type = .typeInvalid
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_hydrate_assistant_update_notify_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///功能表
+  public var funcTable: UInt32 = 0
+
+  ///通知类型
+  public var type: hydrate_notify_type = .notifyAdd
+
+  public var item: hydrate_assistant_daily_update_item {
+    get {return _item ?? hydrate_assistant_daily_update_item()}
+    set {_item = newValue}
+  }
+  /// Returns true if `item` has been explicitly set.
+  public var hasItem: Bool {return self._item != nil}
+  /// Clears the value of `item`. Subsequent reads from it will return its default value.
+  public mutating func clearItem() {self._item = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _item: hydrate_assistant_daily_update_item? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension hydrate_assistant_time: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -350,6 +456,8 @@ extension hydrate_assistant_daily_item: SwiftProtobuf.Message, SwiftProtobuf._Me
     3: .same(proto: "min"),
     4: .standard(proto: "drink_value"),
     5: .standard(proto: "drink_type"),
+    6: .same(proto: "second"),
+    7: .same(proto: "percent"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -363,6 +471,8 @@ extension hydrate_assistant_daily_item: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.min) }()
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.drinkValue) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.drinkType) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.second) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self.percent) }()
       default: break
       }
     }
@@ -384,6 +494,12 @@ extension hydrate_assistant_daily_item: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.drinkType != .typeInvalid {
       try visitor.visitSingularEnumField(value: self.drinkType, fieldNumber: 5)
     }
+    if self.second != 0 {
+      try visitor.visitSingularUInt32Field(value: self.second, fieldNumber: 6)
+    }
+    if self.percent != 0 {
+      try visitor.visitSingularInt32Field(value: self.percent, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -393,6 +509,52 @@ extension hydrate_assistant_daily_item: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.min != rhs.min {return false}
     if lhs.drinkValue != rhs.drinkValue {return false}
     if lhs.drinkType != rhs.drinkType {return false}
+    if lhs.second != rhs.second {return false}
+    if lhs.percent != rhs.percent {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension hydrate_assistant_daily_target: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "hydrate_assistant_daily_target"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_normal_target"),
+    2: .standard(proto: "user_sport_target"),
+    3: .standard(proto: "user_stress_target"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.userNormalTarget) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.userSportTarget) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.userStressTarget) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userNormalTarget != 0 {
+      try visitor.visitSingularUInt32Field(value: self.userNormalTarget, fieldNumber: 1)
+    }
+    if self.userSportTarget != 0 {
+      try visitor.visitSingularUInt32Field(value: self.userSportTarget, fieldNumber: 2)
+    }
+    if self.userStressTarget != 0 {
+      try visitor.visitSingularUInt32Field(value: self.userStressTarget, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: hydrate_assistant_daily_target, rhs: hydrate_assistant_daily_target) -> Bool {
+    if lhs.userNormalTarget != rhs.userNormalTarget {return false}
+    if lhs.userSportTarget != rhs.userSportTarget {return false}
+    if lhs.userStressTarget != rhs.userStressTarget {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -555,6 +717,7 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
     6: .standard(proto: "page_index"),
     7: .standard(proto: "page_num"),
     8: .standard(proto: "total_items"),
+    9: .standard(proto: "daily_target"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -571,6 +734,7 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
       case 6: try { try decoder.decodeSingularUInt32Field(value: &self.pageIndex) }()
       case 7: try { try decoder.decodeSingularUInt32Field(value: &self.pageNum) }()
       case 8: try { try decoder.decodeSingularUInt32Field(value: &self.totalItems) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._dailyTarget) }()
       default: break
       }
     }
@@ -605,6 +769,9 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
     if self.totalItems != 0 {
       try visitor.visitSingularUInt32Field(value: self.totalItems, fieldNumber: 8)
     }
+    try { if let v = self._dailyTarget {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -617,6 +784,7 @@ extension protocol_hydrate_assistant_inquire_reply: SwiftProtobuf.Message, Swift
     if lhs.pageIndex != rhs.pageIndex {return false}
     if lhs.pageNum != rhs.pageNum {return false}
     if lhs.totalItems != rhs.totalItems {return false}
+    if lhs._dailyTarget != rhs._dailyTarget {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -807,6 +975,154 @@ extension protocol_hydrate_assistant_setting_inquire_reply: SwiftProtobuf.Messag
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.operate != rhs.operate {return false}
     if lhs._setting != rhs._setting {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_hydrate_assistant_support_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_hydrate_assistant_support_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .standard(proto: "support_type"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.supportType) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if !self.supportType.isEmpty {
+      try visitor.visitPackedEnumField(value: self.supportType, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_hydrate_assistant_support_reply, rhs: protocol_hydrate_assistant_support_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.supportType != rhs.supportType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension hydrate_assistant_daily_update_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "hydrate_assistant_daily_update_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "record_id"),
+    2: .same(proto: "hour"),
+    3: .same(proto: "min"),
+    4: .same(proto: "second"),
+    5: .standard(proto: "drink_value"),
+    6: .standard(proto: "drink_type"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.recordID) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.min) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.second) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.drinkValue) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.drinkType) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.recordID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.recordID, fieldNumber: 1)
+    }
+    if self.hour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 2)
+    }
+    if self.min != 0 {
+      try visitor.visitSingularUInt32Field(value: self.min, fieldNumber: 3)
+    }
+    if self.second != 0 {
+      try visitor.visitSingularUInt32Field(value: self.second, fieldNumber: 4)
+    }
+    if self.drinkValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.drinkValue, fieldNumber: 5)
+    }
+    if self.drinkType != .typeInvalid {
+      try visitor.visitSingularEnumField(value: self.drinkType, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: hydrate_assistant_daily_update_item, rhs: hydrate_assistant_daily_update_item) -> Bool {
+    if lhs.recordID != rhs.recordID {return false}
+    if lhs.hour != rhs.hour {return false}
+    if lhs.min != rhs.min {return false}
+    if lhs.second != rhs.second {return false}
+    if lhs.drinkValue != rhs.drinkValue {return false}
+    if lhs.drinkType != rhs.drinkType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_hydrate_assistant_update_notify_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_hydrate_assistant_update_notify_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "type"),
+    3: .same(proto: "item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._item) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if self.type != .notifyAdd {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 2)
+    }
+    try { if let v = self._item {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_hydrate_assistant_update_notify_operate, rhs: protocol_hydrate_assistant_update_notify_operate) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs._item != rhs._item {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

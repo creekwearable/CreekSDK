@@ -27,6 +27,7 @@ public typealias ContactsIconData = (_ model:Data) -> ()
 public typealias progressBase = (_ progress:Int) -> ()
 public typealias baseClosure = (_ model:BaseModel<BaseDataModel>) -> ()
 public typealias successBase = () -> ()
+public typealias abnormalBase = () -> ()
 public typealias failureBase = () -> ()
 public typealias authorizationFailureBase = () -> ()
 public typealias endScanBase = () -> ()
@@ -109,6 +110,8 @@ public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inqu
 public typealias sportGpsBase = () -> (GPSModel)
 public typealias commonErrorBase = (_ model: CommonError) -> ()
 public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistant_setting_inquire_reply) -> ()
+public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
+public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_assistant_support_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -201,6 +204,8 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
    var _motionRecognitionListen:((_ model:protocol_ring_motion_recognition_operate) -> ())?
    var _ringReminderListen:((_ model:protocol_ring_remind_mark_operate) -> ())?
    var _sportGpsListen:((_ model:protocol_exercise_gps_info) -> ())?
+   var _voiceAssistantFeatureConfigListen:((_ model:protocol_ai_feature_notify_operate) -> ())?
+   var _hydrateAssistantUpdateListen:((_ model:protocol_hydrate_assistant_update_notify_operate) -> ())?
    var calendarDic:[String:calendarBase] = [:]
    var watchDirectionDic:[String:watchDirectionBase] = [:]
    var healthSnapshotDic:[String:healthSnapshotBase] = [:]
@@ -231,10 +236,13 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
    var hydrateAssistantBaseDic:[String:hydrateAssistantBase] = [:]
    var commonErrorBaseDic:[String:commonErrorBase] = [:]
    var qrCodeListBaseDic:[String:qrCodeListBase] = [:]
-    var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
+   var disturbNewDic:[String:disturbNewBase] = [:]      //Retrieve Do Not Disturb
    var respiratoryClosureDic:[String:respiratoryClosure] = [:]
    var hydrateAssistantConfigClosureDic:[String:hydrateAssistantConfigBase] = [:]
-    
+   var abnormalClosureDic:[String:abnormalBase] = [:]
+   var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
+   var hydrateAssistantSupportTypeClosureDic:[String:hydrateAssistantSupportTypeBase] = [:]
+   
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
    
@@ -320,6 +328,19 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
          }
          
       }else if(call.method.contains("getFirmware")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_device_info(serializedData: response.data,partial: true)
+               if let back = firmwareDic[call.method]{
+                  back(model)
+                  firmwareDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
+      }else if(call.method.contains("getCurrentLocationFirmware")){
          if let response = call.arguments as? FlutterStandardTypedData{
             do{
                let model = try protocol_device_info(serializedData: response.data,partial: true)
@@ -964,7 +985,7 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
          
          
       }
-      else if(call.method.contains("delSportRecord")){
+      else if(call.method.contains("delSportRecord") || call.method.contains("withMacDelSportRecord")){
          if let response = call.arguments as? String{
             do{
                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
@@ -2201,6 +2222,65 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
          }
          
       }
+      else if(call.method.contains("abnormalstartMeasure")){
+         if let back = abnormalClosureDic[call.method]{
+            back()
+         }
+      }
+      else if(call.method.contains("getDeviceStatus")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_device_status_inquire_reply(serializedData: response.data,partial: true)
+               if let back = deviceStatusClosureDic[call.method]{
+                  back(model)
+                  deviceStatusClosureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method == "voiceAssistantFeatureConfigListen"){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ai_feature_notify_operate(serializedData: response.data,partial: true)
+               if let back = _voiceAssistantFeatureConfigListen{
+                  back(model)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method == "hydrateAssistantUpdateListen"){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_hydrate_assistant_update_notify_operate(serializedData: response.data,partial: true)
+               if let back = _hydrateAssistantUpdateListen{
+                  back(model)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+            
+         }
+         
+      }
+      else if(call.method.contains("getSupportTypeHydrateAssistant")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_hydrate_assistant_support_reply(serializedData: response.data,partial: true)
+               if let back = hydrateAssistantSupportTypeClosureDic[call.method]{
+                  back(model)
+                  hydrateAssistantSupportTypeClosureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
+      }
+      
    }
    
 }

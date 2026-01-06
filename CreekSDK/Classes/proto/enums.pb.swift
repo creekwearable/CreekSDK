@@ -1157,6 +1157,9 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///异常房颤算法数据
   case syncPpgAf // = 14
+
+  ///核心体温数据
+  case syncCoreTemperature // = 15
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1180,6 +1183,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 12: self = .syncPspSleep
     case 13: self = .syncAf
     case 14: self = .syncPpgAf
+    case 15: self = .syncCoreTemperature
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1201,6 +1205,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncPspSleep: return 12
     case .syncAf: return 13
     case .syncPpgAf: return 14
+    case .syncCoreTemperature: return 15
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1222,6 +1227,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncPspSleep,
     .syncAf,
     .syncPpgAf,
+    .syncCoreTemperature,
   ]
 
 }
@@ -8555,6 +8561,124 @@ public enum hydrate_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum hydrate_notify_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///增加
+  case notifyAdd // = 0
+
+  ///删除
+  case notifyDelete // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .notifyAdd
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .notifyAdd
+    case 1: self = .notifyDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .notifyAdd: return 0
+    case .notifyDelete: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [hydrate_notify_type] = [
+    .notifyAdd,
+    .notifyDelete,
+  ]
+
+}
+
+public enum ai_translate_speed_level: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case aiTranslateSpeedUnknown // = 0
+  case aiTranslateSlow // = 1
+  case aiTranslateNormal // = 2
+  case aiTranslateFast // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .aiTranslateSpeedUnknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .aiTranslateSpeedUnknown
+    case 1: self = .aiTranslateSlow
+    case 2: self = .aiTranslateNormal
+    case 3: self = .aiTranslateFast
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .aiTranslateSpeedUnknown: return 0
+    case .aiTranslateSlow: return 1
+    case .aiTranslateNormal: return 2
+    case .aiTranslateFast: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ai_translate_speed_level] = [
+    .aiTranslateSpeedUnknown,
+    .aiTranslateSlow,
+    .aiTranslateNormal,
+    .aiTranslateFast,
+  ]
+
+}
+
+public enum ai_feature_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///更新配置
+  case updataConfig // = 0
+
+  ///使用状态
+  case useStatus // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .updataConfig
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .updataConfig
+    case 1: self = .useStatus
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .updataConfig: return 0
+    case .useStatus: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ai_feature_type] = [
+    .updataConfig,
+    .useStatus,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8770,6 +8894,7 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "SYNC_PSP_SLEEP"),
     13: .same(proto: "SYNC_af"),
     14: .same(proto: "SYNC_ppg_af"),
+    15: .same(proto: "SYNC_CORE_TEMPERATURE"),
   ]
 }
 
@@ -10097,5 +10222,28 @@ extension hydrate_operate_type: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "HYDRARE_INQUIRE"),
     2: .same(proto: "HYDRARE_ADD"),
     3: .same(proto: "HYDRARE_DELETE"),
+  ]
+}
+
+extension hydrate_notify_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NOTIFY_ADD"),
+    1: .same(proto: "NOTIFY_DELETE"),
+  ]
+}
+
+extension ai_translate_speed_level: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AI_TRANSLATE_SPEED_UNKNOWN"),
+    1: .same(proto: "AI_TRANSLATE_SLOW"),
+    2: .same(proto: "AI_TRANSLATE_NORMAL"),
+    3: .same(proto: "AI_TRANSLATE_FAST"),
+  ]
+}
+
+extension ai_feature_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UPDATA_CONFIG"),
+    1: .same(proto: "USE_STATUS"),
   ]
 }

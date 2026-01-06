@@ -151,6 +151,7 @@
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
 		07D91DD92EEBFE7700E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */; };
 		07D91DDA2EEBFE7700E155A6 /* vitalityScore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */; };
+		07E975F32F0D55A600D14B87 /* irCalibrationButton.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */; };
 		07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -311,6 +312,7 @@
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
 		07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
 		07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalityScore.pb.swift; sourceTree = "<group>"; };
+		07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = irCalibrationButton.pb.swift; sourceTree = "<group>"; };
 		07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayer.pb.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */,
 				07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */,
 				07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */,
 				07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */,
@@ -945,6 +948,7 @@
 				07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */,
 				079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */,
 				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,
+				07E975F32F0D55A600D14B87 /* irCalibrationButton.pb.swift in Sources */,
 				07266C1D2DACF260000F8BED /* music.pb.swift in Sources */,
 				07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */,
 				073FD2462E5D548A00652FCF /* cardioFitness.pb.swift in Sources */,

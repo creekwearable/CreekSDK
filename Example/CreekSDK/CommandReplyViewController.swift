@@ -1530,6 +1530,51 @@ class CommandReplyViewController: CreekBaseViewController {
             self.view.hideRemark()
             self.textView.text = message
          }
+         
+//         CreekInterFace.instance.getCurrentLocationFirmware { model in
+//            self.view.hideRemark()
+//            let json = try? model.jsonString()
+//            if let str = json{
+//               dispatch_main_sync_safe {
+//                  self.textView.text = str
+//               }
+//            }
+//         } failure: { code, message in
+//            self.view.hideRemark()
+//            self.textView.text = message
+//         }
+
+         break
+      case "getHydrateAssistantSupportType":
+         CreekInterFace.instance.getHydrateAssistantSupportType{model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setVoiceAssistantConfig":
+         var operate = protocol_ai_feature_operate()
+         var config = protocol_ai_feature_config()
+         config.userCode = "123".data(using: .utf8)!
+         config.startTime = 1767711496
+         config.endTime = 1767711496
+         config.dailyCallLimit = 100
+         config.totalAllowedLimit = 500
+         operate.config = config
+         CreekInterFace.instance.setVoiceAssistantConfig(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
          break
       default:
          break
