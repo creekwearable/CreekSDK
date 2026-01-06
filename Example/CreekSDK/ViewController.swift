@@ -108,6 +108,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "getHydrateAssistantConfig",
       "setHydrateAssistantConfig",
       "setVitalityScore",
+      "getHydrateAssistantSupportType",
+      "setVoiceAssistantConfig"
+      
    ];
    
    var filteredOptions: [String] = []
@@ -310,6 +313,40 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          CreekInterFace.instance.motionRecognitionListen { model in
             let json = try? model.jsonString()
+            print(json ?? "")
+         }
+         
+         CreekInterFace.instance.voiceAssistantFeatureConfigListen { model in
+            if model.type == .updataConfig{
+               ///You will be notified every 30 minutes to update the member configuration table.
+               var operate = protocol_ai_feature_operate()
+               var config = protocol_ai_feature_config()
+               config.userCode = "123".data(using: .utf8)!
+               config.startTime = 1767711496
+               config.endTime = 1767711496
+               config.dailyCallLimit = 100
+               config.totalAllowedLimit = 500
+               operate.config = config
+               CreekInterFace.instance.setVoiceAssistantConfig(model: operate) {
+                  
+               } failure: { code, message in
+                  
+               }
+
+            }else if model.type == .useStatus{
+               ///Notify the current usage status after each AI dialogue is completed.
+               let json = try? model.status.jsonString()
+               print(json ?? "")
+            }
+         }
+         
+         CreekInterFace.instance.hydrateAssistantUpdateListen { model in
+            if model.type == .notifyAdd{
+               ///手表添加新的记录
+            }else if model.type == .notifyDelete{
+               ///手表删除记录
+            }
+            let json = try? model.item.jsonString()
             print(json ?? "")
          }
         

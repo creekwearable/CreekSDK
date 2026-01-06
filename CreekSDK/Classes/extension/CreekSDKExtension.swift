@@ -3028,5 +3028,39 @@ extension CreekSDK{
        }
     }
    
+   public func setVoiceAssistantConfig(model:protocol_ai_feature_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setConfigVoiceAssistant\(requestId)"] = success;
+         failureArgumentDic["setConfigVoiceAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setConfigVoiceAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+
+   public func voiceAssistantFeatureConfigListen(listen:@escaping (_ model:protocol_ai_feature_notify_operate) -> ()){
+      _voiceAssistantFeatureConfigListen = listen
+   }
+   
+   public func getHydrateAssistantSupportType(model:@escaping hydrateAssistantSupportTypeBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          hydrateAssistantSupportTypeClosureDic["getSupportTypeHydrateAssistant\(requestId)"] = model
+          failureArgumentDic["getSupportTypeHydrateAssistant\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSupportTypeHydrateAssistant\(requestId)", arguments: "")
+       }
+    }
+   
+   public func hydrateAssistantUpdateListen(listen:@escaping (_ model:protocol_hydrate_assistant_update_notify_operate) -> ()){
+      _hydrateAssistantUpdateListen = listen
+   }
+   
+   
+   
    
 }
