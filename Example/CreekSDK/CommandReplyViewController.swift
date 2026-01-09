@@ -1032,7 +1032,7 @@ class CommandReplyViewController: CreekBaseViewController {
          break
          
       case "Get sport data":
-         CreekInterFace.instance.getSportTimeData(startTime: "2023-11-20", endTime: "2025-11-20",nil) { model in
+         CreekInterFace.instance.getSportTimeData(startTime: "2023-11-20", endTime: "2026-02-20",nil) { model in
             self.view.hideRemark()
             if model.code == 0{
                self.view.hideRemark()

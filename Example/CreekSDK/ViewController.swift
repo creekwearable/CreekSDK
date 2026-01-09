@@ -80,6 +80,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get respiratory data",
       "Get HRV data",
       "Get sport data",
+      "Delete exercise record",
       "Get af data",
       "Get afPpg data",
       "Set status to uploaded",
