@@ -756,6 +756,9 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///绑定账号信息
   case bindAccount // = 5
+
+  ///充电才可配对，app提示用户充电
+  case needChargering // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -770,6 +773,7 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 3: self = .bound
     case 4: self = .saveData
     case 5: self = .bindAccount
+    case 6: self = .needChargering
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -782,6 +786,7 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .bound: return 3
     case .saveData: return 4
     case .bindAccount: return 5
+    case .needChargering: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -794,6 +799,7 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     .bound,
     .saveData,
     .bindAccount,
+    .needChargering,
   ]
 
 }
@@ -1157,6 +1163,9 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///异常房颤算法数据
   case syncPpgAf // = 14
+
+  ///核心体温数据
+  case syncCoreTemperature // = 15
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1180,6 +1189,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 12: self = .syncPspSleep
     case 13: self = .syncAf
     case 14: self = .syncPpgAf
+    case 15: self = .syncCoreTemperature
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1201,6 +1211,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncPspSleep: return 12
     case .syncAf: return 13
     case .syncPpgAf: return 14
+    case .syncCoreTemperature: return 15
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1222,6 +1233,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncPspSleep,
     .syncAf,
     .syncPpgAf,
+    .syncCoreTemperature,
   ]
 
 }
@@ -3979,6 +3991,12 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
   ///表盘安装失败
   case aiStatusDialInstallationFailed // = 13
   case aiStatusVoiceSpeakEnd // = 14
+
+  ///AI翻译新增
+  case aiStatusTranslationRecognizeUnidentify // = 15
+
+  ///翻译超时
+  case aiStatusTranslationUnidentify // = 16
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4002,6 +4020,8 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 12: self = .aiStatusCreateFailed
     case 13: self = .aiStatusDialInstallationFailed
     case 14: self = .aiStatusVoiceSpeakEnd
+    case 15: self = .aiStatusTranslationRecognizeUnidentify
+    case 16: self = .aiStatusTranslationUnidentify
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4023,6 +4043,8 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiStatusCreateFailed: return 12
     case .aiStatusDialInstallationFailed: return 13
     case .aiStatusVoiceSpeakEnd: return 14
+    case .aiStatusTranslationRecognizeUnidentify: return 15
+    case .aiStatusTranslationUnidentify: return 16
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4044,6 +4066,8 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiStatusCreateFailed,
     .aiStatusDialInstallationFailed,
     .aiStatusVoiceSpeakEnd,
+    .aiStatusTranslationRecognizeUnidentify,
+    .aiStatusTranslationUnidentify,
   ]
 
 }
@@ -4126,8 +4150,11 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
   ///ai表盘回显
   case aiDialogAiEcho // = 2
 
-  ///日程回显
-  case aiDialogAiCalendarEcho // = 3
+  ///ai翻译
+  case aiDialogTranslationEcho // = 3
+
+  ///对内AI日程回显
+  case aiDialogInternalEcho // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4139,7 +4166,8 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 0: self = .aiDialogNormal
     case 1: self = .aiDialogEcho
     case 2: self = .aiDialogAiEcho
-    case 3: self = .aiDialogAiCalendarEcho
+    case 3: self = .aiDialogTranslationEcho
+    case 4: self = .aiDialogInternalEcho
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4149,7 +4177,8 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiDialogNormal: return 0
     case .aiDialogEcho: return 1
     case .aiDialogAiEcho: return 2
-    case .aiDialogAiCalendarEcho: return 3
+    case .aiDialogTranslationEcho: return 3
+    case .aiDialogInternalEcho: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4159,7 +4188,8 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiDialogNormal,
     .aiDialogEcho,
     .aiDialogAiEcho,
-    .aiDialogAiCalendarEcho,
+    .aiDialogTranslationEcho,
+    .aiDialogInternalEcho,
   ]
 
 }
@@ -6967,6 +6997,12 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///血氧过低提醒
   case lowSpo2 // = 20
+
+  ///核心体温过高
+  case coreHighTemperature // = 21
+
+  ///核心体温过低
+  case coreLowTemperature // = 22
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6996,6 +7032,8 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 18: self = .sedentaryRemind
     case 19: self = .highStress
     case 20: self = .lowSpo2
+    case 21: self = .coreHighTemperature
+    case 22: self = .coreLowTemperature
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7023,6 +7061,8 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .sedentaryRemind: return 18
     case .highStress: return 19
     case .lowSpo2: return 20
+    case .coreHighTemperature: return 21
+    case .coreLowTemperature: return 22
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7050,6 +7090,8 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .sedentaryRemind,
     .highStress,
     .lowSpo2,
+    .coreHighTemperature,
+    .coreLowTemperature,
   ]
 
 }
@@ -8555,6 +8597,124 @@ public enum hydrate_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum hydrate_notify_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///增加
+  case notifyAdd // = 0
+
+  ///删除
+  case notifyDelete // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .notifyAdd
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .notifyAdd
+    case 1: self = .notifyDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .notifyAdd: return 0
+    case .notifyDelete: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [hydrate_notify_type] = [
+    .notifyAdd,
+    .notifyDelete,
+  ]
+
+}
+
+public enum ai_translate_speed_level: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case aiTranslateSpeedUnknown // = 0
+  case aiTranslateSlow // = 1
+  case aiTranslateNormal // = 2
+  case aiTranslateFast // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .aiTranslateSpeedUnknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .aiTranslateSpeedUnknown
+    case 1: self = .aiTranslateSlow
+    case 2: self = .aiTranslateNormal
+    case 3: self = .aiTranslateFast
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .aiTranslateSpeedUnknown: return 0
+    case .aiTranslateSlow: return 1
+    case .aiTranslateNormal: return 2
+    case .aiTranslateFast: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ai_translate_speed_level] = [
+    .aiTranslateSpeedUnknown,
+    .aiTranslateSlow,
+    .aiTranslateNormal,
+    .aiTranslateFast,
+  ]
+
+}
+
+public enum ai_feature_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///更新配置
+  case updataConfig // = 0
+
+  ///使用状态
+  case useStatus // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .updataConfig
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .updataConfig
+    case 1: self = .useStatus
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .updataConfig: return 0
+    case .useStatus: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ai_feature_type] = [
+    .updataConfig,
+    .useStatus,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8692,6 +8852,7 @@ extension bind_flag: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "BIND_FLAG_BOUND"),
     4: .same(proto: "BIND_FLAG_SAVE_DATA"),
     5: .same(proto: "BIND_ACCOUNT"),
+    6: .same(proto: "BIND_FLAG_NEED_CHARGERING"),
   ]
 }
 
@@ -8770,6 +8931,7 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "SYNC_PSP_SLEEP"),
     13: .same(proto: "SYNC_af"),
     14: .same(proto: "SYNC_ppg_af"),
+    15: .same(proto: "SYNC_CORE_TEMPERATURE"),
   ]
 }
 
@@ -9300,6 +9462,8 @@ extension voice_assistant_status_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "AI_STATUS_CREATE_FAILED"),
     13: .same(proto: "AI_STATUS_DIAL_INSTALLATION_FAILED"),
     14: .same(proto: "AI_STATUS_VOICE_SPEAK_END"),
+    15: .same(proto: "AI_STATUS_TRANSLATION_RECOGNIZE_UNIDENTIFY"),
+    16: .same(proto: "AI_STATUS_TRANSLATION_UNIDENTIFY"),
   ]
 }
 
@@ -9320,7 +9484,8 @@ extension voice_assistant_dialog_type: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "AI_DIALOG_NORMAL"),
     1: .same(proto: "AI_DIALOG_ECHO"),
     2: .same(proto: "AI_DIALOG_AI_ECHO"),
-    3: .same(proto: "AI_DIALOG_AI_CALENDAR_ECHO"),
+    3: .same(proto: "AI_DIALOG_TRANSLATION_ECHO"),
+    4: .same(proto: "AI_DIALOG_INTERNAL_ECHO"),
   ]
 }
 
@@ -9826,6 +9991,8 @@ extension ring_remind_event_type: SwiftProtobuf._ProtoNameProviding {
     18: .same(proto: "SEDENTARY_REMIND"),
     19: .same(proto: "HIGH_STRESS"),
     20: .same(proto: "LOW_SPO2"),
+    21: .same(proto: "CORE_HIGH_TEMPERATURE"),
+    22: .same(proto: "CORE_LOW_TEMPERATURE"),
   ]
 }
 
@@ -10097,5 +10264,28 @@ extension hydrate_operate_type: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "HYDRARE_INQUIRE"),
     2: .same(proto: "HYDRARE_ADD"),
     3: .same(proto: "HYDRARE_DELETE"),
+  ]
+}
+
+extension hydrate_notify_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NOTIFY_ADD"),
+    1: .same(proto: "NOTIFY_DELETE"),
+  ]
+}
+
+extension ai_translate_speed_level: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AI_TRANSLATE_SPEED_UNKNOWN"),
+    1: .same(proto: "AI_TRANSLATE_SLOW"),
+    2: .same(proto: "AI_TRANSLATE_NORMAL"),
+    3: .same(proto: "AI_TRANSLATE_FAST"),
+  ]
+}
+
+extension ai_feature_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UPDATA_CONFIG"),
+    1: .same(proto: "USE_STATUS"),
   ]
 }

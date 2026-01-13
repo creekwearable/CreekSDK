@@ -118,6 +118,9 @@ public struct protocol_health_get_data_size_inquire_reply: Sendable {
   ///支持鱼跃项目房颤算法数据
   public var afSupport: Bool = false
 
+  ///支持核心体温数据
+  public var coreTemperatureSupport: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -263,6 +266,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     13: .standard(proto: "body_temperature_support"),
     14: .standard(proto: "psp_sleep_support"),
     15: .standard(proto: "af_support"),
+    16: .standard(proto: "core_temperature_support"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -286,6 +290,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
       case 13: try { try decoder.decodeSingularBoolField(value: &self.bodyTemperatureSupport) }()
       case 14: try { try decoder.decodeSingularBoolField(value: &self.pspSleepSupport) }()
       case 15: try { try decoder.decodeSingularBoolField(value: &self.afSupport) }()
+      case 16: try { try decoder.decodeSingularBoolField(value: &self.coreTemperatureSupport) }()
       default: break
       }
     }
@@ -337,6 +342,9 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     if self.afSupport != false {
       try visitor.visitSingularBoolField(value: self.afSupport, fieldNumber: 15)
     }
+    if self.coreTemperatureSupport != false {
+      try visitor.visitSingularBoolField(value: self.coreTemperatureSupport, fieldNumber: 16)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -356,6 +364,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     if lhs.bodyTemperatureSupport != rhs.bodyTemperatureSupport {return false}
     if lhs.pspSleepSupport != rhs.pspSleepSupport {return false}
     if lhs.afSupport != rhs.afSupport {return false}
+    if lhs.coreTemperatureSupport != rhs.coreTemperatureSupport {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

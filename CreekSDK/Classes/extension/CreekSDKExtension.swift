@@ -2928,6 +2928,7 @@ extension CreekSDK{
    }
    
    public func philipSleepListen(model:@escaping backStringBase){
+      writeLog(content: "init philipSleepListen")
       backStringBaseDic["philipSleepListen"] = model
    }
    
@@ -2944,6 +2945,10 @@ extension CreekSDK{
          failureArgumentDic["getDeviceStatus\(requestId)"] = failure
          methodChannel?.invokeMethod("getDeviceStatus\(requestId)", arguments: type.rawValue)
       }
+   }
+   
+   public func writeLog(content:String) {
+      methodChannel?.invokeMethod("writeLog", arguments: content)
    }
    
    //   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {

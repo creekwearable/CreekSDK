@@ -584,6 +584,216 @@ public struct protocol_voice_assistant_string_operate: @unchecked Sendable {
   public init() {}
 }
 
+public struct protocol_translation_assistant_config_info_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 传输类型 0：无效操作 1：手表发起 2：app发起
+  public var tranType: tran_direction_type = .watchTran
+
+  ///枚举引用语言协议 main_id:0x04
+  public var currentLanguage: language = .langInvalid
+
+  public var targetLanguage: language = .langInvalid
+
+  ///语速
+  public var speed: ai_translate_speed_level = .aiTranslateSpeedUnknown
+
+  ///自动播报 0关闭1开启
+  public var autoPronounce: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_translation_assistant_result_operate: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
+
+  ///回显索引，新语句从1开始
+  public var echoIndex: UInt32 = 0
+
+  ///max:1000 回显内容，支持拼接
+  public var echoContent: Data = Data()
+
+  /// 结束识别
+  public var endRecognition: Bool = false
+
+  ///翻译语音识别的语言
+  public var currentLanguage: language = .langInvalid
+
+  ///结果索引，新语句从1开始
+  public var answerIndex: UInt32 = 0
+
+  ///max:1000 结果内容，支持拼接
+  public var answerContent: Data = Data()
+
+  /// 结果结束识别
+  public var answerEndRecognition: Bool = false
+
+  ///翻译结果识别的语言,枚举引用语言协议 main_id:0x04
+  public var targetLanguage: language = .langInvalid
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_translation_assistant_manual_send_operate: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 传输类型 0：无效操作 1：手表发起 2：app发起
+  public var tranType: tran_direction_type = .watchTran
+
+  public var targetLanguage: language = .langInvalid
+
+  ///文本
+  public var extraInfo: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_ai_feature_config: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 用户唯一标识
+  public var userCode: Data = Data()
+
+  /// 生效开始时间（timestamp, 秒）
+  public var startTime: UInt32 = 0
+
+  /// 生效结束时间（timestamp, 秒）
+  public var endTime: UInt32 = 0
+
+  /// 当前是否订阅（一期不做 validation）
+  public var isSubscribed: Bool = false
+
+  /// 是否支持会员机制（仅用于 UI 区分）
+  public var isSubscriptionSupported: Bool = false
+
+  /// 每日调用上限
+  public var dailyCallLimit: UInt32 = 0
+
+  /// 最大调用上限
+  public var totalAllowedLimit: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_ai_feature_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 操作类型：查询 / 设置
+  public var operate: operate_type = .invalid
+
+  public var config: protocol_ai_feature_config {
+    get {return _config ?? protocol_ai_feature_config()}
+    set {_config = newValue}
+  }
+  /// Returns true if `config` has been explicitly set.
+  public var hasConfig: Bool {return self._config != nil}
+  /// Clears the value of `config`. Subsequent reads from it will return its default value.
+  public mutating func clearConfig() {self._config = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _config: protocol_ai_feature_config? = nil
+}
+
+public struct protocol_ai_feature_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 操作类型：查询 / 设置
+  public var operate: operate_type = .invalid
+
+  public var config: protocol_ai_feature_config {
+    get {return _config ?? protocol_ai_feature_config()}
+    set {_config = newValue}
+  }
+  /// Returns true if `config` has been explicitly set.
+  public var hasConfig: Bool {return self._config != nil}
+  /// Clears the value of `config`. Subsequent reads from it will return its default value.
+  public mutating func clearConfig() {self._config = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _config: protocol_ai_feature_config? = nil
+}
+
+public struct ai_feature_local_status: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 当前手表本地时间（由手机控制）
+  public var systemTime: UInt32 = 0
+
+  /// 当日已使用次数（跨天需固件主动刷新）
+  public var dailyCount: UInt32 = 0
+
+  /// 累计使用次数（仅 App 触发 SDK 后更新）
+  public var totalCount: UInt32 = 0
+
+  /// 每日调用上限
+  public var dailyCallLimit: UInt32 = 0
+
+  /// 最大调用上限
+  public var totalAllowedLimit: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_ai_feature_notify_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 传输类型
+  public var tranType: tran_direction_type = .watchTran
+
+  public var type: ai_feature_type = .updataConfig
+
+  ///使用状态
+  public var status: ai_feature_local_status {
+    get {return _status ?? ai_feature_local_status()}
+    set {_status = newValue}
+  }
+  /// Returns true if `status` has been explicitly set.
+  public var hasStatus: Bool {return self._status != nil}
+  /// Clears the value of `status`. Subsequent reads from it will return its default value.
+  public mutating func clearStatus() {self._status = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _status: ai_feature_local_status? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_alexa_tran_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1855,6 +2065,442 @@ extension protocol_voice_assistant_string_operate: SwiftProtobuf.Message, SwiftP
     if lhs.tranType != rhs.tranType {return false}
     if lhs.stringType != rhs.stringType {return false}
     if lhs.extraInfo != rhs.extraInfo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_translation_assistant_config_info_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_translation_assistant_config_info_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .standard(proto: "current_language"),
+    3: .standard(proto: "target_language"),
+    4: .same(proto: "speed"),
+    5: .standard(proto: "auto_pronounce"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.currentLanguage) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.targetLanguage) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.speed) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.autoPronounce) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.currentLanguage != .langInvalid {
+      try visitor.visitSingularEnumField(value: self.currentLanguage, fieldNumber: 2)
+    }
+    if self.targetLanguage != .langInvalid {
+      try visitor.visitSingularEnumField(value: self.targetLanguage, fieldNumber: 3)
+    }
+    if self.speed != .aiTranslateSpeedUnknown {
+      try visitor.visitSingularEnumField(value: self.speed, fieldNumber: 4)
+    }
+    if self.autoPronounce != false {
+      try visitor.visitSingularBoolField(value: self.autoPronounce, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_translation_assistant_config_info_operate, rhs: protocol_translation_assistant_config_info_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.currentLanguage != rhs.currentLanguage {return false}
+    if lhs.targetLanguage != rhs.targetLanguage {return false}
+    if lhs.speed != rhs.speed {return false}
+    if lhs.autoPronounce != rhs.autoPronounce {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_translation_assistant_result_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_translation_assistant_result_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .standard(proto: "echo_index"),
+    3: .standard(proto: "echo_content"),
+    4: .standard(proto: "end_recognition"),
+    5: .standard(proto: "current_language"),
+    6: .standard(proto: "answer_index"),
+    7: .standard(proto: "answer_content"),
+    8: .standard(proto: "answer_end_recognition"),
+    9: .standard(proto: "target_language"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.echoIndex) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.echoContent) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.endRecognition) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.currentLanguage) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.answerIndex) }()
+      case 7: try { try decoder.decodeSingularBytesField(value: &self.answerContent) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.answerEndRecognition) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self.targetLanguage) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if self.echoIndex != 0 {
+      try visitor.visitSingularUInt32Field(value: self.echoIndex, fieldNumber: 2)
+    }
+    if !self.echoContent.isEmpty {
+      try visitor.visitSingularBytesField(value: self.echoContent, fieldNumber: 3)
+    }
+    if self.endRecognition != false {
+      try visitor.visitSingularBoolField(value: self.endRecognition, fieldNumber: 4)
+    }
+    if self.currentLanguage != .langInvalid {
+      try visitor.visitSingularEnumField(value: self.currentLanguage, fieldNumber: 5)
+    }
+    if self.answerIndex != 0 {
+      try visitor.visitSingularUInt32Field(value: self.answerIndex, fieldNumber: 6)
+    }
+    if !self.answerContent.isEmpty {
+      try visitor.visitSingularBytesField(value: self.answerContent, fieldNumber: 7)
+    }
+    if self.answerEndRecognition != false {
+      try visitor.visitSingularBoolField(value: self.answerEndRecognition, fieldNumber: 8)
+    }
+    if self.targetLanguage != .langInvalid {
+      try visitor.visitSingularEnumField(value: self.targetLanguage, fieldNumber: 9)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_translation_assistant_result_operate, rhs: protocol_translation_assistant_result_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.echoIndex != rhs.echoIndex {return false}
+    if lhs.echoContent != rhs.echoContent {return false}
+    if lhs.endRecognition != rhs.endRecognition {return false}
+    if lhs.currentLanguage != rhs.currentLanguage {return false}
+    if lhs.answerIndex != rhs.answerIndex {return false}
+    if lhs.answerContent != rhs.answerContent {return false}
+    if lhs.answerEndRecognition != rhs.answerEndRecognition {return false}
+    if lhs.targetLanguage != rhs.targetLanguage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_translation_assistant_manual_send_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .standard(proto: "target_language"),
+    3: .standard(proto: "extra_info"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.targetLanguage) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.extraInfo) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.targetLanguage != .langInvalid {
+      try visitor.visitSingularEnumField(value: self.targetLanguage, fieldNumber: 2)
+    }
+    if !self.extraInfo.isEmpty {
+      try visitor.visitSingularBytesField(value: self.extraInfo, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_translation_assistant_manual_send_operate, rhs: protocol_translation_assistant_manual_send_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.targetLanguage != rhs.targetLanguage {return false}
+    if lhs.extraInfo != rhs.extraInfo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ai_feature_config"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_code"),
+    2: .standard(proto: "start_time"),
+    3: .standard(proto: "end_time"),
+    4: .standard(proto: "is_subscribed"),
+    5: .standard(proto: "is_subscription_supported"),
+    6: .standard(proto: "daily_call_limit"),
+    7: .standard(proto: "total_allowed_limit"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.userCode) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.startTime) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.endTime) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.isSubscribed) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.isSubscriptionSupported) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.dailyCallLimit) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.totalAllowedLimit) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.userCode.isEmpty {
+      try visitor.visitSingularBytesField(value: self.userCode, fieldNumber: 1)
+    }
+    if self.startTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.startTime, fieldNumber: 2)
+    }
+    if self.endTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.endTime, fieldNumber: 3)
+    }
+    if self.isSubscribed != false {
+      try visitor.visitSingularBoolField(value: self.isSubscribed, fieldNumber: 4)
+    }
+    if self.isSubscriptionSupported != false {
+      try visitor.visitSingularBoolField(value: self.isSubscriptionSupported, fieldNumber: 5)
+    }
+    if self.dailyCallLimit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dailyCallLimit, fieldNumber: 6)
+    }
+    if self.totalAllowedLimit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalAllowedLimit, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ai_feature_config, rhs: protocol_ai_feature_config) -> Bool {
+    if lhs.userCode != rhs.userCode {return false}
+    if lhs.startTime != rhs.startTime {return false}
+    if lhs.endTime != rhs.endTime {return false}
+    if lhs.isSubscribed != rhs.isSubscribed {return false}
+    if lhs.isSubscriptionSupported != rhs.isSubscriptionSupported {return false}
+    if lhs.dailyCallLimit != rhs.dailyCallLimit {return false}
+    if lhs.totalAllowedLimit != rhs.totalAllowedLimit {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ai_feature_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ai_feature_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .same(proto: "config"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._config) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    try { if let v = self._config {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ai_feature_operate, rhs: protocol_ai_feature_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs._config != rhs._config {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ai_feature_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ai_feature_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .same(proto: "config"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._config) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.operate != .invalid {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    try { if let v = self._config {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ai_feature_reply, rhs: protocol_ai_feature_reply) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs._config != rhs._config {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ai_feature_local_status: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "ai_feature_local_status"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "system_time"),
+    2: .standard(proto: "daily_count"),
+    3: .standard(proto: "total_count"),
+    4: .standard(proto: "daily_call_limit"),
+    5: .standard(proto: "total_allowed_limit"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.systemTime) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.dailyCount) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.totalCount) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.dailyCallLimit) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.totalAllowedLimit) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.systemTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.systemTime, fieldNumber: 1)
+    }
+    if self.dailyCount != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dailyCount, fieldNumber: 2)
+    }
+    if self.totalCount != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalCount, fieldNumber: 3)
+    }
+    if self.dailyCallLimit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dailyCallLimit, fieldNumber: 4)
+    }
+    if self.totalAllowedLimit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalAllowedLimit, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: ai_feature_local_status, rhs: ai_feature_local_status) -> Bool {
+    if lhs.systemTime != rhs.systemTime {return false}
+    if lhs.dailyCount != rhs.dailyCount {return false}
+    if lhs.totalCount != rhs.totalCount {return false}
+    if lhs.dailyCallLimit != rhs.dailyCallLimit {return false}
+    if lhs.totalAllowedLimit != rhs.totalAllowedLimit {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_ai_feature_notify_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_ai_feature_notify_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "tran_type"),
+    2: .same(proto: "type"),
+    3: .same(proto: "status"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._status) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.tranType != .watchTran {
+      try visitor.visitSingularEnumField(value: self.tranType, fieldNumber: 1)
+    }
+    if self.type != .updataConfig {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 2)
+    }
+    try { if let v = self._status {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_ai_feature_notify_operate, rhs: protocol_ai_feature_notify_operate) -> Bool {
+    if lhs.tranType != rhs.tranType {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs._status != rhs._status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

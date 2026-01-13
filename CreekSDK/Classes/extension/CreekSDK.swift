@@ -270,6 +270,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
    
    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult)  {
       print("ios\(call.method)")
+      writeLog(content: "ios\(call.method)")
       if(call.method.contains("scanBase")){
          if let response = call.arguments as? String{
             do{
@@ -2191,6 +2192,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
       }
       else if(call.method.contains("philipSleepListen")){
          if let response = call.arguments as? String{
+            writeLog(content: "philip:\(response)")
             if let back = backStringBaseDic[call.method]{
                back(response)
                backStringBaseDic.removeValue(forKey: call.method)

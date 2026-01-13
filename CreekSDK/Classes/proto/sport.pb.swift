@@ -566,6 +566,24 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._totalStep = newValue}
   }
 
+  ///跳绳次数显示是否支持
+  public var skipRopeSupport: Bool {
+    get {return _storage._skipRopeSupport}
+    set {_uniqueStorage()._skipRopeSupport = newValue}
+  }
+
+  ///总跳绳次数
+  public var totalJumps: UInt32 {
+    get {return _storage._totalJumps}
+    set {_uniqueStorage()._totalJumps = newValue}
+  }
+
+  ///跳绳速度（次/分钟）
+  public var jumpsPerMin: UInt32 {
+    get {return _storage._jumpsPerMin}
+    set {_uniqueStorage()._jumpsPerMin = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1512,6 +1530,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     37: .standard(proto: "gps_support"),
     38: .standard(proto: "step_support"),
     39: .standard(proto: "total_step"),
+    51: .standard(proto: "skip_rope_support"),
+    52: .standard(proto: "total_jumps"),
+    53: .standard(proto: "jumps_per_min"),
   ]
 
   fileprivate class _StorageClass {
@@ -1554,6 +1575,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _gpsSupport: Bool = false
     var _stepSupport: Bool = false
     var _totalStep: UInt32 = 0
+    var _skipRopeSupport: Bool = false
+    var _totalJumps: UInt32 = 0
+    var _jumpsPerMin: UInt32 = 0
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1607,6 +1631,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       _gpsSupport = source._gpsSupport
       _stepSupport = source._stepSupport
       _totalStep = source._totalStep
+      _skipRopeSupport = source._skipRopeSupport
+      _totalJumps = source._totalJumps
+      _jumpsPerMin = source._jumpsPerMin
     }
   }
 
@@ -1664,6 +1691,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 37: try { try decoder.decodeSingularBoolField(value: &_storage._gpsSupport) }()
         case 38: try { try decoder.decodeSingularBoolField(value: &_storage._stepSupport) }()
         case 39: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalStep) }()
+        case 51: try { try decoder.decodeSingularBoolField(value: &_storage._skipRopeSupport) }()
+        case 52: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalJumps) }()
+        case 53: try { try decoder.decodeSingularUInt32Field(value: &_storage._jumpsPerMin) }()
         default: break
         }
       }
@@ -1789,6 +1819,15 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._totalStep != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._totalStep, fieldNumber: 39)
       }
+      if _storage._skipRopeSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._skipRopeSupport, fieldNumber: 51)
+      }
+      if _storage._totalJumps != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._totalJumps, fieldNumber: 52)
+      }
+      if _storage._jumpsPerMin != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._jumpsPerMin, fieldNumber: 53)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1837,6 +1876,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         if _storage._gpsSupport != rhs_storage._gpsSupport {return false}
         if _storage._stepSupport != rhs_storage._stepSupport {return false}
         if _storage._totalStep != rhs_storage._totalStep {return false}
+        if _storage._skipRopeSupport != rhs_storage._skipRopeSupport {return false}
+        if _storage._totalJumps != rhs_storage._totalJumps {return false}
+        if _storage._jumpsPerMin != rhs_storage._jumpsPerMin {return false}
         return true
       }
       if !storagesAreEqual {return false}
