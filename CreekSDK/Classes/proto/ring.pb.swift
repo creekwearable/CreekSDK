@@ -88,6 +88,15 @@ public struct protocol_ring_remind_mark_operate: Sendable {
   ///提醒方式
   public var remindType: ring_remind_type = .alert
 
+  ///事件当前值（核心体温*100）
+  public var currentValue: Int32 = 0
+
+  ///事件最小值
+  public var eventValueMin: UInt32 = 0
+
+  ///事件最大值
+  public var eventValueMax: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -359,6 +368,9 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     4: .standard(proto: "event_value"),
     5: .standard(proto: "event_time"),
     6: .standard(proto: "remind_type"),
+    7: .standard(proto: "current_value"),
+    8: .standard(proto: "event_value_min"),
+    9: .standard(proto: "event_value_max"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -373,6 +385,9 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
       case 4: try { try decoder.decodeSingularEnumField(value: &self.eventValue) }()
       case 5: try { try decoder.decodeSingularMessageField(value: &self._eventTime) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.remindType) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self.currentValue) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.eventValueMin) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.eventValueMax) }()
       default: break
       }
     }
@@ -401,6 +416,15 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     if self.remindType != .alert {
       try visitor.visitSingularEnumField(value: self.remindType, fieldNumber: 6)
     }
+    if self.currentValue != 0 {
+      try visitor.visitSingularInt32Field(value: self.currentValue, fieldNumber: 7)
+    }
+    if self.eventValueMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.eventValueMin, fieldNumber: 8)
+    }
+    if self.eventValueMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.eventValueMax, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -411,6 +435,9 @@ extension protocol_ring_remind_mark_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.eventValue != rhs.eventValue {return false}
     if lhs._eventTime != rhs._eventTime {return false}
     if lhs.remindType != rhs.remindType {return false}
+    if lhs.currentValue != rhs.currentValue {return false}
+    if lhs.eventValueMin != rhs.eventValueMin {return false}
+    if lhs.eventValueMax != rhs.eventValueMax {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -77,6 +77,8 @@
 		072B823A2EAA19A40093F88C /* RespiratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072B82392EAA19A40093F88C /* RespiratoryModel.swift */; };
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
+		0731EDEB2F1676F500092E00 /* exerciseSupport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */; };
+		0731EDEC2F1676F500092E00 /* exerciseTarget.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */; };
 		07322F9A2EBDF103003CD42C /* healthRealtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07322F992EBDF103003CD42C /* healthRealtime.pb.swift */; };
 		073D059E2E30DA7F00F000B3 /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D059D2E30DA7F00F000B3 /* GoalsModel.swift */; };
 		073D05E92E3A2AD700F000B3 /* activeOta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */; };
@@ -238,6 +240,8 @@
 		072B82392EAA19A40093F88C /* RespiratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespiratoryModel.swift; sourceTree = "<group>"; };
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseSupport.pb.swift; sourceTree = "<group>"; };
+		0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseTarget.pb.swift; sourceTree = "<group>"; };
 		07322F992EBDF103003CD42C /* healthRealtime.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthRealtime.pb.swift; sourceTree = "<group>"; };
 		073D059D2E30DA7F00F000B3 /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activeOta.pb.swift; sourceTree = "<group>"; };
@@ -427,6 +431,8 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */,
+				0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */,
 				07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */,
 				07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */,
 				07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */,
@@ -981,6 +987,8 @@
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
 				079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */,
 				079D06F02E87CD570088C49A /* hydrateAassistant.pb.swift in Sources */,
+				0731EDEB2F1676F500092E00 /* exerciseSupport.pb.swift in Sources */,
+				0731EDEC2F1676F500092E00 /* exerciseTarget.pb.swift in Sources */,
 				079D06F12E87CD570088C49A /* qrcodeList.pb.swift in Sources */,
 				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
 				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,
