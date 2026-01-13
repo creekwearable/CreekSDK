@@ -2259,9 +2259,19 @@ extension CreekSDK{
    //   }
    
    ///AI configuration
-   public func aiVoiceConfig(keyId:String,publicKey:String){
+   public func aiVoiceConfig(keyId:String,publicKey:String,speechKeyStringMap:[String:String],defaultRegion:AzureRegionType){
       requestId+=1
-      methodChannel?.invokeMethod("aiVoiceConfig\(requestId)", arguments: [keyId,publicKey])
+      guard
+          let jsonData = try? JSONSerialization.data(
+              withJSONObject: speechKeyStringMap,
+              options: []
+          ),
+          let jsonString = String(data: jsonData, encoding: .utf8)
+      else {
+          print("aiVoiceConfig: failed to serialize speechKeyStringMap")
+          return
+      }
+      methodChannel?.invokeMethod("aiVoiceConfig\(requestId)", arguments: [keyId,publicKey,jsonString,"\(defaultRegion.rawValue)"])
    }
    
    ///AI configuration   CN US AF ..........
@@ -3058,6 +3068,10 @@ extension CreekSDK{
    
    public func hydrateAssistantUpdateListen(listen:@escaping (_ model:protocol_hydrate_assistant_update_notify_operate) -> ()){
       _hydrateAssistantUpdateListen = listen
+   }
+   
+   public func writeLog(content:String) {
+      methodChannel?.invokeMethod("writeLog", arguments: content)
    }
    
    

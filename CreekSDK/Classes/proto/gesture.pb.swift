@@ -42,6 +42,9 @@ public struct gesture_switch: Sendable {
   ///控制运动（暂停/恢复）
   public var controlSport: switch_type = .switchNull
 
+  ///控制闹钟延迟提醒
+  public var controlAlarmLaterRemind: switch_type = .switchNull
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -91,6 +94,7 @@ extension gesture_switch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     4: .standard(proto: "control_call"),
     5: .standard(proto: "switch_flag"),
     6: .standard(proto: "control_sport"),
+    7: .standard(proto: "control_alarm_later_remind"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -105,6 +109,7 @@ extension gesture_switch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       case 4: try { try decoder.decodeSingularEnumField(value: &self.controlCall) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.switchFlag) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.controlSport) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self.controlAlarmLaterRemind) }()
       default: break
       }
     }
@@ -129,6 +134,9 @@ extension gesture_switch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if self.controlSport != .switchNull {
       try visitor.visitSingularEnumField(value: self.controlSport, fieldNumber: 6)
     }
+    if self.controlAlarmLaterRemind != .switchNull {
+      try visitor.visitSingularEnumField(value: self.controlAlarmLaterRemind, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -139,6 +147,7 @@ extension gesture_switch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if lhs.controlCall != rhs.controlCall {return false}
     if lhs.switchFlag != rhs.switchFlag {return false}
     if lhs.controlSport != rhs.controlSport {return false}
+    if lhs.controlAlarmLaterRemind != rhs.controlAlarmLaterRemind {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -16,6 +16,6 @@ import _SwiftConcurrencyShims
 @objc @_inheritsConvenienceInitializers public class SwiftCreekBlueManagePlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin {
   @objc public static func register(with registrar: any Flutter.FlutterPluginRegistrar)
   @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }

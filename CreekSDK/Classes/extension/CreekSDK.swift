@@ -276,6 +276,7 @@ public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_ass
    
    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult)  {
       print("ios\(call.method)")
+      writeLog(content: "ios\(call.method)")
       if(call.method.contains("scanBase")){
          if let response = call.arguments as? String{
             do{

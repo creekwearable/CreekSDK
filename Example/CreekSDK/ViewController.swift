@@ -220,7 +220,29 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          let keyId = "L9z6xGit93O8rmFN2"
          let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAooLJ1knpZ4P3J5U158kUxjKnhj0hgt11ZIXfV/F8q+ku9uGRGL+4WuGrM1MfX1+1aqQNnCDYp57ioprm+4w7uvYwyz4j7JCutRVMm5BwbfruFfR8KwsL9z6xGit93O8rmFN2hkuUFxZSLiBBJiuhe+wtrDIPBov8QaNso/U0GrrDDgoh+R3p8fUQ3duMuL0I9pxW/sphVZOQbdNafti0AEdqJIwoQ5GSSGr0XKkHFk1kep9CifouWnHjoMqTMagDyaj07NSY2A4mxSn4S3e5L25NuJj80UcguDU6WxnZW5j9GC42BpmqA+Kcu54GqkXAF383tJHYiSXZtAFl80/bxQIDAQAB"
-         CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
+         
+         
+         let speechKeyMap: [String: String] = [
+             "eastasia":
+                 "********************",
+             "centralindia":
+                 "********************",
+             "westeurope":
+                 "********************",
+             "uaenorth":
+                 "********************",
+             "brazilsouth":
+                 "********************",
+             "southafricanorth":
+                 "********************",
+             "southeastasia":
+                 "********************",
+             "eastus":
+                 "********************"
+         ]
+         
+         CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey,speechKeyStringMap: speechKeyMap,defaultRegion: .eastus)
+         
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
          

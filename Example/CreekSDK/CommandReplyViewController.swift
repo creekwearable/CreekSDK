@@ -1456,7 +1456,7 @@ class CommandReplyViewController: CreekBaseViewController {
          item.drinkValue = 100
          item.hour = 8
          item.min = 30
-         operate.item = item
+         operate.item = [item]
          CreekInterFace.instance.setHydrateAssistant(model: operate) {
             self.view.hideRemark()
             self.textView.text = "success"
@@ -1470,8 +1470,8 @@ class CommandReplyViewController: CreekBaseViewController {
          var  operate =  protocol_hydrate_assistant_operate()
          operate.operate = .hydrareDelete
          var item = hydrate_assistant_daily_item()
-         item.recordID = 1  //拿获取到的列表id
-         operate.item = item
+         item.recordID = 1768305628
+         operate.item = [item]
          CreekInterFace.instance.setHydrateAssistant(model: operate) {
             self.view.hideRemark()
             self.textView.text = "success"
@@ -1563,8 +1563,8 @@ class CommandReplyViewController: CreekBaseViewController {
          var operate = protocol_ai_feature_operate()
          var config = protocol_ai_feature_config()
          config.userCode = "123".data(using: .utf8)!
-         config.startTime = 1767711496
-         config.endTime = 1767711496
+         config.startTime = UInt32(Date().timeIntervalSince1970)
+         config.endTime = UInt32(Date().timeIntervalSince1970) + 88640
          config.dailyCallLimit = 100
          config.totalAllowedLimit = 500
          operate.config = config
