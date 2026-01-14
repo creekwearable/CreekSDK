@@ -2195,7 +2195,6 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
             writeLog(content: "philip:\(response)")
             if let back = backStringBaseDic[call.method]{
                back(response)
-               backStringBaseDic.removeValue(forKey: call.method)
             }
          }
          
