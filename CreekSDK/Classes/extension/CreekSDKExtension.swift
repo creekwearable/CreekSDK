@@ -2828,12 +2828,13 @@ extension CreekSDK{
       }
    }
    
-   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase){
+   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase,wearingNoStandard:@escaping abnormalBase){
       serialQueue.sync {
          requestId+=1
          clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
          commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
          abnormalClosureDic["abnormalstartMeasure\(requestId)"] = abnormal
+         abnormalClosureDic["wearingNoStandardstartMeasure\(requestId)"] = wearingNoStandard
          successDic["startMeasure\(requestId)"] = success
          methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: [type.rawValue,measureDuration,timeout])
       }
@@ -2951,23 +2952,35 @@ extension CreekSDK{
       methodChannel?.invokeMethod("writeLog", arguments: content)
    }
    
-   //   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
-   //      serialQueue.sync {
-   //         requestId+=1
-   //         successDic["setOnOffSuperMessage\(requestId)"] = success;
-   //         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
-   //         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
-   //      }
-   //   }
-   //
-   //   public func getOnOffSuperMessage(model:@escaping boolBase) {
-   //      serialQueue.sync {
-   //         requestId+=1
-   //         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
-   //         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
-   //      }
-   //   }
+   public func readRssi(model:@escaping valueBase) {
+      serialQueue.sync {
+         requestId+=1
+         valueClosureDic["readRssi\(requestId)"] = model
+         methodChannel?.invokeMethod("readRssi\(requestId)", arguments: "")
+      }
+   }
    
    
+   public func getUnconfirmedAutoSport(model:@escaping sportsClosure) {
+      serialQueue.sync {
+         requestId+=1
+         sportsClosureDic["getUnconfirmedAutoSport\(requestId)"] = model
+         methodChannel?.invokeMethod("getUnconfirmedAutoSport\(requestId)", arguments: "")
+      }
+   }
    
+   public func editSport(sportModel:SportModel,model:@escaping boolBase){
+      serialQueue.sync {
+         requestId+=1
+         boolClosureDic["editSport\(requestId)"] = model
+         guard
+            let sportData = try? JSONEncoder().encode(sportModel),
+            let sportStr = String(data: sportData, encoding: .utf8)
+         else {
+            print("Failed to encode sportModel")
+            return
+         }
+         methodChannel?.invokeMethod("editSport\(requestId)", arguments: sportStr)
+      }
+   }
 }

@@ -948,7 +948,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
          
          
       }
-      else if(call.method.contains("getSportTimeData")){
+      else if(call.method.contains("getSportTimeData") || call.method.contains("getUnconfirmedAutoSport")){
          if let response = call.arguments as? String{
             do{
                let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
@@ -1507,7 +1507,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
             }
          }
       }
-      else if(call.method.contains("getOTAUpgradeVersion")){
+      else if(call.method.contains("getOTAUpgradeVersion") || call.method.contains("readRssi")){
          if let response = call.arguments as? Int{
             if let back = valueClosureDic[call.method]{
                back(response)
@@ -2181,7 +2181,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
             
          }
       }
-      else if(call.method.contains("getOnOffSuperMessage")){
+      else if(call.method.contains("getOnOffSuperMessage") || call.method.contains("editSport")){
          if let response = call.arguments as? Bool{
             if let back = boolClosureDic[call.method]{
                back(response)
@@ -2212,12 +2212,11 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
             }
          }
       }
-      else if(call.method.contains("abnormalstartMeasure")){
+      else if(call.method.contains("abnormalstartMeasure") || call.method.contains("wearingNoStandardstartMeasure")){
          if let back = abnormalClosureDic[call.method]{
             back()
          }
       }
-      
    }
    
 }

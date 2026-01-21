@@ -110,6 +110,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "getHydrateAssistantConfig",
       "setHydrateAssistantConfig",
       "setVitalityScore",
+      "readRssi",
+      "getUnconfirmedAutoSport",
+      "editSport",
    ];
    
    var filteredOptions: [String] = []

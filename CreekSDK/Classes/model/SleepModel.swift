@@ -131,6 +131,15 @@ public class SleepModel: Codable {
 
    /// Count of oxygen drops with a decrease ≥ 4
    public var maxDrop4Cnt: Int?
+   
+   ///Multiply by 10
+   public var newAhiValue: Int?
+   
+   /// Multiply by 10
+   public var newOdiValue: Int?
+   
+   /// Body motion parameters
+   public var bodyActValue: Int?
 
    public var datas : [SleepDataModel]?
 }
@@ -138,6 +147,6 @@ public class SleepModel: Codable {
 public class SleepDataModel: Codable {
    ///sleep stage
    public var stage: health_storage_sleep_stage_type?
-   ///Starting from 0, the offset from the previous value   unit /m
+   ///Starting from 0, the offset from the previous value   unit /s
    public var duration: Int?
 }

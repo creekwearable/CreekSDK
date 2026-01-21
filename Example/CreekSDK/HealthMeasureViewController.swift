@@ -116,6 +116,8 @@ class HealthMeasureViewController: UIViewController {
           self?.statusLabel.text = model.message
        } abnormal: {
           print("有异动")
+       }wearingNoStandard: {
+          print("不标准")
        }
 
     }

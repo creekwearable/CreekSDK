@@ -1454,6 +1454,36 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
          
+      case "readRssi":
+         CreekInterFace.instance.readRssi { model in
+            self.view.hideRemark()
+            self.textView.text = "\(model)"
+         }
+         break
+         
+      case "getUnconfirmedAutoSport":
+         CreekInterFace.instance.getUnconfirmedAutoSport { model in
+            self.view.hideRemark()
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         break
+      case "editSport":
+         let model = SportModel()
+         CreekInterFace.instance.editSport(sportModel: model) { model in
+            self.view.hideRemark()
+            self.textView.text = "\(model)"
+         }
+         break
+         
       default:
          break
          
