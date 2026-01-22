@@ -286,6 +286,8 @@ public enum health_storage_sleep_stage_type : Int, Codable
    case SLEEP_STAGE_TYPE_LIGHT  = 2   //Sleep Stages - Light Sleep
    case SLEEP_STAGE_TYPE_DEEP   = 3   //Sleep Stages - Deep Sleep
    case SLEEP_STAGE_TYPE_REM    = 4   //Sleep Stages - REM
+   case SLEEP_STAGE_TYPE_INBED    = 5
+   case SLEEP_STAGE_TYPE_OUTBED    = 6
 };
 
 
