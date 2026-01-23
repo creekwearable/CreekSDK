@@ -238,6 +238,42 @@ public enum SportType: Int, Codable {
     case POLOCROSSE = 189             // Polocrosse
     case SHOW_JUMPING = 190           // Show jumping
     case DRESSAGE = 191               // Dressage
+    // Additional sports (protocol extended)
+    case WATER_SKIING = 192            // Water skiing
+    case SAILING = 193                 // Sailing
+    case OTHER_WATER_SPORTS = 194      // Other water sports
+    case ATV = 195                     // ATV
+    case HUNTING = 196                 // Hunting
+    case OTHER_WINTER_SPORTS = 197     // Other winter sports
+    case DEADLIFT = 198                // Deadlift
+    case KABBADI = 199                 // Kabaddi
+    case PARAGLIDING = 200             // Paragliding
+    case WALL_BALL = 201               // Wall ball
+    case FIN_SWIMMING = 202            // Fin swimming
+    case CARDIO_CRUISER = 203          // Cardio cruiser
+    case FOOTVOLLEY = 204              // Footvolley
+    case MOUNTAIN_CYCLING = 205        // Mountain cycling
+    case ROLLED_ABDOMEN = 206          // Ab roller
+    case SNORKELING = 207              // Snorkeling
+    case ABS = 208                     // Abdominal training
+    case JUDO = 209                    // Judo
+    case MIND_AND_RELAX = 210          // Mind & relax
+    case BOBBY_JUMPS = 211             // Bobby jumps
+    case SAVATE = 212                  // Savate
+    case HOVERBOARD = 213              // Hoverboard
+    case SNOWMOBILE = 214              // Snowmobile
+    case GARDENING = 215               // Gardening
+    case UPPER_BODY = 216              // Upper body training
+    case BACK_EXERCISES = 217          // Back exercises
+    case ARTISTIC_SWIMMING = 218       // Artistic swimming
+    case BURPEE = 219                  // Burpee
+    case CHEST_TRAINING = 220          // Chest training
+    case SHOULDER_TRAINING = 221       // Shoulder training
+    case LOWER_BODY_TRAINING = 222     // Lower body training
+    case BACK_TRAINING = 223           // Back training
+    case RUN = 224                     // Run
+    case WALK = 225                    // Walk
+    case VERTICAL_JUMP = 226           // Vertical jump
 }
 
 
