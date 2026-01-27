@@ -48,7 +48,7 @@ public class SleepModel: Codable {
    public var isNapSleep: Int?
    ///Does the OSA data support (ahi_value, apnoea_value, spo2_value)?
    public var osaSupport: Int?
-   public var ahiValue: Int?
+   public var osaEnable: Int?
    ///Number of suspected breathing apneas
    public var apnoeaValue: Int?
    ///Nighttime Real-time Blood Oxygen Levels

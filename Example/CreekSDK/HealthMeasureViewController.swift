@@ -118,6 +118,10 @@ class HealthMeasureViewController: UIViewController {
           print("有异动")
        }wearingNoStandard: {
           print("不标准")
+       } processResult: { model in
+          if model.pulseRateValue > 0{
+            
+          }
        }
 
     }

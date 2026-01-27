@@ -2828,7 +2828,7 @@ extension CreekSDK{
       }
    }
    
-   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase,wearingNoStandard:@escaping abnormalBase){
+   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase,wearingNoStandard:@escaping abnormalBase,processResult:@escaping clickHealthMeasureBase){
       serialQueue.sync {
          requestId+=1
          clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
@@ -2836,6 +2836,7 @@ extension CreekSDK{
          abnormalClosureDic["abnormalstartMeasure\(requestId)"] = abnormal
          abnormalClosureDic["wearingNoStandardstartMeasure\(requestId)"] = wearingNoStandard
          successDic["startMeasure\(requestId)"] = success
+         clickHealthMeasureDic["processResultstartMeasure\(requestId)"] = processResult
          methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: [type.rawValue,measureDuration,timeout])
       }
    }

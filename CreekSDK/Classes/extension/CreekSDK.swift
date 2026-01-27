@@ -2089,7 +2089,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
          }
       }
       
-      else if(call.method.contains("successstartMeasure")){
+      else if(call.method.contains("successstartMeasure") || call.method.contains("processResultstartMeasure")){
          if let response = call.arguments as? FlutterStandardTypedData{
             do{
                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
