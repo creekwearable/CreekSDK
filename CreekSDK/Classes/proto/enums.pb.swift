@@ -753,6 +753,12 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///保存数据
   case saveData // = 4
+
+  ///绑定账号信息
+  case bindAccount // = 5
+
+  ///充电才可配对，app提示用户充电
+  case needChargering // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -766,6 +772,8 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .success
     case 3: self = .bound
     case 4: self = .saveData
+    case 5: self = .bindAccount
+    case 6: self = .needChargering
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -777,6 +785,8 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .success: return 2
     case .bound: return 3
     case .saveData: return 4
+    case .bindAccount: return 5
+    case .needChargering: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -788,6 +798,8 @@ public enum bind_flag: SwiftProtobuf.Enum, Swift.CaseIterable {
     .success,
     .bound,
     .saveData,
+    .bindAccount,
+    .needChargering,
   ]
 
 }
@@ -1012,6 +1024,9 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///房颤
   case atrialFibrillation // = 7
+
+  ///睡眠呼吸暂停
+  case osa // = 8
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1028,6 +1043,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 5: self = .respiratoryRate
     case 6: self = .skinTemperature
     case 7: self = .atrialFibrillation
+    case 8: self = .osa
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1042,6 +1058,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .respiratoryRate: return 5
     case .skinTemperature: return 6
     case .atrialFibrillation: return 7
+    case .osa: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1056,6 +1073,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .respiratoryRate,
     .skinTemperature,
     .atrialFibrillation,
+    .osa,
   ]
 
 }
@@ -1145,6 +1163,9 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///异常房颤算法数据
   case syncPpgAf // = 14
+
+  ///核心体温数据
+  case syncCoreTemperature // = 15
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1168,6 +1189,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 12: self = .syncPspSleep
     case 13: self = .syncAf
     case 14: self = .syncPpgAf
+    case 15: self = .syncCoreTemperature
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1189,6 +1211,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncPspSleep: return 12
     case .syncAf: return 13
     case .syncPpgAf: return 14
+    case .syncCoreTemperature: return 15
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1210,6 +1233,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncPspSleep,
     .syncAf,
     .syncPpgAf,
+    .syncCoreTemperature,
   ]
 
 }
@@ -3967,6 +3991,12 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
   ///表盘安装失败
   case aiStatusDialInstallationFailed // = 13
   case aiStatusVoiceSpeakEnd // = 14
+
+  ///AI翻译新增
+  case aiStatusTranslationRecognizeUnidentify // = 15
+
+  ///翻译超时
+  case aiStatusTranslationUnidentify // = 16
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -3990,6 +4020,8 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 12: self = .aiStatusCreateFailed
     case 13: self = .aiStatusDialInstallationFailed
     case 14: self = .aiStatusVoiceSpeakEnd
+    case 15: self = .aiStatusTranslationRecognizeUnidentify
+    case 16: self = .aiStatusTranslationUnidentify
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4011,6 +4043,8 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiStatusCreateFailed: return 12
     case .aiStatusDialInstallationFailed: return 13
     case .aiStatusVoiceSpeakEnd: return 14
+    case .aiStatusTranslationRecognizeUnidentify: return 15
+    case .aiStatusTranslationUnidentify: return 16
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4032,6 +4066,8 @@ public enum voice_assistant_status_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiStatusCreateFailed,
     .aiStatusDialInstallationFailed,
     .aiStatusVoiceSpeakEnd,
+    .aiStatusTranslationRecognizeUnidentify,
+    .aiStatusTranslationUnidentify,
   ]
 
 }
@@ -4114,8 +4150,11 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
   ///ai表盘回显
   case aiDialogAiEcho // = 2
 
-  ///日程回显
-  case aiDialogAiCalendarEcho // = 3
+  ///ai翻译
+  case aiDialogTranslationEcho // = 3
+
+  ///对内AI日程回显
+  case aiDialogInternalEcho // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4127,7 +4166,8 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case 0: self = .aiDialogNormal
     case 1: self = .aiDialogEcho
     case 2: self = .aiDialogAiEcho
-    case 3: self = .aiDialogAiCalendarEcho
+    case 3: self = .aiDialogTranslationEcho
+    case 4: self = .aiDialogInternalEcho
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4137,7 +4177,8 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     case .aiDialogNormal: return 0
     case .aiDialogEcho: return 1
     case .aiDialogAiEcho: return 2
-    case .aiDialogAiCalendarEcho: return 3
+    case .aiDialogTranslationEcho: return 3
+    case .aiDialogInternalEcho: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4147,7 +4188,8 @@ public enum voice_assistant_dialog_type: SwiftProtobuf.Enum, Swift.CaseIterable 
     .aiDialogNormal,
     .aiDialogEcho,
     .aiDialogAiEcho,
-    .aiDialogAiCalendarEcho,
+    .aiDialogTranslationEcho,
+    .aiDialogInternalEcho,
   ]
 
 }
@@ -4314,6 +4356,9 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///开启关闭自动亮度
   case templateTypeAutoBrightnessMode // = 22
+
+  ///睡眠
+  case templateTypeSleepData // = 23
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4344,6 +4389,7 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 20: self = .templateTypeAlwaysonMode
     case 21: self = .templateTypeVolumeMode
     case 22: self = .templateTypeAutoBrightnessMode
+    case 23: self = .templateTypeSleepData
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4372,6 +4418,7 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .templateTypeAlwaysonMode: return 20
     case .templateTypeVolumeMode: return 21
     case .templateTypeAutoBrightnessMode: return 22
+    case .templateTypeSleepData: return 23
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4400,6 +4447,7 @@ public enum skill_template_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .templateTypeAlwaysonMode,
     .templateTypeVolumeMode,
     .templateTypeAutoBrightnessMode,
+    .templateTypeSleepData,
   ]
 
 }
@@ -4602,6 +4650,12 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///设置
   case settings // = 29
+
+  ///SOS界面
+  case sos // = 30
+
+  ///耳机连接界面
+  case twsConnect // = 31
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4640,6 +4694,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 27: self = .worldClock
     case 28: self = .findPhone
     case 29: self = .settings
+    case 30: self = .sos
+    case 31: self = .twsConnect
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4676,6 +4732,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .worldClock: return 27
     case .findPhone: return 28
     case .settings: return 29
+    case .sos: return 30
+    case .twsConnect: return 31
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4712,6 +4770,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     .worldClock,
     .findPhone,
     .settings,
+    .sos,
+    .twsConnect,
   ]
 
 }
@@ -5868,6 +5928,24 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///波比跳
   case burpee // = 219
+
+  ///胸部训练
+  case chestTraining // = 220
+
+  ///肩部训练
+  case shoulderTraining // = 221
+
+  ///下肢训练
+  case lowerBodyTraining // = 222
+
+  ///背部训练
+  case backTraining // = 223
+
+  ///跑步
+  case run // = 224
+
+  ///走路
+  case walk // = 225
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6096,6 +6174,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 217: self = .backExercises
     case 218: self = .artisticSwimming
     case 219: self = .burpee
+    case 220: self = .chestTraining
+    case 221: self = .shoulderTraining
+    case 222: self = .lowerBodyTraining
+    case 223: self = .backTraining
+    case 224: self = .run
+    case 225: self = .walk
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6322,6 +6406,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .backExercises: return 217
     case .artisticSwimming: return 218
     case .burpee: return 219
+    case .chestTraining: return 220
+    case .shoulderTraining: return 221
+    case .lowerBodyTraining: return 222
+    case .backTraining: return 223
+    case .run: return 224
+    case .walk: return 225
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6548,6 +6638,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .backExercises,
     .artisticSwimming,
     .burpee,
+    .chestTraining,
+    .shoulderTraining,
+    .lowerBodyTraining,
+    .backTraining,
+    .run,
+    .walk,
   ]
 
 }
@@ -6901,6 +6997,12 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///血氧过低提醒
   case lowSpo2 // = 20
+
+  ///核心体温过高
+  case coreHighTemperature // = 21
+
+  ///核心体温过低
+  case coreLowTemperature // = 22
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6930,6 +7032,8 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 18: self = .sedentaryRemind
     case 19: self = .highStress
     case 20: self = .lowSpo2
+    case 21: self = .coreHighTemperature
+    case 22: self = .coreLowTemperature
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6957,6 +7061,8 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .sedentaryRemind: return 18
     case .highStress: return 19
     case .lowSpo2: return 20
+    case .coreHighTemperature: return 21
+    case .coreLowTemperature: return 22
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6984,6 +7090,8 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .sedentaryRemind,
     .highStress,
     .lowSpo2,
+    .coreHighTemperature,
+    .coreLowTemperature,
   ]
 
 }
@@ -7380,6 +7488,9 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///nordic平台
   case nordic // = 1
+
+  ///nordic平台，带睡眠
+  case nordicSleep // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -7390,6 +7501,7 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .actions
     case 1: self = .nordic
+    case 2: self = .nordicSleep
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7398,6 +7510,7 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .actions: return 0
     case .nordic: return 1
+    case .nordicSleep: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7406,6 +7519,7 @@ public enum Platform_pspkey: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [Platform_pspkey] = [
     .actions,
     .nordic,
+    .nordicSleep,
   ]
 
 }
@@ -7780,6 +7894,9 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case vibrationStop // = 0
   case vibrationStart // = 1
+
+  ///稍后提醒
+  case laterRemind // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -7790,6 +7907,7 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .vibrationStop
     case 1: self = .vibrationStart
+    case 2: self = .laterRemind
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7798,6 +7916,7 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .vibrationStop: return 0
     case .vibrationStart: return 1
+    case .laterRemind: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7806,6 +7925,7 @@ public enum ring_alarm_vibrate_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [ring_alarm_vibrate_status] = [
     .vibrationStop,
     .vibrationStart,
+    .laterRemind,
   ]
 
 }
@@ -8275,6 +8395,386 @@ public enum health_realtime_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable
 
 }
 
+public enum ring_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///弹窗通知
+  case alert // = 0
+
+  ///静默执行
+  case silent // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .alert
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .alert
+    case 1: self = .silent
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .alert: return 0
+    case .silent: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ring_remind_type] = [
+    .alert,
+    .silent,
+  ]
+
+}
+
+public enum device_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///运动状态
+  case sportStatus // = 0
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .sportStatus
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .sportStatus
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .sportStatus: return 0
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [device_status_type] = [
+    .sportStatus,
+  ]
+
+}
+
+public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///无异动
+  case healthAbnormalNone // = 0
+
+  ///监测到异常
+  case healthAbnormalExist // = 1
+
+  ///佩戴不标准
+  case wearingNonstandard // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .healthAbnormalNone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .healthAbnormalNone
+    case 1: self = .healthAbnormalExist
+    case 2: self = .wearingNonstandard
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .healthAbnormalNone: return 0
+    case .healthAbnormalExist: return 1
+    case .wearingNonstandard: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [health_abnormal_status] = [
+    .healthAbnormalNone,
+    .healthAbnormalExist,
+    .wearingNonstandard,
+  ]
+
+}
+
+public enum config_pic_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case picNull // = 0
+  case picIndex8 // = 1
+  case pic0565 // = 2
+  case pic8888 // = 3
+  case picJpeg // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .picNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .picNull
+    case 1: self = .picIndex8
+    case 2: self = .pic0565
+    case 3: self = .pic8888
+    case 4: self = .picJpeg
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .picNull: return 0
+    case .picIndex8: return 1
+    case .pic0565: return 2
+    case .pic8888: return 3
+    case .picJpeg: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [config_pic_type] = [
+    .picNull,
+    .picIndex8,
+    .pic0565,
+    .pic8888,
+    .picJpeg,
+  ]
+
+}
+
+public enum hydrate_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case hydrareInvalid // = 0
+
+  ///查询
+  case hydrareInquire // = 1
+
+  ///增加
+  case hydrareAdd // = 2
+
+  ///删除
+  case hydrareDelete // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .hydrareInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .hydrareInvalid
+    case 1: self = .hydrareInquire
+    case 2: self = .hydrareAdd
+    case 3: self = .hydrareDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .hydrareInvalid: return 0
+    case .hydrareInquire: return 1
+    case .hydrareAdd: return 2
+    case .hydrareDelete: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [hydrate_operate_type] = [
+    .hydrareInvalid,
+    .hydrareInquire,
+    .hydrareAdd,
+    .hydrareDelete,
+  ]
+
+}
+
+public enum hydrate_notify_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///增加
+  case notifyAdd // = 0
+
+  ///删除
+  case notifyDelete // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .notifyAdd
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .notifyAdd
+    case 1: self = .notifyDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .notifyAdd: return 0
+    case .notifyDelete: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [hydrate_notify_type] = [
+    .notifyAdd,
+    .notifyDelete,
+  ]
+
+}
+
+public enum ai_translate_speed_level: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case aiTranslateSpeedUnknown // = 0
+  case aiTranslateSlow // = 1
+  case aiTranslateNormal // = 2
+  case aiTranslateFast // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .aiTranslateSpeedUnknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .aiTranslateSpeedUnknown
+    case 1: self = .aiTranslateSlow
+    case 2: self = .aiTranslateNormal
+    case 3: self = .aiTranslateFast
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .aiTranslateSpeedUnknown: return 0
+    case .aiTranslateSlow: return 1
+    case .aiTranslateNormal: return 2
+    case .aiTranslateFast: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ai_translate_speed_level] = [
+    .aiTranslateSpeedUnknown,
+    .aiTranslateSlow,
+    .aiTranslateNormal,
+    .aiTranslateFast,
+  ]
+
+}
+
+public enum ai_feature_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///更新配置
+  case updataConfig // = 0
+
+  ///使用状态
+  case useStatus // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .updataConfig
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .updataConfig
+    case 1: self = .useStatus
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .updataConfig: return 0
+    case .useStatus: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ai_feature_type] = [
+    .updataConfig,
+    .useStatus,
+  ]
+
+}
+
+public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case offlineMapInvalid // = 0
+
+  /// 查询离线地图
+  case offlineMapInquire // = 1
+
+  /// 删除离线地图
+  case offlineMapDelete // = 2
+
+  /// 修改离线地图
+  case offlineMapUpdate // = 3
+
+  /// 创建离线地图
+  case offlineMapCreate // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .offlineMapInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .offlineMapInvalid
+    case 1: self = .offlineMapInquire
+    case 2: self = .offlineMapDelete
+    case 3: self = .offlineMapUpdate
+    case 4: self = .offlineMapCreate
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .offlineMapInvalid: return 0
+    case .offlineMapInquire: return 1
+    case .offlineMapDelete: return 2
+    case .offlineMapUpdate: return 3
+    case .offlineMapCreate: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_offline_map_type] = [
+    .offlineMapInvalid,
+    .offlineMapInquire,
+    .offlineMapDelete,
+    .offlineMapUpdate,
+    .offlineMapCreate,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8411,6 +8911,8 @@ extension bind_flag: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "BIND_FLAG_SUCCESS"),
     3: .same(proto: "BIND_FLAG_BOUND"),
     4: .same(proto: "BIND_FLAG_SAVE_DATA"),
+    5: .same(proto: "BIND_ACCOUNT"),
+    6: .same(proto: "BIND_FLAG_NEED_CHARGERING"),
   ]
 }
 
@@ -8461,6 +8963,7 @@ extension health_type: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "RESPIRATORY_RATE"),
     6: .same(proto: "SKIN_TEMPERATURE"),
     7: .same(proto: "ATRIAL_FIBRILLATION"),
+    8: .same(proto: "OSA"),
   ]
 }
 
@@ -8488,6 +8991,7 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "SYNC_PSP_SLEEP"),
     13: .same(proto: "SYNC_af"),
     14: .same(proto: "SYNC_ppg_af"),
+    15: .same(proto: "SYNC_CORE_TEMPERATURE"),
   ]
 }
 
@@ -9018,6 +9522,8 @@ extension voice_assistant_status_type: SwiftProtobuf._ProtoNameProviding {
     12: .same(proto: "AI_STATUS_CREATE_FAILED"),
     13: .same(proto: "AI_STATUS_DIAL_INSTALLATION_FAILED"),
     14: .same(proto: "AI_STATUS_VOICE_SPEAK_END"),
+    15: .same(proto: "AI_STATUS_TRANSLATION_RECOGNIZE_UNIDENTIFY"),
+    16: .same(proto: "AI_STATUS_TRANSLATION_UNIDENTIFY"),
   ]
 }
 
@@ -9038,7 +9544,8 @@ extension voice_assistant_dialog_type: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "AI_DIALOG_NORMAL"),
     1: .same(proto: "AI_DIALOG_ECHO"),
     2: .same(proto: "AI_DIALOG_AI_ECHO"),
-    3: .same(proto: "AI_DIALOG_AI_CALENDAR_ECHO"),
+    3: .same(proto: "AI_DIALOG_TRANSLATION_ECHO"),
+    4: .same(proto: "AI_DIALOG_INTERNAL_ECHO"),
   ]
 }
 
@@ -9083,6 +9590,7 @@ extension skill_template_type: SwiftProtobuf._ProtoNameProviding {
     20: .same(proto: "TEMPLATE_TYPE_ALWAYSON_MODE"),
     21: .same(proto: "TEMPLATE_TYPE_VOLUME_MODE"),
     22: .same(proto: "TEMPLATE_TYPE_AUTO_BRIGHTNESS_MODE"),
+    23: .same(proto: "TEMPLATE_TYPE_SLEEP_DATA"),
   ]
 }
 
@@ -9137,6 +9645,8 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     27: .same(proto: "APP_LIST_WORLD_CLOCK"),
     28: .same(proto: "APP_LIST_FIND_PHONE"),
     29: .same(proto: "APP_LIST_SETTINGS"),
+    30: .same(proto: "APP_LIST_SOS"),
+    31: .same(proto: "APP_LIST_TWS_CONNECT"),
   ]
 }
 
@@ -9456,6 +9966,12 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     217: .same(proto: "BACK_EXERCISES"),
     218: .same(proto: "ARTISTIC_SWIMMING"),
     219: .same(proto: "BURPEE"),
+    220: .same(proto: "CHEST_TRAINING"),
+    221: .same(proto: "SHOULDER_TRAINING"),
+    222: .same(proto: "LOWER_BODY_TRAINING"),
+    223: .same(proto: "BACK_TRAINING"),
+    224: .same(proto: "RUN"),
+    225: .same(proto: "WALK"),
   ]
 }
 
@@ -9535,6 +10051,8 @@ extension ring_remind_event_type: SwiftProtobuf._ProtoNameProviding {
     18: .same(proto: "SEDENTARY_REMIND"),
     19: .same(proto: "HIGH_STRESS"),
     20: .same(proto: "LOW_SPO2"),
+    21: .same(proto: "CORE_HIGH_TEMPERATURE"),
+    22: .same(proto: "CORE_LOW_TEMPERATURE"),
   ]
 }
 
@@ -9610,6 +10128,7 @@ extension Platform_pspkey: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ACTIONS"),
     1: .same(proto: "NORDIC"),
+    2: .same(proto: "NORDIC_SLEEP"),
   ]
 }
 
@@ -9683,6 +10202,7 @@ extension ring_alarm_vibrate_status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "VIBRATION_STOP"),
     1: .same(proto: "VIBRATION_START"),
+    2: .same(proto: "LATER_REMIND"),
   ]
 }
 
@@ -9765,5 +10285,78 @@ extension health_realtime_operate_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HEALTH_START"),
     1: .same(proto: "HEALTH_END"),
+  ]
+}
+
+extension ring_remind_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "RING_REMIND_TYPE_ALERT"),
+    1: .same(proto: "RING_REMIND_TYPE_SILENT"),
+  ]
+}
+
+extension device_status_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "sport_status"),
+  ]
+}
+
+extension health_abnormal_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "HEALTH_ABNORMAL_NONE"),
+    1: .same(proto: "HEALTH_ABNORMAL_EXIST"),
+    2: .same(proto: "WEARING_NONSTANDARD"),
+  ]
+}
+
+extension config_pic_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PIC_NULL"),
+    1: .same(proto: "PIC_INDEX8"),
+    2: .same(proto: "PIC_0565"),
+    3: .same(proto: "PIC_8888"),
+    4: .same(proto: "PIC_JPEG"),
+  ]
+}
+
+extension hydrate_operate_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "HYDRARE_INVALID"),
+    1: .same(proto: "HYDRARE_INQUIRE"),
+    2: .same(proto: "HYDRARE_ADD"),
+    3: .same(proto: "HYDRARE_DELETE"),
+  ]
+}
+
+extension hydrate_notify_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NOTIFY_ADD"),
+    1: .same(proto: "NOTIFY_DELETE"),
+  ]
+}
+
+extension ai_translate_speed_level: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AI_TRANSLATE_SPEED_UNKNOWN"),
+    1: .same(proto: "AI_TRANSLATE_SLOW"),
+    2: .same(proto: "AI_TRANSLATE_NORMAL"),
+    3: .same(proto: "AI_TRANSLATE_FAST"),
+  ]
+}
+
+extension ai_feature_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UPDATA_CONFIG"),
+    1: .same(proto: "USE_STATUS"),
+  ]
+}
+
+extension operate_offline_map_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OFFLINE_MAP_INVALID"),
+    1: .same(proto: "OFFLINE_MAP_INQUIRE"),
+    2: .same(proto: "OFFLINE_MAP_DELETE"),
+    3: .same(proto: "OFFLINE_MAP_UPDATE"),
+    4: .same(proto: "OFFLINE_MAP_CREATE"),
   ]
 }

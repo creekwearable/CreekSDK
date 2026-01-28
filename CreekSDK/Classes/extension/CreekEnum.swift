@@ -370,5 +370,44 @@ public enum VoiceDialType : Int{
    case noPoints = 4
 }
 
+public enum AzureRegionType: Int {
+
+    /// None
+    /// 未指定区域 / 默认值
+    case none = 0
+
+    /// East US
+    /// 美国东部
+    case eastus = 1
+
+    /// East Asia
+    /// 东亚（中国香港）
+    case eastasia = 2
+
+    /// Central India
+    /// 印度中部
+    case centralindia = 3
+
+    /// West Europe
+    /// 西欧
+    case westeurope = 4
+
+    /// UAE North
+    /// 阿联酋北部（迪拜）
+    case uaenorth = 5
+
+    /// Brazil South
+    /// 巴西（圣保罗）
+    case brazilsouth = 6
+
+    /// South Africa North
+    /// 南非北部（约翰内斯堡）
+    case southafricanorth = 7
+
+    /// Southeast Asia
+    /// 东南亚（新加坡）
+    case southeastasia = 8
+}
+
 
 

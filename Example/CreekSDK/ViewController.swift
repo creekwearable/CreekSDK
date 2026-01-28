@@ -102,7 +102,17 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "get cardio fitness",
       "set cardio fitness",
       "get qr code",
-      "set qr code"
+      "set qr code",
+      "getHydrateAssistant",
+      "addHydrateAssistant",
+      "getHydrateAssistantConfig",
+      "setHydrateAssistantConfig",
+      "setVitalityScore",
+      "getHydrateAssistantSupportType",
+      "setVoiceAssistantConfig",
+      "getPrayer",
+      "setPrayer"
+      
    ];
    
    var filteredOptions: [String] = []
@@ -218,7 +228,29 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          let keyId = "L9z6xGit93O8rmFN2"
          let publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAooLJ1knpZ4P3J5U158kUxjKnhj0hgt11ZIXfV/F8q+ku9uGRGL+4WuGrM1MfX1+1aqQNnCDYp57ioprm+4w7uvYwyz4j7JCutRVMm5BwbfruFfR8KwsL9z6xGit93O8rmFN2hkuUFxZSLiBBJiuhe+wtrDIPBov8QaNso/U0GrrDDgoh+R3p8fUQ3duMuL0I9pxW/sphVZOQbdNafti0AEdqJIwoQ5GSSGr0XKkHFk1kep9CifouWnHjoMqTMagDyaj07NSY2A4mxSn4S3e5L25NuJj80UcguDU6WxnZW5j9GC42BpmqA+Kcu54GqkXAF383tJHYiSXZtAFl80/bxQIDAQAB"
-         CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey)
+         
+         
+         let speechKeyMap: [String: String] = [
+             "eastasia":
+                 "********************",
+             "centralindia":
+                 "********************",
+             "westeurope":
+                 "********************",
+             "uaenorth":
+                 "********************",
+             "brazilsouth":
+                 "********************",
+             "southafricanorth":
+                 "********************",
+             "southeastasia":
+                 "********************",
+             "eastus":
+                 "********************"
+         ]
+         
+         CreekInterFace.instance.aiVoiceConfig(keyId: keyId, publicKey: publicKey,speechKeyStringMap: speechKeyMap,defaultRegion: .eastus)
+         
          CreekInterFace.instance.setAiVoiceCountry(countryCode: "CN")
          CreekInterFace.instance.setAiVoiceCity(cityName: "New York")
          
@@ -311,6 +343,40 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          CreekInterFace.instance.motionRecognitionListen { model in
             let json = try? model.jsonString()
+            print(json ?? "")
+         }
+         
+         CreekInterFace.instance.voiceAssistantFeatureConfigListen { model in
+            if model.type == .updataConfig{
+               ///You will be notified every 30 minutes to update the member configuration table.
+               var operate = protocol_ai_feature_operate()
+               var config = protocol_ai_feature_config()
+               config.userCode = "123".data(using: .utf8)!
+               config.startTime = 1767711496
+               config.endTime = 1767711496
+               config.dailyCallLimit = 100
+               config.totalAllowedLimit = 500
+               operate.config = config
+               CreekInterFace.instance.setVoiceAssistantConfig(model: operate) {
+                  
+               } failure: { code, message in
+                  
+               }
+
+            }else if model.type == .useStatus{
+               ///Notify the current usage status after each AI dialogue is completed.
+               let json = try? model.status.jsonString()
+               print(json ?? "")
+            }
+         }
+         
+         CreekInterFace.instance.hydrateAssistantUpdateListen { model in
+            if model.type == .notifyAdd{
+               ///手表添加新的记录
+            }else if model.type == .notifyDelete{
+               ///手表删除记录
+            }
+            let json = try? model.item.jsonString()
             print(json ?? "")
          }
         

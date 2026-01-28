@@ -260,6 +260,20 @@
       "offset": 2695,
       "length": 1,
       "value": "5"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/creekbluemanage\/ios\/Classes\/SwiftCreekBlueManagePlugin.swift",
+      "kind": "BooleanLiteral",
+      "offset": 205,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/bean\/Documents\/项目\/creek_sdk_flutter\/plugins\/creek_library_plugin\/plugin\/creekbluemanage\/ios\/Classes\/SwiftCreekBlueManagePlugin.swift",
+      "kind": "BooleanLiteral",
+      "offset": 260,
+      "length": 5,
+      "value": "false"
     }
   ]
 }

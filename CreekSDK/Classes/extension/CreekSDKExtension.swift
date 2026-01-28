@@ -114,6 +114,20 @@ extension CreekSDK{
       failureArgumentDic = failureArgumentDicCopy
       methodChannel?.invokeMethod("getFirmware\(requestId)", arguments: "")
    }
+   
+   ///MARK :Get Firmware Information
+   /// - Parameter :
+   ///      - model: call back protocol_device_info
+   ///      - failure: (code: error code message: content)
+   /// - Returns:
+   public func getCurrentLocationFirmware(model:@escaping firmwareBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         firmwareDic["getCurrentLocationFirmware\(requestId)"] = model
+         failureArgumentDic["getCurrentLocationFirmware\(requestId)"] = failure
+         methodChannel?.invokeMethod("getCurrentLocationFirmware\(requestId)", arguments: "")
+      }
+   }
    public func getSNFirmware(model:protocol_device_info,sn:@escaping SNFirmwareBase) {
       serialQueue.sync{
          requestId+=1
@@ -1560,6 +1574,27 @@ extension CreekSDK{
       
    }
    
+   /// MARK: Delete sport record by device MAC address and start time
+   /// - Parameters:
+   ///   - mac: Device MAC address
+   ///   - startTime: Sport start time (yyyy-MM-dd HH:mm:ss)
+   ///   - success: Success callback
+   ///   - failure: Failure callback
+   public func delSportRecordWithMac(
+      mac: String,
+      startTime: String,
+      model:@escaping baseClosure
+   ) {
+      serialQueue.sync {
+         requestId += 1
+         baseClosureDic["withMacDelSportRecord\(requestId)"] = model
+         methodChannel?.invokeMethod(
+            "withMacDelSportRecord\(requestId)",
+            arguments: [mac, startTime]
+         )
+      }
+   }
+   
    ///MARK :Get HRV Health Data
    /// - Parameter :
    ///      - startTime   2023-08-03
@@ -2107,7 +2142,7 @@ extension CreekSDK{
       }
    }
    
-   public func getGPXEncodeUint8List(data:Data,geoId:Int,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
+   public func getGPXEncodeUint8List(data:Data,geoId:UInt64,sportType:SportType,distance:Int = 0,model:@escaping geoAddressBase,encode:@escaping GPXBase){
       _geoAddressClosure = model
       serialQueue.sync {
          requestId+=1
@@ -2116,7 +2151,7 @@ extension CreekSDK{
       }
    }
    
-   public func upLoadGeo(data:Data,geoId:Int,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
+   public func upLoadGeo(data:Data,geoId:UInt64,uploadProgress:@escaping progressBase, uploadSuccess:@escaping successBase, uploadFailure:@escaping failureArgument) {
       
       serialQueue.sync {
          requestId+=1
@@ -2136,11 +2171,11 @@ extension CreekSDK{
       }
    }
    
-   public func delGeo(geoIds:[Int],success:@escaping successBase,failure:@escaping failureArgument) {
+   public func delGeo(geoIds:[UInt64],success:@escaping successBase,failure:@escaping failureArgument) {
       var operate =  protocol_geobin_operate()
       geoIds.forEach { geoId in
          var item  = protocol_geobin_list_item()
-         item.geobinID = UInt64(geoId)
+         item.geobinID = geoId
          operate.geobinItems.append(item)
       }
       serialQueue.sync {
@@ -2224,9 +2259,19 @@ extension CreekSDK{
    //   }
    
    ///AI configuration
-   public func aiVoiceConfig(keyId:String,publicKey:String){
+   public func aiVoiceConfig(keyId:String,publicKey:String,speechKeyStringMap:[String:String],defaultRegion:AzureRegionType){
       requestId+=1
-      methodChannel?.invokeMethod("aiVoiceConfig\(requestId)", arguments: [keyId,publicKey])
+      guard
+          let jsonData = try? JSONSerialization.data(
+              withJSONObject: speechKeyStringMap,
+              options: []
+          ),
+          let jsonString = String(data: jsonData, encoding: .utf8)
+      else {
+          print("aiVoiceConfig: failed to serialize speechKeyStringMap")
+          return
+      }
+      methodChannel?.invokeMethod("aiVoiceConfig\(requestId)", arguments: [keyId,publicKey,jsonString,"\(defaultRegion.rawValue)"])
    }
    
    ///AI configuration   CN US AF ..........
@@ -2807,11 +2852,12 @@ extension CreekSDK{
       }
    }
    
-   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase){
+   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase){
       serialQueue.sync {
          requestId+=1
          clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
          commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
+         abnormalClosureDic["abnormalstartMeasure\(requestId)"] = abnormal
          successDic["startMeasure\(requestId)"] = success
          methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: [type.rawValue,measureDuration,timeout])
       }
@@ -2905,21 +2951,154 @@ extension CreekSDK{
       }
    }
    
-//   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
-//      serialQueue.sync {
-//         requestId+=1
-//         successDic["setOnOffSuperMessage\(requestId)"] = success;
-//         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
-//         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
-//      }
-//   }
-//   
-//   public func getOnOffSuperMessage(model:@escaping boolBase) {
-//      serialQueue.sync {
-//         requestId+=1
-//         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
-//         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
-//      }
-//   }
+   public func philipSleepListen(model:@escaping backStringBase){
+      backStringBaseDic["philipSleepListen"] = model
+   }
+   
+   public func setPhilipSleepJson(model:String){
+      serialQueue.sync {
+         methodChannel?.invokeMethod("setPhilipSleepJson\(requestId)", arguments: model)
+      }
+   }
+   
+
+   
+   //   public func setOnOffSuperMessage(onOff:Bool,success:@escaping successBase,failure:@escaping failureArgument) {
+   //      serialQueue.sync {
+   //         requestId+=1
+   //         successDic["setOnOffSuperMessage\(requestId)"] = success;
+   //         failureArgumentDic["setOnOffSuperMessage\(requestId)"] = failure
+   //         methodChannel?.invokeMethod("setOnOffSuperMessage\(requestId)", arguments: onOff ? 1 : 0)
+   //      }
+   //   }
+   //
+   //   public func getOnOffSuperMessage(model:@escaping boolBase) {
+   //      serialQueue.sync {
+   //         requestId+=1
+   //         boolClosureDic["getOnOffSuperMessage\(requestId)"] = model
+   //         methodChannel?.invokeMethod("getOnOffSuperMessage\(requestId)", arguments: "")
+   //      }
+   //   }
+   public func setHydrateAssistant(model:protocol_hydrate_assistant_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setHydrateAssistant\(requestId)"] = success;
+         failureArgumentDic["setHydrateAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setHydrateAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   public func getDeviceStatus(type:device_status_type,model:@escaping deviceStatusBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         deviceStatusClosureDic["getDeviceStatus\(requestId)"] = model
+         failureArgumentDic["getDeviceStatus\(requestId)"] = failure
+         methodChannel?.invokeMethod("getDeviceStatus\(requestId)", arguments: type.rawValue)
+      }
+   }
+   
+   public func getHydrateAssistantConfig(model:@escaping hydrateAssistantConfigBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          hydrateAssistantConfigClosureDic["getConfigHydrateAssistant\(requestId)"] = model
+          failureArgumentDic["getConfigHydrateAssistant\(requestId)"] = failure
+          methodChannel?.invokeMethod("getConfigHydrateAssistant\(requestId)", arguments: "")
+       }
+    }
+    
+    public func setHydrateAssistantConfig(model:protocol_hydrate_assistant_setting_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          successDic["setConfigHydrateAssistant\(requestId)"] = success;
+          failureArgumentDic["setConfigHydrateAssistant\(requestId)"] = failure
+          do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setConfigHydrateAssistant\(requestId)", arguments: data)
+          }catch{
+             
+          }
+       }
+    }
+    
+    public func setVitalityScore(model:protocol_custom_titan_vitality_score_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          successDic["setVitalityScore\(requestId)"] = success;
+          failureArgumentDic["setVitalityScore\(requestId)"] = failure
+          do{
+             let data = try model.serializedData()
+             methodChannel?.invokeMethod("setVitalityScore\(requestId)", arguments: data)
+          }catch{
+             
+          }
+       }
+    }
+   
+   public func setVoiceAssistantConfig(model:protocol_ai_feature_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setConfigVoiceAssistant\(requestId)"] = success;
+         failureArgumentDic["setConfigVoiceAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setConfigVoiceAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+
+   public func voiceAssistantFeatureConfigListen(listen:@escaping (_ model:protocol_ai_feature_notify_operate) -> ()){
+      _voiceAssistantFeatureConfigListen = listen
+   }
+   
+   public func getHydrateAssistantSupportType(model:@escaping hydrateAssistantSupportTypeBase,failure:@escaping failureArgument) {
+       serialQueue.sync {
+          requestId+=1
+          hydrateAssistantSupportTypeClosureDic["getSupportTypeHydrateAssistant\(requestId)"] = model
+          failureArgumentDic["getSupportTypeHydrateAssistant\(requestId)"] = failure
+          methodChannel?.invokeMethod("getSupportTypeHydrateAssistant\(requestId)", arguments: "")
+       }
+    }
+   
+   public func hydrateAssistantUpdateListen(listen:@escaping (_ model:protocol_hydrate_assistant_update_notify_operate) -> ()){
+      _hydrateAssistantUpdateListen = listen
+   }
+   
+   public func writeLog(content:String) {
+      methodChannel?.invokeMethod("writeLog", arguments: content)
+   }
+   
+   public func getPrayer(model: @escaping prayerBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getPrayer\(requestId)"
+         prayerClosureDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   public func setPrayer(model:protocol_prayer_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setPrayer\(requestId)"] = success
+         failureArgumentDic["setPrayer\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setPrayer\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   
+   
    
 }

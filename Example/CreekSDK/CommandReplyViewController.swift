@@ -1269,7 +1269,7 @@ class CommandReplyViewController: CreekBaseViewController {
       case  "del route":
          CreekInterFace.instance.getGeo { model in
             self.view.hideRemark()
-            let ids = model.listItem.map { Int($0.geobinID) }
+            let ids = model.listItem.map { ($0.geobinID) }
             CreekInterFace.instance.delGeo(geoIds: ids) {
                self.view.hideRemark()
                self.textView.text = "success"
@@ -1446,6 +1446,173 @@ class CommandReplyViewController: CreekBaseViewController {
             self.textView.text = message
          }
          
+         break
+      case "getHydrateAssistant":
+         CreekInterFace.instance.getHydrateAssistant{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "addHydrateAssistant":
+         var  operate =  protocol_hydrate_assistant_operate()
+         operate.operate = .hydrareAdd
+         var item = hydrate_assistant_daily_item()
+         item.drinkType = .barleyTea
+         item.drinkValue = 100
+         item.hour = 8
+         item.min = 30
+         operate.item = [item]
+         CreekInterFace.instance.setHydrateAssistant(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+         break
+      case "delHydrateAssistant":
+         var  operate =  protocol_hydrate_assistant_operate()
+         operate.operate = .hydrareDelete
+         var item = hydrate_assistant_daily_item()
+         item.recordID = 1768305628
+         operate.item = [item]
+         CreekInterFace.instance.setHydrateAssistant(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "getHydrateAssistantConfig":
+         CreekInterFace.instance.getHydrateAssistantConfig{ model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setHydrateAssistantConfig":
+         var  operate =  protocol_hydrate_assistant_setting_operate()
+          var setting = hydrate_assistant_setting();
+          setting.interval = 30;
+          setting.switchFlag = true;
+          var timeSection = hydrate_assistant_time_section();
+          timeSection.startHour = 8;
+          timeSection.startMinute = 0;
+          timeSection.endHour = 8;
+          timeSection.endMinute = 30;
+          var timeSection2 = hydrate_assistant_time_section();
+          timeSection2.startHour = 9;
+          timeSection2.startMinute = 0;
+          timeSection2.endHour = 9;
+          timeSection2.endMinute = 30;
+          setting.timeSection.append(timeSection)
+          setting.timeSection.append(timeSection2)
+          operate.setting = setting
+         CreekInterFace.instance.setHydrateAssistantConfig(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setVitalityScore":
+         var  operate =  protocol_custom_titan_vitality_score_operate()
+         operate.vitalityScore = 50
+         CreekInterFace.instance.setVitalityScore(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         
+//         CreekInterFace.instance.getCurrentLocationFirmware { model in
+//            self.view.hideRemark()
+//            let json = try? model.jsonString()
+//            if let str = json{
+//               dispatch_main_sync_safe {
+//                  self.textView.text = str
+//               }
+//            }
+//         } failure: { code, message in
+//            self.view.hideRemark()
+//            self.textView.text = message
+//         }
+
+         break
+      case "getHydrateAssistantSupportType":
+         CreekInterFace.instance.getHydrateAssistantSupportType{model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setVoiceAssistantConfig":
+         var operate = protocol_ai_feature_operate()
+         var config = protocol_ai_feature_config()
+         config.userCode = "123".data(using: .utf8)!
+         config.startTime = UInt32(Date().timeIntervalSince1970)
+         config.endTime = UInt32(Date().timeIntervalSince1970) + 88640
+         config.dailyCallLimit = 100
+         config.totalAllowedLimit = 500
+         operate.config = config
+         CreekInterFace.instance.setVoiceAssistantConfig(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "getPrayer":
+         CreekInterFace.instance.getPrayer{model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setPrayer":
+         let operate = protocol_prayer_operate()
+         
+         CreekInterFace.instance.setPrayer(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
          break
       default:
          break

@@ -98,11 +98,11 @@ class RouteUploadViewController: UIViewController, UIDocumentPickerDelegate {
        if let fileData = try? Data(contentsOf: fileURL){
           
           self.view.showRemark(msg: "loding....")
-          CreekInterFace.instance.getGPXEncodeUint8List(data: fileData, geoId: 1234,sportType: .IRUN,distance: 15000) { lat, lon in
+          CreekInterFace.instance.getGPXEncodeUint8List(data: fileData, geoId: 8556380159,sportType: .IRUN,distance: 15000) { lat, lon in
              return "shengzheng"
           } encode: { model in
              self.view.hideRemark()
-             CreekInterFace.instance.upLoadGeo(data: model, geoId: 1234) { progress in
+             CreekInterFace.instance.upLoadGeo(data: model, geoId: 8556380159) { progress in
                 self.infoLabel.text = "progress : \(progress)"
              } uploadSuccess: {
                 self.infoLabel.text = "Success"

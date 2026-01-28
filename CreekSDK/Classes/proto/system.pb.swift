@@ -37,6 +37,9 @@ public struct protocol_system_operate: Sendable {
   ///清除bt信息
   public var btInfoClean: Bool = false
 
+  ///进入飞行模式
+  public var airplaneMode: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -51,6 +54,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     2: .standard(proto: "power_off"),
     3: .standard(proto: "factory_reset"),
     4: .standard(proto: "bt_info_clean"),
+    5: .standard(proto: "airplane_mode"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -63,6 +67,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 2: try { try decoder.decodeSingularBoolField(value: &self.powerOff) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self.factoryReset) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.btInfoClean) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.airplaneMode) }()
       default: break
       }
     }
@@ -81,6 +86,9 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.btInfoClean != false {
       try visitor.visitSingularBoolField(value: self.btInfoClean, fieldNumber: 4)
     }
+    if self.airplaneMode != false {
+      try visitor.visitSingularBoolField(value: self.airplaneMode, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -89,6 +97,7 @@ extension protocol_system_operate: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.powerOff != rhs.powerOff {return false}
     if lhs.factoryReset != rhs.factoryReset {return false}
     if lhs.btInfoClean != rhs.btInfoClean {return false}
+    if lhs.airplaneMode != rhs.airplaneMode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

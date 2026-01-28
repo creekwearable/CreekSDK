@@ -1,7 +1,7 @@
 PODS:
-  - CreekSDK (10.0.25-noise):
+  - CreekSDK (10.0.26-noise):
     - SwiftProtobuf (~> 1.25.2)
-  - CropViewController (2.7.4)
+  - CropViewController (3.1.1)
   - MBProgressHUD (1.2.0)
   - MicrosoftCognitiveServicesSpeech-iOS (1.35.0)
   - SnapKit (5.7.1)
@@ -12,7 +12,7 @@ PODS:
     - TZImagePickerController/Location (= 3.8.9)
   - TZImagePickerController/Basic (3.8.9)
   - TZImagePickerController/Location (3.8.9)
-  - ZIPFoundation (0.9.19)
+  - ZIPFoundation (0.9.20)
 
 DEPENDENCIES:
   - CreekSDK (from `../`)
@@ -40,15 +40,15 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: c9444fc3181a0f3d4ae850c446f05a6bd84dc6fc
-  CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
+  CreekSDK: c85fe14a68ae6ff0e18b37ace330847180f4d2cb
+  CropViewController: af08195d81dc2b8e5778b1361c03986c2f0b50f9
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: b25ac5b5925c7136e962473660434d9a1e757ba3
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftProtobuf: 407a385e97fd206c4fbe880cc84123989167e0d1
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
   TZImagePickerController: 456f470b5dea97b37226ec7a694994a8663340b2
-  ZIPFoundation: b8c29ea7ae353b309bc810586181fd073cb3312c
+  ZIPFoundation: dfd3d681c4053ff7e2f7350bc4e53b5dba3f5351
 
 PODFILE CHECKSUM: 85380851655a96407ea7a6ceae47e67547cf48a9
 

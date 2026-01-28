@@ -21,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct protocol_bind_operate: Sendable {
+public struct protocol_bind_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -34,6 +34,12 @@ public struct protocol_bind_operate: Sendable {
 
   ///绑定手机型号
   public var bindPhone: bind_phone_type = .android
+
+  ///用户ID
+  public var userid: Data = Data()
+
+  ///账号
+  public var accountid: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -70,6 +76,8 @@ extension protocol_bind_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     1: .standard(proto: "bind_method"),
     2: .standard(proto: "bind_flag"),
     3: .standard(proto: "bind_phone"),
+    4: .same(proto: "userid"),
+    5: .same(proto: "accountid"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -81,6 +89,8 @@ extension protocol_bind_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       case 1: try { try decoder.decodeSingularEnumField(value: &self.bindMethod) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.bindFlag) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.bindPhone) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.userid) }()
+      case 5: try { try decoder.decodeSingularBytesField(value: &self.accountid) }()
       default: break
       }
     }
@@ -96,6 +106,12 @@ extension protocol_bind_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     if self.bindPhone != .android {
       try visitor.visitSingularEnumField(value: self.bindPhone, fieldNumber: 3)
     }
+    if !self.userid.isEmpty {
+      try visitor.visitSingularBytesField(value: self.userid, fieldNumber: 4)
+    }
+    if !self.accountid.isEmpty {
+      try visitor.visitSingularBytesField(value: self.accountid, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -103,6 +119,8 @@ extension protocol_bind_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     if lhs.bindMethod != rhs.bindMethod {return false}
     if lhs.bindFlag != rhs.bindFlag {return false}
     if lhs.bindPhone != rhs.bindPhone {return false}
+    if lhs.userid != rhs.userid {return false}
+    if lhs.accountid != rhs.accountid {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

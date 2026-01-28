@@ -114,6 +114,8 @@ class HealthMeasureViewController: UIViewController {
           self?.statusLabel.text = "状态：测量完成 ✅"
        } failure: {[weak self] model in
           self?.statusLabel.text = model.message
+       } abnormal: {
+          
        }
 
     }

@@ -77,6 +77,8 @@
 		072B823A2EAA19A40093F88C /* RespiratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072B82392EAA19A40093F88C /* RespiratoryModel.swift */; };
 		072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */; };
 		072D41972C5C8FD500B1FB98 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 072D41962C5C8FD500B1FB98 /* add.png */; };
+		0731EDEB2F1676F500092E00 /* exerciseSupport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */; };
+		0731EDEC2F1676F500092E00 /* exerciseTarget.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */; };
 		07322F9A2EBDF103003CD42C /* healthRealtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07322F992EBDF103003CD42C /* healthRealtime.pb.swift */; };
 		073D059E2E30DA7F00F000B3 /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D059D2E30DA7F00F000B3 /* GoalsModel.swift */; };
 		073D05E92E3A2AD700F000B3 /* activeOta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */; };
@@ -89,6 +91,7 @@
 		073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */; };
 		073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2442E5D548A00652FCF /* ephemeris.pb.swift */; };
 		073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2452E5D548A00652FCF /* medicine.pb.swift */; };
+		07468E2C2F2A2AB60045BEBF /* offlineMap.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
 		0750C9362B99AED500D8E7A0 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */; };
@@ -148,6 +151,10 @@
 		07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */; };
 		07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */; };
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
+		07D91DD92EEBFE7700E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */; };
+		07D91DDA2EEBFE7700E155A6 /* vitalityScore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */; };
+		07E975F32F0D55A600D14B87 /* irCalibrationButton.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */; };
+		07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -233,6 +240,8 @@
 		072B82392EAA19A40093F88C /* RespiratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespiratoryModel.swift; sourceTree = "<group>"; };
 		072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsIconModel.swift; sourceTree = "<group>"; };
 		072D41962C5C8FD500B1FB98 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseSupport.pb.swift; sourceTree = "<group>"; };
+		0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseTarget.pb.swift; sourceTree = "<group>"; };
 		07322F992EBDF103003CD42C /* healthRealtime.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthRealtime.pb.swift; sourceTree = "<group>"; };
 		073D059D2E30DA7F00F000B3 /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activeOta.pb.swift; sourceTree = "<group>"; };
@@ -245,6 +254,7 @@
 		073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
 		073FD2442E5D548A00652FCF /* ephemeris.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ephemeris.pb.swift; sourceTree = "<group>"; };
 		073FD2452E5D548A00652FCF /* medicine.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicine.pb.swift; sourceTree = "<group>"; };
+		07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offlineMap.pb.swift; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
 		0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
@@ -304,6 +314,10 @@
 		07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemerisGPSModel.swift; sourceTree = "<group>"; };
 		07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoViewController.swift; sourceTree = "<group>"; };
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
+		07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
+		07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalityScore.pb.swift; sourceTree = "<group>"; };
+		07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = irCalibrationButton.pb.swift; sourceTree = "<group>"; };
+		07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayer.pb.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreekSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,6 +431,13 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */,
+				0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */,
+				0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */,
+				07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */,
+				07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */,
+				07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */,
+				07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */,
 				07322F992EBDF103003CD42C /* healthRealtime.pb.swift */,
 				079D06F82E9964410088C49A /* commonError.pb.swift */,
 				079D06EC2E87CD570088C49A /* hydrateAassistant.pb.swift */,
@@ -865,6 +886,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				079A21822B29A72A00F5D013 /* ActivityModel.swift in Sources */,
+				07D91DD92EEBFE7700E155A6 /* deviceStatus.pb.swift in Sources */,
+				07D91DDA2EEBFE7700E155A6 /* vitalityScore.pb.swift in Sources */,
 				07A73BB22BF20C67007EFFB3 /* UpgradeModel.swift in Sources */,
 				079A21782B29A72A00F5D013 /* StressModel.swift in Sources */,
 				079A21DD2B29B0B700F5D013 /* PonyAlert.swift in Sources */,
@@ -897,6 +920,7 @@
 				07266C012DACF260000F8BED /* wtm.pb.swift in Sources */,
 				07266C022DACF260000F8BED /* mtu.pb.swift in Sources */,
 				07266C032DACF260000F8BED /* sportPrescription.pb.swift in Sources */,
+				07468E2C2F2A2AB60045BEBF /* offlineMap.pb.swift in Sources */,
 				07266C042DACF260000F8BED /* appTable.pb.swift in Sources */,
 				07266C052DACF260000F8BED /* update.pb.swift in Sources */,
 				07266C062DACF260000F8BED /* contacts.pb.swift in Sources */,
@@ -928,6 +952,7 @@
 				07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */,
 				079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */,
 				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,
+				07E975F32F0D55A600D14B87 /* irCalibrationButton.pb.swift in Sources */,
 				07266C1D2DACF260000F8BED /* music.pb.swift in Sources */,
 				07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */,
 				073FD2462E5D548A00652FCF /* cardioFitness.pb.swift in Sources */,
@@ -955,10 +980,13 @@
 				079A217A2B29A72A00F5D013 /* DeviceModel.swift in Sources */,
 				079A21DC2B29B0B700F5D013 /* GlobalDefine.swift in Sources */,
 				C44BFBA52E8A400400E63C19 /* GPSModel.swift in Sources */,
+				07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */,
 				079A21762B29A72A00F5D013 /* NoiseModel.swift in Sources */,
 				079A21812B29A72A00F5D013 /* DeviceInfo.swift in Sources */,
 				079D06EF2E87CD570088C49A /* multifileTran.pb.swift in Sources */,
 				079D06F02E87CD570088C49A /* hydrateAassistant.pb.swift in Sources */,
+				0731EDEB2F1676F500092E00 /* exerciseSupport.pb.swift in Sources */,
+				0731EDEC2F1676F500092E00 /* exerciseTarget.pb.swift in Sources */,
 				079D06F12E87CD570088C49A /* qrcodeList.pb.swift in Sources */,
 				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
 				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,

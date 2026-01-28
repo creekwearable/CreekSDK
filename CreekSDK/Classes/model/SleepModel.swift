@@ -53,6 +53,85 @@ public class SleepModel: Codable {
    public var apnoeaValue: Int?
    ///Nighttime Real-time Blood Oxygen Levels
    public var spo2Value: Int?
+   
+   /// NEW: Whether device supports sleep health data
+   public var healthDataSupport: Int?
+   
+   /// NEW: SpO2 min during sleep
+   public var spo2MinValue: Int?
+   
+   /// NEW: SpO2 max during sleep
+   public var spo2MaxValue: Int?
+   
+   /// NEW: Avg heart rate during sleep
+   public var heartRateAverageValue: Int?
+   
+   /// NEW: Min heart rate during sleep
+   public var heartRateMinValue: Int?
+   
+   /// NEW: Max heart rate during sleep
+   public var heartRateMaxValue: Int?
+   
+   /// NEW: HRV average
+   public var hrvAverageValue: Int?
+   
+   /// NEW: HRV min
+   public var hrvMinValue: Int?
+   
+   /// NEW: HRV max
+   public var hrvMaxValue: Int?
+   
+   /// NEW: respiration average
+   public var respirationRateAverageValue: Int?
+   
+   /// NEW: respiration min
+   public var respirationRateMinValue: Int?
+   
+   /// NEW: respiration max
+   public var respirationRateMaxValue: Int?
+   
+   /// NEW: in/out bed feature support 0/1
+   public var inOutBedDataSupport: Int?
+   
+   /// NEW: in-bed timestamp
+   public var inBedTimestamp: Int?
+   
+   /// NEW: minimal in-bed duration (minutes)
+   public var inBedDurationMin: Int?
+   
+   /// NEW: out-of-bed timestamp
+   public var outBedTimestamp: Int?
+   
+   /// NEW: minimal out-of-bed duration (minutes)
+   public var outBedDurationMin: Int?
+   
+   /// Average stress value during sleep
+   public var stressAverageValue: Int?
+
+   /// Minimum stress value during sleep
+   public var stressMinValue: Int?
+
+   /// Maximum stress value during sleep
+   public var stressMaxValue: Int?
+
+   /// Whether training readiness is supported
+   public var readinessSupport: Int?
+
+   /// Training readiness score
+   public var readinessScore: Int?
+
+   /// Total duration with SpO2 below 90% (minutes)
+   public var spo2BelowDuration: Int?
+
+   /// Oxygen Desaturation Index (ODI) value
+   public var odiValue: Int?
+
+   /// Oxygen desaturation event count (OSA event count)
+   public var osaEventCount: Int?
+
+   /// Count of oxygen drops with a decrease ≥ 4
+   public var maxDrop4Cnt: Int?
+   
    public var datas : [SleepDataModel]?
 }
 
