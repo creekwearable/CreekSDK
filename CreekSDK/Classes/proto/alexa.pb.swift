@@ -658,6 +658,9 @@ public struct protocol_translation_assistant_manual_send_operate: @unchecked Sen
   ///文本
   public var extraInfo: Data = Data()
 
+  ///播放状态
+  public var playStatus: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2212,6 +2215,7 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
     1: .standard(proto: "tran_type"),
     2: .standard(proto: "target_language"),
     3: .standard(proto: "extra_info"),
+    4: .standard(proto: "play_status"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2223,6 +2227,7 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
       case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.targetLanguage) }()
       case 3: try { try decoder.decodeSingularBytesField(value: &self.extraInfo) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.playStatus) }()
       default: break
       }
     }
@@ -2238,6 +2243,9 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
     if !self.extraInfo.isEmpty {
       try visitor.visitSingularBytesField(value: self.extraInfo, fieldNumber: 3)
     }
+    if self.playStatus != 0 {
+      try visitor.visitSingularUInt32Field(value: self.playStatus, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2245,6 +2253,7 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
     if lhs.tranType != rhs.tranType {return false}
     if lhs.targetLanguage != rhs.targetLanguage {return false}
     if lhs.extraInfo != rhs.extraInfo {return false}
+    if lhs.playStatus != rhs.playStatus {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

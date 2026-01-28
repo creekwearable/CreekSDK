@@ -1576,6 +1576,31 @@ class CommandReplyViewController: CreekBaseViewController {
             self.textView.text = message
          }
          break
+      case "getPrayer":
+         CreekInterFace.instance.getPrayer{model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setPrayer":
+         let operate = protocol_prayer_operate()
+         
+         CreekInterFace.instance.setPrayer(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
       default:
          break
          

@@ -8473,6 +8473,9 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///监测到异常
   case healthAbnormalExist // = 1
+
+  ///佩戴不标准
+  case wearingNonstandard // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -8483,6 +8486,7 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .healthAbnormalNone
     case 1: self = .healthAbnormalExist
+    case 2: self = .wearingNonstandard
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -8491,6 +8495,7 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .healthAbnormalNone: return 0
     case .healthAbnormalExist: return 1
+    case .wearingNonstandard: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -8499,6 +8504,7 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [health_abnormal_status] = [
     .healthAbnormalNone,
     .healthAbnormalExist,
+    .wearingNonstandard,
   ]
 
 }
@@ -8711,6 +8717,60 @@ public enum ai_feature_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [ai_feature_type] = [
     .updataConfig,
     .useStatus,
+  ]
+
+}
+
+public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case offlineMapInvalid // = 0
+
+  /// 查询离线地图
+  case offlineMapInquire // = 1
+
+  /// 删除离线地图
+  case offlineMapDelete // = 2
+
+  /// 修改离线地图
+  case offlineMapUpdate // = 3
+
+  /// 创建离线地图
+  case offlineMapCreate // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .offlineMapInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .offlineMapInvalid
+    case 1: self = .offlineMapInquire
+    case 2: self = .offlineMapDelete
+    case 3: self = .offlineMapUpdate
+    case 4: self = .offlineMapCreate
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .offlineMapInvalid: return 0
+    case .offlineMapInquire: return 1
+    case .offlineMapDelete: return 2
+    case .offlineMapUpdate: return 3
+    case .offlineMapCreate: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_offline_map_type] = [
+    .offlineMapInvalid,
+    .offlineMapInquire,
+    .offlineMapDelete,
+    .offlineMapUpdate,
+    .offlineMapCreate,
   ]
 
 }
@@ -10245,6 +10305,7 @@ extension health_abnormal_status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HEALTH_ABNORMAL_NONE"),
     1: .same(proto: "HEALTH_ABNORMAL_EXIST"),
+    2: .same(proto: "WEARING_NONSTANDARD"),
   ]
 }
 
@@ -10287,5 +10348,15 @@ extension ai_feature_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "UPDATA_CONFIG"),
     1: .same(proto: "USE_STATUS"),
+  ]
+}
+
+extension operate_offline_map_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OFFLINE_MAP_INVALID"),
+    1: .same(proto: "OFFLINE_MAP_INQUIRE"),
+    2: .same(proto: "OFFLINE_MAP_DELETE"),
+    3: .same(proto: "OFFLINE_MAP_UPDATE"),
+    4: .same(proto: "OFFLINE_MAP_CREATE"),
   ]
 }

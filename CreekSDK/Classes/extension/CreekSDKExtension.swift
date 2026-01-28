@@ -3074,6 +3074,30 @@ extension CreekSDK{
       methodChannel?.invokeMethod("writeLog", arguments: content)
    }
    
+   public func getPrayer(model: @escaping prayerBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getPrayer\(requestId)"
+         prayerClosureDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   public func setPrayer(model:protocol_prayer_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setPrayer\(requestId)"] = success
+         failureArgumentDic["setPrayer\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setPrayer\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
    
    
    

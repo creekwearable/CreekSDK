@@ -109,7 +109,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "setHydrateAssistantConfig",
       "setVitalityScore",
       "getHydrateAssistantSupportType",
-      "setVoiceAssistantConfig"
+      "setVoiceAssistantConfig",
+      "getPrayer",
+      "setPrayer"
       
    ];
    
