@@ -110,6 +110,7 @@ public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inqu
 public typealias sportGpsBase = () -> (GPSModel)
 public typealias commonErrorBase = (_ model: CommonError) -> ()
 public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
+public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainSeconds:Int) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -236,6 +237,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
    var respiratoryClosureDic:[String:respiratoryClosure] = [:]
    var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
    var abnormalClosureDic:[String:abnormalBase] = [:]
+   var onCountDownClosureDic:[String:onCountDownBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -2089,7 +2091,10 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
          }
       }
       
-      else if(call.method.contains("successstartMeasure") || call.method.contains("processResultstartMeasure")){
+      else if(call.method.contains("successstartMeasure") ||
+              call.method.contains("processResultstartMeasure") ||
+              call.method.contains("successstartAFMeasure") ||
+              call.method.contains("processResultstartAFMeasure")){
          if let response = call.arguments as? FlutterStandardTypedData{
             do{
                let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
@@ -2102,7 +2107,7 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
             }
          }
       }
-      else if(call.method.contains("failurestartMeasure")){
+      else if(call.method.contains("failurestartMeasure") || call.method.contains("failurestartAFMeasure")){
          if let response = call.arguments as? FlutterStandardTypedData{
             do{
                let model = try CommonError(serializedData: response.data,partial: true)
@@ -2212,9 +2217,26 @@ public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_rep
             }
          }
       }
-      else if(call.method.contains("abnormalstartMeasure") || call.method.contains("wearingNoStandardstartMeasure")){
+      else if(call.method.contains("abnormalstartMeasure") ||
+              call.method.contains("wearingNoStandardstartMeasure") ||
+              call.method.contains("abnormalstartAFMeasure") ||
+              call.method.contains("wearingNoStandardstartAFMeasure")
+      ){
          if let back = abnormalClosureDic[call.method]{
             back()
+         }
+      }
+      
+      else if(call.method.contains("onCountDownstartAFMeasure")){
+         
+         if let response = call.arguments as? String {
+             let array = response.split(separator: "&").compactMap { Int($0) }
+             guard array.count > 1 else { return }
+             if let type = HealthMeasureCountDownType(rawValue: array[0]) {
+                 if let back = onCountDownClosureDic[call.method] {
+                     back(type, array[1])
+                 }
+             }
          }
       }
    }

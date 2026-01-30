@@ -409,4 +409,10 @@ public enum VoiceDialType : Int{
 }
 
 
+public enum HealthMeasureCountDownType : Int {
+   case pulseRate = 0
+   case afMeasure = 1
+}
+
+
 

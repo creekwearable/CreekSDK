@@ -2984,4 +2984,22 @@ extension CreekSDK{
          methodChannel?.invokeMethod("editSport\(requestId)", arguments: sportStr)
       }
    }
+   
+   public func startAFMeasure(measureDuration:Int = 45,timeout:Int = 60,pulseDuration:Int = 15,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase,wearingNoStandard:@escaping abnormalBase,processResult:@escaping clickHealthMeasureBase,onCountDown:@escaping onCountDownBase){
+      serialQueue.sync {
+         requestId+=1
+         clickHealthMeasureDic["successstartAFMeasure\(requestId)"] = model
+         commonErrorBaseDic["failurestartAFMeasure\(requestId)"] = failure
+         abnormalClosureDic["abnormalstartAFMeasure\(requestId)"] = abnormal
+         abnormalClosureDic["wearingNoStandardstartAFMeasure\(requestId)"] = wearingNoStandard
+         successDic["startAFMeasure\(requestId)"] = success
+         clickHealthMeasureDic["processResultstartAFMeasure\(requestId)"] = processResult
+         onCountDownClosureDic["onCountDownstartAFMeasure\(requestId)"] = onCountDown
+         methodChannel?.invokeMethod("startAFMeasure\(requestId)", arguments: [measureDuration,timeout,pulseDuration])
+      }
+   }
+   
+   public func stopAFMeasure(){
+      methodChannel?.invokeMethod("stopAFMeasure", arguments: "")
+   }
 }

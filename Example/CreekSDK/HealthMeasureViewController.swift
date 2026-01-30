@@ -58,7 +58,7 @@ class HealthMeasureViewController: UIViewController {
         startButton.backgroundColor = .systemBlue
         startButton.setTitleColor(.white, for: .normal)
         startButton.layer.cornerRadius = 12
-        startButton.addTarget(self, action: #selector(startMeasureTapped), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(startAFMeasureTapped), for: .touchUpInside)
         view.addSubview(startButton)
         startButton.snp.makeConstraints { make in
             make.top.equalTo(typePicker.snp.bottom).offset(30)
@@ -66,6 +66,7 @@ class HealthMeasureViewController: UIViewController {
             make.right.equalToSuperview().offset(-30)
             make.height.equalTo(50)
         }
+      
         
         // Stop Button
         stopButton.setTitle("停止测量", for: .normal)
@@ -73,7 +74,7 @@ class HealthMeasureViewController: UIViewController {
         stopButton.backgroundColor = .systemRed
         stopButton.setTitleColor(.white, for: .normal)
         stopButton.layer.cornerRadius = 12
-        stopButton.addTarget(self, action: #selector(stopMeasureTapped), for: .touchUpInside)
+        stopButton.addTarget(self, action: #selector(stopAFMeasureTapped), for: .touchUpInside)
         view.addSubview(stopButton)
         stopButton.snp.makeConstraints { make in
             make.top.equalTo(startButton.snp.bottom).offset(15)
@@ -125,11 +126,47 @@ class HealthMeasureViewController: UIViewController {
        }
 
     }
+   
+   
+   // MARK: - 操作事件
+   @objc private func startAFMeasureTapped() {
+       resultLabel.text = "--"
+       statusLabel.text = "状态：测量中..."
+      
+      CreekInterFace.instance.startAFMeasure { [weak self]  model in
+         self?.resultLabel.text =  "结果：\(model.value) 脉率:\(model.pulseRateValue)"
+      } success: {
+         self.statusLabel.text = "状态：测量完成 ✅"
+      } failure: { model in
+         self.statusLabel.text = model.message
+      } abnormal: {
+         print("有异动")
+      } wearingNoStandard: {
+         print("不标准")
+      } processResult: { model in
+         if model.pulseRateValue > 0{
+           
+         }
+      } onCountDown: { type, remainSeconds in
+         if type == .pulseRate {
+            ///当前脉率倒计时
+            print("pulseRate:\(remainSeconds)")
+         }else if type == .afMeasure {
+            ///当前房颤倒计时
+            print("afMeasure:\(remainSeconds)")
+         }
+      }
+   }
     
     @objc private func stopMeasureTapped() {
        statusLabel.text = "状态：已停止测量 ⛔️"
        CreekInterFace.instance.stopMeasure(type: selectedType)
     }
+   
+   @objc private func stopAFMeasureTapped() {
+      statusLabel.text = "状态：已停止测量 ⛔️"
+      CreekInterFace.instance.stopAFMeasure()
+   }
    
 }
 
