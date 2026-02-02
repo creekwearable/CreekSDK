@@ -692,6 +692,9 @@ public struct protocol_ai_feature_config: @unchecked Sendable {
   /// 最大调用上限
   public var totalAllowedLimit: UInt32 = 0
 
+  /// 是否有使用限制
+  public var hasUsageRestrictions_p: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2269,6 +2272,7 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
     5: .standard(proto: "is_subscription_supported"),
     6: .standard(proto: "daily_call_limit"),
     7: .standard(proto: "total_allowed_limit"),
+    8: .standard(proto: "has_usage_restrictions"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2284,6 +2288,7 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
       case 5: try { try decoder.decodeSingularBoolField(value: &self.isSubscriptionSupported) }()
       case 6: try { try decoder.decodeSingularUInt32Field(value: &self.dailyCallLimit) }()
       case 7: try { try decoder.decodeSingularUInt32Field(value: &self.totalAllowedLimit) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.hasUsageRestrictions_p) }()
       default: break
       }
     }
@@ -2311,6 +2316,9 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.totalAllowedLimit != 0 {
       try visitor.visitSingularUInt32Field(value: self.totalAllowedLimit, fieldNumber: 7)
     }
+    if self.hasUsageRestrictions_p != false {
+      try visitor.visitSingularBoolField(value: self.hasUsageRestrictions_p, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2322,6 +2330,7 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs.isSubscriptionSupported != rhs.isSubscriptionSupported {return false}
     if lhs.dailyCallLimit != rhs.dailyCallLimit {return false}
     if lhs.totalAllowedLimit != rhs.totalAllowedLimit {return false}
+    if lhs.hasUsageRestrictions_p != rhs.hasUsageRestrictions_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -4656,6 +4656,12 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///耳机连接界面
   case twsConnect // = 31
+
+  ///二维码列表界面
+  case qrCode // = 32
+
+  ///番茄钟
+  case tomatoAlarm // = 33
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4696,6 +4702,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 29: self = .settings
     case 30: self = .sos
     case 31: self = .twsConnect
+    case 32: self = .qrCode
+    case 33: self = .tomatoAlarm
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4734,6 +4742,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .settings: return 29
     case .sos: return 30
     case .twsConnect: return 31
+    case .qrCode: return 32
+    case .tomatoAlarm: return 33
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4772,6 +4782,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     .settings,
     .sos,
     .twsConnect,
+    .qrCode,
+    .tomatoAlarm,
   ]
 
 }
@@ -8736,6 +8748,9 @@ public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// 创建离线地图
   case offlineMapCreate // = 4
+
+  /// 删除所有的离线地图
+  case offlineMapErase // = 5
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -8749,6 +8764,7 @@ public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .offlineMapDelete
     case 3: self = .offlineMapUpdate
     case 4: self = .offlineMapCreate
+    case 5: self = .offlineMapErase
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -8760,6 +8776,7 @@ public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .offlineMapDelete: return 2
     case .offlineMapUpdate: return 3
     case .offlineMapCreate: return 4
+    case .offlineMapErase: return 5
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -8771,6 +8788,7 @@ public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .offlineMapDelete,
     .offlineMapUpdate,
     .offlineMapCreate,
+    .offlineMapErase,
   ]
 
 }
@@ -9647,6 +9665,8 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     29: .same(proto: "APP_LIST_SETTINGS"),
     30: .same(proto: "APP_LIST_SOS"),
     31: .same(proto: "APP_LIST_TWS_CONNECT"),
+    32: .same(proto: "APP_LIST_QR_CODE"),
+    33: .same(proto: "APP_LIST_TOMATO_ALARM"),
   ]
 }
 
@@ -10358,5 +10378,6 @@ extension operate_offline_map_type: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "OFFLINE_MAP_DELETE"),
     3: .same(proto: "OFFLINE_MAP_UPDATE"),
     4: .same(proto: "OFFLINE_MAP_CREATE"),
+    5: .same(proto: "OFFLINE_MAP_ERASE"),
   ]
 }
