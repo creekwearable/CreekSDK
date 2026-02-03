@@ -1565,10 +1565,52 @@ class CommandReplyViewController: CreekBaseViewController {
          config.userCode = "123".data(using: .utf8)!
          config.startTime = UInt32(Date().timeIntervalSince1970)
          config.endTime = UInt32(Date().timeIntervalSince1970) + 88640
-         config.dailyCallLimit = 100
-         config.totalAllowedLimit = 500
+         config.dailyCallLimit = 5
+         config.totalAllowedLimit = 10
          operate.config = config
          CreekInterFace.instance.setVoiceAssistantConfig(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "getPrayer":
+         CreekInterFace.instance.getPrayer{model in
+            self.view.hideRemark()
+            let json = try? model.jsonString()
+            if let str = json{
+               dispatch_main_sync_safe {
+                  self.textView.text = str
+               }
+            }
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setPrayer":
+         let operate = protocol_prayer_operate()
+         
+         CreekInterFace.instance.setPrayer(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setVoiceAssistantUseStatus":
+         var operate = protocol_ai_feature_notify_operate()
+         var status = ai_feature_local_status()
+         status.dailyCount = 1
+         status.totalCount = 5
+         status.dailyCallLimit = 5
+         status.totalAllowedLimit = 10
+         
+         operate.status = status
+         CreekInterFace.instance.setVoiceAssistantUseStatus(model: operate) {
             self.view.hideRemark()
             self.textView.text = "success"
          } failure: { code, message in

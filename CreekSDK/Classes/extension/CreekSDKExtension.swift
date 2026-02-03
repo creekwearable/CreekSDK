@@ -2892,8 +2892,13 @@ extension CreekSDK{
       }
    }
    
-   public func cancelUploadTask(){
-      methodChannel?.invokeMethod("cancelUploadTask", arguments: "")
+   public func cancelUploadTask(success:@escaping successBase,failure:@escaping failureArgument){
+      serialQueue.sync {
+         requestId+=1
+         successDic["cancelUploadTask\(requestId)"] = success
+         failureArgumentDic["cancelUploadTask\(requestId)"] = failure
+         methodChannel?.invokeMethod("cancelUploadTask\(requestId)", arguments: "")
+      }
    }
    
    
@@ -3073,6 +3078,46 @@ extension CreekSDK{
    public func writeLog(content:String) {
       methodChannel?.invokeMethod("writeLog", arguments: content)
    }
+   
+   public func getPrayer(model: @escaping prayerBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getPrayer\(requestId)"
+         prayerClosureDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   public func setPrayer(model:protocol_prayer_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setPrayer\(requestId)"] = success
+         failureArgumentDic["setPrayer\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setPrayer\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   public func setVoiceAssistantUseStatus(model:protocol_ai_feature_notify_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setUseStatusVoiceAssistant\(requestId)"] = success
+         failureArgumentDic["setUseStatusVoiceAssistant\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setUseStatusVoiceAssistant\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
+   
+   
    
    
    

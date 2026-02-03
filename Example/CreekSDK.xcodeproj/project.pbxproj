@@ -80,6 +80,8 @@
 		0731EDEB2F1676F500092E00 /* exerciseSupport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */; };
 		0731EDEC2F1676F500092E00 /* exerciseTarget.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */; };
 		07322F9A2EBDF103003CD42C /* healthRealtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07322F992EBDF103003CD42C /* healthRealtime.pb.swift */; };
+		073C0BFA2F30A7950081A4A2 /* motorPreview.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C0BF82F30A7950081A4A2 /* motorPreview.pb.swift */; };
+		073C0BFB2F30A7950081A4A2 /* onekeyMeasure.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C0BF92F30A7950081A4A2 /* onekeyMeasure.pb.swift */; };
 		073D059E2E30DA7F00F000B3 /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D059D2E30DA7F00F000B3 /* GoalsModel.swift */; };
 		073D05E92E3A2AD700F000B3 /* activeOta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */; };
 		073D05EA2E3A2AD700F000B3 /* zsWeather.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D05E82E3A2AD700F000B3 /* zsWeather.pb.swift */; };
@@ -91,6 +93,7 @@
 		073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */; };
 		073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2442E5D548A00652FCF /* ephemeris.pb.swift */; };
 		073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2452E5D548A00652FCF /* medicine.pb.swift */; };
+		07468E2C2F2A2AB60045BEBF /* offlineMap.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
 		0750C9362B99AED500D8E7A0 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */; };
@@ -243,6 +246,8 @@
 		0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseSupport.pb.swift; sourceTree = "<group>"; };
 		0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseTarget.pb.swift; sourceTree = "<group>"; };
 		07322F992EBDF103003CD42C /* healthRealtime.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthRealtime.pb.swift; sourceTree = "<group>"; };
+		073C0BF82F30A7950081A4A2 /* motorPreview.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = motorPreview.pb.swift; sourceTree = "<group>"; };
+		073C0BF92F30A7950081A4A2 /* onekeyMeasure.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onekeyMeasure.pb.swift; sourceTree = "<group>"; };
 		073D059D2E30DA7F00F000B3 /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		073D05E72E3A2AD700F000B3 /* activeOta.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activeOta.pb.swift; sourceTree = "<group>"; };
 		073D05E82E3A2AD700F000B3 /* zsWeather.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zsWeather.pb.swift; sourceTree = "<group>"; };
@@ -254,6 +259,7 @@
 		073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
 		073FD2442E5D548A00652FCF /* ephemeris.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ephemeris.pb.swift; sourceTree = "<group>"; };
 		073FD2452E5D548A00652FCF /* medicine.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicine.pb.swift; sourceTree = "<group>"; };
+		07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offlineMap.pb.swift; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
 		0750C9352B99AED500D8E7A0 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
@@ -431,6 +437,9 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				073C0BF82F30A7950081A4A2 /* motorPreview.pb.swift */,
+				073C0BF92F30A7950081A4A2 /* onekeyMeasure.pb.swift */,
+				07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */,
 				0731EDE92F1676F500092E00 /* exerciseSupport.pb.swift */,
 				0731EDEA2F1676F500092E00 /* exerciseTarget.pb.swift */,
 				07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */,
@@ -922,6 +931,7 @@
 				07266C012DACF260000F8BED /* wtm.pb.swift in Sources */,
 				07266C022DACF260000F8BED /* mtu.pb.swift in Sources */,
 				07266C032DACF260000F8BED /* sportPrescription.pb.swift in Sources */,
+				07468E2C2F2A2AB60045BEBF /* offlineMap.pb.swift in Sources */,
 				07266C042DACF260000F8BED /* appTable.pb.swift in Sources */,
 				07266C052DACF260000F8BED /* update.pb.swift in Sources */,
 				07266C062DACF260000F8BED /* contacts.pb.swift in Sources */,
@@ -958,6 +968,8 @@
 				07266C1D2DACF260000F8BED /* music.pb.swift in Sources */,
 				07266C1E2DACF260000F8BED /* userinfo.pb.swift in Sources */,
 				073FD2462E5D548A00652FCF /* cardioFitness.pb.swift in Sources */,
+				073C0BFA2F30A7950081A4A2 /* motorPreview.pb.swift in Sources */,
+				073C0BFB2F30A7950081A4A2 /* onekeyMeasure.pb.swift in Sources */,
 				073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */,
 				073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */,
 				073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */,

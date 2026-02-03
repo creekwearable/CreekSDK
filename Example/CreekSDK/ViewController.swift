@@ -109,7 +109,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "setHydrateAssistantConfig",
       "setVitalityScore",
       "getHydrateAssistantSupportType",
-      "setVoiceAssistantConfig"
+      "setVoiceAssistantConfig",
+      "getPrayer",
+      "setPrayer",
+      "setVoiceAssistantUseStatus"
       
    ];
    
@@ -147,7 +150,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       return tab
    }()
    
-
+   
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -172,12 +175,12 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       
       CreekInterFace.instance.setupInit {
          CreekInterFace.instance.initSDK()
-   
-        
-      
-//         CreekInterFace.instance.externalConnect(id: "82028D7C-6289-9D97-EC28-203AA8331DE6") { connectState in
-//            print("🌹🌹\(connectState)")
-//         }
+         
+         
+         
+         //         CreekInterFace.instance.externalConnect(id: "82028D7C-6289-9D97-EC28-203AA8331DE6") { connectState in
+         //            print("🌹🌹\(connectState)")
+         //         }
          CreekInterFace.instance.listenDeviceState { [self] status, deviceName in
             print("\(status) \(deviceName)")
             getBindDevice()
@@ -186,7 +189,14 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             
             if(model.eventId == .EVENT_ID_FINE_PHONE){
                ///Here you can do some ringing operations. You need to define it yourself.
-               FindPhoneManager.shared.playRing(seconds: 10)
+               if model.eventKey == 0 {
+                  FindPhoneManager.shared.playRing(seconds: 5)
+               }else if model.eventKey == 1{
+                  FindPhoneManager.shared.stopRing()
+               }else{
+                  FindPhoneManager.shared.playRing(seconds: model.eventKey)
+               }
+              
             }
             
          }
@@ -202,15 +212,15 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                print(" The application is not authorized to use the Bluetooth Low Energy role")
                break
             case .on:
-//               CreekInterFace.instance.externalConnect(id: "63E4B85A-4C68-D954-5856-CE37C78F7236") { connectState in
-//                  CreekInterFace.instance.getFirmware { model in
-//                     print("🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁")
-//                  } failure: { code, message in
-//                     
-//                  }
-//
-//                  print("🌹🌹\(connectState)")
-//               }
+               //               CreekInterFace.instance.externalConnect(id: "63E4B85A-4C68-D954-5856-CE37C78F7236") { connectState in
+               //                  CreekInterFace.instance.getFirmware { model in
+               //                     print("🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁")
+               //                  } failure: { code, message in
+               //
+               //                  }
+               //
+               //                  print("🌹🌹\(connectState)")
+               //               }
                print("Bluetooth is currently powered on and available to use")
                break
             case .off:
@@ -251,7 +261,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          
-           _ = GlobalListenManager.shared
+         _ = GlobalListenManager.shared
          
          CreekInterFace.instance.aiDialConfig { model in
             ///pcm 音频数据（date）
@@ -260,10 +270,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             ///
             ////正常.normal
             CreekInterFace.instance.aiDialSendText(text: "我想生成一个小狗", type: .normal)
-//            ///识别错误
-//            CreekInterFace.instance.aiDialSendText(text: "", type: .error)
-//            /// 网络错误
-//            CreekInterFace.instance.aiDialSendText(text: "", type: .networkError)
+            //            ///识别错误
+            //            CreekInterFace.instance.aiDialSendText(text: "", type: .error)
+            //            /// 网络错误
+            //            CreekInterFace.instance.aiDialSendText(text: "", type: .networkError)
             
          } confirmText: { str in
             ///手表确认文本
@@ -272,11 +282,11 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             ///生成Ai图片
             ///生成完成之后 下发图片数据
             if let image = UIImage(named: "AIDial_0") {
-                if let data = image.pngData() {
-                   CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal,dialName: "oneDial")
-                }
+               if let data = image.pngData() {
+                  CreekInterFace.instance.aiDialSendImages(images: [data], type: .normal,dialName: "oneDial")
+               }
             }
-           
+            
          }success: {
             print("dial success")
          }failure: { code, message in
@@ -284,9 +294,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          CreekInterFace.instance.initGlobalConfig(keyId: keyId, publicKey: publicKey)
-       
+         
          CreekInterFace.instance.ephemerisListen {
-           /// Received a notification indicating that the ephemeris file needs to be updated
+            /// Received a notification indicating that the ephemeris file needs to be updated
             let model = EphemerisGPSModel()
             model.altitude = 10
             model.latitude = Int(22.312653 * 1000000)
@@ -305,13 +315,13 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
          
          
-//         CreekSDK.instance.setSportControl(controlType: .controlResume) {
-//            print("success")
-//         } failure: { code, message in
-//            print("fail")
-//         }
+         //         CreekSDK.instance.setSportControl(controlType: .controlResume) {
+         //            print("success")
+         //         } failure: { code, message in
+         //            print("fail")
+         //         }
          
-
+         
          CreekInterFace.instance.watchResetListen {
             print("listen watchResetListen")
             CreekInterFace.instance.bindingDevice(bindType: .binNormal, id: nil, code: nil) {
@@ -354,7 +364,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
                } failure: { code, message in
                   
                }
-
+               
             }else if model.type == .useStatus{
                ///Notify the current usage status after each AI dialogue is completed.
                let json = try? model.status.jsonString()
@@ -371,9 +381,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
             let json = try? model.item.jsonString()
             print(json ?? "")
          }
-        
+         
       }
-  
+      
    }
    
    // MARK: - 顶部设备信息卡片
@@ -581,6 +591,6 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          }
       }
    }
-
+   
 }
 

@@ -56,9 +56,6 @@ extension Array where Element == Int {
 func convertDataToMACAddress(_ data: Data) -> String {
     var macAddress = ""
     for byte in data.reversed() {
-        if !macAddress.isEmpty {
-            macAddress += ":"
-        }
         macAddress += String(format: "%02X", byte)
     }
     return macAddress

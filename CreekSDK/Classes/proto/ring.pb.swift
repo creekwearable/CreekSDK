@@ -53,6 +53,9 @@ public struct protocol_ring_click_measure_operate: @unchecked Sendable {
   ///异常状态
   public var abnormalStatus: health_abnormal_status = .healthAbnormalNone
 
+  ///脉搏状态 0表示已完成，1表示未完成
+  public var pulseRateStatus: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -291,6 +294,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     7: .standard(proto: "data_list"),
     8: .standard(proto: "pulse_rate_value"),
     9: .standard(proto: "abnormal_status"),
+    10: .standard(proto: "pulse_rate_status"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -308,6 +312,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
       case 7: try { try decoder.decodeSingularBytesField(value: &self.dataList) }()
       case 8: try { try decoder.decodeSingularUInt32Field(value: &self.pulseRateValue) }()
       case 9: try { try decoder.decodeSingularEnumField(value: &self.abnormalStatus) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.pulseRateStatus) }()
       default: break
       }
     }
@@ -341,6 +346,9 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if self.abnormalStatus != .healthAbnormalNone {
       try visitor.visitSingularEnumField(value: self.abnormalStatus, fieldNumber: 9)
     }
+    if self.pulseRateStatus != 0 {
+      try visitor.visitSingularUInt32Field(value: self.pulseRateStatus, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -354,6 +362,7 @@ extension protocol_ring_click_measure_operate: SwiftProtobuf.Message, SwiftProto
     if lhs.dataList != rhs.dataList {return false}
     if lhs.pulseRateValue != rhs.pulseRateValue {return false}
     if lhs.abnormalStatus != rhs.abnormalStatus {return false}
+    if lhs.pulseRateStatus != rhs.pulseRateStatus {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

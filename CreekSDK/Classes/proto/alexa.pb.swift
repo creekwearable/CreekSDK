@@ -658,6 +658,9 @@ public struct protocol_translation_assistant_manual_send_operate: @unchecked Sen
   ///文本
   public var extraInfo: Data = Data()
 
+  ///播放状态
+  public var playStatus: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -688,6 +691,9 @@ public struct protocol_ai_feature_config: @unchecked Sendable {
 
   /// 最大调用上限
   public var totalAllowedLimit: UInt32 = 0
+
+  /// 是否有使用限制
+  public var hasUsageRestrictions_p: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2212,6 +2218,7 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
     1: .standard(proto: "tran_type"),
     2: .standard(proto: "target_language"),
     3: .standard(proto: "extra_info"),
+    4: .standard(proto: "play_status"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2223,6 +2230,7 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
       case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.targetLanguage) }()
       case 3: try { try decoder.decodeSingularBytesField(value: &self.extraInfo) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.playStatus) }()
       default: break
       }
     }
@@ -2238,6 +2246,9 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
     if !self.extraInfo.isEmpty {
       try visitor.visitSingularBytesField(value: self.extraInfo, fieldNumber: 3)
     }
+    if self.playStatus != 0 {
+      try visitor.visitSingularUInt32Field(value: self.playStatus, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2245,6 +2256,7 @@ extension protocol_translation_assistant_manual_send_operate: SwiftProtobuf.Mess
     if lhs.tranType != rhs.tranType {return false}
     if lhs.targetLanguage != rhs.targetLanguage {return false}
     if lhs.extraInfo != rhs.extraInfo {return false}
+    if lhs.playStatus != rhs.playStatus {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2260,6 +2272,7 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
     5: .standard(proto: "is_subscription_supported"),
     6: .standard(proto: "daily_call_limit"),
     7: .standard(proto: "total_allowed_limit"),
+    8: .standard(proto: "has_usage_restrictions"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2275,6 +2288,7 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
       case 5: try { try decoder.decodeSingularBoolField(value: &self.isSubscriptionSupported) }()
       case 6: try { try decoder.decodeSingularUInt32Field(value: &self.dailyCallLimit) }()
       case 7: try { try decoder.decodeSingularUInt32Field(value: &self.totalAllowedLimit) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.hasUsageRestrictions_p) }()
       default: break
       }
     }
@@ -2302,6 +2316,9 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.totalAllowedLimit != 0 {
       try visitor.visitSingularUInt32Field(value: self.totalAllowedLimit, fieldNumber: 7)
     }
+    if self.hasUsageRestrictions_p != false {
+      try visitor.visitSingularBoolField(value: self.hasUsageRestrictions_p, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2313,6 +2330,7 @@ extension protocol_ai_feature_config: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs.isSubscriptionSupported != rhs.isSubscriptionSupported {return false}
     if lhs.dailyCallLimit != rhs.dailyCallLimit {return false}
     if lhs.totalAllowedLimit != rhs.totalAllowedLimit {return false}
+    if lhs.hasUsageRestrictions_p != rhs.hasUsageRestrictions_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

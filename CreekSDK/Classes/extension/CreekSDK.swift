@@ -112,6 +112,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
 public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistant_setting_inquire_reply) -> ()
 public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
 public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_assistant_support_reply) -> ()
+public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -242,6 +243,7 @@ public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_ass
    var abnormalClosureDic:[String:abnormalBase] = [:]
    var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
    var hydrateAssistantSupportTypeClosureDic:[String:hydrateAssistantSupportTypeBase] = [:]
+   var prayerClosureDic:[String:prayerBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -2274,6 +2276,20 @@ public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_ass
                if let back = hydrateAssistantSupportTypeClosureDic[call.method]{
                   back(model)
                   hydrateAssistantSupportTypeClosureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
+      }
+      else if(call.method.contains("getPrayer")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_prayer_inquire_reply(serializedData: response.data,partial: true)
+               if let back = prayerClosureDic[call.method]{
+                  back(model)
+                  prayerClosureDic.removeValue(forKey: call.method)
                }
             }catch{
                print("Error converting string to dictionary: \(error.localizedDescription)")
