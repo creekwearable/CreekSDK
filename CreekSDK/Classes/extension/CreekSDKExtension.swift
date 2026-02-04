@@ -3002,4 +3002,25 @@ extension CreekSDK{
    public func stopAFMeasure(){
       methodChannel?.invokeMethod("stopAFMeasure", arguments: "")
    }
+   
+   public func getSpoSecondUploadStatus(model:@escaping oxygensSecondClosure) {
+      serialQueue.sync {
+         requestId+=1
+         oxygensSecondClosureDic["getSpoSecondUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getSpoSecondUploadStatus\(requestId)", arguments: "")
+      }
+      
+   }
+   ///MARK :Obtain blood oxygen health data
+   /// - Parameter :
+   ///      - startTime   2023-08-03
+   ///      - endTime    2023-08-03
+   /// - Returns:
+   public func getSpoSecondNewTimeData(startTime:String,endTime:String,model:@escaping oxygensSecondClosure) {
+      serialQueue.sync {
+         requestId+=1
+         oxygensSecondClosureDic["getSpoSecondNewTimeData\(requestId)"] = model
+         methodChannel?.invokeMethod("getSpoSecondNewTimeData\(requestId)", arguments: [startTime ,endTime])
+      }
+   }
 }

@@ -140,6 +140,8 @@ public class SleepModel: Codable {
    
    /// Body motion parameters
    public var bodyActValue: Int?
+   
+   public var osaTotalTime: Int?
 
    public var datas : [SleepDataModel]?
 }

@@ -354,6 +354,7 @@ public enum SyncServerType : Int{
    case respiratory
    case af
    case afPpg
+   case spoSecond
 }
 
 public enum PlatformType : Int{

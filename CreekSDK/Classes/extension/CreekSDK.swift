@@ -16,6 +16,7 @@ public typealias stresssClosure = (_ model:BaseModel<[StressModel]>) -> ()
 public typealias noisesClosure = (_ model:BaseModel<[NoiseModel]>) -> ()
 public typealias respiratoryClosure = (_ model:BaseModel<[RespiratoryModel]>) -> ()
 public typealias oxygensClosure = (_ model:BaseModel<[OxygenModel]>) -> ()
+public typealias oxygensSecondClosure = (_ model:BaseModel<[OxygenSecondModel]>) -> ()
 public typealias sleepsClosure = (_ model:BaseModel<[SleepModel]>) -> ()
 public typealias sportsClosure = (_ model:BaseModel<[SportModel]>) -> ()
 public typealias hrvsClosure = (_ model:BaseModel<[HrvModel]>) -> ()
@@ -238,6 +239,7 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
    var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
    var abnormalClosureDic:[String:abnormalBase] = [:]
    var onCountDownClosureDic:[String:onCountDownBase] = [:]
+   var oxygensSecondClosureDic:[String:oxygensSecondClosure] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -2237,6 +2239,22 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
                      back(type, array[1])
                  }
              }
+         }
+      }
+      else if(call.method.contains("getSpoSecondUploadStatus") || call.method.contains("getSpoSecondNewTimeData")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[OxygenSecondModel]>.self, dic){
+                  if let back = oxygensSecondClosureDic[call.method]{
+                     back(model);
+                     oxygensSecondClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+               
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
          }
       }
    }

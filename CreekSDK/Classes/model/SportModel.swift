@@ -273,6 +273,9 @@ public class SportModel: Codable {
    ///Football distance support display
    public var footballDistanceSupport: Int?
    
+   public var firmwareVersion: String?
+   public var firmwareId: Int?
+   
    
 }
 
