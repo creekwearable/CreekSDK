@@ -11,7 +11,7 @@ public class OxygenSecondModel: Codable {
    ///average oxygen
    public var average: Int?
    ///time
-   public var creat_time: String?
+   public var create_time: String?
    public var datas : [OxygenSecondDataModel]?
    //    public var deviceId: String?
    public var id: Int?
