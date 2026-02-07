@@ -1,5 +1,5 @@
 PODS:
-  - CreekSDK (12.0.31-yy):
+  - CreekSDK (12.0.32-yy):
     - SwiftProtobuf (~> 1.25.2)
   - CropViewController (2.7.4)
   - MBProgressHUD (1.2.0)
@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: 156d603ba7decb7f761dcddeebf8ce4143386fb1
+  CreekSDK: e9e88993d6625c463921835876d02b3d06ef806f
   CropViewController: 3489bbf95a3e11c654382b0bae08ac645cdf1b93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
