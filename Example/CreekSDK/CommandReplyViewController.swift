@@ -1495,11 +1495,28 @@ class CommandReplyViewController: CreekBaseViewController {
          }
          break
       case "editSport":
-         let model = SportModel()
-         CreekInterFace.instance.editSport(sportModel: model) { model in
+   
+         CreekInterFace.instance.getUnconfirmedAutoSport { model in
             self.view.hideRemark()
-            self.textView.text = "\(model)"
+            CreekInterFace.instance.editSport(sportModel: model.data!.first!) { model in
+               self.view.hideRemark()
+               self.textView.text = "\(model)"
+               CreekInterFace.instance.getSportUploadStatus { model in
+                  if model.code == 0{
+                     self.view.hideRemark()
+                     self.textView.text = "success"
+                     let json = try? JSONEncoder().encode(model.data)
+                     if let data = json, let str = String(data: data, encoding: .utf8) {
+                        dispatch_main_sync_safe {
+                           self.textView.text = str
+                        }
+                     }
+                  }
+               }
+            }
+            
          }
+   
          break
          
       default:
