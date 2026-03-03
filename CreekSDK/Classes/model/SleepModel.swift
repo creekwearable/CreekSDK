@@ -142,6 +142,14 @@ public class SleepModel: Codable {
    public var bodyActValue: Int?
    
    public var osaTotalTime: Int?
+   
+   public var osaNormalTime: Int?
+   
+   public var osaMildTime: Int?
+   
+   public var osaMiddleTime: Int?
+   
+   public var osaSevereTime: Int?
 
    public var datas : [SleepDataModel]?
 }
