@@ -16,6 +16,8 @@ public class ScanDeviceModel:Codable{
     public var deviceColor:Int?
     ///Last binding status
     public var lastBind:Bool?
+   ///Charging status 0 Unknown 1 Not charging 2 Charging 3 Fully charged
+    public var batteryStatus:Int?
 
 }
 
