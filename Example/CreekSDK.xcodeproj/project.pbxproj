@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */; };
+		071C2ED52F69353000C0091F /* offlineMap.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071C2ED32F69353000C0091F /* offlineMap.pb.swift */; };
+		071C2ED62F69353000C0091F /* hrBroadcastSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071C2ED12F69353000C0091F /* hrBroadcastSwitch.pb.swift */; };
+		071C2ED72F69353000C0091F /* motorPreview.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071C2ED22F69353000C0091F /* motorPreview.pb.swift */; };
+		071C2ED82F69353000C0091F /* onekeyMeasure.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071C2ED42F69353000C0091F /* onekeyMeasure.pb.swift */; };
 		07266BF32DACF260000F8BED /* findphone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCA2DACF260000F8BED /* findphone.pb.swift */; };
 		07266BF42DACF260000F8BED /* sensor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDE2DACF260000F8BED /* sensor.pb.swift */; };
 		07266BF52DACF260000F8BED /* skill.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDF2DACF260000F8BED /* skill.pb.swift */; };
@@ -184,6 +188,10 @@
 
 /* Begin PBXFileReference section */
 		0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoExtension.swift; sourceTree = "<group>"; };
+		071C2ED12F69353000C0091F /* hrBroadcastSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hrBroadcastSwitch.pb.swift; sourceTree = "<group>"; };
+		071C2ED22F69353000C0091F /* motorPreview.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = motorPreview.pb.swift; sourceTree = "<group>"; };
+		071C2ED32F69353000C0091F /* offlineMap.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offlineMap.pb.swift; sourceTree = "<group>"; };
+		071C2ED42F69353000C0091F /* onekeyMeasure.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onekeyMeasure.pb.swift; sourceTree = "<group>"; };
 		07266BB92DACF260000F8BED /* alarm.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm.pb.swift; sourceTree = "<group>"; };
 		07266BBA2DACF260000F8BED /* alexa.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alexa.pb.swift; sourceTree = "<group>"; };
 		07266BBB2DACF260000F8BED /* alipay.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alipay.pb.swift; sourceTree = "<group>"; };
@@ -445,6 +453,10 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				071C2ED12F69353000C0091F /* hrBroadcastSwitch.pb.swift */,
+				071C2ED22F69353000C0091F /* motorPreview.pb.swift */,
+				071C2ED32F69353000C0091F /* offlineMap.pb.swift */,
+				071C2ED42F69353000C0091F /* onekeyMeasure.pb.swift */,
 				0731EDDF2F16421D00092E00 /* exerciseSupport.pb.swift */,
 				0731EDE02F16421D00092E00 /* exerciseTarget.pb.swift */,
 				0731EDE12F16421D00092E00 /* irCalibrationButton.pb.swift */,
@@ -972,6 +984,10 @@
 				073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */,
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
+				071C2ED52F69353000C0091F /* offlineMap.pb.swift in Sources */,
+				071C2ED62F69353000C0091F /* hrBroadcastSwitch.pb.swift in Sources */,
+				071C2ED72F69353000C0091F /* motorPreview.pb.swift in Sources */,
+				071C2ED82F69353000C0091F /* onekeyMeasure.pb.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
 				079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */,
 				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,

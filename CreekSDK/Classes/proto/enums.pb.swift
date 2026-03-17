@@ -1166,6 +1166,12 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///核心体温数据
   case syncCoreTemperature // = 15
+
+  ///秒级血氧
+  case syncSecondSpo2 // = 16
+
+  ///活动等级
+  case syncActivityLevel // = 17
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1190,6 +1196,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 13: self = .syncAf
     case 14: self = .syncPpgAf
     case 15: self = .syncCoreTemperature
+    case 16: self = .syncSecondSpo2
+    case 17: self = .syncActivityLevel
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1212,6 +1220,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncAf: return 13
     case .syncPpgAf: return 14
     case .syncCoreTemperature: return 15
+    case .syncSecondSpo2: return 16
+    case .syncActivityLevel: return 17
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1234,6 +1244,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncAf,
     .syncPpgAf,
     .syncCoreTemperature,
+    .syncSecondSpo2,
+    .syncActivityLevel,
   ]
 
 }
@@ -4656,6 +4668,12 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///耳机连接界面
   case twsConnect // = 31
+
+  ///二维码列表界面
+  case qrCode // = 32
+
+  ///番茄钟
+  case tomatoAlarm // = 33
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4696,6 +4714,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 29: self = .settings
     case 30: self = .sos
     case 31: self = .twsConnect
+    case 32: self = .qrCode
+    case 33: self = .tomatoAlarm
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4734,6 +4754,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .settings: return 29
     case .sos: return 30
     case .twsConnect: return 31
+    case .qrCode: return 32
+    case .tomatoAlarm: return 33
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4772,6 +4794,8 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     .settings,
     .sos,
     .twsConnect,
+    .qrCode,
+    .tomatoAlarm,
   ]
 
 }
@@ -8473,6 +8497,9 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///监测到异常
   case healthAbnormalExist // = 1
+
+  ///佩戴不标准
+  case wearingNonstandard // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -8483,6 +8510,7 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch rawValue {
     case 0: self = .healthAbnormalNone
     case 1: self = .healthAbnormalExist
+    case 2: self = .wearingNonstandard
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -8491,6 +8519,7 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
     switch self {
     case .healthAbnormalNone: return 0
     case .healthAbnormalExist: return 1
+    case .wearingNonstandard: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -8499,6 +8528,7 @@ public enum health_abnormal_status: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [health_abnormal_status] = [
     .healthAbnormalNone,
     .healthAbnormalExist,
+    .wearingNonstandard,
   ]
 
 }
@@ -8711,6 +8741,66 @@ public enum ai_feature_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   public static let allCases: [ai_feature_type] = [
     .updataConfig,
     .useStatus,
+  ]
+
+}
+
+public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case offlineMapInvalid // = 0
+
+  /// 查询离线地图
+  case offlineMapInquire // = 1
+
+  /// 删除离线地图
+  case offlineMapDelete // = 2
+
+  /// 修改离线地图
+  case offlineMapUpdate // = 3
+
+  /// 创建离线地图
+  case offlineMapCreate // = 4
+
+  /// 删除所有的离线地图
+  case offlineMapErase // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .offlineMapInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .offlineMapInvalid
+    case 1: self = .offlineMapInquire
+    case 2: self = .offlineMapDelete
+    case 3: self = .offlineMapUpdate
+    case 4: self = .offlineMapCreate
+    case 5: self = .offlineMapErase
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .offlineMapInvalid: return 0
+    case .offlineMapInquire: return 1
+    case .offlineMapDelete: return 2
+    case .offlineMapUpdate: return 3
+    case .offlineMapCreate: return 4
+    case .offlineMapErase: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_offline_map_type] = [
+    .offlineMapInvalid,
+    .offlineMapInquire,
+    .offlineMapDelete,
+    .offlineMapUpdate,
+    .offlineMapCreate,
+    .offlineMapErase,
   ]
 
 }
@@ -8932,6 +9022,8 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     13: .same(proto: "SYNC_af"),
     14: .same(proto: "SYNC_ppg_af"),
     15: .same(proto: "SYNC_CORE_TEMPERATURE"),
+    16: .same(proto: "SYNC_SECOND_SPO2"),
+    17: .same(proto: "SYNC_ACTIVITY_LEVEL"),
   ]
 }
 
@@ -9587,6 +9679,8 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     29: .same(proto: "APP_LIST_SETTINGS"),
     30: .same(proto: "APP_LIST_SOS"),
     31: .same(proto: "APP_LIST_TWS_CONNECT"),
+    32: .same(proto: "APP_LIST_QR_CODE"),
+    33: .same(proto: "APP_LIST_TOMATO_ALARM"),
   ]
 }
 
@@ -10245,6 +10339,7 @@ extension health_abnormal_status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HEALTH_ABNORMAL_NONE"),
     1: .same(proto: "HEALTH_ABNORMAL_EXIST"),
+    2: .same(proto: "WEARING_NONSTANDARD"),
   ]
 }
 
@@ -10287,5 +10382,16 @@ extension ai_feature_type: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "UPDATA_CONFIG"),
     1: .same(proto: "USE_STATUS"),
+  ]
+}
+
+extension operate_offline_map_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OFFLINE_MAP_INVALID"),
+    1: .same(proto: "OFFLINE_MAP_INQUIRE"),
+    2: .same(proto: "OFFLINE_MAP_DELETE"),
+    3: .same(proto: "OFFLINE_MAP_UPDATE"),
+    4: .same(proto: "OFFLINE_MAP_CREATE"),
+    5: .same(proto: "OFFLINE_MAP_ERASE"),
   ]
 }

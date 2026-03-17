@@ -68,62 +68,124 @@ public struct protocol_health_get_data_size_set_reply: Sendable {
   public init() {}
 }
 
-public struct protocol_health_get_data_size_inquire_reply: Sendable {
+public struct protocol_health_get_data_size_inquire_reply: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   ///1bytes 操作类型 0：无效操作 1：查询 2：设置
-  public var operate: operate_type = .invalid
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
 
   ///支持心率数据
-  public var hearRateSupport: Bool = false
+  public var hearRateSupport: Bool {
+    get {return _storage._hearRateSupport}
+    set {_uniqueStorage()._hearRateSupport = newValue}
+  }
 
   ///支持血氧数据
-  public var stressSupport: Bool = false
+  public var stressSupport: Bool {
+    get {return _storage._stressSupport}
+    set {_uniqueStorage()._stressSupport = newValue}
+  }
 
   ///支持压力数据
-  public var spo2Support: Bool = false
+  public var spo2Support: Bool {
+    get {return _storage._spo2Support}
+    set {_uniqueStorage()._spo2Support = newValue}
+  }
 
   ///支持睡眠数据
-  public var sleepSupport: Bool = false
+  public var sleepSupport: Bool {
+    get {return _storage._sleepSupport}
+    set {_uniqueStorage()._sleepSupport = newValue}
+  }
 
   ///支持多运动数据
-  public var exerciseSupport: Bool = false
+  public var exerciseSupport: Bool {
+    get {return _storage._exerciseSupport}
+    set {_uniqueStorage()._exerciseSupport = newValue}
+  }
 
   ///支持日常活动数据
-  public var activitySupport: Bool = false
+  public var activitySupport: Bool {
+    get {return _storage._activitySupport}
+    set {_uniqueStorage()._activitySupport = newValue}
+  }
 
   ///支持游泳数据
-  public var swimSupport: Bool = false
+  public var swimSupport: Bool {
+    get {return _storage._swimSupport}
+    set {_uniqueStorage()._swimSupport = newValue}
+  }
 
   ///hrv数据
-  public var hrvSupport: Bool = false
+  public var hrvSupport: Bool {
+    get {return _storage._hrvSupport}
+    set {_uniqueStorage()._hrvSupport = newValue}
+  }
 
   ///支持噪音数据
-  public var noiseSupport: Bool = false
+  public var noiseSupport: Bool {
+    get {return _storage._noiseSupport}
+    set {_uniqueStorage()._noiseSupport = newValue}
+  }
 
   ///支持身体电量数据
-  public var bodyEnergySupport: Bool = false
+  public var bodyEnergySupport: Bool {
+    get {return _storage._bodyEnergySupport}
+    set {_uniqueStorage()._bodyEnergySupport = newValue}
+  }
 
   ///支持呼吸率数据
-  public var respiratoryRateSupport: Bool = false
+  public var respiratoryRateSupport: Bool {
+    get {return _storage._respiratoryRateSupport}
+    set {_uniqueStorage()._respiratoryRateSupport = newValue}
+  }
 
   ///支持体温数据
-  public var bodyTemperatureSupport: Bool = false
+  public var bodyTemperatureSupport: Bool {
+    get {return _storage._bodyTemperatureSupport}
+    set {_uniqueStorage()._bodyTemperatureSupport = newValue}
+  }
 
   ///支持飞利浦睡眠数据
-  public var pspSleepSupport: Bool = false
+  public var pspSleepSupport: Bool {
+    get {return _storage._pspSleepSupport}
+    set {_uniqueStorage()._pspSleepSupport = newValue}
+  }
 
   ///支持鱼跃项目房颤算法数据
-  public var afSupport: Bool = false
+  public var afSupport: Bool {
+    get {return _storage._afSupport}
+    set {_uniqueStorage()._afSupport = newValue}
+  }
 
   ///支持核心体温数据
-  public var coreTemperatureSupport: Bool = false
+  public var coreTemperatureSupport: Bool {
+    get {return _storage._coreTemperatureSupport}
+    set {_uniqueStorage()._coreTemperatureSupport = newValue}
+  }
+
+  ///支持秒级血氧数据
+  public var spo2SecondSupport: Bool {
+    get {return _storage._spo2SecondSupport}
+    set {_uniqueStorage()._spo2SecondSupport = newValue}
+  }
+
+  ///支持活动等级数据
+  public var activityLevelSupport: Bool {
+    get {return _storage._activityLevelSupport}
+    set {_uniqueStorage()._activityLevelSupport = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -267,104 +329,190 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     14: .standard(proto: "psp_sleep_support"),
     15: .standard(proto: "af_support"),
     16: .standard(proto: "core_temperature_support"),
+    17: .standard(proto: "spo2_second_support"),
+    18: .standard(proto: "activity_level_support"),
   ]
 
+  fileprivate class _StorageClass {
+    var _operate: operate_type = .invalid
+    var _hearRateSupport: Bool = false
+    var _stressSupport: Bool = false
+    var _spo2Support: Bool = false
+    var _sleepSupport: Bool = false
+    var _exerciseSupport: Bool = false
+    var _activitySupport: Bool = false
+    var _swimSupport: Bool = false
+    var _hrvSupport: Bool = false
+    var _noiseSupport: Bool = false
+    var _bodyEnergySupport: Bool = false
+    var _respiratoryRateSupport: Bool = false
+    var _bodyTemperatureSupport: Bool = false
+    var _pspSleepSupport: Bool = false
+    var _afSupport: Bool = false
+    var _coreTemperatureSupport: Bool = false
+    var _spo2SecondSupport: Bool = false
+    var _activityLevelSupport: Bool = false
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _hearRateSupport = source._hearRateSupport
+      _stressSupport = source._stressSupport
+      _spo2Support = source._spo2Support
+      _sleepSupport = source._sleepSupport
+      _exerciseSupport = source._exerciseSupport
+      _activitySupport = source._activitySupport
+      _swimSupport = source._swimSupport
+      _hrvSupport = source._hrvSupport
+      _noiseSupport = source._noiseSupport
+      _bodyEnergySupport = source._bodyEnergySupport
+      _respiratoryRateSupport = source._respiratoryRateSupport
+      _bodyTemperatureSupport = source._bodyTemperatureSupport
+      _pspSleepSupport = source._pspSleepSupport
+      _afSupport = source._afSupport
+      _coreTemperatureSupport = source._coreTemperatureSupport
+      _spo2SecondSupport = source._spo2SecondSupport
+      _activityLevelSupport = source._activityLevelSupport
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.hearRateSupport) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.stressSupport) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.spo2Support) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.sleepSupport) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.exerciseSupport) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.activitySupport) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self.swimSupport) }()
-      case 9: try { try decoder.decodeSingularBoolField(value: &self.hrvSupport) }()
-      case 10: try { try decoder.decodeSingularBoolField(value: &self.noiseSupport) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self.bodyEnergySupport) }()
-      case 12: try { try decoder.decodeSingularBoolField(value: &self.respiratoryRateSupport) }()
-      case 13: try { try decoder.decodeSingularBoolField(value: &self.bodyTemperatureSupport) }()
-      case 14: try { try decoder.decodeSingularBoolField(value: &self.pspSleepSupport) }()
-      case 15: try { try decoder.decodeSingularBoolField(value: &self.afSupport) }()
-      case 16: try { try decoder.decodeSingularBoolField(value: &self.coreTemperatureSupport) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularBoolField(value: &_storage._hearRateSupport) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._stressSupport) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._spo2Support) }()
+        case 5: try { try decoder.decodeSingularBoolField(value: &_storage._sleepSupport) }()
+        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._exerciseSupport) }()
+        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._activitySupport) }()
+        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._swimSupport) }()
+        case 9: try { try decoder.decodeSingularBoolField(value: &_storage._hrvSupport) }()
+        case 10: try { try decoder.decodeSingularBoolField(value: &_storage._noiseSupport) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._bodyEnergySupport) }()
+        case 12: try { try decoder.decodeSingularBoolField(value: &_storage._respiratoryRateSupport) }()
+        case 13: try { try decoder.decodeSingularBoolField(value: &_storage._bodyTemperatureSupport) }()
+        case 14: try { try decoder.decodeSingularBoolField(value: &_storage._pspSleepSupport) }()
+        case 15: try { try decoder.decodeSingularBoolField(value: &_storage._afSupport) }()
+        case 16: try { try decoder.decodeSingularBoolField(value: &_storage._coreTemperatureSupport) }()
+        case 17: try { try decoder.decodeSingularBoolField(value: &_storage._spo2SecondSupport) }()
+        case 18: try { try decoder.decodeSingularBoolField(value: &_storage._activityLevelSupport) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.operate != .invalid {
-      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-    }
-    if self.hearRateSupport != false {
-      try visitor.visitSingularBoolField(value: self.hearRateSupport, fieldNumber: 2)
-    }
-    if self.stressSupport != false {
-      try visitor.visitSingularBoolField(value: self.stressSupport, fieldNumber: 3)
-    }
-    if self.spo2Support != false {
-      try visitor.visitSingularBoolField(value: self.spo2Support, fieldNumber: 4)
-    }
-    if self.sleepSupport != false {
-      try visitor.visitSingularBoolField(value: self.sleepSupport, fieldNumber: 5)
-    }
-    if self.exerciseSupport != false {
-      try visitor.visitSingularBoolField(value: self.exerciseSupport, fieldNumber: 6)
-    }
-    if self.activitySupport != false {
-      try visitor.visitSingularBoolField(value: self.activitySupport, fieldNumber: 7)
-    }
-    if self.swimSupport != false {
-      try visitor.visitSingularBoolField(value: self.swimSupport, fieldNumber: 8)
-    }
-    if self.hrvSupport != false {
-      try visitor.visitSingularBoolField(value: self.hrvSupport, fieldNumber: 9)
-    }
-    if self.noiseSupport != false {
-      try visitor.visitSingularBoolField(value: self.noiseSupport, fieldNumber: 10)
-    }
-    if self.bodyEnergySupport != false {
-      try visitor.visitSingularBoolField(value: self.bodyEnergySupport, fieldNumber: 11)
-    }
-    if self.respiratoryRateSupport != false {
-      try visitor.visitSingularBoolField(value: self.respiratoryRateSupport, fieldNumber: 12)
-    }
-    if self.bodyTemperatureSupport != false {
-      try visitor.visitSingularBoolField(value: self.bodyTemperatureSupport, fieldNumber: 13)
-    }
-    if self.pspSleepSupport != false {
-      try visitor.visitSingularBoolField(value: self.pspSleepSupport, fieldNumber: 14)
-    }
-    if self.afSupport != false {
-      try visitor.visitSingularBoolField(value: self.afSupport, fieldNumber: 15)
-    }
-    if self.coreTemperatureSupport != false {
-      try visitor.visitSingularBoolField(value: self.coreTemperatureSupport, fieldNumber: 16)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      if _storage._hearRateSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hearRateSupport, fieldNumber: 2)
+      }
+      if _storage._stressSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._stressSupport, fieldNumber: 3)
+      }
+      if _storage._spo2Support != false {
+        try visitor.visitSingularBoolField(value: _storage._spo2Support, fieldNumber: 4)
+      }
+      if _storage._sleepSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._sleepSupport, fieldNumber: 5)
+      }
+      if _storage._exerciseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._exerciseSupport, fieldNumber: 6)
+      }
+      if _storage._activitySupport != false {
+        try visitor.visitSingularBoolField(value: _storage._activitySupport, fieldNumber: 7)
+      }
+      if _storage._swimSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._swimSupport, fieldNumber: 8)
+      }
+      if _storage._hrvSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hrvSupport, fieldNumber: 9)
+      }
+      if _storage._noiseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._noiseSupport, fieldNumber: 10)
+      }
+      if _storage._bodyEnergySupport != false {
+        try visitor.visitSingularBoolField(value: _storage._bodyEnergySupport, fieldNumber: 11)
+      }
+      if _storage._respiratoryRateSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._respiratoryRateSupport, fieldNumber: 12)
+      }
+      if _storage._bodyTemperatureSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._bodyTemperatureSupport, fieldNumber: 13)
+      }
+      if _storage._pspSleepSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._pspSleepSupport, fieldNumber: 14)
+      }
+      if _storage._afSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._afSupport, fieldNumber: 15)
+      }
+      if _storage._coreTemperatureSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._coreTemperatureSupport, fieldNumber: 16)
+      }
+      if _storage._spo2SecondSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._spo2SecondSupport, fieldNumber: 17)
+      }
+      if _storage._activityLevelSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._activityLevelSupport, fieldNumber: 18)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_health_get_data_size_inquire_reply, rhs: protocol_health_get_data_size_inquire_reply) -> Bool {
-    if lhs.operate != rhs.operate {return false}
-    if lhs.hearRateSupport != rhs.hearRateSupport {return false}
-    if lhs.stressSupport != rhs.stressSupport {return false}
-    if lhs.spo2Support != rhs.spo2Support {return false}
-    if lhs.sleepSupport != rhs.sleepSupport {return false}
-    if lhs.exerciseSupport != rhs.exerciseSupport {return false}
-    if lhs.activitySupport != rhs.activitySupport {return false}
-    if lhs.swimSupport != rhs.swimSupport {return false}
-    if lhs.hrvSupport != rhs.hrvSupport {return false}
-    if lhs.noiseSupport != rhs.noiseSupport {return false}
-    if lhs.bodyEnergySupport != rhs.bodyEnergySupport {return false}
-    if lhs.respiratoryRateSupport != rhs.respiratoryRateSupport {return false}
-    if lhs.bodyTemperatureSupport != rhs.bodyTemperatureSupport {return false}
-    if lhs.pspSleepSupport != rhs.pspSleepSupport {return false}
-    if lhs.afSupport != rhs.afSupport {return false}
-    if lhs.coreTemperatureSupport != rhs.coreTemperatureSupport {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._hearRateSupport != rhs_storage._hearRateSupport {return false}
+        if _storage._stressSupport != rhs_storage._stressSupport {return false}
+        if _storage._spo2Support != rhs_storage._spo2Support {return false}
+        if _storage._sleepSupport != rhs_storage._sleepSupport {return false}
+        if _storage._exerciseSupport != rhs_storage._exerciseSupport {return false}
+        if _storage._activitySupport != rhs_storage._activitySupport {return false}
+        if _storage._swimSupport != rhs_storage._swimSupport {return false}
+        if _storage._hrvSupport != rhs_storage._hrvSupport {return false}
+        if _storage._noiseSupport != rhs_storage._noiseSupport {return false}
+        if _storage._bodyEnergySupport != rhs_storage._bodyEnergySupport {return false}
+        if _storage._respiratoryRateSupport != rhs_storage._respiratoryRateSupport {return false}
+        if _storage._bodyTemperatureSupport != rhs_storage._bodyTemperatureSupport {return false}
+        if _storage._pspSleepSupport != rhs_storage._pspSleepSupport {return false}
+        if _storage._afSupport != rhs_storage._afSupport {return false}
+        if _storage._coreTemperatureSupport != rhs_storage._coreTemperatureSupport {return false}
+        if _storage._spo2SecondSupport != rhs_storage._spo2SecondSupport {return false}
+        if _storage._activityLevelSupport != rhs_storage._activityLevelSupport {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

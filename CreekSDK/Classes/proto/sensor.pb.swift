@@ -67,62 +67,118 @@ public struct protocol_sensor_rawdata_tran_operate: Sendable {
   public init() {}
 }
 
-public struct protocol_sensor_rawdata_tran_inquire_reply: Sendable {
+public struct protocol_sensor_rawdata_tran_inquire_reply: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   ///1bytes 操作类型 0：无效操作 1：查询 2：设置
-  public var operate: operate_type = .invalid
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
 
   ///心率版本号
-  public var hrVersion: UInt32 = 0
+  public var hrVersion: UInt32 {
+    get {return _storage._hrVersion}
+    set {_uniqueStorage()._hrVersion = newValue}
+  }
 
   ///血氧版本号
-  public var spo2Version: UInt32 = 0
+  public var spo2Version: UInt32 {
+    get {return _storage._spo2Version}
+    set {_uniqueStorage()._spo2Version = newValue}
+  }
 
   ///压力
-  public var stressVersion: UInt32 = 0
+  public var stressVersion: UInt32 {
+    get {return _storage._stressVersion}
+    set {_uniqueStorage()._stressVersion = newValue}
+  }
 
   ///hrv
-  public var hrvVersion: UInt32 = 0
+  public var hrvVersion: UInt32 {
+    get {return _storage._hrvVersion}
+    set {_uniqueStorage()._hrvVersion = newValue}
+  }
 
   ///计步
-  public var pedoVersion: UInt32 = 0
+  public var pedoVersion: UInt32 {
+    get {return _storage._pedoVersion}
+    set {_uniqueStorage()._pedoVersion = newValue}
+  }
 
   ///卡路里
-  public var calorieVersion: UInt32 = 0
+  public var calorieVersion: UInt32 {
+    get {return _storage._calorieVersion}
+    set {_uniqueStorage()._calorieVersion = newValue}
+  }
 
   ///距离
-  public var distanceVersion: UInt32 = 0
+  public var distanceVersion: UInt32 {
+    get {return _storage._distanceVersion}
+    set {_uniqueStorage()._distanceVersion = newValue}
+  }
 
   ///活动等级
-  public var activityLevelVersion: UInt32 = 0
+  public var activityLevelVersion: UInt32 {
+    get {return _storage._activityLevelVersion}
+    set {_uniqueStorage()._activityLevelVersion = newValue}
+  }
 
   ///手势
-  public var gestureVersion: UInt32 = 0
+  public var gestureVersion: UInt32 {
+    get {return _storage._gestureVersion}
+    set {_uniqueStorage()._gestureVersion = newValue}
+  }
 
   ///佩戴
-  public var wearVersion: UInt32 = 0
+  public var wearVersion: UInt32 {
+    get {return _storage._wearVersion}
+    set {_uniqueStorage()._wearVersion = newValue}
+  }
 
   ///噪音
-  public var noiseVersion: UInt32 = 0
+  public var noiseVersion: UInt32 {
+    get {return _storage._noiseVersion}
+    set {_uniqueStorage()._noiseVersion = newValue}
+  }
 
   ///锻炼时长
-  public var exerciseDurationVersion: UInt32 = 0
+  public var exerciseDurationVersion: UInt32 {
+    get {return _storage._exerciseDurationVersion}
+    set {_uniqueStorage()._exerciseDurationVersion = newValue}
+  }
 
   ///睡眠
-  public var sleepVersion: UInt32 = 0
+  public var sleepVersion: UInt32 {
+    get {return _storage._sleepVersion}
+    set {_uniqueStorage()._sleepVersion = newValue}
+  }
 
   ///gps
-  public var gnssVersion: UInt32 = 0
+  public var gnssVersion: UInt32 {
+    get {return _storage._gnssVersion}
+    set {_uniqueStorage()._gnssVersion = newValue}
+  }
 
   ///运动识别
-  public var motionRecognitionVersion: UInt32 = 0
+  public var motionRecognitionVersion: UInt32 {
+    get {return _storage._motionRecognitionVersion}
+    set {_uniqueStorage()._motionRecognitionVersion = newValue}
+  }
+
+  ///新加的算法用字符串拼接
+  public var algVersionExt: String {
+    get {return _storage._algVersionExt}
+    set {_uniqueStorage()._algVersionExt = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -262,104 +318,182 @@ extension protocol_sensor_rawdata_tran_inquire_reply: SwiftProtobuf.Message, Swi
     14: .standard(proto: "sleep_version"),
     15: .standard(proto: "gnss_version"),
     16: .standard(proto: "motion_recognition_version"),
+    17: .standard(proto: "alg_version_ext"),
   ]
 
+  fileprivate class _StorageClass {
+    var _operate: operate_type = .invalid
+    var _hrVersion: UInt32 = 0
+    var _spo2Version: UInt32 = 0
+    var _stressVersion: UInt32 = 0
+    var _hrvVersion: UInt32 = 0
+    var _pedoVersion: UInt32 = 0
+    var _calorieVersion: UInt32 = 0
+    var _distanceVersion: UInt32 = 0
+    var _activityLevelVersion: UInt32 = 0
+    var _gestureVersion: UInt32 = 0
+    var _wearVersion: UInt32 = 0
+    var _noiseVersion: UInt32 = 0
+    var _exerciseDurationVersion: UInt32 = 0
+    var _sleepVersion: UInt32 = 0
+    var _gnssVersion: UInt32 = 0
+    var _motionRecognitionVersion: UInt32 = 0
+    var _algVersionExt: String = String()
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _hrVersion = source._hrVersion
+      _spo2Version = source._spo2Version
+      _stressVersion = source._stressVersion
+      _hrvVersion = source._hrvVersion
+      _pedoVersion = source._pedoVersion
+      _calorieVersion = source._calorieVersion
+      _distanceVersion = source._distanceVersion
+      _activityLevelVersion = source._activityLevelVersion
+      _gestureVersion = source._gestureVersion
+      _wearVersion = source._wearVersion
+      _noiseVersion = source._noiseVersion
+      _exerciseDurationVersion = source._exerciseDurationVersion
+      _sleepVersion = source._sleepVersion
+      _gnssVersion = source._gnssVersion
+      _motionRecognitionVersion = source._motionRecognitionVersion
+      _algVersionExt = source._algVersionExt
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.hrVersion) }()
-      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.spo2Version) }()
-      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.stressVersion) }()
-      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.hrvVersion) }()
-      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.pedoVersion) }()
-      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.calorieVersion) }()
-      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.distanceVersion) }()
-      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.activityLevelVersion) }()
-      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.gestureVersion) }()
-      case 11: try { try decoder.decodeSingularUInt32Field(value: &self.wearVersion) }()
-      case 12: try { try decoder.decodeSingularUInt32Field(value: &self.noiseVersion) }()
-      case 13: try { try decoder.decodeSingularUInt32Field(value: &self.exerciseDurationVersion) }()
-      case 14: try { try decoder.decodeSingularUInt32Field(value: &self.sleepVersion) }()
-      case 15: try { try decoder.decodeSingularUInt32Field(value: &self.gnssVersion) }()
-      case 16: try { try decoder.decodeSingularUInt32Field(value: &self.motionRecognitionVersion) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._hrVersion) }()
+        case 3: try { try decoder.decodeSingularUInt32Field(value: &_storage._spo2Version) }()
+        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._stressVersion) }()
+        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._hrvVersion) }()
+        case 6: try { try decoder.decodeSingularUInt32Field(value: &_storage._pedoVersion) }()
+        case 7: try { try decoder.decodeSingularUInt32Field(value: &_storage._calorieVersion) }()
+        case 8: try { try decoder.decodeSingularUInt32Field(value: &_storage._distanceVersion) }()
+        case 9: try { try decoder.decodeSingularUInt32Field(value: &_storage._activityLevelVersion) }()
+        case 10: try { try decoder.decodeSingularUInt32Field(value: &_storage._gestureVersion) }()
+        case 11: try { try decoder.decodeSingularUInt32Field(value: &_storage._wearVersion) }()
+        case 12: try { try decoder.decodeSingularUInt32Field(value: &_storage._noiseVersion) }()
+        case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._exerciseDurationVersion) }()
+        case 14: try { try decoder.decodeSingularUInt32Field(value: &_storage._sleepVersion) }()
+        case 15: try { try decoder.decodeSingularUInt32Field(value: &_storage._gnssVersion) }()
+        case 16: try { try decoder.decodeSingularUInt32Field(value: &_storage._motionRecognitionVersion) }()
+        case 17: try { try decoder.decodeSingularStringField(value: &_storage._algVersionExt) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.operate != .invalid {
-      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-    }
-    if self.hrVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.hrVersion, fieldNumber: 2)
-    }
-    if self.spo2Version != 0 {
-      try visitor.visitSingularUInt32Field(value: self.spo2Version, fieldNumber: 3)
-    }
-    if self.stressVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.stressVersion, fieldNumber: 4)
-    }
-    if self.hrvVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.hrvVersion, fieldNumber: 5)
-    }
-    if self.pedoVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.pedoVersion, fieldNumber: 6)
-    }
-    if self.calorieVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.calorieVersion, fieldNumber: 7)
-    }
-    if self.distanceVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.distanceVersion, fieldNumber: 8)
-    }
-    if self.activityLevelVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.activityLevelVersion, fieldNumber: 9)
-    }
-    if self.gestureVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.gestureVersion, fieldNumber: 10)
-    }
-    if self.wearVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.wearVersion, fieldNumber: 11)
-    }
-    if self.noiseVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.noiseVersion, fieldNumber: 12)
-    }
-    if self.exerciseDurationVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.exerciseDurationVersion, fieldNumber: 13)
-    }
-    if self.sleepVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.sleepVersion, fieldNumber: 14)
-    }
-    if self.gnssVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.gnssVersion, fieldNumber: 15)
-    }
-    if self.motionRecognitionVersion != 0 {
-      try visitor.visitSingularUInt32Field(value: self.motionRecognitionVersion, fieldNumber: 16)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      if _storage._hrVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._hrVersion, fieldNumber: 2)
+      }
+      if _storage._spo2Version != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._spo2Version, fieldNumber: 3)
+      }
+      if _storage._stressVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._stressVersion, fieldNumber: 4)
+      }
+      if _storage._hrvVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._hrvVersion, fieldNumber: 5)
+      }
+      if _storage._pedoVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._pedoVersion, fieldNumber: 6)
+      }
+      if _storage._calorieVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._calorieVersion, fieldNumber: 7)
+      }
+      if _storage._distanceVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._distanceVersion, fieldNumber: 8)
+      }
+      if _storage._activityLevelVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._activityLevelVersion, fieldNumber: 9)
+      }
+      if _storage._gestureVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._gestureVersion, fieldNumber: 10)
+      }
+      if _storage._wearVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._wearVersion, fieldNumber: 11)
+      }
+      if _storage._noiseVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._noiseVersion, fieldNumber: 12)
+      }
+      if _storage._exerciseDurationVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._exerciseDurationVersion, fieldNumber: 13)
+      }
+      if _storage._sleepVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._sleepVersion, fieldNumber: 14)
+      }
+      if _storage._gnssVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._gnssVersion, fieldNumber: 15)
+      }
+      if _storage._motionRecognitionVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._motionRecognitionVersion, fieldNumber: 16)
+      }
+      if !_storage._algVersionExt.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._algVersionExt, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_sensor_rawdata_tran_inquire_reply, rhs: protocol_sensor_rawdata_tran_inquire_reply) -> Bool {
-    if lhs.operate != rhs.operate {return false}
-    if lhs.hrVersion != rhs.hrVersion {return false}
-    if lhs.spo2Version != rhs.spo2Version {return false}
-    if lhs.stressVersion != rhs.stressVersion {return false}
-    if lhs.hrvVersion != rhs.hrvVersion {return false}
-    if lhs.pedoVersion != rhs.pedoVersion {return false}
-    if lhs.calorieVersion != rhs.calorieVersion {return false}
-    if lhs.distanceVersion != rhs.distanceVersion {return false}
-    if lhs.activityLevelVersion != rhs.activityLevelVersion {return false}
-    if lhs.gestureVersion != rhs.gestureVersion {return false}
-    if lhs.wearVersion != rhs.wearVersion {return false}
-    if lhs.noiseVersion != rhs.noiseVersion {return false}
-    if lhs.exerciseDurationVersion != rhs.exerciseDurationVersion {return false}
-    if lhs.sleepVersion != rhs.sleepVersion {return false}
-    if lhs.gnssVersion != rhs.gnssVersion {return false}
-    if lhs.motionRecognitionVersion != rhs.motionRecognitionVersion {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._hrVersion != rhs_storage._hrVersion {return false}
+        if _storage._spo2Version != rhs_storage._spo2Version {return false}
+        if _storage._stressVersion != rhs_storage._stressVersion {return false}
+        if _storage._hrvVersion != rhs_storage._hrvVersion {return false}
+        if _storage._pedoVersion != rhs_storage._pedoVersion {return false}
+        if _storage._calorieVersion != rhs_storage._calorieVersion {return false}
+        if _storage._distanceVersion != rhs_storage._distanceVersion {return false}
+        if _storage._activityLevelVersion != rhs_storage._activityLevelVersion {return false}
+        if _storage._gestureVersion != rhs_storage._gestureVersion {return false}
+        if _storage._wearVersion != rhs_storage._wearVersion {return false}
+        if _storage._noiseVersion != rhs_storage._noiseVersion {return false}
+        if _storage._exerciseDurationVersion != rhs_storage._exerciseDurationVersion {return false}
+        if _storage._sleepVersion != rhs_storage._sleepVersion {return false}
+        if _storage._gnssVersion != rhs_storage._gnssVersion {return false}
+        if _storage._motionRecognitionVersion != rhs_storage._motionRecognitionVersion {return false}
+        if _storage._algVersionExt != rhs_storage._algVersionExt {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
