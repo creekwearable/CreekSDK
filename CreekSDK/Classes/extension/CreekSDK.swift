@@ -116,6 +116,7 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
 @objc open class CreekSDK: NSObject{
    
    public var connectStatus: connectionStatus = connectionStatus.none
+   public var isInitCompleted = false
    public static let instance = CreekSDK()
    var requestId:Int = 0
    var methodChannel : FlutterMethodChannel?
@@ -251,6 +252,7 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
    
    public func setupInit(completed:(()->())? = nil){
       if flutterEngine == nil{
+         isInitCompleted = true
          channelCompletedClosure = completed
          flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
          flutterEngine?.run(withEntrypoint: nil)
