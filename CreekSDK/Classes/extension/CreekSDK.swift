@@ -125,7 +125,7 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
    var _eventReportListen:((_ model:EventReportModel) -> ())?           //Firmware reporting notification
    var _exceptionListen:((_ model:String) -> ())?                       //Bluetooth native logs
    var _delDeviceListen:((_ model:String) -> ())?                       //Bluetooth native logs
-   var _listenDeviceState:((_ status:connectionStatus,_ deviceName:String)->())?   //Monitoring device
+   var _listenDeviceState:((_ status:connectionStatus,_ deviceModel:ScanDeviceModel)->())?   //Monitoring device
    var _bluetoothStateListen:((_ state:BluetoothState)->())?   //Monitoring device
    var _inTransitionDevice:((_ connectState:Bool)->())?
    var _queryConnectedDevice:((_ deviceId:String) ->())?
@@ -416,18 +416,24 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
                if let adic = dic as? NSDictionary{
                   let state = adic["status"] as? Int
                   let deviceName = adic["deviceName"] as? String
+                  let deviceDic = try JSONSerialization.jsonObject(with: ((deviceName ?? "").data(using: .utf8))!)
                   let cStatus = getConnectionStatus(state ?? 0)
                   if(cStatus != .sync || cStatus != .syncComplete){
                      self.connectStatus = cStatus
                   }
-                  if let listenDeviceState = _listenDeviceState{
-                     listenDeviceState(cStatus, deviceName ?? "")
-                  }
-                  if !listenDeviceClosureDic.isEmpty {
-                     listenDeviceClosureDic.forEach { (key: String, value: listenDeviceBase) in
-                        value(cStatus, deviceName ?? "")
+                  if let model = ParseJson.jsonToModel(ScanDeviceModel.self, deviceDic){
+                     if let listenDeviceState = _listenDeviceState{
+                        listenDeviceState(cStatus,model)
                      }
+//                     if !listenDeviceClosureDic.isEmpty {
+//                        listenDeviceClosureDic.forEach { (key: String, value: listenDeviceBase) in
+//                           value(cStatus, deviceName ?? "")
+//                        }
+//                     }
                   }
+               
+             
+              
                }
                
             }catch{

@@ -181,7 +181,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
 //            print("🌹🌹\(connectState)")
 //         }
          CreekInterFace.instance.listenDeviceState { [self] status, deviceName in
-            print("\(status) \(deviceName)")
+            print("🌹🌹\(status) \(deviceName.device?.name ?? "") \(deviceName.macAddress ?? "")")
             if status == .connect || status == .unconnected {
                getBindDevice()
             }

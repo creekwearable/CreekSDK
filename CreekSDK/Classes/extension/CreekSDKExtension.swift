@@ -258,7 +258,7 @@ extension CreekSDK{
    /// - Parameter :
    ///      - listenDeviceState：
    /// - Returns:
-   public func listenDeviceState(listenDeviceState:@escaping (_ status:connectionStatus,_ deviceName:String)->()) {
+   public func listenDeviceState(listenDeviceState:@escaping (_ status:connectionStatus,_ deviceModel:ScanDeviceModel)->()) {
       _listenDeviceState = listenDeviceState
    }
    
