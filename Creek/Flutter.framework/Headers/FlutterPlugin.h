@@ -12,7 +12,6 @@
 #import "FlutterChannels.h"
 #import "FlutterCodecs.h"
 #import "FlutterPlatformViews.h"
-#import "FlutterSceneLifeCycle.h"
 #import "FlutterTexture.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -273,14 +272,18 @@ typedef enum {
 
 #pragma mark -
 /**
- * The base interface for `FlutterPluginRegistrar` and `FlutterApplicationRegistrar`.
+ * Registration context for a single `FlutterPlugin`, providing a one stop shop
+ * for the plugin to access contextual information and register callbacks for
+ * various application events.
  *
- * Provides registration context for the application or plugins.
+ * Registrars are obtained from a `FlutterPluginRegistry` which keeps track of
+ * the identity of registered plugins and provides basic support for cross-plugin
+ * coordination.
  */
-@protocol FlutterBaseRegistrar <NSObject>
+@protocol FlutterPluginRegistrar <NSObject>
 /**
  * Returns a `FlutterBinaryMessenger` for creating Dart/iOS communication
- * channels to be used by the application or a plugin.
+ * channels to be used by the plugin.
  *
  * @return The messenger.
  */
@@ -288,7 +291,7 @@ typedef enum {
 
 /**
  * Returns a `FlutterTextureRegistry` for registering textures
- * provided by the application or a plugin.
+ * provided by the plugin.
  *
  * @return The texture registry.
  */
@@ -297,8 +300,7 @@ typedef enum {
 /**
  * Registers a `FlutterPlatformViewFactory` for creation of platform views.
  *
- * Applications or plugins can expose `UIView` for embedding in Flutter apps by registering a view
- * factory.
+ * Plugins expose `UIView` for embedding in Flutter apps by registering a view factory.
  *
  * @param factory The view factory that will be registered.
  * @param factoryId A unique identifier for the factory, the Dart code of the Flutter app can use
@@ -310,8 +312,7 @@ typedef enum {
 /**
  * Registers a `FlutterPlatformViewFactory` for creation of platform views.
  *
- * Applications or plugins can expose a `UIView` for embedding in Flutter apps by registering a view
- * factory.
+ * Plugins can expose a `UIView` for embedding in Flutter apps by registering a view factory.
  *
  * @param factory The view factory that will be registered.
  * @param factoryId A unique identifier for the factory, the Dart code of the Flutter app can use
@@ -324,43 +325,6 @@ typedef enum {
                               withId:(NSString*)factoryId
     gestureRecognizersBlockingPolicy:
         (FlutterPlatformViewGestureRecognizersBlockingPolicy)gestureRecognizersBlockingPolicy;
-@end
-
-/**
- * A registrar for Flutter applications.
- *
- * This registrar provides access to application-level services, such as the binary messenger and
- * texture registry.
- *
- * See also `FlutterBaseRegistrar`.
- */
-@protocol FlutterApplicationRegistrar <FlutterBaseRegistrar>
-@end
-
-/**
- * Registration context for a single `FlutterPlugin`, providing a one stop shop
- * for the plugin to access contextual information and register callbacks for
- * various application events.
- *
- * Registrars are obtained from a `FlutterPluginRegistry` which keeps track of
- * the identity of registered plugins and provides basic support for cross-plugin
- * coordination.
- */
-@protocol FlutterPluginRegistrar <FlutterBaseRegistrar>
-
-/**
- * The `UIViewController` whose view is displaying Flutter content.
- *
- * The plugin typically should not store a strong reference to this view
- * controller.
- *
- * This property is provided for backwards compatibility for apps that assume
- * a single view, and will eventually be replaced by the multi-view API variant.
- *
- * This property may be |nil|, for instance in a headless environment, or when
- * the underlying Flutter engine is deallocated.
- */
-@property(nullable, readonly) UIViewController* viewController;
 
 /**
  * Publishes a value for external use of the plugin.
@@ -393,14 +357,6 @@ typedef enum {
  */
 - (void)addApplicationDelegate:(NSObject<FlutterPlugin>*)delegate
     NS_EXTENSION_UNAVAILABLE_IOS("Disallowed in plugins used in app extensions");
-
-/**
- * Registers the plugin as a receiver of `UISceneDelegate` and `UIWindowSceneDelegate` calls.
- *
- * @param delegate The receiving object, such as the plugin's main class.
- */
-- (void)addSceneDelegate:(NSObject<FlutterSceneLifeCycleDelegate>*)delegate
-    API_AVAILABLE(ios(13.0));
 
 /**
  * Returns the file name for the given asset.

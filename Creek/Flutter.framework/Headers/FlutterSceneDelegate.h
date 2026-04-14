@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "FlutterMacros.h"
-#import "FlutterSceneLifeCycle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,10 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
  * This class is typically specified as the UISceneDelegate in the Info.plist.
  */
 FLUTTER_DARWIN_EXPORT
-@interface FlutterSceneDelegate
-    : NSObject <UIWindowSceneDelegate, FlutterSceneLifeCycleEngineRegistration>
+@interface FlutterSceneDelegate : NSObject <UIWindowSceneDelegate>
 @property(nonatomic, strong, nullable) UIWindow* window;
-
 @end
 
 NS_ASSUME_NONNULL_END
