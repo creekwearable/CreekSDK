@@ -3117,6 +3117,24 @@ extension CreekSDK{
       }
    }
    
+
+   public func getTemperatureNewTimeData(startTime:String,endTime:String,model: @escaping temperatureClosure) {
+      serialQueue.sync {
+         requestId+=1
+         temperatureClosureDic["getTemperatureNewTimeData\(requestId)"] = model
+         methodChannel?.invokeMethod("getTemperatureNewTimeData\(requestId)", arguments: [startTime ,endTime])
+      }
+      
+   }
+   
+   public func getTemperatureUploadStatus(model:@escaping temperatureClosure) {
+      serialQueue.sync {
+         requestId+=1
+         temperatureClosureDic["getTemperatureUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getTemperatureUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
    
    
    

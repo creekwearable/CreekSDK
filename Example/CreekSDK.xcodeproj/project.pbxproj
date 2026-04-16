@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */; };
+		071814242F90C39B00992A74 /* TemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071814232F90C39B00992A74 /* TemperatureModel.swift */; };
 		07266BF32DACF260000F8BED /* findphone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BCA2DACF260000F8BED /* findphone.pb.swift */; };
 		07266BF42DACF260000F8BED /* sensor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDE2DACF260000F8BED /* sensor.pb.swift */; };
 		07266BF52DACF260000F8BED /* skill.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07266BDF2DACF260000F8BED /* skill.pb.swift */; };
@@ -173,6 +174,7 @@
 
 /* Begin PBXFileReference section */
 		0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoExtension.swift; sourceTree = "<group>"; };
+		071814232F90C39B00992A74 /* TemperatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureModel.swift; sourceTree = "<group>"; };
 		07266BB92DACF260000F8BED /* alarm.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm.pb.swift; sourceTree = "<group>"; };
 		07266BBA2DACF260000F8BED /* alexa.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alexa.pb.swift; sourceTree = "<group>"; };
 		07266BBB2DACF260000F8BED /* alipay.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alipay.pb.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				07266C2F2DAD01DE000F8BED /* CourseModel.swift */,
 				073D059D2E30DA7F00F000B3 /* GoalsModel.swift */,
 				072B82392EAA19A40093F88C /* RespiratoryModel.swift */,
+				071814232F90C39B00992A74 /* TemperatureModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				07266C192DACF260000F8BED /* watchSensor.pb.swift in Sources */,
 				C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */,
 				07266C1A2DACF260000F8BED /* gesture.pb.swift in Sources */,
+				071814242F90C39B00992A74 /* TemperatureModel.swift in Sources */,
 				07266C1B2DACF260000F8BED /* alipay.pb.swift in Sources */,
 				079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */,
 				07266C1C2DACF260000F8BED /* enums.pb.swift in Sources */,

@@ -1000,6 +1000,23 @@ class CommandReplyViewController: CreekBaseViewController {
             }
          }
          break
+      case "Get temperature data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getTemperatureNewTimeData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         break
       case "Exercise record list":
          
          CreekInterFace.instance.getSportRecord(nil) { model in
