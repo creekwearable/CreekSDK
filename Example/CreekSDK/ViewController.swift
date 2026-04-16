@@ -78,6 +78,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get stress data",
       "Get blood oxygen data",
       "Get respiratory data",
+      "Get temperature data",
       "Get HRV data",
       "Get sport data",
       "Get af data",
