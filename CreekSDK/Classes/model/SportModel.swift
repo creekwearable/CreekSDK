@@ -330,7 +330,7 @@ public class WorkoutCourseModel: Codable {
     public var completeRate: Int?
    
     ///step type
-    public var steptype: Int?
+    public var stepType: Int?
    
 }
 
