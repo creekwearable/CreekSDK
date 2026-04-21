@@ -539,6 +539,12 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///克罗地亚
   case hrvatski // = 38
+
+  ///阿塞拜疆
+  case azerbaizhan // = 39
+
+  ///塞尔维亚语
+  case serbian // = 40
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -586,6 +592,8 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 36: self = .bengali
     case 37: self = .slovene
     case 38: self = .hrvatski
+    case 39: self = .azerbaizhan
+    case 40: self = .serbian
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -631,6 +639,8 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .bengali: return 36
     case .slovene: return 37
     case .hrvatski: return 38
+    case .azerbaizhan: return 39
+    case .serbian: return 40
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -676,6 +686,8 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     .bengali,
     .slovene,
     .hrvatski,
+    .azerbaizhan,
+    .serbian,
   ]
 
 }
@@ -1027,6 +1039,9 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///睡眠呼吸暂停
   case osa // = 8
+
+  ///EDA压力
+  case edaStress // = 9
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1044,6 +1059,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 6: self = .skinTemperature
     case 7: self = .atrialFibrillation
     case 8: self = .osa
+    case 9: self = .edaStress
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1059,6 +1075,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .skinTemperature: return 6
     case .atrialFibrillation: return 7
     case .osa: return 8
+    case .edaStress: return 9
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1074,6 +1091,7 @@ public enum health_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .skinTemperature,
     .atrialFibrillation,
     .osa,
+    .edaStress,
   ]
 
 }
@@ -1172,6 +1190,9 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///活动等级
   case syncActivityLevel // = 17
+
+  ///EDA压力
+  case syncEdaStress // = 18
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1198,6 +1219,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 15: self = .syncCoreTemperature
     case 16: self = .syncSecondSpo2
     case 17: self = .syncActivityLevel
+    case 18: self = .syncEdaStress
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1222,6 +1244,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncCoreTemperature: return 15
     case .syncSecondSpo2: return 16
     case .syncActivityLevel: return 17
+    case .syncEdaStress: return 18
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1246,6 +1269,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncCoreTemperature,
     .syncSecondSpo2,
     .syncActivityLevel,
+    .syncEdaStress,
   ]
 
 }
@@ -1367,6 +1391,9 @@ public enum event_id: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///控制拍照
   case controlCamera // = 6
+
+  ///log传输通知
+  case logControl // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1382,6 +1409,7 @@ public enum event_id: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 4: self = .fineWatch
     case 5: self = .volumeChange
     case 6: self = .controlCamera
+    case 7: self = .logControl
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1395,6 +1423,7 @@ public enum event_id: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .fineWatch: return 4
     case .volumeChange: return 5
     case .controlCamera: return 6
+    case .logControl: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1408,6 +1437,7 @@ public enum event_id: SwiftProtobuf.Enum, Swift.CaseIterable {
     .fineWatch,
     .volumeChange,
     .controlCamera,
+    .logControl,
   ]
 
 }
@@ -3192,6 +3222,48 @@ public enum exercise_control_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .controlEnd,
     .controlPause,
     .controlResume,
+  ]
+
+}
+
+public enum action_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case actionNull // = 0
+
+  ///左手
+  case actionLeftHand // = 1
+
+  ///右手
+  case actionRightHand // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .actionNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .actionNull
+    case 1: self = .actionLeftHand
+    case 2: self = .actionRightHand
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .actionNull: return 0
+    case .actionLeftHand: return 1
+    case .actionRightHand: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [action_type] = [
+    .actionNull,
+    .actionLeftHand,
+    .actionRightHand,
   ]
 
 }
@@ -5970,6 +6042,12 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///走路
   case walk // = 225
+
+  ///纵跳
+  case verticalJump // = 226
+
+  ///沙滩网球
+  case beachTennis // = 227
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6204,6 +6282,8 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 223: self = .backTraining
     case 224: self = .run
     case 225: self = .walk
+    case 226: self = .verticalJump
+    case 227: self = .beachTennis
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6436,6 +6516,8 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .backTraining: return 223
     case .run: return 224
     case .walk: return 225
+    case .verticalJump: return 226
+    case .beachTennis: return 227
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6668,6 +6750,8 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .backTraining,
     .run,
     .walk,
+    .verticalJump,
+    .beachTennis,
   ]
 
 }
@@ -7027,6 +7111,15 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///核心体温过低
   case coreLowTemperature // = 22
+
+  ///EDA压力过高提醒
+  case edaHighStress // = 23
+
+  ///佩戴提醒
+  case wearRemind // = 24
+
+  ///第二次未佩戴提醒
+  case wearReindSec // = 25
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -7058,6 +7151,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 20: self = .lowSpo2
     case 21: self = .coreHighTemperature
     case 22: self = .coreLowTemperature
+    case 23: self = .edaHighStress
+    case 24: self = .wearRemind
+    case 25: self = .wearReindSec
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -7087,6 +7183,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .lowSpo2: return 20
     case .coreHighTemperature: return 21
     case .coreLowTemperature: return 22
+    case .edaHighStress: return 23
+    case .wearRemind: return 24
+    case .wearReindSec: return 25
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -7116,6 +7215,9 @@ public enum ring_remind_event_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .lowSpo2,
     .coreHighTemperature,
     .coreLowTemperature,
+    .edaHighStress,
+    .wearRemind,
+    .wearReindSec,
   ]
 
 }
@@ -8805,6 +8907,164 @@ public enum operate_offline_map_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum multifile_tran_control_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case multifileTranTypeNone // = 0
+
+  ///音频
+  case multifileTranTypeMusic // = 1
+
+  ///地图
+  case multifileTranTypeMap // = 2
+
+  ///动作指导
+  case multifileTranTypeAction // = 3
+
+  ///课程
+  case multifileTranTypeCourse // = 4
+
+  ///ai训练计划
+  case multifileTranTypeAiPlan // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .multifileTranTypeNone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .multifileTranTypeNone
+    case 1: self = .multifileTranTypeMusic
+    case 2: self = .multifileTranTypeMap
+    case 3: self = .multifileTranTypeAction
+    case 4: self = .multifileTranTypeCourse
+    case 5: self = .multifileTranTypeAiPlan
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .multifileTranTypeNone: return 0
+    case .multifileTranTypeMusic: return 1
+    case .multifileTranTypeMap: return 2
+    case .multifileTranTypeAction: return 3
+    case .multifileTranTypeCourse: return 4
+    case .multifileTranTypeAiPlan: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [multifile_tran_control_type] = [
+    .multifileTranTypeNone,
+    .multifileTranTypeMusic,
+    .multifileTranTypeMap,
+    .multifileTranTypeAction,
+    .multifileTranTypeCourse,
+    .multifileTranTypeAiPlan,
+  ]
+
+}
+
+public enum multifile_tran_control_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case multifileTranStatusNone // = 0
+
+  ///开始传输
+  case multifileTranStatusStart // = 1
+
+  ///传输结束
+  case multifileTranStatusEnd // = 2
+
+  ///传输中进度
+  case multifileTranStatusProgress // = 3
+
+  ///传输异常
+  case multifileTranStatusException // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .multifileTranStatusNone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .multifileTranStatusNone
+    case 1: self = .multifileTranStatusStart
+    case 2: self = .multifileTranStatusEnd
+    case 3: self = .multifileTranStatusProgress
+    case 4: self = .multifileTranStatusException
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .multifileTranStatusNone: return 0
+    case .multifileTranStatusStart: return 1
+    case .multifileTranStatusEnd: return 2
+    case .multifileTranStatusProgress: return 3
+    case .multifileTranStatusException: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [multifile_tran_control_status] = [
+    .multifileTranStatusNone,
+    .multifileTranStatusStart,
+    .multifileTranStatusEnd,
+    .multifileTranStatusProgress,
+    .multifileTranStatusException,
+  ]
+
+}
+
+public enum log_tran_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///普通日志
+  case normalLog // = 0
+
+  ///复位日志
+  case rebootLog // = 1
+
+  ///coredump日志 二进制
+  case coredumpLog // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .normalLog
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .normalLog
+    case 1: self = .rebootLog
+    case 2: self = .coredumpLog
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .normalLog: return 0
+    case .rebootLog: return 1
+    case .coredumpLog: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [log_tran_type] = [
+    .normalLog,
+    .rebootLog,
+    .coredumpLog,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -8921,6 +9181,8 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     36: .same(proto: "BENGALI"),
     37: .same(proto: "SLOVENE"),
     38: .same(proto: "HRVATSKI"),
+    39: .same(proto: "AZERBAIZHAN"),
+    40: .same(proto: "SERBIAN"),
   ]
 }
 
@@ -8994,6 +9256,7 @@ extension health_type: SwiftProtobuf._ProtoNameProviding {
     6: .same(proto: "SKIN_TEMPERATURE"),
     7: .same(proto: "ATRIAL_FIBRILLATION"),
     8: .same(proto: "OSA"),
+    9: .same(proto: "EDA_STRESS"),
   ]
 }
 
@@ -9024,6 +9287,7 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     15: .same(proto: "SYNC_CORE_TEMPERATURE"),
     16: .same(proto: "SYNC_SECOND_SPO2"),
     17: .same(proto: "SYNC_ACTIVITY_LEVEL"),
+    18: .same(proto: "SYNC_EDA_STRESS"),
   ]
 }
 
@@ -9054,6 +9318,7 @@ extension event_id: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "EVENT_ID_FINE_WATCH"),
     5: .same(proto: "EVENT_ID_VOLUME_CHANGE"),
     6: .same(proto: "EVENT_ID_CONTROL_CAMERA"),
+    7: .same(proto: "EVENT_ID_LOG_CONTROL"),
   ]
 }
 
@@ -9389,6 +9654,14 @@ extension exercise_control_type: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "CONTROL_END"),
     3: .same(proto: "CONTROL_PAUSE"),
     4: .same(proto: "CONTROL_RESUME"),
+  ]
+}
+
+extension action_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ACTION_NULL"),
+    1: .same(proto: "ACTION_LEFT_HAND"),
+    2: .same(proto: "ACTION_RIGHT_HAND"),
   ]
 }
 
@@ -10006,6 +10279,8 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     223: .same(proto: "BACK_TRAINING"),
     224: .same(proto: "RUN"),
     225: .same(proto: "WALK"),
+    226: .same(proto: "VERTICAL_JUMP"),
+    227: .same(proto: "BEACH_TENNIS"),
   ]
 }
 
@@ -10087,6 +10362,9 @@ extension ring_remind_event_type: SwiftProtobuf._ProtoNameProviding {
     20: .same(proto: "LOW_SPO2"),
     21: .same(proto: "CORE_HIGH_TEMPERATURE"),
     22: .same(proto: "CORE_LOW_TEMPERATURE"),
+    23: .same(proto: "EDA_HIGH_STRESS"),
+    24: .same(proto: "WEAR_REMIND"),
+    25: .same(proto: "WEAR_REIND_SEC"),
   ]
 }
 
@@ -10393,5 +10671,34 @@ extension operate_offline_map_type: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "OFFLINE_MAP_UPDATE"),
     4: .same(proto: "OFFLINE_MAP_CREATE"),
     5: .same(proto: "OFFLINE_MAP_ERASE"),
+  ]
+}
+
+extension multifile_tran_control_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MULTIFILE_TRAN_TYPE_NONE"),
+    1: .same(proto: "MULTIFILE_TRAN_TYPE_MUSIC"),
+    2: .same(proto: "MULTIFILE_TRAN_TYPE_MAP"),
+    3: .same(proto: "MULTIFILE_TRAN_TYPE_ACTION"),
+    4: .same(proto: "MULTIFILE_TRAN_TYPE_COURSE"),
+    5: .same(proto: "MULTIFILE_TRAN_TYPE_AI_PLAN"),
+  ]
+}
+
+extension multifile_tran_control_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MULTIFILE_TRAN_STATUS_NONE"),
+    1: .same(proto: "MULTIFILE_TRAN_STATUS_START"),
+    2: .same(proto: "MULTIFILE_TRAN_STATUS_END"),
+    3: .same(proto: "MULTIFILE_TRAN_STATUS_PROGRESS"),
+    4: .same(proto: "MULTIFILE_TRAN_STATUS_EXCEPTION"),
+  ]
+}
+
+extension log_tran_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NORMAL_LOG"),
+    1: .same(proto: "REBOOT_LOG"),
+    2: .same(proto: "COREDUMP_LOG"),
   ]
 }

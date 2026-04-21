@@ -113,6 +113,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "readRssi",
       "getUnconfirmedAutoSport",
       "editSport",
+      "getAfServer",
+      "setAfServer",
    ];
    
    var filteredOptions: [String] = []

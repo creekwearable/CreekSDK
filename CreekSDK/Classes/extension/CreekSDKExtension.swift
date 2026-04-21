@@ -3023,4 +3023,28 @@ extension CreekSDK{
          methodChannel?.invokeMethod("getSpoSecondNewTimeData\(requestId)", arguments: [startTime ,endTime])
       }
    }
+   
+   public func getAfServer(model: @escaping afServerBase, failure: @escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         let methodName = "getAfServer\(requestId)"
+         afServerDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+   
+   public func setAfServer(model:protocol_custom_yuwell_af_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setAfServer\(requestId)"] = success
+         failureArgumentDic["setAfServer\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setAfServer\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
 }

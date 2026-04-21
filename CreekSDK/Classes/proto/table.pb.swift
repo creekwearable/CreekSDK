@@ -790,6 +790,56 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `airplaneMode`. Subsequent reads from it will return its default value.
   public mutating func clearAirplaneMode() {_uniqueStorage()._airplaneMode = nil}
 
+  ///是否支持震动预览
+  public var motorPreview: function_table {
+    get {return _storage._motorPreview ?? function_table()}
+    set {_uniqueStorage()._motorPreview = newValue}
+  }
+  /// Returns true if `motorPreview` has been explicitly set.
+  public var hasMotorPreview: Bool {return _storage._motorPreview != nil}
+  /// Clears the value of `motorPreview`. Subsequent reads from it will return its default value.
+  public mutating func clearMotorPreview() {_uniqueStorage()._motorPreview = nil}
+
+  ///是否支持ai训练计划
+  public var aiCoach: function_table {
+    get {return _storage._aiCoach ?? function_table()}
+    set {_uniqueStorage()._aiCoach = newValue}
+  }
+  /// Returns true if `aiCoach` has been explicitly set.
+  public var hasAiCoach: Bool {return _storage._aiCoach != nil}
+  /// Clears the value of `aiCoach`. Subsequent reads from it will return its default value.
+  public mutating func clearAiCoach() {_uniqueStorage()._aiCoach = nil}
+
+  ///是否支持睡眠秒级血氧
+  public var sleepSpo2: function_table {
+    get {return _storage._sleepSpo2 ?? function_table()}
+    set {_uniqueStorage()._sleepSpo2 = newValue}
+  }
+  /// Returns true if `sleepSpo2` has been explicitly set.
+  public var hasSleepSpo2: Bool {return _storage._sleepSpo2 != nil}
+  /// Clears the value of `sleepSpo2`. Subsequent reads from it will return its default value.
+  public mutating func clearSleepSpo2() {_uniqueStorage()._sleepSpo2 = nil}
+
+  ///是否支持线路导航支持地图设置开关
+  public var routeNavigationSwitch: function_table {
+    get {return _storage._routeNavigationSwitch ?? function_table()}
+    set {_uniqueStorage()._routeNavigationSwitch = newValue}
+  }
+  /// Returns true if `routeNavigationSwitch` has been explicitly set.
+  public var hasRouteNavigationSwitch: Bool {return _storage._routeNavigationSwitch != nil}
+  /// Clears the value of `routeNavigationSwitch`. Subsequent reads from it will return its default value.
+  public mutating func clearRouteNavigationSwitch() {_uniqueStorage()._routeNavigationSwitch = nil}
+
+  ///是否支持心率广播
+  public var hrBroadcastSwitch: function_table {
+    get {return _storage._hrBroadcastSwitch ?? function_table()}
+    set {_uniqueStorage()._hrBroadcastSwitch = newValue}
+  }
+  /// Returns true if `hrBroadcastSwitch` has been explicitly set.
+  public var hasHrBroadcastSwitch: Bool {return _storage._hrBroadcastSwitch != nil}
+  /// Clears the value of `hrBroadcastSwitch`. Subsequent reads from it will return its default value.
+  public mutating func clearHrBroadcastSwitch() {_uniqueStorage()._hrBroadcastSwitch = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -915,6 +965,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     73: .standard(proto: "total_mileage"),
     74: .standard(proto: "disturb_switch"),
     75: .standard(proto: "airplane_mode"),
+    76: .standard(proto: "motor_preview"),
+    77: .standard(proto: "ai_coach"),
+    78: .standard(proto: "sleep_spo2"),
+    79: .standard(proto: "route_navigation_switch"),
+    80: .standard(proto: "hr_broadcast_switch"),
   ]
 
   fileprivate class _StorageClass {
@@ -993,6 +1048,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _totalMileage: function_table? = nil
     var _disturbSwitch: function_table? = nil
     var _airplaneMode: function_table? = nil
+    var _motorPreview: function_table? = nil
+    var _aiCoach: function_table? = nil
+    var _sleepSpo2: function_table? = nil
+    var _routeNavigationSwitch: function_table? = nil
+    var _hrBroadcastSwitch: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1082,6 +1142,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _totalMileage = source._totalMileage
       _disturbSwitch = source._disturbSwitch
       _airplaneMode = source._airplaneMode
+      _motorPreview = source._motorPreview
+      _aiCoach = source._aiCoach
+      _sleepSpo2 = source._sleepSpo2
+      _routeNavigationSwitch = source._routeNavigationSwitch
+      _hrBroadcastSwitch = source._hrBroadcastSwitch
     }
   }
 
@@ -1175,6 +1240,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 73: try { try decoder.decodeSingularMessageField(value: &_storage._totalMileage) }()
         case 74: try { try decoder.decodeSingularMessageField(value: &_storage._disturbSwitch) }()
         case 75: try { try decoder.decodeSingularMessageField(value: &_storage._airplaneMode) }()
+        case 76: try { try decoder.decodeSingularMessageField(value: &_storage._motorPreview) }()
+        case 77: try { try decoder.decodeSingularMessageField(value: &_storage._aiCoach) }()
+        case 78: try { try decoder.decodeSingularMessageField(value: &_storage._sleepSpo2) }()
+        case 79: try { try decoder.decodeSingularMessageField(value: &_storage._routeNavigationSwitch) }()
+        case 80: try { try decoder.decodeSingularMessageField(value: &_storage._hrBroadcastSwitch) }()
         default: break
         }
       }
@@ -1412,6 +1482,21 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._airplaneMode {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 75)
       } }()
+      try { if let v = _storage._motorPreview {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 76)
+      } }()
+      try { if let v = _storage._aiCoach {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 77)
+      } }()
+      try { if let v = _storage._sleepSpo2 {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 78)
+      } }()
+      try { if let v = _storage._routeNavigationSwitch {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 79)
+      } }()
+      try { if let v = _storage._hrBroadcastSwitch {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 80)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1496,6 +1581,11 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._totalMileage != rhs_storage._totalMileage {return false}
         if _storage._disturbSwitch != rhs_storage._disturbSwitch {return false}
         if _storage._airplaneMode != rhs_storage._airplaneMode {return false}
+        if _storage._motorPreview != rhs_storage._motorPreview {return false}
+        if _storage._aiCoach != rhs_storage._aiCoach {return false}
+        if _storage._sleepSpo2 != rhs_storage._sleepSpo2 {return false}
+        if _storage._routeNavigationSwitch != rhs_storage._routeNavigationSwitch {return false}
+        if _storage._hrBroadcastSwitch != rhs_storage._hrBroadcastSwitch {return false}
         return true
       }
       if !storagesAreEqual {return false}

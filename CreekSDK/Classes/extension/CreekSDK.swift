@@ -112,6 +112,7 @@ public typealias sportGpsBase = () -> (GPSModel)
 public typealias commonErrorBase = (_ model: CommonError) -> ()
 public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
 public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainSeconds:Int) -> ()
+public typealias afServerBase = (_ model:protocol_custom_yuwell_af_inquire_reply) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -241,6 +242,7 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
    var abnormalClosureDic:[String:abnormalBase] = [:]
    var onCountDownClosureDic:[String:onCountDownBase] = [:]
    var oxygensSecondClosureDic:[String:oxygensSecondClosure] = [:]
+   var afServerDic:[String:afServerBase] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -2264,6 +2266,20 @@ public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainS
                print("Error converting string to dictionary: \(error.localizedDescription)")
             }
          }
+      }
+      else if(call.method.contains("getAfServer")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_custom_yuwell_af_inquire_reply(serializedData: response.data,partial: true)
+               if let back = afServerDic[call.method]{
+                  back(model)
+                  afServerDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
       }
    }
    

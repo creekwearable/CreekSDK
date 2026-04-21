@@ -736,6 +736,9 @@ public struct protocol_exercise_control_operate: Sendable {
   ///运动控制类型
   public var controlType: exercise_control_type = .controlNull
 
+  ///动作类型
+  public var actionType: action_type = .actionNull
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2202,6 +2205,7 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     1: .standard(proto: "tran_type"),
     2: .standard(proto: "sport_type"),
     3: .standard(proto: "control_type"),
+    4: .standard(proto: "action_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2213,6 +2217,7 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
       case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.controlType) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.actionType) }()
       default: break
       }
     }
@@ -2228,6 +2233,9 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     if self.controlType != .controlNull {
       try visitor.visitSingularEnumField(value: self.controlType, fieldNumber: 3)
     }
+    if self.actionType != .actionNull {
+      try visitor.visitSingularEnumField(value: self.actionType, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2235,6 +2243,7 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.tranType != rhs.tranType {return false}
     if lhs.sportType != rhs.sportType {return false}
     if lhs.controlType != rhs.controlType {return false}
+    if lhs.actionType != rhs.actionType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

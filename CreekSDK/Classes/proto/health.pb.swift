@@ -181,6 +181,12 @@ public struct protocol_health_get_data_size_inquire_reply: @unchecked Sendable {
     set {_uniqueStorage()._activityLevelSupport = newValue}
   }
 
+  ///支持EDA压力数据
+  public var edaStressSupport: Bool {
+    get {return _storage._edaStressSupport}
+    set {_uniqueStorage()._edaStressSupport = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -331,6 +337,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     16: .standard(proto: "core_temperature_support"),
     17: .standard(proto: "spo2_second_support"),
     18: .standard(proto: "activity_level_support"),
+    19: .standard(proto: "eda_stress_support"),
   ]
 
   fileprivate class _StorageClass {
@@ -352,6 +359,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
     var _coreTemperatureSupport: Bool = false
     var _spo2SecondSupport: Bool = false
     var _activityLevelSupport: Bool = false
+    var _edaStressSupport: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -384,6 +392,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
       _coreTemperatureSupport = source._coreTemperatureSupport
       _spo2SecondSupport = source._spo2SecondSupport
       _activityLevelSupport = source._activityLevelSupport
+      _edaStressSupport = source._edaStressSupport
     }
   }
 
@@ -420,6 +429,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
         case 16: try { try decoder.decodeSingularBoolField(value: &_storage._coreTemperatureSupport) }()
         case 17: try { try decoder.decodeSingularBoolField(value: &_storage._spo2SecondSupport) }()
         case 18: try { try decoder.decodeSingularBoolField(value: &_storage._activityLevelSupport) }()
+        case 19: try { try decoder.decodeSingularBoolField(value: &_storage._edaStressSupport) }()
         default: break
         }
       }
@@ -482,6 +492,9 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
       if _storage._activityLevelSupport != false {
         try visitor.visitSingularBoolField(value: _storage._activityLevelSupport, fieldNumber: 18)
       }
+      if _storage._edaStressSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._edaStressSupport, fieldNumber: 19)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -509,6 +522,7 @@ extension protocol_health_get_data_size_inquire_reply: SwiftProtobuf.Message, Sw
         if _storage._coreTemperatureSupport != rhs_storage._coreTemperatureSupport {return false}
         if _storage._spo2SecondSupport != rhs_storage._spo2SecondSupport {return false}
         if _storage._activityLevelSupport != rhs_storage._activityLevelSupport {return false}
+        if _storage._edaStressSupport != rhs_storage._edaStressSupport {return false}
         return true
       }
       if !storagesAreEqual {return false}
