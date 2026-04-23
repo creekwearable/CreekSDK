@@ -3047,4 +3047,17 @@ extension CreekSDK{
          }
       }
    }
+   public func setDistanceAdjust(model:protocol_distance_adjust_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setDistanceAdjust\(requestId)"] = success
+         failureArgumentDic["setDistanceAdjust\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setDistanceAdjust\(requestId)", arguments: data)
+         }catch{
+            
+         }
+      }
+   }
 }

@@ -159,6 +159,8 @@
 		07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */; };
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
 		07D6C38D2F974B1500DB8462 /* afServeSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D6C38C2F974B1500DB8462 /* afServeSwitch.pb.swift */; };
+		07D6C3AE2F9A15A600DB8462 /* distanceAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D6C3AD2F9A15A600DB8462 /* distanceAdjust.pb.swift */; };
+		07D6C3B02F9A15C100DB8462 /* routeNavigationSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */; };
 		07D91DD62EE6F06F00E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD52EE6F06F00E155A6 /* deviceStatus.pb.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -340,6 +342,8 @@
 		07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoViewController.swift; sourceTree = "<group>"; };
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
 		07D6C38C2F974B1500DB8462 /* afServeSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = afServeSwitch.pb.swift; sourceTree = "<group>"; };
+		07D6C3AD2F9A15A600DB8462 /* distanceAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceAdjust.pb.swift; sourceTree = "<group>"; };
+		07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeNavigationSwitch.pb.swift; sourceTree = "<group>"; };
 		07D91DD52EE6F06F00E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -455,6 +459,8 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */,
+				07D6C3AD2F9A15A600DB8462 /* distanceAdjust.pb.swift */,
 				07D6C38C2F974B1500DB8462 /* afServeSwitch.pb.swift */,
 				071C2ED12F69353000C0091F /* hrBroadcastSwitch.pb.swift */,
 				071C2ED22F69353000C0091F /* motorPreview.pb.swift */,
@@ -887,6 +893,7 @@
 				07266C002DACF260000F8BED /* call.pb.swift in Sources */,
 				07266C3E2DAFEA29000F8BED /* OTAViewController.swift in Sources */,
 				07266C012DACF260000F8BED /* wtm.pb.swift in Sources */,
+				07D6C3B02F9A15C100DB8462 /* routeNavigationSwitch.pb.swift in Sources */,
 				07266C022DACF260000F8BED /* mtu.pb.swift in Sources */,
 				07266C032DACF260000F8BED /* sportPrescription.pb.swift in Sources */,
 				07266C042DACF260000F8BED /* appTable.pb.swift in Sources */,
@@ -900,6 +907,7 @@
 				07266C0B2DACF260000F8BED /* menstrual.pb.swift in Sources */,
 				07266C0C2DACF260000F8BED /* sport.pb.swift in Sources */,
 				07266C0D2DACF260000F8BED /* hotKey.pb.swift in Sources */,
+				07D6C3AE2F9A15A600DB8462 /* distanceAdjust.pb.swift in Sources */,
 				07266C0E2DACF260000F8BED /* monitor.pb.swift in Sources */,
 				07266C0F2DACF260000F8BED /* weather.pb.swift in Sources */,
 				072B823A2EAA19A40093F88C /* RespiratoryModel.swift in Sources */,
