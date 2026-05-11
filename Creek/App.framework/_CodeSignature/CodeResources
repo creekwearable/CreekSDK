@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		RB0EMGoszdktjqemGtJG5TEcjEg=
+		dM8/V5kzNpQ4su/3lXeUfSdOzis=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		75tNR7cT6AeW2qvylkRUZLxVK0E=
+		76QXw3RTVX2hhGK/u1/XFrN7FKA=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -36,34 +36,6 @@
 		<data>
 		/CUoTuPQqqdexfyOT9lpJhV+2MQ=
 		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/1.txt</key>
-		<data>
-		aCrFykCR+Fv3DnTRNmm5ylIL5aU=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/2.png</key>
-		<data>
-		GKjj5qHyM1NFWTVaPVCxeNlYPRY=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/add.png</key>
-		<data>
-		O+SRocLxEWvKbFrrSNREwAKLufc=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input.pcm</key>
-		<data>
-		ltIyRut2SfLOtCzFhG2LzWr+5Jg=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input2.pcm</key>
-		<data>
-		oXzo96a1jhm8PhhAm7eKetQB0Ig=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/svg/chevron_left.svg</key>
-		<data>
-		70wRzWZrQo1yKvGznILXo7iQzNY=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/zephyr.fw</key>
-		<data>
-		fKroJAJvjvUJ2kDf9DIo82OooPQ=
-		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		Bvk+P1ykE1PGRdktwgwDyz6AOqM=
@@ -79,14 +51,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VDTXx5xDrafthyptwUlLPNOG9k747pfAz4C3JMZw1Ck=
+			yoW2i4RkX4UjIVHlK3VsJHusZn45gud6wUEbUFvjHzE=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			J2Zim3aYqTg1DEcUNvkkMqEdHXAoGtXO8DJ/4w63N9Y=
+			7SdEoApT2m/TXpPVwYp6/s584t5RxsqB5Xut1p19SIA=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -122,55 +94,6 @@
 			<key>hash2</key>
 			<data>
 			2YZbZxoJ1oPROoYwidiCXg9ho3aWzl19RIvIAjqmJFM=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/1.txt</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tVwEBI31vvTrvoYBCyqmmD32FCPsn6mcg+bJwjItT6o=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/2.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			0XazSH5ftpUxkD5bDdSncsTY6XNkX0VJ6h10MVwXSuQ=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/add.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			slBplIGu6IGZ7wIJVjDOkr4ou872DHRi+vgjo5tDhag=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input.pcm</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1z0hua53YXInulyVopodiSCxukhXjANX1lbpetCh2g0=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input2.pcm</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			es81PhOCyP7vWsN2sWM8cqry+qVpjcBtp3t9F6pwwH8=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/svg/chevron_left.svg</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			dOcY6cS2NYKvJ5tdUp10mJXkam4pLFe89HOntPnX6rs=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/zephyr.fw</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			jQhyPtjdEqtlmljtvYpk7ePEFnFvauSczulABxTr/Wo=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
