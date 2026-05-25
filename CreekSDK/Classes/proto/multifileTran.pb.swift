@@ -21,108 +21,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum multifile_tran_control_type: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case multifileTranTypeNone // = 0
-
-  ///音频
-  case multifileTranTypeMusic // = 1
-
-  ///地图
-  case multifileTranTypeMap // = 2
-
-  ///动作指导
-  case multifileTranTypeAction // = 3
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .multifileTranTypeNone
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .multifileTranTypeNone
-    case 1: self = .multifileTranTypeMusic
-    case 2: self = .multifileTranTypeMap
-    case 3: self = .multifileTranTypeAction
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .multifileTranTypeNone: return 0
-    case .multifileTranTypeMusic: return 1
-    case .multifileTranTypeMap: return 2
-    case .multifileTranTypeAction: return 3
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [multifile_tran_control_type] = [
-    .multifileTranTypeNone,
-    .multifileTranTypeMusic,
-    .multifileTranTypeMap,
-    .multifileTranTypeAction,
-  ]
-
-}
-
-public enum multifile_tran_control_status: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case multifileTranStatusNone // = 0
-
-  ///开始传输
-  case multifileTranStatusStart // = 1
-
-  ///传输结束
-  case multifileTranStatusEnd // = 2
-
-  ///传输中进度
-  case multifileTranStatusProgress // = 3
-
-  ///传输异常
-  case multifileTranStatusException // = 4
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .multifileTranStatusNone
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .multifileTranStatusNone
-    case 1: self = .multifileTranStatusStart
-    case 2: self = .multifileTranStatusEnd
-    case 3: self = .multifileTranStatusProgress
-    case 4: self = .multifileTranStatusException
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .multifileTranStatusNone: return 0
-    case .multifileTranStatusStart: return 1
-    case .multifileTranStatusEnd: return 2
-    case .multifileTranStatusProgress: return 3
-    case .multifileTranStatusException: return 4
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [multifile_tran_control_status] = [
-    .multifileTranStatusNone,
-    .multifileTranStatusStart,
-    .multifileTranStatusEnd,
-    .multifileTranStatusProgress,
-    .multifileTranStatusException,
-  ]
-
-}
-
 public struct protocol_multifile_tran_control_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -164,25 +62,6 @@ public struct protocol_multifile_tran_control_operate: @unchecked Sendable {
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-extension multifile_tran_control_type: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MULTIFILE_TRAN_TYPE_NONE"),
-    1: .same(proto: "MULTIFILE_TRAN_TYPE_MUSIC"),
-    2: .same(proto: "MULTIFILE_TRAN_TYPE_MAP"),
-    3: .same(proto: "MULTIFILE_TRAN_TYPE_ACTION"),
-  ]
-}
-
-extension multifile_tran_control_status: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MULTIFILE_TRAN_STATUS_NONE"),
-    1: .same(proto: "MULTIFILE_TRAN_STATUS_START"),
-    2: .same(proto: "MULTIFILE_TRAN_STATUS_END"),
-    3: .same(proto: "MULTIFILE_TRAN_STATUS_PROGRESS"),
-    4: .same(proto: "MULTIFILE_TRAN_STATUS_EXCEPTION"),
-  ]
-}
 
 extension protocol_multifile_tran_control_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_multifile_tran_control_operate"

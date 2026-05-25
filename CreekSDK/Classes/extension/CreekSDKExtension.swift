@@ -2852,19 +2852,23 @@ extension CreekSDK{
       }
    }
    
-   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase){
+   public func startMeasure(type:ring_health_type,measureDuration:Int = 20,timeout:Int = 60,model:@escaping clickHealthMeasureBase,success:@escaping successBase,failure:@escaping commonErrorBase,abnormal:@escaping abnormalBase,wearingNoStandard:@escaping abnormalBase,processResult:@escaping clickHealthMeasureBase){
       serialQueue.sync {
          requestId+=1
          clickHealthMeasureDic["successstartMeasure\(requestId)"] = model
          commonErrorBaseDic["failurestartMeasure\(requestId)"] = failure
          abnormalClosureDic["abnormalstartMeasure\(requestId)"] = abnormal
+         abnormalClosureDic["wearingNoStandardstartMeasure\(requestId)"] = wearingNoStandard
          successDic["startMeasure\(requestId)"] = success
+         clickHealthMeasureDic["processResultstartMeasure\(requestId)"] = processResult
          methodChannel?.invokeMethod("startMeasure\(requestId)", arguments: [type.rawValue,measureDuration,timeout])
       }
    }
    
-   public func stopMeasure(type:ring_health_type){
-      methodChannel?.invokeMethod("stopMeasure", arguments: type.rawValue)
+   public func stopMeasure(type:ring_health_type,success:@escaping successBase,failure:@escaping failureArgument){
+      successDic["stopMeasure\(requestId)"] = success
+      failureArgumentDic["stopMeasure\(requestId)"] = failure
+      methodChannel?.invokeMethod("stopMeasure\(requestId)", arguments: type.rawValue)
    }
    
    
@@ -3132,6 +3136,20 @@ extension CreekSDK{
          requestId+=1
          temperatureClosureDic["getTemperatureUploadStatus\(requestId)"] = model
          methodChannel?.invokeMethod("getTemperatureUploadStatus\(requestId)", arguments: "")
+      }
+   }
+   
+   public func setPasscode(model:protocol_passcode_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["setPasscode\(requestId)"] = success;
+         failureArgumentDic["setPasscode\(requestId)"] = failure
+         do{
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod("setPasscode\(requestId)", arguments: data)
+         }catch{
+            
+         }
       }
    }
    

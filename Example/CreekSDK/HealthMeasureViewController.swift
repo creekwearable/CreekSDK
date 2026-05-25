@@ -106,23 +106,32 @@ class HealthMeasureViewController: UIViewController {
     // MARK: - 操作事件
     @objc private func startMeasureTapped() {
         resultLabel.text = "--"
-        statusLabel.text = "状态：测量中..."
+        statusLabel.text = "Status: Measuring..."
        
        CreekInterFace.instance.startMeasure(type: selectedType,measureDuration: 30,timeout: 60) { [weak self] model in
-          self?.resultLabel.text =  "结果：\(model.value) 脉率:\(model.pulseRateValue)"
-       } success: {[weak self] in
-          self?.statusLabel.text = "状态：测量完成 ✅"
-       } failure: {[weak self] model in
-          self?.statusLabel.text = model.message
-       } abnormal: {
-          
-       }
-
+                self?.resultLabel.text =  "result：\(model.value)"
+             } success: {[weak self] in
+                self?.statusLabel.text = "Status: Measurement Complete ✅"
+             } failure: {[weak self] model in
+                self?.statusLabel.text = model.message
+             } abnormal: {
+                print("Unusual activity detected")
+             } wearingNoStandard: {
+                print("Improper wearing")
+             } processResult: { model in
+                //Process data, no need to pay attention to it.
+             }
+       
     }
     
     @objc private func stopMeasureTapped() {
-       statusLabel.text = "状态：已停止测量 ⛔️"
-       CreekInterFace.instance.stopMeasure(type: selectedType)
+       statusLabel.text = "Status: Measurement Stopped ⛔️"
+       CreekInterFace.instance.stopMeasure(type: selectedType) {
+          
+       } failure: { code, message in
+          
+       }
+
     }
    
 }

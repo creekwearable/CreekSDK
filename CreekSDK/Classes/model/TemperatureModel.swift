@@ -43,6 +43,12 @@ public class TemperatureModel: Codable {
     /// Temperature state
     public var tempState: Int?
    
+   /// Sleep Temperature Support
+    public var sleepTempSupport: Int?
+   
+   /// Sleep body temperature data, magnified 100 times.
+    public var sleepBodyTempAverage: Int?
+   
     public var uploadStatus: Int?
 
     /// Temperature values list
