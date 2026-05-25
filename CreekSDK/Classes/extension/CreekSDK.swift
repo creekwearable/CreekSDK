@@ -2112,7 +2112,8 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
           }
         }
       
-      else if(call.method.contains("successstartMeasure")){
+      else if(call.method.contains("successstartMeasure") ||
+              call.method.contains("processResultstartMeasure")){
         if let response = call.arguments as? FlutterStandardTypedData{
            do{
               let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
@@ -2227,7 +2228,8 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
          }
          
       }
-      else if(call.method.contains("abnormalstartMeasure")){
+      else if(call.method.contains("abnormalstartMeasure")  ||
+              call.method.contains("wearingNoStandardstartMeasure") ){
          if let back = abnormalClosureDic[call.method]{
             back()
          }

@@ -273,6 +273,95 @@ public class SportModel: Codable {
    ///Football distance support display
    public var footballDistanceSupport: Int?
    
+   ///Whether racket data is supported
+   public var racketDataSupport: Int?
+   ///Racket speed
+   public var racketSpeed: Int?
+   ///Racket speed array processing flag
+   public var processRacketSpeedArrayFlag: Int?
+   ///Racket speed array data
+   public var processRacketSpeedArrayData: [Int]?
+   ///Maximum racket speed
+   public var maxRacketSpeed: Int?
+   ///Longest rally
+   public var longestRally: Int?
+   ///Forehand strokes
+   public var forehandsStroke: Int?
+   ///Backhand strokes
+   public var backhandsStroke: Int?
+   ///Overhand strokes
+   public var overhandsStroke: Int?
+   ///Underhand strokes
+   public var underhandsStroke: Int?
+   ///Other strokes
+   public var otherStroke: Int?
+   ///Performance radar data
+   public var performanceRadarArray: [Int]?
+   ///Aerobic effect
+   public var aerobicEffect: Int?
+   ///Anaerobic effect
+   public var anaerobicEffect: Int?
+   ///Training effect type
+   public var trainingEffectType: Int?
+   ///Whether training effect data is supported
+   public var trainingEffectSupport: Int?
+   ///Whether skip rope data is supported
+   public var skipRopeDataSupport: Int?
+   ///Total skip rope count
+   public var totalSkipRopeCount: Int?
+   ///Maximum consecutive skip count
+   public var maxSkipConsecutiveCnt: Int?
+   ///Total interrupt count
+   public var totalInterruptCount: Int?
+   ///Total interrupt time, unit: seconds
+   public var totalInterruptTimeSec: Int?
+   ///Total skip time, unit: seconds
+   public var totalSkipTimeSec: Int?
+   ///Average jumps per second
+   public var avgJumpsPerSecond: Int?
+   ///Average jumps per minute
+   public var avgJumpsPerMinute: Int?
+   ///Maximum average jumps per minute
+   public var maxAvgJumpsPerMinute: Int?
+   ///Whether skiing distance is supported
+   public var skiingDistanceSupport: Int?
+   ///Whether running posture is supported
+   public var runPostureSupport: Int?
+   ///Posture ground time
+   public var postureGroundTime: Int?
+   ///Posture air time
+   public var postureAirTime: Int?
+   ///Posture ground-air ratio
+   public var postureGroundAirRatio: Int?
+   ///Posture balance left
+   public var postureBalanceL: Int?
+   ///Posture balance right
+   public var postureBalanceR: Int?
+   ///Posture balance right-left ratio
+   public var postureBabalanceRl: Int?
+   ///Posture vertical amplitude
+   public var postureVerticalAmplitude: Int?
+   ///Posture vertical step percent
+   public var postureVerticalStepPercent: Int?
+   ///Whether vertical jump is supported
+   public var verticalJumpSupport: Int?
+   ///Total load
+   public var totalLoad: Int?
+   ///Total racket count
+   public var numRacketTotal: Int?
+   ///Current sport training load
+   public var curSportTrainingLoad: Int?
+   ///Plan ID
+   public var planId: Int?
+   ///Sub ID
+   public var subId: Int?
+   ///Whether this is primary data
+   public var isPrimary: Int?
+   
+   public var runPostureItem : [RunPostureModel]?
+   
+   public var verticalJumpItem : [VerticalJumpModel]?
+   
    
 }
 
@@ -353,5 +442,45 @@ public class SportLapModel: Codable {
     public var minHrValue: Int?
    /// Calories
     public var calories: Int?
+
+}
+
+
+public class RunPostureModel: Codable {
+    /// Right foot balance ratio
+    public var balanceR: Int?
+   /// Contact time
+    public var groundTime: Int?
+   /// Vaulting time
+    public var airTime: Int?
+   /// Vertical amplitude
+    public var verticalOscillation: Int?
+   /// Vertical amplitude ratio
+    public var verticalStepPercent: Int?
+
+}
+
+public class VerticalJumpModel: Codable {
+
+    /// Repetition sequence number (0-9999)
+    public var repId: Int?
+    /// Automatically detected rep start timestamp
+    public var repTimestampStart: Int?
+    /// Automatically detected rep end timestamp
+    public var repTimestampEnd: Int?
+    /// Timestamp when both feet leave the ground
+    public var jumpTimestampStart: Int?
+    /// Timestamp when both feet touch the ground
+    public var jumpTimestampEnd: Int?
+    /// Duration of a single rep in milliseconds (0-2000ms)
+    public var repDurations: Int?
+    /// Airborne duration of a single jump in milliseconds (0-2000ms)
+    public var jumpDurations: Int?
+    /// Vertical jump height in centimeters (0-200cm)
+    public var jumpHeight: Int?
+    /// Peak jump speed ×10 (0-5m/s)
+    public var peakSpeed: Int?
+    /// Total repetition count (0-9999)
+    public var repCount: Int?
 
 }

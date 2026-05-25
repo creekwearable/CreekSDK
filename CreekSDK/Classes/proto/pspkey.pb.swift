@@ -21,6 +21,44 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum algorithm_platform_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///飞利浦
+  case psp // = 0
+
+  ///gomore
+  case gomore // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .psp
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .psp
+    case 1: self = .gomore
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .psp: return 0
+    case .gomore: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [algorithm_platform_type] = [
+    .psp,
+    .gomore,
+  ]
+
+}
+
 public struct protocol_psp_key_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -35,6 +73,9 @@ public struct protocol_psp_key_operate: @unchecked Sendable {
   ///key数据
   public var key: Data = Data()
 
+  ///算法平台
+  public var type: algorithm_platform_type = .psp
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -42,12 +83,20 @@ public struct protocol_psp_key_operate: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
+extension algorithm_platform_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "psp"),
+    1: .same(proto: "gomore"),
+  ]
+}
+
 extension protocol_psp_key_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_psp_key_operate"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "tran_type"),
     2: .same(proto: "uuid"),
     3: .same(proto: "key"),
+    4: .same(proto: "type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -59,6 +108,7 @@ extension protocol_psp_key_operate: SwiftProtobuf.Message, SwiftProtobuf._Messag
       case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
       case 2: try { try decoder.decodeSingularBytesField(value: &self.uuid) }()
       case 3: try { try decoder.decodeSingularBytesField(value: &self.key) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.type) }()
       default: break
       }
     }
@@ -74,6 +124,9 @@ extension protocol_psp_key_operate: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if !self.key.isEmpty {
       try visitor.visitSingularBytesField(value: self.key, fieldNumber: 3)
     }
+    if self.type != .psp {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -81,6 +134,7 @@ extension protocol_psp_key_operate: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if lhs.tranType != rhs.tranType {return false}
     if lhs.uuid != rhs.uuid {return false}
     if lhs.key != rhs.key {return false}
+    if lhs.type != rhs.type {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

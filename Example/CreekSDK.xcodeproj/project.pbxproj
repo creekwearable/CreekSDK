@@ -94,6 +94,11 @@
 		073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2422E5D548A00652FCF /* bloodPressure.pb.swift */; };
 		073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2442E5D548A00652FCF /* ephemeris.pb.swift */; };
 		073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FD2452E5D548A00652FCF /* medicine.pb.swift */; };
+		0740E3262FC42C5B00B8DB36 /* distanceAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740E3222FC42C5B00B8DB36 /* distanceAdjust.pb.swift */; };
+		0740E3272FC42C5B00B8DB36 /* routeNavigationSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740E3252FC42C5B00B8DB36 /* routeNavigationSwitch.pb.swift */; };
+		0740E3282FC42C5B00B8DB36 /* afServeSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740E3212FC42C5B00B8DB36 /* afServeSwitch.pb.swift */; };
+		0740E3292FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740E3232FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift */; };
+		0740E32A2FC42C5B00B8DB36 /* passcodePage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740E3242FC42C5B00B8DB36 /* passcodePage.pb.swift */; };
 		07468E2C2F2A2AB60045BEBF /* offlineMap.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */; };
 		0750C9322B99756400D8E7A0 /* func6_pink.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0750C9312B99756400D8E7A0 /* func6_pink.zip */; };
 		0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */; };
@@ -261,6 +266,11 @@
 		073FD2432E5D548A00652FCF /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
 		073FD2442E5D548A00652FCF /* ephemeris.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ephemeris.pb.swift; sourceTree = "<group>"; };
 		073FD2452E5D548A00652FCF /* medicine.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicine.pb.swift; sourceTree = "<group>"; };
+		0740E3212FC42C5B00B8DB36 /* afServeSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = afServeSwitch.pb.swift; sourceTree = "<group>"; };
+		0740E3222FC42C5B00B8DB36 /* distanceAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceAdjust.pb.swift; sourceTree = "<group>"; };
+		0740E3232FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hrBroadcastSwitch.pb.swift; sourceTree = "<group>"; };
+		0740E3242FC42C5B00B8DB36 /* passcodePage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passcodePage.pb.swift; sourceTree = "<group>"; };
+		0740E3252FC42C5B00B8DB36 /* routeNavigationSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeNavigationSwitch.pb.swift; sourceTree = "<group>"; };
 		07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offlineMap.pb.swift; sourceTree = "<group>"; };
 		0750C9312B99756400D8E7A0 /* func6_pink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = func6_pink.zip; sourceTree = "<group>"; };
 		0750C9332B99AC9F00D8E7A0 /* BaseSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSheetView.swift; sourceTree = "<group>"; };
@@ -440,6 +450,11 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				0740E3212FC42C5B00B8DB36 /* afServeSwitch.pb.swift */,
+				0740E3222FC42C5B00B8DB36 /* distanceAdjust.pb.swift */,
+				0740E3232FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift */,
+				0740E3242FC42C5B00B8DB36 /* passcodePage.pb.swift */,
+				0740E3252FC42C5B00B8DB36 /* routeNavigationSwitch.pb.swift */,
 				073C0BF82F30A7950081A4A2 /* motorPreview.pb.swift */,
 				073C0BF92F30A7950081A4A2 /* onekeyMeasure.pb.swift */,
 				07468E2B2F2A2AB60045BEBF /* offlineMap.pb.swift */,
@@ -1032,6 +1047,11 @@
 				07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				073DE4A32E12DBD900FA2B97 /* netWork.pb.swift in Sources */,
+				0740E3262FC42C5B00B8DB36 /* distanceAdjust.pb.swift in Sources */,
+				0740E3272FC42C5B00B8DB36 /* routeNavigationSwitch.pb.swift in Sources */,
+				0740E3282FC42C5B00B8DB36 /* afServeSwitch.pb.swift in Sources */,
+				0740E3292FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift in Sources */,
+				0740E32A2FC42C5B00B8DB36 /* passcodePage.pb.swift in Sources */,
 				079A21842B29A72A00F5D013 /* HrvModel.swift in Sources */,
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
@@ -1172,6 +1192,7 @@
 			baseConfigurationReference = 41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				INFOPLIST_FILE = CreekSDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1189,6 +1210,7 @@
 			baseConfigurationReference = 0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				INFOPLIST_FILE = CreekSDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
