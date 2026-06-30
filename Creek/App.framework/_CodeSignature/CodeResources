@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		dM8/V5kzNpQ4su/3lXeUfSdOzis=
+		z8TSZ7/mBBXKXjUBUkNQlyP+N3M=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		76QXw3RTVX2hhGK/u1/XFrN7FKA=
+		ysMu8BM78+FoJol6uFssNG6Pliw=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		M0DPf9IEUAySLVFIBhyJTMTW09o=
+		L+Kb2jrI8vwqJhUdvI1EE7wlKpY=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
@@ -40,6 +40,14 @@
 		<data>
 		Bvk+P1ykE1PGRdktwgwDyz6AOqM=
 		</data>
+		<key>flutter_assets/packages/record_web/assets/js/record.fixwebmduration.js</key>
+		<data>
+		jdOHZCknGz0mLf/bJm5RUxN05CI=
+		</data>
+		<key>flutter_assets/packages/record_web/assets/js/record.worklet.js</key>
+		<data>
+		S0P6GRHlkQuSLkbFpQTo+KW/TgE=
+		</data>
 		<key>flutter_assets/shaders/ink_sparkle.frag</key>
 		<data>
 		VvTF10G1gIeea4aI0DhJjCjHgXQ=
@@ -51,14 +59,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yoW2i4RkX4UjIVHlK3VsJHusZn45gud6wUEbUFvjHzE=
+			D7oV6mUuDsWXUyWiy2AhWVu6FLHRZw6mpJxPjwRzveY=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7SdEoApT2m/TXpPVwYp6/s584t5RxsqB5Xut1p19SIA=
+			bABqjLiwLIGziaFhKYeHi44Ek1c2y9njA4KUeBhM+to=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -72,7 +80,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NlOKi7lQRDYnEmHSmJ2FgRwlFT5m5qEvXD6FCLwgSoQ=
+			MAEUWlgkFxJFZvMmyUFzlCcmSPDpArV3gSrpsBngsjI=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
@@ -101,6 +109,20 @@
 			<key>hash2</key>
 			<data>
 			Z8RP6Rg7AC553ef2l34piGYcmj5KPF/OloeH79vtgjw=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/record_web/assets/js/record.fixwebmduration.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w0WtXS//s1etpke5tpBpNFKiABvFkS8ekGaHbOAWOZs=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/record_web/assets/js/record.worklet.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			un4PTIQUgO54wLVOfq3URFW5Fv79sHQQ7kYVnYLcwI4=
 			</data>
 		</dict>
 		<key>flutter_assets/shaders/ink_sparkle.frag</key>

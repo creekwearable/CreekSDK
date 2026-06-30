@@ -1,0 +1,119 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name record_ios
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AVFoundation
+import Flutter
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import record_ios
+public enum AudioEncoder : Swift.String {
+  case aacLc
+  case aacEld
+  case aacHe
+  case amrNb
+  case amrWb
+  case opus
+  case flac
+  case pcm16bits
+  case wav
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum AudioInterruptionMode : Swift.Int {
+  case none
+  case pause
+  case pauseResume
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RecordConfig {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Device {
+  @objc deinit
+}
+public enum RecorderError : Swift.Error {
+  case error(message: Swift.String, details: Swift.String?)
+}
+public enum RecordState : Swift.Int {
+  case pause
+  case record
+  case stop
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol AudioRecordingDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var config: record_ios.RecordConfig? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func stop(completionHandler: @escaping (Swift.String?) -> ())
+  #endif
+  func cancel() throws
+  func getAmplitude() -> Swift.Float
+  func pause()
+  func resume() throws
+  func dispose()
+}
+public protocol AudioRecordingFileDelegate : record_ios.AudioRecordingDelegate {
+  func start(config: record_ios.RecordConfig, path: Swift.String) throws
+}
+public protocol AudioRecordingStreamDelegate : record_ios.AudioRecordingDelegate {
+  func start(config: record_ios.RecordConfig, recordEventHandler: record_ios.RecordStreamHandler) throws
+}
+@objc @_hasMissingDesignatedInitializers public class RecordIosPlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin {
+  @objc public static func register(with registrar: any Flutter.FlutterPluginRegistrar)
+  @objc public func applicationWillTerminate(_ application: UIKit.UIApplication)
+  @objc public func detachFromEngine(for registrar: any Flutter.FlutterPluginRegistrar)
+  @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class StateStreamHandler : ObjectiveC.NSObject, Flutter.FlutterStreamHandler {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func onListen(withArguments arguments: Any?, eventSink events: @escaping Flutter.FlutterEventSink) -> Flutter.FlutterError?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func onCancel(withArguments arguments: Any?) -> Flutter.FlutterError?
+  #endif
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class RecordStreamHandler : ObjectiveC.NSObject, Flutter.FlutterStreamHandler {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func onListen(withArguments arguments: Any?, eventSink events: @escaping Flutter.FlutterEventSink) -> Flutter.FlutterError?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func onCancel(withArguments arguments: Any?) -> Flutter.FlutterError?
+  #endif
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension record_ios.AudioEncoder : Swift.Equatable {}
+extension record_ios.AudioEncoder : Swift.Hashable {}
+extension record_ios.AudioEncoder : Swift.RawRepresentable {}
+extension record_ios.AudioInterruptionMode : Swift.Equatable {}
+extension record_ios.AudioInterruptionMode : Swift.Hashable {}
+extension record_ios.AudioInterruptionMode : Swift.RawRepresentable {}
+extension record_ios.RecordState : Swift.Equatable {}
+extension record_ios.RecordState : Swift.Hashable {}
+extension record_ios.RecordState : Swift.RawRepresentable {}

@@ -1,0 +1,2560 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "record_ios",
+    "printedName": "record_ios",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AudioEncoder",
+        "printedName": "AudioEncoder",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "aacLc",
+            "printedName": "aacLc",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO5aacLcyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO5aacLcyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "aacEld",
+            "printedName": "aacEld",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO6aacEldyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO6aacEldyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "aacHe",
+            "printedName": "aacHe",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO5aacHeyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO5aacHeyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "amrNb",
+            "printedName": "amrNb",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO5amrNbyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO5amrNbyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "amrWb",
+            "printedName": "amrWb",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO5amrWbyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO5amrWbyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "opus",
+            "printedName": "opus",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO4opusyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO4opusyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "flac",
+            "printedName": "flac",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO4flacyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO4flacyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "pcm16bits",
+            "printedName": "pcm16bits",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO9pcm16bitsyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO9pcm16bitsyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "wav",
+            "printedName": "wav",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioEncoder.Type) -> record_ios.AudioEncoder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioEncoder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioEncoder",
+                        "printedName": "record_ios.AudioEncoder",
+                        "usr": "s:10record_ios12AudioEncoderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios12AudioEncoderO3wavyA2CmF",
+            "mangledName": "$s10record_ios12AudioEncoderO3wavyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "record_ios.AudioEncoder?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioEncoder",
+                    "printedName": "record_ios.AudioEncoder",
+                    "usr": "s:10record_ios12AudioEncoderO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10record_ios12AudioEncoderO8rawValueACSgSS_tcfc",
+            "mangledName": "$s10record_ios12AudioEncoderO8rawValueACSgSS_tcfc",
+            "moduleName": "record_ios",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10record_ios12AudioEncoderO8rawValueSSvp",
+            "mangledName": "$s10record_ios12AudioEncoderO8rawValueSSvp",
+            "moduleName": "record_ios",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10record_ios12AudioEncoderO8rawValueSSvg",
+                "mangledName": "$s10record_ios12AudioEncoderO8rawValueSSvg",
+                "moduleName": "record_ios",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:10record_ios12AudioEncoderO",
+        "mangledName": "$s10record_ios12AudioEncoderO",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AudioInterruptionMode",
+        "printedName": "AudioInterruptionMode",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioInterruptionMode.Type) -> record_ios.AudioInterruptionMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioInterruptionMode",
+                    "printedName": "record_ios.AudioInterruptionMode",
+                    "usr": "s:10record_ios21AudioInterruptionModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioInterruptionMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioInterruptionMode",
+                        "printedName": "record_ios.AudioInterruptionMode",
+                        "usr": "s:10record_ios21AudioInterruptionModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios21AudioInterruptionModeO4noneyA2CmF",
+            "mangledName": "$s10record_ios21AudioInterruptionModeO4noneyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "pause",
+            "printedName": "pause",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioInterruptionMode.Type) -> record_ios.AudioInterruptionMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioInterruptionMode",
+                    "printedName": "record_ios.AudioInterruptionMode",
+                    "usr": "s:10record_ios21AudioInterruptionModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioInterruptionMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioInterruptionMode",
+                        "printedName": "record_ios.AudioInterruptionMode",
+                        "usr": "s:10record_ios21AudioInterruptionModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios21AudioInterruptionModeO5pauseyA2CmF",
+            "mangledName": "$s10record_ios21AudioInterruptionModeO5pauseyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "pauseResume",
+            "printedName": "pauseResume",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.AudioInterruptionMode.Type) -> record_ios.AudioInterruptionMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioInterruptionMode",
+                    "printedName": "record_ios.AudioInterruptionMode",
+                    "usr": "s:10record_ios21AudioInterruptionModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.AudioInterruptionMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioInterruptionMode",
+                        "printedName": "record_ios.AudioInterruptionMode",
+                        "usr": "s:10record_ios21AudioInterruptionModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios21AudioInterruptionModeO11pauseResumeyA2CmF",
+            "mangledName": "$s10record_ios21AudioInterruptionModeO11pauseResumeyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "record_ios.AudioInterruptionMode?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioInterruptionMode",
+                    "printedName": "record_ios.AudioInterruptionMode",
+                    "usr": "s:10record_ios21AudioInterruptionModeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10record_ios21AudioInterruptionModeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s10record_ios21AudioInterruptionModeO8rawValueACSgSi_tcfc",
+            "moduleName": "record_ios",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10record_ios21AudioInterruptionModeO8rawValueSivp",
+            "mangledName": "$s10record_ios21AudioInterruptionModeO8rawValueSivp",
+            "moduleName": "record_ios",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10record_ios21AudioInterruptionModeO8rawValueSivg",
+                "mangledName": "$s10record_ios21AudioInterruptionModeO8rawValueSivg",
+                "moduleName": "record_ios",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:10record_ios21AudioInterruptionModeO",
+        "mangledName": "$s10record_ios21AudioInterruptionModeO",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RecordConfig",
+        "printedName": "RecordConfig",
+        "declKind": "Class",
+        "usr": "s:10record_ios12RecordConfigC",
+        "mangledName": "$s10record_ios12RecordConfigC",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Device",
+        "printedName": "Device",
+        "declKind": "Class",
+        "usr": "s:10record_ios6DeviceC",
+        "mangledName": "$s10record_ios6DeviceC",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RecorderError",
+        "printedName": "RecorderError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "error",
+            "printedName": "error",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.RecorderError.Type) -> (Swift.String, Swift.String?) -> record_ios.RecorderError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String?) -> record_ios.RecorderError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RecorderError",
+                        "printedName": "record_ios.RecorderError",
+                        "usr": "s:10record_ios13RecorderErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(message: Swift.String, details: Swift.String?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.String?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.RecorderError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RecorderError",
+                        "printedName": "record_ios.RecorderError",
+                        "usr": "s:10record_ios13RecorderErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios13RecorderErrorO5erroryACSS_SSSgtcACmF",
+            "mangledName": "$s10record_ios13RecorderErrorO5erroryACSS_SSSgtcACmF",
+            "moduleName": "record_ios"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:10record_ios13RecorderErrorO",
+        "mangledName": "$s10record_ios13RecorderErrorO",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RecordState",
+        "printedName": "RecordState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "pause",
+            "printedName": "pause",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.RecordState.Type) -> record_ios.RecordState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecordState",
+                    "printedName": "record_ios.RecordState",
+                    "usr": "s:10record_ios11RecordStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.RecordState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RecordState",
+                        "printedName": "record_ios.RecordState",
+                        "usr": "s:10record_ios11RecordStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios11RecordStateO5pauseyA2CmF",
+            "mangledName": "$s10record_ios11RecordStateO5pauseyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "record",
+            "printedName": "record",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.RecordState.Type) -> record_ios.RecordState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecordState",
+                    "printedName": "record_ios.RecordState",
+                    "usr": "s:10record_ios11RecordStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.RecordState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RecordState",
+                        "printedName": "record_ios.RecordState",
+                        "usr": "s:10record_ios11RecordStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios11RecordStateO0A0yA2CmF",
+            "mangledName": "$s10record_ios11RecordStateO0A0yA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Var",
+            "name": "stop",
+            "printedName": "stop",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(record_ios.RecordState.Type) -> record_ios.RecordState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecordState",
+                    "printedName": "record_ios.RecordState",
+                    "usr": "s:10record_ios11RecordStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "record_ios.RecordState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RecordState",
+                        "printedName": "record_ios.RecordState",
+                        "usr": "s:10record_ios11RecordStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10record_ios11RecordStateO4stopyA2CmF",
+            "mangledName": "$s10record_ios11RecordStateO4stopyA2CmF",
+            "moduleName": "record_ios"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "record_ios.RecordState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecordState",
+                    "printedName": "record_ios.RecordState",
+                    "usr": "s:10record_ios11RecordStateO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10record_ios11RecordStateO8rawValueACSgSi_tcfc",
+            "mangledName": "$s10record_ios11RecordStateO8rawValueACSgSi_tcfc",
+            "moduleName": "record_ios",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10record_ios11RecordStateO8rawValueSivp",
+            "mangledName": "$s10record_ios11RecordStateO8rawValueSivp",
+            "moduleName": "record_ios",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10record_ios11RecordStateO8rawValueSivg",
+                "mangledName": "$s10record_ios11RecordStateO8rawValueSivg",
+                "moduleName": "record_ios",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:10record_ios11RecordStateO",
+        "mangledName": "$s10record_ios11RecordStateO",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AudioRecordingDelegate",
+        "printedName": "AudioRecordingDelegate",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "config",
+            "printedName": "config",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "record_ios.RecordConfig?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecordConfig",
+                    "printedName": "record_ios.RecordConfig",
+                    "usr": "s:10record_ios12RecordConfigC"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10record_ios22AudioRecordingDelegateP6configAA12RecordConfigCSgvp",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP6configAA12RecordConfigCSgvp",
+            "moduleName": "record_ios",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "record_ios.RecordConfig?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RecordConfig",
+                        "printedName": "record_ios.RecordConfig",
+                        "usr": "s:10record_ios12RecordConfigC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10record_ios22AudioRecordingDelegateP6configAA12RecordConfigCSgvg",
+                "mangledName": "$s10record_ios22AudioRecordingDelegateP6configAA12RecordConfigCSgvg",
+                "moduleName": "record_ios",
+                "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+                "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "stop",
+            "printedName": "stop(completionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios22AudioRecordingDelegateP4stop17completionHandleryySSSgc_tF",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP4stop17completionHandleryySSSgc_tF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cancel",
+            "printedName": "cancel()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios22AudioRecordingDelegateP6cancelyyKF",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP6cancelyyKF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAmplitude",
+            "printedName": "getAmplitude()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios22AudioRecordingDelegateP12getAmplitudeSfyF",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP12getAmplitudeSfyF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "pause",
+            "printedName": "pause()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios22AudioRecordingDelegateP5pauseyyF",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP5pauseyyF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "resume",
+            "printedName": "resume()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios22AudioRecordingDelegateP6resumeyyKF",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP6resumeyyKF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dispose",
+            "printedName": "dispose()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios22AudioRecordingDelegateP7disposeyyF",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP7disposeyyF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:10record_ios22AudioRecordingDelegateP",
+        "mangledName": "$s10record_ios22AudioRecordingDelegateP",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AudioRecordingFileDelegate",
+        "printedName": "AudioRecordingFileDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start(config:path:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RecordConfig",
+                "printedName": "record_ios.RecordConfig",
+                "usr": "s:10record_ios12RecordConfigC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios26AudioRecordingFileDelegateP5start6config4pathyAA12RecordConfigC_SStKF",
+            "mangledName": "$s10record_ios26AudioRecordingFileDelegateP5start6config4pathyAA12RecordConfigC_SStKF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingFileDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingFileDelegate>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:10record_ios26AudioRecordingFileDelegateP",
+        "mangledName": "$s10record_ios26AudioRecordingFileDelegateP",
+        "moduleName": "record_ios",
+        "genericSig": "<τ_0_0 : record_ios.AudioRecordingDelegate>",
+        "sugared_genericSig": "<Self : record_ios.AudioRecordingDelegate>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AudioRecordingDelegate",
+            "printedName": "AudioRecordingDelegate",
+            "usr": "s:10record_ios22AudioRecordingDelegateP",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AudioRecordingStreamDelegate",
+        "printedName": "AudioRecordingStreamDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start(config:recordEventHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RecordConfig",
+                "printedName": "record_ios.RecordConfig",
+                "usr": "s:10record_ios12RecordConfigC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RecordStreamHandler",
+                "printedName": "record_ios.RecordStreamHandler",
+                "usr": "c:@M@record_ios@objc(cs)RecordStreamHandler"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10record_ios28AudioRecordingStreamDelegateP5start6config0A12EventHandleryAA12RecordConfigC_AA0keJ0CtKF",
+            "mangledName": "$s10record_ios28AudioRecordingStreamDelegateP5start6config0A12EventHandleryAA12RecordConfigC_AA0keJ0CtKF",
+            "moduleName": "record_ios",
+            "genericSig": "<τ_0_0 where τ_0_0 : record_ios.AudioRecordingStreamDelegate>",
+            "sugared_genericSig": "<Self where Self : record_ios.AudioRecordingStreamDelegate>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:10record_ios28AudioRecordingStreamDelegateP",
+        "mangledName": "$s10record_ios28AudioRecordingStreamDelegateP",
+        "moduleName": "record_ios",
+        "genericSig": "<τ_0_0 : record_ios.AudioRecordingDelegate>",
+        "sugared_genericSig": "<Self : record_ios.AudioRecordingDelegate>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AudioRecordingDelegate",
+            "printedName": "AudioRecordingDelegate",
+            "usr": "s:10record_ios22AudioRecordingDelegateP",
+            "mangledName": "$s10record_ios22AudioRecordingDelegateP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "Flutter",
+        "printedName": "Flutter",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "record_ios"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RecordIosPlugin",
+        "printedName": "RecordIosPlugin",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin(cm)registerWithRegistrar:",
+            "mangledName": "$s10record_ios15RecordIosPluginC8register4withySo07FlutterE9Registrar_p_tFZ",
+            "moduleName": "record_ios",
+            "static": true,
+            "objc_name": "registerWithRegistrar:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "applicationWillTerminate",
+            "printedName": "applicationWillTerminate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIApplication",
+                "printedName": "UIKit.UIApplication",
+                "usr": "c:objc(cs)UIApplication"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin(im)applicationWillTerminate:",
+            "mangledName": "$s10record_ios15RecordIosPluginC24applicationWillTerminateyySo13UIApplicationCF",
+            "moduleName": "record_ios",
+            "objc_name": "applicationWillTerminate:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "detachFromEngine",
+            "printedName": "detachFromEngine(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterPluginRegistrar",
+                "printedName": "any Flutter.FlutterPluginRegistrar",
+                "usr": "c:objc(pl)FlutterPluginRegistrar"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin(im)detachFromEngineForRegistrar:",
+            "mangledName": "$s10record_ios15RecordIosPluginC16detachFromEngine3forySo07FlutterE9Registrar_p_tF",
+            "moduleName": "record_ios",
+            "objc_name": "detachFromEngineForRegistrar:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handle",
+            "printedName": "handle(_:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FlutterMethodCall",
+                "printedName": "Flutter.FlutterMethodCall",
+                "usr": "c:objc(cs)FlutterMethodCall"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin(im)handleMethodCall:result:",
+            "mangledName": "$s10record_ios15RecordIosPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "moduleName": "record_ios",
+            "objc_name": "handleMethodCall:result:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RecordIosPlugin",
+                "printedName": "record_ios.RecordIosPlugin",
+                "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin(im)init",
+            "mangledName": "$s10record_ios15RecordIosPluginCACycfc",
+            "moduleName": "record_ios",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@record_ios@objc(cs)RecordIosPlugin",
+        "mangledName": "$s10record_ios15RecordIosPluginC",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "StateStreamHandler",
+        "printedName": "StateStreamHandler",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onListen",
+            "printedName": "onListen(withArguments:eventSink:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)StateStreamHandler(im)onListenWithArguments:eventSink:",
+            "mangledName": "$s10record_ios18StateStreamHandlerC8onListen13withArguments9eventSinkSo12FlutterErrorCSgypSg_yAJctF",
+            "moduleName": "record_ios",
+            "objc_name": "onListenWithArguments:eventSink:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onCancel",
+            "printedName": "onCancel(withArguments:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)StateStreamHandler(im)onCancelWithArguments:",
+            "mangledName": "$s10record_ios18StateStreamHandlerC8onCancel13withArgumentsSo12FlutterErrorCSgypSg_tF",
+            "moduleName": "record_ios",
+            "objc_name": "onCancelWithArguments:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "StateStreamHandler",
+                "printedName": "record_ios.StateStreamHandler",
+                "usr": "c:@M@record_ios@objc(cs)StateStreamHandler"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@record_ios@objc(cs)StateStreamHandler(im)init",
+            "mangledName": "$s10record_ios18StateStreamHandlerCACycfc",
+            "moduleName": "record_ios",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@record_ios@objc(cs)StateStreamHandler",
+        "mangledName": "$s10record_ios18StateStreamHandlerC",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RecordStreamHandler",
+        "printedName": "RecordStreamHandler",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onListen",
+            "printedName": "onListen(withArguments:eventSink:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Any?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)RecordStreamHandler(im)onListenWithArguments:eventSink:",
+            "mangledName": "$s10record_ios19RecordStreamHandlerC8onListen13withArguments9eventSinkSo12FlutterErrorCSgypSg_yAJctF",
+            "moduleName": "record_ios",
+            "objc_name": "onListenWithArguments:eventSink:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onCancel",
+            "printedName": "onCancel(withArguments:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Flutter.FlutterError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FlutterError",
+                    "printedName": "Flutter.FlutterError",
+                    "usr": "c:objc(cs)FlutterError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@record_ios@objc(cs)RecordStreamHandler(im)onCancelWithArguments:",
+            "mangledName": "$s10record_ios19RecordStreamHandlerC8onCancel13withArgumentsSo12FlutterErrorCSgypSg_tF",
+            "moduleName": "record_ios",
+            "objc_name": "onCancelWithArguments:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RecordStreamHandler",
+                "printedName": "record_ios.RecordStreamHandler",
+                "usr": "c:@M@record_ios@objc(cs)RecordStreamHandler"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@record_ios@objc(cs)RecordStreamHandler(im)init",
+            "mangledName": "$s10record_ios19RecordStreamHandlerCACycfc",
+            "moduleName": "record_ios",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@record_ios@objc(cs)RecordStreamHandler",
+        "mangledName": "$s10record_ios19RecordStreamHandlerC",
+        "moduleName": "record_ios",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/encoder\/AacAdtsEncoder.swift",
+      "kind": "Array",
+      "offset": 186,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/encoder\/AacAdtsEncoder.swift",
+      "kind": "IntegerLiteral",
+      "offset": 225,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/encoder\/AacAdtsEncoder.swift",
+      "kind": "IntegerLiteral",
+      "offset": 263,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 74,
+      "length": 7,
+      "value": "\"aacLc\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 99,
+      "length": 8,
+      "value": "\"aacEld\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 124,
+      "length": 7,
+      "value": "\"aacHe\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 148,
+      "length": 7,
+      "value": "\"amrNb\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 172,
+      "length": 7,
+      "value": "\"amrWb\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 195,
+      "length": 6,
+      "value": "\"opus\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 217,
+      "length": 6,
+      "value": "\"flac\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 244,
+      "length": 11,
+      "value": "\"pcm16bits\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 270,
+      "length": 5,
+      "value": "\"wav\""
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 338,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 356,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 380,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 864,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 898,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/RecordConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 935,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/Recorder.swift",
+      "kind": "FloatLiteral",
+      "offset": 98,
+      "length": 6,
+      "value": "-160.0"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/Recorder.swift",
+      "kind": "FloatLiteral",
+      "offset": 144,
+      "length": 6,
+      "value": "-160.0"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/Recorder.swift",
+      "kind": "BooleanLiteral",
+      "offset": 419,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/delegate\/RecorderDelegateProtocols.swift",
+      "kind": "IntegerLiteral",
+      "offset": 179,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/delegate\/RecorderDelegateProtocols.swift",
+      "kind": "IntegerLiteral",
+      "offset": 198,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/delegate\/RecorderDelegateProtocols.swift",
+      "kind": "IntegerLiteral",
+      "offset": 215,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/delegate\/RecorderStreamDelegate.swift",
+      "kind": "FloatLiteral",
+      "offset": 241,
+      "length": 6,
+      "value": "-160.0"
+    },
+    {
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/record_ios-1.2.1\/ios\/record_ios\/Sources\/record_ios\/delegate\/RecorderStreamDelegate.swift",
+      "kind": "IntegerLiteral",
+      "offset": 271,
+      "length": 1,
+      "value": "0"
+    }
+  ]
+}
