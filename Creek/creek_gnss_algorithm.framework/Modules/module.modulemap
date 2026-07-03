@@ -1,0 +1,6 @@
+framework module creek_gnss_algorithm {
+  umbrella header "creek_gnss_algorithm-umbrella.h"
+
+  export *
+  module * { export * }
+}

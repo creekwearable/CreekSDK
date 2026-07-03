@@ -10,8 +10,8 @@
 #endif
 #endif
 
-#import "PermissionHandlerPlugin.h"
+#import "CreekGnssAlgorithmPlugin.h"
 
-FOUNDATION_EXPORT double permission_handler_appleVersionNumber;
-FOUNDATION_EXPORT const unsigned char permission_handler_appleVersionString[];
+FOUNDATION_EXPORT double creek_gnss_algorithmVersionNumber;
+FOUNDATION_EXPORT const unsigned char creek_gnss_algorithmVersionString[];
 
