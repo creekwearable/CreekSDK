@@ -29,18 +29,6 @@ public enum AudioEncoder : Swift.String {
     get
   }
 }
-public enum AudioInterruptionMode : Swift.Int {
-  case none
-  case pause
-  case pauseResume
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.Int)
-  #endif
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers public class RecordConfig {
   @objc deinit
 }
@@ -63,9 +51,6 @@ public enum RecordState : Swift.Int {
   }
 }
 public protocol AudioRecordingDelegate {
-  #if compiler(>=5.3) && $NonescapableTypes
-  var config: record_ios.RecordConfig? { get }
-  #endif
   #if compiler(>=5.3) && $NonescapableTypes
   func stop(completionHandler: @escaping (Swift.String?) -> ())
   #endif
@@ -111,9 +96,6 @@ public protocol AudioRecordingStreamDelegate : record_ios.AudioRecordingDelegate
 extension record_ios.AudioEncoder : Swift.Equatable {}
 extension record_ios.AudioEncoder : Swift.Hashable {}
 extension record_ios.AudioEncoder : Swift.RawRepresentable {}
-extension record_ios.AudioInterruptionMode : Swift.Equatable {}
-extension record_ios.AudioInterruptionMode : Swift.Hashable {}
-extension record_ios.AudioInterruptionMode : Swift.RawRepresentable {}
 extension record_ios.RecordState : Swift.Equatable {}
 extension record_ios.RecordState : Swift.Hashable {}
 extension record_ios.RecordState : Swift.RawRepresentable {}

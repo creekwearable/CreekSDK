@@ -511,43 +511,6 @@
           },
           {
             "kind": "Var",
-            "name": "satellite",
-            "printedName": "satellite",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(connectivity_plus.ConnectivityType.Type) -> connectivity_plus.ConnectivityType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ConnectivityType",
-                    "printedName": "connectivity_plus.ConnectivityType",
-                    "usr": "s:17connectivity_plus16ConnectivityTypeO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "connectivity_plus.ConnectivityType.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ConnectivityType",
-                        "printedName": "connectivity_plus.ConnectivityType",
-                        "usr": "s:17connectivity_plus16ConnectivityTypeO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:17connectivity_plus16ConnectivityTypeO9satelliteyA2CmF",
-            "mangledName": "$s17connectivity_plus16ConnectivityTypeO9satelliteyA2CmF",
-            "moduleName": "connectivity_plus"
-          },
-          {
-            "kind": "Var",
             "name": "other",
             "printedName": "other",
             "children": [
@@ -1401,13 +1364,5 @@
     ],
     "json_format_version": 8
   },
-  "ConstValues": [
-    {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/connectivity_plus-7.2.0\/ios\/connectivity_plus\/Sources\/connectivity_plus\/PathMonitorConnectivityProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 310,
-      "length": 40,
-      "value": "\"dev.fluttercommunity.plus.connectivity\""
-    }
-  ]
+  "ConstValues": []
 }
