@@ -162,6 +162,7 @@
 		07D6C3AE2F9A15A600DB8462 /* distanceAdjust.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D6C3AD2F9A15A600DB8462 /* distanceAdjust.pb.swift */; };
 		07D6C3B02F9A15C100DB8462 /* routeNavigationSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */; };
 		07D91DD62EE6F06F00E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD52EE6F06F00E155A6 /* deviceStatus.pb.swift */; };
+		07F2918A2FFDE20C009DAA9C /* ActivityLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F291892FFDE20C009DAA9C /* ActivityLevelModel.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -345,6 +346,7 @@
 		07D6C3AD2F9A15A600DB8462 /* distanceAdjust.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceAdjust.pb.swift; sourceTree = "<group>"; };
 		07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeNavigationSwitch.pb.swift; sourceTree = "<group>"; };
 		07D91DD52EE6F06F00E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
+		07F291892FFDE20C009DAA9C /* ActivityLevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelModel.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreekSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -422,6 +424,7 @@
 		079A21652B29A72A00F5D013 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				07F291892FFDE20C009DAA9C /* ActivityLevelModel.swift */,
 				C44BFBA42E8A400200E63C19 /* GPSModel.swift */,
 				C47349312E86C58A00DE8374 /* AfModel.swift */,
 				C47349332E86C59900DE8374 /* AfPpgModel.swift */,
@@ -1008,6 +1011,7 @@
 				07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */,
 				073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */,
 				079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */,
+				07F2918A2FFDE20C009DAA9C /* ActivityLevelModel.swift in Sources */,
 				079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

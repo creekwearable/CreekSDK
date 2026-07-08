@@ -386,13 +386,13 @@ extension CreekSDK{
    ///       -id: DeviceModel.id
    ///       -code:pairing code
    /// - Returns:LanguageModel
-   public func bindingDevice(bindType:BindType,id:String?,code:String?,saveDate:Bool = false,success:@escaping successBase,failure:@escaping failureBase) {
+   public func bindingDevice(bindType:BindType,id:String?,code:String?,saveDate:Bool = false,userId:String = "",success:@escaping successBase,failure:@escaping failureBase) {
       serialQueue.sync {
          requestId+=1
          successDic["bindDevice\(requestId)"] = success;
          failureDic["bindDevice\(requestId)"] = failure
          
-         let dic:[String:Any?] = ["bindType":bindType.rawValue,"address":id,"pairCode":code,"saveDate":saveDate ? 1 : 0]
+         let dic:[String:Any?] = ["bindType":bindType.rawValue,"address":id,"pairCode":code,"saveDate":saveDate ? 1 : 0,"userId":userId]
          do{
             let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0))
             if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
@@ -3058,6 +3058,22 @@ extension CreekSDK{
          }catch{
             
          }
+      }
+   }
+   
+   public func getActivityLevelNewTimeData(startTime:String,endTime:String,model:@escaping activityLevelsClosure) {
+      serialQueue.sync {
+         requestId+=1
+         activityLevelsClosureDic["getActivityLevelNewTimeData\(requestId)"] = model
+         methodChannel?.invokeMethod("getActivityLevelNewTimeData\(requestId)", arguments: [startTime ,endTime])
+      }
+   }
+   
+   public func getActivityLevelUploadStatus(model:@escaping activityLevelsClosure) {
+      serialQueue.sync {
+         requestId+=1
+         activityLevelsClosureDic["getActivityLevelUploadStatus\(requestId)"] = model
+         methodChannel?.invokeMethod("getActivityLevelUploadStatus\(requestId)", arguments: "")
       }
    }
 }

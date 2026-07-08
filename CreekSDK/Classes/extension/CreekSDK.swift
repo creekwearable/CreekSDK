@@ -113,6 +113,7 @@ public typealias commonErrorBase = (_ model: CommonError) -> ()
 public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
 public typealias onCountDownBase = (_ type: HealthMeasureCountDownType,_ remainSeconds:Int) -> ()
 public typealias afServerBase = (_ model:protocol_custom_yuwell_af_inquire_reply) -> ()
+public typealias activityLevelsClosure = (_ model:BaseModel<[ActivityLevelModel]>) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -243,6 +244,7 @@ public typealias afServerBase = (_ model:protocol_custom_yuwell_af_inquire_reply
    var onCountDownClosureDic:[String:onCountDownBase] = [:]
    var oxygensSecondClosureDic:[String:oxygensSecondClosure] = [:]
    var afServerDic:[String:afServerBase] = [:]
+   var activityLevelsClosureDic:[String:activityLevelsClosure] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
    
@@ -2280,6 +2282,22 @@ public typealias afServerBase = (_ model:protocol_custom_yuwell_af_inquire_reply
             }
          }
          
+      }
+      else if(call.method.contains("getActivityLevelUploadStatus") || call.method.contains("getActivityLevelNewTimeData")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[ActivityLevelModel]>.self, dic){
+                  if let back = activityLevelsClosureDic[call.method]{
+                     back(model);
+                     activityLevelsClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+               
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
       }
    }
    

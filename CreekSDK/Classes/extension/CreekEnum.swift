@@ -355,6 +355,7 @@ public enum SyncServerType : Int{
    case af
    case afPpg
    case spoSecond
+   case activityLevel
 }
 
 public enum PlatformType : Int{
