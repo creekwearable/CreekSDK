@@ -28,7 +28,7 @@ class CommandReplyViewController: CreekBaseViewController {
       text.text = ""
       text.textColor = .white
       text.backgroundColor = .gray
-      text.isUserInteractionEnabled = false
+      text.isUserInteractionEnabled = true
       return text
    }()
    
