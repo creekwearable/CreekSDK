@@ -739,6 +739,9 @@ public struct protocol_exercise_control_operate: Sendable {
   ///动作类型
   public var actionType: action_type = .actionNull
 
+  ///  泳池总长度 单位米，如果运动类型是游泳 参数必传
+  public var swimTripTotalDistance: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -794,6 +797,15 @@ public struct protocol_exercise_course_list_inquire_reply: Sendable {
 
   ///运动课程目标支持列表
   public var targetSupport: [course_target_support_type] = []
+
+  ///最大重复次数
+  public var repeatEachStepMax: UInt32 = 0
+
+  ///4bytes course所占的总大小（单位：bytes）
+  public var totalSize: UInt32 = 0
+
+  ///4bytes 剩余的存储空间（单位：bytes）
+  public var freeSize: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -929,6 +941,39 @@ public struct protocol_action_list_inquire_reply: Sendable {
   public var funcTable: UInt32 = 0
 
   public var listItems: [action_list_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_sport_adjust_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：增 1：删 2：改（排序） 3：查
+  public var operate: operate_II_type = .insert
+
+  public var items: [sport_type] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_sport_adjust_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///1bytes 操作类型 0：增 1：删 2：改（排序） 3：查
+  public var operate: operate_II_type = .insert
+
+  public var items: [sport_type] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2206,6 +2251,7 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     2: .standard(proto: "sport_type"),
     3: .standard(proto: "control_type"),
     4: .standard(proto: "action_type"),
+    5: .standard(proto: "swim_trip_total_distance"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2218,6 +2264,7 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
       case 2: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.controlType) }()
       case 4: try { try decoder.decodeSingularEnumField(value: &self.actionType) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.swimTripTotalDistance) }()
       default: break
       }
     }
@@ -2236,6 +2283,9 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     if self.actionType != .actionNull {
       try visitor.visitSingularEnumField(value: self.actionType, fieldNumber: 4)
     }
+    if self.swimTripTotalDistance != 0 {
+      try visitor.visitSingularUInt32Field(value: self.swimTripTotalDistance, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2244,6 +2294,7 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.sportType != rhs.sportType {return false}
     if lhs.controlType != rhs.controlType {return false}
     if lhs.actionType != rhs.actionType {return false}
+    if lhs.swimTripTotalDistance != rhs.swimTripTotalDistance {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2338,6 +2389,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     2: .standard(proto: "func_table"),
     3: .standard(proto: "list_items"),
     4: .standard(proto: "target_support"),
+    5: .standard(proto: "repeat_each_step_max"),
+    6: .standard(proto: "total_size"),
+    7: .standard(proto: "free_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2350,6 +2404,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.listItems) }()
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.targetSupport) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.repeatEachStepMax) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.totalSize) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.freeSize) }()
       default: break
       }
     }
@@ -2368,6 +2425,15 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if !self.targetSupport.isEmpty {
       try visitor.visitPackedEnumField(value: self.targetSupport, fieldNumber: 4)
     }
+    if self.repeatEachStepMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.repeatEachStepMax, fieldNumber: 5)
+    }
+    if self.totalSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalSize, fieldNumber: 6)
+    }
+    if self.freeSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.freeSize, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2376,6 +2442,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.listItems != rhs.listItems {return false}
     if lhs.targetSupport != rhs.targetSupport {return false}
+    if lhs.repeatEachStepMax != rhs.repeatEachStepMax {return false}
+    if lhs.totalSize != rhs.totalSize {return false}
+    if lhs.freeSize != rhs.freeSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2660,6 +2729,88 @@ extension protocol_action_list_inquire_reply: SwiftProtobuf.Message, SwiftProtob
     if lhs.operate != rhs.operate {return false}
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.listItems != rhs.listItems {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_sport_adjust_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_sport_adjust_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .same(proto: "items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.items) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .insert {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if !self.items.isEmpty {
+      try visitor.visitPackedEnumField(value: self.items, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_sport_adjust_operate, rhs: protocol_sport_adjust_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.items != rhs.items {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_sport_adjust_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_sport_adjust_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "operate"),
+    3: .same(proto: "items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.items) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if self.operate != .insert {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 2)
+    }
+    if !self.items.isEmpty {
+      try visitor.visitPackedEnumField(value: self.items, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_sport_adjust_inquire_reply, rhs: protocol_sport_adjust_inquire_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.operate != rhs.operate {return false}
+    if lhs.items != rhs.items {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

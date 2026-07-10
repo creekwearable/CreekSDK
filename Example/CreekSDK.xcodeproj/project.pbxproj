@@ -163,6 +163,10 @@
 		07D6C3B02F9A15C100DB8462 /* routeNavigationSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */; };
 		07D91DD62EE6F06F00E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD52EE6F06F00E155A6 /* deviceStatus.pb.swift */; };
 		07F2918A2FFDE20C009DAA9C /* ActivityLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F291892FFDE20C009DAA9C /* ActivityLevelModel.swift */; };
+		07F2918F3000E9DD009DAA9C /* gomoreConfigSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2918B3000E9DD009DAA9C /* gomoreConfigSwitch.pb.swift */; };
+		07F291903000E9DD009DAA9C /* protocol_fifa.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2918E3000E9DD009DAA9C /* protocol_fifa.pb.swift */; };
+		07F291913000E9DD009DAA9C /* passcodePage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2918D3000E9DD009DAA9C /* passcodePage.pb.swift */; };
+		07F291923000E9DD009DAA9C /* gomoreFitnessLevel.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2918C3000E9DD009DAA9C /* gomoreFitnessLevel.pb.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -347,6 +351,10 @@
 		07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeNavigationSwitch.pb.swift; sourceTree = "<group>"; };
 		07D91DD52EE6F06F00E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
 		07F291892FFDE20C009DAA9C /* ActivityLevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelModel.swift; sourceTree = "<group>"; };
+		07F2918B3000E9DD009DAA9C /* gomoreConfigSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gomoreConfigSwitch.pb.swift; sourceTree = "<group>"; };
+		07F2918C3000E9DD009DAA9C /* gomoreFitnessLevel.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gomoreFitnessLevel.pb.swift; sourceTree = "<group>"; };
+		07F2918D3000E9DD009DAA9C /* passcodePage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passcodePage.pb.swift; sourceTree = "<group>"; };
+		07F2918E3000E9DD009DAA9C /* protocol_fifa.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol_fifa.pb.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreekSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -462,6 +470,10 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07F2918B3000E9DD009DAA9C /* gomoreConfigSwitch.pb.swift */,
+				07F2918C3000E9DD009DAA9C /* gomoreFitnessLevel.pb.swift */,
+				07F2918D3000E9DD009DAA9C /* passcodePage.pb.swift */,
+				07F2918E3000E9DD009DAA9C /* protocol_fifa.pb.swift */,
 				07D6C3AF2F9A15C100DB8462 /* routeNavigationSwitch.pb.swift */,
 				07D6C3AD2F9A15A600DB8462 /* distanceAdjust.pb.swift */,
 				07D6C38C2F974B1500DB8462 /* afServeSwitch.pb.swift */,
@@ -947,6 +959,10 @@
 				07266C232DACF260000F8BED /* waterMonitor.pb.swift in Sources */,
 				07266C322DAD0575000F8BED /* LogViewController.swift in Sources */,
 				07266C242DACF260000F8BED /* system.pb.swift in Sources */,
+				07F2918F3000E9DD009DAA9C /* gomoreConfigSwitch.pb.swift in Sources */,
+				07F291903000E9DD009DAA9C /* protocol_fifa.pb.swift in Sources */,
+				07F291913000E9DD009DAA9C /* passcodePage.pb.swift in Sources */,
+				07F291923000E9DD009DAA9C /* gomoreFitnessLevel.pb.swift in Sources */,
 				07266C252DACF260000F8BED /* sleepMonitor.pb.swift in Sources */,
 				C4524E342E797EA800F91EBA /* trainingLoad.pb.swift in Sources */,
 				07266C262DACF260000F8BED /* calendar.pb.swift in Sources */,
