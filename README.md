@@ -17,7 +17,7 @@ CreekSDK is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CreekSDK',:git => 'https://github.com/creekwearable/CreekSDK.git', :tag => '12.0.56-yy'
+pod 'CreekSDK',:git => 'https://github.com/creekwearable/CreekSDK.git', :tag => '12.0.57-yy'
 ```
 
 ## Author
@@ -53,5 +53,6 @@ English document version：<https://xiaochey.feishu.cn/docx/XmbZd1Pycovlytxb8Ypc
 
 Chinese document version：<https://xiaochey.feishu.cn/docx/JUVzdesZVow1Rkx278Rcq6ZLnId?from=from_copylink>
 
-English document version：<https://xiaochey.feishu.cn/docx/JksfdjOlWoVFaFx1LZncGM6SnxJ?from=from_copylink>
+English document version：<https://xiaochey.feishu.cn/docx/JksfdjOlWoVFaFx1LZncGM6SnxJ?from=from_copylink> 
 
+]
