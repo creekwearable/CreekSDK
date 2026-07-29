@@ -1049,7 +1049,10 @@ class CommandReplyViewController: CreekBaseViewController {
          break
          
       case "Get sport data":
-         CreekInterFace.instance.getSportTimeData(startTime: "2023-11-20", endTime: "2026-11-20",nil) { model in
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getSportTimeData(startTime: currentDateStr, endTime: currentDateStr,nil) { model in
             self.view.hideRemark()
             if model.code == 0{
                self.view.hideRemark()

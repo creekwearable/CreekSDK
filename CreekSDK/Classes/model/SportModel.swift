@@ -362,6 +362,13 @@ public class SportModel: Codable {
    
    public var verticalJumpItem : [VerticalJumpModel]?
    
+   public var sportsEventSupport: Int?
+   public var sportsEventType: Int?
+   public var sportsEventRunTime: Int?
+   public var sportsEventWorkoutTime: Int?
+   public var sportsEventTransitionTime: Int?
+   public var sportsEventItem : [sportsEventModel]?
+   
    
 }
 
@@ -482,5 +489,17 @@ public class VerticalJumpModel: Codable {
     public var peakSpeed: Int?
     /// Total repetition count (0-9999)
     public var repCount: Int?
+
+}
+
+public class sportsEventModel: Codable {
+   
+    public var segmentsType: Int?
+    public var sportType: Int?
+    public var groupId: Int?
+    public var avgHr: Int?
+    public var order: Int?
+    public var calories: Int?
+    public var duration: Int?
 
 }

@@ -156,6 +156,9 @@
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
 		07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */; };
 		07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */; };
+		07C2FEC2301A1A6400939B34 /* protocol_fifa.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FEC1301A1A6400939B34 /* protocol_fifa.pb.swift */; };
+		07C2FEC3301A1A6400939B34 /* gomoreFitnessLevel.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FEC0301A1A6400939B34 /* gomoreFitnessLevel.pb.swift */; };
+		07C2FEC4301A1A6400939B34 /* gomoreConfigSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FEBF301A1A6400939B34 /* gomoreConfigSwitch.pb.swift */; };
 		07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */; };
 		07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */; };
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
@@ -327,6 +330,9 @@
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialDetailsViewController.swift; sourceTree = "<group>"; };
 		07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBSlideBar.swift; sourceTree = "<group>"; };
+		07C2FEBF301A1A6400939B34 /* gomoreConfigSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gomoreConfigSwitch.pb.swift; sourceTree = "<group>"; };
+		07C2FEC0301A1A6400939B34 /* gomoreFitnessLevel.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gomoreFitnessLevel.pb.swift; sourceTree = "<group>"; };
+		07C2FEC1301A1A6400939B34 /* protocol_fifa.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol_fifa.pb.swift; sourceTree = "<group>"; };
 		07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemerisGPSModel.swift; sourceTree = "<group>"; };
 		07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoViewController.swift; sourceTree = "<group>"; };
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
@@ -448,6 +454,9 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07C2FEBF301A1A6400939B34 /* gomoreConfigSwitch.pb.swift */,
+				07C2FEC0301A1A6400939B34 /* gomoreFitnessLevel.pb.swift */,
+				07C2FEC1301A1A6400939B34 /* protocol_fifa.pb.swift */,
 				0740E3212FC42C5B00B8DB36 /* afServeSwitch.pb.swift */,
 				0740E3222FC42C5B00B8DB36 /* distanceAdjust.pb.swift */,
 				0740E3232FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift */,
@@ -819,6 +828,7 @@
 				"${PODS_ROOT}/../../Creek/device_info_plus.framework",
 				"${PODS_ROOT}/../../Creek/flutter_timezone.framework",
 				"${PODS_ROOT}/../../Creek/objective_c.framework",
+				"${PODS_ROOT}/../../Creek/creek_gnss_algorithm.framework",
 				"${PODS_ROOT}/../../Creek/record_ios.framework",
 				"${PODS_ROOT}/../../Creek/creek_index_convert.framework",
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
@@ -870,6 +880,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/device_info_plus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_timezone.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/objective_c.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_gnss_algorithm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/record_ios.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_index_convert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
@@ -930,6 +941,9 @@
 				07266BF52DACF260000F8BED /* skill.pb.swift in Sources */,
 				07266BF62DACF260000F8BED /* language.pb.swift in Sources */,
 				07266BF72DACF260000F8BED /* alarm.pb.swift in Sources */,
+				07C2FEC2301A1A6400939B34 /* protocol_fifa.pb.swift in Sources */,
+				07C2FEC3301A1A6400939B34 /* gomoreFitnessLevel.pb.swift in Sources */,
+				07C2FEC4301A1A6400939B34 /* gomoreConfigSwitch.pb.swift in Sources */,
 				07266BF82DACF260000F8BED /* disturb.pb.swift in Sources */,
 				07266BF92DACF260000F8BED /* healthsnapshot.pb.swift in Sources */,
 				07266BFA2DACF260000F8BED /* standing.pb.swift in Sources */,
