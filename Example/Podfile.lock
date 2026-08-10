@@ -1,10 +1,8 @@
 PODS:
-  - CreekSDK (0.1.89):
-    - MicrosoftCognitiveServicesSpeech-iOS
+  - CreekSDK (13.0.1):
     - SwiftProtobuf (~> 1.25.2)
   - CropViewController (3.1.1)
   - MBProgressHUD (1.2.0)
-  - MicrosoftCognitiveServicesSpeech-iOS (1.47.0)
   - SnapKit (5.7.1)
   - SwiftProtobuf (1.25.2)
   - Toast-Swift (5.1.1)
@@ -28,7 +26,6 @@ SPEC REPOS:
   trunk:
     - CropViewController
     - MBProgressHUD
-    - MicrosoftCognitiveServicesSpeech-iOS
     - SnapKit
     - SwiftProtobuf
     - Toast-Swift
@@ -40,10 +37,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: 7bd7ee2e25bbf3a7bb18e8740da45cc68c9ded6f
+  CreekSDK: 6570c7e3020dab0a948de224ebf50eaebff315fc
   CropViewController: af08195d81dc2b8e5778b1361c03986c2f0b50f9
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MicrosoftCognitiveServicesSpeech-iOS: c5f34dacbd69f7a28218c206aae757f5e2598606
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftProtobuf: 407a385e97fd206c4fbe880cc84123989167e0d1
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173

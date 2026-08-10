@@ -1,6 +1,0 @@
-framework module ActResSdk {
-  umbrella header "ActResSdk.h"
-  export *
-
-  module * { export * }
-}

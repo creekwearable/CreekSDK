@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		z8TSZ7/mBBXKXjUBUkNQlyP+N3M=
+		dM8/V5kzNpQ4su/3lXeUfSdOzis=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		XW0CA8v/EkKUvIloC5DG2hi7Ls8=
+		PcYu9g8HH+lpThxMeeavqkM7uD0=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
-		re4p7E8rPLLsN+wzaPN/+AVpXTY=
+		BASHf/14q0VcgmnKtkQLt+qMEqo=
 		</data>
 		<key>flutter_assets/assets/silero_vad/silero_vad.onnx</key>
 		<data>
@@ -35,14 +35,6 @@
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		Bvk+P1ykE1PGRdktwgwDyz6AOqM=
-		</data>
-		<key>flutter_assets/packages/record_web/assets/js/record.fixwebmduration.js</key>
-		<data>
-		jdOHZCknGz0mLf/bJm5RUxN05CI=
-		</data>
-		<key>flutter_assets/packages/record_web/assets/js/record.worklet.js</key>
-		<data>
-		S0P6GRHlkQuSLkbFpQTo+KW/TgE=
 		</data>
 		<key>flutter_assets/shaders/ink_sparkle.frag</key>
 		<data>
@@ -59,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			D7oV6mUuDsWXUyWiy2AhWVu6FLHRZw6mpJxPjwRzveY=
+			yoW2i4RkX4UjIVHlK3VsJHusZn45gud6wUEbUFvjHzE=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -73,14 +65,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OvwqW7QkNM/ZpIfuK2UAMuDNVniFjdcDu3ekYGSSYlQ=
+			3tWg+niJi0Encqbkf2Mmh4XNI1SjEG4lAd1QaSxhrT8=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lUijHkoEgTXB2U+Rkyi/tirix7s8q5ZVfHlB2ql3dss=
+			Ylst3tzkLj0hjOuIabyRGejeqGUKbLJKt3nVAIBVsUE=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/silero_vad/silero_vad.onnx</key>
@@ -102,20 +94,6 @@
 			<key>hash2</key>
 			<data>
 			Z8RP6Rg7AC553ef2l34piGYcmj5KPF/OloeH79vtgjw=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/record_web/assets/js/record.fixwebmduration.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			w0WtXS//s1etpke5tpBpNFKiABvFkS8ekGaHbOAWOZs=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/record_web/assets/js/record.worklet.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			un4PTIQUgO54wLVOfq3URFW5Fv79sHQQ7kYVnYLcwI4=
 			</data>
 		</dict>
 		<key>flutter_assets/shaders/ink_sparkle.frag</key>
