@@ -716,6 +716,28 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._controlType = newValue}
   }
 
+  ///是否hyrox数据支持
+  public var hyroxDataSupport: Bool {
+    get {return _storage._hyroxDataSupport}
+    set {_uniqueStorage()._hyroxDataSupport = newValue}
+  }
+
+  ///赛事种类
+  public var hyroxEventtype: UInt32 {
+    get {return _storage._hyroxEventtype}
+    set {_uniqueStorage()._hyroxEventtype = newValue}
+  }
+
+  ///hyrox数据项
+  public var hyroxItems: segments_data {
+    get {return _storage._hyroxItems ?? segments_data()}
+    set {_uniqueStorage()._hyroxItems = newValue}
+  }
+  /// Returns true if `hyroxItems` has been explicitly set.
+  public var hasHyroxItems: Bool {return _storage._hyroxItems != nil}
+  /// Clears the value of `hyroxItems`. Subsequent reads from it will return its default value.
+  public mutating func clearHyroxItems() {_uniqueStorage()._hyroxItems = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -974,6 +996,31 @@ public struct protocol_sport_adjust_inquire_reply: Sendable {
   public var operate: operate_II_type = .insert
 
   public var items: [sport_type] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct segments_data: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///分段类型
+  public var type: Segments_type = .segmentRun
+
+  public var sportType: sport_type = .orun
+
+  public var groupID: UInt32 = 0
+
+  public var avgHr: UInt32 = 0
+
+  public var order: UInt32 = 0
+
+  public var calories: UInt32 = 0
+
+  public var duration: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1735,6 +1782,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     62: .standard(proto: "num_racket_total"),
     63: .standard(proto: "cur_racket_speed"),
     64: .standard(proto: "control_type"),
+    65: .standard(proto: "hyrox_data_support"),
+    66: .standard(proto: "hyrox_eventtype"),
+    67: .standard(proto: "hyrox_items"),
   ]
 
   fileprivate class _StorageClass {
@@ -1802,6 +1852,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _numRacketTotal: UInt32 = 0
     var _curRacketSpeed: UInt32 = 0
     var _controlType: exercise_control_type = .controlNull
+    var _hyroxDataSupport: Bool = false
+    var _hyroxEventtype: UInt32 = 0
+    var _hyroxItems: segments_data? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1880,6 +1933,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       _numRacketTotal = source._numRacketTotal
       _curRacketSpeed = source._curRacketSpeed
       _controlType = source._controlType
+      _hyroxDataSupport = source._hyroxDataSupport
+      _hyroxEventtype = source._hyroxEventtype
+      _hyroxItems = source._hyroxItems
     }
   }
 
@@ -1962,6 +2018,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 62: try { try decoder.decodeSingularUInt32Field(value: &_storage._numRacketTotal) }()
         case 63: try { try decoder.decodeSingularUInt32Field(value: &_storage._curRacketSpeed) }()
         case 64: try { try decoder.decodeSingularEnumField(value: &_storage._controlType) }()
+        case 65: try { try decoder.decodeSingularBoolField(value: &_storage._hyroxDataSupport) }()
+        case 66: try { try decoder.decodeSingularUInt32Field(value: &_storage._hyroxEventtype) }()
+        case 67: try { try decoder.decodeSingularMessageField(value: &_storage._hyroxItems) }()
         default: break
         }
       }
@@ -1970,6 +2029,10 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
       if _storage._tranType != .watchTran {
         try visitor.visitSingularEnumField(value: _storage._tranType, fieldNumber: 1)
       }
@@ -2162,6 +2225,15 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._controlType != .controlNull {
         try visitor.visitSingularEnumField(value: _storage._controlType, fieldNumber: 64)
       }
+      if _storage._hyroxDataSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hyroxDataSupport, fieldNumber: 65)
+      }
+      if _storage._hyroxEventtype != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._hyroxEventtype, fieldNumber: 66)
+      }
+      try { if let v = _storage._hyroxItems {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 67)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2235,6 +2307,9 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         if _storage._numRacketTotal != rhs_storage._numRacketTotal {return false}
         if _storage._curRacketSpeed != rhs_storage._curRacketSpeed {return false}
         if _storage._controlType != rhs_storage._controlType {return false}
+        if _storage._hyroxDataSupport != rhs_storage._hyroxDataSupport {return false}
+        if _storage._hyroxEventtype != rhs_storage._hyroxEventtype {return false}
+        if _storage._hyroxItems != rhs_storage._hyroxItems {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -2811,6 +2886,74 @@ extension protocol_sport_adjust_inquire_reply: SwiftProtobuf.Message, SwiftProto
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.operate != rhs.operate {return false}
     if lhs.items != rhs.items {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension segments_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "segments_data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "type"),
+    2: .standard(proto: "sport_type"),
+    3: .standard(proto: "group_id"),
+    4: .standard(proto: "avg_hr"),
+    5: .same(proto: "order"),
+    6: .same(proto: "calories"),
+    7: .same(proto: "duration"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.groupID) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.avgHr) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.order) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.calories) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.duration) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.type != .segmentRun {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
+    }
+    if self.sportType != .orun {
+      try visitor.visitSingularEnumField(value: self.sportType, fieldNumber: 2)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.groupID, fieldNumber: 3)
+    }
+    if self.avgHr != 0 {
+      try visitor.visitSingularUInt32Field(value: self.avgHr, fieldNumber: 4)
+    }
+    if self.order != 0 {
+      try visitor.visitSingularUInt32Field(value: self.order, fieldNumber: 5)
+    }
+    if self.calories != 0 {
+      try visitor.visitSingularUInt32Field(value: self.calories, fieldNumber: 6)
+    }
+    if self.duration != 0 {
+      try visitor.visitSingularUInt32Field(value: self.duration, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: segments_data, rhs: segments_data) -> Bool {
+    if lhs.type != rhs.type {return false}
+    if lhs.sportType != rhs.sportType {return false}
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.avgHr != rhs.avgHr {return false}
+    if lhs.order != rhs.order {return false}
+    if lhs.calories != rhs.calories {return false}
+    if lhs.duration != rhs.duration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

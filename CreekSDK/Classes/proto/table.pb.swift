@@ -890,6 +890,16 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `externalGnss`. Subsequent reads from it will return its default value.
   public mutating func clearExternalGnss() {_uniqueStorage()._externalGnss = nil}
 
+  ///app支持ab点导航生成gpx文件
+  public var appAbRoute: function_table {
+    get {return _storage._appAbRoute ?? function_table()}
+    set {_uniqueStorage()._appAbRoute = newValue}
+  }
+  /// Returns true if `appAbRoute` has been explicitly set.
+  public var hasAppAbRoute: Bool {return _storage._appAbRoute != nil}
+  /// Clears the value of `appAbRoute`. Subsequent reads from it will return its default value.
+  public mutating func clearAppAbRoute() {_uniqueStorage()._appAbRoute = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1025,6 +1035,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     83: .standard(proto: "exercise_action_v2"),
     84: .standard(proto: "heart_detect"),
     85: .standard(proto: "external_gnss"),
+    86: .standard(proto: "app_ab_route"),
   ]
 
   fileprivate class _StorageClass {
@@ -1113,6 +1124,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _exerciseActionV2: function_table? = nil
     var _heartDetect: function_table? = nil
     var _externalGnss: function_table? = nil
+    var _appAbRoute: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1212,6 +1224,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _exerciseActionV2 = source._exerciseActionV2
       _heartDetect = source._heartDetect
       _externalGnss = source._externalGnss
+      _appAbRoute = source._appAbRoute
     }
   }
 
@@ -1315,6 +1328,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 83: try { try decoder.decodeSingularMessageField(value: &_storage._exerciseActionV2) }()
         case 84: try { try decoder.decodeSingularMessageField(value: &_storage._heartDetect) }()
         case 85: try { try decoder.decodeSingularMessageField(value: &_storage._externalGnss) }()
+        case 86: try { try decoder.decodeSingularMessageField(value: &_storage._appAbRoute) }()
         default: break
         }
       }
@@ -1582,6 +1596,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._externalGnss {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 85)
       } }()
+      try { if let v = _storage._appAbRoute {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 86)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1676,6 +1693,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._exerciseActionV2 != rhs_storage._exerciseActionV2 {return false}
         if _storage._heartDetect != rhs_storage._heartDetect {return false}
         if _storage._externalGnss != rhs_storage._externalGnss {return false}
+        if _storage._appAbRoute != rhs_storage._appAbRoute {return false}
         return true
       }
       if !storagesAreEqual {return false}

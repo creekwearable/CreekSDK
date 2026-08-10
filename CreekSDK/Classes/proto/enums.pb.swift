@@ -6138,6 +6138,45 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///沙滩网球
   case beachTennis // = 227
+
+  ///混合训练
+  case hybridExercise // = 228
+
+  ///滑雪机
+  case skierg // = 229
+
+  ///推雪橇
+  case sledPush // = 230
+
+  ///拉雪橇
+  case sledPull // = 231
+
+  ///波比跳远
+  case burpeeBroadJumps // = 232
+
+  ///划船机
+  case rowing // = 233
+
+  ///农夫搬运
+  case farmersCarry // = 234
+
+  ///沙袋弓步蹲
+  case sandbagLungs // = 235
+
+  ///水肺潜水
+  case scubaDiving // = 236
+
+  ///弓步蹲
+  case lungs // = 237
+
+  ///相扑
+  case sumo // = 238
+
+  ///肱二头肌训练
+  case biceps // = 239
+
+  ///肱三头肌训练
+  case triceps // = 240
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6374,6 +6413,19 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 225: self = .walk
     case 226: self = .verticalJump
     case 227: self = .beachTennis
+    case 228: self = .hybridExercise
+    case 229: self = .skierg
+    case 230: self = .sledPush
+    case 231: self = .sledPull
+    case 232: self = .burpeeBroadJumps
+    case 233: self = .rowing
+    case 234: self = .farmersCarry
+    case 235: self = .sandbagLungs
+    case 236: self = .scubaDiving
+    case 237: self = .lungs
+    case 238: self = .sumo
+    case 239: self = .biceps
+    case 240: self = .triceps
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6608,6 +6660,19 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .walk: return 225
     case .verticalJump: return 226
     case .beachTennis: return 227
+    case .hybridExercise: return 228
+    case .skierg: return 229
+    case .sledPush: return 230
+    case .sledPull: return 231
+    case .burpeeBroadJumps: return 232
+    case .rowing: return 233
+    case .farmersCarry: return 234
+    case .sandbagLungs: return 235
+    case .scubaDiving: return 236
+    case .lungs: return 237
+    case .sumo: return 238
+    case .biceps: return 239
+    case .triceps: return 240
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6842,6 +6907,19 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .walk,
     .verticalJump,
     .beachTennis,
+    .hybridExercise,
+    .skierg,
+    .sledPush,
+    .sledPull,
+    .burpeeBroadJumps,
+    .rowing,
+    .farmersCarry,
+    .sandbagLungs,
+    .scubaDiving,
+    .lungs,
+    .sumo,
+    .biceps,
+    .triceps,
   ]
 
 }
@@ -9329,6 +9407,56 @@ public enum msg_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum Segments_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case segmentRun // = 0
+  case segmentWorkout // = 1
+  case segmentReset // = 2
+  case segmentSwim // = 3
+  case segmentBike // = 4
+  case segmentTransition // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .segmentRun
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .segmentRun
+    case 1: self = .segmentWorkout
+    case 2: self = .segmentReset
+    case 3: self = .segmentSwim
+    case 4: self = .segmentBike
+    case 5: self = .segmentTransition
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .segmentRun: return 0
+    case .segmentWorkout: return 1
+    case .segmentReset: return 2
+    case .segmentSwim: return 3
+    case .segmentBike: return 4
+    case .segmentTransition: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Segments_type] = [
+    .segmentRun,
+    .segmentWorkout,
+    .segmentReset,
+    .segmentSwim,
+    .segmentBike,
+    .segmentTransition,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -10563,6 +10691,19 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     225: .same(proto: "WALK"),
     226: .same(proto: "VERTICAL_JUMP"),
     227: .same(proto: "BEACH_TENNIS"),
+    228: .same(proto: "HYBRID_EXERCISE"),
+    229: .same(proto: "SKIERG"),
+    230: .same(proto: "SLED_PUSH"),
+    231: .same(proto: "SLED_PULL"),
+    232: .same(proto: "BURPEE_BROAD_JUMPS"),
+    233: .same(proto: "ROWING"),
+    234: .same(proto: "FARMERS_CARRY"),
+    235: .same(proto: "SANDBAG_LUNGS"),
+    236: .same(proto: "SCUBA_DIVING"),
+    237: .same(proto: "LUNGS"),
+    238: .same(proto: "SUMO"),
+    239: .same(proto: "BICEPS"),
+    240: .same(proto: "TRICEPS"),
   ]
 }
 
@@ -11013,5 +11154,16 @@ extension msg_type: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "MSG_UNSPECIFIED"),
     1: .same(proto: "MSG_MATCH_LIST"),
     2: .same(proto: "MSG_GOAL_EVENT"),
+  ]
+}
+
+extension Segments_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SEGMENT_RUN"),
+    1: .same(proto: "SEGMENT_WORKOUT"),
+    2: .same(proto: "SEGMENT_RESET"),
+    3: .same(proto: "SEGMENT_SWIM"),
+    4: .same(proto: "SEGMENT_BIKE"),
+    5: .same(proto: "SEGMENT_TRANSITION"),
   ]
 }

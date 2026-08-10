@@ -59,6 +59,9 @@ public struct protocol_device_batt_info: Sendable {
   ///预计充满电时长 s
   public var chargeTime: UInt32 = 0
 
+  ///预计使用时长/s
+  public var estimatedUsageTime: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -526,6 +529,7 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     9: .standard(proto: "last_charging_second"),
     10: .same(proto: "mode"),
     11: .standard(proto: "charge_time"),
+    12: .standard(proto: "estimated_usage_time"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -545,6 +549,7 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 9: try { try decoder.decodeSingularUInt32Field(value: &self.lastChargingSecond) }()
       case 10: try { try decoder.decodeSingularEnumField(value: &self.mode) }()
       case 11: try { try decoder.decodeSingularUInt32Field(value: &self.chargeTime) }()
+      case 12: try { try decoder.decodeSingularUInt32Field(value: &self.estimatedUsageTime) }()
       default: break
       }
     }
@@ -584,6 +589,9 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.chargeTime != 0 {
       try visitor.visitSingularUInt32Field(value: self.chargeTime, fieldNumber: 11)
     }
+    if self.estimatedUsageTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.estimatedUsageTime, fieldNumber: 12)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -599,6 +607,7 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.lastChargingSecond != rhs.lastChargingSecond {return false}
     if lhs.mode != rhs.mode {return false}
     if lhs.chargeTime != rhs.chargeTime {return false}
+    if lhs.estimatedUsageTime != rhs.estimatedUsageTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
