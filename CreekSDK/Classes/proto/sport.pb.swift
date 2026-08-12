@@ -374,25 +374,25 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._avgMiPace = newValue}
   }
 
-  ///公里速度
+  ///公里速度 km/h  固件扩大100倍
   public var kmSpeed: UInt32 {
     get {return _storage._kmSpeed}
     set {_uniqueStorage()._kmSpeed = newValue}
   }
 
-  ///平均公里速度
+  ///平均公里速度 km/h  固件扩大100倍
   public var avgKmSpeed: UInt32 {
     get {return _storage._avgKmSpeed}
     set {_uniqueStorage()._avgKmSpeed = newValue}
   }
 
-  ///英里速度
+  ///英里速度 mi/h  固件 扩大100倍
   public var miSpeed: UInt32 {
     get {return _storage._miSpeed}
     set {_uniqueStorage()._miSpeed = newValue}
   }
 
-  ///平均英里速度
+  ///平均英里速度 mi/h  固件扩大100倍
   public var avgMiSpeed: UInt32 {
     get {return _storage._avgMiSpeed}
     set {_uniqueStorage()._avgMiSpeed = newValue}
@@ -416,7 +416,7 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._longitude = newValue}
   }
 
-  ///海拔数据
+  ///海拔数据 单位：米
   public var elevation: Int32 {
     get {return _storage._elevation}
     set {_uniqueStorage()._elevation = newValue}
@@ -428,13 +428,13 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._stepStride = newValue}
   }
 
-  ///步频
+  ///步频 单位步/分钟
   public var stepFrequency: UInt32 {
     get {return _storage._stepFrequency}
     set {_uniqueStorage()._stepFrequency = newValue}
   }
 
-  ///累计爬升高度
+  ///累计爬升高度 单位：米
   public var totalClimbHeight: UInt32 {
     get {return _storage._totalClimbHeight}
     set {_uniqueStorage()._totalClimbHeight = newValue}
@@ -548,10 +548,10 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._gpsRssi = newValue}
   }
 
-  ///是否支持gps信号
-  public var gpsSupport: Bool {
-    get {return _storage._gpsSupport}
-    set {_uniqueStorage()._gpsSupport = newValue}
+  ///gps信号是否支持
+  public var gpsRssiSupport: Bool {
+    get {return _storage._gpsRssiSupport}
+    set {_uniqueStorage()._gpsRssiSupport = newValue}
   }
 
   ///步数显示是否支持
@@ -564,6 +564,72 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
   public var totalStep: UInt32 {
     get {return _storage._totalStep}
     set {_uniqueStorage()._totalStep = newValue}
+  }
+
+  ///纵跳数据是否支持
+  public var verticalJumpSupport: Bool {
+    get {return _storage._verticalJumpSupport}
+    set {_uniqueStorage()._verticalJumpSupport = newValue}
+  }
+
+  ///Reps重复编号（0-9999）
+  public var repID: UInt32 {
+    get {return _storage._repID}
+    set {_uniqueStorage()._repID = newValue}
+  }
+
+  ///自动识别Rep开始时间戳
+  public var repTimestampStart: UInt32 {
+    get {return _storage._repTimestampStart}
+    set {_uniqueStorage()._repTimestampStart = newValue}
+  }
+
+  ///自动识别Rep结束时间戳
+  public var repTimestampEnd: UInt32 {
+    get {return _storage._repTimestampEnd}
+    set {_uniqueStorage()._repTimestampEnd = newValue}
+  }
+
+  ///双腿实际离地时间戳
+  public var jumpTimestampStart: UInt32 {
+    get {return _storage._jumpTimestampStart}
+    set {_uniqueStorage()._jumpTimestampStart = newValue}
+  }
+
+  ///双腿触地时间戳
+  public var jumpTimestampEnd: UInt32 {
+    get {return _storage._jumpTimestampEnd}
+    set {_uniqueStorage()._jumpTimestampEnd = newValue}
+  }
+
+  ///Rep单次时长（0-2000ms）
+  public var repDurations: UInt32 {
+    get {return _storage._repDurations}
+    set {_uniqueStorage()._repDurations = newValue}
+  }
+
+  ///Rep单次腾空时长（0-2000ms）
+  public var jumpDurations: UInt32 {
+    get {return _storage._jumpDurations}
+    set {_uniqueStorage()._jumpDurations = newValue}
+  }
+
+  ///纵跳高度（0-200cm）
+  public var jumpHeight: UInt32 {
+    get {return _storage._jumpHeight}
+    set {_uniqueStorage()._jumpHeight = newValue}
+  }
+
+  ///纵跳峰值速度*10（0-5m/s）
+  public var peakSpeed: UInt32 {
+    get {return _storage._peakSpeed}
+    set {_uniqueStorage()._peakSpeed = newValue}
+  }
+
+  ///Reps次数（0-9999）
+  public var repCount: UInt32 {
+    get {return _storage._repCount}
+    set {_uniqueStorage()._repCount = newValue}
   }
 
   ///跳绳次数显示是否支持
@@ -584,6 +650,94 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._jumpsPerMin = newValue}
   }
 
+  ///是否挥拍数据支持
+  public var racketDataSupport: Bool {
+    get {return _storage._racketDataSupport}
+    set {_uniqueStorage()._racketDataSupport = newValue}
+  }
+
+  /// 最大挥拍速度 0–999 km/h
+  public var maxRacketSpeed: UInt32 {
+    get {return _storage._maxRacketSpeed}
+    set {_uniqueStorage()._maxRacketSpeed = newValue}
+  }
+
+  /// 最长连拍 0~2000 次
+  public var longestRally: UInt32 {
+    get {return _storage._longestRally}
+    set {_uniqueStorage()._longestRally = newValue}
+  }
+
+  /// 正手球 0~2000 次
+  public var forehandsStroke: UInt32 {
+    get {return _storage._forehandsStroke}
+    set {_uniqueStorage()._forehandsStroke = newValue}
+  }
+
+  /// 反手球 0~2000 次
+  public var backhandsStroke: UInt32 {
+    get {return _storage._backhandsStroke}
+    set {_uniqueStorage()._backhandsStroke = newValue}
+  }
+
+  /// 上手球 0~2000 次
+  public var overhandsStroke: UInt32 {
+    get {return _storage._overhandsStroke}
+    set {_uniqueStorage()._overhandsStroke = newValue}
+  }
+
+  /// 下手球 0~2000 次
+  public var underhandsStroke: UInt32 {
+    get {return _storage._underhandsStroke}
+    set {_uniqueStorage()._underhandsStroke = newValue}
+  }
+
+  /// 其他球 0~2000 次
+  public var otherStroke: UInt32 {
+    get {return _storage._otherStroke}
+    set {_uniqueStorage()._otherStroke = newValue}
+  }
+
+  /// 挥拍总数 0~2000 次
+  public var numRacketTotal: UInt32 {
+    get {return _storage._numRacketTotal}
+    set {_uniqueStorage()._numRacketTotal = newValue}
+  }
+
+  /// 当前挥拍速度 0–999 km/h
+  public var curRacketSpeed: UInt32 {
+    get {return _storage._curRacketSpeed}
+    set {_uniqueStorage()._curRacketSpeed = newValue}
+  }
+
+  ///运动状态
+  public var controlType: exercise_control_type {
+    get {return _storage._controlType}
+    set {_uniqueStorage()._controlType = newValue}
+  }
+
+  ///是否hyrox数据支持
+  public var hyroxDataSupport: Bool {
+    get {return _storage._hyroxDataSupport}
+    set {_uniqueStorage()._hyroxDataSupport = newValue}
+  }
+
+  ///赛事种类
+  public var hyroxEventtype: UInt32 {
+    get {return _storage._hyroxEventtype}
+    set {_uniqueStorage()._hyroxEventtype = newValue}
+  }
+
+  ///hyrox数据项
+  public var hyroxItems: segments_data {
+    get {return _storage._hyroxItems ?? segments_data()}
+    set {_uniqueStorage()._hyroxItems = newValue}
+  }
+  /// Returns true if `hyroxItems` has been explicitly set.
+  public var hasHyroxItems: Bool {return _storage._hyroxItems != nil}
+  /// Clears the value of `hyroxItems`. Subsequent reads from it will return its default value.
+  public mutating func clearHyroxItems() {_uniqueStorage()._hyroxItems = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -603,6 +757,12 @@ public struct protocol_exercise_control_operate: Sendable {
 
   ///运动控制类型
   public var controlType: exercise_control_type = .controlNull
+
+  ///动作类型
+  public var actionType: action_type = .actionNull
+
+  ///  泳池总长度 单位米，如果运动类型是游泳 参数必传
+  public var swimTripTotalDistance: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -659,6 +819,15 @@ public struct protocol_exercise_course_list_inquire_reply: Sendable {
 
   ///运动课程目标支持列表
   public var targetSupport: [course_target_support_type] = []
+
+  ///最大重复次数
+  public var repeatEachStepMax: UInt32 = 0
+
+  ///4bytes course所占的总大小（单位：bytes）
+  public var totalSize: UInt32 = 0
+
+  ///4bytes 剩余的存储空间（单位：bytes）
+  public var freeSize: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -794,6 +963,64 @@ public struct protocol_action_list_inquire_reply: Sendable {
   public var funcTable: UInt32 = 0
 
   public var listItems: [action_list_item] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_sport_adjust_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 操作类型 0：增 1：删 2：改（排序） 3：查
+  public var operate: operate_II_type = .insert
+
+  public var items: [sport_type] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_sport_adjust_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///1bytes 操作类型 0：增 1：删 2：改（排序） 3：查
+  public var operate: operate_II_type = .insert
+
+  public var items: [sport_type] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct segments_data: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///分段类型
+  public var type: Segments_type = .segmentRun
+
+  public var sportType: sport_type = .orun
+
+  public var groupID: UInt32 = 0
+
+  public var avgHr: UInt32 = 0
+
+  public var order: UInt32 = 0
+
+  public var calories: UInt32 = 0
+
+  public var duration: UInt32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1527,12 +1754,37 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     34: .standard(proto: "elevation_support"),
     35: .standard(proto: "lap_support"),
     36: .standard(proto: "gps_rssi"),
-    37: .standard(proto: "gps_support"),
+    37: .standard(proto: "gps_rssi_support"),
     38: .standard(proto: "step_support"),
     39: .standard(proto: "total_step"),
+    40: .standard(proto: "vertical_jump_support"),
+    41: .standard(proto: "rep_id"),
+    42: .standard(proto: "rep_timestamp_start"),
+    43: .standard(proto: "rep_timestamp_end"),
+    44: .standard(proto: "jump_timestamp_start"),
+    45: .standard(proto: "jump_timestamp_end"),
+    46: .standard(proto: "rep_durations"),
+    47: .standard(proto: "jump_durations"),
+    48: .standard(proto: "jump_height"),
+    49: .standard(proto: "peak_speed"),
+    50: .standard(proto: "rep_count"),
     51: .standard(proto: "skip_rope_support"),
     52: .standard(proto: "total_jumps"),
     53: .standard(proto: "jumps_per_min"),
+    54: .standard(proto: "racket_data_support"),
+    55: .standard(proto: "max_racket_speed"),
+    56: .standard(proto: "longest_rally"),
+    57: .standard(proto: "forehands_stroke"),
+    58: .standard(proto: "backhands_stroke"),
+    59: .standard(proto: "overhands_stroke"),
+    60: .standard(proto: "underhands_stroke"),
+    61: .standard(proto: "other_stroke"),
+    62: .standard(proto: "num_racket_total"),
+    63: .standard(proto: "cur_racket_speed"),
+    64: .standard(proto: "control_type"),
+    65: .standard(proto: "hyrox_data_support"),
+    66: .standard(proto: "hyrox_eventtype"),
+    67: .standard(proto: "hyrox_items"),
   ]
 
   fileprivate class _StorageClass {
@@ -1572,12 +1824,37 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _elevationSupport: Bool = false
     var _lapSupport: Bool = false
     var _gpsRssi: UInt32 = 0
-    var _gpsSupport: Bool = false
+    var _gpsRssiSupport: Bool = false
     var _stepSupport: Bool = false
     var _totalStep: UInt32 = 0
+    var _verticalJumpSupport: Bool = false
+    var _repID: UInt32 = 0
+    var _repTimestampStart: UInt32 = 0
+    var _repTimestampEnd: UInt32 = 0
+    var _jumpTimestampStart: UInt32 = 0
+    var _jumpTimestampEnd: UInt32 = 0
+    var _repDurations: UInt32 = 0
+    var _jumpDurations: UInt32 = 0
+    var _jumpHeight: UInt32 = 0
+    var _peakSpeed: UInt32 = 0
+    var _repCount: UInt32 = 0
     var _skipRopeSupport: Bool = false
     var _totalJumps: UInt32 = 0
     var _jumpsPerMin: UInt32 = 0
+    var _racketDataSupport: Bool = false
+    var _maxRacketSpeed: UInt32 = 0
+    var _longestRally: UInt32 = 0
+    var _forehandsStroke: UInt32 = 0
+    var _backhandsStroke: UInt32 = 0
+    var _overhandsStroke: UInt32 = 0
+    var _underhandsStroke: UInt32 = 0
+    var _otherStroke: UInt32 = 0
+    var _numRacketTotal: UInt32 = 0
+    var _curRacketSpeed: UInt32 = 0
+    var _controlType: exercise_control_type = .controlNull
+    var _hyroxDataSupport: Bool = false
+    var _hyroxEventtype: UInt32 = 0
+    var _hyroxItems: segments_data? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1628,12 +1905,37 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       _elevationSupport = source._elevationSupport
       _lapSupport = source._lapSupport
       _gpsRssi = source._gpsRssi
-      _gpsSupport = source._gpsSupport
+      _gpsRssiSupport = source._gpsRssiSupport
       _stepSupport = source._stepSupport
       _totalStep = source._totalStep
+      _verticalJumpSupport = source._verticalJumpSupport
+      _repID = source._repID
+      _repTimestampStart = source._repTimestampStart
+      _repTimestampEnd = source._repTimestampEnd
+      _jumpTimestampStart = source._jumpTimestampStart
+      _jumpTimestampEnd = source._jumpTimestampEnd
+      _repDurations = source._repDurations
+      _jumpDurations = source._jumpDurations
+      _jumpHeight = source._jumpHeight
+      _peakSpeed = source._peakSpeed
+      _repCount = source._repCount
       _skipRopeSupport = source._skipRopeSupport
       _totalJumps = source._totalJumps
       _jumpsPerMin = source._jumpsPerMin
+      _racketDataSupport = source._racketDataSupport
+      _maxRacketSpeed = source._maxRacketSpeed
+      _longestRally = source._longestRally
+      _forehandsStroke = source._forehandsStroke
+      _backhandsStroke = source._backhandsStroke
+      _overhandsStroke = source._overhandsStroke
+      _underhandsStroke = source._underhandsStroke
+      _otherStroke = source._otherStroke
+      _numRacketTotal = source._numRacketTotal
+      _curRacketSpeed = source._curRacketSpeed
+      _controlType = source._controlType
+      _hyroxDataSupport = source._hyroxDataSupport
+      _hyroxEventtype = source._hyroxEventtype
+      _hyroxItems = source._hyroxItems
     }
   }
 
@@ -1688,12 +1990,37 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 34: try { try decoder.decodeSingularBoolField(value: &_storage._elevationSupport) }()
         case 35: try { try decoder.decodeSingularBoolField(value: &_storage._lapSupport) }()
         case 36: try { try decoder.decodeSingularUInt32Field(value: &_storage._gpsRssi) }()
-        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._gpsSupport) }()
+        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._gpsRssiSupport) }()
         case 38: try { try decoder.decodeSingularBoolField(value: &_storage._stepSupport) }()
         case 39: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalStep) }()
+        case 40: try { try decoder.decodeSingularBoolField(value: &_storage._verticalJumpSupport) }()
+        case 41: try { try decoder.decodeSingularUInt32Field(value: &_storage._repID) }()
+        case 42: try { try decoder.decodeSingularUInt32Field(value: &_storage._repTimestampStart) }()
+        case 43: try { try decoder.decodeSingularUInt32Field(value: &_storage._repTimestampEnd) }()
+        case 44: try { try decoder.decodeSingularUInt32Field(value: &_storage._jumpTimestampStart) }()
+        case 45: try { try decoder.decodeSingularUInt32Field(value: &_storage._jumpTimestampEnd) }()
+        case 46: try { try decoder.decodeSingularUInt32Field(value: &_storage._repDurations) }()
+        case 47: try { try decoder.decodeSingularUInt32Field(value: &_storage._jumpDurations) }()
+        case 48: try { try decoder.decodeSingularUInt32Field(value: &_storage._jumpHeight) }()
+        case 49: try { try decoder.decodeSingularUInt32Field(value: &_storage._peakSpeed) }()
+        case 50: try { try decoder.decodeSingularUInt32Field(value: &_storage._repCount) }()
         case 51: try { try decoder.decodeSingularBoolField(value: &_storage._skipRopeSupport) }()
         case 52: try { try decoder.decodeSingularUInt32Field(value: &_storage._totalJumps) }()
         case 53: try { try decoder.decodeSingularUInt32Field(value: &_storage._jumpsPerMin) }()
+        case 54: try { try decoder.decodeSingularBoolField(value: &_storage._racketDataSupport) }()
+        case 55: try { try decoder.decodeSingularUInt32Field(value: &_storage._maxRacketSpeed) }()
+        case 56: try { try decoder.decodeSingularUInt32Field(value: &_storage._longestRally) }()
+        case 57: try { try decoder.decodeSingularUInt32Field(value: &_storage._forehandsStroke) }()
+        case 58: try { try decoder.decodeSingularUInt32Field(value: &_storage._backhandsStroke) }()
+        case 59: try { try decoder.decodeSingularUInt32Field(value: &_storage._overhandsStroke) }()
+        case 60: try { try decoder.decodeSingularUInt32Field(value: &_storage._underhandsStroke) }()
+        case 61: try { try decoder.decodeSingularUInt32Field(value: &_storage._otherStroke) }()
+        case 62: try { try decoder.decodeSingularUInt32Field(value: &_storage._numRacketTotal) }()
+        case 63: try { try decoder.decodeSingularUInt32Field(value: &_storage._curRacketSpeed) }()
+        case 64: try { try decoder.decodeSingularEnumField(value: &_storage._controlType) }()
+        case 65: try { try decoder.decodeSingularBoolField(value: &_storage._hyroxDataSupport) }()
+        case 66: try { try decoder.decodeSingularUInt32Field(value: &_storage._hyroxEventtype) }()
+        case 67: try { try decoder.decodeSingularMessageField(value: &_storage._hyroxItems) }()
         default: break
         }
       }
@@ -1702,6 +2029,10 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
       if _storage._tranType != .watchTran {
         try visitor.visitSingularEnumField(value: _storage._tranType, fieldNumber: 1)
       }
@@ -1810,14 +2141,47 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._gpsRssi != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._gpsRssi, fieldNumber: 36)
       }
-      if _storage._gpsSupport != false {
-        try visitor.visitSingularBoolField(value: _storage._gpsSupport, fieldNumber: 37)
+      if _storage._gpsRssiSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._gpsRssiSupport, fieldNumber: 37)
       }
       if _storage._stepSupport != false {
         try visitor.visitSingularBoolField(value: _storage._stepSupport, fieldNumber: 38)
       }
       if _storage._totalStep != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._totalStep, fieldNumber: 39)
+      }
+      if _storage._verticalJumpSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._verticalJumpSupport, fieldNumber: 40)
+      }
+      if _storage._repID != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repID, fieldNumber: 41)
+      }
+      if _storage._repTimestampStart != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repTimestampStart, fieldNumber: 42)
+      }
+      if _storage._repTimestampEnd != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repTimestampEnd, fieldNumber: 43)
+      }
+      if _storage._jumpTimestampStart != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._jumpTimestampStart, fieldNumber: 44)
+      }
+      if _storage._jumpTimestampEnd != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._jumpTimestampEnd, fieldNumber: 45)
+      }
+      if _storage._repDurations != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repDurations, fieldNumber: 46)
+      }
+      if _storage._jumpDurations != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._jumpDurations, fieldNumber: 47)
+      }
+      if _storage._jumpHeight != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._jumpHeight, fieldNumber: 48)
+      }
+      if _storage._peakSpeed != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._peakSpeed, fieldNumber: 49)
+      }
+      if _storage._repCount != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repCount, fieldNumber: 50)
       }
       if _storage._skipRopeSupport != false {
         try visitor.visitSingularBoolField(value: _storage._skipRopeSupport, fieldNumber: 51)
@@ -1828,6 +2192,48 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._jumpsPerMin != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._jumpsPerMin, fieldNumber: 53)
       }
+      if _storage._racketDataSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._racketDataSupport, fieldNumber: 54)
+      }
+      if _storage._maxRacketSpeed != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._maxRacketSpeed, fieldNumber: 55)
+      }
+      if _storage._longestRally != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._longestRally, fieldNumber: 56)
+      }
+      if _storage._forehandsStroke != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._forehandsStroke, fieldNumber: 57)
+      }
+      if _storage._backhandsStroke != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._backhandsStroke, fieldNumber: 58)
+      }
+      if _storage._overhandsStroke != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._overhandsStroke, fieldNumber: 59)
+      }
+      if _storage._underhandsStroke != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._underhandsStroke, fieldNumber: 60)
+      }
+      if _storage._otherStroke != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._otherStroke, fieldNumber: 61)
+      }
+      if _storage._numRacketTotal != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._numRacketTotal, fieldNumber: 62)
+      }
+      if _storage._curRacketSpeed != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._curRacketSpeed, fieldNumber: 63)
+      }
+      if _storage._controlType != .controlNull {
+        try visitor.visitSingularEnumField(value: _storage._controlType, fieldNumber: 64)
+      }
+      if _storage._hyroxDataSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._hyroxDataSupport, fieldNumber: 65)
+      }
+      if _storage._hyroxEventtype != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._hyroxEventtype, fieldNumber: 66)
+      }
+      try { if let v = _storage._hyroxItems {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 67)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1873,12 +2279,37 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         if _storage._elevationSupport != rhs_storage._elevationSupport {return false}
         if _storage._lapSupport != rhs_storage._lapSupport {return false}
         if _storage._gpsRssi != rhs_storage._gpsRssi {return false}
-        if _storage._gpsSupport != rhs_storage._gpsSupport {return false}
+        if _storage._gpsRssiSupport != rhs_storage._gpsRssiSupport {return false}
         if _storage._stepSupport != rhs_storage._stepSupport {return false}
         if _storage._totalStep != rhs_storage._totalStep {return false}
+        if _storage._verticalJumpSupport != rhs_storage._verticalJumpSupport {return false}
+        if _storage._repID != rhs_storage._repID {return false}
+        if _storage._repTimestampStart != rhs_storage._repTimestampStart {return false}
+        if _storage._repTimestampEnd != rhs_storage._repTimestampEnd {return false}
+        if _storage._jumpTimestampStart != rhs_storage._jumpTimestampStart {return false}
+        if _storage._jumpTimestampEnd != rhs_storage._jumpTimestampEnd {return false}
+        if _storage._repDurations != rhs_storage._repDurations {return false}
+        if _storage._jumpDurations != rhs_storage._jumpDurations {return false}
+        if _storage._jumpHeight != rhs_storage._jumpHeight {return false}
+        if _storage._peakSpeed != rhs_storage._peakSpeed {return false}
+        if _storage._repCount != rhs_storage._repCount {return false}
         if _storage._skipRopeSupport != rhs_storage._skipRopeSupport {return false}
         if _storage._totalJumps != rhs_storage._totalJumps {return false}
         if _storage._jumpsPerMin != rhs_storage._jumpsPerMin {return false}
+        if _storage._racketDataSupport != rhs_storage._racketDataSupport {return false}
+        if _storage._maxRacketSpeed != rhs_storage._maxRacketSpeed {return false}
+        if _storage._longestRally != rhs_storage._longestRally {return false}
+        if _storage._forehandsStroke != rhs_storage._forehandsStroke {return false}
+        if _storage._backhandsStroke != rhs_storage._backhandsStroke {return false}
+        if _storage._overhandsStroke != rhs_storage._overhandsStroke {return false}
+        if _storage._underhandsStroke != rhs_storage._underhandsStroke {return false}
+        if _storage._otherStroke != rhs_storage._otherStroke {return false}
+        if _storage._numRacketTotal != rhs_storage._numRacketTotal {return false}
+        if _storage._curRacketSpeed != rhs_storage._curRacketSpeed {return false}
+        if _storage._controlType != rhs_storage._controlType {return false}
+        if _storage._hyroxDataSupport != rhs_storage._hyroxDataSupport {return false}
+        if _storage._hyroxEventtype != rhs_storage._hyroxEventtype {return false}
+        if _storage._hyroxItems != rhs_storage._hyroxItems {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -1894,6 +2325,8 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     1: .standard(proto: "tran_type"),
     2: .standard(proto: "sport_type"),
     3: .standard(proto: "control_type"),
+    4: .standard(proto: "action_type"),
+    5: .standard(proto: "swim_trip_total_distance"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1905,6 +2338,8 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
       case 1: try { try decoder.decodeSingularEnumField(value: &self.tranType) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.controlType) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.actionType) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.swimTripTotalDistance) }()
       default: break
       }
     }
@@ -1920,6 +2355,12 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     if self.controlType != .controlNull {
       try visitor.visitSingularEnumField(value: self.controlType, fieldNumber: 3)
     }
+    if self.actionType != .actionNull {
+      try visitor.visitSingularEnumField(value: self.actionType, fieldNumber: 4)
+    }
+    if self.swimTripTotalDistance != 0 {
+      try visitor.visitSingularUInt32Field(value: self.swimTripTotalDistance, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1927,6 +2368,8 @@ extension protocol_exercise_control_operate: SwiftProtobuf.Message, SwiftProtobu
     if lhs.tranType != rhs.tranType {return false}
     if lhs.sportType != rhs.sportType {return false}
     if lhs.controlType != rhs.controlType {return false}
+    if lhs.actionType != rhs.actionType {return false}
+    if lhs.swimTripTotalDistance != rhs.swimTripTotalDistance {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2021,6 +2464,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     2: .standard(proto: "func_table"),
     3: .standard(proto: "list_items"),
     4: .standard(proto: "target_support"),
+    5: .standard(proto: "repeat_each_step_max"),
+    6: .standard(proto: "total_size"),
+    7: .standard(proto: "free_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2033,6 +2479,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.listItems) }()
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.targetSupport) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.repeatEachStepMax) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.totalSize) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.freeSize) }()
       default: break
       }
     }
@@ -2051,6 +2500,15 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if !self.targetSupport.isEmpty {
       try visitor.visitPackedEnumField(value: self.targetSupport, fieldNumber: 4)
     }
+    if self.repeatEachStepMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.repeatEachStepMax, fieldNumber: 5)
+    }
+    if self.totalSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalSize, fieldNumber: 6)
+    }
+    if self.freeSize != 0 {
+      try visitor.visitSingularUInt32Field(value: self.freeSize, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2059,6 +2517,9 @@ extension protocol_exercise_course_list_inquire_reply: SwiftProtobuf.Message, Sw
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.listItems != rhs.listItems {return false}
     if lhs.targetSupport != rhs.targetSupport {return false}
+    if lhs.repeatEachStepMax != rhs.repeatEachStepMax {return false}
+    if lhs.totalSize != rhs.totalSize {return false}
+    if lhs.freeSize != rhs.freeSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2343,6 +2804,156 @@ extension protocol_action_list_inquire_reply: SwiftProtobuf.Message, SwiftProtob
     if lhs.operate != rhs.operate {return false}
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.listItems != rhs.listItems {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_sport_adjust_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_sport_adjust_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operate"),
+    2: .same(proto: "items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.items) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.operate != .insert {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
+    }
+    if !self.items.isEmpty {
+      try visitor.visitPackedEnumField(value: self.items, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_sport_adjust_operate, rhs: protocol_sport_adjust_operate) -> Bool {
+    if lhs.operate != rhs.operate {return false}
+    if lhs.items != rhs.items {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_sport_adjust_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_sport_adjust_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "operate"),
+    3: .same(proto: "items"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.items) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if self.operate != .insert {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 2)
+    }
+    if !self.items.isEmpty {
+      try visitor.visitPackedEnumField(value: self.items, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_sport_adjust_inquire_reply, rhs: protocol_sport_adjust_inquire_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.operate != rhs.operate {return false}
+    if lhs.items != rhs.items {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension segments_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "segments_data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "type"),
+    2: .standard(proto: "sport_type"),
+    3: .standard(proto: "group_id"),
+    4: .standard(proto: "avg_hr"),
+    5: .same(proto: "order"),
+    6: .same(proto: "calories"),
+    7: .same(proto: "duration"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.sportType) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.groupID) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.avgHr) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.order) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.calories) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.duration) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.type != .segmentRun {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
+    }
+    if self.sportType != .orun {
+      try visitor.visitSingularEnumField(value: self.sportType, fieldNumber: 2)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.groupID, fieldNumber: 3)
+    }
+    if self.avgHr != 0 {
+      try visitor.visitSingularUInt32Field(value: self.avgHr, fieldNumber: 4)
+    }
+    if self.order != 0 {
+      try visitor.visitSingularUInt32Field(value: self.order, fieldNumber: 5)
+    }
+    if self.calories != 0 {
+      try visitor.visitSingularUInt32Field(value: self.calories, fieldNumber: 6)
+    }
+    if self.duration != 0 {
+      try visitor.visitSingularUInt32Field(value: self.duration, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: segments_data, rhs: segments_data) -> Bool {
+    if lhs.type != rhs.type {return false}
+    if lhs.sportType != rhs.sportType {return false}
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.avgHr != rhs.avgHr {return false}
+    if lhs.order != rhs.order {return false}
+    if lhs.calories != rhs.calories {return false}
+    if lhs.duration != rhs.duration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

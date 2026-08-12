@@ -579,6 +579,51 @@ public struct protocol_message_notify_func_support_reply: @unchecked Sendable {
     set {_uniqueStorage()._bancaMovilBac = newValue}
   }
 
+  public var makc: Bool {
+    get {return _storage._makc}
+    set {_uniqueStorage()._makc = newValue}
+  }
+
+  public var yandexGo: Bool {
+    get {return _storage._yandexGo}
+    set {_uniqueStorage()._yandexGo = newValue}
+  }
+
+  public var sberbankOnline: Bool {
+    get {return _storage._sberbankOnline}
+    set {_uniqueStorage()._sberbankOnline = newValue}
+  }
+
+  public var wildberries: Bool {
+    get {return _storage._wildberries}
+    set {_uniqueStorage()._wildberries = newValue}
+  }
+
+  public var yandexMarket: Bool {
+    get {return _storage._yandexMarket}
+    set {_uniqueStorage()._yandexMarket = newValue}
+  }
+
+  public var avito: Bool {
+    get {return _storage._avito}
+    set {_uniqueStorage()._avito = newValue}
+  }
+
+  public var goldApple: Bool {
+    get {return _storage._goldApple}
+    set {_uniqueStorage()._goldApple = newValue}
+  }
+
+  public var gosuslugi: Bool {
+    get {return _storage._gosuslugi}
+    set {_uniqueStorage()._gosuslugi = newValue}
+  }
+
+  public var ozon: Bool {
+    get {return _storage._ozon}
+    set {_uniqueStorage()._ozon = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1069,6 +1114,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     98: .same(proto: "Ebay"),
     99: .same(proto: "PedidosYa"),
     100: .standard(proto: "banca_movil_bac"),
+    101: .same(proto: "Makc"),
+    102: .standard(proto: "Yandex_Go"),
+    103: .standard(proto: "Sberbank_Online"),
+    104: .same(proto: "Wildberries"),
+    105: .standard(proto: "Yandex_Market"),
+    106: .same(proto: "Avito"),
+    107: .standard(proto: "Gold_Apple"),
+    108: .same(proto: "Gosuslugi"),
+    109: .same(proto: "Ozon"),
   ]
 
   fileprivate class _StorageClass {
@@ -1172,6 +1226,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     var _ebay: Bool = false
     var _pedidosYa: Bool = false
     var _bancaMovilBac: Bool = false
+    var _makc: Bool = false
+    var _yandexGo: Bool = false
+    var _sberbankOnline: Bool = false
+    var _wildberries: Bool = false
+    var _yandexMarket: Bool = false
+    var _avito: Bool = false
+    var _goldApple: Bool = false
+    var _gosuslugi: Bool = false
+    var _ozon: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1286,6 +1349,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       _ebay = source._ebay
       _pedidosYa = source._pedidosYa
       _bancaMovilBac = source._bancaMovilBac
+      _makc = source._makc
+      _yandexGo = source._yandexGo
+      _sberbankOnline = source._sberbankOnline
+      _wildberries = source._wildberries
+      _yandexMarket = source._yandexMarket
+      _avito = source._avito
+      _goldApple = source._goldApple
+      _gosuslugi = source._gosuslugi
+      _ozon = source._ozon
     }
   }
 
@@ -1404,6 +1476,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         case 98: try { try decoder.decodeSingularBoolField(value: &_storage._ebay) }()
         case 99: try { try decoder.decodeSingularBoolField(value: &_storage._pedidosYa) }()
         case 100: try { try decoder.decodeSingularBoolField(value: &_storage._bancaMovilBac) }()
+        case 101: try { try decoder.decodeSingularBoolField(value: &_storage._makc) }()
+        case 102: try { try decoder.decodeSingularBoolField(value: &_storage._yandexGo) }()
+        case 103: try { try decoder.decodeSingularBoolField(value: &_storage._sberbankOnline) }()
+        case 104: try { try decoder.decodeSingularBoolField(value: &_storage._wildberries) }()
+        case 105: try { try decoder.decodeSingularBoolField(value: &_storage._yandexMarket) }()
+        case 106: try { try decoder.decodeSingularBoolField(value: &_storage._avito) }()
+        case 107: try { try decoder.decodeSingularBoolField(value: &_storage._goldApple) }()
+        case 108: try { try decoder.decodeSingularBoolField(value: &_storage._gosuslugi) }()
+        case 109: try { try decoder.decodeSingularBoolField(value: &_storage._ozon) }()
         default: break
         }
       }
@@ -1712,6 +1793,33 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       if _storage._bancaMovilBac != false {
         try visitor.visitSingularBoolField(value: _storage._bancaMovilBac, fieldNumber: 100)
       }
+      if _storage._makc != false {
+        try visitor.visitSingularBoolField(value: _storage._makc, fieldNumber: 101)
+      }
+      if _storage._yandexGo != false {
+        try visitor.visitSingularBoolField(value: _storage._yandexGo, fieldNumber: 102)
+      }
+      if _storage._sberbankOnline != false {
+        try visitor.visitSingularBoolField(value: _storage._sberbankOnline, fieldNumber: 103)
+      }
+      if _storage._wildberries != false {
+        try visitor.visitSingularBoolField(value: _storage._wildberries, fieldNumber: 104)
+      }
+      if _storage._yandexMarket != false {
+        try visitor.visitSingularBoolField(value: _storage._yandexMarket, fieldNumber: 105)
+      }
+      if _storage._avito != false {
+        try visitor.visitSingularBoolField(value: _storage._avito, fieldNumber: 106)
+      }
+      if _storage._goldApple != false {
+        try visitor.visitSingularBoolField(value: _storage._goldApple, fieldNumber: 107)
+      }
+      if _storage._gosuslugi != false {
+        try visitor.visitSingularBoolField(value: _storage._gosuslugi, fieldNumber: 108)
+      }
+      if _storage._ozon != false {
+        try visitor.visitSingularBoolField(value: _storage._ozon, fieldNumber: 109)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1821,6 +1929,15 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         if _storage._ebay != rhs_storage._ebay {return false}
         if _storage._pedidosYa != rhs_storage._pedidosYa {return false}
         if _storage._bancaMovilBac != rhs_storage._bancaMovilBac {return false}
+        if _storage._makc != rhs_storage._makc {return false}
+        if _storage._yandexGo != rhs_storage._yandexGo {return false}
+        if _storage._sberbankOnline != rhs_storage._sberbankOnline {return false}
+        if _storage._wildberries != rhs_storage._wildberries {return false}
+        if _storage._yandexMarket != rhs_storage._yandexMarket {return false}
+        if _storage._avito != rhs_storage._avito {return false}
+        if _storage._goldApple != rhs_storage._goldApple {return false}
+        if _storage._gosuslugi != rhs_storage._gosuslugi {return false}
+        if _storage._ozon != rhs_storage._ozon {return false}
         return true
       }
       if !storagesAreEqual {return false}

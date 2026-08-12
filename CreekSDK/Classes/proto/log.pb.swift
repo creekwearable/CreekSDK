@@ -28,6 +28,9 @@ public struct protocol_log_tran_operate: Sendable {
   ///日志传输开始
   public var logOperate: log_operate_type = .logStart
 
+  ///日志类型
+  public var logType: log_tran_type = .normalLog
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -39,6 +42,7 @@ extension protocol_log_tran_operate: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public static let protoMessageName: String = "protocol_log_tran_operate"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "log_operate"),
+    2: .standard(proto: "log_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -48,6 +52,7 @@ extension protocol_log_tran_operate: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.logOperate) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.logType) }()
       default: break
       }
     }
@@ -57,11 +62,15 @@ extension protocol_log_tran_operate: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.logOperate != .logStart {
       try visitor.visitSingularEnumField(value: self.logOperate, fieldNumber: 1)
     }
+    if self.logType != .normalLog {
+      try visitor.visitSingularEnumField(value: self.logType, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_log_tran_operate, rhs: protocol_log_tran_operate) -> Bool {
     if lhs.logOperate != rhs.logOperate {return false}
+    if lhs.logType != rhs.logType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

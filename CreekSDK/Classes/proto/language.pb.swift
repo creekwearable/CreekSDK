@@ -280,6 +280,42 @@ public struct protocol_language_inquire_reply: @unchecked Sendable {
     set {_uniqueStorage()._hrvatskiSupport = newValue}
   }
 
+  ///1bytes阿塞拜疆
+  public var azerbaidzhanSupport: Bool {
+    get {return _storage._azerbaidzhanSupport}
+    set {_uniqueStorage()._azerbaidzhanSupport = newValue}
+  }
+
+  ///1bytes塞尔维亚
+  public var serbianSupport: Bool {
+    get {return _storage._serbianSupport}
+    set {_uniqueStorage()._serbianSupport = newValue}
+  }
+
+  ///1bytes菲律宾语
+  public var filipinoSupport: Bool {
+    get {return _storage._filipinoSupport}
+    set {_uniqueStorage()._filipinoSupport = newValue}
+  }
+
+  ///挪威语
+  public var norwegianSupport: Bool {
+    get {return _storage._norwegianSupport}
+    set {_uniqueStorage()._norwegianSupport = newValue}
+  }
+
+  ///芬兰语
+  public var finnishSupport: Bool {
+    get {return _storage._finnishSupport}
+    set {_uniqueStorage()._finnishSupport = newValue}
+  }
+
+  ///丹麦语
+  public var danishSupport: Bool {
+    get {return _storage._danishSupport}
+    set {_uniqueStorage()._danishSupport = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -370,6 +406,12 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     38: .standard(proto: "bengali_support"),
     39: .standard(proto: "slovene_support"),
     40: .standard(proto: "hrvatski_support"),
+    41: .standard(proto: "azerbaidzhan_support"),
+    42: .standard(proto: "serbian_support"),
+    43: .standard(proto: "filipino_support"),
+    44: .standard(proto: "norwegian_support"),
+    45: .standard(proto: "finnish_support"),
+    46: .standard(proto: "danish_support"),
   ]
 
   fileprivate class _StorageClass {
@@ -413,6 +455,12 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     var _bengaliSupport: Bool = false
     var _sloveneSupport: Bool = false
     var _hrvatskiSupport: Bool = false
+    var _azerbaidzhanSupport: Bool = false
+    var _serbianSupport: Bool = false
+    var _filipinoSupport: Bool = false
+    var _norwegianSupport: Bool = false
+    var _finnishSupport: Bool = false
+    var _danishSupport: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -467,6 +515,12 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
       _bengaliSupport = source._bengaliSupport
       _sloveneSupport = source._sloveneSupport
       _hrvatskiSupport = source._hrvatskiSupport
+      _azerbaidzhanSupport = source._azerbaidzhanSupport
+      _serbianSupport = source._serbianSupport
+      _filipinoSupport = source._filipinoSupport
+      _norwegianSupport = source._norwegianSupport
+      _finnishSupport = source._finnishSupport
+      _danishSupport = source._danishSupport
     }
   }
 
@@ -525,6 +579,12 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
         case 38: try { try decoder.decodeSingularBoolField(value: &_storage._bengaliSupport) }()
         case 39: try { try decoder.decodeSingularBoolField(value: &_storage._sloveneSupport) }()
         case 40: try { try decoder.decodeSingularBoolField(value: &_storage._hrvatskiSupport) }()
+        case 41: try { try decoder.decodeSingularBoolField(value: &_storage._azerbaidzhanSupport) }()
+        case 42: try { try decoder.decodeSingularBoolField(value: &_storage._serbianSupport) }()
+        case 43: try { try decoder.decodeSingularBoolField(value: &_storage._filipinoSupport) }()
+        case 44: try { try decoder.decodeSingularBoolField(value: &_storage._norwegianSupport) }()
+        case 45: try { try decoder.decodeSingularBoolField(value: &_storage._finnishSupport) }()
+        case 46: try { try decoder.decodeSingularBoolField(value: &_storage._danishSupport) }()
         default: break
         }
       }
@@ -653,6 +713,24 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
       if _storage._hrvatskiSupport != false {
         try visitor.visitSingularBoolField(value: _storage._hrvatskiSupport, fieldNumber: 40)
       }
+      if _storage._azerbaidzhanSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._azerbaidzhanSupport, fieldNumber: 41)
+      }
+      if _storage._serbianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._serbianSupport, fieldNumber: 42)
+      }
+      if _storage._filipinoSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._filipinoSupport, fieldNumber: 43)
+      }
+      if _storage._norwegianSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._norwegianSupport, fieldNumber: 44)
+      }
+      if _storage._finnishSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._finnishSupport, fieldNumber: 45)
+      }
+      if _storage._danishSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._danishSupport, fieldNumber: 46)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -702,6 +780,12 @@ extension protocol_language_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
         if _storage._bengaliSupport != rhs_storage._bengaliSupport {return false}
         if _storage._sloveneSupport != rhs_storage._sloveneSupport {return false}
         if _storage._hrvatskiSupport != rhs_storage._hrvatskiSupport {return false}
+        if _storage._azerbaidzhanSupport != rhs_storage._azerbaidzhanSupport {return false}
+        if _storage._serbianSupport != rhs_storage._serbianSupport {return false}
+        if _storage._filipinoSupport != rhs_storage._filipinoSupport {return false}
+        if _storage._norwegianSupport != rhs_storage._norwegianSupport {return false}
+        if _storage._finnishSupport != rhs_storage._finnishSupport {return false}
+        if _storage._danishSupport != rhs_storage._danishSupport {return false}
         return true
       }
       if !storagesAreEqual {return false}

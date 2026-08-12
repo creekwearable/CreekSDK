@@ -6,15 +6,11 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		T7ae0s1yqPVdrLK0y5gqABVb1PU=
+		nHsEkmlVCwRZHdUPhDWVtuHob3A=
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		RB0EMGoszdktjqemGtJG5TEcjEg=
-		</data>
-		<key>flutter_assets/AssetManifest.json</key>
-		<data>
-		75tNR7cT6AeW2qvylkRUZLxVK0E=
+		z8TSZ7/mBBXKXjUBUkNQlyP+N3M=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,11 +18,11 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		M0DPf9IEUAySLVFIBhyJTMTW09o=
+		in2t3qhWY4quwYui5XbDlye4WtE=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
-		re4p7E8rPLLsN+wzaPN/+AVpXTY=
+		BASHf/14q0VcgmnKtkQLt+qMEqo=
 		</data>
 		<key>flutter_assets/assets/silero_vad/silero_vad.onnx</key>
 		<data>
@@ -36,41 +32,25 @@
 		<data>
 		/CUoTuPQqqdexfyOT9lpJhV+2MQ=
 		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/1.txt</key>
-		<data>
-		aCrFykCR+Fv3DnTRNmm5ylIL5aU=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/2.png</key>
-		<data>
-		GKjj5qHyM1NFWTVaPVCxeNlYPRY=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/add.png</key>
-		<data>
-		O+SRocLxEWvKbFrrSNREwAKLufc=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input.pcm</key>
-		<data>
-		ltIyRut2SfLOtCzFhG2LzWr+5Jg=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input2.pcm</key>
-		<data>
-		oXzo96a1jhm8PhhAm7eKetQB0Ig=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/svg/chevron_left.svg</key>
-		<data>
-		70wRzWZrQo1yKvGznILXo7iQzNY=
-		</data>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/zephyr.fw</key>
-		<data>
-		fKroJAJvjvUJ2kDf9DIo82OooPQ=
-		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		Bvk+P1ykE1PGRdktwgwDyz6AOqM=
 		</data>
+		<key>flutter_assets/packages/record_web/assets/js/record.fixwebmduration.js</key>
+		<data>
+		jdOHZCknGz0mLf/bJm5RUxN05CI=
+		</data>
+		<key>flutter_assets/packages/record_web/assets/js/record.worklet.js</key>
+		<data>
+		S0P6GRHlkQuSLkbFpQTo+KW/TgE=
+		</data>
 		<key>flutter_assets/shaders/ink_sparkle.frag</key>
 		<data>
-		VvTF10G1gIeea4aI0DhJjCjHgXQ=
+		EGRz1/Lz0IU55sDsYLpgQGHcfzg=
+		</data>
+		<key>flutter_assets/shaders/stretch_effect.frag</key>
+		<data>
+		oF3vzikJfeSpIcWLzeBHGrs5u+w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -79,14 +59,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VDTXx5xDrafthyptwUlLPNOG9k747pfAz4C3JMZw1Ck=
-			</data>
-		</dict>
-		<key>flutter_assets/AssetManifest.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			J2Zim3aYqTg1DEcUNvkkMqEdHXAoGtXO8DJ/4w63N9Y=
+			D7oV6mUuDsWXUyWiy2AhWVu6FLHRZw6mpJxPjwRzveY=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -100,14 +73,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NlOKi7lQRDYnEmHSmJ2FgRwlFT5m5qEvXD6FCLwgSoQ=
+			idsYKuuGO7+9/dKyR0+L6KFPhsJy0FoHpIvzkyFL/2o=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lUijHkoEgTXB2U+Rkyi/tirix7s8q5ZVfHlB2ql3dss=
+			Ylst3tzkLj0hjOuIabyRGejeqGUKbLJKt3nVAIBVsUE=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/silero_vad/silero_vad.onnx</key>
@@ -124,55 +97,6 @@
 			2YZbZxoJ1oPROoYwidiCXg9ho3aWzl19RIvIAjqmJFM=
 			</data>
 		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/1.txt</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tVwEBI31vvTrvoYBCyqmmD32FCPsn6mcg+bJwjItT6o=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/2.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			0XazSH5ftpUxkD5bDdSncsTY6XNkX0VJ6h10MVwXSuQ=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/add.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			slBplIGu6IGZ7wIJVjDOkr4ou872DHRi+vgjo5tDhag=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input.pcm</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1z0hua53YXInulyVopodiSCxukhXjANX1lbpetCh2g0=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/input2.pcm</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			es81PhOCyP7vWsN2sWM8cqry+qVpjcBtp3t9F6pwwH8=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/svg/chevron_left.svg</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			dOcY6cS2NYKvJ5tdUp10mJXkam4pLFe89HOntPnX6rs=
-			</data>
-		</dict>
-		<key>flutter_assets/packages/creek_blue_manage/assets/images/zephyr.fw</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			jQhyPtjdEqtlmljtvYpk7ePEFnFvauSczulABxTr/Wo=
-			</data>
-		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<dict>
 			<key>hash2</key>
@@ -180,11 +104,32 @@
 			Z8RP6Rg7AC553ef2l34piGYcmj5KPF/OloeH79vtgjw=
 			</data>
 		</dict>
+		<key>flutter_assets/packages/record_web/assets/js/record.fixwebmduration.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w0WtXS//s1etpke5tpBpNFKiABvFkS8ekGaHbOAWOZs=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/record_web/assets/js/record.worklet.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			un4PTIQUgO54wLVOfq3URFW5Fv79sHQQ7kYVnYLcwI4=
+			</data>
+		</dict>
 		<key>flutter_assets/shaders/ink_sparkle.frag</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TGVjYgE+Oyl6guvhhPPrWfynkxkJeFjSzSLsQqn7Q3M=
+			Ys5LpuNCVDcf/fuOBnCvzFMU9EUu317nCvzwefLtfqI=
+			</data>
+		</dict>
+		<key>flutter_assets/shaders/stretch_effect.frag</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ic3y7MmxE2cfsihiDZUuuuDxAqeKOanfibbr32rsMVo=
 			</data>
 		</dict>
 	</dict>

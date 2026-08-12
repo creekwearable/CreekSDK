@@ -28,6 +28,15 @@ public struct protocol_app_function_table: Sendable {
   ///消息快捷回复
   public var callMsgReply: Bool = false
 
+  ///文件传输通知结束
+  public var logTranNotifyEnd: Bool = false
+
+  ///gps芯与物cc1165w 版本号2支持7天星历
+  public var gpsCc1165WVersion: UInt32 = 0
+
+  ///支持wifi配置
+  public var wifiConfig: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -39,6 +48,9 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
   public static let protoMessageName: String = "protocol_app_function_table"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "call_msg_reply"),
+    2: .standard(proto: "log_tran_notify_end"),
+    3: .standard(proto: "gps_cc1165w_version"),
+    4: .standard(proto: "wifi_config"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -48,6 +60,9 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self.callMsgReply) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.logTranNotifyEnd) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.gpsCc1165WVersion) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.wifiConfig) }()
       default: break
       }
     }
@@ -57,11 +72,23 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.callMsgReply != false {
       try visitor.visitSingularBoolField(value: self.callMsgReply, fieldNumber: 1)
     }
+    if self.logTranNotifyEnd != false {
+      try visitor.visitSingularBoolField(value: self.logTranNotifyEnd, fieldNumber: 2)
+    }
+    if self.gpsCc1165WVersion != 0 {
+      try visitor.visitSingularUInt32Field(value: self.gpsCc1165WVersion, fieldNumber: 3)
+    }
+    if self.wifiConfig != false {
+      try visitor.visitSingularBoolField(value: self.wifiConfig, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_app_function_table, rhs: protocol_app_function_table) -> Bool {
     if lhs.callMsgReply != rhs.callMsgReply {return false}
+    if lhs.logTranNotifyEnd != rhs.logTranNotifyEnd {return false}
+    if lhs.gpsCc1165WVersion != rhs.gpsCc1165WVersion {return false}
+    if lhs.wifiConfig != rhs.wifiConfig {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

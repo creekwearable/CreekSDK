@@ -1013,6 +1013,23 @@ class CommandReplyViewController: CreekBaseViewController {
             }
          }
          break
+      case "Get temperature data":
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getTemperatureNewTimeData(startTime: currentDateStr, endTime: currentDateStr) { model in
+            if model.code == 0{
+               self.view.hideRemark()
+               self.textView.text = "success"
+               let json = try? JSONEncoder().encode(model.data)
+               if let data = json, let str = String(data: data, encoding: .utf8) {
+                  dispatch_main_sync_safe {
+                     self.textView.text = str
+                  }
+               }
+            }
+         }
+         break
       case "Exercise record list":
          
          CreekInterFace.instance.getSportRecord(nil) { model in
@@ -1045,7 +1062,10 @@ class CommandReplyViewController: CreekBaseViewController {
          break
          
       case "Get sport data":
-         CreekInterFace.instance.getSportTimeData(startTime: "2023-11-20", endTime: "2025-11-20",nil) { model in
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd"
+         let currentDateStr = formatter.string(from: Date())
+         CreekInterFace.instance.getSportTimeData(startTime: currentDateStr, endTime: currentDateStr,nil) { model in
             self.view.hideRemark()
             if model.code == 0{
                self.view.hideRemark()
@@ -1578,8 +1598,8 @@ class CommandReplyViewController: CreekBaseViewController {
          config.userCode = "123".data(using: .utf8)!
          config.startTime = UInt32(Date().timeIntervalSince1970)
          config.endTime = UInt32(Date().timeIntervalSince1970) + 88640
-         config.dailyCallLimit = 100
-         config.totalAllowedLimit = 500
+         config.dailyCallLimit = 5
+         config.totalAllowedLimit = 10
          operate.config = config
          CreekInterFace.instance.setVoiceAssistantConfig(model: operate) {
             self.view.hideRemark()
@@ -1607,6 +1627,23 @@ class CommandReplyViewController: CreekBaseViewController {
          let operate = protocol_prayer_operate()
          
          CreekInterFace.instance.setPrayer(model: operate) {
+            self.view.hideRemark()
+            self.textView.text = "success"
+         } failure: { code, message in
+            self.view.hideRemark()
+            self.textView.text = message
+         }
+         break
+      case "setVoiceAssistantUseStatus":
+         var operate = protocol_ai_feature_notify_operate()
+         var status = ai_feature_local_status()
+         status.dailyCount = 1
+         status.totalCount = 5
+         status.dailyCallLimit = 5
+         status.totalAllowedLimit = 10
+         
+         operate.status = status
+         CreekInterFace.instance.setVoiceAssistantUseStatus(model: operate) {
             self.view.hideRemark()
             self.textView.text = "success"
          } failure: { code, message in

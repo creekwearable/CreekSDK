@@ -56,6 +56,12 @@ public struct protocol_device_batt_info: Sendable {
   /// 1bytes 0x01:模式
   public var mode: Batt_mode = .invalidMode
 
+  ///预计充满电时长 s
+  public var chargeTime: UInt32 = 0
+
+  ///预计使用时长/s
+  public var estimatedUsageTime: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -494,6 +500,12 @@ public struct protocol_device_info: @unchecked Sendable {
   /// Clears the value of `config`. Subsequent reads from it will return its default value.
   public mutating func clearConfig() {_uniqueStorage()._config = nil}
 
+  ///gps芯与物cc1165w 版本号2支持7天星历
+  public var gpsCc1165WVersion: UInt32 {
+    get {return _storage._gpsCc1165WVersion}
+    set {_uniqueStorage()._gpsCc1165WVersion = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -516,6 +528,8 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     8: .standard(proto: "last_charging_minute"),
     9: .standard(proto: "last_charging_second"),
     10: .same(proto: "mode"),
+    11: .standard(proto: "charge_time"),
+    12: .standard(proto: "estimated_usage_time"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -534,6 +548,8 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 8: try { try decoder.decodeSingularUInt32Field(value: &self.lastChargingMinute) }()
       case 9: try { try decoder.decodeSingularUInt32Field(value: &self.lastChargingSecond) }()
       case 10: try { try decoder.decodeSingularEnumField(value: &self.mode) }()
+      case 11: try { try decoder.decodeSingularUInt32Field(value: &self.chargeTime) }()
+      case 12: try { try decoder.decodeSingularUInt32Field(value: &self.estimatedUsageTime) }()
       default: break
       }
     }
@@ -570,6 +586,12 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.mode != .invalidMode {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 10)
     }
+    if self.chargeTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.chargeTime, fieldNumber: 11)
+    }
+    if self.estimatedUsageTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.estimatedUsageTime, fieldNumber: 12)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -584,6 +606,8 @@ extension protocol_device_batt_info: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.lastChargingMinute != rhs.lastChargingMinute {return false}
     if lhs.lastChargingSecond != rhs.lastChargingSecond {return false}
     if lhs.mode != rhs.mode {return false}
+    if lhs.chargeTime != rhs.chargeTime {return false}
+    if lhs.estimatedUsageTime != rhs.estimatedUsageTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1035,6 +1059,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     33: .same(proto: "accountid"),
     34: .standard(proto: "boot_ota_status"),
     35: .same(proto: "config"),
+    36: .standard(proto: "gps_cc1165w_version"),
   ]
 
   fileprivate class _StorageClass {
@@ -1073,6 +1098,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _accountid: Data = Data()
     var _bootOtaStatus: Bool = false
     var _config: config_info_type? = nil
+    var _gpsCc1165WVersion: UInt32 = 0
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1122,6 +1148,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _accountid = source._accountid
       _bootOtaStatus = source._bootOtaStatus
       _config = source._config
+      _gpsCc1165WVersion = source._gpsCc1165WVersion
     }
   }
 
@@ -1175,6 +1202,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 33: try { try decoder.decodeSingularBytesField(value: &_storage._accountid) }()
         case 34: try { try decoder.decodeSingularBoolField(value: &_storage._bootOtaStatus) }()
         case 35: try { try decoder.decodeSingularMessageField(value: &_storage._config) }()
+        case 36: try { try decoder.decodeSingularUInt32Field(value: &_storage._gpsCc1165WVersion) }()
         default: break
         }
       }
@@ -1292,6 +1320,9 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       try { if let v = _storage._config {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
       } }()
+      if _storage._gpsCc1165WVersion != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._gpsCc1165WVersion, fieldNumber: 36)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1336,6 +1367,7 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._accountid != rhs_storage._accountid {return false}
         if _storage._bootOtaStatus != rhs_storage._bootOtaStatus {return false}
         if _storage._config != rhs_storage._config {return false}
+        if _storage._gpsCc1165WVersion != rhs_storage._gpsCc1165WVersion {return false}
         return true
       }
       if !storagesAreEqual {return false}

@@ -113,6 +113,7 @@ public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistan
 public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
 public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_assistant_support_reply) -> ()
 public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
+public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) -> ()
 
 @objc open class CreekSDK: NSObject{
    
@@ -244,6 +245,7 @@ public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
    var deviceStatusClosureDic:[String:deviceStatusBase] = [:]
    var hydrateAssistantSupportTypeClosureDic:[String:hydrateAssistantSupportTypeBase] = [:]
    var prayerClosureDic:[String:prayerBase] = [:]
+   var temperatureClosureDic:[String:temperatureClosure] = [:]
    
    let serialQueue = DispatchQueue(label: "com.creek.serialQueue")
     
@@ -2110,7 +2112,8 @@ public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
           }
         }
       
-      else if(call.method.contains("successstartMeasure")){
+      else if(call.method.contains("successstartMeasure") ||
+              call.method.contains("processResultstartMeasure")){
         if let response = call.arguments as? FlutterStandardTypedData{
            do{
               let model = try protocol_ring_click_measure_operate(serializedData: response.data,partial: true)
@@ -2225,7 +2228,8 @@ public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
          }
          
       }
-      else if(call.method.contains("abnormalstartMeasure")){
+      else if(call.method.contains("abnormalstartMeasure")  ||
+              call.method.contains("wearingNoStandardstartMeasure") ){
          if let back = abnormalClosureDic[call.method]{
             back()
          }
@@ -2290,6 +2294,37 @@ public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
                if let back = prayerClosureDic[call.method]{
                   back(model)
                   prayerClosureDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+         
+      }
+      else if(call.method.contains("getTemperatureUploadStatus")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[TemperatureModel]>.self, dic){
+                  if let back = temperatureClosureDic[call.method]{
+                     back(model);
+                     temperatureClosureDic.removeValue(forKey: call.method)
+                  }
+               }
+            }catch{
+               print("Error converting string to dictionary: \(error.localizedDescription)")
+            }
+         }
+      }
+      else if(call.method.contains("getTemperatureNewTimeData")){
+         if let response = call.arguments as? String{
+            do{
+               let dic = try JSONSerialization.jsonObject(with: (response.data(using: .utf8))!)
+               if let model = ParseJson.jsonToModel(BaseModel<[TemperatureModel]>.self, dic){
+                  if let back = temperatureClosureDic[call.method]{
+                     back(model);
+                     temperatureClosureDic.removeValue(forKey: call.method)
+                  }
                }
             }catch{
                print("Error converting string to dictionary: \(error.localizedDescription)")

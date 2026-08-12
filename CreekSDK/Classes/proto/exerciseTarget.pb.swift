@@ -34,6 +34,15 @@ public enum exercise_target_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///运动目标 - 距离
   case exerciseTargetDistance // = 3
+
+  ///运动目标 - 步数
+  case exerciseTargetStep // = 4
+
+  ///运动目标 - 次数
+  case exerciseTargetCount // = 5
+
+  ///运动目标 - 站立
+  case exerciseTargetStand // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -46,6 +55,9 @@ public enum exercise_target_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .exerciseTargetTime
     case 2: self = .exerciseTargetCalories
     case 3: self = .exerciseTargetDistance
+    case 4: self = .exerciseTargetStep
+    case 5: self = .exerciseTargetCount
+    case 6: self = .exerciseTargetStand
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -56,6 +68,9 @@ public enum exercise_target_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .exerciseTargetTime: return 1
     case .exerciseTargetCalories: return 2
     case .exerciseTargetDistance: return 3
+    case .exerciseTargetStep: return 4
+    case .exerciseTargetCount: return 5
+    case .exerciseTargetStand: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -66,6 +81,9 @@ public enum exercise_target_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .exerciseTargetTime,
     .exerciseTargetCalories,
     .exerciseTargetDistance,
+    .exerciseTargetStep,
+    .exerciseTargetCount,
+    .exerciseTargetStand,
   ]
 
 }
@@ -145,6 +163,9 @@ extension exercise_target_type: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "EXERCISE_TARGET_TIME"),
     2: .same(proto: "EXERCISE_TARGET_CALORIES"),
     3: .same(proto: "EXERCISE_TARGET_DISTANCE"),
+    4: .same(proto: "EXERCISE_TARGET_STEP"),
+    5: .same(proto: "EXERCISE_TARGET_COUNT"),
+    6: .same(proto: "EXERCISE_TARGET_STAND"),
   ]
 }
 
