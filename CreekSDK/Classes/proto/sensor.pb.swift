@@ -20,51 +20,110 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct protocol_sensor_rawdata_tran_operate: Sendable {
+public struct protocol_sensor_rawdata_tran_operate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   ///1bytes 操作类型 0：无效操作 1：查询 2：设置
-  public var operate: operate_type = .invalid
+  public var operate: operate_type {
+    get {return _storage._operate}
+    set {_uniqueStorage()._operate = newValue}
+  }
 
   ///传输开始或结束
-  public var sensorOperate: sensor_operate_type = .sensorTranStart
+  public var sensorOperate: sensor_operate_type {
+    get {return _storage._sensorOperate}
+    set {_uniqueStorage()._sensorOperate = newValue}
+  }
 
   ///选择ppg_g数据传输
-  public var ppgGData: Bool = false
+  public var ppgGData: Bool {
+    get {return _storage._ppgGData}
+    set {_uniqueStorage()._ppgGData = newValue}
+  }
 
-  public var ppgRData: Bool = false
+  public var ppgRData: Bool {
+    get {return _storage._ppgRData}
+    set {_uniqueStorage()._ppgRData = newValue}
+  }
 
-  public var ppgIrData: Bool = false
+  public var ppgIrData: Bool {
+    get {return _storage._ppgIrData}
+    set {_uniqueStorage()._ppgIrData = newValue}
+  }
 
-  public var accData: Bool = false
+  public var accData: Bool {
+    get {return _storage._accData}
+    set {_uniqueStorage()._accData = newValue}
+  }
 
-  public var gyroData: Bool = false
+  public var gyroData: Bool {
+    get {return _storage._gyroData}
+    set {_uniqueStorage()._gyroData = newValue}
+  }
 
   ///地磁
-  public var geomagneticData: Bool = false
+  public var geomagneticData: Bool {
+    get {return _storage._geomagneticData}
+    set {_uniqueStorage()._geomagneticData = newValue}
+  }
 
-  public var gnssData: Bool = false
+  public var gnssData: Bool {
+    get {return _storage._gnssData}
+    set {_uniqueStorage()._gnssData = newValue}
+  }
 
-  public var audioData: Bool = false
+  public var audioData: Bool {
+    get {return _storage._audioData}
+    set {_uniqueStorage()._audioData = newValue}
+  }
 
-  public var infraredData: Bool = false
+  public var infraredData: Bool {
+    get {return _storage._infraredData}
+    set {_uniqueStorage()._infraredData = newValue}
+  }
 
-  public var sarData: Bool = false
+  public var sarData: Bool {
+    get {return _storage._sarData}
+    set {_uniqueStorage()._sarData = newValue}
+  }
 
   ///自动传输停止时间
-  public var autoStopUtcTime: UInt32 = 0
+  public var autoStopUtcTime: UInt32 {
+    get {return _storage._autoStopUtcTime}
+    set {_uniqueStorage()._autoStopUtcTime = newValue}
+  }
 
   ///hrv数据
-  public var hrvData: Bool = false
+  public var hrvData: Bool {
+    get {return _storage._hrvData}
+    set {_uniqueStorage()._hrvData = newValue}
+  }
 
   ///3灯100hz
-  public var threeLights100HzData: Bool = false
+  public var threeLights100HzData: Bool {
+    get {return _storage._threeLights100HzData}
+    set {_uniqueStorage()._threeLights100HzData = newValue}
+  }
+
+  ///ecg数据
+  public var ecgData: Bool {
+    get {return _storage._ecgData}
+    set {_uniqueStorage()._ecgData = newValue}
+  }
+
+  ///eda数据
+  public var edaData: Bool {
+    get {return _storage._edaData}
+    set {_uniqueStorage()._edaData = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct protocol_sensor_rawdata_tran_inquire_reply: @unchecked Sendable {
@@ -201,99 +260,183 @@ extension protocol_sensor_rawdata_tran_operate: SwiftProtobuf.Message, SwiftProt
     13: .standard(proto: "auto_stop_utc_time"),
     14: .standard(proto: "hrv_data"),
     15: .standard(proto: "three_lights_100hz_data"),
+    16: .standard(proto: "ecg_data"),
+    17: .standard(proto: "eda_data"),
   ]
 
+  fileprivate class _StorageClass {
+    var _operate: operate_type = .invalid
+    var _sensorOperate: sensor_operate_type = .sensorTranStart
+    var _ppgGData: Bool = false
+    var _ppgRData: Bool = false
+    var _ppgIrData: Bool = false
+    var _accData: Bool = false
+    var _gyroData: Bool = false
+    var _geomagneticData: Bool = false
+    var _gnssData: Bool = false
+    var _audioData: Bool = false
+    var _infraredData: Bool = false
+    var _sarData: Bool = false
+    var _autoStopUtcTime: UInt32 = 0
+    var _hrvData: Bool = false
+    var _threeLights100HzData: Bool = false
+    var _ecgData: Bool = false
+    var _edaData: Bool = false
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _operate = source._operate
+      _sensorOperate = source._sensorOperate
+      _ppgGData = source._ppgGData
+      _ppgRData = source._ppgRData
+      _ppgIrData = source._ppgIrData
+      _accData = source._accData
+      _gyroData = source._gyroData
+      _geomagneticData = source._geomagneticData
+      _gnssData = source._gnssData
+      _audioData = source._audioData
+      _infraredData = source._infraredData
+      _sarData = source._sarData
+      _autoStopUtcTime = source._autoStopUtcTime
+      _hrvData = source._hrvData
+      _threeLights100HzData = source._threeLights100HzData
+      _ecgData = source._ecgData
+      _edaData = source._edaData
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeSingularEnumField(value: &self.sensorOperate) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.ppgGData) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.ppgRData) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.ppgIrData) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.accData) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.gyroData) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self.geomagneticData) }()
-      case 9: try { try decoder.decodeSingularBoolField(value: &self.gnssData) }()
-      case 10: try { try decoder.decodeSingularBoolField(value: &self.audioData) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self.infraredData) }()
-      case 12: try { try decoder.decodeSingularBoolField(value: &self.sarData) }()
-      case 13: try { try decoder.decodeSingularUInt32Field(value: &self.autoStopUtcTime) }()
-      case 14: try { try decoder.decodeSingularBoolField(value: &self.hrvData) }()
-      case 15: try { try decoder.decodeSingularBoolField(value: &self.threeLights100HzData) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._operate) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._sensorOperate) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._ppgGData) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._ppgRData) }()
+        case 5: try { try decoder.decodeSingularBoolField(value: &_storage._ppgIrData) }()
+        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._accData) }()
+        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._gyroData) }()
+        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._geomagneticData) }()
+        case 9: try { try decoder.decodeSingularBoolField(value: &_storage._gnssData) }()
+        case 10: try { try decoder.decodeSingularBoolField(value: &_storage._audioData) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._infraredData) }()
+        case 12: try { try decoder.decodeSingularBoolField(value: &_storage._sarData) }()
+        case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._autoStopUtcTime) }()
+        case 14: try { try decoder.decodeSingularBoolField(value: &_storage._hrvData) }()
+        case 15: try { try decoder.decodeSingularBoolField(value: &_storage._threeLights100HzData) }()
+        case 16: try { try decoder.decodeSingularBoolField(value: &_storage._ecgData) }()
+        case 17: try { try decoder.decodeSingularBoolField(value: &_storage._edaData) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.operate != .invalid {
-      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
-    }
-    if self.sensorOperate != .sensorTranStart {
-      try visitor.visitSingularEnumField(value: self.sensorOperate, fieldNumber: 2)
-    }
-    if self.ppgGData != false {
-      try visitor.visitSingularBoolField(value: self.ppgGData, fieldNumber: 3)
-    }
-    if self.ppgRData != false {
-      try visitor.visitSingularBoolField(value: self.ppgRData, fieldNumber: 4)
-    }
-    if self.ppgIrData != false {
-      try visitor.visitSingularBoolField(value: self.ppgIrData, fieldNumber: 5)
-    }
-    if self.accData != false {
-      try visitor.visitSingularBoolField(value: self.accData, fieldNumber: 6)
-    }
-    if self.gyroData != false {
-      try visitor.visitSingularBoolField(value: self.gyroData, fieldNumber: 7)
-    }
-    if self.geomagneticData != false {
-      try visitor.visitSingularBoolField(value: self.geomagneticData, fieldNumber: 8)
-    }
-    if self.gnssData != false {
-      try visitor.visitSingularBoolField(value: self.gnssData, fieldNumber: 9)
-    }
-    if self.audioData != false {
-      try visitor.visitSingularBoolField(value: self.audioData, fieldNumber: 10)
-    }
-    if self.infraredData != false {
-      try visitor.visitSingularBoolField(value: self.infraredData, fieldNumber: 11)
-    }
-    if self.sarData != false {
-      try visitor.visitSingularBoolField(value: self.sarData, fieldNumber: 12)
-    }
-    if self.autoStopUtcTime != 0 {
-      try visitor.visitSingularUInt32Field(value: self.autoStopUtcTime, fieldNumber: 13)
-    }
-    if self.hrvData != false {
-      try visitor.visitSingularBoolField(value: self.hrvData, fieldNumber: 14)
-    }
-    if self.threeLights100HzData != false {
-      try visitor.visitSingularBoolField(value: self.threeLights100HzData, fieldNumber: 15)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._operate != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._operate, fieldNumber: 1)
+      }
+      if _storage._sensorOperate != .sensorTranStart {
+        try visitor.visitSingularEnumField(value: _storage._sensorOperate, fieldNumber: 2)
+      }
+      if _storage._ppgGData != false {
+        try visitor.visitSingularBoolField(value: _storage._ppgGData, fieldNumber: 3)
+      }
+      if _storage._ppgRData != false {
+        try visitor.visitSingularBoolField(value: _storage._ppgRData, fieldNumber: 4)
+      }
+      if _storage._ppgIrData != false {
+        try visitor.visitSingularBoolField(value: _storage._ppgIrData, fieldNumber: 5)
+      }
+      if _storage._accData != false {
+        try visitor.visitSingularBoolField(value: _storage._accData, fieldNumber: 6)
+      }
+      if _storage._gyroData != false {
+        try visitor.visitSingularBoolField(value: _storage._gyroData, fieldNumber: 7)
+      }
+      if _storage._geomagneticData != false {
+        try visitor.visitSingularBoolField(value: _storage._geomagneticData, fieldNumber: 8)
+      }
+      if _storage._gnssData != false {
+        try visitor.visitSingularBoolField(value: _storage._gnssData, fieldNumber: 9)
+      }
+      if _storage._audioData != false {
+        try visitor.visitSingularBoolField(value: _storage._audioData, fieldNumber: 10)
+      }
+      if _storage._infraredData != false {
+        try visitor.visitSingularBoolField(value: _storage._infraredData, fieldNumber: 11)
+      }
+      if _storage._sarData != false {
+        try visitor.visitSingularBoolField(value: _storage._sarData, fieldNumber: 12)
+      }
+      if _storage._autoStopUtcTime != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._autoStopUtcTime, fieldNumber: 13)
+      }
+      if _storage._hrvData != false {
+        try visitor.visitSingularBoolField(value: _storage._hrvData, fieldNumber: 14)
+      }
+      if _storage._threeLights100HzData != false {
+        try visitor.visitSingularBoolField(value: _storage._threeLights100HzData, fieldNumber: 15)
+      }
+      if _storage._ecgData != false {
+        try visitor.visitSingularBoolField(value: _storage._ecgData, fieldNumber: 16)
+      }
+      if _storage._edaData != false {
+        try visitor.visitSingularBoolField(value: _storage._edaData, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: protocol_sensor_rawdata_tran_operate, rhs: protocol_sensor_rawdata_tran_operate) -> Bool {
-    if lhs.operate != rhs.operate {return false}
-    if lhs.sensorOperate != rhs.sensorOperate {return false}
-    if lhs.ppgGData != rhs.ppgGData {return false}
-    if lhs.ppgRData != rhs.ppgRData {return false}
-    if lhs.ppgIrData != rhs.ppgIrData {return false}
-    if lhs.accData != rhs.accData {return false}
-    if lhs.gyroData != rhs.gyroData {return false}
-    if lhs.geomagneticData != rhs.geomagneticData {return false}
-    if lhs.gnssData != rhs.gnssData {return false}
-    if lhs.audioData != rhs.audioData {return false}
-    if lhs.infraredData != rhs.infraredData {return false}
-    if lhs.sarData != rhs.sarData {return false}
-    if lhs.autoStopUtcTime != rhs.autoStopUtcTime {return false}
-    if lhs.hrvData != rhs.hrvData {return false}
-    if lhs.threeLights100HzData != rhs.threeLights100HzData {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._operate != rhs_storage._operate {return false}
+        if _storage._sensorOperate != rhs_storage._sensorOperate {return false}
+        if _storage._ppgGData != rhs_storage._ppgGData {return false}
+        if _storage._ppgRData != rhs_storage._ppgRData {return false}
+        if _storage._ppgIrData != rhs_storage._ppgIrData {return false}
+        if _storage._accData != rhs_storage._accData {return false}
+        if _storage._gyroData != rhs_storage._gyroData {return false}
+        if _storage._geomagneticData != rhs_storage._geomagneticData {return false}
+        if _storage._gnssData != rhs_storage._gnssData {return false}
+        if _storage._audioData != rhs_storage._audioData {return false}
+        if _storage._infraredData != rhs_storage._infraredData {return false}
+        if _storage._sarData != rhs_storage._sarData {return false}
+        if _storage._autoStopUtcTime != rhs_storage._autoStopUtcTime {return false}
+        if _storage._hrvData != rhs_storage._hrvData {return false}
+        if _storage._threeLights100HzData != rhs_storage._threeLights100HzData {return false}
+        if _storage._ecgData != rhs_storage._ecgData {return false}
+        if _storage._edaData != rhs_storage._edaData {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

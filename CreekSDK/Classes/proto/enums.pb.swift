@@ -6162,6 +6162,21 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///沙袋弓步蹲
   case sandbagLungs // = 235
+
+  ///水肺潜水
+  case scubaDiving // = 236
+
+  ///弓步蹲
+  case lungs // = 237
+
+  ///相扑
+  case sumo // = 238
+
+  ///肱二头肌训练
+  case biceps // = 239
+
+  ///肱三头肌训练
+  case triceps // = 240
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6406,6 +6421,11 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 233: self = .rowing
     case 234: self = .farmersCarry
     case 235: self = .sandbagLungs
+    case 236: self = .scubaDiving
+    case 237: self = .lungs
+    case 238: self = .sumo
+    case 239: self = .biceps
+    case 240: self = .triceps
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6648,6 +6668,11 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .rowing: return 233
     case .farmersCarry: return 234
     case .sandbagLungs: return 235
+    case .scubaDiving: return 236
+    case .lungs: return 237
+    case .sumo: return 238
+    case .biceps: return 239
+    case .triceps: return 240
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6890,6 +6915,11 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .rowing,
     .farmersCarry,
     .sandbagLungs,
+    .scubaDiving,
+    .lungs,
+    .sumo,
+    .biceps,
+    .triceps,
   ]
 
 }
@@ -10669,6 +10699,11 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     233: .same(proto: "ROWING"),
     234: .same(proto: "FARMERS_CARRY"),
     235: .same(proto: "SANDBAG_LUNGS"),
+    236: .same(proto: "SCUBA_DIVING"),
+    237: .same(proto: "LUNGS"),
+    238: .same(proto: "SUMO"),
+    239: .same(proto: "BICEPS"),
+    240: .same(proto: "TRICEPS"),
   ]
 }
 

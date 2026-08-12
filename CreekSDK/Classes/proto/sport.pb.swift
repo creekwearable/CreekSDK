@@ -722,11 +722,21 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
     set {_uniqueStorage()._hyroxDataSupport = newValue}
   }
 
+  ///赛事种类
+  public var hyroxEventtype: UInt32 {
+    get {return _storage._hyroxEventtype}
+    set {_uniqueStorage()._hyroxEventtype = newValue}
+  }
+
   ///hyrox数据项
-  public var hyroxItems: [segments_data] {
-    get {return _storage._hyroxItems}
+  public var hyroxItems: segments_data {
+    get {return _storage._hyroxItems ?? segments_data()}
     set {_uniqueStorage()._hyroxItems = newValue}
   }
+  /// Returns true if `hyroxItems` has been explicitly set.
+  public var hasHyroxItems: Bool {return _storage._hyroxItems != nil}
+  /// Clears the value of `hyroxItems`. Subsequent reads from it will return its default value.
+  public mutating func clearHyroxItems() {_uniqueStorage()._hyroxItems = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1773,7 +1783,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     63: .standard(proto: "cur_racket_speed"),
     64: .standard(proto: "control_type"),
     65: .standard(proto: "hyrox_data_support"),
-    66: .standard(proto: "hyrox_items"),
+    66: .standard(proto: "hyrox_eventtype"),
+    67: .standard(proto: "hyrox_items"),
   ]
 
   fileprivate class _StorageClass {
@@ -1842,7 +1853,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _curRacketSpeed: UInt32 = 0
     var _controlType: exercise_control_type = .controlNull
     var _hyroxDataSupport: Bool = false
-    var _hyroxItems: [segments_data] = []
+    var _hyroxEventtype: UInt32 = 0
+    var _hyroxItems: segments_data? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1922,6 +1934,7 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       _curRacketSpeed = source._curRacketSpeed
       _controlType = source._controlType
       _hyroxDataSupport = source._hyroxDataSupport
+      _hyroxEventtype = source._hyroxEventtype
       _hyroxItems = source._hyroxItems
     }
   }
@@ -2006,7 +2019,8 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 63: try { try decoder.decodeSingularUInt32Field(value: &_storage._curRacketSpeed) }()
         case 64: try { try decoder.decodeSingularEnumField(value: &_storage._controlType) }()
         case 65: try { try decoder.decodeSingularBoolField(value: &_storage._hyroxDataSupport) }()
-        case 66: try { try decoder.decodeRepeatedMessageField(value: &_storage._hyroxItems) }()
+        case 66: try { try decoder.decodeSingularUInt32Field(value: &_storage._hyroxEventtype) }()
+        case 67: try { try decoder.decodeSingularMessageField(value: &_storage._hyroxItems) }()
         default: break
         }
       }
@@ -2015,6 +2029,10 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
       if _storage._tranType != .watchTran {
         try visitor.visitSingularEnumField(value: _storage._tranType, fieldNumber: 1)
       }
@@ -2210,9 +2228,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       if _storage._hyroxDataSupport != false {
         try visitor.visitSingularBoolField(value: _storage._hyroxDataSupport, fieldNumber: 65)
       }
-      if !_storage._hyroxItems.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._hyroxItems, fieldNumber: 66)
+      if _storage._hyroxEventtype != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._hyroxEventtype, fieldNumber: 66)
       }
+      try { if let v = _storage._hyroxItems {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 67)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2287,6 +2308,7 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         if _storage._curRacketSpeed != rhs_storage._curRacketSpeed {return false}
         if _storage._controlType != rhs_storage._controlType {return false}
         if _storage._hyroxDataSupport != rhs_storage._hyroxDataSupport {return false}
+        if _storage._hyroxEventtype != rhs_storage._hyroxEventtype {return false}
         if _storage._hyroxItems != rhs_storage._hyroxItems {return false}
         return true
       }

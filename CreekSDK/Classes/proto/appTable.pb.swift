@@ -34,6 +34,9 @@ public struct protocol_app_function_table: Sendable {
   ///gps芯与物cc1165w 版本号2支持7天星历
   public var gpsCc1165WVersion: UInt32 = 0
 
+  ///支持wifi配置
+  public var wifiConfig: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -47,6 +50,7 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     1: .standard(proto: "call_msg_reply"),
     2: .standard(proto: "log_tran_notify_end"),
     3: .standard(proto: "gps_cc1165w_version"),
+    4: .standard(proto: "wifi_config"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -58,6 +62,7 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 1: try { try decoder.decodeSingularBoolField(value: &self.callMsgReply) }()
       case 2: try { try decoder.decodeSingularBoolField(value: &self.logTranNotifyEnd) }()
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.gpsCc1165WVersion) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.wifiConfig) }()
       default: break
       }
     }
@@ -73,6 +78,9 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.gpsCc1165WVersion != 0 {
       try visitor.visitSingularUInt32Field(value: self.gpsCc1165WVersion, fieldNumber: 3)
     }
+    if self.wifiConfig != false {
+      try visitor.visitSingularBoolField(value: self.wifiConfig, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -80,6 +88,7 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs.callMsgReply != rhs.callMsgReply {return false}
     if lhs.logTranNotifyEnd != rhs.logTranNotifyEnd {return false}
     if lhs.gpsCc1165WVersion != rhs.gpsCc1165WVersion {return false}
+    if lhs.wifiConfig != rhs.wifiConfig {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
