@@ -3076,4 +3076,13 @@ extension CreekSDK{
          methodChannel?.invokeMethod("getActivityLevelUploadStatus\(requestId)", arguments: "")
       }
    }
+   
+   public func confirmSleep(confirm:Bool,id:Int,success:@escaping successBase,failure:@escaping failureBase) {
+      serialQueue.sync {
+         requestId+=1
+         successDic["confirmSleep\(requestId)"] = success
+         failureDic["confirmSleep\(requestId)"] = failure
+         methodChannel?.invokeMethod("confirmSleep\(requestId)", arguments: [confirm ? 1 : 0,id])
+      }
+   }
 }
