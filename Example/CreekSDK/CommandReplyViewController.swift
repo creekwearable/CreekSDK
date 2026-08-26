@@ -1052,7 +1052,7 @@ class CommandReplyViewController: CreekBaseViewController {
          let formatter = DateFormatter()
          formatter.dateFormat = "yyyy-MM-dd"
          let currentDateStr = formatter.string(from: Date())
-         CreekInterFace.instance.getSportTimeData(startTime: currentDateStr, endTime: currentDateStr,nil) { model in
+         CreekInterFace.instance.getSportTimeData(startTime: "2025-01-02", endTime: "2027-01-01",nil) { model in
             self.view.hideRemark()
             if model.code == 0{
                self.view.hideRemark()
