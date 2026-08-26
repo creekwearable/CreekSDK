@@ -850,6 +850,76 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `offlineMap`. Subsequent reads from it will return its default value.
   public mutating func clearOfflineMap() {_uniqueStorage()._offlineMap = nil}
 
+  ///是否支持世界杯通知
+  public var fifaNotify: function_table {
+    get {return _storage._fifaNotify ?? function_table()}
+    set {_uniqueStorage()._fifaNotify = newValue}
+  }
+  /// Returns true if `fifaNotify` has been explicitly set.
+  public var hasFifaNotify: Bool {return _storage._fifaNotify != nil}
+  /// Clears the value of `fifaNotify`. Subsequent reads from it will return its default value.
+  public mutating func clearFifaNotify() {_uniqueStorage()._fifaNotify = nil}
+
+  ///是否支持新版动作指导
+  public var exerciseActionV2: function_table {
+    get {return _storage._exerciseActionV2 ?? function_table()}
+    set {_uniqueStorage()._exerciseActionV2 = newValue}
+  }
+  /// Returns true if `exerciseActionV2` has been explicitly set.
+  public var hasExerciseActionV2: Bool {return _storage._exerciseActionV2 != nil}
+  /// Clears the value of `exerciseActionV2`. Subsequent reads from it will return its default value.
+  public mutating func clearExerciseActionV2() {_uniqueStorage()._exerciseActionV2 = nil}
+
+  ///是否支持心率变异性
+  public var heartDetect: function_table {
+    get {return _storage._heartDetect ?? function_table()}
+    set {_uniqueStorage()._heartDetect = newValue}
+  }
+  /// Returns true if `heartDetect` has been explicitly set.
+  public var hasHeartDetect: Bool {return _storage._heartDetect != nil}
+  /// Clears the value of `heartDetect`. Subsequent reads from it will return its default value.
+  public mutating func clearHeartDetect() {_uniqueStorage()._heartDetect = nil}
+
+  ///外部计算gnss信息，固件屏蔽，采用步数计算
+  public var externalGnss: function_table {
+    get {return _storage._externalGnss ?? function_table()}
+    set {_uniqueStorage()._externalGnss = newValue}
+  }
+  /// Returns true if `externalGnss` has been explicitly set.
+  public var hasExternalGnss: Bool {return _storage._externalGnss != nil}
+  /// Clears the value of `externalGnss`. Subsequent reads from it will return its default value.
+  public mutating func clearExternalGnss() {_uniqueStorage()._externalGnss = nil}
+
+  ///app支持ab点导航生成gpx文件
+  public var appAbRoute: function_table {
+    get {return _storage._appAbRoute ?? function_table()}
+    set {_uniqueStorage()._appAbRoute = newValue}
+  }
+  /// Returns true if `appAbRoute` has been explicitly set.
+  public var hasAppAbRoute: Bool {return _storage._appAbRoute != nil}
+  /// Clears the value of `appAbRoute`. Subsequent reads from it will return its default value.
+  public mutating func clearAppAbRoute() {_uniqueStorage()._appAbRoute = nil}
+
+  ///是否支持wifi配置
+  public var wifiConfig: function_table {
+    get {return _storage._wifiConfig ?? function_table()}
+    set {_uniqueStorage()._wifiConfig = newValue}
+  }
+  /// Returns true if `wifiConfig` has been explicitly set.
+  public var hasWifiConfig: Bool {return _storage._wifiConfig != nil}
+  /// Clears the value of `wifiConfig`. Subsequent reads from it will return its default value.
+  public mutating func clearWifiConfig() {_uniqueStorage()._wifiConfig = nil}
+
+  ///是否支持运动动态调整
+  public var sportAdjust: function_table {
+    get {return _storage._sportAdjust ?? function_table()}
+    set {_uniqueStorage()._sportAdjust = newValue}
+  }
+  /// Returns true if `sportAdjust` has been explicitly set.
+  public var hasSportAdjust: Bool {return _storage._sportAdjust != nil}
+  /// Clears the value of `sportAdjust`. Subsequent reads from it will return its default value.
+  public mutating func clearSportAdjust() {_uniqueStorage()._sportAdjust = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -981,6 +1051,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     79: .standard(proto: "route_navigation_switch"),
     80: .standard(proto: "hr_broadcast_switch"),
     81: .standard(proto: "offline_map"),
+    82: .standard(proto: "fifa_notify"),
+    83: .standard(proto: "exercise_action_v2"),
+    84: .standard(proto: "heart_detect"),
+    85: .standard(proto: "external_gnss"),
+    86: .standard(proto: "app_ab_route"),
+    87: .standard(proto: "wifi_config"),
+    88: .standard(proto: "sport_adjust"),
   ]
 
   fileprivate class _StorageClass {
@@ -1065,6 +1142,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _routeNavigationSwitch: function_table? = nil
     var _hrBroadcastSwitch: function_table? = nil
     var _offlineMap: function_table? = nil
+    var _fifaNotify: function_table? = nil
+    var _exerciseActionV2: function_table? = nil
+    var _heartDetect: function_table? = nil
+    var _externalGnss: function_table? = nil
+    var _appAbRoute: function_table? = nil
+    var _wifiConfig: function_table? = nil
+    var _sportAdjust: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1160,6 +1244,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _routeNavigationSwitch = source._routeNavigationSwitch
       _hrBroadcastSwitch = source._hrBroadcastSwitch
       _offlineMap = source._offlineMap
+      _fifaNotify = source._fifaNotify
+      _exerciseActionV2 = source._exerciseActionV2
+      _heartDetect = source._heartDetect
+      _externalGnss = source._externalGnss
+      _appAbRoute = source._appAbRoute
+      _wifiConfig = source._wifiConfig
+      _sportAdjust = source._sportAdjust
     }
   }
 
@@ -1259,6 +1350,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 79: try { try decoder.decodeSingularMessageField(value: &_storage._routeNavigationSwitch) }()
         case 80: try { try decoder.decodeSingularMessageField(value: &_storage._hrBroadcastSwitch) }()
         case 81: try { try decoder.decodeSingularMessageField(value: &_storage._offlineMap) }()
+        case 82: try { try decoder.decodeSingularMessageField(value: &_storage._fifaNotify) }()
+        case 83: try { try decoder.decodeSingularMessageField(value: &_storage._exerciseActionV2) }()
+        case 84: try { try decoder.decodeSingularMessageField(value: &_storage._heartDetect) }()
+        case 85: try { try decoder.decodeSingularMessageField(value: &_storage._externalGnss) }()
+        case 86: try { try decoder.decodeSingularMessageField(value: &_storage._appAbRoute) }()
+        case 87: try { try decoder.decodeSingularMessageField(value: &_storage._wifiConfig) }()
+        case 88: try { try decoder.decodeSingularMessageField(value: &_storage._sportAdjust) }()
         default: break
         }
       }
@@ -1514,6 +1612,27 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._offlineMap {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 81)
       } }()
+      try { if let v = _storage._fifaNotify {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 82)
+      } }()
+      try { if let v = _storage._exerciseActionV2 {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 83)
+      } }()
+      try { if let v = _storage._heartDetect {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 84)
+      } }()
+      try { if let v = _storage._externalGnss {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 85)
+      } }()
+      try { if let v = _storage._appAbRoute {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 86)
+      } }()
+      try { if let v = _storage._wifiConfig {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 87)
+      } }()
+      try { if let v = _storage._sportAdjust {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 88)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1604,6 +1723,13 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._routeNavigationSwitch != rhs_storage._routeNavigationSwitch {return false}
         if _storage._hrBroadcastSwitch != rhs_storage._hrBroadcastSwitch {return false}
         if _storage._offlineMap != rhs_storage._offlineMap {return false}
+        if _storage._fifaNotify != rhs_storage._fifaNotify {return false}
+        if _storage._exerciseActionV2 != rhs_storage._exerciseActionV2 {return false}
+        if _storage._heartDetect != rhs_storage._heartDetect {return false}
+        if _storage._externalGnss != rhs_storage._externalGnss {return false}
+        if _storage._appAbRoute != rhs_storage._appAbRoute {return false}
+        if _storage._wifiConfig != rhs_storage._wifiConfig {return false}
+        if _storage._sportAdjust != rhs_storage._sportAdjust {return false}
         return true
       }
       if !storagesAreEqual {return false}

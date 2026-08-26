@@ -325,23 +325,23 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/shared_preferences_foundation-2.5.4\/darwin\/shared_preferences_foundation\/Sources\/shared_preferences_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/shared_preferences_foundation-2.5.6\/darwin\/shared_preferences_foundation\/Sources\/shared_preferences_foundation\/messages.g.swift",
       "kind": "StringLiteral",
-      "offset": 4057,
+      "offset": 6193,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/shared_preferences_foundation-2.5.4\/darwin\/shared_preferences_foundation\/Sources\/shared_preferences_foundation\/messages.g.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/shared_preferences_foundation-2.5.6\/darwin\/shared_preferences_foundation\/Sources\/shared_preferences_foundation\/messages.g.swift",
       "kind": "StringLiteral",
-      "offset": 9507,
+      "offset": 11643,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/shared_preferences_foundation-2.5.4\/darwin\/shared_preferences_foundation\/Sources\/shared_preferences_foundation\/SharedPreferencesPlugin.swift",
+      "filePath": "\/Users\/bean\/.pub-cache\/hosted\/pub.flutter-io.cn\/shared_preferences_foundation-2.5.6\/darwin\/shared_preferences_foundation\/Sources\/shared_preferences_foundation\/SharedPreferencesPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 289,
+      "offset": 267,
       "length": 16,
       "value": "\"Argument Error\""
     }

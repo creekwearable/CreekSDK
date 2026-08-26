@@ -122,6 +122,9 @@ public struct protocol_music_file_inquire_reply: Sendable {
   ///max: 暂定50
   public var fileItems: [protocol_music_file_item] = []
 
+  ///总共有多少个items
+  public var totalItems: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -302,6 +305,7 @@ extension protocol_music_file_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     6: .standard(proto: "music_totol_size"),
     7: .standard(proto: "music_remain_size"),
     8: .standard(proto: "file_items"),
+    9: .standard(proto: "total_items"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -318,6 +322,7 @@ extension protocol_music_file_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
       case 6: try { try decoder.decodeSingularUInt32Field(value: &self.musicTotolSize) }()
       case 7: try { try decoder.decodeSingularUInt32Field(value: &self.musicRemainSize) }()
       case 8: try { try decoder.decodeRepeatedMessageField(value: &self.fileItems) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.totalItems) }()
       default: break
       }
     }
@@ -348,6 +353,9 @@ extension protocol_music_file_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     if !self.fileItems.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.fileItems, fieldNumber: 8)
     }
+    if self.totalItems != 0 {
+      try visitor.visitSingularUInt32Field(value: self.totalItems, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -360,6 +368,7 @@ extension protocol_music_file_inquire_reply: SwiftProtobuf.Message, SwiftProtobu
     if lhs.musicTotolSize != rhs.musicTotolSize {return false}
     if lhs.musicRemainSize != rhs.musicRemainSize {return false}
     if lhs.fileItems != rhs.fileItems {return false}
+    if lhs.totalItems != rhs.totalItems {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

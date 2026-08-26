@@ -545,6 +545,18 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///塞尔维亚语
   case serbian // = 40
+
+  ///菲律宾语
+  case filipino // = 41
+
+  ///挪威语
+  case norwegian // = 42
+
+  ///芬兰语
+  case finnish // = 43
+
+  ///丹麦语
+  case danish // = 44
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -594,6 +606,10 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 38: self = .hrvatski
     case 39: self = .azerbaizhan
     case 40: self = .serbian
+    case 41: self = .filipino
+    case 42: self = .norwegian
+    case 43: self = .finnish
+    case 44: self = .danish
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -641,6 +657,10 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .hrvatski: return 38
     case .azerbaizhan: return 39
     case .serbian: return 40
+    case .filipino: return 41
+    case .norwegian: return 42
+    case .finnish: return 43
+    case .danish: return 44
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -688,6 +708,10 @@ public enum language: SwiftProtobuf.Enum, Swift.CaseIterable {
     .hrvatski,
     .azerbaizhan,
     .serbian,
+    .filipino,
+    .norwegian,
+    .finnish,
+    .danish,
   ]
 
 }
@@ -2536,6 +2560,15 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   case ebay // = 98
   case pedidosya // = 99
   case bancaMovilBac // = 100
+  case makc // = 101
+  case yandexGo // = 102
+  case sberbankOnline // = 103
+  case wildberries // = 104
+  case andexMarket // = 105
+  case avito // = 106
+  case goldApple // = 107
+  case gosuslugi // = 108
+  case ozon // = 109
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -2645,6 +2678,15 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 98: self = .ebay
     case 99: self = .pedidosya
     case 100: self = .bancaMovilBac
+    case 101: self = .makc
+    case 102: self = .yandexGo
+    case 103: self = .sberbankOnline
+    case 104: self = .wildberries
+    case 105: self = .andexMarket
+    case 106: self = .avito
+    case 107: self = .goldApple
+    case 108: self = .gosuslugi
+    case 109: self = .ozon
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2752,6 +2794,15 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .ebay: return 98
     case .pedidosya: return 99
     case .bancaMovilBac: return 100
+    case .makc: return 101
+    case .yandexGo: return 102
+    case .sberbankOnline: return 103
+    case .wildberries: return 104
+    case .andexMarket: return 105
+    case .avito: return 106
+    case .goldApple: return 107
+    case .gosuslugi: return 108
+    case .ozon: return 109
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -2859,6 +2910,15 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .ebay,
     .pedidosya,
     .bancaMovilBac,
+    .makc,
+    .yandexGo,
+    .sberbankOnline,
+    .wildberries,
+    .andexMarket,
+    .avito,
+    .goldApple,
+    .gosuslugi,
+    .ozon,
   ]
 
 }
@@ -4746,6 +4806,21 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///番茄钟
   case tomatoAlarm // = 33
+
+  ///朝拜
+  case prayer // = 34
+
+  ///whatsapp助手
+  case whatsapp // = 35
+
+  ///ai翻译
+  case aiTranslate // = 36
+
+  /// NFC
+  case nfc // = 37
+
+  ///ai表盘
+  case aiPlate // = 38
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4788,6 +4863,11 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 31: self = .twsConnect
     case 32: self = .qrCode
     case 33: self = .tomatoAlarm
+    case 34: self = .prayer
+    case 35: self = .whatsapp
+    case 36: self = .aiTranslate
+    case 37: self = .nfc
+    case 38: self = .aiPlate
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4828,6 +4908,11 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .twsConnect: return 31
     case .qrCode: return 32
     case .tomatoAlarm: return 33
+    case .prayer: return 34
+    case .whatsapp: return 35
+    case .aiTranslate: return 36
+    case .nfc: return 37
+    case .aiPlate: return 38
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4868,6 +4953,11 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     .twsConnect,
     .qrCode,
     .tomatoAlarm,
+    .prayer,
+    .whatsapp,
+    .aiTranslate,
+    .nfc,
+    .aiPlate,
   ]
 
 }
@@ -6048,6 +6138,45 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///沙滩网球
   case beachTennis // = 227
+
+  ///混合训练
+  case hybridExercise // = 228
+
+  ///滑雪机
+  case skierg // = 229
+
+  ///推雪橇
+  case sledPush // = 230
+
+  ///拉雪橇
+  case sledPull // = 231
+
+  ///波比跳远
+  case burpeeBroadJumps // = 232
+
+  ///划船机
+  case rowing // = 233
+
+  ///农夫搬运
+  case farmersCarry // = 234
+
+  ///沙袋弓步蹲
+  case sandbagLungs // = 235
+
+  ///水肺潜水
+  case scubaDiving // = 236
+
+  ///弓步蹲
+  case lungs // = 237
+
+  ///相扑
+  case sumo // = 238
+
+  ///肱二头肌训练
+  case biceps // = 239
+
+  ///肱三头肌训练
+  case triceps // = 240
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -6284,6 +6413,19 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 225: self = .walk
     case 226: self = .verticalJump
     case 227: self = .beachTennis
+    case 228: self = .hybridExercise
+    case 229: self = .skierg
+    case 230: self = .sledPush
+    case 231: self = .sledPull
+    case 232: self = .burpeeBroadJumps
+    case 233: self = .rowing
+    case 234: self = .farmersCarry
+    case 235: self = .sandbagLungs
+    case 236: self = .scubaDiving
+    case 237: self = .lungs
+    case 238: self = .sumo
+    case 239: self = .biceps
+    case 240: self = .triceps
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -6518,6 +6660,19 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .walk: return 225
     case .verticalJump: return 226
     case .beachTennis: return 227
+    case .hybridExercise: return 228
+    case .skierg: return 229
+    case .sledPush: return 230
+    case .sledPull: return 231
+    case .burpeeBroadJumps: return 232
+    case .rowing: return 233
+    case .farmersCarry: return 234
+    case .sandbagLungs: return 235
+    case .scubaDiving: return 236
+    case .lungs: return 237
+    case .sumo: return 238
+    case .biceps: return 239
+    case .triceps: return 240
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -6752,6 +6907,19 @@ public enum sport_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .walk,
     .verticalJump,
     .beachTennis,
+    .hybridExercise,
+    .skierg,
+    .sledPush,
+    .sledPull,
+    .burpeeBroadJumps,
+    .rowing,
+    .farmersCarry,
+    .sandbagLungs,
+    .scubaDiving,
+    .lungs,
+    .sumo,
+    .biceps,
+    .triceps,
   ]
 
 }
@@ -9065,6 +9233,230 @@ public enum log_tran_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum match_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未定义状态，默认值
+  case unspecified // = 0
+
+  /// 未开赛：比赛尚未开始，展示开赛时间
+  case notStarted // = 1
+
+  /// 常规时间：比赛进行中（不含加时/点球）
+  case inProgress // = 2
+
+  /// 中场休息：半场间歇，比分保持当前值
+  case `break` // = 3
+
+  /// 加时赛：常规时间结束后进入加时
+  case extraTime // = 4
+
+  /// 点球大战：加时赛后进入点球决胜
+  case penaltyShootout // = 5
+
+  /// 已结束：比赛完结，手表端比较 score_a/score_b 高亮赢球方
+  case finished // = 6
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .notStarted
+    case 2: self = .inProgress
+    case 3: self = .break
+    case 4: self = .extraTime
+    case 5: self = .penaltyShootout
+    case 6: self = .finished
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .notStarted: return 1
+    case .inProgress: return 2
+    case .break: return 3
+    case .extraTime: return 4
+    case .penaltyShootout: return 5
+    case .finished: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [match_status] = [
+    .unspecified,
+    .notStarted,
+    .inProgress,
+    .break,
+    .extraTime,
+    .penaltyShootout,
+    .finished,
+  ]
+
+}
+
+public enum goal_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未定义
+  case unspecified // = 0
+
+  /// 普通进球 Goal!，无需展示备注
+  case normal // = 1
+
+  /// 乌龙球，备注 (OG)
+  case ownGoal // = 2
+
+  /// 定位球，备注 (SPG)
+  case setPiece // = 3
+
+  /// 点球进球，备注 (PEN)
+  case penalty // = 4
+
+  /// 点球大战进球，备注 (PSO)
+  case pso // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .normal
+    case 2: self = .ownGoal
+    case 3: self = .setPiece
+    case 4: self = .penalty
+    case 5: self = .pso
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .normal: return 1
+    case .ownGoal: return 2
+    case .setPiece: return 3
+    case .penalty: return 4
+    case .pso: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [goal_type] = [
+    .unspecified,
+    .normal,
+    .ownGoal,
+    .setPiece,
+    .penalty,
+    .pso,
+  ]
+
+}
+
+public enum msg_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未定义消息类型
+  case msgUnspecified // = 0
+
+  /// 比赛列表全量同步：比分更新/状态变化/首次连接时下发
+  case msgMatchList // = 1
+
+  /// 进球事件通知：触发手表弹窗超级通知
+  case msgGoalEvent // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .msgUnspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .msgUnspecified
+    case 1: self = .msgMatchList
+    case 2: self = .msgGoalEvent
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .msgUnspecified: return 0
+    case .msgMatchList: return 1
+    case .msgGoalEvent: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [msg_type] = [
+    .msgUnspecified,
+    .msgMatchList,
+    .msgGoalEvent,
+  ]
+
+}
+
+public enum Segments_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case segmentRun // = 0
+  case segmentWorkout // = 1
+  case segmentReset // = 2
+  case segmentSwim // = 3
+  case segmentBike // = 4
+  case segmentTransition // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .segmentRun
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .segmentRun
+    case 1: self = .segmentWorkout
+    case 2: self = .segmentReset
+    case 3: self = .segmentSwim
+    case 4: self = .segmentBike
+    case 5: self = .segmentTransition
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .segmentRun: return 0
+    case .segmentWorkout: return 1
+    case .segmentReset: return 2
+    case .segmentSwim: return 3
+    case .segmentBike: return 4
+    case .segmentTransition: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Segments_type] = [
+    .segmentRun,
+    .segmentWorkout,
+    .segmentReset,
+    .segmentSwim,
+    .segmentBike,
+    .segmentTransition,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -9183,6 +9575,10 @@ extension language: SwiftProtobuf._ProtoNameProviding {
     38: .same(proto: "HRVATSKI"),
     39: .same(proto: "AZERBAIZHAN"),
     40: .same(proto: "SERBIAN"),
+    41: .same(proto: "FILIPINO"),
+    42: .same(proto: "NORWEGIAN"),
+    43: .same(proto: "FINNISH"),
+    44: .same(proto: "DANISH"),
   ]
 }
 
@@ -9587,6 +9983,15 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     98: .same(proto: "EBAY"),
     99: .same(proto: "PEDIDOSYA"),
     100: .same(proto: "BANCA_MOVIL_BAC"),
+    101: .same(proto: "MAKC"),
+    102: .same(proto: "YANDEX_GO"),
+    103: .same(proto: "SBERBANK_ONLINE"),
+    104: .same(proto: "WILDBERRIES"),
+    105: .same(proto: "ANDEX_MARKET"),
+    106: .same(proto: "AVITO"),
+    107: .same(proto: "GOLD_APPLE"),
+    108: .same(proto: "GOSUSLUGI"),
+    109: .same(proto: "OZON"),
   ]
 }
 
@@ -9954,6 +10359,11 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     31: .same(proto: "APP_LIST_TWS_CONNECT"),
     32: .same(proto: "APP_LIST_QR_CODE"),
     33: .same(proto: "APP_LIST_TOMATO_ALARM"),
+    34: .same(proto: "APP_LIST_PRAYER"),
+    35: .same(proto: "APP_LIST_WHATSAPP"),
+    36: .same(proto: "APP_LIST_AI_TRANSLATE"),
+    37: .same(proto: "APP_LIST_NFC"),
+    38: .same(proto: "APP_LIST_AI_PLATE"),
   ]
 }
 
@@ -10281,6 +10691,19 @@ extension sport_type: SwiftProtobuf._ProtoNameProviding {
     225: .same(proto: "WALK"),
     226: .same(proto: "VERTICAL_JUMP"),
     227: .same(proto: "BEACH_TENNIS"),
+    228: .same(proto: "HYBRID_EXERCISE"),
+    229: .same(proto: "SKIERG"),
+    230: .same(proto: "SLED_PUSH"),
+    231: .same(proto: "SLED_PULL"),
+    232: .same(proto: "BURPEE_BROAD_JUMPS"),
+    233: .same(proto: "ROWING"),
+    234: .same(proto: "FARMERS_CARRY"),
+    235: .same(proto: "SANDBAG_LUNGS"),
+    236: .same(proto: "SCUBA_DIVING"),
+    237: .same(proto: "LUNGS"),
+    238: .same(proto: "SUMO"),
+    239: .same(proto: "BICEPS"),
+    240: .same(proto: "TRICEPS"),
   ]
 }
 
@@ -10700,5 +11123,47 @@ extension log_tran_type: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "NORMAL_LOG"),
     1: .same(proto: "REBOOT_LOG"),
     2: .same(proto: "COREDUMP_LOG"),
+  ]
+}
+
+extension match_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MATCH_STATUS_UNSPECIFIED"),
+    1: .same(proto: "MATCH_STATUS_NOT_STARTED"),
+    2: .same(proto: "MATCH_STATUS_IN_PROGRESS"),
+    3: .same(proto: "MATCH_STATUS_BREAK"),
+    4: .same(proto: "MATCH_STATUS_EXTRA_TIME"),
+    5: .same(proto: "MATCH_STATUS_PENALTY_SHOOTOUT"),
+    6: .same(proto: "MATCH_STATUS_FINISHED"),
+  ]
+}
+
+extension goal_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "GOAL_TYPE_UNSPECIFIED"),
+    1: .same(proto: "GOAL_TYPE_NORMAL"),
+    2: .same(proto: "GOAL_TYPE_OWN_GOAL"),
+    3: .same(proto: "GOAL_TYPE_SET_PIECE"),
+    4: .same(proto: "GOAL_TYPE_PENALTY"),
+    5: .same(proto: "GOAL_TYPE_PSO"),
+  ]
+}
+
+extension msg_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MSG_UNSPECIFIED"),
+    1: .same(proto: "MSG_MATCH_LIST"),
+    2: .same(proto: "MSG_GOAL_EVENT"),
+  ]
+}
+
+extension Segments_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SEGMENT_RUN"),
+    1: .same(proto: "SEGMENT_WORKOUT"),
+    2: .same(proto: "SEGMENT_RESET"),
+    3: .same(proto: "SEGMENT_SWIM"),
+    4: .same(proto: "SEGMENT_BIKE"),
+    5: .same(proto: "SEGMENT_TRANSITION"),
   ]
 }
