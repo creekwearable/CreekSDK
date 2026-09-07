@@ -96,6 +96,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Get BloodPressure",
       "Set Volume",
       "Get Volume",
+      "Dynamic Sport Adjust",
       "Sport live",
       "Health Measure",
       "getWatchReminderWitch",
@@ -534,7 +535,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    }
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      switch allOptions[indexPath.row] {
+      let selectedOption = filteredOptions[indexPath.row]
+      switch selectedOption {
       case "Upload (Music)":
          let vc = MusicUploadViewController()
          self.navigationController?.pushViewController(vc, animated: true)
@@ -555,14 +557,18 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          let vc = SportsLiveViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
+      case "Dynamic Sport Adjust":
+         let vc = SportAdjustViewController()
+         self.navigationController?.pushViewController(vc, animated: true)
+         break
       case "Health Measure":
          let vc = HealthMeasureViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
       default:
          let vc = CommandReplyViewController()
-         vc.title = allOptions[indexPath.row]
-         vc.titleStr = allOptions[indexPath.row]
+         vc.title = selectedOption
+         vc.titleStr = selectedOption
          self.navigationController?.pushViewController(vc, animated: true)
       }
    }
@@ -594,4 +600,3 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    }
    
 }
-
