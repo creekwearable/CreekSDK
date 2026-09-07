@@ -280,8 +280,13 @@ public enum SportType: Int, Codable {
    case SLED_PULL = 231                    // Sled pull
    case BURPEE_BROAD_JUMPS = 232           // Burpee broad jumps
    case ROWING = 233                       // Rowing machine
-   case  FARMERS_CARRY = 234                // Farmer's carry
+   case FARMERS_CARRY = 234                // Farmer's carry
    case SANDBAG_LUNGS = 235                // Sandbag lunges
+   case SCUBA_DIVING = 236                 // Scuba diving
+   case LUNGS = 237                        // Lunges
+   case SUMO = 238                         // Sumo
+   case BICEPS = 239                       // Biceps training
+   case TRICEPS = 240                      // Triceps training
 }
 
 
@@ -452,6 +457,5 @@ public enum AzureRegionType: Int {
     /// 东南亚（新加坡）
     case southeastasia = 8
 }
-
 
 
