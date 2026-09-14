@@ -1140,6 +1140,35 @@ extension CreekSDK{
       
       
    }
+
+   /// Query the device's current dynamic sport list.
+   public func getSportAdjust(model:@escaping sportAdjustBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "getSportAdjust\(requestId)"
+         sportAdjustDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+
+   /// Insert or delete sports in the device's dynamic sport list.
+   public func setSportAdjust(model:protocol_sport_adjust_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "setSportAdjust\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         do {
+            let data = try model.serializedData()
+            methodChannel?.invokeMethod(methodName, arguments: data)
+         } catch {
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+            failure(-1, "Failed to serialize sport adjust data")
+         }
+      }
+   }
    
    ///MARK :Equipment motion arrangement order setting
    /// - Parameter :

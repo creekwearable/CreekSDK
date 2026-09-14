@@ -56,6 +56,7 @@ public typealias sosContactsBase = (_ model:protocol_emergency_contacts_inquire_
 public typealias cardBase = (_ model:protocol_quick_card_inquire_reply) -> ()
 public typealias sportTypeBase = (_ model:protocol_exercise_func_support_reply) -> ()
 public typealias sportSortBase = (_ model:protocol_exercise_sport_mode_sort_inquire_reply) -> ()
+public typealias sportAdjustBase = (_ model:protocol_sport_adjust_inquire_reply) -> ()
 public typealias sportSubBase = (_ model:protocol_exercise_sporting_param_sort_inquire_reply) -> ()
 public typealias sportIdentificationBase = (_ model:protocol_exercise_intelligent_recognition_inquire_reply) -> ()
 public typealias watchDialBase = (_ model:protocol_watch_dial_plate_inquire_reply) -> ()
@@ -165,6 +166,7 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
    var cardDic:[String:cardBase] = [:]                 //Quick card
    var sportTypeDic:[String:sportTypeBase] = [:]       //Device supports sports types
    var sportSortDic:[String:sportSortBase] = [:]      //
+   var sportAdjustDic:[String:sportAdjustBase] = [:]  //Dynamic sport list
    var sportSubDic:[String:sportSubBase] = [:]       //
    var sportIdentificationDic:[String:sportIdentificationBase] = [:]      //Motion self-recognition
    var watchDialDic:[String:watchDialBase] = [:]       //dial
@@ -785,6 +787,24 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
          
          
          
+      }
+      else if(call.method.contains("getSportAdjust")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_sport_adjust_inquire_reply(serializedData: response.data,partial: true)
+               if let back = sportAdjustDic[call.method]{
+                  back(model)
+                  sportAdjustDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               print("Error converting sport adjust data: \(error.localizedDescription)")
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse sport adjust data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+               sportAdjustDic.removeValue(forKey: call.method)
+            }
+         }
       }
       else if(call.method.contains("getSportSort")){
          if let response = call.arguments as? FlutterStandardTypedData{
@@ -2370,7 +2390,6 @@ extension CreekSDK{
       return status;
    }
 }
-
 
 
 

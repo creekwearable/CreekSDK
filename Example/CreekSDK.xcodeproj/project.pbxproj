@@ -147,6 +147,7 @@
 		079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F22E9605720088C49A /* SportsLiveViewController.swift */; };
 		079D06F52E9611BF0088C49A /* GlobalListenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F42E9611BF0088C49A /* GlobalListenManager.swift */; };
 		079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */; };
+		A17E0001305A000100000001 /* SportAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0001305A000100000002 /* SportAdjustViewController.swift */; };
 		079D06F92E9964410088C49A /* commonError.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F82E9964410088C49A /* commonError.pb.swift */; };
 		079D06FB2E9DF1170088C49A /* FindPhoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */; };
 		079D06FD2E9DF2520088C49A /* find_phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 079D06FC2E9DF2520088C49A /* find_phone.mp3 */; };
@@ -321,6 +322,7 @@
 		079D06F22E9605720088C49A /* SportsLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsLiveViewController.swift; sourceTree = "<group>"; };
 		079D06F42E9611BF0088C49A /* GlobalListenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalListenManager.swift; sourceTree = "<group>"; };
 		079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMeasureViewController.swift; sourceTree = "<group>"; };
+		A17E0001305A000100000002 /* SportAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportAdjustViewController.swift; sourceTree = "<group>"; };
 		079D06F82E9964410088C49A /* commonError.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonError.pb.swift; sourceTree = "<group>"; };
 		079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPhoneManager.swift; sourceTree = "<group>"; };
 		079D06FC2E9DF2520088C49A /* find_phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_phone.mp3; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 				07266C3D2DAFEA29000F8BED /* OTAViewController.swift */,
 				079D06F22E9605720088C49A /* SportsLiveViewController.swift */,
 				079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */,
+				A17E0001305A000100000002 /* SportAdjustViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -1066,6 +1069,7 @@
 				079A21632B29A71B00F5D013 /* CreekSDKExtension.swift in Sources */,
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
 				079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */,
+				A17E0001305A000100000001 /* SportAdjustViewController.swift in Sources */,
 				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,
 				07266C342DAD1CAB000F8BED /* MusicViewController.swift in Sources */,
 				07266C3A2DAFBBB4000F8BED /* RouteViewController.swift in Sources */,
