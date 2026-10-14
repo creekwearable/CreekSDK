@@ -920,6 +920,66 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `sportAdjust`. Subsequent reads from it will return its default value.
   public mutating func clearSportAdjust() {_uniqueStorage()._sportAdjust = nil}
 
+  ///是否支持NFC 银行卡配置
+  public var nfcCard: function_table {
+    get {return _storage._nfcCard ?? function_table()}
+    set {_uniqueStorage()._nfcCard = newValue}
+  }
+  /// Returns true if `nfcCard` has been explicitly set.
+  public var hasNfcCard: Bool {return _storage._nfcCard != nil}
+  /// Clears the value of `nfcCard`. Subsequent reads from it will return its default value.
+  public mutating func clearNfcCard() {_uniqueStorage()._nfcCard = nil}
+
+  ///支持音乐配置文件
+  public var musicConfigFile: function_table {
+    get {return _storage._musicConfigFile ?? function_table()}
+    set {_uniqueStorage()._musicConfigFile = newValue}
+  }
+  /// Returns true if `musicConfigFile` has been explicitly set.
+  public var hasMusicConfigFile: Bool {return _storage._musicConfigFile != nil}
+  /// Clears the value of `musicConfigFile`. Subsequent reads from it will return its default value.
+  public mutating func clearMusicConfigFile() {_uniqueStorage()._musicConfigFile = nil}
+
+  ///常用联系人(v2)
+  public var frequentContactsV2: function_table {
+    get {return _storage._frequentContactsV2 ?? function_table()}
+    set {_uniqueStorage()._frequentContactsV2 = newValue}
+  }
+  /// Returns true if `frequentContactsV2` has been explicitly set.
+  public var hasFrequentContactsV2: Bool {return _storage._frequentContactsV2 != nil}
+  /// Clears the value of `frequentContactsV2`. Subsequent reads from it will return its default value.
+  public mutating func clearFrequentContactsV2() {_uniqueStorage()._frequentContactsV2 = nil}
+
+  ///是否支持铃声
+  public var ringtone: function_table {
+    get {return _storage._ringtone ?? function_table()}
+    set {_uniqueStorage()._ringtone = newValue}
+  }
+  /// Returns true if `ringtone` has been explicitly set.
+  public var hasRingtone: Bool {return _storage._ringtone != nil}
+  /// Clears the value of `ringtone`. Subsequent reads from it will return its default value.
+  public mutating func clearRingtone() {_uniqueStorage()._ringtone = nil}
+
+  ///日程版本2 main_id:0x37 sub_cmd:0x01
+  public var calendarV2: function_table {
+    get {return _storage._calendarV2 ?? function_table()}
+    set {_uniqueStorage()._calendarV2 = newValue}
+  }
+  /// Returns true if `calendarV2` has been explicitly set.
+  public var hasCalendarV2: Bool {return _storage._calendarV2 != nil}
+  /// Clears the value of `calendarV2`. Subsequent reads from it will return its default value.
+  public mutating func clearCalendarV2() {_uniqueStorage()._calendarV2 = nil}
+
+  ///是否支持录音
+  public var voiceMemo: function_table {
+    get {return _storage._voiceMemo ?? function_table()}
+    set {_uniqueStorage()._voiceMemo = newValue}
+  }
+  /// Returns true if `voiceMemo` has been explicitly set.
+  public var hasVoiceMemo: Bool {return _storage._voiceMemo != nil}
+  /// Clears the value of `voiceMemo`. Subsequent reads from it will return its default value.
+  public mutating func clearVoiceMemo() {_uniqueStorage()._voiceMemo = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1058,6 +1118,12 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     86: .standard(proto: "app_ab_route"),
     87: .standard(proto: "wifi_config"),
     88: .standard(proto: "sport_adjust"),
+    89: .standard(proto: "nfc_card"),
+    90: .standard(proto: "music_config_file"),
+    91: .standard(proto: "frequent_contacts_v2"),
+    92: .same(proto: "ringtone"),
+    93: .standard(proto: "calendar_v2"),
+    94: .standard(proto: "voice_memo"),
   ]
 
   fileprivate class _StorageClass {
@@ -1149,6 +1215,12 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _appAbRoute: function_table? = nil
     var _wifiConfig: function_table? = nil
     var _sportAdjust: function_table? = nil
+    var _nfcCard: function_table? = nil
+    var _musicConfigFile: function_table? = nil
+    var _frequentContactsV2: function_table? = nil
+    var _ringtone: function_table? = nil
+    var _calendarV2: function_table? = nil
+    var _voiceMemo: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1251,6 +1323,12 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _appAbRoute = source._appAbRoute
       _wifiConfig = source._wifiConfig
       _sportAdjust = source._sportAdjust
+      _nfcCard = source._nfcCard
+      _musicConfigFile = source._musicConfigFile
+      _frequentContactsV2 = source._frequentContactsV2
+      _ringtone = source._ringtone
+      _calendarV2 = source._calendarV2
+      _voiceMemo = source._voiceMemo
     }
   }
 
@@ -1357,6 +1435,12 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 86: try { try decoder.decodeSingularMessageField(value: &_storage._appAbRoute) }()
         case 87: try { try decoder.decodeSingularMessageField(value: &_storage._wifiConfig) }()
         case 88: try { try decoder.decodeSingularMessageField(value: &_storage._sportAdjust) }()
+        case 89: try { try decoder.decodeSingularMessageField(value: &_storage._nfcCard) }()
+        case 90: try { try decoder.decodeSingularMessageField(value: &_storage._musicConfigFile) }()
+        case 91: try { try decoder.decodeSingularMessageField(value: &_storage._frequentContactsV2) }()
+        case 92: try { try decoder.decodeSingularMessageField(value: &_storage._ringtone) }()
+        case 93: try { try decoder.decodeSingularMessageField(value: &_storage._calendarV2) }()
+        case 94: try { try decoder.decodeSingularMessageField(value: &_storage._voiceMemo) }()
         default: break
         }
       }
@@ -1633,6 +1717,24 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._sportAdjust {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 88)
       } }()
+      try { if let v = _storage._nfcCard {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 89)
+      } }()
+      try { if let v = _storage._musicConfigFile {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 90)
+      } }()
+      try { if let v = _storage._frequentContactsV2 {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 91)
+      } }()
+      try { if let v = _storage._ringtone {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 92)
+      } }()
+      try { if let v = _storage._calendarV2 {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 93)
+      } }()
+      try { if let v = _storage._voiceMemo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 94)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1730,6 +1832,12 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._appAbRoute != rhs_storage._appAbRoute {return false}
         if _storage._wifiConfig != rhs_storage._wifiConfig {return false}
         if _storage._sportAdjust != rhs_storage._sportAdjust {return false}
+        if _storage._nfcCard != rhs_storage._nfcCard {return false}
+        if _storage._musicConfigFile != rhs_storage._musicConfigFile {return false}
+        if _storage._frequentContactsV2 != rhs_storage._frequentContactsV2 {return false}
+        if _storage._ringtone != rhs_storage._ringtone {return false}
+        if _storage._calendarV2 != rhs_storage._calendarV2 {return false}
+        if _storage._voiceMemo != rhs_storage._voiceMemo {return false}
         return true
       }
       if !storagesAreEqual {return false}

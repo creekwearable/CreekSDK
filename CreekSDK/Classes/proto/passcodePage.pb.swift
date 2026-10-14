@@ -20,44 +20,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum passcode_type: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-
-  ///无效/未设置
-  case null // = 0
-
-  ///重置
-  case reset // = 1
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .null
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .null
-    case 1: self = .reset
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .null: return 0
-    case .reset: return 1
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [passcode_type] = [
-    .null,
-    .reset,
-  ]
-
-}
-
 public struct protocol_passcode_operate: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -88,19 +50,15 @@ public struct protocol_passcode_inquire_reply: Sendable {
   /// 操作类型
   public var passcodeFlag: passcode_type = .null
 
+  /// 是否已设置密码 false：未设置 true：已设置
+  public var isPasscodeSet: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-extension passcode_type: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PASSCODE_TYPE_NULL"),
-    1: .same(proto: "RESET"),
-  ]
-}
 
 extension protocol_passcode_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_passcode_operate"
@@ -146,6 +104,7 @@ extension protocol_passcode_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     1: .standard(proto: "func_table"),
     2: .same(proto: "operate"),
     3: .standard(proto: "passcode_flag"),
+    4: .standard(proto: "is_passcode_set"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -157,6 +116,7 @@ extension protocol_passcode_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
       case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.passcodeFlag) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.isPasscodeSet) }()
       default: break
       }
     }
@@ -172,6 +132,9 @@ extension protocol_passcode_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     if self.passcodeFlag != .null {
       try visitor.visitSingularEnumField(value: self.passcodeFlag, fieldNumber: 3)
     }
+    if self.isPasscodeSet != false {
+      try visitor.visitSingularBoolField(value: self.isPasscodeSet, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -179,6 +142,7 @@ extension protocol_passcode_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.funcTable != rhs.funcTable {return false}
     if lhs.operate != rhs.operate {return false}
     if lhs.passcodeFlag != rhs.passcodeFlag {return false}
+    if lhs.isPasscodeSet != rhs.isPasscodeSet {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
