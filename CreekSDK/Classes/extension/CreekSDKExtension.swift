@@ -2028,7 +2028,7 @@ extension CreekSDK{
          }
       }
    }
-   
+
    public func getWatchDirection(model:@escaping watchDirectionBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
@@ -2106,6 +2106,7 @@ extension CreekSDK{
          }
       }
    }
+
    public func delMusicList(model:protocol_music_file_operate,success:@escaping successBase,failure:@escaping failureArgument) {
       serialQueue.sync {
          requestId+=1
@@ -3181,10 +3182,139 @@ extension CreekSDK{
          }
       }
    }
-   
-   
-   
-   
-   
-   
+
+   /// Get all calendar V2 records. Pagination is handled by the Flutter bridge.
+   public func getCalendarListV2(model:@escaping calendarV2Base,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "getCalendarListV2\(requestId)"
+         calendarV2Dic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+
+   /// Insert or update calendar V2 records.
+   public func upsertCalendarV2(items:[calendar_v2_item],success:@escaping successBase,failure:@escaping failureArgument) {
+      var operate = protocol_calendar_v2_operate()
+      operate.operate = .calendarV2Upsert
+      operate.calendarItem = items
+      sendCalendarV2Operate(methodPrefix: "upsertCalendarV2", operate: operate, success: success, failure: failure)
+   }
+
+   /// Delete records or acknowledge firmware deletion tombstones by ID.
+   public func deleteCalendarV2(items:[calendar_v2_item],success:@escaping successBase,failure:@escaping failureArgument) {
+      var operate = protocol_calendar_v2_operate()
+      operate.operate = .calendarV2Delete
+      operate.calendarItem = items
+      sendCalendarV2Operate(methodPrefix: "deleteCalendarV2", operate: operate, success: success, failure: failure)
+   }
+
+   /// Get the ringtone list, default ringtone and storage information.
+   public func getRingtoneList(model:@escaping ringtoneBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "getRingtoneList\(requestId)"
+         ringtoneDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: "")
+      }
+   }
+
+   /// Convert an audio file into the ringtone stream required by `uploadRingtone`.
+   /// Audio longer than 10 seconds is truncated by the Flutter implementation.
+   public func convertRingtone(fileData:Data,success:@escaping ringtoneDataBase,failure:@escaping failureArgument) {
+      guard !fileData.isEmpty else {
+         failure(-1, "The audio file is empty")
+         return
+      }
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "convertRingtone\(requestId)"
+         ringtoneDataDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: fileData)
+      }
+   }
+
+   /// Upload the stream returned by `convertRingtone`.
+   public func uploadRingtone(model:CreekRingtoneModel,convertedData:Data,progress:@escaping progressBase,success:@escaping successBase,failure:@escaping failureArgument) {
+      guard !convertedData.isEmpty else {
+         failure(-1, "The converted ringtone data is empty")
+         return
+      }
+      serialQueue.sync {
+         requestId += 1
+         // Keep the public API named `uploadRingtone`, while using a channel
+         // name that cannot be captured by the generic `upload` route.
+         let methodName = "ringtoneUpload\(requestId)"
+         progressDic[methodName] = progress
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         do {
+            let data = try JSONEncoder().encode(model)
+            guard let json = String(data: data, encoding: .utf8) else {
+               throw NSError(domain: "CreekSDK.Ringtone", code: -1)
+            }
+            methodChannel?.invokeMethod(methodName, arguments: [json, convertedData])
+         } catch {
+            progressDic.removeValue(forKey: methodName)
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+            failure(-1, "Failed to serialize ringtone metadata")
+         }
+      }
+   }
+
+   /// Select a built-in or custom ringtone as the default ringtone.
+   public func setDefaultRingtone(ringtoneId:UInt32,success:@escaping successBase,failure:@escaping failureArgument) {
+      var operate = protocol_ringtone_operate()
+      operate.operate = .ringtoneSetDefault
+      operate.defaultRingtoneID = ringtoneId
+      sendRingtoneOperate(methodPrefix: "setDefaultRingtone", operate: operate, success: success, failure: failure)
+   }
+
+   /// Delete custom ringtones. Built-in ringtone IDs must not be supplied.
+   public func deleteCustomRingtones(ringtoneIds:[UInt32],success:@escaping successBase,failure:@escaping failureArgument) {
+      guard !ringtoneIds.isEmpty else {
+         failure(-1, "Please select at least one ringtone")
+         return
+      }
+      var operate = protocol_ringtone_operate()
+      operate.operate = .ringtoneDelete
+      operate.ringtoneIds = Array(Set(ringtoneIds)).sorted()
+      sendRingtoneOperate(methodPrefix: "deleteCustomRingtones", operate: operate, success: success, failure: failure)
+   }
+
+   private func sendCalendarV2Operate(methodPrefix:String,operate:protocol_calendar_v2_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "\(methodPrefix)\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         do {
+            methodChannel?.invokeMethod(methodName, arguments: try operate.serializedData())
+         } catch {
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+            failure(-1, "Failed to serialize calendar V2 data")
+         }
+      }
+   }
+
+   private func sendRingtoneOperate(methodPrefix:String,operate:protocol_ringtone_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "\(methodPrefix)\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         do {
+            methodChannel?.invokeMethod(methodName, arguments: try operate.serializedData())
+         } catch {
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+            failure(-1, "Failed to serialize ringtone data")
+         }
+      }
+   }
 }

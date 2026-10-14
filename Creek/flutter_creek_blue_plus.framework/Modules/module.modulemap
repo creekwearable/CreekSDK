@@ -1,0 +1,6 @@
+framework module flutter_creek_blue_plus {
+  umbrella header "flutter_creek_blue_plus-umbrella.h"
+
+  export *
+  module * { export * }
+}

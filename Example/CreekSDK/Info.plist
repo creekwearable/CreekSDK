@@ -31,6 +31,8 @@
 	<string>\"xxxxx\" needs to access your Bluetooth to connect external devices for communication</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Access most functions for calendar viewing and editing.</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Access calendars to synchronize events with the connected device.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>\"xxxxx\" needs to access your</string>
 	<key>NSContactsUsageDescription</key>

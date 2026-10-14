@@ -40,7 +40,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CreekSDK: b9eec8c3dc1be5f30a8f82326071627b7dc547fe
+  CreekSDK: 1327c60f3005fd49e872a89c5b1d4c78fa091449
   CropViewController: af08195d81dc2b8e5778b1361c03986c2f0b50f9
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MicrosoftCognitiveServicesSpeech-iOS: c5f34dacbd69f7a28218c206aae757f5e2598606

@@ -81,6 +81,9 @@ public typealias listenDeviceBase = (_ status:connectionStatus,_ deviceName:Stri
 public typealias gpsBase = () -> (EphemerisGPSModel)
 
 public typealias calendarBase = (_ model:protocol_calendar_inquire_reply) -> ()
+public typealias calendarV2Base = (_ model:protocol_calendar_v2_inquire_reply) -> ()
+public typealias ringtoneBase = (_ model:protocol_ringtone_inquire_reply) -> ()
+public typealias ringtoneDataBase = (_ data:Data) -> ()
 public typealias watchDirectionBase = (_ model:protocol_watch_direction_inquire_reply) -> ()
 public typealias healthSnapshotBase = (_ model:protocol_health_snap_inquire_reply) -> ()
 public typealias musicBase = (_ model:protocol_music_file_inquire_reply) -> ()
@@ -111,6 +114,7 @@ public typealias hydrateAssistantBase = (_ model:protocol_hydrate_assistant_inqu
 public typealias sportGpsBase = () -> (GPSModel)
 public typealias commonErrorBase = (_ model: CommonError) -> ()
 public typealias hydrateAssistantConfigBase = (_ model:protocol_hydrate_assistant_setting_inquire_reply) -> ()
+
 public typealias deviceStatusBase = (_ model: protocol_device_status_inquire_reply) -> ()
 public typealias hydrateAssistantSupportTypeBase = (_ model:protocol_hydrate_assistant_support_reply) -> ()
 public typealias prayerBase = (_ model: protocol_prayer_inquire_reply) -> ()
@@ -211,6 +215,9 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
    var _voiceAssistantFeatureConfigListen:((_ model:protocol_ai_feature_notify_operate) -> ())?
    var _hydrateAssistantUpdateListen:((_ model:protocol_hydrate_assistant_update_notify_operate) -> ())?
    var calendarDic:[String:calendarBase] = [:]
+   var calendarV2Dic:[String:calendarV2Base] = [:]
+   var ringtoneDic:[String:ringtoneBase] = [:]
+   var ringtoneDataDic:[String:ringtoneDataBase] = [:]
    var watchDirectionDic:[String:watchDirectionBase] = [:]
    var healthSnapshotDic:[String:healthSnapshotBase] = [:]
    var musicDic:[String:musicBase] = [:]
@@ -1604,6 +1611,24 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
             back();
          }
       }
+      else if(call.method.contains("getCalendarListV2")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_calendar_v2_inquire_reply(serializedData: response.data,partial: true)
+               if let back = calendarV2Dic[call.method]{
+                  back(model)
+                  calendarV2Dic.removeValue(forKey: call.method)
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse calendar V2 data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+               calendarV2Dic.removeValue(forKey: call.method)
+            }
+         }
+      }
       else if(call.method.contains("getCalendar")){
          if let response = call.arguments as? FlutterStandardTypedData{
             do{
@@ -1673,6 +1698,32 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
             }
          }
          
+      }
+      else if(call.method.contains("convertRingtone")){
+         if let response = call.arguments as? FlutterStandardTypedData,
+            let back = ringtoneDataDic[call.method] {
+            back(response.data)
+            ringtoneDataDic.removeValue(forKey: call.method)
+            failureArgumentDic.removeValue(forKey: call.method)
+         }
+      }
+      else if(call.method.contains("getRingtoneList")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_ringtone_inquire_reply(serializedData: response.data,partial: true)
+               if let back = ringtoneDic[call.method]{
+                  back(model)
+                  ringtoneDic.removeValue(forKey: call.method)
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse ringtone data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+               ringtoneDic.removeValue(forKey: call.method)
+            }
+         }
       }
       else if(call.method.contains("getCourse")){
          if let response = call.arguments as? FlutterStandardTypedData{
@@ -2390,7 +2441,3 @@ extension CreekSDK{
       return status;
    }
 }
-
-
-
-
