@@ -1,0 +1,11 @@
+framework module flutter_creek_contacts {
+  umbrella header "flutter_creek_contacts-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module flutter_creek_contacts.Swift {
+  header "flutter_creek_contacts-Swift.h"
+  requires objc
+}

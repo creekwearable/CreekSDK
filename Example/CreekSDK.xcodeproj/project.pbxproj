@@ -147,7 +147,6 @@
 		079D06F32E9605720088C49A /* SportsLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F22E9605720088C49A /* SportsLiveViewController.swift */; };
 		079D06F52E9611BF0088C49A /* GlobalListenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F42E9611BF0088C49A /* GlobalListenManager.swift */; };
 		079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */; };
-		A17E0001305A000100000001 /* SportAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0001305A000100000002 /* SportAdjustViewController.swift */; };
 		079D06F92E9964410088C49A /* commonError.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06F82E9964410088C49A /* commonError.pb.swift */; };
 		079D06FB2E9DF1170088C49A /* FindPhoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */; };
 		079D06FD2E9DF2520088C49A /* find_phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 079D06FC2E9DF2520088C49A /* find_phone.mp3 */; };
@@ -157,12 +156,26 @@
 		07AEC4472BE7916200D49A1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */; };
 		07BDFAF02B68D504009AD3D2 /* DialDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */; };
 		07BDFAF22B68E820009AD3D2 /* ZBSlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */; };
-		07C8B3A42ED95259006D32C0 /* CreekFFmpegManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8B3A32ED95259006D32C0 /* CreekFFmpegManager.swift */; };
+		07C2FEC2301A1A6400939B34 /* protocol_fifa.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FEC1301A1A6400939B34 /* protocol_fifa.pb.swift */; };
+		07C2FEC3301A1A6400939B34 /* gomoreFitnessLevel.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FEC0301A1A6400939B34 /* gomoreFitnessLevel.pb.swift */; };
+		07C2FEC4301A1A6400939B34 /* gomoreConfigSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FEBF301A1A6400939B34 /* gomoreConfigSwitch.pb.swift */; };
 		07C8FBAE2BD7F2620047D112 /* EphemerisGPSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */; };
 		07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */; };
 		07D1397A2BC64592009405D2 /* CameraPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D139792BC64592009405D2 /* CameraPopView.swift */; };
 		07D91DD92EEBFE7700E155A6 /* deviceStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */; };
 		07D91DDA2EEBFE7700E155A6 /* vitalityScore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */; };
+		07E2C672307F1B2700EDA466 /* httpPublicKey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66B307F1B2700EDA466 /* httpPublicKey.pb.swift */; };
+		07E2C673307F1B2700EDA466 /* fileBatchTransferNotify.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C669307F1B2700EDA466 /* fileBatchTransferNotify.pb.swift */; };
+		07E2C674307F1B2700EDA466 /* calendar_v2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C667307F1B2700EDA466 /* calendar_v2.pb.swift */; };
+		07E2C675307F1B2700EDA466 /* recovery.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66D307F1B2700EDA466 /* recovery.pb.swift */; };
+		07E2C676307F1B2700EDA466 /* broadcastSwitch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C666307F1B2700EDA466 /* broadcastSwitch.pb.swift */; };
+		07E2C677307F1B2700EDA466 /* ringtone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66E307F1B2700EDA466 /* ringtone.pb.swift */; };
+		07E2C678307F1B2700EDA466 /* whatsapp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66F307F1B2700EDA466 /* whatsapp.pb.swift */; };
+		07E2C679307F1B2700EDA466 /* wifiFileTransfer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C670307F1B2700EDA466 /* wifiFileTransfer.pb.swift */; };
+		07E2C67A307F1B2700EDA466 /* wifiFileTransferNotify.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C671307F1B2700EDA466 /* wifiFileTransferNotify.pb.swift */; };
+		07E2C67B307F1B2700EDA466 /* nfcCard.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66C307F1B2700EDA466 /* nfcCard.pb.swift */; };
+		07E2C67C307F1B2700EDA466 /* fileBatchTransfer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C668307F1B2700EDA466 /* fileBatchTransfer.pb.swift */; };
+		07E2C67D307F1B2700EDA466 /* frequentContactsV2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66A307F1B2700EDA466 /* frequentContactsV2.pb.swift */; };
 		07E975F32F0D55A600D14B87 /* irCalibrationButton.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */; };
 		07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
@@ -171,6 +184,11 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		A17E0001305A000100000001 /* SportAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0001305A000100000002 /* SportAdjustViewController.swift */; };
+		A17E0002305A000100000001 /* RingtoneUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0002305A000100000002 /* RingtoneUploadViewController.swift */; };
+		A17E0003305A000100000001 /* CreekRingtoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0003305A000100000002 /* CreekRingtoneModel.swift */; };
+		A17E0004305A000100000001 /* CalendarV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0004305A000100000002 /* CalendarV2ViewController.swift */; };
+		A17E0005305A000100000001 /* CalendarV2SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0005305A000100000002 /* CalendarV2SyncService.swift */; };
 		C44BFBA52E8A400400E63C19 /* GPSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BFBA42E8A400200E63C19 /* GPSModel.swift */; };
 		C4524E342E797EA800F91EBA /* trainingLoad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */; };
 		C4524E362E797EE700F91EBA /* cardioFitness.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */; };
@@ -320,7 +338,6 @@
 		079D06F22E9605720088C49A /* SportsLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsLiveViewController.swift; sourceTree = "<group>"; };
 		079D06F42E9611BF0088C49A /* GlobalListenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalListenManager.swift; sourceTree = "<group>"; };
 		079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMeasureViewController.swift; sourceTree = "<group>"; };
-		A17E0001305A000100000002 /* SportAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportAdjustViewController.swift; sourceTree = "<group>"; };
 		079D06F82E9964410088C49A /* commonError.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonError.pb.swift; sourceTree = "<group>"; };
 		079D06FA2E9DF1170088C49A /* FindPhoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPhoneManager.swift; sourceTree = "<group>"; };
 		079D06FC2E9DF2520088C49A /* find_phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_phone.mp3; sourceTree = "<group>"; };
@@ -330,12 +347,26 @@
 		07AEC4452BE7916200D49A1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		07BDFAEF2B68D504009AD3D2 /* DialDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialDetailsViewController.swift; sourceTree = "<group>"; };
 		07BDFAF12B68E820009AD3D2 /* ZBSlideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBSlideBar.swift; sourceTree = "<group>"; };
-		07C8B3A32ED95259006D32C0 /* CreekFFmpegManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreekFFmpegManager.swift; sourceTree = "<group>"; };
+		07C2FEBF301A1A6400939B34 /* gomoreConfigSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gomoreConfigSwitch.pb.swift; sourceTree = "<group>"; };
+		07C2FEC0301A1A6400939B34 /* gomoreFitnessLevel.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gomoreFitnessLevel.pb.swift; sourceTree = "<group>"; };
+		07C2FEC1301A1A6400939B34 /* protocol_fifa.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol_fifa.pb.swift; sourceTree = "<group>"; };
 		07C8FBAD2BD7F2620047D112 /* EphemerisGPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemerisGPSModel.swift; sourceTree = "<group>"; };
 		07D139772BC51EF8009405D2 /* DialPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialPhotoViewController.swift; sourceTree = "<group>"; };
 		07D139792BC64592009405D2 /* CameraPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPopView.swift; sourceTree = "<group>"; };
 		07D91DD72EEBFE7700E155A6 /* deviceStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceStatus.pb.swift; sourceTree = "<group>"; };
 		07D91DD82EEBFE7700E155A6 /* vitalityScore.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalityScore.pb.swift; sourceTree = "<group>"; };
+		07E2C666307F1B2700EDA466 /* broadcastSwitch.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = broadcastSwitch.pb.swift; sourceTree = "<group>"; };
+		07E2C667307F1B2700EDA466 /* calendar_v2.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendar_v2.pb.swift; sourceTree = "<group>"; };
+		07E2C668307F1B2700EDA466 /* fileBatchTransfer.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileBatchTransfer.pb.swift; sourceTree = "<group>"; };
+		07E2C669307F1B2700EDA466 /* fileBatchTransferNotify.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileBatchTransferNotify.pb.swift; sourceTree = "<group>"; };
+		07E2C66A307F1B2700EDA466 /* frequentContactsV2.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frequentContactsV2.pb.swift; sourceTree = "<group>"; };
+		07E2C66B307F1B2700EDA466 /* httpPublicKey.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = httpPublicKey.pb.swift; sourceTree = "<group>"; };
+		07E2C66C307F1B2700EDA466 /* nfcCard.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nfcCard.pb.swift; sourceTree = "<group>"; };
+		07E2C66D307F1B2700EDA466 /* recovery.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recovery.pb.swift; sourceTree = "<group>"; };
+		07E2C66E307F1B2700EDA466 /* ringtone.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ringtone.pb.swift; sourceTree = "<group>"; };
+		07E2C66F307F1B2700EDA466 /* whatsapp.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whatsapp.pb.swift; sourceTree = "<group>"; };
+		07E2C670307F1B2700EDA466 /* wifiFileTransfer.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifiFileTransfer.pb.swift; sourceTree = "<group>"; };
+		07E2C671307F1B2700EDA466 /* wifiFileTransferNotify.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifiFileTransferNotify.pb.swift; sourceTree = "<group>"; };
 		07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = irCalibrationButton.pb.swift; sourceTree = "<group>"; };
 		07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayer.pb.swift; sourceTree = "<group>"; };
 		0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreekSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -351,6 +382,11 @@
 		69F2B4B0C8838C152A7AC3B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7010E1C78F779EB1911230E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9C9DF34213BA917D34C3310F /* CreekSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CreekSDK.podspec; path = ../CreekSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A17E0001305A000100000002 /* SportAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportAdjustViewController.swift; sourceTree = "<group>"; };
+		A17E0002305A000100000002 /* RingtoneUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtoneUploadViewController.swift; sourceTree = "<group>"; };
+		A17E0003305A000100000002 /* CreekRingtoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreekRingtoneModel.swift; sourceTree = "<group>"; };
+		A17E0004305A000100000002 /* CalendarV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarV2ViewController.swift; sourceTree = "<group>"; };
+		A17E0005305A000100000002 /* CalendarV2SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarV2SyncService.swift; sourceTree = "<group>"; };
 		C44BFBA42E8A400200E63C19 /* GPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSModel.swift; sourceTree = "<group>"; };
 		C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingLoad.pb.swift; sourceTree = "<group>"; };
 		C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
@@ -440,6 +476,7 @@
 				0702F1AF2BBA59BF00712684 /* ProtoExtension.swift */,
 				07A73BB12BF20C67007EFFB3 /* UpgradeModel.swift */,
 				072D41942C5BC62E00B1FB98 /* ContactsIconModel.swift */,
+				A17E0003305A000100000002 /* CreekRingtoneModel.swift */,
 				07266C2D2DACFDEB000F8BED /* MusicModel.swift */,
 				07266C2F2DAD01DE000F8BED /* CourseModel.swift */,
 				073D059D2E30DA7F00F000B3 /* GoalsModel.swift */,
@@ -452,6 +489,21 @@
 		079A21862B29A74300F5D013 /* proto */ = {
 			isa = PBXGroup;
 			children = (
+				07E2C666307F1B2700EDA466 /* broadcastSwitch.pb.swift */,
+				07E2C667307F1B2700EDA466 /* calendar_v2.pb.swift */,
+				07E2C668307F1B2700EDA466 /* fileBatchTransfer.pb.swift */,
+				07E2C669307F1B2700EDA466 /* fileBatchTransferNotify.pb.swift */,
+				07E2C66A307F1B2700EDA466 /* frequentContactsV2.pb.swift */,
+				07E2C66B307F1B2700EDA466 /* httpPublicKey.pb.swift */,
+				07E2C66C307F1B2700EDA466 /* nfcCard.pb.swift */,
+				07E2C66D307F1B2700EDA466 /* recovery.pb.swift */,
+				07E2C66E307F1B2700EDA466 /* ringtone.pb.swift */,
+				07E2C66F307F1B2700EDA466 /* whatsapp.pb.swift */,
+				07E2C670307F1B2700EDA466 /* wifiFileTransfer.pb.swift */,
+				07E2C671307F1B2700EDA466 /* wifiFileTransferNotify.pb.swift */,
+				07C2FEBF301A1A6400939B34 /* gomoreConfigSwitch.pb.swift */,
+				07C2FEC0301A1A6400939B34 /* gomoreFitnessLevel.pb.swift */,
+				07C2FEC1301A1A6400939B34 /* protocol_fifa.pb.swift */,
 				0740E3212FC42C5B00B8DB36 /* afServeSwitch.pb.swift */,
 				0740E3222FC42C5B00B8DB36 /* distanceAdjust.pb.swift */,
 				0740E3232FC42C5B00B8DB36 /* hrBroadcastSwitch.pb.swift */,
@@ -640,8 +692,10 @@
 				07266C3D2DAFEA29000F8BED /* OTAViewController.swift */,
 				079D06F22E9605720088C49A /* SportsLiveViewController.swift */,
 				079D06F62E9659E70088C49A /* HealthMeasureViewController.swift */,
-				07C8B3A32ED95259006D32C0 /* CreekFFmpegManager.swift */,
 				A17E0001305A000100000002 /* SportAdjustViewController.swift */,
+				A17E0002305A000100000002 /* RingtoneUploadViewController.swift */,
+				A17E0004305A000100000002 /* CalendarV2ViewController.swift */,
+				A17E0005305A000100000002 /* CalendarV2SyncService.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -799,7 +853,7 @@
 				"${PODS_ROOT}/../../Creek/sbc.framework",
 				"${PODS_ROOT}/../../Creek/App.framework",
 				"${PODS_ROOT}/../../Creek/creek_blue_manage.framework",
-				"${PODS_ROOT}/../../Creek/flutter_blue_plus.framework",
+				"${PODS_ROOT}/../../Creek/flutter_creek_contacts.framework",
 				"${PODS_ROOT}/../../Creek/Flutter.framework",
 				"${PODS_ROOT}/../../Creek/sqflite.framework",
 				"${PODS_ROOT}/../../Creek/Protobuf.framework",
@@ -809,7 +863,7 @@
 				"${PODS_ROOT}/../../Creek/image_clipper.framework",
 				"${PODS_ROOT}/../../Creek/lz4.framework",
 				"${PODS_ROOT}/../../Creek/ActResSdk.framework",
-				"${PODS_ROOT}/../../Creek/flutter_contacts.framework",
+				"${PODS_ROOT}/../../Creek/flutter_creek_blue_plus.framework",
 				"${PODS_ROOT}/../../Creek/path_provider_foundation.framework",
 				"${PODS_ROOT}/../../Creek/creek_sleep_stage_algorithm.framework",
 				"${PODS_ROOT}/../../Creek/xfyun_speech.framework",
@@ -852,7 +906,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sbc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/App.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_blue_manage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_blue_plus.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_creek_contacts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqflite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -862,7 +916,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/image_clipper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/lz4.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActResSdk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_contacts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_creek_blue_plus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/path_provider_foundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_sleep_stage_algorithm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/xfyun_speech.framework",
@@ -940,6 +994,9 @@
 				07266BF52DACF260000F8BED /* skill.pb.swift in Sources */,
 				07266BF62DACF260000F8BED /* language.pb.swift in Sources */,
 				07266BF72DACF260000F8BED /* alarm.pb.swift in Sources */,
+				07C2FEC2301A1A6400939B34 /* protocol_fifa.pb.swift in Sources */,
+				07C2FEC3301A1A6400939B34 /* gomoreFitnessLevel.pb.swift in Sources */,
+				07C2FEC4301A1A6400939B34 /* gomoreConfigSwitch.pb.swift in Sources */,
 				07266BF82DACF260000F8BED /* disturb.pb.swift in Sources */,
 				07266BF92DACF260000F8BED /* healthsnapshot.pb.swift in Sources */,
 				07266BFA2DACF260000F8BED /* standing.pb.swift in Sources */,
@@ -979,7 +1036,6 @@
 				07266C132DACF260000F8BED /* wordtime.pb.swift in Sources */,
 				07266C142DACF260000F8BED /* event.pb.swift in Sources */,
 				07266C152DACF260000F8BED /* binding.pb.swift in Sources */,
-				07C8B3A42ED95259006D32C0 /* CreekFFmpegManager.swift in Sources */,
 				07266C162DACF260000F8BED /* card.pb.swift in Sources */,
 				07266C172DACF260000F8BED /* healthhead.pb.swift in Sources */,
 				07266C182DACF260000F8BED /* message.pb.swift in Sources */,
@@ -999,6 +1055,18 @@
 				073FD2472E5D548A00652FCF /* bloodPressure.pb.swift in Sources */,
 				073FD2482E5D548A00652FCF /* ephemeris.pb.swift in Sources */,
 				073FD2492E5D548A00652FCF /* medicine.pb.swift in Sources */,
+				07E2C672307F1B2700EDA466 /* httpPublicKey.pb.swift in Sources */,
+				07E2C673307F1B2700EDA466 /* fileBatchTransferNotify.pb.swift in Sources */,
+				07E2C674307F1B2700EDA466 /* calendar_v2.pb.swift in Sources */,
+				07E2C675307F1B2700EDA466 /* recovery.pb.swift in Sources */,
+				07E2C676307F1B2700EDA466 /* broadcastSwitch.pb.swift in Sources */,
+				07E2C677307F1B2700EDA466 /* ringtone.pb.swift in Sources */,
+				07E2C678307F1B2700EDA466 /* whatsapp.pb.swift in Sources */,
+				07E2C679307F1B2700EDA466 /* wifiFileTransfer.pb.swift in Sources */,
+				07E2C67A307F1B2700EDA466 /* wifiFileTransferNotify.pb.swift in Sources */,
+				07E2C67B307F1B2700EDA466 /* nfcCard.pb.swift in Sources */,
+				07E2C67C307F1B2700EDA466 /* fileBatchTransfer.pb.swift in Sources */,
+				07E2C67D307F1B2700EDA466 /* frequentContactsV2.pb.swift in Sources */,
 				07266C1F2DACF260000F8BED /* voice.pb.swift in Sources */,
 				07266C202DACF260000F8BED /* tracking.pb.swift in Sources */,
 				07266C212DACF260000F8BED /* schedule.pb.swift in Sources */,
@@ -1030,6 +1098,7 @@
 				079D06F12E87CD570088C49A /* qrcodeList.pb.swift in Sources */,
 				079A217E2B29A72A00F5D013 /* NoticeUpdateModel.swift in Sources */,
 				072D41952C5BC62E00B1FB98 /* ContactsIconModel.swift in Sources */,
+				A17E0003305A000100000001 /* CreekRingtoneModel.swift in Sources */,
 				0750C9342B99AC9F00D8E7A0 /* BaseSheetView.swift in Sources */,
 				0702F1B02BBA59BF00712684 /* ProtoExtension.swift in Sources */,
 				079D06FB2E9DF1170088C49A /* FindPhoneManager.swift in Sources */,
@@ -1064,6 +1133,9 @@
 				07D139782BC51EF8009405D2 /* DialPhotoViewController.swift in Sources */,
 				079D06F72E9659E70088C49A /* HealthMeasureViewController.swift in Sources */,
 				A17E0001305A000100000001 /* SportAdjustViewController.swift in Sources */,
+				A17E0002305A000100000001 /* RingtoneUploadViewController.swift in Sources */,
+				A17E0004305A000100000001 /* CalendarV2ViewController.swift in Sources */,
+				A17E0005305A000100000001 /* CalendarV2SyncService.swift in Sources */,
 				079A217B2B29A72A00F5D013 /* EventReportModel.swift in Sources */,
 				07266C342DAD1CAB000F8BED /* MusicViewController.swift in Sources */,
 				07266C3A2DAFBBB4000F8BED /* RouteViewController.swift in Sources */,
@@ -1200,7 +1272,6 @@
 			baseConfigurationReference = 41D8A88C06A2AB38F6B43DBA /* Pods-CreekSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				INFOPLIST_FILE = CreekSDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1218,7 +1289,6 @@
 			baseConfigurationReference = 0E8D4E99CF53DF6D7CE84C56 /* Pods-CreekSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				INFOPLIST_FILE = CreekSDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

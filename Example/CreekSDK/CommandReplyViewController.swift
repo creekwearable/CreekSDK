@@ -1645,9 +1645,3 @@ class CommandReplyViewController: CreekBaseViewController {
    }
    
 }
-
-
-
-
-
-

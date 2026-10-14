@@ -624,6 +624,356 @@ public struct protocol_message_notify_func_support_reply: @unchecked Sendable {
     set {_uniqueStorage()._ozon = newValue}
   }
 
+  public var zsMessage: Bool {
+    get {return _storage._zsMessage}
+    set {_uniqueStorage()._zsMessage = newValue}
+  }
+
+  public var kstyleOs: Bool {
+    get {return _storage._kstyleOs}
+    set {_uniqueStorage()._kstyleOs = newValue}
+  }
+
+  public var chrome: Bool {
+    get {return _storage._chrome}
+    set {_uniqueStorage()._chrome = newValue}
+  }
+
+  public var didiGlobal: Bool {
+    get {return _storage._didiGlobal}
+    set {_uniqueStorage()._didiGlobal = newValue}
+  }
+
+  public var chatgpt: Bool {
+    get {return _storage._chatgpt}
+    set {_uniqueStorage()._chatgpt = newValue}
+  }
+
+  public var threads: Bool {
+    get {return _storage._threads}
+    set {_uniqueStorage()._threads = newValue}
+  }
+
+  public var nabd: Bool {
+    get {return _storage._nabd}
+    set {_uniqueStorage()._nabd = newValue}
+  }
+
+  public var sparkmail: Bool {
+    get {return _storage._sparkmail}
+    set {_uniqueStorage()._sparkmail = newValue}
+  }
+
+  public var sofascore: Bool {
+    get {return _storage._sofascore}
+    set {_uniqueStorage()._sofascore = newValue}
+  }
+
+  public var fotmob: Bool {
+    get {return _storage._fotmob}
+    set {_uniqueStorage()._fotmob = newValue}
+  }
+
+  public var muslim: Bool {
+    get {return _storage._muslim}
+    set {_uniqueStorage()._muslim = newValue}
+  }
+
+  public var grab: Bool {
+    get {return _storage._grab}
+    set {_uniqueStorage()._grab = newValue}
+  }
+
+  public var lineMan: Bool {
+    get {return _storage._lineMan}
+    set {_uniqueStorage()._lineMan = newValue}
+  }
+
+  public var bangkokBank: Bool {
+    get {return _storage._bangkokBank}
+    set {_uniqueStorage()._bangkokBank = newValue}
+  }
+
+  public var krungthaiNext: Bool {
+    get {return _storage._krungthaiNext}
+    set {_uniqueStorage()._krungthaiNext = newValue}
+  }
+
+  public var mymoByGsb: Bool {
+    get {return _storage._mymoByGsb}
+    set {_uniqueStorage()._mymoByGsb = newValue}
+  }
+
+  public var sevenEleven: Bool {
+    get {return _storage._sevenEleven}
+    set {_uniqueStorage()._sevenEleven = newValue}
+  }
+
+  public var tiktokLite: Bool {
+    get {return _storage._tiktokLite}
+    set {_uniqueStorage()._tiktokLite = newValue}
+  }
+
+  public var tiktokProEvents: Bool {
+    get {return _storage._tiktokProEvents}
+    set {_uniqueStorage()._tiktokProEvents = newValue}
+  }
+
+  public var wolt: Bool {
+    get {return _storage._wolt}
+    set {_uniqueStorage()._wolt = newValue}
+  }
+
+  public var zoom: Bool {
+    get {return _storage._zoom}
+    set {_uniqueStorage()._zoom = newValue}
+  }
+
+  public var tada: Bool {
+    get {return _storage._tada}
+    set {_uniqueStorage()._tada = newValue}
+  }
+
+  public var imo: Bool {
+    get {return _storage._imo}
+    set {_uniqueStorage()._imo = newValue}
+  }
+
+  public var yassir: Bool {
+    get {return _storage._yassir}
+    set {_uniqueStorage()._yassir = newValue}
+  }
+
+  public var anaMuslim: Bool {
+    get {return _storage._anaMuslim}
+    set {_uniqueStorage()._anaMuslim = newValue}
+  }
+
+  public var instapay: Bool {
+    get {return _storage._instapay}
+    set {_uniqueStorage()._instapay = newValue}
+  }
+
+  public var filgoal: Bool {
+    get {return _storage._filgoal}
+    set {_uniqueStorage()._filgoal = newValue}
+  }
+
+  public var scores365: Bool {
+    get {return _storage._scores365}
+    set {_uniqueStorage()._scores365 = newValue}
+  }
+
+  public var noon: Bool {
+    get {return _storage._noon}
+    set {_uniqueStorage()._noon = newValue}
+  }
+
+  public var mrsool: Bool {
+    get {return _storage._mrsool}
+    set {_uniqueStorage()._mrsool = newValue}
+  }
+
+  public var momo: Bool {
+    get {return _storage._momo}
+    set {_uniqueStorage()._momo = newValue}
+  }
+
+  public var xanhSm: Bool {
+    get {return _storage._xanhSm}
+    set {_uniqueStorage()._xanhSm = newValue}
+  }
+
+  public var be: Bool {
+    get {return _storage._be}
+    set {_uniqueStorage()._be = newValue}
+  }
+
+  public var aba: Bool {
+    get {return _storage._aba}
+    set {_uniqueStorage()._aba = newValue}
+  }
+
+  public var acledaMobile: Bool {
+    get {return _storage._acledaMobile}
+    set {_uniqueStorage()._acledaMobile = newValue}
+  }
+
+  public var bkash: Bool {
+    get {return _storage._bkash}
+    set {_uniqueStorage()._bkash = newValue}
+  }
+
+  public var mercadoPago: Bool {
+    get {return _storage._mercadoPago}
+    set {_uniqueStorage()._mercadoPago = newValue}
+  }
+
+  public var mercadoLibre: Bool {
+    get {return _storage._mercadoLibre}
+    set {_uniqueStorage()._mercadoLibre = newValue}
+  }
+
+  public var rappi: Bool {
+    get {return _storage._rappi}
+    set {_uniqueStorage()._rappi = newValue}
+  }
+
+  public var waze: Bool {
+    get {return _storage._waze}
+    set {_uniqueStorage()._waze = newValue}
+  }
+
+  public var dcard: Bool {
+    get {return _storage._dcard}
+    set {_uniqueStorage()._dcard = newValue}
+  }
+
+  public var foodpanda: Bool {
+    get {return _storage._foodpanda}
+    set {_uniqueStorage()._foodpanda = newValue}
+  }
+
+  public var bolt: Bool {
+    get {return _storage._bolt}
+    set {_uniqueStorage()._bolt = newValue}
+  }
+
+  public var neshan: Bool {
+    get {return _storage._neshan}
+    set {_uniqueStorage()._neshan = newValue}
+  }
+
+  public var nafath: Bool {
+    get {return _storage._nafath}
+    set {_uniqueStorage()._nafath = newValue}
+  }
+
+  public var kbzPay: Bool {
+    get {return _storage._kbzPay}
+    set {_uniqueStorage()._kbzPay = newValue}
+  }
+
+  public var wavePay: Bool {
+    get {return _storage._wavePay}
+    set {_uniqueStorage()._wavePay = newValue}
+  }
+
+  public var ayaPay: Bool {
+    get {return _storage._ayaPay}
+    set {_uniqueStorage()._ayaPay = newValue}
+  }
+
+  public var cbPay: Bool {
+    get {return _storage._cbPay}
+    set {_uniqueStorage()._cbPay = newValue}
+  }
+
+  public var uabPay: Bool {
+    get {return _storage._uabPay}
+    set {_uniqueStorage()._uabPay = newValue}
+  }
+
+  public var veeka: Bool {
+    get {return _storage._veeka}
+    set {_uniqueStorage()._veeka = newValue}
+  }
+
+  public var sehhaty: Bool {
+    get {return _storage._sehhaty}
+    set {_uniqueStorage()._sehhaty = newValue}
+  }
+
+  public var uala: Bool {
+    get {return _storage._uala}
+    set {_uniqueStorage()._uala = newValue}
+  }
+
+  public var hungerStation: Bool {
+    get {return _storage._hungerStation}
+    set {_uniqueStorage()._hungerStation = newValue}
+  }
+
+  public var pathao: Bool {
+    get {return _storage._pathao}
+    set {_uniqueStorage()._pathao = newValue}
+  }
+
+  public var cabify: Bool {
+    get {return _storage._cabify}
+    set {_uniqueStorage()._cabify = newValue}
+  }
+
+  public var cabifyLogisticsDriver: Bool {
+    get {return _storage._cabifyLogisticsDriver}
+    set {_uniqueStorage()._cabifyLogisticsDriver = newValue}
+  }
+
+  public var nusuk: Bool {
+    get {return _storage._nusuk}
+    set {_uniqueStorage()._nusuk = newValue}
+  }
+
+  public var nagad: Bool {
+    get {return _storage._nagad}
+    set {_uniqueStorage()._nagad = newValue}
+  }
+
+  public var roket: Bool {
+    get {return _storage._roket}
+    set {_uniqueStorage()._roket = newValue}
+  }
+
+  public var daraz: Bool {
+    get {return _storage._daraz}
+    set {_uniqueStorage()._daraz = newValue}
+  }
+
+  public var pickaboo: Bool {
+    get {return _storage._pickaboo}
+    set {_uniqueStorage()._pickaboo = newValue}
+  }
+
+  public var haraj: Bool {
+    get {return _storage._haraj}
+    set {_uniqueStorage()._haraj = newValue}
+  }
+
+  public var saudiEnergy: Bool {
+    get {return _storage._saudiEnergy}
+    set {_uniqueStorage()._saudiEnergy = newValue}
+  }
+
+  public var galaxyCinema: Bool {
+    get {return _storage._galaxyCinema}
+    set {_uniqueStorage()._galaxyCinema = newValue}
+  }
+
+  public var splOnline: Bool {
+    get {return _storage._splOnline}
+    set {_uniqueStorage()._splOnline = newValue}
+  }
+
+  public var stcBank: Bool {
+    get {return _storage._stcBank}
+    set {_uniqueStorage()._stcBank = newValue}
+  }
+
+  public var absher: Bool {
+    get {return _storage._absher}
+    set {_uniqueStorage()._absher = newValue}
+  }
+
+  public var muslimPro: Bool {
+    get {return _storage._muslimPro}
+    set {_uniqueStorage()._muslimPro = newValue}
+  }
+
+  public var stcPay: Bool {
+    get {return _storage._stcPay}
+    set {_uniqueStorage()._stcPay = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1123,6 +1473,76 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     107: .standard(proto: "Gold_Apple"),
     108: .same(proto: "Gosuslugi"),
     109: .same(proto: "Ozon"),
+    110: .standard(proto: "Zs_message"),
+    111: .standard(proto: "Kstyle_os"),
+    112: .same(proto: "Chrome"),
+    113: .standard(proto: "Didi_global"),
+    114: .same(proto: "Chatgpt"),
+    115: .same(proto: "Threads"),
+    116: .same(proto: "Nabd"),
+    117: .same(proto: "Sparkmail"),
+    118: .same(proto: "Sofascore"),
+    119: .same(proto: "Fotmob"),
+    120: .same(proto: "Muslim"),
+    121: .same(proto: "Grab"),
+    122: .standard(proto: "Line_man"),
+    123: .standard(proto: "Bangkok_bank"),
+    124: .standard(proto: "Krungthai_next"),
+    125: .standard(proto: "Mymo_by_gsb"),
+    126: .standard(proto: "Seven_eleven"),
+    127: .standard(proto: "Tiktok_lite"),
+    128: .standard(proto: "Tiktok_pro_events"),
+    129: .same(proto: "Wolt"),
+    130: .same(proto: "Zoom"),
+    131: .same(proto: "Tada"),
+    132: .same(proto: "Imo"),
+    133: .same(proto: "Yassir"),
+    134: .standard(proto: "Ana_muslim"),
+    135: .same(proto: "Instapay"),
+    136: .same(proto: "Filgoal"),
+    137: .standard(proto: "Scores_365"),
+    138: .same(proto: "Noon"),
+    139: .same(proto: "Mrsool"),
+    140: .same(proto: "Momo"),
+    141: .standard(proto: "Xanh_sm"),
+    142: .same(proto: "Be"),
+    143: .same(proto: "Aba"),
+    144: .standard(proto: "Acleda_mobile"),
+    145: .same(proto: "Bkash"),
+    146: .standard(proto: "Mercado_pago"),
+    147: .standard(proto: "Mercado_libre"),
+    148: .same(proto: "Rappi"),
+    149: .same(proto: "Waze"),
+    150: .same(proto: "Dcard"),
+    151: .same(proto: "Foodpanda"),
+    152: .same(proto: "Bolt"),
+    153: .same(proto: "Neshan"),
+    154: .same(proto: "Nafath"),
+    155: .standard(proto: "Kbz_pay"),
+    156: .standard(proto: "Wave_pay"),
+    157: .standard(proto: "Aya_pay"),
+    158: .standard(proto: "Cb_pay"),
+    159: .standard(proto: "Uab_pay"),
+    160: .same(proto: "Veeka"),
+    161: .same(proto: "Sehhaty"),
+    162: .same(proto: "Uala"),
+    163: .standard(proto: "Hunger_station"),
+    164: .same(proto: "Pathao"),
+    165: .same(proto: "Cabify"),
+    166: .standard(proto: "Cabify_logistics_driver"),
+    167: .same(proto: "Nusuk"),
+    168: .same(proto: "Nagad"),
+    169: .same(proto: "Roket"),
+    170: .same(proto: "Daraz"),
+    171: .same(proto: "Pickaboo"),
+    172: .same(proto: "Haraj"),
+    173: .standard(proto: "Saudi_energy"),
+    174: .standard(proto: "Galaxy_cinema"),
+    175: .standard(proto: "Spl_online"),
+    176: .standard(proto: "Stc_bank"),
+    177: .same(proto: "Absher"),
+    178: .standard(proto: "Muslim_pro"),
+    179: .standard(proto: "Stc_pay"),
   ]
 
   fileprivate class _StorageClass {
@@ -1235,6 +1655,76 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
     var _goldApple: Bool = false
     var _gosuslugi: Bool = false
     var _ozon: Bool = false
+    var _zsMessage: Bool = false
+    var _kstyleOs: Bool = false
+    var _chrome: Bool = false
+    var _didiGlobal: Bool = false
+    var _chatgpt: Bool = false
+    var _threads: Bool = false
+    var _nabd: Bool = false
+    var _sparkmail: Bool = false
+    var _sofascore: Bool = false
+    var _fotmob: Bool = false
+    var _muslim: Bool = false
+    var _grab: Bool = false
+    var _lineMan: Bool = false
+    var _bangkokBank: Bool = false
+    var _krungthaiNext: Bool = false
+    var _mymoByGsb: Bool = false
+    var _sevenEleven: Bool = false
+    var _tiktokLite: Bool = false
+    var _tiktokProEvents: Bool = false
+    var _wolt: Bool = false
+    var _zoom: Bool = false
+    var _tada: Bool = false
+    var _imo: Bool = false
+    var _yassir: Bool = false
+    var _anaMuslim: Bool = false
+    var _instapay: Bool = false
+    var _filgoal: Bool = false
+    var _scores365: Bool = false
+    var _noon: Bool = false
+    var _mrsool: Bool = false
+    var _momo: Bool = false
+    var _xanhSm: Bool = false
+    var _be: Bool = false
+    var _aba: Bool = false
+    var _acledaMobile: Bool = false
+    var _bkash: Bool = false
+    var _mercadoPago: Bool = false
+    var _mercadoLibre: Bool = false
+    var _rappi: Bool = false
+    var _waze: Bool = false
+    var _dcard: Bool = false
+    var _foodpanda: Bool = false
+    var _bolt: Bool = false
+    var _neshan: Bool = false
+    var _nafath: Bool = false
+    var _kbzPay: Bool = false
+    var _wavePay: Bool = false
+    var _ayaPay: Bool = false
+    var _cbPay: Bool = false
+    var _uabPay: Bool = false
+    var _veeka: Bool = false
+    var _sehhaty: Bool = false
+    var _uala: Bool = false
+    var _hungerStation: Bool = false
+    var _pathao: Bool = false
+    var _cabify: Bool = false
+    var _cabifyLogisticsDriver: Bool = false
+    var _nusuk: Bool = false
+    var _nagad: Bool = false
+    var _roket: Bool = false
+    var _daraz: Bool = false
+    var _pickaboo: Bool = false
+    var _haraj: Bool = false
+    var _saudiEnergy: Bool = false
+    var _galaxyCinema: Bool = false
+    var _splOnline: Bool = false
+    var _stcBank: Bool = false
+    var _absher: Bool = false
+    var _muslimPro: Bool = false
+    var _stcPay: Bool = false
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1358,6 +1848,76 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       _goldApple = source._goldApple
       _gosuslugi = source._gosuslugi
       _ozon = source._ozon
+      _zsMessage = source._zsMessage
+      _kstyleOs = source._kstyleOs
+      _chrome = source._chrome
+      _didiGlobal = source._didiGlobal
+      _chatgpt = source._chatgpt
+      _threads = source._threads
+      _nabd = source._nabd
+      _sparkmail = source._sparkmail
+      _sofascore = source._sofascore
+      _fotmob = source._fotmob
+      _muslim = source._muslim
+      _grab = source._grab
+      _lineMan = source._lineMan
+      _bangkokBank = source._bangkokBank
+      _krungthaiNext = source._krungthaiNext
+      _mymoByGsb = source._mymoByGsb
+      _sevenEleven = source._sevenEleven
+      _tiktokLite = source._tiktokLite
+      _tiktokProEvents = source._tiktokProEvents
+      _wolt = source._wolt
+      _zoom = source._zoom
+      _tada = source._tada
+      _imo = source._imo
+      _yassir = source._yassir
+      _anaMuslim = source._anaMuslim
+      _instapay = source._instapay
+      _filgoal = source._filgoal
+      _scores365 = source._scores365
+      _noon = source._noon
+      _mrsool = source._mrsool
+      _momo = source._momo
+      _xanhSm = source._xanhSm
+      _be = source._be
+      _aba = source._aba
+      _acledaMobile = source._acledaMobile
+      _bkash = source._bkash
+      _mercadoPago = source._mercadoPago
+      _mercadoLibre = source._mercadoLibre
+      _rappi = source._rappi
+      _waze = source._waze
+      _dcard = source._dcard
+      _foodpanda = source._foodpanda
+      _bolt = source._bolt
+      _neshan = source._neshan
+      _nafath = source._nafath
+      _kbzPay = source._kbzPay
+      _wavePay = source._wavePay
+      _ayaPay = source._ayaPay
+      _cbPay = source._cbPay
+      _uabPay = source._uabPay
+      _veeka = source._veeka
+      _sehhaty = source._sehhaty
+      _uala = source._uala
+      _hungerStation = source._hungerStation
+      _pathao = source._pathao
+      _cabify = source._cabify
+      _cabifyLogisticsDriver = source._cabifyLogisticsDriver
+      _nusuk = source._nusuk
+      _nagad = source._nagad
+      _roket = source._roket
+      _daraz = source._daraz
+      _pickaboo = source._pickaboo
+      _haraj = source._haraj
+      _saudiEnergy = source._saudiEnergy
+      _galaxyCinema = source._galaxyCinema
+      _splOnline = source._splOnline
+      _stcBank = source._stcBank
+      _absher = source._absher
+      _muslimPro = source._muslimPro
+      _stcPay = source._stcPay
     }
   }
 
@@ -1485,6 +2045,76 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         case 107: try { try decoder.decodeSingularBoolField(value: &_storage._goldApple) }()
         case 108: try { try decoder.decodeSingularBoolField(value: &_storage._gosuslugi) }()
         case 109: try { try decoder.decodeSingularBoolField(value: &_storage._ozon) }()
+        case 110: try { try decoder.decodeSingularBoolField(value: &_storage._zsMessage) }()
+        case 111: try { try decoder.decodeSingularBoolField(value: &_storage._kstyleOs) }()
+        case 112: try { try decoder.decodeSingularBoolField(value: &_storage._chrome) }()
+        case 113: try { try decoder.decodeSingularBoolField(value: &_storage._didiGlobal) }()
+        case 114: try { try decoder.decodeSingularBoolField(value: &_storage._chatgpt) }()
+        case 115: try { try decoder.decodeSingularBoolField(value: &_storage._threads) }()
+        case 116: try { try decoder.decodeSingularBoolField(value: &_storage._nabd) }()
+        case 117: try { try decoder.decodeSingularBoolField(value: &_storage._sparkmail) }()
+        case 118: try { try decoder.decodeSingularBoolField(value: &_storage._sofascore) }()
+        case 119: try { try decoder.decodeSingularBoolField(value: &_storage._fotmob) }()
+        case 120: try { try decoder.decodeSingularBoolField(value: &_storage._muslim) }()
+        case 121: try { try decoder.decodeSingularBoolField(value: &_storage._grab) }()
+        case 122: try { try decoder.decodeSingularBoolField(value: &_storage._lineMan) }()
+        case 123: try { try decoder.decodeSingularBoolField(value: &_storage._bangkokBank) }()
+        case 124: try { try decoder.decodeSingularBoolField(value: &_storage._krungthaiNext) }()
+        case 125: try { try decoder.decodeSingularBoolField(value: &_storage._mymoByGsb) }()
+        case 126: try { try decoder.decodeSingularBoolField(value: &_storage._sevenEleven) }()
+        case 127: try { try decoder.decodeSingularBoolField(value: &_storage._tiktokLite) }()
+        case 128: try { try decoder.decodeSingularBoolField(value: &_storage._tiktokProEvents) }()
+        case 129: try { try decoder.decodeSingularBoolField(value: &_storage._wolt) }()
+        case 130: try { try decoder.decodeSingularBoolField(value: &_storage._zoom) }()
+        case 131: try { try decoder.decodeSingularBoolField(value: &_storage._tada) }()
+        case 132: try { try decoder.decodeSingularBoolField(value: &_storage._imo) }()
+        case 133: try { try decoder.decodeSingularBoolField(value: &_storage._yassir) }()
+        case 134: try { try decoder.decodeSingularBoolField(value: &_storage._anaMuslim) }()
+        case 135: try { try decoder.decodeSingularBoolField(value: &_storage._instapay) }()
+        case 136: try { try decoder.decodeSingularBoolField(value: &_storage._filgoal) }()
+        case 137: try { try decoder.decodeSingularBoolField(value: &_storage._scores365) }()
+        case 138: try { try decoder.decodeSingularBoolField(value: &_storage._noon) }()
+        case 139: try { try decoder.decodeSingularBoolField(value: &_storage._mrsool) }()
+        case 140: try { try decoder.decodeSingularBoolField(value: &_storage._momo) }()
+        case 141: try { try decoder.decodeSingularBoolField(value: &_storage._xanhSm) }()
+        case 142: try { try decoder.decodeSingularBoolField(value: &_storage._be) }()
+        case 143: try { try decoder.decodeSingularBoolField(value: &_storage._aba) }()
+        case 144: try { try decoder.decodeSingularBoolField(value: &_storage._acledaMobile) }()
+        case 145: try { try decoder.decodeSingularBoolField(value: &_storage._bkash) }()
+        case 146: try { try decoder.decodeSingularBoolField(value: &_storage._mercadoPago) }()
+        case 147: try { try decoder.decodeSingularBoolField(value: &_storage._mercadoLibre) }()
+        case 148: try { try decoder.decodeSingularBoolField(value: &_storage._rappi) }()
+        case 149: try { try decoder.decodeSingularBoolField(value: &_storage._waze) }()
+        case 150: try { try decoder.decodeSingularBoolField(value: &_storage._dcard) }()
+        case 151: try { try decoder.decodeSingularBoolField(value: &_storage._foodpanda) }()
+        case 152: try { try decoder.decodeSingularBoolField(value: &_storage._bolt) }()
+        case 153: try { try decoder.decodeSingularBoolField(value: &_storage._neshan) }()
+        case 154: try { try decoder.decodeSingularBoolField(value: &_storage._nafath) }()
+        case 155: try { try decoder.decodeSingularBoolField(value: &_storage._kbzPay) }()
+        case 156: try { try decoder.decodeSingularBoolField(value: &_storage._wavePay) }()
+        case 157: try { try decoder.decodeSingularBoolField(value: &_storage._ayaPay) }()
+        case 158: try { try decoder.decodeSingularBoolField(value: &_storage._cbPay) }()
+        case 159: try { try decoder.decodeSingularBoolField(value: &_storage._uabPay) }()
+        case 160: try { try decoder.decodeSingularBoolField(value: &_storage._veeka) }()
+        case 161: try { try decoder.decodeSingularBoolField(value: &_storage._sehhaty) }()
+        case 162: try { try decoder.decodeSingularBoolField(value: &_storage._uala) }()
+        case 163: try { try decoder.decodeSingularBoolField(value: &_storage._hungerStation) }()
+        case 164: try { try decoder.decodeSingularBoolField(value: &_storage._pathao) }()
+        case 165: try { try decoder.decodeSingularBoolField(value: &_storage._cabify) }()
+        case 166: try { try decoder.decodeSingularBoolField(value: &_storage._cabifyLogisticsDriver) }()
+        case 167: try { try decoder.decodeSingularBoolField(value: &_storage._nusuk) }()
+        case 168: try { try decoder.decodeSingularBoolField(value: &_storage._nagad) }()
+        case 169: try { try decoder.decodeSingularBoolField(value: &_storage._roket) }()
+        case 170: try { try decoder.decodeSingularBoolField(value: &_storage._daraz) }()
+        case 171: try { try decoder.decodeSingularBoolField(value: &_storage._pickaboo) }()
+        case 172: try { try decoder.decodeSingularBoolField(value: &_storage._haraj) }()
+        case 173: try { try decoder.decodeSingularBoolField(value: &_storage._saudiEnergy) }()
+        case 174: try { try decoder.decodeSingularBoolField(value: &_storage._galaxyCinema) }()
+        case 175: try { try decoder.decodeSingularBoolField(value: &_storage._splOnline) }()
+        case 176: try { try decoder.decodeSingularBoolField(value: &_storage._stcBank) }()
+        case 177: try { try decoder.decodeSingularBoolField(value: &_storage._absher) }()
+        case 178: try { try decoder.decodeSingularBoolField(value: &_storage._muslimPro) }()
+        case 179: try { try decoder.decodeSingularBoolField(value: &_storage._stcPay) }()
         default: break
         }
       }
@@ -1820,6 +2450,216 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
       if _storage._ozon != false {
         try visitor.visitSingularBoolField(value: _storage._ozon, fieldNumber: 109)
       }
+      if _storage._zsMessage != false {
+        try visitor.visitSingularBoolField(value: _storage._zsMessage, fieldNumber: 110)
+      }
+      if _storage._kstyleOs != false {
+        try visitor.visitSingularBoolField(value: _storage._kstyleOs, fieldNumber: 111)
+      }
+      if _storage._chrome != false {
+        try visitor.visitSingularBoolField(value: _storage._chrome, fieldNumber: 112)
+      }
+      if _storage._didiGlobal != false {
+        try visitor.visitSingularBoolField(value: _storage._didiGlobal, fieldNumber: 113)
+      }
+      if _storage._chatgpt != false {
+        try visitor.visitSingularBoolField(value: _storage._chatgpt, fieldNumber: 114)
+      }
+      if _storage._threads != false {
+        try visitor.visitSingularBoolField(value: _storage._threads, fieldNumber: 115)
+      }
+      if _storage._nabd != false {
+        try visitor.visitSingularBoolField(value: _storage._nabd, fieldNumber: 116)
+      }
+      if _storage._sparkmail != false {
+        try visitor.visitSingularBoolField(value: _storage._sparkmail, fieldNumber: 117)
+      }
+      if _storage._sofascore != false {
+        try visitor.visitSingularBoolField(value: _storage._sofascore, fieldNumber: 118)
+      }
+      if _storage._fotmob != false {
+        try visitor.visitSingularBoolField(value: _storage._fotmob, fieldNumber: 119)
+      }
+      if _storage._muslim != false {
+        try visitor.visitSingularBoolField(value: _storage._muslim, fieldNumber: 120)
+      }
+      if _storage._grab != false {
+        try visitor.visitSingularBoolField(value: _storage._grab, fieldNumber: 121)
+      }
+      if _storage._lineMan != false {
+        try visitor.visitSingularBoolField(value: _storage._lineMan, fieldNumber: 122)
+      }
+      if _storage._bangkokBank != false {
+        try visitor.visitSingularBoolField(value: _storage._bangkokBank, fieldNumber: 123)
+      }
+      if _storage._krungthaiNext != false {
+        try visitor.visitSingularBoolField(value: _storage._krungthaiNext, fieldNumber: 124)
+      }
+      if _storage._mymoByGsb != false {
+        try visitor.visitSingularBoolField(value: _storage._mymoByGsb, fieldNumber: 125)
+      }
+      if _storage._sevenEleven != false {
+        try visitor.visitSingularBoolField(value: _storage._sevenEleven, fieldNumber: 126)
+      }
+      if _storage._tiktokLite != false {
+        try visitor.visitSingularBoolField(value: _storage._tiktokLite, fieldNumber: 127)
+      }
+      if _storage._tiktokProEvents != false {
+        try visitor.visitSingularBoolField(value: _storage._tiktokProEvents, fieldNumber: 128)
+      }
+      if _storage._wolt != false {
+        try visitor.visitSingularBoolField(value: _storage._wolt, fieldNumber: 129)
+      }
+      if _storage._zoom != false {
+        try visitor.visitSingularBoolField(value: _storage._zoom, fieldNumber: 130)
+      }
+      if _storage._tada != false {
+        try visitor.visitSingularBoolField(value: _storage._tada, fieldNumber: 131)
+      }
+      if _storage._imo != false {
+        try visitor.visitSingularBoolField(value: _storage._imo, fieldNumber: 132)
+      }
+      if _storage._yassir != false {
+        try visitor.visitSingularBoolField(value: _storage._yassir, fieldNumber: 133)
+      }
+      if _storage._anaMuslim != false {
+        try visitor.visitSingularBoolField(value: _storage._anaMuslim, fieldNumber: 134)
+      }
+      if _storage._instapay != false {
+        try visitor.visitSingularBoolField(value: _storage._instapay, fieldNumber: 135)
+      }
+      if _storage._filgoal != false {
+        try visitor.visitSingularBoolField(value: _storage._filgoal, fieldNumber: 136)
+      }
+      if _storage._scores365 != false {
+        try visitor.visitSingularBoolField(value: _storage._scores365, fieldNumber: 137)
+      }
+      if _storage._noon != false {
+        try visitor.visitSingularBoolField(value: _storage._noon, fieldNumber: 138)
+      }
+      if _storage._mrsool != false {
+        try visitor.visitSingularBoolField(value: _storage._mrsool, fieldNumber: 139)
+      }
+      if _storage._momo != false {
+        try visitor.visitSingularBoolField(value: _storage._momo, fieldNumber: 140)
+      }
+      if _storage._xanhSm != false {
+        try visitor.visitSingularBoolField(value: _storage._xanhSm, fieldNumber: 141)
+      }
+      if _storage._be != false {
+        try visitor.visitSingularBoolField(value: _storage._be, fieldNumber: 142)
+      }
+      if _storage._aba != false {
+        try visitor.visitSingularBoolField(value: _storage._aba, fieldNumber: 143)
+      }
+      if _storage._acledaMobile != false {
+        try visitor.visitSingularBoolField(value: _storage._acledaMobile, fieldNumber: 144)
+      }
+      if _storage._bkash != false {
+        try visitor.visitSingularBoolField(value: _storage._bkash, fieldNumber: 145)
+      }
+      if _storage._mercadoPago != false {
+        try visitor.visitSingularBoolField(value: _storage._mercadoPago, fieldNumber: 146)
+      }
+      if _storage._mercadoLibre != false {
+        try visitor.visitSingularBoolField(value: _storage._mercadoLibre, fieldNumber: 147)
+      }
+      if _storage._rappi != false {
+        try visitor.visitSingularBoolField(value: _storage._rappi, fieldNumber: 148)
+      }
+      if _storage._waze != false {
+        try visitor.visitSingularBoolField(value: _storage._waze, fieldNumber: 149)
+      }
+      if _storage._dcard != false {
+        try visitor.visitSingularBoolField(value: _storage._dcard, fieldNumber: 150)
+      }
+      if _storage._foodpanda != false {
+        try visitor.visitSingularBoolField(value: _storage._foodpanda, fieldNumber: 151)
+      }
+      if _storage._bolt != false {
+        try visitor.visitSingularBoolField(value: _storage._bolt, fieldNumber: 152)
+      }
+      if _storage._neshan != false {
+        try visitor.visitSingularBoolField(value: _storage._neshan, fieldNumber: 153)
+      }
+      if _storage._nafath != false {
+        try visitor.visitSingularBoolField(value: _storage._nafath, fieldNumber: 154)
+      }
+      if _storage._kbzPay != false {
+        try visitor.visitSingularBoolField(value: _storage._kbzPay, fieldNumber: 155)
+      }
+      if _storage._wavePay != false {
+        try visitor.visitSingularBoolField(value: _storage._wavePay, fieldNumber: 156)
+      }
+      if _storage._ayaPay != false {
+        try visitor.visitSingularBoolField(value: _storage._ayaPay, fieldNumber: 157)
+      }
+      if _storage._cbPay != false {
+        try visitor.visitSingularBoolField(value: _storage._cbPay, fieldNumber: 158)
+      }
+      if _storage._uabPay != false {
+        try visitor.visitSingularBoolField(value: _storage._uabPay, fieldNumber: 159)
+      }
+      if _storage._veeka != false {
+        try visitor.visitSingularBoolField(value: _storage._veeka, fieldNumber: 160)
+      }
+      if _storage._sehhaty != false {
+        try visitor.visitSingularBoolField(value: _storage._sehhaty, fieldNumber: 161)
+      }
+      if _storage._uala != false {
+        try visitor.visitSingularBoolField(value: _storage._uala, fieldNumber: 162)
+      }
+      if _storage._hungerStation != false {
+        try visitor.visitSingularBoolField(value: _storage._hungerStation, fieldNumber: 163)
+      }
+      if _storage._pathao != false {
+        try visitor.visitSingularBoolField(value: _storage._pathao, fieldNumber: 164)
+      }
+      if _storage._cabify != false {
+        try visitor.visitSingularBoolField(value: _storage._cabify, fieldNumber: 165)
+      }
+      if _storage._cabifyLogisticsDriver != false {
+        try visitor.visitSingularBoolField(value: _storage._cabifyLogisticsDriver, fieldNumber: 166)
+      }
+      if _storage._nusuk != false {
+        try visitor.visitSingularBoolField(value: _storage._nusuk, fieldNumber: 167)
+      }
+      if _storage._nagad != false {
+        try visitor.visitSingularBoolField(value: _storage._nagad, fieldNumber: 168)
+      }
+      if _storage._roket != false {
+        try visitor.visitSingularBoolField(value: _storage._roket, fieldNumber: 169)
+      }
+      if _storage._daraz != false {
+        try visitor.visitSingularBoolField(value: _storage._daraz, fieldNumber: 170)
+      }
+      if _storage._pickaboo != false {
+        try visitor.visitSingularBoolField(value: _storage._pickaboo, fieldNumber: 171)
+      }
+      if _storage._haraj != false {
+        try visitor.visitSingularBoolField(value: _storage._haraj, fieldNumber: 172)
+      }
+      if _storage._saudiEnergy != false {
+        try visitor.visitSingularBoolField(value: _storage._saudiEnergy, fieldNumber: 173)
+      }
+      if _storage._galaxyCinema != false {
+        try visitor.visitSingularBoolField(value: _storage._galaxyCinema, fieldNumber: 174)
+      }
+      if _storage._splOnline != false {
+        try visitor.visitSingularBoolField(value: _storage._splOnline, fieldNumber: 175)
+      }
+      if _storage._stcBank != false {
+        try visitor.visitSingularBoolField(value: _storage._stcBank, fieldNumber: 176)
+      }
+      if _storage._absher != false {
+        try visitor.visitSingularBoolField(value: _storage._absher, fieldNumber: 177)
+      }
+      if _storage._muslimPro != false {
+        try visitor.visitSingularBoolField(value: _storage._muslimPro, fieldNumber: 178)
+      }
+      if _storage._stcPay != false {
+        try visitor.visitSingularBoolField(value: _storage._stcPay, fieldNumber: 179)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1938,6 +2778,76 @@ extension protocol_message_notify_func_support_reply: SwiftProtobuf.Message, Swi
         if _storage._goldApple != rhs_storage._goldApple {return false}
         if _storage._gosuslugi != rhs_storage._gosuslugi {return false}
         if _storage._ozon != rhs_storage._ozon {return false}
+        if _storage._zsMessage != rhs_storage._zsMessage {return false}
+        if _storage._kstyleOs != rhs_storage._kstyleOs {return false}
+        if _storage._chrome != rhs_storage._chrome {return false}
+        if _storage._didiGlobal != rhs_storage._didiGlobal {return false}
+        if _storage._chatgpt != rhs_storage._chatgpt {return false}
+        if _storage._threads != rhs_storage._threads {return false}
+        if _storage._nabd != rhs_storage._nabd {return false}
+        if _storage._sparkmail != rhs_storage._sparkmail {return false}
+        if _storage._sofascore != rhs_storage._sofascore {return false}
+        if _storage._fotmob != rhs_storage._fotmob {return false}
+        if _storage._muslim != rhs_storage._muslim {return false}
+        if _storage._grab != rhs_storage._grab {return false}
+        if _storage._lineMan != rhs_storage._lineMan {return false}
+        if _storage._bangkokBank != rhs_storage._bangkokBank {return false}
+        if _storage._krungthaiNext != rhs_storage._krungthaiNext {return false}
+        if _storage._mymoByGsb != rhs_storage._mymoByGsb {return false}
+        if _storage._sevenEleven != rhs_storage._sevenEleven {return false}
+        if _storage._tiktokLite != rhs_storage._tiktokLite {return false}
+        if _storage._tiktokProEvents != rhs_storage._tiktokProEvents {return false}
+        if _storage._wolt != rhs_storage._wolt {return false}
+        if _storage._zoom != rhs_storage._zoom {return false}
+        if _storage._tada != rhs_storage._tada {return false}
+        if _storage._imo != rhs_storage._imo {return false}
+        if _storage._yassir != rhs_storage._yassir {return false}
+        if _storage._anaMuslim != rhs_storage._anaMuslim {return false}
+        if _storage._instapay != rhs_storage._instapay {return false}
+        if _storage._filgoal != rhs_storage._filgoal {return false}
+        if _storage._scores365 != rhs_storage._scores365 {return false}
+        if _storage._noon != rhs_storage._noon {return false}
+        if _storage._mrsool != rhs_storage._mrsool {return false}
+        if _storage._momo != rhs_storage._momo {return false}
+        if _storage._xanhSm != rhs_storage._xanhSm {return false}
+        if _storage._be != rhs_storage._be {return false}
+        if _storage._aba != rhs_storage._aba {return false}
+        if _storage._acledaMobile != rhs_storage._acledaMobile {return false}
+        if _storage._bkash != rhs_storage._bkash {return false}
+        if _storage._mercadoPago != rhs_storage._mercadoPago {return false}
+        if _storage._mercadoLibre != rhs_storage._mercadoLibre {return false}
+        if _storage._rappi != rhs_storage._rappi {return false}
+        if _storage._waze != rhs_storage._waze {return false}
+        if _storage._dcard != rhs_storage._dcard {return false}
+        if _storage._foodpanda != rhs_storage._foodpanda {return false}
+        if _storage._bolt != rhs_storage._bolt {return false}
+        if _storage._neshan != rhs_storage._neshan {return false}
+        if _storage._nafath != rhs_storage._nafath {return false}
+        if _storage._kbzPay != rhs_storage._kbzPay {return false}
+        if _storage._wavePay != rhs_storage._wavePay {return false}
+        if _storage._ayaPay != rhs_storage._ayaPay {return false}
+        if _storage._cbPay != rhs_storage._cbPay {return false}
+        if _storage._uabPay != rhs_storage._uabPay {return false}
+        if _storage._veeka != rhs_storage._veeka {return false}
+        if _storage._sehhaty != rhs_storage._sehhaty {return false}
+        if _storage._uala != rhs_storage._uala {return false}
+        if _storage._hungerStation != rhs_storage._hungerStation {return false}
+        if _storage._pathao != rhs_storage._pathao {return false}
+        if _storage._cabify != rhs_storage._cabify {return false}
+        if _storage._cabifyLogisticsDriver != rhs_storage._cabifyLogisticsDriver {return false}
+        if _storage._nusuk != rhs_storage._nusuk {return false}
+        if _storage._nagad != rhs_storage._nagad {return false}
+        if _storage._roket != rhs_storage._roket {return false}
+        if _storage._daraz != rhs_storage._daraz {return false}
+        if _storage._pickaboo != rhs_storage._pickaboo {return false}
+        if _storage._haraj != rhs_storage._haraj {return false}
+        if _storage._saudiEnergy != rhs_storage._saudiEnergy {return false}
+        if _storage._galaxyCinema != rhs_storage._galaxyCinema {return false}
+        if _storage._splOnline != rhs_storage._splOnline {return false}
+        if _storage._stcBank != rhs_storage._stcBank {return false}
+        if _storage._absher != rhs_storage._absher {return false}
+        if _storage._muslimPro != rhs_storage._muslimPro {return false}
+        if _storage._stcPay != rhs_storage._stcPay {return false}
         return true
       }
       if !storagesAreEqual {return false}

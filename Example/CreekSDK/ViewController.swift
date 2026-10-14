@@ -88,6 +88,8 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Set good morning",
       "Get calendar",
       "Set calendar",
+      "Calendar V2",
+      "Ringtone",
       "Get health snapshot",
       "Get Watch Sensor",
       "Set Watch Sensor",
@@ -537,6 +539,14 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let selectedOption = filteredOptions[indexPath.row]
       switch selectedOption {
+      case "Calendar V2":
+         let vc = CalendarV2ViewController()
+         self.navigationController?.pushViewController(vc, animated: true)
+         break
+      case "Ringtone":
+         let vc = RingtoneUploadViewController()
+         self.navigationController?.pushViewController(vc, animated: true)
+         break
       case "Upload (Music)":
          let vc = MusicUploadViewController()
          self.navigationController?.pushViewController(vc, animated: true)

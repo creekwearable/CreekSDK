@@ -1217,6 +1217,12 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///EDA压力
   case syncEdaStress // = 18
+
+  ///冷热预警
+  case syncThermalStress // = 19
+
+  ///负荷
+  case syncEffort // = 20
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1244,6 +1250,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 16: self = .syncSecondSpo2
     case 17: self = .syncActivityLevel
     case 18: self = .syncEdaStress
+    case 19: self = .syncThermalStress
+    case 20: self = .syncEffort
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1269,6 +1277,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncSecondSpo2: return 16
     case .syncActivityLevel: return 17
     case .syncEdaStress: return 18
+    case .syncThermalStress: return 19
+    case .syncEffort: return 20
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1294,6 +1304,8 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncSecondSpo2,
     .syncActivityLevel,
     .syncEdaStress,
+    .syncThermalStress,
+    .syncEffort,
   ]
 
 }
@@ -2569,6 +2581,216 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   case goldApple // = 107
   case gosuslugi // = 108
   case ozon // = 109
+
+  ///com.google.android.apps.messaging
+  case zsMessage // = 110
+
+  ///com.kieslect.fashion
+  case kstyleOs // = 111
+
+  ///com.android.chrome
+  case chrome // = 112
+
+  ///com.didiglobal.passenger
+  case didiGlobal // = 113
+
+  ///com.openai.chatgpt
+  case chatgpt // = 114
+
+  ///com.instagram.barcelona
+  case threads // = 115
+
+  ///com.waveline.nabd
+  case nabd // = 116
+
+  ///com.readdle.spark
+  case sparkmail // = 117
+
+  ///com.sofascore.results
+  case sofascore // = 118
+
+  ///com.mobilefootie.wc2010
+  case fotmob // = 119
+
+  ///com.hundred.qibla
+  case muslim // = 120
+
+  ///com.grabtaxi.passenger
+  case grab // = 121
+
+  ///com.linecorp.linemanth
+  case lineMan // = 122
+
+  ///com.bbl.mobilebanking
+  case bangkokBank // = 123
+
+  ///ktbcs.netbank
+  case krungthaiNext // = 124
+
+  ///com.mobilife.gsb.mymo
+  case mymoByGsb // = 125
+
+  ///asuk.com.android.app（7-eleven）
+  case sevenEleven // = 126
+
+  ///com.tiktok.lite.go
+  case tiktokLite // = 127
+
+  ///com.ss.android.ugc.tiktok.pro（TikTok Pro - Events）
+  case tiktokProEvents // = 128
+
+  ///com.wolt.android
+  case wolt // = 129
+
+  ///us.zoom.videomeetings
+  case zoom // = 130
+
+  ///io.mvlchain.tada
+  case tada // = 131
+
+  ///com.imo.android.imous
+  case imo // = 132
+
+  ///com.yatechnologies.yassir_rider
+  case yassir // = 133
+
+  ///com.muslimramadantech.ramadancalendar
+  case anaMuslim // = 134
+
+  ///com.egyptianbanks.instapay
+  case instapay // = 135
+
+  ///com.sarmady.filgoal
+  case filgoal // = 136
+
+  ///com.scores365（365 scores）
+  case scores365 // = 137
+
+  ///com.noon.buyerapp
+  case noon // = 138
+
+  ///com.mrsool
+  case mrsool // = 139
+
+  ///com.mservice.momotransfer
+  case momo // = 140
+
+  ///com.gsm.customer
+  case xanhSm // = 141
+
+  ///xyz.be.customer
+  case be // = 142
+
+  ///com.paygo24.ibank
+  case aba // = 143
+
+  ///com.domain.acledabankqr
+  case acledaMobile // = 144
+
+  ///com.bKash.customerapp
+  case bkash // = 145
+
+  ///com.mercadopago.wallet
+  case mercadoPago // = 146
+
+  ///com.mercadolibre
+  case mercadoLibre // = 147
+
+  ///com.grability.rappi
+  case rappi // = 148
+
+  ///com.waze
+  case waze // = 149
+
+  ///com.sparkslab.dcardreader
+  case dcard // = 150
+
+  ///com.global.foodpanda.android
+  case foodpanda // = 151
+
+  ///ee.mtakso.client
+  case bolt // = 152
+
+  ///org.rajman.neshan.traffic.tehran.navigator
+  case neshan // = 153
+
+  ///sa.gov.nic.myid
+  case nafath // = 154
+
+  ///com.kbzbank.kpaycustomer
+  case kbzPay // = 155
+
+  ///mm.com.wavemoney.wavepay
+  case wavePay // = 156
+
+  ///com.ayaplus.subscriber
+  case ayaPay // = 157
+
+  ///com.cbbank.cbmbanking
+  case cbPay // = 158
+
+  ///com.uab.uabbankpay
+  case uabPay // = 159
+
+  ///sg.partying.android.lite
+  case veeka // = 160
+
+  ///com.lean.sehhaty
+  case sehhaty // = 161
+
+  ///ar.com.bancar.uala（Ualá）
+  case uala // = 162
+
+  ///com.hungerstation.android.web
+  case hungerStation // = 163
+
+  ///com.pathao.user
+  case pathao // = 164
+
+  ///com.cabify.rider
+  case cabify // = 165
+
+  ///com.cabify.logistics（Cabify Logistics Driver）
+  case cabifyLogisticsDriver // = 166
+
+  ///com.moh.nusukapp
+  case nusuk // = 167
+
+  ///com.konasl.nagad
+  case nagad // = 168
+
+  ///com.dbbl.mbs.apps.main
+  case roket // = 169
+
+  ///com.daraz.android
+  case daraz // = 170
+
+  ///com.pickaboo.app
+  case pickaboo // = 171
+
+  ///com.haraj.app
+  case haraj // = 172
+
+  ///sa.com.se.alkahraba
+  case saudiEnergy // = 173
+
+  ///com.galaxy.cinema
+  case galaxyCinema // = 174
+
+  ///sa.com.SP
+  case splOnline // = 175
+
+  ///sa.com.stcbank
+  case stcBank // = 176
+
+  ///sa.gov.moi
+  case absher // = 177
+
+  ///com.bitsmedia.android.muslimpro
+  case muslimPro // = 178
+
+  ///com.vivacash.sadad
+  case stcPay // = 179
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -2687,6 +2909,76 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 107: self = .goldApple
     case 108: self = .gosuslugi
     case 109: self = .ozon
+    case 110: self = .zsMessage
+    case 111: self = .kstyleOs
+    case 112: self = .chrome
+    case 113: self = .didiGlobal
+    case 114: self = .chatgpt
+    case 115: self = .threads
+    case 116: self = .nabd
+    case 117: self = .sparkmail
+    case 118: self = .sofascore
+    case 119: self = .fotmob
+    case 120: self = .muslim
+    case 121: self = .grab
+    case 122: self = .lineMan
+    case 123: self = .bangkokBank
+    case 124: self = .krungthaiNext
+    case 125: self = .mymoByGsb
+    case 126: self = .sevenEleven
+    case 127: self = .tiktokLite
+    case 128: self = .tiktokProEvents
+    case 129: self = .wolt
+    case 130: self = .zoom
+    case 131: self = .tada
+    case 132: self = .imo
+    case 133: self = .yassir
+    case 134: self = .anaMuslim
+    case 135: self = .instapay
+    case 136: self = .filgoal
+    case 137: self = .scores365
+    case 138: self = .noon
+    case 139: self = .mrsool
+    case 140: self = .momo
+    case 141: self = .xanhSm
+    case 142: self = .be
+    case 143: self = .aba
+    case 144: self = .acledaMobile
+    case 145: self = .bkash
+    case 146: self = .mercadoPago
+    case 147: self = .mercadoLibre
+    case 148: self = .rappi
+    case 149: self = .waze
+    case 150: self = .dcard
+    case 151: self = .foodpanda
+    case 152: self = .bolt
+    case 153: self = .neshan
+    case 154: self = .nafath
+    case 155: self = .kbzPay
+    case 156: self = .wavePay
+    case 157: self = .ayaPay
+    case 158: self = .cbPay
+    case 159: self = .uabPay
+    case 160: self = .veeka
+    case 161: self = .sehhaty
+    case 162: self = .uala
+    case 163: self = .hungerStation
+    case 164: self = .pathao
+    case 165: self = .cabify
+    case 166: self = .cabifyLogisticsDriver
+    case 167: self = .nusuk
+    case 168: self = .nagad
+    case 169: self = .roket
+    case 170: self = .daraz
+    case 171: self = .pickaboo
+    case 172: self = .haraj
+    case 173: self = .saudiEnergy
+    case 174: self = .galaxyCinema
+    case 175: self = .splOnline
+    case 176: self = .stcBank
+    case 177: self = .absher
+    case 178: self = .muslimPro
+    case 179: self = .stcPay
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2803,6 +3095,76 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .goldApple: return 107
     case .gosuslugi: return 108
     case .ozon: return 109
+    case .zsMessage: return 110
+    case .kstyleOs: return 111
+    case .chrome: return 112
+    case .didiGlobal: return 113
+    case .chatgpt: return 114
+    case .threads: return 115
+    case .nabd: return 116
+    case .sparkmail: return 117
+    case .sofascore: return 118
+    case .fotmob: return 119
+    case .muslim: return 120
+    case .grab: return 121
+    case .lineMan: return 122
+    case .bangkokBank: return 123
+    case .krungthaiNext: return 124
+    case .mymoByGsb: return 125
+    case .sevenEleven: return 126
+    case .tiktokLite: return 127
+    case .tiktokProEvents: return 128
+    case .wolt: return 129
+    case .zoom: return 130
+    case .tada: return 131
+    case .imo: return 132
+    case .yassir: return 133
+    case .anaMuslim: return 134
+    case .instapay: return 135
+    case .filgoal: return 136
+    case .scores365: return 137
+    case .noon: return 138
+    case .mrsool: return 139
+    case .momo: return 140
+    case .xanhSm: return 141
+    case .be: return 142
+    case .aba: return 143
+    case .acledaMobile: return 144
+    case .bkash: return 145
+    case .mercadoPago: return 146
+    case .mercadoLibre: return 147
+    case .rappi: return 148
+    case .waze: return 149
+    case .dcard: return 150
+    case .foodpanda: return 151
+    case .bolt: return 152
+    case .neshan: return 153
+    case .nafath: return 154
+    case .kbzPay: return 155
+    case .wavePay: return 156
+    case .ayaPay: return 157
+    case .cbPay: return 158
+    case .uabPay: return 159
+    case .veeka: return 160
+    case .sehhaty: return 161
+    case .uala: return 162
+    case .hungerStation: return 163
+    case .pathao: return 164
+    case .cabify: return 165
+    case .cabifyLogisticsDriver: return 166
+    case .nusuk: return 167
+    case .nagad: return 168
+    case .roket: return 169
+    case .daraz: return 170
+    case .pickaboo: return 171
+    case .haraj: return 172
+    case .saudiEnergy: return 173
+    case .galaxyCinema: return 174
+    case .splOnline: return 175
+    case .stcBank: return 176
+    case .absher: return 177
+    case .muslimPro: return 178
+    case .stcPay: return 179
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -2919,6 +3281,76 @@ public enum message_remind_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .goldApple,
     .gosuslugi,
     .ozon,
+    .zsMessage,
+    .kstyleOs,
+    .chrome,
+    .didiGlobal,
+    .chatgpt,
+    .threads,
+    .nabd,
+    .sparkmail,
+    .sofascore,
+    .fotmob,
+    .muslim,
+    .grab,
+    .lineMan,
+    .bangkokBank,
+    .krungthaiNext,
+    .mymoByGsb,
+    .sevenEleven,
+    .tiktokLite,
+    .tiktokProEvents,
+    .wolt,
+    .zoom,
+    .tada,
+    .imo,
+    .yassir,
+    .anaMuslim,
+    .instapay,
+    .filgoal,
+    .scores365,
+    .noon,
+    .mrsool,
+    .momo,
+    .xanhSm,
+    .be,
+    .aba,
+    .acledaMobile,
+    .bkash,
+    .mercadoPago,
+    .mercadoLibre,
+    .rappi,
+    .waze,
+    .dcard,
+    .foodpanda,
+    .bolt,
+    .neshan,
+    .nafath,
+    .kbzPay,
+    .wavePay,
+    .ayaPay,
+    .cbPay,
+    .uabPay,
+    .veeka,
+    .sehhaty,
+    .uala,
+    .hungerStation,
+    .pathao,
+    .cabify,
+    .cabifyLogisticsDriver,
+    .nusuk,
+    .nagad,
+    .roket,
+    .daraz,
+    .pickaboo,
+    .haraj,
+    .saudiEnergy,
+    .galaxyCinema,
+    .splOnline,
+    .stcBank,
+    .absher,
+    .muslimPro,
+    .stcPay,
   ]
 
 }
@@ -4821,6 +5253,9 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///ai表盘
   case aiPlate // = 38
+
+  ///训练计划
+  case trainingPlan // = 39
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -4868,6 +5303,7 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 36: self = .aiTranslate
     case 37: self = .nfc
     case 38: self = .aiPlate
+    case 39: self = .trainingPlan
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -4913,6 +5349,7 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .aiTranslate: return 36
     case .nfc: return 37
     case .aiPlate: return 38
+    case .trainingPlan: return 39
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -4958,6 +5395,7 @@ public enum app_list: SwiftProtobuf.Enum, Swift.CaseIterable {
     .aiTranslate,
     .nfc,
     .aiPlate,
+    .trainingPlan,
   ]
 
 }
@@ -9457,6 +9895,1216 @@ public enum Segments_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum operate_nfc_card_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case nfcCardInvalid // = 0
+
+  /// 查询
+  case nfcCardInquire // = 1
+
+  /// 删除
+  case nfcCardDelete // = 2
+
+  /// 修改
+  case nfcCardUpdate // = 3
+
+  /// 创建
+  case nfcCardCreate // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .nfcCardInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .nfcCardInvalid
+    case 1: self = .nfcCardInquire
+    case 2: self = .nfcCardDelete
+    case 3: self = .nfcCardUpdate
+    case 4: self = .nfcCardCreate
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .nfcCardInvalid: return 0
+    case .nfcCardInquire: return 1
+    case .nfcCardDelete: return 2
+    case .nfcCardUpdate: return 3
+    case .nfcCardCreate: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_nfc_card_type] = [
+    .nfcCardInvalid,
+    .nfcCardInquire,
+    .nfcCardDelete,
+    .nfcCardUpdate,
+    .nfcCardCreate,
+  ]
+
+}
+
+public enum nfc_card_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///激活
+  case statusActive // = 0
+
+  /// 挂起
+  case statusSuspeded // = 1
+
+  /// 删除
+  case statusDelete // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .statusActive
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .statusActive
+    case 1: self = .statusSuspeded
+    case 2: self = .statusDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .statusActive: return 0
+    case .statusSuspeded: return 1
+    case .statusDelete: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [nfc_card_status] = [
+    .statusActive,
+    .statusSuspeded,
+    .statusDelete,
+  ]
+
+}
+
+public enum nfc_card_decision: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///批准
+  case approved // = 0
+
+  /// 拒绝
+  case declined // = 1
+
+  /// 需要额外验证
+  case authentication // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .approved
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .approved
+    case 1: self = .declined
+    case 2: self = .authentication
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .approved: return 0
+    case .declined: return 1
+    case .authentication: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [nfc_card_decision] = [
+    .approved,
+    .declined,
+    .authentication,
+  ]
+
+}
+
+public enum passcode_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///无效/未设置
+  case null // = 0
+
+  ///重置
+  case reset // = 1
+
+  ///移除
+  case remove // = 2
+
+  ///通知固件弹窗密码设置
+  case setup // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .null
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .null
+    case 1: self = .reset
+    case 2: self = .remove
+    case 3: self = .setup
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .null: return 0
+    case .reset: return 1
+    case .remove: return 2
+    case .setup: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [passcode_type] = [
+    .null,
+    .reset,
+    .remove,
+    .setup,
+  ]
+
+}
+
+public enum CourseStepType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///热身
+  case stepTypeWarmUp // = 0
+
+  ///训练
+  case stepTypeTrain // = 1
+
+  ///恢复
+  case stepTypeRecovery // = 2
+
+  ///休息
+  case stepTypeRest // = 3
+
+  ///缓和
+  case stepTypeCoolDown // = 4
+  case stepTypeOther // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .stepTypeWarmUp
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .stepTypeWarmUp
+    case 1: self = .stepTypeTrain
+    case 2: self = .stepTypeRecovery
+    case 3: self = .stepTypeRest
+    case 4: self = .stepTypeCoolDown
+    case 5: self = .stepTypeOther
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .stepTypeWarmUp: return 0
+    case .stepTypeTrain: return 1
+    case .stepTypeRecovery: return 2
+    case .stepTypeRest: return 3
+    case .stepTypeCoolDown: return 4
+    case .stepTypeOther: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [CourseStepType] = [
+    .stepTypeWarmUp,
+    .stepTypeTrain,
+    .stepTypeRecovery,
+    .stepTypeRest,
+    .stepTypeCoolDown,
+    .stepTypeOther,
+  ]
+
+}
+
+public enum course_continuing_target: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///持续目标 - 手动计圈
+  case continuingTarget2ManuallyLap // = 0
+
+  ///持续目标 - 时间
+  case continuingTarget2Time // = 1
+
+  ///持续目标 - 距离
+  case continuingTarget2Distance // = 2
+
+  ///持续目标 - 卡路里
+  case continuingTarget2Calories // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .continuingTarget2ManuallyLap
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .continuingTarget2ManuallyLap
+    case 1: self = .continuingTarget2Time
+    case 2: self = .continuingTarget2Distance
+    case 3: self = .continuingTarget2Calories
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .continuingTarget2ManuallyLap: return 0
+    case .continuingTarget2Time: return 1
+    case .continuingTarget2Distance: return 2
+    case .continuingTarget2Calories: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [course_continuing_target] = [
+    .continuingTarget2ManuallyLap,
+    .continuingTarget2Time,
+    .continuingTarget2Distance,
+    .continuingTarget2Calories,
+  ]
+
+}
+
+public enum course_strength_target: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///强度目标 - 开放式
+  case strengthTarget2Open // = 0
+
+  ///强度目标 - 配速
+  case strengthTarget2Pace // = 1
+
+  ///强度目标 - 步频
+  case strengthTarget2Cadence // = 2
+
+  ///强度目标 心率 - 心率区间
+  case strengthTarget2HeartRateZone // = 3
+
+  ///心率 - 自定义心率
+  case strengthTarget2CustomRateZone // = 4
+
+  ///强度目标 - 功率区间
+  case strengthTarget2PowerZones // = 5
+
+  ///心率 - 储备心率
+  case strengthTarget2RateZoneReserve // = 6
+
+  ///心率 - 最大心率
+  case strengthTarget2RateZoneMax // = 7
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .strengthTarget2Open
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .strengthTarget2Open
+    case 1: self = .strengthTarget2Pace
+    case 2: self = .strengthTarget2Cadence
+    case 3: self = .strengthTarget2HeartRateZone
+    case 4: self = .strengthTarget2CustomRateZone
+    case 5: self = .strengthTarget2PowerZones
+    case 6: self = .strengthTarget2RateZoneReserve
+    case 7: self = .strengthTarget2RateZoneMax
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .strengthTarget2Open: return 0
+    case .strengthTarget2Pace: return 1
+    case .strengthTarget2Cadence: return 2
+    case .strengthTarget2HeartRateZone: return 3
+    case .strengthTarget2CustomRateZone: return 4
+    case .strengthTarget2PowerZones: return 5
+    case .strengthTarget2RateZoneReserve: return 6
+    case .strengthTarget2RateZoneMax: return 7
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [course_strength_target] = [
+    .strengthTarget2Open,
+    .strengthTarget2Pace,
+    .strengthTarget2Cadence,
+    .strengthTarget2HeartRateZone,
+    .strengthTarget2CustomRateZone,
+    .strengthTarget2PowerZones,
+    .strengthTarget2RateZoneReserve,
+    .strengthTarget2RateZoneMax,
+  ]
+
+}
+
+/// Wi-Fi 文件传输操作类型。
+public enum wifi_file_transfer_action: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无效操作。
+  case tranActionInvalid // = 0
+
+  /// 通知设备准备接收一个批次。
+  case tranActionBatchPrepare // = 1
+
+  /// 下发 App HTTP 服务地址和批次清单地址。
+  case tranActionBatchResource // = 2
+
+  /// 取消整个批次。
+  case tranActionCancelBatch // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .tranActionInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .tranActionInvalid
+    case 1: self = .tranActionBatchPrepare
+    case 2: self = .tranActionBatchResource
+    case 3: self = .tranActionCancelBatch
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .tranActionInvalid: return 0
+    case .tranActionBatchPrepare: return 1
+    case .tranActionBatchResource: return 2
+    case .tranActionCancelBatch: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [wifi_file_transfer_action] = [
+    .tranActionInvalid,
+    .tranActionBatchPrepare,
+    .tranActionBatchResource,
+    .tranActionCancelBatch,
+  ]
+
+}
+
+/// 文件业务类型，便于后续复用同一套传输协议。
+public enum wifi_file_business_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未指定业务类型。
+  case businessTypeInvalid // = 0
+
+  /// 音乐文件。
+  case businessTypeMusic // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .businessTypeInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .businessTypeInvalid
+    case 1: self = .businessTypeMusic
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .businessTypeInvalid: return 0
+    case .businessTypeMusic: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [wifi_file_business_type] = [
+    .businessTypeInvalid,
+    .businessTypeMusic,
+  ]
+
+}
+
+/// 0x4E / 0x01 固件同步回复状态。
+/// 该枚举只服务于下发命令的一发一回，不用于异步通知。
+public enum wifi_file_transfer_reply_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无效状态。
+  case tranStatusInvalid // = 0
+
+  /// 批次已准备好，可以下发资源地址。
+  case tranStatusBatchReady // = 1
+
+  /// 固件已接收资源地址并开始处理。
+  case tranStatusBatchResourceAccepted // = 2
+
+  /// 固件已接受取消批次。
+  case tranStatusBatchCancelled // = 3
+
+  /// 本次控制操作处理失败。
+  case tranStatusStatusFailed // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .tranStatusInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .tranStatusInvalid
+    case 1: self = .tranStatusBatchReady
+    case 2: self = .tranStatusBatchResourceAccepted
+    case 3: self = .tranStatusBatchCancelled
+    case 4: self = .tranStatusStatusFailed
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .tranStatusInvalid: return 0
+    case .tranStatusBatchReady: return 1
+    case .tranStatusBatchResourceAccepted: return 2
+    case .tranStatusBatchCancelled: return 3
+    case .tranStatusStatusFailed: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [wifi_file_transfer_reply_status] = [
+    .tranStatusInvalid,
+    .tranStatusBatchReady,
+    .tranStatusBatchResourceAccepted,
+    .tranStatusBatchCancelled,
+    .tranStatusStatusFailed,
+  ]
+
+}
+
+public enum wifi_file_transfer_notify_error: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无错误。
+  case notifyNone // = 0
+
+  /// 设备正在处理其他传输。
+  case notifyBusy // = 1
+
+  /// 设备 Wi-Fi 不可用或未连接。
+  case notifyWifiUnavailable // = 2
+
+  /// 设备存储空间不足。
+  case notifyNoSpace // = 3
+
+  /// HTTP 地址、网络、状态码或下载超时导致下载失败。
+  case notifyDownloadFailed // = 4
+
+  /// 清单、文件大小或文件格式无效。
+  case notifyFileInvalid // = 5
+
+  /// 文件写入失败。
+  case notifyWriteFailed // = 6
+
+  /// 音乐导入失败。
+  case notifyMusicImportFailed // = 7
+
+  /// 传输已取消。
+  case notifyCancelled // = 8
+
+  /// 未知错误。
+  case notifyUnknown // = 9
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .notifyNone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .notifyNone
+    case 1: self = .notifyBusy
+    case 2: self = .notifyWifiUnavailable
+    case 3: self = .notifyNoSpace
+    case 4: self = .notifyDownloadFailed
+    case 5: self = .notifyFileInvalid
+    case 6: self = .notifyWriteFailed
+    case 7: self = .notifyMusicImportFailed
+    case 8: self = .notifyCancelled
+    case 9: self = .notifyUnknown
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .notifyNone: return 0
+    case .notifyBusy: return 1
+    case .notifyWifiUnavailable: return 2
+    case .notifyNoSpace: return 3
+    case .notifyDownloadFailed: return 4
+    case .notifyFileInvalid: return 5
+    case .notifyWriteFailed: return 6
+    case .notifyMusicImportFailed: return 7
+    case .notifyCancelled: return 8
+    case .notifyUnknown: return 9
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [wifi_file_transfer_notify_error] = [
+    .notifyNone,
+    .notifyBusy,
+    .notifyWifiUnavailable,
+    .notifyNoSpace,
+    .notifyDownloadFailed,
+    .notifyFileInvalid,
+    .notifyWriteFailed,
+    .notifyMusicImportFailed,
+    .notifyCancelled,
+    .notifyUnknown,
+  ]
+
+}
+
+public enum whatsapp_operation_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///NULL
+  case operationNull // = 0
+
+  ///获取绑定链接
+  case operationLink // = 1
+
+  ///解绑
+  case operationUnlink // = 2
+
+  ///发送消息
+  case operationSendMsg // = 3
+
+  ///推送新消息(app下发,带lid)
+  case operationPushMsg // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .operationNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .operationNull
+    case 1: self = .operationLink
+    case 2: self = .operationUnlink
+    case 3: self = .operationSendMsg
+    case 4: self = .operationPushMsg
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .operationNull: return 0
+    case .operationLink: return 1
+    case .operationUnlink: return 2
+    case .operationSendMsg: return 3
+    case .operationPushMsg: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [whatsapp_operation_type] = [
+    .operationNull,
+    .operationLink,
+    .operationUnlink,
+    .operationSendMsg,
+    .operationPushMsg,
+  ]
+
+}
+
+public enum ios_whatsapp_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///未登录
+  case notLoggedIn // = 0
+
+  ///登录中
+  case loggingIn // = 1
+
+  ///登录失败
+  case loginFailed // = 2
+
+  ///登录成功(LOGIN_SUCCESSFUL期间手表过滤WhatsApp的ANCS通知)
+  case loginSuccessful // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .notLoggedIn
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .notLoggedIn
+    case 1: self = .loggingIn
+    case 2: self = .loginFailed
+    case 3: self = .loginSuccessful
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .notLoggedIn: return 0
+    case .loggingIn: return 1
+    case .loginFailed: return 2
+    case .loginSuccessful: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [ios_whatsapp_status_type] = [
+    .notLoggedIn,
+    .loggingIn,
+    .loginFailed,
+    .loginSuccessful,
+  ]
+
+}
+
+public enum file_batch_business_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无效业务类型。
+  case batchBusinessInvalid // = 0
+
+  /// 音乐文件。
+  case batchBusinessMusic // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .batchBusinessInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .batchBusinessInvalid
+    case 1: self = .batchBusinessMusic
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .batchBusinessInvalid: return 0
+    case .batchBusinessMusic: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [file_batch_business_type] = [
+    .batchBusinessInvalid,
+    .batchBusinessMusic,
+  ]
+
+}
+
+/// App 向设备发起的批次控制操作。
+public enum file_batch_action: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无效操作。
+  case batchActionInvalid // = 0
+
+  /// 配置文件已上传，请设备解析并进入 READY。
+  case batchActionStart // = 1
+
+  /// SDK 本地无法完成当前文件，请设备标记失败并继续。
+  case batchActionFileFailed // = 2
+
+  /// 取消整个批次。
+  case batchActionCancel // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .batchActionInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .batchActionInvalid
+    case 1: self = .batchActionStart
+    case 2: self = .batchActionFileFailed
+    case 3: self = .batchActionCancel
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .batchActionInvalid: return 0
+    case .batchActionStart: return 1
+    case .batchActionFileFailed: return 2
+    case .batchActionCancel: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [file_batch_action] = [
+    .batchActionInvalid,
+    .batchActionStart,
+    .batchActionFileFailed,
+    .batchActionCancel,
+  ]
+
+}
+
+/// 设备向 App 主动发送的批次文件通知类型。
+public enum file_batch_notify_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无效通知。
+  case batchNotifyInvalid // = 0
+
+  /// 请求 SDK 上传指定 file_id 的文件。
+  case batchNotifyRequestFile // = 1
+
+  /// 设备已完成该文件的写入和业务处理。
+  case batchNotifyFileCompleted // = 2
+
+  /// 设备处理该文件失败，但批次继续。
+  case batchNotifyFileFailed // = 3
+
+  /// 批次处理已完成，所有文件均已进入终态，允许部分文件失败。
+  case batchNotifyCompleted // = 4
+
+  /// 批次级不可恢复失败，停止传输。
+  case batchNotifyFailed // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .batchNotifyInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .batchNotifyInvalid
+    case 1: self = .batchNotifyRequestFile
+    case 2: self = .batchNotifyFileCompleted
+    case 3: self = .batchNotifyFileFailed
+    case 4: self = .batchNotifyCompleted
+    case 5: self = .batchNotifyFailed
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .batchNotifyInvalid: return 0
+    case .batchNotifyRequestFile: return 1
+    case .batchNotifyFileCompleted: return 2
+    case .batchNotifyFileFailed: return 3
+    case .batchNotifyCompleted: return 4
+    case .batchNotifyFailed: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [file_batch_notify_type] = [
+    .batchNotifyInvalid,
+    .batchNotifyRequestFile,
+    .batchNotifyFileCompleted,
+    .batchNotifyFileFailed,
+    .batchNotifyCompleted,
+    .batchNotifyFailed,
+  ]
+
+}
+
+/// 消息方向(仅PUSH_MSG包有效):区分"对方发来的消息"和"app转发的用户自发消息"。
+/// 注意与 wa_direction(发起方)语义不同:手机转发的自发消息 operate=APP 且方向=MSG_OUT 
+public enum wa_msg_direction: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///对方发来(缺省,旧app不填即此值)
+  case msgIn // = 0
+
+  ///用户自发(app转发到手表,手表只入会话库不通知)
+  case msgOut // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .msgIn
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .msgIn
+    case 1: self = .msgOut
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .msgIn: return 0
+    case .msgOut: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [wa_msg_direction] = [
+    .msgIn,
+    .msgOut,
+  ]
+
+}
+
+public enum operate_ringtone_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case ringtoneOperateUnknown // = 0
+
+  /// 查询
+  case ringtoneInquire // = 1
+
+  /// 设置默认
+  case ringtoneSetDefault // = 2
+
+  /// 删除自定义铃声
+  case ringtoneDelete // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .ringtoneOperateUnknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .ringtoneOperateUnknown
+    case 1: self = .ringtoneInquire
+    case 2: self = .ringtoneSetDefault
+    case 3: self = .ringtoneDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .ringtoneOperateUnknown: return 0
+    case .ringtoneInquire: return 1
+    case .ringtoneSetDefault: return 2
+    case .ringtoneDelete: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_ringtone_type] = [
+    .ringtoneOperateUnknown,
+    .ringtoneInquire,
+    .ringtoneSetDefault,
+    .ringtoneDelete,
+  ]
+
+}
+
+public enum calendar_v2_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case calendarV2Invalid // = 0
+
+  /// 获取系统日程和固件本地日程最大数量
+  case calendarV2GetCapability // = 1
+
+  /// 分页获取固件日程，包含 deleted=true 的删除记录
+  case calendarV2GetList // = 2
+
+  /// id 不存在则新增，id 存在则更新
+  case calendarV2Upsert // = 3
+
+  /// App 删除确认，固件收到后可物理删除该 id
+  case calendarV2Delete // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .calendarV2Invalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .calendarV2Invalid
+    case 1: self = .calendarV2GetCapability
+    case 2: self = .calendarV2GetList
+    case 3: self = .calendarV2Upsert
+    case 4: self = .calendarV2Delete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .calendarV2Invalid: return 0
+    case .calendarV2GetCapability: return 1
+    case .calendarV2GetList: return 2
+    case .calendarV2Upsert: return 3
+    case .calendarV2Delete: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [calendar_v2_operate_type] = [
+    .calendarV2Invalid,
+    .calendarV2GetCapability,
+    .calendarV2GetList,
+    .calendarV2Upsert,
+    .calendarV2Delete,
+  ]
+
+}
+
+public enum calendar_origin_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case calendarOriginUnknown // = 0
+
+  /// 手机系统日历同步到固件
+  case calendarOriginSystem // = 1
+
+  /// 固件本地创建
+  case calendarOriginFirmwareLocal // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .calendarOriginUnknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .calendarOriginUnknown
+    case 1: self = .calendarOriginSystem
+    case 2: self = .calendarOriginFirmwareLocal
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .calendarOriginUnknown: return 0
+    case .calendarOriginSystem: return 1
+    case .calendarOriginFirmwareLocal: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [calendar_origin_type] = [
+    .calendarOriginUnknown,
+    .calendarOriginSystem,
+    .calendarOriginFirmwareLocal,
+  ]
+
+}
+
+public enum repeat_calendar_v2_date: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case repeatV2Null // = 0
+  case repeatV2EveryDay // = 1
+  case repeatV2EveryWeek // = 2
+  case repeatV2EveryMonth // = 3
+  case repeatV2EveryYear // = 4
+  case repeatV2EveryWeekdays // = 5
+  case repeatV2EveryWeekends // = 6
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .repeatV2Null
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .repeatV2Null
+    case 1: self = .repeatV2EveryDay
+    case 2: self = .repeatV2EveryWeek
+    case 3: self = .repeatV2EveryMonth
+    case 4: self = .repeatV2EveryYear
+    case 5: self = .repeatV2EveryWeekdays
+    case 6: self = .repeatV2EveryWeekends
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .repeatV2Null: return 0
+    case .repeatV2EveryDay: return 1
+    case .repeatV2EveryWeek: return 2
+    case .repeatV2EveryMonth: return 3
+    case .repeatV2EveryYear: return 4
+    case .repeatV2EveryWeekdays: return 5
+    case .repeatV2EveryWeekends: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [repeat_calendar_v2_date] = [
+    .repeatV2Null,
+    .repeatV2EveryDay,
+    .repeatV2EveryWeek,
+    .repeatV2EveryMonth,
+    .repeatV2EveryYear,
+    .repeatV2EveryWeekdays,
+    .repeatV2EveryWeekends,
+  ]
+
+}
+
+public enum repeat_calendar_v2_time: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case repeatV2TimeNull // = 0
+  case repeatV2Time5Minutes // = 1
+  case repeatV2Time10Minutes // = 2
+  case repeatV2Time15Minutes // = 3
+  case repeatV2Time30Minutes // = 4
+  case repeatV2Time1Hour // = 5
+  case repeatV2Time2Hour // = 6
+  case repeatV2Time1Day // = 7
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .repeatV2TimeNull
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .repeatV2TimeNull
+    case 1: self = .repeatV2Time5Minutes
+    case 2: self = .repeatV2Time10Minutes
+    case 3: self = .repeatV2Time15Minutes
+    case 4: self = .repeatV2Time30Minutes
+    case 5: self = .repeatV2Time1Hour
+    case 6: self = .repeatV2Time2Hour
+    case 7: self = .repeatV2Time1Day
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .repeatV2TimeNull: return 0
+    case .repeatV2Time5Minutes: return 1
+    case .repeatV2Time10Minutes: return 2
+    case .repeatV2Time15Minutes: return 3
+    case .repeatV2Time30Minutes: return 4
+    case .repeatV2Time1Hour: return 5
+    case .repeatV2Time2Hour: return 6
+    case .repeatV2Time1Day: return 7
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [repeat_calendar_v2_time] = [
+    .repeatV2TimeNull,
+    .repeatV2Time5Minutes,
+    .repeatV2Time10Minutes,
+    .repeatV2Time15Minutes,
+    .repeatV2Time30Minutes,
+    .repeatV2Time1Hour,
+    .repeatV2Time2Hour,
+    .repeatV2Time1Day,
+  ]
+
+}
+
+public enum all_day_remind_v2_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case allDayV2RemindNone // = 0
+  case allDayV2RemindOnDay // = 1
+  case allDayV2RemindOneDayBefore // = 2
+  case allDayV2RemindTwoDayBefore // = 3
+  case allDayV2RemindOneWeekBefore // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .allDayV2RemindNone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .allDayV2RemindNone
+    case 1: self = .allDayV2RemindOnDay
+    case 2: self = .allDayV2RemindOneDayBefore
+    case 3: self = .allDayV2RemindTwoDayBefore
+    case 4: self = .allDayV2RemindOneWeekBefore
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .allDayV2RemindNone: return 0
+    case .allDayV2RemindOnDay: return 1
+    case .allDayV2RemindOneDayBefore: return 2
+    case .allDayV2RemindTwoDayBefore: return 3
+    case .allDayV2RemindOneWeekBefore: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [all_day_remind_v2_type] = [
+    .allDayV2RemindNone,
+    .allDayV2RemindOnDay,
+    .allDayV2RemindOneDayBefore,
+    .allDayV2RemindTwoDayBefore,
+    .allDayV2RemindOneWeekBefore,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -9684,6 +11332,8 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     16: .same(proto: "SYNC_SECOND_SPO2"),
     17: .same(proto: "SYNC_ACTIVITY_LEVEL"),
     18: .same(proto: "SYNC_EDA_STRESS"),
+    19: .same(proto: "SYNC_THERMAL_STRESS"),
+    20: .same(proto: "SYNC_EFFORT"),
   ]
 }
 
@@ -9992,6 +11642,76 @@ extension message_remind_type: SwiftProtobuf._ProtoNameProviding {
     107: .same(proto: "GOLD_APPLE"),
     108: .same(proto: "GOSUSLUGI"),
     109: .same(proto: "OZON"),
+    110: .same(proto: "ZS_MESSAGE"),
+    111: .same(proto: "KSTYLE_OS"),
+    112: .same(proto: "CHROME"),
+    113: .same(proto: "DIDI_GLOBAL"),
+    114: .same(proto: "CHATGPT"),
+    115: .same(proto: "THREADS"),
+    116: .same(proto: "NABD"),
+    117: .same(proto: "SPARKMAIL"),
+    118: .same(proto: "SOFASCORE"),
+    119: .same(proto: "FOTMOB"),
+    120: .same(proto: "MUSLIM"),
+    121: .same(proto: "GRAB"),
+    122: .same(proto: "LINE_MAN"),
+    123: .same(proto: "BANGKOK_BANK"),
+    124: .same(proto: "KRUNGTHAI_NEXT"),
+    125: .same(proto: "MYMO_BY_GSB"),
+    126: .same(proto: "SEVEN_ELEVEN"),
+    127: .same(proto: "TIKTOK_LITE"),
+    128: .same(proto: "TIKTOK_PRO_EVENTS"),
+    129: .same(proto: "WOLT"),
+    130: .same(proto: "ZOOM"),
+    131: .same(proto: "TADA"),
+    132: .same(proto: "IMO"),
+    133: .same(proto: "YASSIR"),
+    134: .same(proto: "ANA_MUSLIM"),
+    135: .same(proto: "INSTAPAY"),
+    136: .same(proto: "FILGOAL"),
+    137: .same(proto: "SCORES_365"),
+    138: .same(proto: "NOON"),
+    139: .same(proto: "MRSOOL"),
+    140: .same(proto: "MOMO"),
+    141: .same(proto: "XANH_SM"),
+    142: .same(proto: "BE"),
+    143: .same(proto: "ABA"),
+    144: .same(proto: "ACLEDA_MOBILE"),
+    145: .same(proto: "BKASH"),
+    146: .same(proto: "MERCADO_PAGO"),
+    147: .same(proto: "MERCADO_LIBRE"),
+    148: .same(proto: "RAPPI"),
+    149: .same(proto: "WAZE"),
+    150: .same(proto: "DCARD"),
+    151: .same(proto: "FOODPANDA"),
+    152: .same(proto: "BOLT"),
+    153: .same(proto: "NESHAN"),
+    154: .same(proto: "NAFATH"),
+    155: .same(proto: "KBZ_PAY"),
+    156: .same(proto: "WAVE_PAY"),
+    157: .same(proto: "AYA_PAY"),
+    158: .same(proto: "CB_PAY"),
+    159: .same(proto: "UAB_PAY"),
+    160: .same(proto: "VEEKA"),
+    161: .same(proto: "SEHHATY"),
+    162: .same(proto: "UALA"),
+    163: .same(proto: "HUNGER_STATION"),
+    164: .same(proto: "PATHAO"),
+    165: .same(proto: "CABIFY"),
+    166: .same(proto: "CABIFY_LOGISTICS_DRIVER"),
+    167: .same(proto: "NUSUK"),
+    168: .same(proto: "NAGAD"),
+    169: .same(proto: "ROKET"),
+    170: .same(proto: "DARAZ"),
+    171: .same(proto: "PICKABOO"),
+    172: .same(proto: "HARAJ"),
+    173: .same(proto: "SAUDI_ENERGY"),
+    174: .same(proto: "GALAXY_CINEMA"),
+    175: .same(proto: "SPL_ONLINE"),
+    176: .same(proto: "STC_BANK"),
+    177: .same(proto: "ABSHER"),
+    178: .same(proto: "MUSLIM_PRO"),
+    179: .same(proto: "STC_PAY"),
   ]
 }
 
@@ -10364,6 +12084,7 @@ extension app_list: SwiftProtobuf._ProtoNameProviding {
     36: .same(proto: "APP_LIST_AI_TRANSLATE"),
     37: .same(proto: "APP_LIST_NFC"),
     38: .same(proto: "APP_LIST_AI_PLATE"),
+    39: .same(proto: "APP_LIST_TRAINING_PLAN"),
   ]
 }
 
@@ -11165,5 +12886,229 @@ extension Segments_type: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "SEGMENT_SWIM"),
     4: .same(proto: "SEGMENT_BIKE"),
     5: .same(proto: "SEGMENT_TRANSITION"),
+  ]
+}
+
+extension operate_nfc_card_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NFC_CARD_INVALID"),
+    1: .same(proto: "NFC_CARD_INQUIRE"),
+    2: .same(proto: "NFC_CARD_DELETE"),
+    3: .same(proto: "NFC_CARD_UPDATE"),
+    4: .same(proto: "NFC_CARD_CREATE"),
+  ]
+}
+
+extension nfc_card_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STATUS_ACTIVE"),
+    1: .same(proto: "STATUS_SUSPEDED"),
+    2: .same(proto: "STATUS_DELETE"),
+  ]
+}
+
+extension nfc_card_decision: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "APPROVED"),
+    1: .same(proto: "DECLINED"),
+    2: .same(proto: "AUTHENTICATION"),
+  ]
+}
+
+extension passcode_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PASSCODE_TYPE_NULL"),
+    1: .same(proto: "RESET"),
+    2: .same(proto: "REMOVE"),
+    3: .same(proto: "SETUP"),
+  ]
+}
+
+extension CourseStepType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STEP_TYPE_WARM_UP"),
+    1: .same(proto: "STEP_TYPE_TRAIN"),
+    2: .same(proto: "STEP_TYPE_RECOVERY"),
+    3: .same(proto: "STEP_TYPE_REST"),
+    4: .same(proto: "STEP_TYPE_COOL_DOWN"),
+    5: .same(proto: "STEP_TYPE_OTHER"),
+  ]
+}
+
+extension course_continuing_target: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CONTINUING_TARGET2_MANUALLY_LAP"),
+    1: .same(proto: "CONTINUING_TARGET2_TIME"),
+    2: .same(proto: "CONTINUING_TARGET2_DISTANCE"),
+    3: .same(proto: "CONTINUING_TARGET2_CALORIES"),
+  ]
+}
+
+extension course_strength_target: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STRENGTH_TARGET2_OPEN"),
+    1: .same(proto: "STRENGTH_TARGET2_PACE"),
+    2: .same(proto: "STRENGTH_TARGET2_CADENCE"),
+    3: .same(proto: "STRENGTH_TARGET2_HEART_RATE_ZONE"),
+    4: .same(proto: "STRENGTH_TARGET2_CUSTOM_RATE_ZONE"),
+    5: .same(proto: "STRENGTH_TARGET2_POWER_ZONES"),
+    6: .same(proto: "STRENGTH_TARGET2_RATE_ZONE_RESERVE"),
+    7: .same(proto: "STRENGTH_TARGET2_RATE_ZONE_MAX"),
+  ]
+}
+
+extension wifi_file_transfer_action: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TRAN_ACTION_INVALID"),
+    1: .same(proto: "TRAN_ACTION_BATCH_PREPARE"),
+    2: .same(proto: "TRAN_ACTION_BATCH_RESOURCE"),
+    3: .same(proto: "TRAN_ACTION_CANCEL_BATCH"),
+  ]
+}
+
+extension wifi_file_business_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "BUSINESS_TYPE_INVALID"),
+    1: .same(proto: "BUSINESS_TYPE_MUSIC"),
+  ]
+}
+
+extension wifi_file_transfer_reply_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TRAN_STATUS_INVALID"),
+    1: .same(proto: "TRAN_STATUS_BATCH_READY"),
+    2: .same(proto: "TRAN_STATUS_BATCH_RESOURCE_ACCEPTED"),
+    3: .same(proto: "TRAN_STATUS_BATCH_CANCELLED"),
+    4: .same(proto: "TRAN_STATUS_STATUS_FAILED"),
+  ]
+}
+
+extension wifi_file_transfer_notify_error: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NOTIFY_NONE"),
+    1: .same(proto: "NOTIFY_BUSY"),
+    2: .same(proto: "NOTIFY_WIFI_UNAVAILABLE"),
+    3: .same(proto: "NOTIFY_NO_SPACE"),
+    4: .same(proto: "NOTIFY_DOWNLOAD_FAILED"),
+    5: .same(proto: "NOTIFY_FILE_INVALID"),
+    6: .same(proto: "NOTIFY_WRITE_FAILED"),
+    7: .same(proto: "NOTIFY_MUSIC_IMPORT_FAILED"),
+    8: .same(proto: "NOTIFY_CANCELLED"),
+    9: .same(proto: "NOTIFY_UNKNOWN"),
+  ]
+}
+
+extension whatsapp_operation_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OPERATION_NULL"),
+    1: .same(proto: "OPERATION_LINK"),
+    2: .same(proto: "OPERATION_UNLINK"),
+    3: .same(proto: "OPERATION_SEND_MSG"),
+    4: .same(proto: "OPERATION_PUSH_MSG"),
+  ]
+}
+
+extension ios_whatsapp_status_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NOT_LOGGED_IN"),
+    1: .same(proto: "LOGGING_IN"),
+    2: .same(proto: "LOGIN_FAILED"),
+    3: .same(proto: "LOGIN_SUCCESSFUL"),
+  ]
+}
+
+extension file_batch_business_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "BATCH_BUSINESS_INVALID"),
+    1: .same(proto: "BATCH_BUSINESS_MUSIC"),
+  ]
+}
+
+extension file_batch_action: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "BATCH_ACTION_INVALID"),
+    1: .same(proto: "BATCH_ACTION_START"),
+    2: .same(proto: "BATCH_ACTION_FILE_FAILED"),
+    3: .same(proto: "BATCH_ACTION_CANCEL"),
+  ]
+}
+
+extension file_batch_notify_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "BATCH_NOTIFY_INVALID"),
+    1: .same(proto: "BATCH_NOTIFY_REQUEST_FILE"),
+    2: .same(proto: "BATCH_NOTIFY_FILE_COMPLETED"),
+    3: .same(proto: "BATCH_NOTIFY_FILE_FAILED"),
+    4: .same(proto: "BATCH_NOTIFY_COMPLETED"),
+    5: .same(proto: "BATCH_NOTIFY_FAILED"),
+  ]
+}
+
+extension wa_msg_direction: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MSG_IN"),
+    1: .same(proto: "MSG_OUT"),
+  ]
+}
+
+extension operate_ringtone_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "RINGTONE_OPERATE_UNKNOWN"),
+    1: .same(proto: "RINGTONE_INQUIRE"),
+    2: .same(proto: "RINGTONE_SET_DEFAULT"),
+    3: .same(proto: "RINGTONE_DELETE"),
+  ]
+}
+
+extension calendar_v2_operate_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CALENDAR_V2_INVALID"),
+    1: .same(proto: "CALENDAR_V2_GET_CAPABILITY"),
+    2: .same(proto: "CALENDAR_V2_GET_LIST"),
+    3: .same(proto: "CALENDAR_V2_UPSERT"),
+    4: .same(proto: "CALENDAR_V2_DELETE"),
+  ]
+}
+
+extension calendar_origin_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CALENDAR_ORIGIN_UNKNOWN"),
+    1: .same(proto: "CALENDAR_ORIGIN_SYSTEM"),
+    2: .same(proto: "CALENDAR_ORIGIN_FIRMWARE_LOCAL"),
+  ]
+}
+
+extension repeat_calendar_v2_date: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "REPEAT_V2_NULL"),
+    1: .same(proto: "REPEAT_V2_EVERY_DAY"),
+    2: .same(proto: "REPEAT_V2_EVERY_WEEK"),
+    3: .same(proto: "REPEAT_V2_EVERY_MONTH"),
+    4: .same(proto: "REPEAT_V2_EVERY_YEAR"),
+    5: .same(proto: "REPEAT_V2_EVERY_WEEKDAYS"),
+    6: .same(proto: "REPEAT_V2_EVERY_WEEKENDS"),
+  ]
+}
+
+extension repeat_calendar_v2_time: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "REPEAT_V2_TIME_NULL"),
+    1: .same(proto: "REPEAT_V2_TIME_5MINUTES"),
+    2: .same(proto: "REPEAT_V2_TIME_10MINUTES"),
+    3: .same(proto: "REPEAT_V2_TIME_15MINUTES"),
+    4: .same(proto: "REPEAT_V2_TIME_30MINUTES"),
+    5: .same(proto: "REPEAT_V2_TIME_1HOUR"),
+    6: .same(proto: "REPEAT_V2_TIME_2HOUR"),
+    7: .same(proto: "REPEAT_V2_TIME_1DAY"),
+  ]
+}
+
+extension all_day_remind_v2_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ALL_DAY_V2_REMIND_NONE"),
+    1: .same(proto: "ALL_DAY_V2_REMIND_ON_DAY"),
+    2: .same(proto: "ALL_DAY_V2_REMIND_ONE_DAY_BEFORE"),
+    3: .same(proto: "ALL_DAY_V2_REMIND_TWO_DAY_BEFORE"),
+    4: .same(proto: "ALL_DAY_V2_REMIND_ONE_WEEK_BEFORE"),
   ]
 }

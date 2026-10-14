@@ -37,6 +37,9 @@ public struct protocol_app_function_table: Sendable {
   ///支持wifi配置
   public var wifiConfig: Bool = false
 
+  /// App/SDK 支持音乐配置文件与新版批次流程
+  public var musicConfigFile: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -51,6 +54,7 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     2: .standard(proto: "log_tran_notify_end"),
     3: .standard(proto: "gps_cc1165w_version"),
     4: .standard(proto: "wifi_config"),
+    5: .standard(proto: "music_config_file"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -63,6 +67,7 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 2: try { try decoder.decodeSingularBoolField(value: &self.logTranNotifyEnd) }()
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.gpsCc1165WVersion) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.wifiConfig) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.musicConfigFile) }()
       default: break
       }
     }
@@ -81,6 +86,9 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.wifiConfig != false {
       try visitor.visitSingularBoolField(value: self.wifiConfig, fieldNumber: 4)
     }
+    if self.musicConfigFile != false {
+      try visitor.visitSingularBoolField(value: self.musicConfigFile, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -89,6 +97,7 @@ extension protocol_app_function_table: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs.logTranNotifyEnd != rhs.logTranNotifyEnd {return false}
     if lhs.gpsCc1165WVersion != rhs.gpsCc1165WVersion {return false}
     if lhs.wifiConfig != rhs.wifiConfig {return false}
+    if lhs.musicConfigFile != rhs.musicConfigFile {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -328,6 +328,58 @@ public struct protocol_exercise_vo2max_info: Sendable {
   public init() {}
 }
 
+public struct workout_course: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///动作指导id
+  public var actionID: UInt32 = 0
+
+  ///阶段的时长
+  public var durations: UInt32 = 0
+
+  ///运动类型
+  public var type: sport_type = .orun
+
+  ///名称
+  public var name: Data = Data()
+
+  ///持续目标类型
+  public var ctType: course_continuing_target = .continuingTarget2ManuallyLap
+
+  ///强度目标类型
+  public var stType: course_strength_target = .strengthTarget2Open
+
+  ///持续目标值
+  public var ctValue: UInt32 = 0
+
+  ///强度目标最大值
+  public var stMax: UInt32 = 0
+
+  ///强度目标最小值
+  public var stMin: UInt32 = 0
+
+  ///平均强度值，根据强度目标类型得出
+  public var avgStValue: UInt32 = 0
+
+  ///极值强度 最大值
+  public var extreValueMax: UInt32 = 0
+
+  ///极值强度 最大值
+  public var extreValueMin: UInt32 = 0
+
+  ///保留两位小数，实际值扩大一百倍
+  public var completeRate: UInt32 = 0
+
+  ///步骤类型
+  public var steptype: CourseStepType = .stepTypeWarmUp
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -738,6 +790,46 @@ public struct protocol_exercise_sync_realtime_info: @unchecked Sendable {
   /// Clears the value of `hyroxItems`. Subsequent reads from it will return its default value.
   public mutating func clearHyroxItems() {_uniqueStorage()._hyroxItems = nil}
 
+  ///支持负荷
+  public var effortSupport: Bool {
+    get {return _storage._effortSupport}
+    set {_uniqueStorage()._effortSupport = newValue}
+  }
+
+  ///负荷值 0.0～25.0. 值扩大10倍 当前运动的增长值
+  public var effort: UInt32 {
+    get {return _storage._effort}
+    set {_uniqueStorage()._effort = newValue}
+  }
+
+  /// 有氧效果值 0.0-5.0（保留一位小数）放大10倍
+  public var aerobicEffect: UInt32 {
+    get {return _storage._aerobicEffect}
+    set {_uniqueStorage()._aerobicEffect = newValue}
+  }
+
+  /// 无氧效果值 0.0-5.0（保留一位小数）放大10倍
+  public var anaerobicEffect: UInt32 {
+    get {return _storage._anaerobicEffect}
+    set {_uniqueStorage()._anaerobicEffect = newValue}
+  }
+
+  ///是否支持运动课程 （73 - 76）
+  public var workoutCourseSupport: Bool {
+    get {return _storage._workoutCourseSupport}
+    set {_uniqueStorage()._workoutCourseSupport = newValue}
+  }
+
+  ///课程数据
+  public var course: workout_course {
+    get {return _storage._course ?? workout_course()}
+    set {_uniqueStorage()._course = newValue}
+  }
+  /// Returns true if `course` has been explicitly set.
+  public var hasCourse: Bool {return _storage._course != nil}
+  /// Clears the value of `course`. Subsequent reads from it will return its default value.
+  public mutating func clearCourse() {_uniqueStorage()._course = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -969,15 +1061,29 @@ public struct protocol_action_list_inquire_reply: Sendable {
   public init() {}
 }
 
+public struct sport_adjust_item: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var type: sport_type = .orun
+
+  public var isShow: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct protocol_sport_adjust_operate: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  ///1bytes 操作类型 0：增 1：删 2：改（排序） 3：查
-  public var operate: operate_II_type = .insert
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
 
-  public var items: [sport_type] = []
+  public var items: [sport_adjust_item] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -992,10 +1098,10 @@ public struct protocol_sport_adjust_inquire_reply: Sendable {
   ///1bytes 功能表
   public var funcTable: UInt32 = 0
 
-  ///1bytes 操作类型 0：增 1：删 2：改（排序） 3：查
-  public var operate: operate_II_type = .insert
+  ///1bytes 操作类型 0：无效操作 1：查询 2：设置
+  public var operate: operate_type = .invalid
 
-  public var items: [sport_type] = []
+  public var items: [sport_adjust_item] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1715,6 +1821,116 @@ extension protocol_exercise_vo2max_info: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
+extension workout_course: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "workout_course"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "action_id"),
+    2: .same(proto: "durations"),
+    3: .same(proto: "type"),
+    4: .same(proto: "name"),
+    5: .standard(proto: "ct_type"),
+    6: .standard(proto: "st_type"),
+    7: .standard(proto: "ct_value"),
+    8: .standard(proto: "st_max"),
+    9: .standard(proto: "st_min"),
+    10: .standard(proto: "avg_st_value"),
+    11: .standard(proto: "extre_value_max"),
+    12: .standard(proto: "extre_value_min"),
+    13: .standard(proto: "complete_rate"),
+    14: .same(proto: "steptype"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.actionID) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.durations) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.name) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.ctType) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.stType) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.ctValue) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.stMax) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.stMin) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.avgStValue) }()
+      case 11: try { try decoder.decodeSingularUInt32Field(value: &self.extreValueMax) }()
+      case 12: try { try decoder.decodeSingularUInt32Field(value: &self.extreValueMin) }()
+      case 13: try { try decoder.decodeSingularUInt32Field(value: &self.completeRate) }()
+      case 14: try { try decoder.decodeSingularEnumField(value: &self.steptype) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.actionID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.actionID, fieldNumber: 1)
+    }
+    if self.durations != 0 {
+      try visitor.visitSingularUInt32Field(value: self.durations, fieldNumber: 2)
+    }
+    if self.type != .orun {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 3)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularBytesField(value: self.name, fieldNumber: 4)
+    }
+    if self.ctType != .continuingTarget2ManuallyLap {
+      try visitor.visitSingularEnumField(value: self.ctType, fieldNumber: 5)
+    }
+    if self.stType != .strengthTarget2Open {
+      try visitor.visitSingularEnumField(value: self.stType, fieldNumber: 6)
+    }
+    if self.ctValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.ctValue, fieldNumber: 7)
+    }
+    if self.stMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.stMax, fieldNumber: 8)
+    }
+    if self.stMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.stMin, fieldNumber: 9)
+    }
+    if self.avgStValue != 0 {
+      try visitor.visitSingularUInt32Field(value: self.avgStValue, fieldNumber: 10)
+    }
+    if self.extreValueMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.extreValueMax, fieldNumber: 11)
+    }
+    if self.extreValueMin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.extreValueMin, fieldNumber: 12)
+    }
+    if self.completeRate != 0 {
+      try visitor.visitSingularUInt32Field(value: self.completeRate, fieldNumber: 13)
+    }
+    if self.steptype != .stepTypeWarmUp {
+      try visitor.visitSingularEnumField(value: self.steptype, fieldNumber: 14)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: workout_course, rhs: workout_course) -> Bool {
+    if lhs.actionID != rhs.actionID {return false}
+    if lhs.durations != rhs.durations {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.ctType != rhs.ctType {return false}
+    if lhs.stType != rhs.stType {return false}
+    if lhs.ctValue != rhs.ctValue {return false}
+    if lhs.stMax != rhs.stMax {return false}
+    if lhs.stMin != rhs.stMin {return false}
+    if lhs.avgStValue != rhs.avgStValue {return false}
+    if lhs.extreValueMax != rhs.extreValueMax {return false}
+    if lhs.extreValueMin != rhs.extreValueMin {return false}
+    if lhs.completeRate != rhs.completeRate {return false}
+    if lhs.steptype != rhs.steptype {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_exercise_sync_realtime_info"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1785,6 +2001,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     65: .standard(proto: "hyrox_data_support"),
     66: .standard(proto: "hyrox_eventtype"),
     67: .standard(proto: "hyrox_items"),
+    68: .standard(proto: "effort_support"),
+    69: .same(proto: "effort"),
+    70: .standard(proto: "aerobic_effect"),
+    71: .standard(proto: "anaerobic_effect"),
+    72: .standard(proto: "workout_course_support"),
+    73: .same(proto: "course"),
   ]
 
   fileprivate class _StorageClass {
@@ -1855,6 +2077,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
     var _hyroxDataSupport: Bool = false
     var _hyroxEventtype: UInt32 = 0
     var _hyroxItems: segments_data? = nil
+    var _effortSupport: Bool = false
+    var _effort: UInt32 = 0
+    var _aerobicEffect: UInt32 = 0
+    var _anaerobicEffect: UInt32 = 0
+    var _workoutCourseSupport: Bool = false
+    var _course: workout_course? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1936,6 +2164,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       _hyroxDataSupport = source._hyroxDataSupport
       _hyroxEventtype = source._hyroxEventtype
       _hyroxItems = source._hyroxItems
+      _effortSupport = source._effortSupport
+      _effort = source._effort
+      _aerobicEffect = source._aerobicEffect
+      _anaerobicEffect = source._anaerobicEffect
+      _workoutCourseSupport = source._workoutCourseSupport
+      _course = source._course
     }
   }
 
@@ -2021,6 +2255,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         case 65: try { try decoder.decodeSingularBoolField(value: &_storage._hyroxDataSupport) }()
         case 66: try { try decoder.decodeSingularUInt32Field(value: &_storage._hyroxEventtype) }()
         case 67: try { try decoder.decodeSingularMessageField(value: &_storage._hyroxItems) }()
+        case 68: try { try decoder.decodeSingularBoolField(value: &_storage._effortSupport) }()
+        case 69: try { try decoder.decodeSingularUInt32Field(value: &_storage._effort) }()
+        case 70: try { try decoder.decodeSingularUInt32Field(value: &_storage._aerobicEffect) }()
+        case 71: try { try decoder.decodeSingularUInt32Field(value: &_storage._anaerobicEffect) }()
+        case 72: try { try decoder.decodeSingularBoolField(value: &_storage._workoutCourseSupport) }()
+        case 73: try { try decoder.decodeSingularMessageField(value: &_storage._course) }()
         default: break
         }
       }
@@ -2234,6 +2474,24 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
       try { if let v = _storage._hyroxItems {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 67)
       } }()
+      if _storage._effortSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._effortSupport, fieldNumber: 68)
+      }
+      if _storage._effort != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._effort, fieldNumber: 69)
+      }
+      if _storage._aerobicEffect != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._aerobicEffect, fieldNumber: 70)
+      }
+      if _storage._anaerobicEffect != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._anaerobicEffect, fieldNumber: 71)
+      }
+      if _storage._workoutCourseSupport != false {
+        try visitor.visitSingularBoolField(value: _storage._workoutCourseSupport, fieldNumber: 72)
+      }
+      try { if let v = _storage._course {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 73)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2310,6 +2568,12 @@ extension protocol_exercise_sync_realtime_info: SwiftProtobuf.Message, SwiftProt
         if _storage._hyroxDataSupport != rhs_storage._hyroxDataSupport {return false}
         if _storage._hyroxEventtype != rhs_storage._hyroxEventtype {return false}
         if _storage._hyroxItems != rhs_storage._hyroxItems {return false}
+        if _storage._effortSupport != rhs_storage._effortSupport {return false}
+        if _storage._effort != rhs_storage._effort {return false}
+        if _storage._aerobicEffect != rhs_storage._aerobicEffect {return false}
+        if _storage._anaerobicEffect != rhs_storage._anaerobicEffect {return false}
+        if _storage._workoutCourseSupport != rhs_storage._workoutCourseSupport {return false}
+        if _storage._course != rhs_storage._course {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -2809,6 +3073,44 @@ extension protocol_action_list_inquire_reply: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
+extension sport_adjust_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "sport_adjust_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "type"),
+    2: .standard(proto: "is_show"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.isShow) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.type != .orun {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
+    }
+    if self.isShow != false {
+      try visitor.visitSingularBoolField(value: self.isShow, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: sport_adjust_item, rhs: sport_adjust_item) -> Bool {
+    if lhs.type != rhs.type {return false}
+    if lhs.isShow != rhs.isShow {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension protocol_sport_adjust_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "protocol_sport_adjust_operate"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2823,18 +3125,18 @@ extension protocol_sport_adjust_operate: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.items) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.operate != .insert {
+    if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 1)
     }
     if !self.items.isEmpty {
-      try visitor.visitPackedEnumField(value: self.items, fieldNumber: 2)
+      try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2863,7 +3165,7 @@ extension protocol_sport_adjust_inquire_reply: SwiftProtobuf.Message, SwiftProto
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
-      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.items) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
       default: break
       }
     }
@@ -2873,11 +3175,11 @@ extension protocol_sport_adjust_inquire_reply: SwiftProtobuf.Message, SwiftProto
     if self.funcTable != 0 {
       try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
     }
-    if self.operate != .insert {
+    if self.operate != .invalid {
       try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 2)
     }
     if !self.items.isEmpty {
-      try visitor.visitPackedEnumField(value: self.items, fieldNumber: 3)
+      try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
