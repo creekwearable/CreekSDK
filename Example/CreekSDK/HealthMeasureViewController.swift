@@ -58,7 +58,7 @@ class HealthMeasureViewController: UIViewController {
         startButton.backgroundColor = .systemBlue
         startButton.setTitleColor(.white, for: .normal)
         startButton.layer.cornerRadius = 12
-        startButton.addTarget(self, action: #selector(startAFMeasureTapped), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(startMeasureTapped), for: .touchUpInside)
         view.addSubview(startButton)
         startButton.snp.makeConstraints { make in
             make.top.equalTo(typePicker.snp.bottom).offset(30)
@@ -74,7 +74,7 @@ class HealthMeasureViewController: UIViewController {
         stopButton.backgroundColor = .systemRed
         stopButton.setTitleColor(.white, for: .normal)
         stopButton.layer.cornerRadius = 12
-        stopButton.addTarget(self, action: #selector(stopAFMeasureTapped), for: .touchUpInside)
+        stopButton.addTarget(self, action: #selector(stopMeasureTapped), for: .touchUpInside)
         view.addSubview(stopButton)
         stopButton.snp.makeConstraints { make in
             make.top.equalTo(startButton.snp.bottom).offset(15)
