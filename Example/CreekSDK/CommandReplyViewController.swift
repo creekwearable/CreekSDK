@@ -1058,7 +1058,7 @@ class CommandReplyViewController: CreekBaseViewController {
          let formatter = DateFormatter()
          formatter.dateFormat = "yyyy-MM-dd"
          let currentDateStr = formatter.string(from: Date())
-         CreekInterFace.instance.getSportTimeData(startTime: currentDateStr, endTime: currentDateStr,nil) { model in
+         CreekInterFace.instance.getSportTimeData(startTime: "2026-09-28", endTime: "2026-09-28",nil) { model in
             self.view.hideRemark()
             if model.code == 0{
                self.view.hideRemark()
@@ -1071,6 +1071,19 @@ class CommandReplyViewController: CreekBaseViewController {
                }
             }
          }
+//         CreekInterFace.instance.getSportUploadStatus { model in
+//            self.view.hideRemark()
+//            if model.code == 0{
+//               self.view.hideRemark()
+//               self.textView.text = "success"
+//               let json = try? JSONEncoder().encode(model.data)
+//               if let data = json, let str = String(data: data, encoding: .utf8) {
+//                  dispatch_main_sync_safe {
+//                     self.textView.text = str
+//                  }
+//               }
+//            }
+//         }
          break
          
       case "Delete exercise record":

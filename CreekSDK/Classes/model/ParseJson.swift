@@ -17,7 +17,7 @@ class ParseJson {
                  let info = try JSONDecoder().decode(T.self, from: data)
                  return info;
              }catch{
-                 print("Error converting string to dictionary: \(error.localizedDescription)")
+                 print("Error converting string to dictionary: \(error)")
                  return nil;
              }
          }
