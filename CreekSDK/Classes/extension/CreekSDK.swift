@@ -84,6 +84,7 @@ public typealias calendarBase = (_ model:protocol_calendar_inquire_reply) -> ()
 public typealias calendarV2Base = (_ model:protocol_calendar_v2_inquire_reply) -> ()
 public typealias ringtoneBase = (_ model:protocol_ringtone_inquire_reply) -> ()
 public typealias ringtoneDataBase = (_ data:Data) -> ()
+public typealias customFocusModeBase = (_ model:protocol_custom_focus_mode_inquire_reply) -> ()
 public typealias watchDirectionBase = (_ model:protocol_watch_direction_inquire_reply) -> ()
 public typealias healthSnapshotBase = (_ model:protocol_health_snap_inquire_reply) -> ()
 public typealias musicBase = (_ model:protocol_music_file_inquire_reply) -> ()
@@ -218,6 +219,7 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
    var calendarV2Dic:[String:calendarV2Base] = [:]
    var ringtoneDic:[String:ringtoneBase] = [:]
    var ringtoneDataDic:[String:ringtoneDataBase] = [:]
+   var customFocusModeDic:[String:customFocusModeBase] = [:]
    var watchDirectionDic:[String:watchDirectionBase] = [:]
    var healthSnapshotDic:[String:healthSnapshotBase] = [:]
    var musicDic:[String:musicBase] = [:]
@@ -392,6 +394,9 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
                if !response.contains("aiDialConfig"){
                   successDic.removeValue(forKey: response)
                }
+               if response.contains("upsertCustomFocusMode") || response.contains("deleteCustomFocusMode") {
+                  failureArgumentDic.removeValue(forKey: response)
+               }
               
             }
          }
@@ -427,6 +432,10 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
                      if let back =  failureArgumentDic[response]{
                         back(code ?? 0,message ?? "")
                         failureArgumentDic.removeValue(forKey: response)
+                        customFocusModeDic.removeValue(forKey: response)
+                        if response.contains("upsertCustomFocusMode") || response.contains("deleteCustomFocusMode") {
+                           successDic.removeValue(forKey: response)
+                        }
                      }
                   }
                }
@@ -2402,6 +2411,24 @@ public typealias temperatureClosure = (_ model:BaseModel<[TemperatureModel]>) ->
             }
          }
          
+      }
+      else if(call.method.contains("getCustomFocusMode")){
+         if let response = call.arguments as? FlutterStandardTypedData{
+            do{
+               let model = try protocol_custom_focus_mode_inquire_reply(serializedData: response.data, partial: true)
+               if let back = customFocusModeDic[call.method]{
+                  back(model)
+                  customFocusModeDic.removeValue(forKey: call.method)
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+            }catch{
+               if let failure = failureArgumentDic[call.method]{
+                  failure(-1, "Failed to parse custom focus mode data")
+                  failureArgumentDic.removeValue(forKey: call.method)
+               }
+               customFocusModeDic.removeValue(forKey: call.method)
+            }
+         }
       }
       
    }

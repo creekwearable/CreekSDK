@@ -21,6 +21,70 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public struct calendar_time: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var year: UInt32 = 0
+
+  public var month: UInt32 = 0
+
+  public var day: UInt32 = 0
+
+  public var hour: UInt32 = 0
+
+  public var minute: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct override_item: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///原始时间
+  public var overrideStart: calendar_time {
+    get {return _overrideStart ?? calendar_time()}
+    set {_overrideStart = newValue}
+  }
+  /// Returns true if `overrideStart` has been explicitly set.
+  public var hasOverrideStart: Bool {return self._overrideStart != nil}
+  /// Clears the value of `overrideStart`. Subsequent reads from it will return its default value.
+  public mutating func clearOverrideStart() {self._overrideStart = nil}
+
+  ///修改时间
+  public var overrideNewStart: calendar_time {
+    get {return _overrideNewStart ?? calendar_time()}
+    set {_overrideNewStart = newValue}
+  }
+  /// Returns true if `overrideNewStart` has been explicitly set.
+  public var hasOverrideNewStart: Bool {return self._overrideNewStart != nil}
+  /// Clears the value of `overrideNewStart`. Subsequent reads from it will return its default value.
+  public mutating func clearOverrideNewStart() {self._overrideNewStart = nil}
+
+  ///修改时间
+  public var overrideNewEnd: calendar_time {
+    get {return _overrideNewEnd ?? calendar_time()}
+    set {_overrideNewEnd = newValue}
+  }
+  /// Returns true if `overrideNewEnd` has been explicitly set.
+  public var hasOverrideNewEnd: Bool {return self._overrideNewEnd != nil}
+  /// Clears the value of `overrideNewEnd`. Subsequent reads from it will return its default value.
+  public mutating func clearOverrideNewEnd() {self._overrideNewEnd = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _overrideStart: calendar_time? = nil
+  fileprivate var _overrideNewStart: calendar_time? = nil
+  fileprivate var _overrideNewEnd: calendar_time? = nil
+}
+
 public struct calendar_v2_item: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -136,6 +200,30 @@ public struct calendar_v2_item: @unchecked Sendable {
     set {_uniqueStorage()._focusModeUuid = newValue}
   }
 
+  ///结束重复年
+  public var repeatUntilYear: UInt32 {
+    get {return _storage._repeatUntilYear}
+    set {_uniqueStorage()._repeatUntilYear = newValue}
+  }
+
+  ///结束重复月
+  public var repeatUntilMonth: UInt32 {
+    get {return _storage._repeatUntilMonth}
+    set {_uniqueStorage()._repeatUntilMonth = newValue}
+  }
+
+  ///结束重复日
+  public var repeatUntilDay: UInt32 {
+    get {return _storage._repeatUntilDay}
+    set {_uniqueStorage()._repeatUntilDay = newValue}
+  }
+
+  ///覆盖时间
+  public var overrides: [override_item] {
+    get {return _storage._overrides}
+    set {_uniqueStorage()._overrides = newValue}
+  }
+
   public var origin: calendar_origin_type {
     get {return _storage._origin}
     set {_uniqueStorage()._origin = newValue}
@@ -209,6 +297,110 @@ public struct protocol_calendar_v2_inquire_reply: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
+extension calendar_time: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "calendar_time"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "year"),
+    2: .same(proto: "month"),
+    3: .same(proto: "day"),
+    4: .same(proto: "hour"),
+    5: .same(proto: "minute"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.year) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.month) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.day) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.hour) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.minute) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.year != 0 {
+      try visitor.visitSingularUInt32Field(value: self.year, fieldNumber: 1)
+    }
+    if self.month != 0 {
+      try visitor.visitSingularUInt32Field(value: self.month, fieldNumber: 2)
+    }
+    if self.day != 0 {
+      try visitor.visitSingularUInt32Field(value: self.day, fieldNumber: 3)
+    }
+    if self.hour != 0 {
+      try visitor.visitSingularUInt32Field(value: self.hour, fieldNumber: 4)
+    }
+    if self.minute != 0 {
+      try visitor.visitSingularUInt32Field(value: self.minute, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: calendar_time, rhs: calendar_time) -> Bool {
+    if lhs.year != rhs.year {return false}
+    if lhs.month != rhs.month {return false}
+    if lhs.day != rhs.day {return false}
+    if lhs.hour != rhs.hour {return false}
+    if lhs.minute != rhs.minute {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension override_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "override_item"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "override_start"),
+    2: .standard(proto: "override_new_start"),
+    3: .standard(proto: "override_new_end"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._overrideStart) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._overrideNewStart) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._overrideNewEnd) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._overrideStart {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._overrideNewStart {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._overrideNewEnd {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: override_item, rhs: override_item) -> Bool {
+    if lhs._overrideStart != rhs._overrideStart {return false}
+    if lhs._overrideNewStart != rhs._overrideNewStart {return false}
+    if lhs._overrideNewEnd != rhs._overrideNewEnd {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "calendar_v2_item"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -233,6 +425,10 @@ extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     19: .standard(proto: "calendar_source"),
     20: .standard(proto: "color_code"),
     21: .standard(proto: "focus_mode_uuid"),
+    24: .standard(proto: "repeat_until_year"),
+    25: .standard(proto: "repeat_until_month"),
+    26: .standard(proto: "repeat_until_day"),
+    27: .same(proto: "overrides"),
     22: .same(proto: "origin"),
     23: .same(proto: "deleted"),
   ]
@@ -259,6 +455,10 @@ extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     var _calendarSource: Data = Data()
     var _colorCode: Data = Data()
     var _focusModeUuid: Data = Data()
+    var _repeatUntilYear: UInt32 = 0
+    var _repeatUntilMonth: UInt32 = 0
+    var _repeatUntilDay: UInt32 = 0
+    var _overrides: [override_item] = []
     var _origin: calendar_origin_type = .calendarOriginUnknown
     var _deleted: Bool = false
 
@@ -296,6 +496,10 @@ extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       _calendarSource = source._calendarSource
       _colorCode = source._colorCode
       _focusModeUuid = source._focusModeUuid
+      _repeatUntilYear = source._repeatUntilYear
+      _repeatUntilMonth = source._repeatUntilMonth
+      _repeatUntilDay = source._repeatUntilDay
+      _overrides = source._overrides
       _origin = source._origin
       _deleted = source._deleted
     }
@@ -339,6 +543,10 @@ extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         case 21: try { try decoder.decodeSingularBytesField(value: &_storage._focusModeUuid) }()
         case 22: try { try decoder.decodeSingularEnumField(value: &_storage._origin) }()
         case 23: try { try decoder.decodeSingularBoolField(value: &_storage._deleted) }()
+        case 24: try { try decoder.decodeSingularUInt32Field(value: &_storage._repeatUntilYear) }()
+        case 25: try { try decoder.decodeSingularUInt32Field(value: &_storage._repeatUntilMonth) }()
+        case 26: try { try decoder.decodeSingularUInt32Field(value: &_storage._repeatUntilDay) }()
+        case 27: try { try decoder.decodeRepeatedMessageField(value: &_storage._overrides) }()
         default: break
         }
       }
@@ -416,6 +624,18 @@ extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       if _storage._deleted != false {
         try visitor.visitSingularBoolField(value: _storage._deleted, fieldNumber: 23)
       }
+      if _storage._repeatUntilYear != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repeatUntilYear, fieldNumber: 24)
+      }
+      if _storage._repeatUntilMonth != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repeatUntilMonth, fieldNumber: 25)
+      }
+      if _storage._repeatUntilDay != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._repeatUntilDay, fieldNumber: 26)
+      }
+      if !_storage._overrides.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._overrides, fieldNumber: 27)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -446,6 +666,10 @@ extension calendar_v2_item: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if _storage._calendarSource != rhs_storage._calendarSource {return false}
         if _storage._colorCode != rhs_storage._colorCode {return false}
         if _storage._focusModeUuid != rhs_storage._focusModeUuid {return false}
+        if _storage._repeatUntilYear != rhs_storage._repeatUntilYear {return false}
+        if _storage._repeatUntilMonth != rhs_storage._repeatUntilMonth {return false}
+        if _storage._repeatUntilDay != rhs_storage._repeatUntilDay {return false}
+        if _storage._overrides != rhs_storage._overrides {return false}
         if _storage._origin != rhs_storage._origin {return false}
         if _storage._deleted != rhs_storage._deleted {return false}
         return true

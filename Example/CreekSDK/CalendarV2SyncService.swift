@@ -19,7 +19,15 @@ struct CalendarV2SystemEvent {
    let end: Date
    let allDay: Bool
    let recurrenceFrequency: EKRecurrenceFrequency?
+   let recurrenceEnd: Date?
    let reminderMinutes: Int?
+   let occurrenceOverrides: [CalendarV2OccurrenceOverride]
+}
+
+struct CalendarV2OccurrenceOverride {
+   let originalStart: Date
+   let newStart: Date
+   let newEnd: Date
 }
 
 struct CalendarV2FirmwareSnapshot {
@@ -104,17 +112,40 @@ final class CalendarV2SyncService {
       let rangeEnd = Calendar.current.date(byAdding: .day, value: 60, to: now) ?? now
       let predicate = eventStore.predicateForEvents(withStart: rangeStart, end: rangeEnd, calendars: calendars)
       let events = eventStore.events(matching: predicate).filter { $0.endDate >= now }
-      var unique: [String: CalendarV2SystemEvent] = [:]
+      var groups: [String: [EKEvent]] = [:]
       for event in events {
          guard let eventIdentifier = event.eventIdentifier, !eventIdentifier.isEmpty else { continue }
          let calendarIdentifier = event.calendar.calendarIdentifier
+         let externalIdentifier = event.calendarItemExternalIdentifier ?? ""
+         let seriesIdentifier = externalIdentifier.isEmpty ? eventIdentifier : externalIdentifier
+         groups["\(calendarIdentifier):\(seriesIdentifier)", default: []].append(event)
+      }
+
+      let result = groups.values.compactMap { group -> CalendarV2SystemEvent? in
+         guard let event = group.sorted(by: {
+            if $0.isDetached != $1.isDetached { return !$0.isDetached }
+            return $0.startDate < $1.startDate
+         }).first,
+         let eventIdentifier = event.eventIdentifier, !eventIdentifier.isEmpty else { return nil }
+         let calendarIdentifier = event.calendar.calendarIdentifier
          let id = systemId(calendarIdentifier: calendarIdentifier, eventIdentifier: eventIdentifier)
          let recurrenceFrequency = event.recurrenceRules?.first?.frequency
+         let recurrenceEnd = event.recurrenceRules?.first?.recurrenceEnd?.endDate
          let reminderMinutes = event.alarms?
             .map { Int(abs($0.relativeOffset) / 60) }
             .filter { $0 > 0 }
             .min()
-         let candidate = CalendarV2SystemEvent(
+         var overridesByDate: [TimeInterval: CalendarV2OccurrenceOverride] = [:]
+         for occurrence in group where occurrence.isDetached {
+            guard let originalStart = occurrence.occurrenceDate else { continue }
+            overridesByDate[originalStart.timeIntervalSince1970] = CalendarV2OccurrenceOverride(
+               originalStart: originalStart,
+               newStart: occurrence.startDate,
+               newEnd: occurrence.endDate
+            )
+         }
+         let overrides = overridesByDate.values.sorted { $0.originalStart < $1.originalStart }
+         return CalendarV2SystemEvent(
             id: id,
             eventIdentifier: eventIdentifier,
             calendarIdentifier: calendarIdentifier,
@@ -125,12 +156,12 @@ final class CalendarV2SyncService {
             end: event.endDate,
             allDay: event.isAllDay,
             recurrenceFrequency: recurrenceFrequency,
-            reminderMinutes: reminderMinutes
+            recurrenceEnd: recurrenceEnd,
+            reminderMinutes: reminderMinutes,
+            occurrenceOverrides: overrides
          )
-         if let current = unique[id], current.start <= candidate.start { continue }
-         unique[id] = candidate
       }
-      return unique.values.sorted { $0.start < $1.start }
+      return result.sorted { $0.start < $1.start }
    }
 
    func sync(
@@ -381,6 +412,19 @@ final class CalendarV2SyncService {
       item.colorCode = Data(event.colorCode.utf8)
       item.origin = .calendarOriginSystem
       item.deleted = false
+      if let repeatUntil = event.recurrenceEnd {
+         let components = calendar.dateComponents([.year, .month, .day], from: repeatUntil)
+         item.repeatUntilYear = UInt32(components.year ?? 0)
+         item.repeatUntilMonth = UInt32(components.month ?? 0)
+         item.repeatUntilDay = UInt32(components.day ?? 0)
+      }
+      item.overrides = event.occurrenceOverrides.map { value in
+         var item = override_item()
+         item.overrideStart = calendarTime(value.originalStart)
+         item.overrideNewStart = calendarTime(value.newStart)
+         item.overrideNewEnd = calendarTime(value.newEnd)
+         return item
+      }
       return item
    }
 
@@ -390,7 +434,7 @@ final class CalendarV2SyncService {
       event.startDate = itemDate(item)
       event.endDate = endDate(item)
       event.isAllDay = item.allDay
-      event.recurrenceRules = recurrenceRule(item.repeatDate).map { [$0] }
+      event.recurrenceRules = recurrenceRule(item.repeatDate, endDate: repeatUntilDate(item)).map { [$0] }
       event.alarms = reminderMinutes(item.repeatTime).map { [EKAlarm(relativeOffset: -Double($0 * 60))] }
    }
 
@@ -476,6 +520,8 @@ final class CalendarV2SyncService {
       ].map(String.init).joined(separator: ",")
       + "|\(item.allDay)|\(item.repeatDate.rawValue)|\(item.repeatTime.rawValue)"
       + "|\(item.content.base64EncodedString())|\(item.calendarSource.base64EncodedString())"
+      + "|\(item.repeatUntilYear),\(item.repeatUntilMonth),\(item.repeatUntilDay)"
+      + "|\(item.overrides.map(overrideSnapshot).joined(separator: ";"))"
    }
 
    private func sameCalendarContent(_ lhs: calendar_v2_item, _ rhs: calendar_v2_item) -> Bool {
@@ -488,6 +534,10 @@ final class CalendarV2SyncService {
          && lhs.repeatCustom == rhs.repeatCustom && lhs.customType == rhs.customType
          && lhs.calendarSource == rhs.calendarSource && lhs.colorCode == rhs.colorCode
          && lhs.focusModeUuid == rhs.focusModeUuid
+         && lhs.repeatUntilYear == rhs.repeatUntilYear
+         && lhs.repeatUntilMonth == rhs.repeatUntilMonth
+         && lhs.repeatUntilDay == rhs.repeatUntilDay
+         && lhs.overrides == rhs.overrides
    }
 
    private func repeatDate(_ frequency: EKRecurrenceFrequency?) -> repeat_calendar_v2_date {
@@ -500,7 +550,7 @@ final class CalendarV2SyncService {
       }
    }
 
-   private func recurrenceRule(_ value: repeat_calendar_v2_date) -> EKRecurrenceRule? {
+   private func recurrenceRule(_ value: repeat_calendar_v2_date, endDate: Date?) -> EKRecurrenceRule? {
       let frequency: EKRecurrenceFrequency
       switch value {
       case .repeatV2EveryDay: frequency = .daily
@@ -509,7 +559,45 @@ final class CalendarV2SyncService {
       case .repeatV2EveryYear: frequency = .yearly
       default: return nil
       }
-      return EKRecurrenceRule(recurrenceWith: frequency, interval: 1, end: nil)
+      return EKRecurrenceRule(
+         recurrenceWith: frequency,
+         interval: 1,
+         end: endDate.map(EKRecurrenceEnd.init(end:))
+      )
+   }
+
+   private func repeatUntilDate(_ item: calendar_v2_item) -> Date? {
+      guard item.repeatUntilYear > 0, item.repeatUntilMonth > 0, item.repeatUntilDay > 0 else { return nil }
+      var components = DateComponents()
+      components.year = Int(item.repeatUntilYear)
+      components.month = Int(item.repeatUntilMonth)
+      components.day = Int(item.repeatUntilDay)
+      components.hour = 23
+      components.minute = 59
+      components.second = 59
+      guard let result = Calendar.current.date(from: components) else { return nil }
+      let validated = Calendar.current.dateComponents([.year, .month, .day], from: result)
+      guard validated.year == components.year,
+            validated.month == components.month,
+            validated.day == components.day else { return nil }
+      return result
+   }
+
+   private func calendarTime(_ date: Date) -> calendar_time {
+      let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+      var value = calendar_time()
+      value.year = UInt32(components.year ?? 0)
+      value.month = UInt32(components.month ?? 0)
+      value.day = UInt32(components.day ?? 0)
+      value.hour = UInt32(components.hour ?? 0)
+      value.minute = UInt32(components.minute ?? 0)
+      return value
+   }
+
+   private func overrideSnapshot(_ item: override_item) -> String {
+      [item.overrideStart, item.overrideNewStart, item.overrideNewEnd]
+         .map { "\($0.year),\($0.month),\($0.day),\($0.hour),\($0.minute)" }
+         .joined(separator: "/")
    }
 
    private func repeatTime(_ minutes: Int?) -> repeat_calendar_v2_time {

@@ -31,6 +31,17 @@ public enum SportType: Int, Codable {
     public static var defaultCase: SportType {
         .ORUN
     }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(Int.self)
+        self = SportType(rawValue: rawValue) ?? .defaultCase
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(rawValue)
+    }
     
     case ORUN = 0                     // Outdoor running
     case IRUN = 1                     // Indoor running
@@ -457,5 +468,4 @@ public enum AzureRegionType: Int {
     /// 东南亚（新加坡）
     case southeastasia = 8
 }
-
 

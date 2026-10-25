@@ -90,6 +90,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "Set calendar",
       "Calendar V2",
       "Ringtone",
+      "Custom Focus Mode",
       "Get health snapshot",
       "Get Watch Sensor",
       "Set Watch Sensor",
@@ -545,6 +546,10 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
          break
       case "Ringtone":
          let vc = RingtoneUploadViewController()
+         self.navigationController?.pushViewController(vc, animated: true)
+         break
+      case "Custom Focus Mode":
+         let vc = CustomFocusModeViewController()
          self.navigationController?.pushViewController(vc, animated: true)
          break
       case "Upload (Music)":
