@@ -35,7 +35,7 @@ final class CustomFocusModeViewController: CreekBaseViewController {
 
    @objc private func refreshModes() {
       indicator.startAnimating()
-      CreekInterFace.instance.getCustomFocusMode(operate: protocol_custom_focus_mode_operate()) { [weak self] reply in
+      CreekInterFace.instance.getCustomFocusMode { [weak self] reply in
          DispatchQueue.main.async {
             guard let self = self else { return }
             self.defaultFocusModeID = reply.defaultFocusModeID
