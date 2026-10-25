@@ -10522,6 +10522,9 @@ public enum whatsapp_operation_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///推送新消息(app下发,带lid)
   case operationPushMsg // = 4
+
+  ///查询状态/恢复已有会话并补推消息,禁止生成二维码
+  case operationQueryState // = 5
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -10535,6 +10538,7 @@ public enum whatsapp_operation_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .operationUnlink
     case 3: self = .operationSendMsg
     case 4: self = .operationPushMsg
+    case 5: self = .operationQueryState
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -10546,6 +10550,7 @@ public enum whatsapp_operation_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .operationUnlink: return 2
     case .operationSendMsg: return 3
     case .operationPushMsg: return 4
+    case .operationQueryState: return 5
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -10557,6 +10562,7 @@ public enum whatsapp_operation_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .operationUnlink,
     .operationSendMsg,
     .operationPushMsg,
+    .operationQueryState,
   ]
 
 }
@@ -11101,6 +11107,302 @@ public enum all_day_remind_v2_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .allDayV2RemindOneDayBefore,
     .allDayV2RemindTwoDayBefore,
     .allDayV2RemindOneWeekBefore,
+  ]
+
+}
+
+public enum operate_ota_history_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case otaInvalid // = 0
+
+  ///查询
+  case otaInquire // = 1
+
+  ///删除
+  case otaDelete // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .otaInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .otaInvalid
+    case 1: self = .otaInquire
+    case 2: self = .otaDelete
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .otaInvalid: return 0
+    case .otaInquire: return 1
+    case .otaDelete: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [operate_ota_history_type] = [
+    .otaInvalid,
+    .otaInquire,
+    .otaDelete,
+  ]
+
+}
+
+public enum custom_focus_operate_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 无效操作，禁止在线上报文中使用。
+  case customFocusOperateInvalid // = 0
+
+  /// id 不存在时创建，存在时按版本全量更新。
+  case customFocusOperateUpsert // = 1
+
+  /// 按 id 删除模式。
+  case customFocusOperateDelete // = 2
+
+  /// 查询
+  case customFocusOperateGet // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .customFocusOperateInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .customFocusOperateInvalid
+    case 1: self = .customFocusOperateUpsert
+    case 2: self = .customFocusOperateDelete
+    case 3: self = .customFocusOperateGet
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .customFocusOperateInvalid: return 0
+    case .customFocusOperateUpsert: return 1
+    case .customFocusOperateDelete: return 2
+    case .customFocusOperateGet: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [custom_focus_operate_type] = [
+    .customFocusOperateInvalid,
+    .customFocusOperateUpsert,
+    .customFocusOperateDelete,
+    .customFocusOperateGet,
+  ]
+
+}
+
+/// 允许来电提醒的联系人范围。
+public enum custom_focus_contact_scope_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 所有人。
+  case contactScopeEveryone // = 0
+
+  /// 已同步到手表的全部联系人。
+  case contactScopeAllContacts // = 1
+
+  /// 收藏联系人。
+  case contactScopeFavorites // = 2
+
+  /// 自定义联系人列表，此时 allowed_contacts 必须非空。
+  case contactScopeCustom // = 3
+
+  /// 不允许任何联系人。
+  case contactScopeNone // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .contactScopeEveryone
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .contactScopeEveryone
+    case 1: self = .contactScopeAllContacts
+    case 2: self = .contactScopeFavorites
+    case 3: self = .contactScopeCustom
+    case 4: self = .contactScopeNone
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .contactScopeEveryone: return 0
+    case .contactScopeAllContacts: return 1
+    case .contactScopeFavorites: return 2
+    case .contactScopeCustom: return 3
+    case .contactScopeNone: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [custom_focus_contact_scope_type] = [
+    .contactScopeEveryone,
+    .contactScopeAllContacts,
+    .contactScopeFavorites,
+    .contactScopeCustom,
+    .contactScopeNone,
+  ]
+
+}
+
+/// 允许消息提醒的 App 范围。
+public enum custom_focus_app_scope_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 允许全部 App。
+  case appScopeAll // = 0
+
+  /// 仅允许自定义 App 类型列表。
+  case focusAppScopeCustom // = 1
+
+  /// 不允许任何 App。
+  case appScopeNone // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .appScopeAll
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .appScopeAll
+    case 1: self = .focusAppScopeCustom
+    case 2: self = .appScopeNone
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .appScopeAll: return 0
+    case .focusAppScopeCustom: return 1
+    case .appScopeNone: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [custom_focus_app_scope_type] = [
+    .appScopeAll,
+    .focusAppScopeCustom,
+    .appScopeNone,
+  ]
+
+}
+
+/// 专注模式冲突处理策略。
+public enum custom_focus_conflict_policy_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 放弃本次新触发的模式。
+  case conflictPolicyDiscard // = 0
+
+  /// 按 priority 比较并决定是否替换。
+  case conflictPolicyPriority // = 1
+
+  /// 当前模式结束后，如果触发条件仍有效则延迟启动。
+  case conflictPolicyDelay // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .conflictPolicyDiscard
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .conflictPolicyDiscard
+    case 1: self = .conflictPolicyPriority
+    case 2: self = .conflictPolicyDelay
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .conflictPolicyDiscard: return 0
+    case .conflictPolicyPriority: return 1
+    case .conflictPolicyDelay: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [custom_focus_conflict_policy_type] = [
+    .conflictPolicyDiscard,
+    .conflictPolicyPriority,
+    .conflictPolicyDelay,
+  ]
+
+}
+
+/// 专注模式类型。
+public enum focus_mode_type: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///睡眠模式
+  case fousSleep // = 0
+
+  ///勿扰模式
+  case fousDnd // = 1
+
+  ///会议模式
+  case fousMeeting // = 2
+
+  ///剧院模式
+  case fousTheater // = 3
+
+  ///自定义模式
+  case fousCustom // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .fousSleep
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .fousSleep
+    case 1: self = .fousDnd
+    case 2: self = .fousMeeting
+    case 3: self = .fousTheater
+    case 4: self = .fousCustom
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .fousSleep: return 0
+    case .fousDnd: return 1
+    case .fousMeeting: return 2
+    case .fousTheater: return 3
+    case .fousCustom: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [focus_mode_type] = [
+    .fousSleep,
+    .fousDnd,
+    .fousMeeting,
+    .fousTheater,
+    .fousCustom,
   ]
 
 }
@@ -13005,6 +13307,7 @@ extension whatsapp_operation_type: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "OPERATION_UNLINK"),
     3: .same(proto: "OPERATION_SEND_MSG"),
     4: .same(proto: "OPERATION_PUSH_MSG"),
+    5: .same(proto: "OPERATION_QUERY_STATE"),
   ]
 }
 
@@ -13110,5 +13413,58 @@ extension all_day_remind_v2_type: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "ALL_DAY_V2_REMIND_ONE_DAY_BEFORE"),
     3: .same(proto: "ALL_DAY_V2_REMIND_TWO_DAY_BEFORE"),
     4: .same(proto: "ALL_DAY_V2_REMIND_ONE_WEEK_BEFORE"),
+  ]
+}
+
+extension operate_ota_history_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OTA_INVALID"),
+    1: .same(proto: "OTA_INQUIRE"),
+    2: .same(proto: "OTA_DELETE"),
+  ]
+}
+
+extension custom_focus_operate_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CUSTOM_FOCUS_OPERATE_INVALID"),
+    1: .same(proto: "CUSTOM_FOCUS_OPERATE_UPSERT"),
+    2: .same(proto: "CUSTOM_FOCUS_OPERATE_DELETE"),
+    3: .same(proto: "CUSTOM_FOCUS_OPERATE_GET"),
+  ]
+}
+
+extension custom_focus_contact_scope_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CONTACT_SCOPE_EVERYONE"),
+    1: .same(proto: "CONTACT_SCOPE_ALL_CONTACTS"),
+    2: .same(proto: "CONTACT_SCOPE_FAVORITES"),
+    3: .same(proto: "CONTACT_SCOPE_CUSTOM"),
+    4: .same(proto: "CONTACT_SCOPE_NONE"),
+  ]
+}
+
+extension custom_focus_app_scope_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "APP_SCOPE_ALL"),
+    1: .same(proto: "FOCUS_APP_SCOPE_CUSTOM"),
+    2: .same(proto: "APP_SCOPE_NONE"),
+  ]
+}
+
+extension custom_focus_conflict_policy_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CONFLICT_POLICY_DISCARD"),
+    1: .same(proto: "CONFLICT_POLICY_PRIORITY"),
+    2: .same(proto: "CONFLICT_POLICY_DELAY"),
+  ]
+}
+
+extension focus_mode_type: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOUS_SLEEP"),
+    1: .same(proto: "FOUS_DND"),
+    2: .same(proto: "FOUS_MEETING"),
+    3: .same(proto: "FOUS_THEATER"),
+    4: .same(proto: "FOUS_CUSTOM"),
   ]
 }

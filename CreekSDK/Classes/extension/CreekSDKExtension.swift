@@ -3317,4 +3317,62 @@ extension CreekSDK{
          }
       }
    }
+
+   /// Get the custom focus mode list.
+   public func getCustomFocusMode(operate:protocol_custom_focus_mode_operate,model:@escaping customFocusModeBase,failure:@escaping failureArgument) {
+      sendCustomFocusModeQuery(operate: operate, model: model, failure: failure)
+   }
+
+   /// Create or update a custom focus mode.
+   public func upsertCustomFocusMode(operate:protocol_custom_focus_mode_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      sendCustomFocusModeCommand(methodPrefix: "upsertCustomFocusMode", operate: operate, success: success, failure: failure)
+   }
+
+   /// Delete custom focus modes by ID.
+   public func deleteCustomFocusMode(focusModeIds:[UInt64],success:@escaping successBase,failure:@escaping failureArgument) {
+      guard !focusModeIds.isEmpty else {
+         failure(-1, "The custom focus mode IDs cannot be empty")
+         return
+      }
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "deleteCustomFocusMode\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         methodChannel?.invokeMethod(methodName, arguments: focusModeIds.map { NSNumber(value: $0) })
+      }
+   }
+
+   private func sendCustomFocusModeQuery(operate:protocol_custom_focus_mode_operate,model:@escaping customFocusModeBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "getCustomFocusMode\(requestId)"
+         customFocusModeDic[methodName] = model
+         failureArgumentDic[methodName] = failure
+         do {
+            methodChannel?.invokeMethod(methodName, arguments: try operate.serializedData())
+         } catch {
+            customFocusModeDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+            failure(-1, "Failed to serialize custom focus mode data")
+         }
+      }
+   }
+
+   private func sendCustomFocusModeCommand(methodPrefix:String,operate:protocol_custom_focus_mode_operate,success:@escaping successBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId += 1
+         let methodName = "\(methodPrefix)\(requestId)"
+         successDic[methodName] = success
+         failureArgumentDic[methodName] = failure
+         do {
+            methodChannel?.invokeMethod(methodName, arguments: try operate.serializedData())
+         } catch {
+            successDic.removeValue(forKey: methodName)
+            failureArgumentDic.removeValue(forKey: methodName)
+            failure(-1, "Failed to serialize custom focus mode data")
+         }
+      }
+   }
+
 }

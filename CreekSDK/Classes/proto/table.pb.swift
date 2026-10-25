@@ -980,6 +980,36 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `voiceMemo`. Subsequent reads from it will return its default value.
   public mutating func clearVoiceMemo() {_uniqueStorage()._voiceMemo = nil}
 
+  ///是否支持进入ota模式
+  public var enterOtaMode: function_table {
+    get {return _storage._enterOtaMode ?? function_table()}
+    set {_uniqueStorage()._enterOtaMode = newValue}
+  }
+  /// Returns true if `enterOtaMode` has been explicitly set.
+  public var hasEnterOtaMode: Bool {return _storage._enterOtaMode != nil}
+  /// Clears the value of `enterOtaMode`. Subsequent reads from it will return its default value.
+  public mutating func clearEnterOtaMode() {_uniqueStorage()._enterOtaMode = nil}
+
+  ///是否支持运动GPS预搜星
+  public var exerciseGpsPresearch: function_table {
+    get {return _storage._exerciseGpsPresearch ?? function_table()}
+    set {_uniqueStorage()._exerciseGpsPresearch = newValue}
+  }
+  /// Returns true if `exerciseGpsPresearch` has been explicitly set.
+  public var hasExerciseGpsPresearch: Bool {return _storage._exerciseGpsPresearch != nil}
+  /// Clears the value of `exerciseGpsPresearch`. Subsequent reads from it will return its default value.
+  public mutating func clearExerciseGpsPresearch() {_uniqueStorage()._exerciseGpsPresearch = nil}
+
+  ///是否支持自定义专注模式
+  public var customFocusMode: function_table {
+    get {return _storage._customFocusMode ?? function_table()}
+    set {_uniqueStorage()._customFocusMode = newValue}
+  }
+  /// Returns true if `customFocusMode` has been explicitly set.
+  public var hasCustomFocusMode: Bool {return _storage._customFocusMode != nil}
+  /// Clears the value of `customFocusMode`. Subsequent reads from it will return its default value.
+  public mutating func clearCustomFocusMode() {_uniqueStorage()._customFocusMode = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1124,6 +1154,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     92: .same(proto: "ringtone"),
     93: .standard(proto: "calendar_v2"),
     94: .standard(proto: "voice_memo"),
+    95: .standard(proto: "enter_ota_mode"),
+    96: .standard(proto: "exercise_gps_presearch"),
+    97: .standard(proto: "custom_focus_mode"),
   ]
 
   fileprivate class _StorageClass {
@@ -1221,6 +1254,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _ringtone: function_table? = nil
     var _calendarV2: function_table? = nil
     var _voiceMemo: function_table? = nil
+    var _enterOtaMode: function_table? = nil
+    var _exerciseGpsPresearch: function_table? = nil
+    var _customFocusMode: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1329,6 +1365,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _ringtone = source._ringtone
       _calendarV2 = source._calendarV2
       _voiceMemo = source._voiceMemo
+      _enterOtaMode = source._enterOtaMode
+      _exerciseGpsPresearch = source._exerciseGpsPresearch
+      _customFocusMode = source._customFocusMode
     }
   }
 
@@ -1441,6 +1480,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 92: try { try decoder.decodeSingularMessageField(value: &_storage._ringtone) }()
         case 93: try { try decoder.decodeSingularMessageField(value: &_storage._calendarV2) }()
         case 94: try { try decoder.decodeSingularMessageField(value: &_storage._voiceMemo) }()
+        case 95: try { try decoder.decodeSingularMessageField(value: &_storage._enterOtaMode) }()
+        case 96: try { try decoder.decodeSingularMessageField(value: &_storage._exerciseGpsPresearch) }()
+        case 97: try { try decoder.decodeSingularMessageField(value: &_storage._customFocusMode) }()
         default: break
         }
       }
@@ -1735,6 +1777,15 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._voiceMemo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 94)
       } }()
+      try { if let v = _storage._enterOtaMode {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 95)
+      } }()
+      try { if let v = _storage._exerciseGpsPresearch {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 96)
+      } }()
+      try { if let v = _storage._customFocusMode {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 97)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1838,6 +1889,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._ringtone != rhs_storage._ringtone {return false}
         if _storage._calendarV2 != rhs_storage._calendarV2 {return false}
         if _storage._voiceMemo != rhs_storage._voiceMemo {return false}
+        if _storage._enterOtaMode != rhs_storage._enterOtaMode {return false}
+        if _storage._exerciseGpsPresearch != rhs_storage._exerciseGpsPresearch {return false}
+        if _storage._customFocusMode != rhs_storage._customFocusMode {return false}
         return true
       }
       if !storagesAreEqual {return false}

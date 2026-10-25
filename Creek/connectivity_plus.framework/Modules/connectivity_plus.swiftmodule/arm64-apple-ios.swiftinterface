@@ -6,29 +6,15 @@ import Flutter
 import Foundation
 import Network
 import Swift
-import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @_exported import connectivity_plus
-@objc @_hasMissingDesignatedInitializers public class ConnectivityPlusPlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin, Flutter.FlutterStreamHandler {
-  @objc public static func register(with registrar: any Flutter.FlutterPluginRegistrar)
-  @objc public func detachFromEngine(for registrar: any Flutter.FlutterPluginRegistrar)
-  @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func onListen(withArguments _: Any?, eventSink events: @escaping Flutter.FlutterEventSink) -> Flutter.FlutterError?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public func onCancel(withArguments _: Any?) -> Flutter.FlutterError?
-  #endif
-  @objc deinit
-}
 public enum ConnectivityType {
   case none
   case wiredEthernet
   case wifi
   case cellular
-  case satellite
   case other
   public static func == (a: connectivity_plus.ConnectivityType, b: connectivity_plus.ConnectivityType) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
@@ -52,6 +38,18 @@ public protocol ConnectivityProvider : ObjectiveC.NSObjectProtocol {
   public var connectivityUpdateHandler: connectivity_plus.PathMonitorConnectivityProvider.ConnectivityUpdateHandler?
   public func start()
   public func stop()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class SwiftConnectivityPlusPlugin : ObjectiveC.NSObject, Flutter.FlutterPlugin, Flutter.FlutterStreamHandler {
+  @objc public static func register(with registrar: any Flutter.FlutterPluginRegistrar)
+  @objc public func detachFromEngine(for registrar: any Flutter.FlutterPluginRegistrar)
+  @objc public func handle(_ call: Flutter.FlutterMethodCall, result: @escaping Flutter.FlutterResult)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func onListen(withArguments _: Any?, eventSink events: @escaping Flutter.FlutterEventSink) -> Flutter.FlutterError?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func onCancel(withArguments _: Any?) -> Flutter.FlutterError?
+  #endif
   @objc deinit
 }
 extension connectivity_plus.ConnectivityType : Swift.Equatable {}

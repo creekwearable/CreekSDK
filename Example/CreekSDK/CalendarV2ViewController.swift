@@ -185,7 +185,19 @@ final class CalendarV2ViewController: CreekBaseViewController {
       let source = String(decoding: item.calendarSource, as: UTF8.self)
       let origin = item.origin == .calendarOriginSystem ? "Phone system" : "Firmware local"
       let state = item.deleted ? " · Pending deletion" : ""
-      return "\(source.isEmpty ? origin : source)\(state)\n\(dateText(item))"
+      var details = ["\(source.isEmpty ? origin : source)\(state)", dateText(item)]
+      if item.repeatUntilYear > 0, item.repeatUntilMonth > 0, item.repeatUntilDay > 0 {
+         details.append(String(
+            format: "Repeats until %04d-%02d-%02d",
+            item.repeatUntilYear,
+            item.repeatUntilMonth,
+            item.repeatUntilDay
+         ))
+      }
+      if !item.overrides.isEmpty {
+         details.append("\(item.overrides.count) occurrence override(s)")
+      }
+      return details.joined(separator: "\n")
    }
 
    private func dateText(_ item: calendar_v2_item) -> String {
@@ -196,9 +208,21 @@ final class CalendarV2ViewController: CreekBaseViewController {
       let formatter = DateFormatter()
       formatter.dateFormat = event.allDay ? "yyyy-MM-dd · All day" : "yyyy-MM-dd HH:mm"
       let start = formatter.string(from: event.start)
-      if event.allDay { return start }
-      formatter.dateFormat = "HH:mm"
-      return "\(start) - \(formatter.string(from: event.end))"
+      var details: [String]
+      if event.allDay {
+         details = [start]
+      } else {
+         formatter.dateFormat = "HH:mm"
+         details = ["\(start) - \(formatter.string(from: event.end))"]
+      }
+      if let recurrenceEnd = event.recurrenceEnd {
+         formatter.dateFormat = "yyyy-MM-dd"
+         details.append("Repeats until \(formatter.string(from: recurrenceEnd))")
+      }
+      if !event.occurrenceOverrides.isEmpty {
+         details.append("\(event.occurrenceOverrides.count) occurrence override(s)")
+      }
+      return details.joined(separator: " · ")
    }
 
    private func showMessage(title: String, message: String) {
@@ -263,7 +287,7 @@ extension CalendarV2ViewController: UITableViewDataSource, UITableViewDelegate {
          ?? UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
       cell.textLabel?.textColor = .label
       cell.detailTextLabel?.textColor = .secondaryLabel
-      cell.detailTextLabel?.numberOfLines = 2
+      cell.detailTextLabel?.numberOfLines = 0
       cell.accessoryType = .none
       cell.selectionStyle = .none
 
