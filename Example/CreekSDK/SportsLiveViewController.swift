@@ -29,6 +29,8 @@ class SportsLiveViewController: CreekBaseViewController {
         getSportType()
     }
    
+   var i = 0
+   
    override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
        

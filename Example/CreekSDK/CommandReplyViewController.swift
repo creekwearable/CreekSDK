@@ -96,21 +96,27 @@ class CommandReplyViewController: CreekBaseViewController {
          
   
          
-         CreekInterFace.instance.getFirmware { model in
-            self.view.hideRemark()
-            let json = try? model.jsonString()
-            if let str = json{
-               dispatch_main_sync_safe {
-                  self.textView.text = str
-               }
-            }
-            CreekInterFace.instance.getSNFirmware(model: model) { sn in
-               print("sn++++\(sn)")
-            }
-         } failure: { code, message in
-            self.view.hideRemark()
-            self.textView.text = message
-         }
+//         CreekInterFace.instance.getFirmware { model in
+//            self.view.hideRemark()
+//            let json = try? model.jsonString()
+//            if let str = json{
+//               dispatch_main_sync_safe {
+//                  self.textView.text = str
+//               }
+//            }
+//            CreekInterFace.instance.getSNFirmware(model: model) { sn in
+//               print("sn++++\(sn)")
+//            }
+//         } failure: { code, message in
+//            self.view.hideRemark()
+//            self.textView.text = message
+//         }
+         self.view.showRemark(msg: "")
+         CreekInterFace.instance.getLogPath { path in
+                self.view.hideRemark()
+               let activityViewController = UIActivityViewController(activityItems: [NSURL(fileURLWithPath: path)], applicationActivities: nil)
+                self.present(activityViewController, animated: true, completion: nil)
+          }
          
          break
       case "Get user information":
