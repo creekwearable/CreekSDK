@@ -881,13 +881,14 @@ extension CreekSDK{
       
    }
    
-   
-   //    public func getMessageType(model:@escaping ((_ model:protocol_message_notify_func_support_reply) -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
-   //        messageType = model
-   //        failureArgumentDic["getMessageType"] = failure
-   //        methodChannel?.invokeMethod("getMessageType", arguments: "")
-   //
-   //    }
+   public func getMessageType(model:@escaping messageTypeBase,failure:@escaping failureArgument) {
+      serialQueue.sync {
+         requestId+=1
+         messageTypeDic["getMessageType\(requestId)"] = model
+         failureArgumentDic["getMessageType\(requestId)"] = failure
+         methodChannel?.invokeMethod("getMessageType\(requestId)", arguments: "")
+      }
+   }
    
    
    //    public func getMessageApp(model:@escaping ((_ model:protocol_message_notify_data_inquire_reply) -> ()),failure:@escaping ((_ code:Int,_ message:String) -> ())) {
