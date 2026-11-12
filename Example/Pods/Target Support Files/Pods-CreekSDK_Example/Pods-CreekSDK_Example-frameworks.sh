@@ -178,6 +178,7 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_ROOT}/../../Creek/sbc.framework"
   install_framework "${PODS_ROOT}/../../Creek/App.framework"
+  install_framework "${PODS_ROOT}/../../Creek/objective_c.framework"
   install_framework "${PODS_ROOT}/../../Creek/creek_blue_manage.framework"
   install_framework "${PODS_ROOT}/../../Creek/flutter_blue_plus.framework"
   install_framework "${PODS_ROOT}/../../Creek/Flutter.framework"
@@ -200,6 +201,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_ROOT}/../../Creek/sbc.framework"
   install_framework "${PODS_ROOT}/../../Creek/App.framework"
+  install_framework "${PODS_ROOT}/../../Creek/objective_c.framework"
   install_framework "${PODS_ROOT}/../../Creek/creek_blue_manage.framework"
   install_framework "${PODS_ROOT}/../../Creek/flutter_blue_plus.framework"
   install_framework "${PODS_ROOT}/../../Creek/Flutter.framework"

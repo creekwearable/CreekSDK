@@ -809,6 +809,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-CreekSDK_Example/Pods-CreekSDK_Example-frameworks.sh",
 				"${PODS_ROOT}/../../Creek/sbc.framework",
 				"${PODS_ROOT}/../../Creek/App.framework",
+				"${PODS_ROOT}/../../Creek/objective_c.framework",
 				"${PODS_ROOT}/../../Creek/creek_blue_manage.framework",
 				"${PODS_ROOT}/../../Creek/flutter_blue_plus.framework",
 				"${PODS_ROOT}/../../Creek/Flutter.framework",
@@ -832,6 +833,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sbc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/App.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/objective_c.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_blue_manage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_blue_plus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",

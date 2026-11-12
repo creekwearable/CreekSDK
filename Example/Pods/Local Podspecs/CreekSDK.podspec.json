@@ -25,6 +25,7 @@
   "vendored_frameworks": [
     "Creek/sbc.framework",
     "Creek/App.framework",
+    "Creek/objective_c.framework",
     "Creek/creek_blue_manage.framework",
     "Creek/flutter_blue_plus.framework",
     "Creek/Flutter.framework",
