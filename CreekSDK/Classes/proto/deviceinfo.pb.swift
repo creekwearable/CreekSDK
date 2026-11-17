@@ -506,6 +506,18 @@ public struct protocol_device_info: @unchecked Sendable {
     set {_uniqueStorage()._gpsCc1165WVersion = newValue}
   }
 
+  ///为true时 原来的sn_info 改成用sn_info_v2
+  public var snInfoV2Support: Bool {
+    get {return _storage._snInfoV2Support}
+    set {_uniqueStorage()._snInfoV2Support = newValue}
+  }
+
+  ///SN 码
+  public var snInfoV2: Data {
+    get {return _storage._snInfoV2}
+    set {_uniqueStorage()._snInfoV2 = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1060,6 +1072,8 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     34: .standard(proto: "boot_ota_status"),
     35: .same(proto: "config"),
     36: .standard(proto: "gps_cc1165w_version"),
+    37: .standard(proto: "sn_info_v2_support"),
+    38: .standard(proto: "sn_info_v2"),
   ]
 
   fileprivate class _StorageClass {
@@ -1099,6 +1113,8 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _bootOtaStatus: Bool = false
     var _config: config_info_type? = nil
     var _gpsCc1165WVersion: UInt32 = 0
+    var _snInfoV2Support: Bool = false
+    var _snInfoV2: Data = Data()
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1149,6 +1165,8 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _bootOtaStatus = source._bootOtaStatus
       _config = source._config
       _gpsCc1165WVersion = source._gpsCc1165WVersion
+      _snInfoV2Support = source._snInfoV2Support
+      _snInfoV2 = source._snInfoV2
     }
   }
 
@@ -1203,6 +1221,8 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 34: try { try decoder.decodeSingularBoolField(value: &_storage._bootOtaStatus) }()
         case 35: try { try decoder.decodeSingularMessageField(value: &_storage._config) }()
         case 36: try { try decoder.decodeSingularUInt32Field(value: &_storage._gpsCc1165WVersion) }()
+        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._snInfoV2Support) }()
+        case 38: try { try decoder.decodeSingularBytesField(value: &_storage._snInfoV2) }()
         default: break
         }
       }
@@ -1323,6 +1343,12 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if _storage._gpsCc1165WVersion != 0 {
         try visitor.visitSingularUInt32Field(value: _storage._gpsCc1165WVersion, fieldNumber: 36)
       }
+      if _storage._snInfoV2Support != false {
+        try visitor.visitSingularBoolField(value: _storage._snInfoV2Support, fieldNumber: 37)
+      }
+      if !_storage._snInfoV2.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._snInfoV2, fieldNumber: 38)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1368,6 +1394,8 @@ extension protocol_device_info: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._bootOtaStatus != rhs_storage._bootOtaStatus {return false}
         if _storage._config != rhs_storage._config {return false}
         if _storage._gpsCc1165WVersion != rhs_storage._gpsCc1165WVersion {return false}
+        if _storage._snInfoV2Support != rhs_storage._snInfoV2Support {return false}
+        if _storage._snInfoV2 != rhs_storage._snInfoV2 {return false}
         return true
       }
       if !storagesAreEqual {return false}

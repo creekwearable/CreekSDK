@@ -17,7 +17,7 @@ CreekSDK is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CreekSDK',:git => 'https://github.com/creekwearable/CreekSDK.git', :tag => '0.1.93'
+pod 'CreekSDK',:git => 'https://github.com/creekwearable/CreekSDK.git', :tag => '0.1.94'
 ```
 
 ## Author
@@ -55,3 +55,6 @@ Chinese document version：<https://xiaochey.feishu.cn/docx/JUVzdesZVow1Rkx278Rc
 
 English document version：<https://xiaochey.feishu.cn/docx/JksfdjOlWoVFaFx1LZncGM6SnxJ?from=from_copylink>
 
+
+
+祈祷时间 iOS 接入：[配置、七天读取和原生 Demo](doc/PRAYER_IOS.md)。

@@ -1010,6 +1010,16 @@ public struct protocol_function_table: @unchecked Sendable {
   /// Clears the value of `customFocusMode`. Subsequent reads from it will return its default value.
   public mutating func clearCustomFocusMode() {_uniqueStorage()._customFocusMode = nil}
 
+  ///是否支持app下发朝拜数据
+  public var prayerOnline: function_table {
+    get {return _storage._prayerOnline ?? function_table()}
+    set {_uniqueStorage()._prayerOnline = newValue}
+  }
+  /// Returns true if `prayerOnline` has been explicitly set.
+  public var hasPrayerOnline: Bool {return _storage._prayerOnline != nil}
+  /// Clears the value of `prayerOnline`. Subsequent reads from it will return its default value.
+  public mutating func clearPrayerOnline() {_uniqueStorage()._prayerOnline = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1157,6 +1167,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     95: .standard(proto: "enter_ota_mode"),
     96: .standard(proto: "exercise_gps_presearch"),
     97: .standard(proto: "custom_focus_mode"),
+    98: .standard(proto: "prayer_online"),
   ]
 
   fileprivate class _StorageClass {
@@ -1257,6 +1268,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _enterOtaMode: function_table? = nil
     var _exerciseGpsPresearch: function_table? = nil
     var _customFocusMode: function_table? = nil
+    var _prayerOnline: function_table? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1368,6 +1380,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       _enterOtaMode = source._enterOtaMode
       _exerciseGpsPresearch = source._exerciseGpsPresearch
       _customFocusMode = source._customFocusMode
+      _prayerOnline = source._prayerOnline
     }
   }
 
@@ -1483,6 +1496,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         case 95: try { try decoder.decodeSingularMessageField(value: &_storage._enterOtaMode) }()
         case 96: try { try decoder.decodeSingularMessageField(value: &_storage._exerciseGpsPresearch) }()
         case 97: try { try decoder.decodeSingularMessageField(value: &_storage._customFocusMode) }()
+        case 98: try { try decoder.decodeSingularMessageField(value: &_storage._prayerOnline) }()
         default: break
         }
       }
@@ -1786,6 +1800,9 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
       try { if let v = _storage._customFocusMode {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 97)
       } }()
+      try { if let v = _storage._prayerOnline {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 98)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1892,6 +1909,7 @@ extension protocol_function_table: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._enterOtaMode != rhs_storage._enterOtaMode {return false}
         if _storage._exerciseGpsPresearch != rhs_storage._exerciseGpsPresearch {return false}
         if _storage._customFocusMode != rhs_storage._customFocusMode {return false}
+        if _storage._prayerOnline != rhs_storage._prayerOnline {return false}
         return true
       }
       if !storagesAreEqual {return false}

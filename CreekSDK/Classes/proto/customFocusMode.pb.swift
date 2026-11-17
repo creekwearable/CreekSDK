@@ -90,6 +90,9 @@ public struct custom_focus_mode_flags: Sendable {
   /// 抬腕亮屏
   public var raiseToWakeFlag: Bool = false
 
+  /// 震动
+  public var motorFlag: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -355,6 +358,7 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
     4: .standard(proto: "bt_calling_flag"),
     5: .standard(proto: "power_saving_flag"),
     6: .standard(proto: "raise_to_wake_flag"),
+    7: .standard(proto: "motor_flag"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -369,6 +373,7 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 4: try { try decoder.decodeSingularBoolField(value: &self.btCallingFlag) }()
       case 5: try { try decoder.decodeSingularBoolField(value: &self.powerSavingFlag) }()
       case 6: try { try decoder.decodeSingularBoolField(value: &self.raiseToWakeFlag) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.motorFlag) }()
       default: break
       }
     }
@@ -393,6 +398,9 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.raiseToWakeFlag != false {
       try visitor.visitSingularBoolField(value: self.raiseToWakeFlag, fieldNumber: 6)
     }
+    if self.motorFlag != false {
+      try visitor.visitSingularBoolField(value: self.motorFlag, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -403,6 +411,7 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.btCallingFlag != rhs.btCallingFlag {return false}
     if lhs.powerSavingFlag != rhs.powerSavingFlag {return false}
     if lhs.raiseToWakeFlag != rhs.raiseToWakeFlag {return false}
+    if lhs.motorFlag != rhs.motorFlag {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

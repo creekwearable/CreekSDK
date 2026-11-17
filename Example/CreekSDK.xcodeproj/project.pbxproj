@@ -181,12 +181,15 @@
 		07E2C67D307F1B2700EDA466 /* frequentContactsV2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C66A307F1B2700EDA466 /* frequentContactsV2.pb.swift */; };
 		07E975F32F0D55A600D14B87 /* irCalibrationButton.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E975F22F0D55A600D14B87 /* irCalibrationButton.pb.swift */; };
 		07F125DF2EF2BBF1004AE0DE /* prayer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F125DE2EF2BBF1004AE0DE /* prayer.pb.swift */; };
+		36F599EDA8AD0F635A504A62 /* CreekPrayerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2BCF5A15311AA8C11C70D /* CreekPrayerModels.swift */; };
 		4ADBCA62C349B648744043ED /* Pods_CreekSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9F1989C1F7E6B6DC7E2067 /* Pods_CreekSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		6F1E8C2A524AA7D1B174A67B /* PrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289EEF466477640F75D8AF3 /* PrayerViewController.swift */; };
+		81B8D14ADDBF26CC96DDE82C /* CreekPrayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D47A70B53FDF60A513A000 /* CreekPrayerExtension.swift */; };
 		A17E0001305A000100000001 /* SportAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0001305A000100000002 /* SportAdjustViewController.swift */; };
 		A17E0002305A000100000001 /* RingtoneUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0002305A000100000002 /* RingtoneUploadViewController.swift */; };
 		A17E0003305A000100000001 /* CreekRingtoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E0003305A000100000002 /* CreekRingtoneModel.swift */; };
@@ -388,6 +391,7 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		69F2B4B0C8838C152A7AC3B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7010E1C78F779EB1911230E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		70D47A70B53FDF60A513A000 /* CreekPrayerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreekPrayerExtension.swift; sourceTree = "<group>"; };
 		9C9DF34213BA917D34C3310F /* CreekSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CreekSDK.podspec; path = ../CreekSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A17E0001305A000100000002 /* SportAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportAdjustViewController.swift; sourceTree = "<group>"; };
 		A17E0002305A000100000002 /* RingtoneUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtoneUploadViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +399,8 @@
 		A17E0004305A000100000002 /* CalendarV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarV2ViewController.swift; sourceTree = "<group>"; };
 		A17E0005305A000100000002 /* CalendarV2SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarV2SyncService.swift; sourceTree = "<group>"; };
 		A17E0006305A000100000002 /* CustomFocusModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFocusModeViewController.swift; sourceTree = "<group>"; };
+		A289EEF466477640F75D8AF3 /* PrayerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrayerViewController.swift; sourceTree = "<group>"; };
+		BAC2BCF5A15311AA8C11C70D /* CreekPrayerModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreekPrayerModels.swift; sourceTree = "<group>"; };
 		C44BFBA42E8A400200E63C19 /* GPSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSModel.swift; sourceTree = "<group>"; };
 		C4524E332E797EA800F91EBA /* trainingLoad.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingLoad.pb.swift; sourceTree = "<group>"; };
 		C4524E352E797EE700F91EBA /* cardioFitness.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardioFitness.pb.swift; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 				079A215E2B29A71A00F5D013 /* Log.swift */,
 				079A215F2B29A71A00F5D013 /* CreekSDKExtension.swift */,
 				079A21602B29A71A00F5D013 /* CreekEnum.swift */,
+				70D47A70B53FDF60A513A000 /* CreekPrayerExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -490,6 +497,7 @@
 				073D059D2E30DA7F00F000B3 /* GoalsModel.swift */,
 				072B82392EAA19A40093F88C /* RespiratoryModel.swift */,
 				071814232F90C39B00992A74 /* TemperatureModel.swift */,
+				BAC2BCF5A15311AA8C11C70D /* CreekPrayerModels.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -708,6 +716,7 @@
 				A17E0004305A000100000002 /* CalendarV2ViewController.swift */,
 				A17E0005305A000100000002 /* CalendarV2SyncService.swift */,
 				A17E0006305A000100000002 /* CustomFocusModeViewController.swift */,
+				A289EEF466477640F75D8AF3 /* PrayerViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -858,7 +867,7 @@
 				"${PODS_ROOT}/../../Creek/creek_blue_manage.framework",
 				"${PODS_ROOT}/../../Creek/flutter_creek_contacts.framework",
 				"${PODS_ROOT}/../../Creek/Flutter.framework",
-				"${PODS_ROOT}/../../Creek/sqflite.framework",
+				"${PODS_ROOT}/../../Creek/sqflite_darwin.framework",
 				"${PODS_ROOT}/../../Creek/Protobuf.framework",
 				"${PODS_ROOT}/../../Creek/shared_preferences_foundation.framework",
 				"${PODS_ROOT}/../../Creek/FMDB.framework",
@@ -910,7 +919,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/creek_blue_manage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_creek_contacts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqflite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqflite_darwin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/shared_preferences_foundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
@@ -1157,6 +1166,9 @@
 				073DE4B92E1B6C8A00FA2B97 /* DialVideoViewController.swift in Sources */,
 				079A21642B29A71B00F5D013 /* CreekEnum.swift in Sources */,
 				079A21DE2B29B0B700F5D013 /* PonyBaseViewController.swift in Sources */,
+				6F1E8C2A524AA7D1B174A67B /* PrayerViewController.swift in Sources */,
+				81B8D14ADDBF26CC96DDE82C /* CreekPrayerExtension.swift in Sources */,
+				36F599EDA8AD0F635A504A62 /* CreekPrayerModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@
     "Creek/creek_blue_manage.framework",
     "Creek/flutter_creek_contacts.framework",
     "Creek/Flutter.framework",
-    "Creek/sqflite.framework",
+    "Creek/sqflite_darwin.framework",
     "Creek/permission_handler_apple.framework",
     "Creek/Protobuf.framework",
     "Creek/shared_preferences_foundation.framework",

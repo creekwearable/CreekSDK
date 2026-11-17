@@ -148,6 +148,9 @@ public struct protocol_exercise_intelligent_recognition: Sendable {
   ///1bytes 运动自动结束开关 true 开启 = 1;false 关闭
   public var sportAutoEndSwitch: Bool = false
 
+  ///1bytes 运动自动恢复开关 true 开启 = 1;false 关闭
+  public var sportAutoResumeSwitch: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -169,6 +172,12 @@ public struct protocol_exercise_intelligent_recognition_inquire_reply: Sendable 
 
   ///1bytes 运动自动结束开关 true 开启 = 1;false 关闭
   public var sportAutoEndSwitch: Bool = false
+
+  ///功能表
+  public var funcTable: UInt32 = 0
+
+  ///1bytes 运动自动恢复开关 true 开启 = 1;false 关闭
+  public var sportAutoResumeSwitch: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1133,6 +1142,40 @@ public struct segments_data: Sendable {
   public init() {}
 }
 
+public struct protocol_exercise_gps_presearch_operate: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  ///操作类型：0无效，1查询，2设置
+  public var operate: tran_direction_type = .watchTran
+
+  ///预搜星操作
+  public var action: gps_presearch_action = .gpsPresearchInvalid
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct protocol_exercise_gps_presearch_inquire_reply: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///1bytes 功能表
+  public var funcTable: UInt32 = 0
+
+  public var status: gps_search_status = .gpsSearchOff
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension protocol_exercise_func_support_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1386,6 +1429,7 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
     2: .standard(proto: "sport_recognition_switch"),
     3: .standard(proto: "sport_auto_pause_switch"),
     4: .standard(proto: "sport_auto_end_switch"),
+    5: .standard(proto: "sport_auto_resume_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1398,6 +1442,7 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
       case 2: try { try decoder.decodeSingularBoolField(value: &self.sportRecognitionSwitch) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self.sportAutoPauseSwitch) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.sportAutoEndSwitch) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.sportAutoResumeSwitch) }()
       default: break
       }
     }
@@ -1416,6 +1461,9 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
     if self.sportAutoEndSwitch != false {
       try visitor.visitSingularBoolField(value: self.sportAutoEndSwitch, fieldNumber: 4)
     }
+    if self.sportAutoResumeSwitch != false {
+      try visitor.visitSingularBoolField(value: self.sportAutoResumeSwitch, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1424,6 +1472,7 @@ extension protocol_exercise_intelligent_recognition: SwiftProtobuf.Message, Swif
     if lhs.sportRecognitionSwitch != rhs.sportRecognitionSwitch {return false}
     if lhs.sportAutoPauseSwitch != rhs.sportAutoPauseSwitch {return false}
     if lhs.sportAutoEndSwitch != rhs.sportAutoEndSwitch {return false}
+    if lhs.sportAutoResumeSwitch != rhs.sportAutoResumeSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1436,6 +1485,8 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
     2: .standard(proto: "sport_recognition_switch"),
     3: .standard(proto: "sport_auto_pause_switch"),
     4: .standard(proto: "sport_auto_end_switch"),
+    5: .standard(proto: "func_table"),
+    6: .standard(proto: "sport_auto_resume_switch"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1448,6 +1499,8 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
       case 2: try { try decoder.decodeSingularBoolField(value: &self.sportRecognitionSwitch) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self.sportAutoPauseSwitch) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.sportAutoEndSwitch) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.sportAutoResumeSwitch) }()
       default: break
       }
     }
@@ -1466,6 +1519,12 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
     if self.sportAutoEndSwitch != false {
       try visitor.visitSingularBoolField(value: self.sportAutoEndSwitch, fieldNumber: 4)
     }
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 5)
+    }
+    if self.sportAutoResumeSwitch != false {
+      try visitor.visitSingularBoolField(value: self.sportAutoResumeSwitch, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1474,6 +1533,8 @@ extension protocol_exercise_intelligent_recognition_inquire_reply: SwiftProtobuf
     if lhs.sportRecognitionSwitch != rhs.sportRecognitionSwitch {return false}
     if lhs.sportAutoPauseSwitch != rhs.sportAutoPauseSwitch {return false}
     if lhs.sportAutoEndSwitch != rhs.sportAutoEndSwitch {return false}
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.sportAutoResumeSwitch != rhs.sportAutoResumeSwitch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3256,6 +3317,88 @@ extension segments_data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if lhs.order != rhs.order {return false}
     if lhs.calories != rhs.calories {return false}
     if lhs.duration != rhs.duration {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_exercise_gps_presearch_operate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_exercise_gps_presearch_operate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "operate"),
+    3: .same(proto: "action"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.action) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if self.operate != .watchTran {
+      try visitor.visitSingularEnumField(value: self.operate, fieldNumber: 2)
+    }
+    if self.action != .gpsPresearchInvalid {
+      try visitor.visitSingularEnumField(value: self.action, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_exercise_gps_presearch_operate, rhs: protocol_exercise_gps_presearch_operate) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.operate != rhs.operate {return false}
+    if lhs.action != rhs.action {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension protocol_exercise_gps_presearch_inquire_reply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "protocol_exercise_gps_presearch_inquire_reply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "func_table"),
+    2: .same(proto: "status"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.funcTable) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.status) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.funcTable != 0 {
+      try visitor.visitSingularUInt32Field(value: self.funcTable, fieldNumber: 1)
+    }
+    if self.status != .gpsSearchOff {
+      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: protocol_exercise_gps_presearch_inquire_reply, rhs: protocol_exercise_gps_presearch_inquire_reply) -> Bool {
+    if lhs.funcTable != rhs.funcTable {return false}
+    if lhs.status != rhs.status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

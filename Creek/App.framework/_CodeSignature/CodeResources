@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		z8TSZ7/mBBXKXjUBUkNQlyP+N3M=
+		cvYv736HXscVYuJM6odMKNA7+Xc=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		ZUTKfsQXdG43nuxpM+Zw7TT9b9Q=
+		9EPdw8kl7dEZsI+ytFuPK9gwV6E=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
@@ -31,6 +31,18 @@
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		/CUoTuPQqqdexfyOT9lpJhV+2MQ=
+		</data>
+		<key>flutter_assets/packages/creek_prayer/assets/databases/embedded_data.db</key>
+		<data>
+		znUq+4t8xW9I25S3cJNa6kCTqIU=
+		</data>
+		<key>flutter_assets/packages/creek_prayer/assets/regions/countries.json</key>
+		<data>
+		2L4a2nSxmeAgKDwXUvk+yl6lSts=
+		</data>
+		<key>flutter_assets/packages/creek_prayer/assets/regions/timezone_default_cities.json</key>
+		<data>
+		t28BmVcdBG24C2G7kMgAxxXYrRo=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -59,7 +71,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			D7oV6mUuDsWXUyWiy2AhWVu6FLHRZw6mpJxPjwRzveY=
+			oXqirIpKUMOfEpnt1255OCxbkqNZPTN5zATDZgoAl18=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -73,7 +85,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wyiI2GGrZcH0pBnyZyI9yWDTiYsVC+EMsUflUPEHraI=
+			cWhXjzWToqsM/BWMI7kWjO4rN5ldtJtqV1/7kv4Xvkk=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
@@ -95,6 +107,27 @@
 			<key>hash2</key>
 			<data>
 			2YZbZxoJ1oPROoYwidiCXg9ho3aWzl19RIvIAjqmJFM=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/creek_prayer/assets/databases/embedded_data.db</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NHHhqh69hPLQu5QLTsydmsWd3cs3RsnZgM/xhERUjz8=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/creek_prayer/assets/regions/countries.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			19uX9NlFeXpDYyboER3p4eQiWoWebnKYI6smNJ3Lp9I=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/creek_prayer/assets/regions/timezone_default_cities.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			T71BYK1UgLdMKv2Q30QutLnUifgZSyHkVeZ4flOgVgQ=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

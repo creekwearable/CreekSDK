@@ -1223,6 +1223,9 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///负荷
   case syncEffort // = 20
+
+  ///原始recover数据
+  case syncRecoverRawdata // = 21
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -1252,6 +1255,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 18: self = .syncEdaStress
     case 19: self = .syncThermalStress
     case 20: self = .syncEffort
+    case 21: self = .syncRecoverRawdata
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1279,6 +1283,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .syncEdaStress: return 18
     case .syncThermalStress: return 19
     case .syncEffort: return 20
+    case .syncRecoverRawdata: return 21
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1306,6 +1311,7 @@ public enum sync_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .syncEdaStress,
     .syncThermalStress,
     .syncEffort,
+    .syncRecoverRawdata,
   ]
 
 }
@@ -10579,8 +10585,11 @@ public enum ios_whatsapp_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
   ///登录失败
   case loginFailed // = 2
 
-  ///登录成功(LOGIN_SUCCESSFUL期间手表过滤WhatsApp的ANCS通知)
+  ///登录成功(ANCS统一负责通知,不按登录态或SDK活性过滤)
   case loginSuccessful // = 3
+
+  ///可选:扫码已接受,认证进行中;LINK/QUERY_STATE有效,不携带二维码
+  case authenticating // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -10593,6 +10602,7 @@ public enum ios_whatsapp_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .loggingIn
     case 2: self = .loginFailed
     case 3: self = .loginSuccessful
+    case 4: self = .authenticating
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -10603,6 +10613,7 @@ public enum ios_whatsapp_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .loggingIn: return 1
     case .loginFailed: return 2
     case .loginSuccessful: return 3
+    case .authenticating: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -10613,6 +10624,7 @@ public enum ios_whatsapp_status_type: SwiftProtobuf.Enum, Swift.CaseIterable {
     .loggingIn,
     .loginFailed,
     .loginSuccessful,
+    .authenticating,
   ]
 
 }
@@ -11407,6 +11419,100 @@ public enum focus_mode_type: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum gps_search_status: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未启用／已取消
+  case gpsSearchOff // = 0
+
+  /// 搜星中，本次尚未定位成功
+  case gpsSearchSearching // = 1
+
+  /// 定位成功
+  case gpsSearchFixed // = 2
+
+  /// 曾定位成功，之后丢星
+  case gpsSearchLost // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .gpsSearchOff
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .gpsSearchOff
+    case 1: self = .gpsSearchSearching
+    case 2: self = .gpsSearchFixed
+    case 3: self = .gpsSearchLost
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .gpsSearchOff: return 0
+    case .gpsSearchSearching: return 1
+    case .gpsSearchFixed: return 2
+    case .gpsSearchLost: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [gps_search_status] = [
+    .gpsSearchOff,
+    .gpsSearchSearching,
+    .gpsSearchFixed,
+    .gpsSearchLost,
+  ]
+
+}
+
+public enum gps_presearch_action: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  ///无效操作
+  case gpsPresearchInvalid // = 0
+
+  ///开始预搜星
+  case gpsPresearchStart // = 1
+
+  ///取消预搜星
+  case gpsPresearchCancel // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .gpsPresearchInvalid
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .gpsPresearchInvalid
+    case 1: self = .gpsPresearchStart
+    case 2: self = .gpsPresearchCancel
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .gpsPresearchInvalid: return 0
+    case .gpsPresearchStart: return 1
+    case .gpsPresearchCancel: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [gps_presearch_action] = [
+    .gpsPresearchInvalid,
+    .gpsPresearchStart,
+    .gpsPresearchCancel,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension operate_type: SwiftProtobuf._ProtoNameProviding {
@@ -11636,6 +11742,7 @@ extension sync_type: SwiftProtobuf._ProtoNameProviding {
     18: .same(proto: "SYNC_EDA_STRESS"),
     19: .same(proto: "SYNC_THERMAL_STRESS"),
     20: .same(proto: "SYNC_EFFORT"),
+    21: .same(proto: "SYNC_RECOVER_RAWDATA"),
   ]
 }
 
@@ -13317,6 +13424,7 @@ extension ios_whatsapp_status_type: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "LOGGING_IN"),
     2: .same(proto: "LOGIN_FAILED"),
     3: .same(proto: "LOGIN_SUCCESSFUL"),
+    4: .same(proto: "AUTHENTICATING"),
   ]
 }
 
@@ -13466,5 +13574,22 @@ extension focus_mode_type: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "FOUS_MEETING"),
     3: .same(proto: "FOUS_THEATER"),
     4: .same(proto: "FOUS_CUSTOM"),
+  ]
+}
+
+extension gps_search_status: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "GPS_SEARCH_OFF"),
+    1: .same(proto: "GPS_SEARCH_SEARCHING"),
+    2: .same(proto: "GPS_SEARCH_FIXED"),
+    3: .same(proto: "GPS_SEARCH_LOST"),
+  ]
+}
+
+extension gps_presearch_action: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "GPS_PRESEARCH_INVALID"),
+    1: .same(proto: "GPS_PRESEARCH_START"),
+    2: .same(proto: "GPS_PRESEARCH_CANCEL"),
   ]
 }
