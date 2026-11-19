@@ -76,6 +76,12 @@ public enum Platform: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   ///炬芯3085s平台
   case jx3085SPlatform // = 3
+
+  ///海思3321平台
+  case jxHisi3321Platform // = 4
+
+  ///海思3322平台
+  case jxHisi3322Platform // = 5
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -88,6 +94,8 @@ public enum Platform: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .jx3085LPlatform
     case 2: self = .jx3085EPlatform
     case 3: self = .jx3085SPlatform
+    case 4: self = .jxHisi3321Platform
+    case 5: self = .jxHisi3322Platform
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -98,6 +106,8 @@ public enum Platform: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .jx3085LPlatform: return 1
     case .jx3085EPlatform: return 2
     case .jx3085SPlatform: return 3
+    case .jxHisi3321Platform: return 4
+    case .jxHisi3322Platform: return 5
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -108,6 +118,8 @@ public enum Platform: SwiftProtobuf.Enum, Swift.CaseIterable {
     .jx3085LPlatform,
     .jx3085EPlatform,
     .jx3085SPlatform,
+    .jxHisi3321Platform,
+    .jxHisi3322Platform,
   ]
 
 }
@@ -11529,6 +11541,8 @@ extension Platform: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "JX_3085L_PLATFORM"),
     2: .same(proto: "JX_3085E_PLATFORM"),
     3: .same(proto: "JX_3085S_PLATFORM"),
+    4: .same(proto: "JX_HISI3321_PLATFORM"),
+    5: .same(proto: "JX_HISI3322_PLATFORM"),
   ]
 }
 
