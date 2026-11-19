@@ -116,7 +116,7 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
       "getHydrateAssistantSupportType",
       "setVoiceAssistantConfig",
       "getPrayer",
-      "setPrayer",
+      "Prayer",
       "setVoiceAssistantUseStatus"
       
    ];
@@ -540,6 +540,9 @@ class ViewController: CreekBaseViewController,UISearchBarDelegate,UITableViewDel
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let selectedOption = filteredOptions[indexPath.row]
       switch selectedOption {
+      case "Prayer":
+         self.navigationController?.pushViewController(PrayerViewController(), animated: true)
+         break
       case "Calendar V2":
          let vc = CalendarV2ViewController()
          self.navigationController?.pushViewController(vc, animated: true)

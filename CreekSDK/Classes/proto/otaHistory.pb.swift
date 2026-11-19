@@ -47,6 +47,12 @@ public struct wifi_ota_history_item: @unchecked Sendable {
   ///升级来源 0：ble，1：wifi
   public var resource: UInt32 = 0
 
+  ///升级任务id
+  public var upgradeID: UInt64 = 0
+
+  ///升级策略id
+  public var strategyID: UInt64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -93,6 +99,8 @@ extension wifi_ota_history_item: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     5: .standard(proto: "after_version"),
     6: .standard(proto: "upgrade_success"),
     7: .same(proto: "resource"),
+    8: .standard(proto: "upgrade_id"),
+    9: .standard(proto: "strategy_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -108,6 +116,8 @@ extension wifi_ota_history_item: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       case 5: try { try decoder.decodeSingularBytesField(value: &self.afterVersion) }()
       case 6: try { try decoder.decodeSingularBoolField(value: &self.upgradeSuccess) }()
       case 7: try { try decoder.decodeSingularUInt32Field(value: &self.resource) }()
+      case 8: try { try decoder.decodeSingularUInt64Field(value: &self.upgradeID) }()
+      case 9: try { try decoder.decodeSingularUInt64Field(value: &self.strategyID) }()
       default: break
       }
     }
@@ -135,6 +145,12 @@ extension wifi_ota_history_item: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     if self.resource != 0 {
       try visitor.visitSingularUInt32Field(value: self.resource, fieldNumber: 7)
     }
+    if self.upgradeID != 0 {
+      try visitor.visitSingularUInt64Field(value: self.upgradeID, fieldNumber: 8)
+    }
+    if self.strategyID != 0 {
+      try visitor.visitSingularUInt64Field(value: self.strategyID, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -146,6 +162,8 @@ extension wifi_ota_history_item: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     if lhs.afterVersion != rhs.afterVersion {return false}
     if lhs.upgradeSuccess != rhs.upgradeSuccess {return false}
     if lhs.resource != rhs.resource {return false}
+    if lhs.upgradeID != rhs.upgradeID {return false}
+    if lhs.strategyID != rhs.strategyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

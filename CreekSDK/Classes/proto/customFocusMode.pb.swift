@@ -90,6 +90,12 @@ public struct custom_focus_mode_flags: Sendable {
   /// 抬腕亮屏
   public var raiseToWakeFlag: Bool = false
 
+  /// 震动
+  public var motorFlag: Bool = false
+
+  /// 自动调节亮度
+  public var autoBrightness: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -106,7 +112,7 @@ public struct protocol_custom_focus_mode_item: @unchecked Sendable {
     set {_uniqueStorage()._id = newValue}
   }
 
-  ///max:64 名称
+  ///max:32 名称
   public var name: Data {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
@@ -233,6 +239,18 @@ public struct protocol_custom_focus_mode_inquire_reply: Sendable {
 
   public var items: [protocol_custom_focus_mode_item] = []
 
+  ///最大支持自定义专注模式上限
+  public var customFocusSupportMax: UInt32 = 0
+
+  ///专注模式自定义时间区间的上限 custom_focus_time_slot
+  public var customFocusTimeSupportMax: UInt32 = 0
+
+  ///专注模式联系人上限
+  public var customFocusContactsSupportMax: UInt32 = 0
+
+  ///专注模式允许消息类型上限
+  public var customFocusMessageSupportMax: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -355,6 +373,8 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
     4: .standard(proto: "bt_calling_flag"),
     5: .standard(proto: "power_saving_flag"),
     6: .standard(proto: "raise_to_wake_flag"),
+    7: .standard(proto: "motor_flag"),
+    8: .standard(proto: "auto_brightness"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -369,6 +389,8 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 4: try { try decoder.decodeSingularBoolField(value: &self.btCallingFlag) }()
       case 5: try { try decoder.decodeSingularBoolField(value: &self.powerSavingFlag) }()
       case 6: try { try decoder.decodeSingularBoolField(value: &self.raiseToWakeFlag) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.motorFlag) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.autoBrightness) }()
       default: break
       }
     }
@@ -393,6 +415,12 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.raiseToWakeFlag != false {
       try visitor.visitSingularBoolField(value: self.raiseToWakeFlag, fieldNumber: 6)
     }
+    if self.motorFlag != false {
+      try visitor.visitSingularBoolField(value: self.motorFlag, fieldNumber: 7)
+    }
+    if self.autoBrightness != false {
+      try visitor.visitSingularBoolField(value: self.autoBrightness, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -403,6 +431,8 @@ extension custom_focus_mode_flags: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.btCallingFlag != rhs.btCallingFlag {return false}
     if lhs.powerSavingFlag != rhs.powerSavingFlag {return false}
     if lhs.raiseToWakeFlag != rhs.raiseToWakeFlag {return false}
+    if lhs.motorFlag != rhs.motorFlag {return false}
+    if lhs.autoBrightness != rhs.autoBrightness {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -647,6 +677,10 @@ extension protocol_custom_focus_mode_inquire_reply: SwiftProtobuf.Message, Swift
     2: .same(proto: "operate"),
     3: .standard(proto: "default_focus_mode_id"),
     4: .same(proto: "items"),
+    5: .standard(proto: "custom_focus_support_max"),
+    6: .standard(proto: "custom_focus_time_support_max"),
+    7: .standard(proto: "custom_focus_contacts_support_max"),
+    8: .standard(proto: "custom_focus_message_support_max"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -659,6 +693,10 @@ extension protocol_custom_focus_mode_inquire_reply: SwiftProtobuf.Message, Swift
       case 2: try { try decoder.decodeSingularEnumField(value: &self.operate) }()
       case 3: try { try decoder.decodeSingularUInt64Field(value: &self.defaultFocusModeID) }()
       case 4: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.customFocusSupportMax) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.customFocusTimeSupportMax) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.customFocusContactsSupportMax) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.customFocusMessageSupportMax) }()
       default: break
       }
     }
@@ -677,6 +715,18 @@ extension protocol_custom_focus_mode_inquire_reply: SwiftProtobuf.Message, Swift
     if !self.items.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 4)
     }
+    if self.customFocusSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.customFocusSupportMax, fieldNumber: 5)
+    }
+    if self.customFocusTimeSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.customFocusTimeSupportMax, fieldNumber: 6)
+    }
+    if self.customFocusContactsSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.customFocusContactsSupportMax, fieldNumber: 7)
+    }
+    if self.customFocusMessageSupportMax != 0 {
+      try visitor.visitSingularUInt32Field(value: self.customFocusMessageSupportMax, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -685,6 +735,10 @@ extension protocol_custom_focus_mode_inquire_reply: SwiftProtobuf.Message, Swift
     if lhs.operate != rhs.operate {return false}
     if lhs.defaultFocusModeID != rhs.defaultFocusModeID {return false}
     if lhs.items != rhs.items {return false}
+    if lhs.customFocusSupportMax != rhs.customFocusSupportMax {return false}
+    if lhs.customFocusTimeSupportMax != rhs.customFocusTimeSupportMax {return false}
+    if lhs.customFocusContactsSupportMax != rhs.customFocusContactsSupportMax {return false}
+    if lhs.customFocusMessageSupportMax != rhs.customFocusMessageSupportMax {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

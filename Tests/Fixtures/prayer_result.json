@@ -1,0 +1,193 @@
+{
+  "configuration": {
+    "automatic": true,
+    "method": "morocco",
+    "asrRule": "standard",
+    "location": {
+      "name": "Casablanca",
+      "countryCode": "MA",
+      "latitude": 33.58831,
+      "longitude": -7.61138,
+      "altitude": 27.0,
+      "timezoneId": "Africa/Casablanca"
+    }
+  },
+  "days": [
+    {
+      "date": "2026-11-16",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:32",
+      "sunrise": "07:01",
+      "dhuhr": "12:20",
+      "asr": "15:07",
+      "maghrib": "17:30",
+      "isha": "18:49",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:33",
+      "sunrise": "07:02",
+      "dhuhr": "12:20",
+      "asr": "15:07",
+      "maghrib": "17:30",
+      "isha": "18:48",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:33",
+      "sunrise": "07:03",
+      "dhuhr": "12:21",
+      "asr": "15:06",
+      "maghrib": "17:29",
+      "isha": "18:48",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:34",
+      "sunrise": "07:04",
+      "dhuhr": "12:21",
+      "asr": "15:06",
+      "maghrib": "17:29",
+      "isha": "18:48",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:35",
+      "sunrise": "07:05",
+      "dhuhr": "12:21",
+      "asr": "15:06",
+      "maghrib": "17:28",
+      "isha": "18:47",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:36",
+      "sunrise": "07:06",
+      "dhuhr": "12:21",
+      "asr": "15:05",
+      "maghrib": "17:28",
+      "isha": "18:47",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "timezoneId": "Africa/Casablanca",
+      "utcOffsetMinutes": 0,
+      "method": "morocco",
+      "asrRule": "standard",
+      "source": "localCalculation",
+      "fajr": "05:37",
+      "sunrise": "07:07",
+      "dhuhr": "12:22",
+      "asr": "15:05",
+      "maghrib": "17:27",
+      "isha": "18:47",
+      "extreme": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "diagnostics": [
+        "Timetable unavailable (StateError); local calculation used."
+      ]
+    }
+  ],
+  "operate": "CAISwAIKKQoECAUQIBIECAcQARoECAwQFCIECA8QByoECBEQHjIECBIQMTje6fMGCikKBAgFECESBAgHEAIaBAgMEBQiBAgPEAcqBAgREB4yBAgSEDA43+nzBgopCgQIBRAhEgQIBxADGgQIDBAVIgQIDxAGKgQIERAdMgQIEhAwOODp8wYKKQoECAUQIhIECAcQBBoECAwQFSIECA8QBioECBEQHTIECBIQMDjh6fMGCikKBAgFECMSBAgHEAUaBAgMEBUiBAgPEAYqBAgREBwyBAgSEC844unzBgopCgQIBRAkEgQIBxAGGgQIDBAVIgQIDxAFKgQIERAcMgQIEhAvOOPp8wYKKQoECAUQJRIECAcQBxoECAwQFiIECA8QBSoECBEQGzIECBIQLzjk6fMGEgpDYXNhYmxhbmNhGF4g3unzBg=="
+}

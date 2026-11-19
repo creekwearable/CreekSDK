@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CreekSDK'
-    s.version          = '11.0.22'
+    s.version          = '11.0.23'
     s.summary          = 'A short description of CreekSDK.'
     # This description is used to generate tags and improve search results.7777
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
     'Creek/creek_blue_manage.framework',
     'Creek/flutter_creek_contacts.framework',
     'Creek/Flutter.framework',
-    'Creek/sqflite.framework',
+    'Creek/sqflite_darwin.framework',
     'Creek/permission_handler_apple.framework',
     'Creek/Protobuf.framework',
     'Creek/shared_preferences_foundation.framework',

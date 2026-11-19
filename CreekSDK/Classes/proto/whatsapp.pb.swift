@@ -62,6 +62,9 @@ public struct protocol_ios_whatsapp_operate: @unchecked Sendable {
   ///消息方向(仅PUSH_MSG有效,见wa_msg_direction)
   public var msgDirection: wa_msg_direction = .msgIn
 
+  ///PUSH_MSG原生消息ID,不透明字节串,最多64字节;空=旧SDK
+  public var msgID: Data = Data()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -84,6 +87,7 @@ extension protocol_ios_whatsapp_operate: SwiftProtobuf.Message, SwiftProtobuf._M
     10: .standard(proto: "msg_timestamp"),
     11: .standard(proto: "account_name"),
     12: .standard(proto: "msg_direction"),
+    13: .standard(proto: "msg_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -104,6 +108,7 @@ extension protocol_ios_whatsapp_operate: SwiftProtobuf.Message, SwiftProtobuf._M
       case 10: try { try decoder.decodeSingularUInt32Field(value: &self.msgTimestamp) }()
       case 11: try { try decoder.decodeSingularBytesField(value: &self.accountName) }()
       case 12: try { try decoder.decodeSingularEnumField(value: &self.msgDirection) }()
+      case 13: try { try decoder.decodeSingularBytesField(value: &self.msgID) }()
       default: break
       }
     }
@@ -146,6 +151,9 @@ extension protocol_ios_whatsapp_operate: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.msgDirection != .msgIn {
       try visitor.visitSingularEnumField(value: self.msgDirection, fieldNumber: 12)
     }
+    if !self.msgID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.msgID, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -162,6 +170,7 @@ extension protocol_ios_whatsapp_operate: SwiftProtobuf.Message, SwiftProtobuf._M
     if lhs.msgTimestamp != rhs.msgTimestamp {return false}
     if lhs.accountName != rhs.accountName {return false}
     if lhs.msgDirection != rhs.msgDirection {return false}
+    if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
