@@ -7,6 +7,7 @@
 
 import Foundation
 import Contacts
+import Flutter
 
 extension CreekSDK{
    
@@ -3362,6 +3363,24 @@ extension CreekSDK{
             successDic.removeValue(forKey: methodName)
             failureArgumentDic.removeValue(forKey: methodName)
             failure(-1, "Failed to serialize custom focus mode data")
+         }
+      }
+   }
+
+   /// 清除所有用户、所有设备的本地健康数据，保留设备绑定和配置。
+   /// success 在数据库事务完成后调用；失败时通过 failure 返回错误。
+   public func clearAllHealthData(success: successBase? = nil, failure: failureArgument? = nil) {
+      guard let channel = methodChannel else {
+         failure?(-1, "SDK channel is not initialized")
+         return
+      }
+      channel.invokeMethod("clearAllHealthData", arguments: nil) { result in
+         if let error = result as? FlutterError {
+            failure?(-1, error.message ?? error.code)
+         } else if let value = result as? NSObject, value == FlutterMethodNotImplemented {
+            failure?(-1, "clearAllHealthData is not implemented")
+         } else {
+            success?()
          }
       }
    }
